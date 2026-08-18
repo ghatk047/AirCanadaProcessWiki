@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Revenue Integrity and Fare Abuse Detection &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Revenue Integrity and Fare Abuse Detection.">
+<title>AC-RM-YM-04 Revenue Integrity and Fare Abuse Detection &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-RM-YM-04 Revenue Integrity and Fare Abuse Detection.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../revenue-management-pricing/rm-analytics-performance/ac-rm-ym-03/",next:"../../../revenue-management-pricing/rm-analytics-performance/ac-rm-ym-05/"};
@@ -131,14 +131,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Revenue Management &amp; Pricing</a><span class="sep">&rsaquo;</span><a href="../">RM Analytics &amp; Performance</a><span class="sep">&rsaquo;</span><span class="cur">AC-RM-YM-04</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-RM-YM-04" title="Click to copy the process ID">
     AC-RM-YM-04<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Revenue Integrity and Fare Abuse Detection</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Revenue Integrity and Fare Abuse Detection</h1>
+<p class="lede" id="overview">Revenue integrity monitoring detects fare abuse patterns, including hidden-city ticketing, point-of-sale manipulation and unauthorised fare combination, to protect filed fare revenue.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Revenue integrity is adversarial by nature: abuse patterns adapt as soon as a specific loophole is closed, so screening has to be an ongoing discipline rather than a one-time fix.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">The recurring revenue integrity screening cycle runs, or a specific abuse pattern is reported.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">Detected fare abuse cases investigated and actioned according to policy, with systemic patterns fed back into fare rule design.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Revenue Management &amp; Pricing<br>
+    <span style="color:var(--text-muted);font-size:12px">RM Analytics &amp; Performance</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-rm-ym-04.png" alt="Revenue Integrity and Fare Abuse Detection process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-RM-YM-04-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Pattern detection</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Screen for hidden-city and point-of-sale abuse patterns</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Booking pattern data</td>
+<td>Flagged suspicious booking pattern list</td>
+<td>Screened weekly for 100 percent of the network</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Screening rules generate false positives that consume investigation capacity</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-YM-04-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Case investigation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Investigate flagged cases</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Flagged pattern</td>
+<td>Confirmed or dismissed abuse case</td>
+<td>Investigated within 10 business days of flagging at 90 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Distinguishing genuine abuse from an unusual but legitimate travel pattern requires judgement</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Apply policy action to confirmed cases</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Confirmed abuse case</td>
+<td>Applied action per policy</td>
+<td>Action applied within 5 business days of confirmation at 100 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Policy action has to be applied consistently or it becomes commercially and reputationally exposed</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-YM-04-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Action and prevention</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Identify systemic patterns for fare rule prevention</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag iata" data-tooltip="Industry fare filing, rules, footnotes and tax data. The rate-limiting step on pricing agility. [ATPCO - evidence B]">ATPCO<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Case history across the review period</td>
+<td>Fare rule prevention recommendation</td>
+<td>Systemic patterns reviewed each quarter at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Closing one loophole through fare rule design can shift abuse to a different pattern</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Revenue Management Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag iata" data-tooltip="Industry fare filing, rules, footnotes and tax data. The rate-limiting step on pricing agility. [ATPCO - evidence B]">ATPCO<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Screened weekly for 100 percent of the network</li><li>Investigated within 10 business days of flagging at 90 percent</li><li>Action applied within 5 business days of confirmation at 100 percent</li><li>Revenue recovered or protected through revenue integrity action tracked each quarter</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Screening rules generating enough false positives to consume genuine investigation capacity</li><li>Confirmed abuse action applied inconsistently, creating commercial and reputational exposure</li><li>Closing one abuse loophole through fare rule design simply shifting the pattern elsewhere</li><li>Distinguishing genuine abuse from an unusual but entirely legitimate travel pattern</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../revenue-management-pricing/rm-analytics-performance/ac-rm-ym-03/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Spill and Spoilage Analysis</span></a>
+  <a class="next" href="../../../revenue-management-pricing/rm-analytics-performance/ac-rm-ym-05/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">RM System Exception and Alert Handling</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

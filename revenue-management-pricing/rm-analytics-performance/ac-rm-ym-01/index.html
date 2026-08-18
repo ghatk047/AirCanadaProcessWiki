@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Revenue Management Analyst Daily Review Cycle &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Revenue Management Analyst Daily Review Cycle.">
+<title>AC-RM-YM-01 Revenue Management Analyst Daily Review Cycle &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-RM-YM-01 Revenue Management Analyst Daily Review Cycle.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../revenue-management-pricing/ancillary-merchandising/ac-rm-an-07/",next:"../../../revenue-management-pricing/rm-analytics-performance/ac-rm-ym-02/"};
@@ -131,14 +131,134 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Revenue Management &amp; Pricing</a><span class="sep">&rsaquo;</span><a href="../">RM Analytics &amp; Performance</a><span class="sep">&rsaquo;</span><span class="cur">AC-RM-YM-01</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-RM-YM-01" title="Click to copy the process ID">
     AC-RM-YM-01<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Revenue Management Analyst Daily Review Cycle</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Revenue Management Analyst Daily Review Cycle</h1>
+<p class="lede" id="overview">Revenue management analysts run a structured daily review cycle across their assigned markets, checking forecast quality, override activity and competitive movement before the next optimisation run.</p>
+<div class="callout"><span class="ct">Air Canada context</span>The daily cycle is where human judgement is layered onto the automated optimisation, and its consistency across analysts is what keeps the overall RM function coherent rather than a set of individually managed portfolios.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">Each business day, following the completion of the nightly optimisation batch.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A reviewed market position for each analyst&#x27;s portfolio, with exceptions actioned before the next nightly cycle.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Revenue Management &amp; Pricing<br>
+    <span style="color:var(--text-muted);font-size:12px">RM Analytics &amp; Performance</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">5 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-rm-ym-01.png" alt="Revenue Management Analyst Daily Review Cycle process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-RM-YM-01-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Overnight review</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Review overnight optimisation output</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Completed nightly optimisation run</td>
+<td>Reviewed output for the assigned portfolio</td>
+<td>Review completed before market open for 100 percent of assigned routes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Portfolio size can exceed what a thorough manual review can cover in the available time</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Check standing overrides for continued relevance</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Active override list</td>
+<td>Confirmed or released overrides</td>
+<td>Reviewed daily for 100 percent of standing overrides</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>An override applied for a since-resolved situation is easy to overlook in a busy queue</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-YM-01-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Exception handling</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Investigate flagged forecast exceptions</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>System-flagged exception list</td>
+<td>Resolved or escalated exception</td>
+<td>Exceptions actioned within the trading day at 90 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Exception volume spikes around irregular operations events and competes with routine review time</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Scan competitive fare movement</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Sabre PRISM<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Overnight competitor filing activity</td>
+<td>Reviewed competitive position</td>
+<td>Scanned daily for 100 percent of the assigned portfolio</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual scanning cannot cover the full portfolio with the same depth every single day</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-YM-01-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Preparation for the next cycle</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Prepare notes for the next optimisation cycle</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Day&#x27;s findings</td>
+<td>Documented input for tomorrow&#x27;s cycle</td>
+<td>Notes prepared for 100 percent of material findings at end of day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Undocumented context is lost between analysts on days with a portfolio handover</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Revenue Management Analyst</span><span class="lane-steps">1.1 1.2 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Sabre PRISM<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Review completed before market open for 100 percent of assigned routes</li><li>Exceptions actioned within the trading day at 90 percent</li><li>Reviewed daily for 100 percent of standing overrides</li><li>Scanned daily for 100 percent of the assigned portfolio</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Portfolio size exceeding what a thorough manual review can genuinely cover each day</li><li>An override applied for a since-resolved situation persisting unnoticed in a busy review queue</li><li>Exception volume spikes around disruption events crowding out routine daily review</li><li>Undocumented context being lost between analysts during a portfolio handover</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../revenue-management-pricing/ancillary-merchandising/ac-rm-an-07/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Ancillary Revenue Performance Tracking</span></a>
+  <a class="next" href="../../../revenue-management-pricing/rm-analytics-performance/ac-rm-ym-02/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Forecast Accuracy and Model Drift Monitoring</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

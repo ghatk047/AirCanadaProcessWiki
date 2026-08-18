@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Bid Price and Inventory Control Optimisation &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Bid Price and Inventory Control Optimisation.">
+<title>AC-RM-IY-02 Bid Price and Inventory Control Optimisation &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-RM-IY-02 Bid Price and Inventory Control Optimisation.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../revenue-management-pricing/inventory-yield-control/ac-rm-iy-01/",next:"../../../revenue-management-pricing/inventory-yield-control/ac-rm-iy-03/"};
@@ -132,14 +132,145 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Revenue Management &amp; Pricing</a><span class="sep">&rsaquo;</span><a href="../">Inventory &amp; Yield Control</a><span class="sep">&rsaquo;</span><span class="cur">AC-RM-IY-02</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-RM-IY-02" title="Click to copy the process ID">
     AC-RM-IY-02<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Bid Price and Inventory Control Optimisation</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Bid Price and Inventory Control Optimisation</h1>
+<p class="lede" id="overview">Bid prices and class availability are optimised nightly across the network, translating the demand forecast into sell or close decisions by class and flight.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Bid price optimisation is where the airline decides, in effect, the lowest fare it will accept for the next seat on every flight in the network, every night.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">The nightly optimisation cycle runs following forecast release, or a manual trigger follows a major inventory event.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">Updated bid prices and open or closed class availability pushed to Amadeus Altea Inventory for every active flight.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Revenue Management &amp; Pricing<br>
+    <span style="color:var(--text-muted);font-size:12px">Inventory &amp; Yield Control</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">6 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-rm-iy-02.png" alt="Bid Price and Inventory Control Optimisation process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-RM-IY-02-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Optimisation run</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Run network bid price optimisation</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Released forecast and current inventory position</td>
+<td>Optimised bid prices by flight and class</td>
+<td>Optimisation completed within the nightly batch window at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Batch window pressure means a failed run has limited time to be diagnosed and rerun</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Calculate class availability from bid prices</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Optimised bid prices and fare values</td>
+<td>Open or closed class decision by flight</td>
+<td>Availability calculated for 100 percent of active flights nightly</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A bid price change close to a fare boundary can flip availability on marginal cases</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-IY-02-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Exception handling</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Review flagged optimisation exceptions</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Exception list from the optimisation run</td>
+<td>Reviewed and resolved exceptions</td>
+<td>Exceptions resolved before the inventory push at 95 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Exceptions concentrate on the same handful of complex routes every night</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-IY-02-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Distribution</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Push updated controls to inventory</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Resolved optimisation output</td>
+<td>Live bid prices and availability in inventory</td>
+<td>Push completed before the sales day opens at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A failed push can leave a flight selling against yesterday&#x27;s controls with no alert</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Confirm distribution consistency across channels</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag gds" data-tooltip="Legacy GDS distribution channel. Agency bookings settle through IATA BSP. [Sabre - evidence C]">Sabre GDS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Pushed inventory controls</td>
+<td>Confirmed consistent availability across channels</td>
+<td>Consistency confirmed within 2 hours of the push at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>GDS channel propagation lags the direct channel by an interval that is not consistently measured</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Escalate persistent push failures</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Repeated push failure</td>
+<td>Escalated incident with recovery plan</td>
+<td>Push failures escalated within 30 minutes of the second consecutive failure</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>A recurring push failure on the same route is not distinguished from a one-off outage</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Revenue Management Analyst</span><span class="lane-steps">1.1 1.2 2.1 3.1 3.2 3.3</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag gds" data-tooltip="Legacy GDS distribution channel. Agency bookings settle through IATA BSP. [Sabre - evidence C]">Sabre GDS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Optimisation completed within the nightly batch window at 100 percent</li><li>Push completed before the sales day opens at 100 percent</li><li>Exceptions resolved before the inventory push at 95 percent</li><li>Consistency confirmed across channels within 2 hours of the push</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>A failed nightly push leaving a flight selling against stale controls with no automatic alert</li><li>GDS channel propagation lagging the direct channel by an unmeasured interval</li><li>Optimisation exceptions concentrating on the same complex routes without a structural fix</li><li>A bid price near a fare boundary flipping availability in a way that is hard to explain after the fact</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../revenue-management-pricing/inventory-yield-control/ac-rm-iy-01/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">O and D Demand Forecast Generation</span></a>
+  <a class="next" href="../../../revenue-management-pricing/inventory-yield-control/ac-rm-iy-03/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Overbooking and No Show Forecasting</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

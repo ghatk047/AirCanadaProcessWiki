@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Competitive Fare Response and Match Decision &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Competitive Fare Response and Match Decision.">
+<title>AC-RM-PF-03 Competitive Fare Response and Match Decision &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-RM-PF-03 Competitive Fare Response and Match Decision.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../revenue-management-pricing/pricing-fare-filing/ac-rm-pf-02/",next:"../../../revenue-management-pricing/pricing-fare-filing/ac-rm-pf-04/"};
@@ -132,14 +132,134 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Revenue Management &amp; Pricing</a><span class="sep">&rsaquo;</span><a href="../">Pricing &amp; Fare Filing</a><span class="sep">&rsaquo;</span><span class="cur">AC-RM-PF-03</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-RM-PF-03" title="Click to copy the process ID">
     AC-RM-PF-03<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Competitive Fare Response and Match Decision</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Competitive Fare Response and Match Decision</h1>
+<p class="lede" id="overview">Competitive fare positions are monitored and a match or hold decision is made within defined delegation limits, balancing share protection against margin erosion.</p>
+<div class="callout"><span class="ct">Air Canada context</span>A fare match decision has to be made faster than the full commercial review cycle can run, so delegated authority within defined limits is what makes a timely response possible at all.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A competitor files a fare change on an overlapping route.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A documented match or hold decision issued within the competitive response window.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Revenue Management &amp; Pricing<br>
+    <span style="color:var(--text-muted);font-size:12px">Pricing &amp; Fare Filing</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">5 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-rm-pf-03.png" alt="Competitive Fare Response and Match Decision process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-RM-PF-03-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Competitive detection</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Detect competitor fare change</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Sabre PRISM<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Competitor fare filing feed</td>
+<td>Detected fare change with route and magnitude</td>
+<td>Changes detected within 4 hours of filing at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Detection depends on the competitor filing through channels the monitoring feed actually covers</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Assess share and margin impact</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Detected change and current position</td>
+<td>Impact assessment</td>
+<td>Assessed within 1 business day of detection at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Share impact modelling assumes the competitor&#x27;s new fare actually sells at meaningful volume</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-PF-03-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Response evaluation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Determine match or hold within delegation limits</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Impact assessment and delegation authority</td>
+<td>Match or hold decision</td>
+<td>Decisions within delegated limits made within 1 business day at 90 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A decision outside delegated limits requires escalation that can outlast the competitive window</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Escalate decisions beyond delegated authority</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Decision beyond delegation</td>
+<td>Escalated decision from senior management</td>
+<td>Escalations resolved within 2 business days at 90 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Escalation delay can mean the competitive window has closed by the time approval arrives</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-PF-03-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Decision and filing</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>File the match decision</b></td>
+<td>Pricing Analyst</td>
+<td><span class="tag iata" data-tooltip="Industry fare filing, rules, footnotes and tax data. The rate-limiting step on pricing agility. [ATPCO - evidence B]">ATPCO<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Approved match decision</td>
+<td>Filed matching fare</td>
+<td>Filed within 1 business day of decision at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A filed match still takes the same ATPCO propagation time as any other fare</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Revenue Management Analyst</span><span class="lane-steps">1.1 1.2 2.1 2.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Pricing Analyst</span><span class="lane-steps">3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Sabre PRISM<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag iata" data-tooltip="Industry fare filing, rules, footnotes and tax data. The rate-limiting step on pricing agility. [ATPCO - evidence B]">ATPCO<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Changes detected within 4 hours of filing at 100 percent</li><li>Decisions within delegated limits made within 1 business day at 90 percent</li><li>Escalations resolved within 2 business days at 90 percent</li><li>Competitive response filed within 2 business days of detection at 85 percent</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>A decision requiring escalation outlasting the competitive window it was meant to address</li><li>Detection missing a competitor change filed through a channel outside the monitoring feed</li><li>Share impact modelling assuming a competitor fare sells at a volume it may not actually achieve</li><li>A filed match still subject to the same ATPCO propagation delay as any standard fare change</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../revenue-management-pricing/pricing-fare-filing/ac-rm-pf-02/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Real Time Dynamic Pricing Model Governance</span></a>
+  <a class="next" href="../../../revenue-management-pricing/pricing-fare-filing/ac-rm-pf-04/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Promotional Fare Campaign Launch</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

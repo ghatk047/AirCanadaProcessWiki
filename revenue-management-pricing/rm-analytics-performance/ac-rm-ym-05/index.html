@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>RM System Exception and Alert Handling &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. RM System Exception and Alert Handling.">
+<title>AC-RM-YM-05 RM System Exception and Alert Handling &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-RM-YM-05 RM System Exception and Alert Handling.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../revenue-management-pricing/rm-analytics-performance/ac-rm-ym-04/",next:"../../../revenue-management-pricing/rm-analytics-performance/ac-rm-ym-06/"};
@@ -131,14 +131,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Revenue Management &amp; Pricing</a><span class="sep">&rsaquo;</span><a href="../">RM Analytics &amp; Performance</a><span class="sep">&rsaquo;</span><span class="cur">AC-RM-YM-05</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-RM-YM-05" title="Click to copy the process ID">
     AC-RM-YM-05<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>RM System Exception and Alert Handling</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>RM System Exception and Alert Handling</h1>
+<p class="lede" id="overview">Exceptions and alerts raised by the revenue management systems are triaged, resolved or escalated within defined service levels to prevent a backlog from degrading inventory quality.</p>
+<div class="callout"><span class="ct">Air Canada context</span>An unresolved system exception is not neutral: it means the automated optimisation is working from an assumption a human has not yet validated, so backlog directly degrades inventory quality.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">The revenue management system generates an exception or alert requiring human review.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">Exceptions resolved or escalated within service level, with a clear queue position and no unbounded backlog.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Revenue Management &amp; Pricing<br>
+    <span style="color:var(--text-muted);font-size:12px">RM Analytics &amp; Performance</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-rm-ym-05.png" alt="RM System Exception and Alert Handling process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-RM-YM-05-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Exception intake and triage</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Triage incoming exceptions by severity</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>System-generated exception queue</td>
+<td>Triaged queue by severity and route materiality</td>
+<td>Triage completed within 2 hours of generation at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Severity scoring does not always correlate with actual revenue materiality</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-YM-05-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Resolution</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Resolve high-severity exceptions</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Triaged high-severity exception</td>
+<td>Resolved exception</td>
+<td>Resolved within the defined service level at 90 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>High-severity exceptions cluster around irregular operations events, straining capacity exactly when it is scarcest</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Resolve or defer lower-severity exceptions</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Triaged lower-severity exception</td>
+<td>Resolved exception or documented deferral</td>
+<td>Zero exceptions deferred past the defined maximum age</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A lower-severity exception left unresolved indefinitely quietly accumulates into a real backlog</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-YM-05-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Backlog management</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Monitor backlog size and age</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Current exception queue</td>
+<td>Backlog status report</td>
+<td>Reported daily at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Backlog trend is not proactively reviewed against staffing capacity</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Revenue Management Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Triage completed within 2 hours of generation at 100 percent</li><li>Resolved within the defined service level at 90 percent</li><li>Zero exceptions deferred past the defined maximum age</li><li>Backlog size trending flat or down over the reporting period</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>An unresolved exception meaning automated optimisation runs on an unvalidated assumption</li><li>High-severity exceptions clustering around irregular operations exactly when review capacity is scarcest</li><li>Severity scoring not correlating reliably with actual revenue materiality</li><li>Backlog trend not being reviewed proactively against available staffing capacity</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../revenue-management-pricing/rm-analytics-performance/ac-rm-ym-04/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Revenue Integrity and Fare Abuse Detection</span></a>
+  <a class="next" href="../../../revenue-management-pricing/rm-analytics-performance/ac-rm-ym-06/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Pricing and RM Data Feed to the Lakehouse</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

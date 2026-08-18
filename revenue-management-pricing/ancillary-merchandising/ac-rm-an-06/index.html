@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Third Party Ancillary Partner Management &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Third Party Ancillary Partner Management.">
+<title>AC-RM-AN-06 Third Party Ancillary Partner Management &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-RM-AN-06 Third Party Ancillary Partner Management.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../revenue-management-pricing/ancillary-merchandising/ac-rm-an-05/",next:"../../../revenue-management-pricing/ancillary-merchandising/ac-rm-an-07/"};
@@ -131,14 +131,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Revenue Management &amp; Pricing</a><span class="sep">&rsaquo;</span><a href="../">Ancillary &amp; Merchandising</a><span class="sep">&rsaquo;</span><span class="cur">AC-RM-AN-06</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-RM-AN-06" title="Click to copy the process ID">
     AC-RM-AN-06<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Third Party Ancillary Partner Management</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Third Party Ancillary Partner Management</h1>
+<p class="lede" id="overview">Ancillary revenue performance is tracked across all product lines, attributing results to specific pricing, merchandising and channel decisions to inform the next optimisation cycle.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Ancillary revenue spans seat selection, baggage, upgrades and third-party offers managed by different teams, so consolidated reporting is the only place the full picture actually comes together.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">The recurring ancillary performance reporting cycle runs.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A consolidated ancillary revenue report by product line and channel, with performance attributed to specific commercial decisions.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Revenue Management &amp; Pricing<br>
+    <span style="color:var(--text-muted);font-size:12px">Ancillary &amp; Merchandising</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-rm-an-06.png" alt="Third Party Ancillary Partner Management process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-RM-AN-06-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Data consolidation</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Consolidate ancillary revenue by product line</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Transaction data across ancillary products</td>
+<td>Consolidated revenue by product line</td>
+<td>Consolidated within 5 business days of period close at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Product lines are tracked in different source systems with inconsistent granularity</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-AN-06-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Attribution analysis</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Attribute performance to pricing and merchandising decisions</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Consolidated revenue and decision history</td>
+<td>Attributed performance by decision</td>
+<td>Attribution completed for 100 percent of material product lines</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Several concurrent changes to the same product line make individual attribution genuinely difficult</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Compare performance to target by channel</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Adobe Analytics<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Attributed performance</td>
+<td>Channel performance against target</td>
+<td>Compared each reporting cycle for 100 percent of channels</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Channel-level target setting does not always account for structurally different conversion rates</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-AN-06-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Distribution and action</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Distribute findings and recommend action</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Full performance analysis</td>
+<td>Distributed report with recommendations</td>
+<td>Distributed within 10 business days of period close at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Recommendations are produced regularly but implementation tracking against them is inconsistent</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Revenue Management Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Adobe Analytics<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Consolidated within 5 business days of period close at 100 percent</li><li>Attribution completed for 100 percent of material product lines</li><li>Distributed within 10 business days of period close at 100 percent</li><li>Total ancillary revenue per passenger tracked against target each period</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Product lines tracked in different source systems with inconsistent granularity</li><li>Concurrent changes to the same product line making individual attribution genuinely difficult</li><li>Channel-level targets not accounting for structurally different conversion rates</li><li>Recommendations produced regularly without consistent tracking of whether they were implemented</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../revenue-management-pricing/ancillary-merchandising/ac-rm-an-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Ancillary Bundle Construction in Anytime Merchandising</span></a>
+  <a class="next" href="../../../revenue-management-pricing/ancillary-merchandising/ac-rm-an-07/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Ancillary Revenue Performance Tracking</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

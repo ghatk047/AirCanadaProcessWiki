@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Tax Fee and Surcharge Maintenance &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Tax Fee and Surcharge Maintenance.">
+<title>AC-RM-PF-06 Tax Fee and Surcharge Maintenance &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-RM-PF-06 Tax Fee and Surcharge Maintenance.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../revenue-management-pricing/pricing-fare-filing/ac-rm-pf-05/",next:"../../../revenue-management-pricing/pricing-fare-filing/ac-rm-pf-07/"};
@@ -132,14 +132,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Revenue Management &amp; Pricing</a><span class="sep">&rsaquo;</span><a href="../">Pricing &amp; Fare Filing</a><span class="sep">&rsaquo;</span><span class="cur">AC-RM-PF-06</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-RM-PF-06" title="Click to copy the process ID">
     AC-RM-PF-06<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Tax Fee and Surcharge Maintenance</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Tax Fee and Surcharge Maintenance</h1>
+<p class="lede" id="overview">Government-mandated taxes, fees and carrier surcharges are maintained across every market Air Canada serves, kept current with changing regulatory rates.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Tax and fee maintenance is unglamorous but has zero tolerance for error: undercharging is a direct revenue loss recovered from the airline, and overcharging is a customer-facing compliance problem.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A government or airport authority changes a tax, fee or charge rate, or a scheduled periodic review runs.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">Correctly filed and applied taxes, fees and surcharges across all affected fares and markets.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Revenue Management &amp; Pricing<br>
+    <span style="color:var(--text-muted);font-size:12px">Pricing &amp; Fare Filing</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-rm-pf-06.png" alt="Tax Fee and Surcharge Maintenance process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-RM-PF-06-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Rate change monitoring</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Monitor for tax and fee rate changes</b></td>
+<td>Pricing Analyst</td>
+<td><span class="tag iata" data-tooltip="Industry fare filing, rules, footnotes and tax data. The rate-limiting step on pricing agility. [ATPCO - evidence B]">ATPCO<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Government and airport authority notifications</td>
+<td>Identified rate change</td>
+<td>Changes identified within 5 business days of the effective notice at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Notification channels vary by jurisdiction and are not centrally aggregated</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-PF-06-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Filing update</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Update tax and fee filing</b></td>
+<td>Pricing Analyst</td>
+<td><span class="tag iata" data-tooltip="Industry fare filing, rules, footnotes and tax data. The rate-limiting step on pricing agility. [ATPCO - evidence B]">ATPCO<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Identified rate change</td>
+<td>Updated filed rate</td>
+<td>Updated before the change&#x27;s effective date at 95 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Some jurisdictions provide very short notice before a rate change takes effect</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Verify correct application across fare types</b></td>
+<td>Pricing Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Updated filing</td>
+<td>Verified correct application</td>
+<td>Verified for 100 percent of material rate changes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A rate can apply differently across fare types and channels in ways that are easy to miss</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-PF-06-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Verification</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Reconcile collected amounts to remittance obligation</b></td>
+<td>Revenue Accounting Analyst</td>
+<td><span class="tag sap" data-tooltip="Passenger revenue accounting, proration, interline billing and BSP reconciliation. [Multiple - evidence C]">Revenue Accounting System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Collected tax and fee amounts</td>
+<td>Reconciled remittance position</td>
+<td>Reconciled monthly for 100 percent of applicable taxes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A filing error compounds across every booking made before it is caught</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Pricing Analyst</span><span class="lane-steps">1.1 2.1 2.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Revenue Accounting Analyst</span><span class="lane-steps">3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag iata" data-tooltip="Industry fare filing, rules, footnotes and tax data. The rate-limiting step on pricing agility. [ATPCO - evidence B]">ATPCO<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sap" data-tooltip="Passenger revenue accounting, proration, interline billing and BSP reconciliation. [Multiple - evidence C]">Revenue Accounting System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Changes identified within 5 business days of the effective notice at 100 percent</li><li>Updated before the change&#x27;s effective date at 95 percent</li><li>Verified for 100 percent of material rate changes</li><li>Reconciled monthly for 100 percent of applicable taxes</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>A short-notice jurisdiction rate change taking effect before the filing is updated</li><li>A filing error compounding across every booking made before it is caught</li><li>A rate applying inconsistently across fare types and channels in a way that is easy to miss</li><li>Notification channels varying by jurisdiction with no central aggregation point</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../revenue-management-pricing/pricing-fare-filing/ac-rm-pf-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Corporate and Negotiated Fare Administration</span></a>
+  <a class="next" href="../../../revenue-management-pricing/pricing-fare-filing/ac-rm-pf-07/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Fare Rule and Penalty Structure Design</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

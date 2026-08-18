@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Fare Rule and Penalty Structure Design &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Fare Rule and Penalty Structure Design.">
+<title>AC-RM-PF-07 Fare Rule and Penalty Structure Design &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-RM-PF-07 Fare Rule and Penalty Structure Design.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../revenue-management-pricing/pricing-fare-filing/ac-rm-pf-06/",next:"../../../revenue-management-pricing/pricing-fare-filing/ac-rm-pf-08/"};
@@ -132,14 +132,134 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Revenue Management &amp; Pricing</a><span class="sep">&rsaquo;</span><a href="../">Pricing &amp; Fare Filing</a><span class="sep">&rsaquo;</span><span class="cur">AC-RM-PF-07</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-RM-PF-07" title="Click to copy the process ID">
     AC-RM-PF-07<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Fare Rule and Penalty Structure Design</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Fare Rule and Penalty Structure Design</h1>
+<p class="lede" id="overview">Fare rules and penalty structures, including change and cancellation fees, are designed to balance revenue protection against customer flexibility expectations and competitive positioning.</p>
+<div class="callout"><span class="ct">Air Canada context</span>A penalty structure only has commercial value if it is applied consistently everywhere a change or cancellation can be processed; an inconsistency between the contact centre and self-service becomes a customer complaint about fairness.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A fare family redesign is undertaken, or a competitive or regulatory pressure requires the penalty structure to be reassessed.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A defined penalty structure by fare family, filed and consistently applied across booking and servicing touchpoints.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Revenue Management &amp; Pricing<br>
+    <span style="color:var(--text-muted);font-size:12px">Pricing &amp; Fare Filing</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">5 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-rm-pf-07.png" alt="Fare Rule and Penalty Structure Design process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-RM-PF-07-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Structure design</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Design penalty structure by fare family</b></td>
+<td>Pricing Analyst</td>
+<td><span class="tag iata" data-tooltip="Industry fare filing, rules, footnotes and tax data. The rate-limiting step on pricing agility. [ATPCO - evidence B]">ATPCO<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Competitive position and revenue protection objective</td>
+<td>Designed penalty structure</td>
+<td>Design completed within the fare family review cycle</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Balancing flexibility and revenue protection has no formulaic answer and depends on brand positioning</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Assess regulatory constraints on penalties</b></td>
+<td>Pricing Analyst</td>
+<td><span class="tag iata" data-tooltip="Industry fare filing, rules, footnotes and tax data. The rate-limiting step on pricing agility. [ATPCO - evidence B]">ATPCO<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Draft structure and applicable regulation</td>
+<td>Compliance-checked structure</td>
+<td>Checked against CTA and destination-market rules at 100 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Penalty regulation differs by market, so a single global structure will not fit every route</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-PF-07-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Filing and system configuration</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>File penalty rules to ATPCO</b></td>
+<td>Pricing Analyst</td>
+<td><span class="tag iata" data-tooltip="Industry fare filing, rules, footnotes and tax data. The rate-limiting step on pricing agility. [ATPCO - evidence B]">ATPCO<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Approved structure</td>
+<td>Filed fare rules with penalty terms</td>
+<td>Filed within the required lead time at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Penalty rule logic is some of the most complex fare filing content to construct correctly</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Configure servicing systems to apply penalties consistently</b></td>
+<td>Pricing Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Filed rules</td>
+<td>Consistent penalty application across servicing channels</td>
+<td>Consistent application verified across all channels at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Self-service and contact centre systems can apply the same filed rule differently in practice</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-PF-07-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Consistency verification</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Audit penalty application against filed terms</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Sample of change and cancellation transactions</td>
+<td>Audit findings</td>
+<td>Audited quarterly for 100 percent of fare families</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>An inconsistency surfaces to the customer as unfair treatment rather than a system defect</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Pricing Analyst</span><span class="lane-steps">1.1 1.2 2.1 2.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Revenue Management Analyst</span><span class="lane-steps">3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag iata" data-tooltip="Industry fare filing, rules, footnotes and tax data. The rate-limiting step on pricing agility. [ATPCO - evidence B]">ATPCO<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Filed within the required lead time at 100 percent</li><li>Consistent application verified across all channels at 100 percent</li><li>Checked against CTA and destination-market rules at 100 percent</li><li>Audited quarterly for 100 percent of fare families</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Self-service and contact centre systems applying the same filed penalty rule differently</li><li>A single global penalty structure not fitting every market&#x27;s regulatory constraints</li><li>An application inconsistency reaching the customer as an apparent fairness failure</li><li>Penalty rule logic being complex enough that filing errors are hard to catch before they apply</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../revenue-management-pricing/pricing-fare-filing/ac-rm-pf-06/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Tax Fee and Surcharge Maintenance</span></a>
+  <a class="next" href="../../../revenue-management-pricing/pricing-fare-filing/ac-rm-pf-08/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Currency and Point of Sale Pricing Management</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

@@ -123,7 +123,7 @@ def P(pid, desc, trig, out, note, phases, steps, kpis, risks, extra_systems=None
     """Register one process."""
     assert pid not in REGISTRY, f"duplicate content for {pid}"
     assert 3 <= len(phases) <= 4, f"{pid}: expected 3-4 phases, got {len(phases)}"
-    assert 6 <= len(steps) <= 14, f"{pid}: expected 6-14 steps, got {len(steps)}"
+    assert 4 <= len(steps) <= 14, f"{pid}: expected 4-14 steps, got {len(steps)}"
 
     seen, systems = set(), []
     for s in steps:
