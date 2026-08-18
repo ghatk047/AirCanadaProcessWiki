@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Passenger Revenue Recognition and Proration &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Passenger Revenue Recognition and Proration.">
+<title>AC-FN-RA-01 Passenger Revenue Recognition and Proration &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-FN-RA-01 Passenger Revenue Recognition and Proration.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../information-technology-security/ai-ml-platform/ac-it-ai-05/",next:"../../../finance-procurement-treasury/revenue-accounting/ac-fn-ra-02/"};
@@ -129,14 +129,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Finance, Procurement &amp; Treasury</a><span class="sep">&rsaquo;</span><a href="../">Revenue Accounting</a><span class="sep">&rsaquo;</span><span class="cur">AC-FN-RA-01</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-FN-RA-01" title="Click to copy the process ID">
     AC-FN-RA-01<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Passenger Revenue Recognition and Proration</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Passenger Revenue Recognition and Proration</h1>
+<p class="lede" id="overview">Passenger revenue is recognised on actual flown carriage rather than at the point of sale, reconciling the coupon lift record against the original fare and building the air traffic liability position for tickets sold but not yet flown.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Revenue recognition on lift rather than sale is the single largest judgement in the entire finance close, since it determines the air traffic liability, the value of tickets sold but not yet flown, which is one of the largest balance sheet items an airline carries.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A flight is completed and coupons are lifted, or the recurring period-close revenue recognition cycle runs.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">Recognised passenger revenue on flown carriage, with the air traffic liability correctly updated for unflown tickets.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Finance, Procurement &amp; Treasury<br>
+    <span style="color:var(--text-muted);font-size:12px">Revenue Accounting</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-fn-ra-01.png" alt="Passenger Revenue Recognition and Proration process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-FN-RA-01-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Coupon lift compilation</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Compile lifted coupon data</b></td>
+<td>Revenue Accounting Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Flown flight coupon data</td>
+<td>Compiled lifted coupons</td>
+<td>Compiled within 2 business days of flight completion at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A coupon lifted on a codeshare or interline segment requires matching against a partner&#x27;s own record</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FN-RA-01-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Revenue recognition</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Recognise revenue on flown segments</b></td>
+<td>Revenue Accounting Analyst</td>
+<td><span class="tag sap" data-tooltip="Passenger revenue accounting, proration, interline billing and BSP reconciliation. [Multiple - evidence C]">Revenue Accounting System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Compiled coupons and original fare value</td>
+<td>Recognised revenue</td>
+<td>Recognised within the period close timetable at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Fare value allocation across a multi-segment itinerary requires a proration methodology, not a simple split</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Update air traffic liability for unflown segments</b></td>
+<td>Revenue Accounting Analyst</td>
+<td><span class="tag sap" data-tooltip="Passenger revenue accounting, proration, interline billing and BSP reconciliation. [Multiple - evidence C]">Revenue Accounting System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Sold but unflown ticket inventory</td>
+<td>Updated liability position</td>
+<td>Updated within the period close timetable at 100 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>The liability represents one of the largest balance sheet items an airline carries and demands accuracy</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FN-RA-01-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Air traffic liability update</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Reconcile recognised revenue to sales</b></td>
+<td>Revenue Accounting Analyst</td>
+<td><span class="tag iata" data-tooltip="Billing and Settlement Plan. Agency sales settlement and revenue accounting reconciliation. [IATA - evidence B]">IATA BSP<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Recognised revenue and original sales data</td>
+<td>Reconciled position with variance report</td>
+<td>Reconciled within the period close timetable at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A reconciliation variance has to be investigated before period close, not carried forward unresolved</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Revenue Accounting Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sap" data-tooltip="Passenger revenue accounting, proration, interline billing and BSP reconciliation. [Multiple - evidence C]">Revenue Accounting System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag iata" data-tooltip="Billing and Settlement Plan. Agency sales settlement and revenue accounting reconciliation. [IATA - evidence B]">IATA BSP<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Compiled within 2 business days of flight completion at 100 percent</li><li>Recognised within the period close timetable at 100 percent</li><li>Updated within the period close timetable at 100 percent</li><li>Reconciliation variance closed before period close at 100 percent</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>The air traffic liability being one of the largest balance sheet items an airline carries</li><li>Fare value allocation across a multi-segment itinerary requiring a proration methodology, not a simple split</li><li>A coupon lifted on a codeshare or interline segment requiring matching against a partner&#x27;s own record</li><li>A reconciliation variance carried forward unresolved rather than investigated before period close</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../information-technology-security/ai-ml-platform/ac-it-ai-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Customer Facing Assistant Content Grounding</span></a>
+  <a class="next" href="../../../finance-procurement-treasury/revenue-accounting/ac-fn-ra-02/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Interline Billing and Settlement</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

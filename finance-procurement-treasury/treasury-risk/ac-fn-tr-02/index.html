@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Foreign Exchange Exposure Management &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Foreign Exchange Exposure Management.">
+<title>AC-FN-TR-02 Foreign Exchange Exposure Management &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-FN-TR-02 Foreign Exchange Exposure Management.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../finance-procurement-treasury/treasury-risk/ac-fn-tr-01/",next:"../../../finance-procurement-treasury/treasury-risk/ac-fn-tr-03/"};
@@ -129,14 +129,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Finance, Procurement &amp; Treasury</a><span class="sep">&rsaquo;</span><a href="../">Treasury &amp; Risk</a><span class="sep">&rsaquo;</span><span class="cur">AC-FN-TR-02</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-FN-TR-02" title="Click to copy the process ID">
     AC-FN-TR-02<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Foreign Exchange Exposure Management</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Foreign Exchange Exposure Management</h1>
+<p class="lede" id="overview">Foreign exchange exposure from CAD and USD revenue and cost flows is measured and hedged, protecting Air Canada&#x27;s financial results against adverse currency movement.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Air Canada&#x27;s revenue and cost bases sit in different currency mixes, CAD primary with material USD exposure from international operations and aircraft-related costs, which creates a structural exposure that has to be actively managed rather than something that nets out naturally.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">The recurring FX exposure review cycle runs, or a material currency movement requires an off-cycle assessment.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">Measured FX exposure with an appropriate hedging position established within Air Canada&#x27;s risk tolerance.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Finance, Procurement &amp; Treasury<br>
+    <span style="color:var(--text-muted);font-size:12px">Treasury &amp; Risk</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-fn-tr-02.png" alt="Foreign Exchange Exposure Management process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-FN-TR-02-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Exposure measurement</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Measure FX exposure by currency</b></td>
+<td>Treasury Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Forecast revenue and cost flows by currency</td>
+<td>Measured exposure by currency pair</td>
+<td>Measured for 100 percent of material currency exposures each cycle</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Exposure forecasting depends on revenue and cost projections that carry their own uncertainty</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FN-TR-02-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Hedge strategy determination</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Determine hedge ratio against risk tolerance</b></td>
+<td>Treasury Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Measured exposure and risk policy</td>
+<td>Determined hedge ratio</td>
+<td>Determined within the defined risk tolerance for 100 percent of material exposures</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Hedging trades away potential upside from favourable currency movement in exchange for protection against adverse movement</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Execute hedging instruments</b></td>
+<td>Treasury Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Determined hedge ratio</td>
+<td>Executed hedge position</td>
+<td>Executed within the planning cycle at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Hedge execution timing itself carries market risk if delayed relative to the exposure measurement</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FN-TR-02-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Position execution</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Monitor hedge effectiveness</b></td>
+<td>Treasury Analyst</td>
+<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Executed position and actual currency movement</td>
+<td>Effectiveness assessment</td>
+<td>Assessed each reporting cycle for 100 percent of active hedges</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A hedge that no longer matches the underlying exposure, because the forecast changed, needs active rebalancing</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Treasury Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Measured for 100 percent of material currency exposures each cycle</li><li>Determined within the defined risk tolerance for 100 percent of material exposures</li><li>Executed within the planning cycle at 100 percent</li><li>Hedge effectiveness meeting target each reporting cycle</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Hedging trading away potential upside from favourable currency movement in exchange for downside protection</li><li>A hedge no longer matching the underlying exposure once the original forecast changes</li><li>Exposure forecasting depending on revenue and cost projections that carry their own uncertainty</li><li>Hedge execution timing itself carrying market risk if delayed relative to the exposure measurement</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../finance-procurement-treasury/treasury-risk/ac-fn-tr-01/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Cash Positioning and Liquidity Management</span></a>
+  <a class="next" href="../../../finance-procurement-treasury/treasury-risk/ac-fn-tr-03/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Fuel Hedging Programme Administration</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

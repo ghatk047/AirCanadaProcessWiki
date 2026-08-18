@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Annual Budget and Operating Plan Build &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Annual Budget and Operating Plan Build.">
+<title>AC-FN-FP-01 Annual Budget and Operating Plan Build &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-FN-FP-01 Annual Budget and Operating Plan Build.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../finance-procurement-treasury/treasury-risk/ac-fn-tr-05/",next:"../../../finance-procurement-treasury/planning-analysis/ac-fn-fp-02/"};
@@ -129,14 +129,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Finance, Procurement &amp; Treasury</a><span class="sep">&rsaquo;</span><a href="../">Planning &amp; Analysis</a><span class="sep">&rsaquo;</span><span class="cur">AC-FN-FP-01</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-FN-FP-01" title="Click to copy the process ID">
     AC-FN-FP-01<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Annual Budget and Operating Plan Build</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Annual Budget and Operating Plan Build</h1>
+<p class="lede" id="overview">The annual budget and operating plan are built, consolidating input from every business function into a single approved financial plan for the coming year.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Budget consolidation is where every function&#x27;s individual assumptions, from network capacity in AC-NP-SP-02 to crew establishment in AC-CM-CP-01, have to reconcile into one internally consistent financial plan.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">The annual budget cycle opens.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">An approved annual budget and operating plan, consolidated across all business functions and ready to serve as the year&#x27;s financial baseline.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Finance, Procurement &amp; Treasury<br>
+    <span style="color:var(--text-muted);font-size:12px">Planning &amp; Analysis</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-fn-fp-01.png" alt="Annual Budget and Operating Plan Build process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-FN-FP-01-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Functional input collection</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Issue budget guidance to functions</b></td>
+<td>Financial Planning Analyst</td>
+<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Corporate financial targets and assumptions</td>
+<td>Issued budget guidance</td>
+<td>Issued before the functional input window opens at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Guidance that arrives late compresses the time functions have to build a considered budget submission</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FN-FP-01-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Consolidation and review</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Collect budget input from each function</b></td>
+<td>Financial Planning Analyst</td>
+<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Function-level operating plans</td>
+<td>Collected budget input</td>
+<td>Collected within the defined submission window at 90 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Functional budget assumptions are not always internally consistent with each other before consolidation</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Consolidate and reconcile across functions</b></td>
+<td>Financial Planning Analyst</td>
+<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Collected input</td>
+<td>Consolidated budget with reconciled assumptions</td>
+<td>Consolidated within the planning timeline at 100 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Reconciling inconsistent functional assumptions is the genuinely difficult part of consolidation</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FN-FP-01-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Approval</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Obtain executive and board approval</b></td>
+<td>Financial Planning Analyst</td>
+<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Consolidated budget</td>
+<td>Approved annual budget</td>
+<td>Approved before the fiscal year begins at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A budget not approved before the fiscal year begins leaves functions operating without an approved baseline</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Financial Planning Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Issued before the functional input window opens at 100 percent</li><li>Collected within the defined submission window at 90 percent</li><li>Consolidated within the planning timeline at 100 percent</li><li>Approved before the fiscal year begins at 100 percent</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Functional budget assumptions not being internally consistent with each other before consolidation</li><li>A budget not approved before the fiscal year begins leaving functions without an approved baseline</li><li>Guidance arriving late compressing the time available to build a considered budget submission</li><li>Reconciling inconsistent functional assumptions being the genuinely difficult part of consolidation</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../finance-procurement-treasury/treasury-risk/ac-fn-tr-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Card Acquiring and Payment Settlement</span></a>
+  <a class="next" href="../../../finance-procurement-treasury/planning-analysis/ac-fn-fp-02/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Monthly Forecast and Reforecast Cycle</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

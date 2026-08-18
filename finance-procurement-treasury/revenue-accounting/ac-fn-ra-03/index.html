@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>BSP and ARC Sales Reconciliation &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. BSP and ARC Sales Reconciliation.">
+<title>AC-FN-RA-03 BSP and ARC Sales Reconciliation &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-FN-RA-03 BSP and ARC Sales Reconciliation.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../finance-procurement-treasury/revenue-accounting/ac-fn-ra-02/",next:"../../../finance-procurement-treasury/revenue-accounting/ac-fn-ra-04/"};
@@ -129,14 +129,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Finance, Procurement &amp; Treasury</a><span class="sep">&rsaquo;</span><a href="../">Revenue Accounting</a><span class="sep">&rsaquo;</span><span class="cur">AC-FN-RA-03</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-FN-RA-03" title="Click to copy the process ID">
     AC-FN-RA-03<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>BSP and ARC Sales Reconciliation</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>BSP and ARC Sales Reconciliation</h1>
+<p class="lede" id="overview">Sales reported through the IATA Billing and Settlement Plan and the US Airlines Reporting Corporation are reconciled against Air Canada&#x27;s own booking and ticketing records.</p>
+<div class="callout"><span class="ct">Air Canada context</span>BSP and ARC are the settlement mechanisms for agency-sold tickets, distinct from direct sales, and a reconciliation gap here can mean Air Canada is owed money by an agency channel that has already reported the sale as settled.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">The recurring BSP and ARC settlement cycle runs, following agency ticket sales.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">Reconciled agency sales settlement, with any variance between reported sales and Air Canada&#x27;s own records investigated and resolved.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Finance, Procurement &amp; Treasury<br>
+    <span style="color:var(--text-muted);font-size:12px">Revenue Accounting</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-fn-ra-03.png" alt="BSP and ARC Sales Reconciliation process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-FN-RA-03-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Settlement data receipt</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Receive BSP and ARC settlement data</b></td>
+<td>Revenue Accounting Analyst</td>
+<td><span class="tag iata" data-tooltip="Billing and Settlement Plan. Agency sales settlement and revenue accounting reconciliation. [IATA - evidence B]">IATA BSP<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Agency-reported ticket sales</td>
+<td>Received settlement data</td>
+<td>Received on the industry settlement schedule at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>BSP and ARC operate on separate schedules and data formats despite serving a similar function</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FN-RA-03-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Reconciliation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Reconcile against Air Canada&#x27;s own sales records</b></td>
+<td>Revenue Accounting Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Settlement data and internal ticketing records</td>
+<td>Reconciled position with variance list</td>
+<td>Reconciled within the settlement cycle at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A ticket voided or exchanged after issuance can create a timing mismatch between the two records</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Investigate and resolve variances</b></td>
+<td>Revenue Accounting Analyst</td>
+<td><span class="tag sap" data-tooltip="Passenger revenue accounting, proration, interline billing and BSP reconciliation. [Multiple - evidence C]">Revenue Accounting System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Variance list</td>
+<td>Resolved variance</td>
+<td>Resolved within the settlement cycle for 95 percent of variances</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>An unresolved variance can mean Air Canada is owed money by an agency channel that has already reported settlement</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FN-RA-03-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Variance resolution</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Post reconciled settlement to the ledger</b></td>
+<td>Revenue Accounting Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Resolved reconciliation</td>
+<td>Posted settlement</td>
+<td>Posted within the financial close timetable at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A posting delay compounds into the broader finance close this settlement feeds</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Revenue Accounting Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag iata" data-tooltip="Billing and Settlement Plan. Agency sales settlement and revenue accounting reconciliation. [IATA - evidence B]">IATA BSP<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sap" data-tooltip="Passenger revenue accounting, proration, interline billing and BSP reconciliation. [Multiple - evidence C]">Revenue Accounting System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Received on the industry settlement schedule at 100 percent</li><li>Reconciled within the settlement cycle at 100 percent</li><li>Resolved within the settlement cycle for 95 percent of variances</li><li>Posted within the financial close timetable at 100 percent</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>An unresolved variance meaning Air Canada is owed money by an agency channel already reporting settlement</li><li>A ticket voided or exchanged after issuance creating a timing mismatch between the two settlement records</li><li>BSP and ARC operating on separate schedules and formats despite serving a similar settlement function</li><li>A posting delay compounding into the broader finance close this settlement feeds</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../finance-procurement-treasury/revenue-accounting/ac-fn-ra-02/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Interline Billing and Settlement</span></a>
+  <a class="next" href="../../../finance-procurement-treasury/revenue-accounting/ac-fn-ra-04/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Unearned Revenue and Air Traffic Liability</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

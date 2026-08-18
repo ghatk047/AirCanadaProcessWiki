@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Invoice Processing and Three Way Match &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Invoice Processing and Three Way Match.">
+<title>AC-FN-AP-03 Invoice Processing and Three Way Match &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-FN-AP-03 Invoice Processing and Three Way Match.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../finance-procurement-treasury/procure-to-pay/ac-fn-ap-02/",next:"../../../finance-procurement-treasury/procure-to-pay/ac-fn-ap-04/"};
@@ -129,14 +129,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Finance, Procurement &amp; Treasury</a><span class="sep">&rsaquo;</span><a href="../">Procure-to-Pay</a><span class="sep">&rsaquo;</span><span class="cur">AC-FN-AP-03</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-FN-AP-03" title="Click to copy the process ID">
     AC-FN-AP-03<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Invoice Processing and Three Way Match</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Invoice Processing and Three Way Match</h1>
+<p class="lede" id="overview">A supplier invoice is processed and matched three ways against the purchase order and goods receipt before payment, confirming Air Canada only pays for what was actually ordered and received.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Three-way matching, invoice against purchase order against goods receipt, is the core control against paying for goods or services that were never actually delivered, which makes this one of the most consequential controls in the entire finance function.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A supplier submits an invoice against a purchase order.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A three-way matched invoice approved for payment, or a documented discrepancy routed for resolution before payment proceeds.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Finance, Procurement &amp; Treasury<br>
+    <span style="color:var(--text-muted);font-size:12px">Procure-to-Pay</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-fn-ap-03.png" alt="Invoice Processing and Three Way Match process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-FN-AP-03-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Invoice receipt</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Receive and register supplier invoice</b></td>
+<td>Accounts Payable Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Submitted supplier invoice</td>
+<td>Registered invoice</td>
+<td>Registered within 2 business days of receipt at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Invoice format and submission channel vary by supplier, complicating consistent intake</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FN-AP-03-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Three-way matching</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Match invoice to purchase order</b></td>
+<td>Accounts Payable Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Registered invoice and purchase order</td>
+<td>Matched or unmatched invoice</td>
+<td>Matched for 100 percent of invoices with a valid PO at 95 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A price or quantity discrepancy against the PO requires resolution before matching can complete</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Match against goods receipt confirmation</b></td>
+<td>Accounts Payable Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>PO-matched invoice and goods receipt</td>
+<td>Three-way matched invoice</td>
+<td>Matched for 100 percent of applicable invoices at 95 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A goods receipt not yet confirmed in the system blocks payment even when the goods have physically arrived</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FN-AP-03-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Payment approval</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Approve invoice for payment</b></td>
+<td>Accounts Payable Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Three-way matched invoice</td>
+<td>Approved for payment</td>
+<td>Approved within the standard processing timeline at 90 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Three-way matching is the core control against paying for goods or services never actually delivered</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Accounts Payable Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Registered within 2 business days of receipt at 100 percent</li><li>Matched for 100 percent of invoices with a valid PO at 95 percent</li><li>Matched for 100 percent of applicable invoices at 95 percent</li><li>Approved within the standard processing timeline at 90 percent</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>A goods receipt not yet confirmed in the system blocking payment even when goods have physically arrived</li><li>Three-way matching being the core control against paying for undelivered goods or services</li><li>Invoice format and submission channel varying by supplier, complicating consistent intake</li><li>A price or quantity discrepancy against the PO requiring resolution before matching can complete</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../finance-procurement-treasury/procure-to-pay/ac-fn-ap-02/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Supplier Onboarding and Master Data</span></a>
+  <a class="next" href="../../../finance-procurement-treasury/procure-to-pay/ac-fn-ap-04/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Payment Run and Disbursement</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

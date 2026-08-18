@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Contract Compliance and Spend Analytics &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Contract Compliance and Spend Analytics.">
+<title>AC-FN-AP-05 Contract Compliance and Spend Analytics &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-FN-AP-05 Contract Compliance and Spend Analytics.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../finance-procurement-treasury/procure-to-pay/ac-fn-ap-04/",next:"../../../finance-procurement-treasury/treasury-risk/ac-fn-tr-01/"};
@@ -129,14 +129,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Finance, Procurement &amp; Treasury</a><span class="sep">&rsaquo;</span><a href="../">Procure-to-Pay</a><span class="sep">&rsaquo;</span><span class="cur">AC-FN-AP-05</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-FN-AP-05" title="Click to copy the process ID">
     AC-FN-AP-05<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Contract Compliance and Spend Analytics</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Contract Compliance and Spend Analytics</h1>
+<p class="lede" id="overview">Contract compliance and spend against negotiated supplier agreements is analysed, identifying off-contract spend and maverick buying that erode the value negotiated in the original agreement.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Negotiated contract terms only deliver their value if actual purchasing behaviour follows them, which makes this analytics function the discipline that protects procurement&#x27;s negotiated savings from quietly eroding through uncontrolled spend.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">The recurring spend analytics review cycle runs.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A spend analysis identifying compliance against contracted terms, with off-contract spend flagged for correction and negotiated value protected.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Finance, Procurement &amp; Treasury<br>
+    <span style="color:var(--text-muted);font-size:12px">Procure-to-Pay</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-fn-ap-05.png" alt="Contract Compliance and Spend Analytics process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-FN-AP-05-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Spend data compilation</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Compile spend data by supplier and category</b></td>
+<td>Procurement Coordinator</td>
+<td><span class="tag sap" data-tooltip="Source-to-pay, supplier management and contract compliance. [SAP - evidence A]">SAP Ariba<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Purchase order and invoice data</td>
+<td>Compiled spend data</td>
+<td>Compiled within 5 business days of period close at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Off-contract spend that bypassed the formal purchasing process is harder to capture completely</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FN-AP-05-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Compliance analysis</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Analyse compliance against negotiated contract terms</b></td>
+<td>Procurement Coordinator</td>
+<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Compiled spend and contract terms</td>
+<td>Compliance analysis</td>
+<td>Analysed for 100 percent of material contracts each cycle at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Negotiated contract terms only deliver value if actual purchasing behaviour follows them</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Identify off-contract and maverick spend</b></td>
+<td>Procurement Coordinator</td>
+<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Compliance analysis</td>
+<td>Identified off-contract spend</td>
+<td>Identified for 100 percent of material categories each cycle at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Maverick spend often happens for legitimate urgency reasons, not deliberate policy evasion</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FN-AP-05-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Corrective action</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Route findings for corrective action</b></td>
+<td>Procurement Coordinator</td>
+<td><span class="tag sap" data-tooltip="Source-to-pay, supplier management and contract compliance. [SAP - evidence A]">SAP Ariba<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Identified off-contract spend</td>
+<td>Routed corrective action</td>
+<td>Routed within 10 business days of identification at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Correction has to address the underlying reason for bypassing the contract, not just flag the transaction</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Procurement Coordinator</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag sap" data-tooltip="Source-to-pay, supplier management and contract compliance. [SAP - evidence A]">SAP Ariba<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Compiled within 5 business days of period close at 100 percent</li><li>Analysed for 100 percent of material contracts each cycle at 100 percent</li><li>Identified for 100 percent of material categories each cycle at 100 percent</li><li>Contract compliance rate meeting target, trending toward improvement</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Off-contract spend that bypassed the formal purchasing process being harder to capture completely</li><li>Maverick spend often happening for legitimate urgency reasons rather than deliberate policy evasion</li><li>Negotiated contract value quietly eroding through uncontrolled spend without active analysis</li><li>Correction addressing only the flagged transaction without resolving the underlying reason for bypass</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../finance-procurement-treasury/procure-to-pay/ac-fn-ap-04/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Payment Run and Disbursement</span></a>
+  <a class="next" href="../../../finance-procurement-treasury/treasury-risk/ac-fn-tr-01/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Cash Positioning and Liquidity Management</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

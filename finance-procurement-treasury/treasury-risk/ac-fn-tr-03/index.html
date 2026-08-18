@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Fuel Hedging Programme Administration &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Fuel Hedging Programme Administration.">
+<title>AC-FN-TR-03 Fuel Hedging Programme Administration &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-FN-TR-03 Fuel Hedging Programme Administration.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../finance-procurement-treasury/treasury-risk/ac-fn-tr-02/",next:"../../../finance-procurement-treasury/treasury-risk/ac-fn-tr-04/"};
@@ -129,14 +129,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Finance, Procurement &amp; Treasury</a><span class="sep">&rsaquo;</span><a href="../">Treasury &amp; Risk</a><span class="sep">&rsaquo;</span><span class="cur">AC-FN-TR-03</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-FN-TR-03" title="Click to copy the process ID">
     AC-FN-TR-03<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Fuel Hedging Programme Administration</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Fuel Hedging Programme Administration</h1>
+<p class="lede" id="overview">The fuel hedging programme is administered, protecting Air Canada&#x27;s operating cost base against jet fuel price volatility within a defined risk management framework.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Fuel is one of the largest and most volatile cost lines in the airline&#x27;s operating budget, which makes the hedging programme a direct input to the financial planning and forecasting process covered in AC-FN-FP-02.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">The recurring fuel hedging programme review cycle runs, or a material fuel price movement requires an off-cycle assessment.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A fuel hedging position maintained within the programme&#x27;s defined risk parameters, protecting a portion of forecast fuel consumption cost.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Finance, Procurement &amp; Treasury<br>
+    <span style="color:var(--text-muted);font-size:12px">Treasury &amp; Risk</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-fn-tr-03.png" alt="Fuel Hedging Programme Administration process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-FN-TR-03-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Consumption forecast</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Forecast fuel consumption</b></td>
+<td>Treasury Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Network schedule and fleet fuel burn data</td>
+<td>Forecast consumption by period</td>
+<td>Forecast for 100 percent of the hedging horizon each cycle</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Consumption forecast depends on the network schedule, which itself changes between hedge planning and actual flying</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FN-TR-03-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Hedge position determination</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Determine hedge coverage against the programme framework</b></td>
+<td>Treasury Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Forecast consumption and risk framework</td>
+<td>Determined hedge coverage percentage</td>
+<td>Determined within the programme&#x27;s defined risk parameters at 100 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A hedge coverage decision trades cost certainty against the possibility of paying above the eventual market price</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Execute fuel hedge instruments</b></td>
+<td>Treasury Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Determined coverage</td>
+<td>Executed hedge position</td>
+<td>Executed within the planning cycle at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Fuel hedge instruments carry counterparty and market timing risk in their own right</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FN-TR-03-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Programme monitoring</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Monitor programme performance against market price</b></td>
+<td>Treasury Analyst</td>
+<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Executed position and market fuel price</td>
+<td>Performance assessment</td>
+<td>Assessed each reporting cycle for 100 percent of the active programme</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Programme performance judged only against realised market price ignores the risk reduction value the hedge actually provided</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Treasury Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Forecast for 100 percent of the hedging horizon each cycle</li><li>Determined within the programme&#x27;s defined risk parameters at 100 percent</li><li>Executed within the planning cycle at 100 percent</li><li>Programme performance assessed each reporting cycle for 100 percent of the active programme</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>A hedge coverage decision trading cost certainty against paying above the eventual market price</li><li>Consumption forecast depending on a network schedule that itself changes between planning and actual flying</li><li>Fuel hedge instruments carrying counterparty and market timing risk in their own right</li><li>Programme performance judged only against realised price ignoring the risk reduction value actually provided</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../finance-procurement-treasury/treasury-risk/ac-fn-tr-02/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Foreign Exchange Exposure Management</span></a>
+  <a class="next" href="../../../finance-procurement-treasury/treasury-risk/ac-fn-tr-04/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Aircraft Financing and Lease Accounting</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

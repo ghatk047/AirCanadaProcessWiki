@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Payment Run and Disbursement &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Payment Run and Disbursement.">
+<title>AC-FN-AP-04 Payment Run and Disbursement &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-FN-AP-04 Payment Run and Disbursement.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../finance-procurement-treasury/procure-to-pay/ac-fn-ap-03/",next:"../../../finance-procurement-treasury/procure-to-pay/ac-fn-ap-05/"};
@@ -129,14 +129,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Finance, Procurement &amp; Treasury</a><span class="sep">&rsaquo;</span><a href="../">Procure-to-Pay</a><span class="sep">&rsaquo;</span><span class="cur">AC-FN-AP-04</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-FN-AP-04" title="Click to copy the process ID">
     AC-FN-AP-04<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Payment Run and Disbursement</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Payment Run and Disbursement</h1>
+<p class="lede" id="overview">A payment run is executed and disbursed to suppliers, releasing approved invoices in a scheduled batch run against the treasury cash position.</p>
+<div class="callout"><span class="ct">Air Canada context</span>A payment run has to coordinate approved invoice volume against the treasury cash position covered in AC-FN-TR-01, since disbursing more than the available cash position supports creates a genuine liquidity problem, not just an accounting entry.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">The scheduled payment run cycle comes due.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">Approved invoices disbursed on schedule, with payment correctly reflecting terms and the treasury cash position.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Finance, Procurement &amp; Treasury<br>
+    <span style="color:var(--text-muted);font-size:12px">Procure-to-Pay</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-fn-ap-04.png" alt="Payment Run and Disbursement process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-FN-AP-04-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Payment run preparation</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Compile approved invoices for the payment run</b></td>
+<td>Accounts Payable Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Approved and matched invoices</td>
+<td>Compiled payment run batch</td>
+<td>Compiled within the scheduled run preparation window at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Payment terms vary by supplier and determine which invoices are actually due in this specific run</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FN-AP-04-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Cash position coordination</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Coordinate against treasury cash position</b></td>
+<td>Accounts Payable Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Compiled batch and available cash position</td>
+<td>Confirmed run within cash availability</td>
+<td>Confirmed before disbursement for 100 percent of scheduled runs at 100 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Disbursing more than the available cash position supports creates a genuine liquidity problem</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Apply early payment discount where available</b></td>
+<td>Accounts Payable Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Confirmed batch</td>
+<td>Applied discount where terms allow</td>
+<td>Applied for 100 percent of eligible invoices at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A missed early payment discount is a small but avoidable cost across a high invoice volume</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FN-AP-04-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Disbursement</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Execute disbursement</b></td>
+<td>Accounts Payable Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Confirmed and discount-applied batch</td>
+<td>Disbursed payments</td>
+<td>Disbursed on the scheduled run date at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A disbursement error, wrong amount or wrong supplier, is harder to reverse once funds have moved</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Accounts Payable Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Compiled within the scheduled run preparation window at 100 percent</li><li>Confirmed before disbursement for 100 percent of scheduled runs at 100 percent</li><li>Applied for 100 percent of eligible invoices at 100 percent</li><li>Disbursed on the scheduled run date at 100 percent</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Disbursing more than the available cash position supports creating a genuine liquidity problem</li><li>A disbursement error being harder to reverse once funds have already moved</li><li>A missed early payment discount being a small but avoidable cost across a high invoice volume</li><li>Payment terms varying by supplier and determining which invoices are actually due in a given run</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../finance-procurement-treasury/procure-to-pay/ac-fn-ap-03/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Invoice Processing and Three Way Match</span></a>
+  <a class="next" href="../../../finance-procurement-treasury/procure-to-pay/ac-fn-ap-05/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Contract Compliance and Spend Analytics</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources
