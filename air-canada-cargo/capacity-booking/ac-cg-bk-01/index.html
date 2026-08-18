@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Cargo Capacity Forecast and Allocation &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Cargo Capacity Forecast and Allocation.">
+<title>AC-CG-BK-01 Cargo Capacity Forecast and Allocation &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-CG-BK-01 Cargo Capacity Forecast and Allocation.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../maintenance-engineering/airworthiness-records-quality/ac-mr-qa-06/",next:"../../../air-canada-cargo/capacity-booking/ac-cg-bk-02/"};
@@ -129,14 +129,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Air Canada Cargo</a><span class="sep">&rsaquo;</span><a href="../">Capacity &amp; Booking</a><span class="sep">&rsaquo;</span><span class="cur">AC-CG-BK-01</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CG-BK-01" title="Click to copy the process ID">
     AC-CG-BK-01<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Cargo Capacity Forecast and Allocation</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Cargo Capacity Forecast and Allocation</h1>
+<p class="lede" id="overview">Belly and freighter cargo capacity is forecast and allocated by route ahead of the booking window, balancing cargo revenue against the passenger baggage allowance the same hold space has to accommodate.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Belly cargo capacity is never independent of the passenger schedule; every kilogram allocated to cargo is a kilogram not available for checked baggage, which makes this allocation a genuine trade-off against passenger service, not a standalone cargo decision.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">The recurring cargo capacity planning cycle runs ahead of a schedule period.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">Cargo capacity allocated by route and compartment, published for the sales team to sell against.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Air Canada Cargo<br>
+    <span style="color:var(--text-muted);font-size:12px">Capacity &amp; Booking</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-cg-bk-01.png" alt="Cargo Capacity Forecast and Allocation process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-CG-BK-01-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Capacity forecast</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Forecast available belly capacity by route</b></td>
+<td>Cargo Capacity Planner</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Committed passenger schedule and aircraft type</td>
+<td>Forecast gross belly capacity</td>
+<td>Forecast for 100 percent of routes each planning cycle</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Gross belly capacity depends on aircraft type and configuration that can change between planning and operation</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CG-BK-01-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Passenger baggage reservation</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Reserve baggage allowance capacity</b></td>
+<td>Cargo Capacity Planner</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Passenger load forecast and baggage allowance</td>
+<td>Reserved baggage capacity</td>
+<td>Reserved before cargo allocation on 100 percent of routes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Baggage demand can spike on a specific date, such as a peak leisure travel day, beyond the standard reservation</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CG-BK-01-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Cargo allocation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Allocate remaining capacity to cargo</b></td>
+<td>Cargo Capacity Planner</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Net available capacity after baggage reservation</td>
+<td>Allocated cargo capacity by route</td>
+<td>Allocated within the planning cycle at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Allocating too aggressively to cargo risks a baggage capacity shortfall on a high-demand travel date</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Publish allocated capacity for sale</b></td>
+<td>Cargo Capacity Planner</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Allocated capacity</td>
+<td>Published sellable capacity</td>
+<td>Published to the sales team within 2 business days of allocation at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A delay in publishing allocated capacity is lost selling time in a market where competitors sell continuously</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Cargo Capacity Planner</span><span class="lane-steps">1.1 2.1 3.1 3.2</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Forecast for 100 percent of routes each planning cycle</li><li>Reserved before cargo allocation on 100 percent of routes</li><li>Allocated within the planning cycle at 100 percent</li><li>Baggage capacity shortfall incidents attributable to cargo allocation below target</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Cargo capacity allocated too aggressively causing a baggage capacity shortfall on a high-demand date</li><li>Gross belly capacity assumptions changing between planning and actual operation due to aircraft type change</li><li>Baggage demand spiking on a specific date beyond the standard capacity reservation</li><li>Cargo and passenger baggage competing for the same physical hold space with no shared real-time view</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../maintenance-engineering/airworthiness-records-quality/ac-mr-qa-06/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Certification and Approval Maintenance with Transport Canada</span></a>
+  <a class="next" href="../../../air-canada-cargo/capacity-booking/ac-cg-bk-02/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Air Waybill Booking and Rate Quotation</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

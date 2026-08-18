@@ -1,0 +1,373 @@
+# -*- coding: utf-8 -*-
+"""AC-CG-BK — Capacity and Booking (5) and AC-CG-GH — Ground Handling and ULD (5)."""
+from content_lib import P, S
+
+# ── BK: Capacity and Booking ────────────────────────────────────────────────
+P("AC-CG-BK-01",
+  desc="Belly and freighter cargo capacity is forecast and allocated by route ahead of the booking window, "
+       "balancing cargo revenue against the passenger baggage allowance the same hold space has to "
+       "accommodate.",
+  trig="The recurring cargo capacity planning cycle runs ahead of a schedule period.",
+  out="Cargo capacity allocated by route and compartment, published for the sales team to sell against.",
+  note="Belly cargo capacity is never independent of the passenger schedule; every kilogram allocated to "
+       "cargo is a kilogram not available for checked baggage, which makes this allocation a genuine "
+       "trade-off against passenger service, not a standalone cargo decision.",
+  phases=["Capacity forecast", "Passenger baggage reservation", "Cargo allocation"],
+  steps=[
+    S("1.1","Forecast available belly capacity by route","Cargo Capacity Planner","CHAMP Cargospot neo",
+      "Committed passenger schedule and aircraft type","Forecast gross belly capacity",
+      "Forecast for 100 percent of routes each planning cycle","N","N",
+      "Gross belly capacity depends on aircraft type and configuration that can change between planning and operation"),
+    S("2.1","Reserve baggage allowance capacity","Cargo Capacity Planner","Amadeus Altea DCS",
+      "Passenger load forecast and baggage allowance","Reserved baggage capacity",
+      "Reserved before cargo allocation on 100 percent of routes","Y","N",
+      "Baggage demand can spike on a specific date, such as a peak leisure travel day, beyond the standard reservation"),
+    S("3.1","Allocate remaining capacity to cargo","Cargo Capacity Planner","CHAMP Cargospot neo",
+      "Net available capacity after baggage reservation","Allocated cargo capacity by route",
+      "Allocated within the planning cycle at 100 percent","N","N",
+      "Allocating too aggressively to cargo risks a baggage capacity shortfall on a high-demand travel date"),
+    S("3.2","Publish allocated capacity for sale","Cargo Capacity Planner","CHAMP Cargospot neo",
+      "Allocated capacity","Published sellable capacity",
+      "Published to the sales team within 2 business days of allocation at 100 percent","N","N",
+      "A delay in publishing allocated capacity is lost selling time in a market where competitors sell continuously"),
+  ],
+  kpis=["Forecast for 100 percent of routes each planning cycle",
+        "Reserved before cargo allocation on 100 percent of routes",
+        "Allocated within the planning cycle at 100 percent",
+        "Baggage capacity shortfall incidents attributable to cargo allocation below target"],
+  risks=["Cargo capacity allocated too aggressively causing a baggage capacity shortfall on a high-demand date",
+         "Gross belly capacity assumptions changing between planning and actual operation due to aircraft type change",
+         "Baggage demand spiking on a specific date beyond the standard capacity reservation",
+         "Cargo and passenger baggage competing for the same physical hold space with no shared real-time view"])
+
+P("AC-CG-BK-02",
+  desc="An air waybill booking is accepted and rate-quoted, capturing shipment details and confirming "
+       "space against allocated capacity in Cargospot neo.",
+  trig="A freight forwarder or shipper submits a booking request.",
+  out="A confirmed air waybill booking with quoted rate and confirmed space, or a documented reason booking "
+      "could not be confirmed.",
+  note="Cargo booking behaves differently from passenger booking in one important way: cargo weight and "
+      "dimensions are often estimates at time of booking and get finalised only at physical acceptance, "
+      "which creates a reconciliation step passenger booking does not need.",
+  phases=["Booking request intake", "Rate quotation", "Space confirmation"],
+  steps=[
+    S("1.1","Receive booking request","Cargo Booking Agent","CHAMP Cargospot neo",
+      "Shipper or forwarder request with shipment details","Registered booking request",
+      "Registered within 1 business day of receipt at 100 percent","N","N",
+      "Declared weight and dimensions at booking are often estimates rather than final figures"),
+    S("2.1","Quote applicable rate","Cargo Booking Agent","CHAMP Cargospot neo",
+      "Registered request and rate card","Quoted rate",
+      "Quoted within 4 hours of registration at 90 percent","N","N",
+      "Rate quotation has to reflect current capacity scarcity, which changes as the flight fills"),
+    S("2.2","Confirm space against allocated capacity","Cargo Booking Agent","CHAMP Cargospot neo",
+      "Quoted rate and requested space","Confirmed or waitlisted space",
+      "Confirmed within 4 hours of quotation at 90 percent","Y","N",
+      "Space confirmation against estimated weight and dimensions can require adjustment once actual figures are known"),
+    S("3.1","Issue confirmed air waybill booking","Cargo Booking Agent","CHAMP Cargospot neo",
+      "Confirmed space","Issued booking confirmation",
+      "Issued within 1 business day of confirmation at 100 percent","N","N",
+      "A booking issued on estimated figures may need revision once the shipment is physically presented"),
+  ],
+  kpis=["Registered within 1 business day of receipt at 100 percent",
+        "Quoted within 4 hours of registration at 90 percent",
+        "Confirmed within 4 hours of quotation at 90 percent",
+        "Booking-to-actual weight variance below target at acceptance"],
+  risks=["Declared weight and dimensions at booking being estimates that differ from the figures at physical acceptance",
+         "Rate quotation not reflecting current capacity scarcity as the flight fills between quote and confirmation",
+         "Space confirmed against estimated figures requiring adjustment once actual figures are known",
+         "A booking issued on estimated figures needing revision once the shipment is physically presented"])
+
+P("AC-CG-BK-03",
+  desc="Freighter network capacity is planned and sold distinct from belly cargo, covering dedicated cargo "
+       "aircraft rotations and their specific commercial and operational requirements.",
+  trig="The freighter schedule for a planning period is committed.",
+  out="Freighter capacity planned, allocated and made available for sale, distinct from belly capacity "
+      "planning.",
+  note="A freighter is a dedicated cargo asset with no passenger constraint on its capacity decision, which "
+      "makes freighter capacity planning commercially simpler than belly cargo but operationally distinct "
+      "in its own right, with its own network and rotation logic.",
+  phases=["Freighter schedule review", "Capacity planning", "Sales allocation"],
+  steps=[
+    S("1.1","Review committed freighter schedule","Cargo Capacity Planner","Lufthansa Systems NetLine",
+      "Committed freighter rotations","Reviewed schedule",
+      "Reviewed before capacity planning begins at 100 percent","N","N",
+      "Freighter schedule commitments interact with the same fleet renewal programme affecting the passenger fleet"),
+    S("2.1","Plan capacity by freighter route","Cargo Capacity Planner","CHAMP Cargospot neo",
+      "Reviewed schedule and freighter payload capability","Planned capacity by route",
+      "Planned for 100 percent of freighter routes each cycle","N","N",
+      "Freighter payload capability varies by route length due to fuel and range trade-offs"),
+    S("3.1","Allocate capacity for sale","Cargo Capacity Planner","CHAMP Cargospot neo",
+      "Planned capacity","Allocated sellable capacity",
+      "Allocated within the planning cycle at 100 percent","N","N",
+      "Freighter capacity, once allocated, has no baggage competition but also no flexibility if payload estimates prove wrong"),
+    S("3.2","Publish freighter capacity to the sales team","Cargo Capacity Planner","CHAMP Cargospot neo",
+      "Allocated capacity","Published sellable freighter capacity",
+      "Published within 2 business days of allocation at 100 percent","N","N",
+      "Freighter capacity that sells more slowly than belly cargo needs earlier market visibility to fill reliably"),
+  ],
+  kpis=["Reviewed before capacity planning begins at 100 percent",
+        "Planned for 100 percent of freighter routes each cycle",
+        "Allocated within the planning cycle at 100 percent",
+        "Freighter capacity utilisation against plan tracked each period"],
+  risks=["Freighter payload capability varying by route length due to fuel and range trade-offs",
+         "Freighter schedule commitments interacting with the same fleet renewal programme affecting the passenger fleet",
+         "Allocated capacity having no flexibility if payload estimates later prove incorrect",
+         "Freighter and belly cargo capacity being planned separately without a shared network-level view"])
+
+P("AC-CG-BK-04",
+  desc="A special cargo shipment, such as live animals, perishables or high-value goods, is screened and "
+       "accepted for booking against its specific handling requirements.",
+  trig="A shipper or forwarder submits a booking request for a special cargo category.",
+  out="Special cargo correctly screened, accepted with the appropriate handling requirement flagged, or "
+      "declined with a documented reason.",
+  note="Special cargo categories each carry distinct handling requirements that have to be correctly matched "
+      "to actual station capability, since accepting a shipment a specific station cannot properly handle "
+      "creates a downstream failure that is often only discovered at physical acceptance.",
+  phases=["Special cargo screening", "Handling requirement matching", "Booking confirmation"],
+  steps=[
+    S("1.1","Screen special cargo category","Cargo Booking Agent","CHAMP Cargospot neo",
+      "Shipment description and special cargo type","Screened category classification",
+      "Classified correctly for 100 percent of special cargo bookings at 100 percent","N","N",
+      "Category classification has to correctly identify every applicable special handling requirement, not just the primary one"),
+    S("2.1","Match handling requirement to station capability","Cargo Booking Agent","CHAMP Cargospot neo",
+      "Classified category and route stations","Matched capability confirmation or gap",
+      "Matched for 100 percent of special cargo bookings before confirmation at 100 percent","Y","N",
+      "A station lacking the required handling capability at either end of the route makes the booking infeasible"),
+    S("3.1","Confirm or decline the booking","Cargo Booking Agent","CHAMP Cargospot neo",
+      "Matched capability","Confirmed booking with handling flag, or documented decline",
+      "Confirmed or declined within 1 business day of screening at 95 percent","N","N",
+      "A booking accepted without the correct handling flag creates a downstream failure discovered only at acceptance"),
+    S("3.2","Notify origin and destination stations of the handling requirement","Cargo Booking Agent","CHAMP Cargospot neo",
+      "Confirmed booking","Notified stations",
+      "Notified before the shipment is presented for acceptance at 100 percent","N","N",
+      "A station not notified in advance may not have the specific equipment or resource ready at physical presentation"),
+  ],
+  kpis=["Classified correctly for 100 percent of special cargo bookings at 100 percent",
+        "Matched for 100 percent of special cargo bookings before confirmation at 100 percent",
+        "Confirmed or declined within 1 business day of screening at 95 percent",
+        "Special cargo handling failure incidents at acceptance below target"],
+  risks=["A station lacking the required handling capability at either end of the route making the booking infeasible",
+         "A booking accepted without the correct handling flag creating a downstream failure discovered only at acceptance",
+         "Category classification missing an applicable special handling requirement beyond the primary one",
+         "Live animal and perishable shipments having time-sensitive handling windows that compound any booking error"])
+
+P("AC-CG-BK-05",
+  desc="A charter or block space agreement is negotiated and managed for a customer requiring dedicated or "
+       "committed cargo capacity outside standard spot booking.",
+  trig="A customer requests a charter or block space agreement for committed cargo capacity.",
+  out="A negotiated agreement with committed capacity terms, managed against actual utilisation through the "
+      "agreement period.",
+  note="A block space commitment trades pricing certainty for the customer against a capacity commitment "
+      "for Air Canada Cargo that has to be honoured even if spot market rates move more favourably during "
+      "the agreement period.",
+  phases=["Agreement negotiation", "Capacity commitment", "Utilisation management"],
+  steps=[
+    S("1.1","Negotiate charter or block space terms","Cargo Sales Manager","CHAMP Cargospot neo",
+      "Customer requirement and capacity availability","Negotiated agreement terms",
+      "Negotiated within the customer's required timeline at 90 percent","N","N",
+      "Committing capacity ahead trades away potential spot market upside if rates rise during the agreement period"),
+    S("2.1","Commit capacity against the agreement","Cargo Capacity Planner","CHAMP Cargospot neo",
+      "Negotiated terms","Committed capacity in the allocation system",
+      "Committed within 5 business days of agreement signing at 100 percent","N","N",
+      "Committed capacity has to be correctly protected from being sold on the spot market to another customer"),
+    S("2.2","Monitor customer utilisation against commitment","Cargo Sales Manager","CHAMP Cargospot neo",
+      "Committed capacity and actual bookings","Utilisation tracking",
+      "Tracked each period for 100 percent of active agreements","N","N",
+      "Persistent under-utilisation against a committed block represents unsold capacity that could have gone to the spot market"),
+    S("3.1","Review and renew or adjust the agreement","Cargo Sales Manager","CHAMP Cargospot neo",
+      "Utilisation history","Renewal or adjustment decision",
+      "Reviewed before agreement expiry at 100 percent","N","N",
+      "A renewal decided without reviewing actual utilisation risks repeating an underperforming commitment"),
+  ],
+  kpis=["Negotiated within the customer's required timeline at 90 percent",
+        "Committed within 5 business days of agreement signing at 100 percent",
+        "Tracked each period for 100 percent of active agreements",
+        "Utilisation against committed capacity meeting target across active agreements"],
+  risks=["Committing capacity ahead trading away potential spot market upside if rates rise during the agreement period",
+         "Committed capacity not being correctly protected from being sold to a different spot customer",
+         "Persistent under-utilisation against a committed block representing unsold capacity that could have gone elsewhere",
+         "A renewal decided without reviewing actual utilisation risking repeating an underperforming commitment"])
+
+# ── GH: Ground Handling and ULD ─────────────────────────────────────────────
+P("AC-CG-GH-01",
+  desc="Cargo is accepted at the warehouse and a receipt issued, verifying the shipment against the "
+       "booking and screening for any documentation or physical discrepancy before acceptance.",
+  trig="A shipper or forwarder presents cargo at the warehouse for acceptance ahead of a booked flight.",
+  out="Cargo accepted and receipted, with actual weight and dimensions confirmed against the original "
+      "booking.",
+  note="This is where the estimated figures from the original booking in AC-CG-BK-02 meet physical reality; "
+      "any material variance discovered here has to be reconciled before the shipment can proceed.",
+  phases=["Shipment presentation", "Verification and screening", "Receipt issuance"],
+  steps=[
+    S("1.1","Receive presented cargo","Cargo Warehouse Agent","Cargospot neo Handling",
+      "Presented shipment and booking reference","Received cargo for processing",
+      "Received within the standard acceptance window at 100 percent","N","N",
+      "Warehouse acceptance windows can be tight relative to flight cutoff, especially for late bookings"),
+    S("2.1","Verify actual weight and dimensions","Cargo Warehouse Agent","Cargospot neo Handling",
+      "Received cargo","Verified actual figures against booking",
+      "Verified for 100 percent of accepted shipments at 100 percent","N","N",
+      "A material variance from the booked figures requires rate and space reconciliation before acceptance completes"),
+    S("2.2","Screen for security and documentation compliance","Cargo Warehouse Agent","Cargospot neo Handling",
+      "Received cargo","Screened compliance status",
+      "Screened for 100 percent of accepted shipments at 100 percent","Y","N",
+      "Documentation and security screening requirements differ by destination and cargo type"),
+    S("3.1","Issue acceptance receipt","Cargo Warehouse Agent","CHAMP Cargospot neo",
+      "Verified and screened cargo","Issued receipt",
+      "Issued within 30 minutes of verification completion at 95 percent","N","N",
+      "A receipt not promptly issued delays the shipment's progression to the next handling step"),
+  ],
+  kpis=["Verified for 100 percent of accepted shipments at 100 percent",
+        "Screened for 100 percent of accepted shipments at 100 percent",
+        "Issued within 30 minutes of verification completion at 95 percent",
+        "Booking-to-actual weight and dimension variance rate tracked against target"],
+  risks=["A material variance from booked figures requiring rate and space reconciliation before acceptance completes",
+         "Documentation and security screening requirements differing by destination and cargo type",
+         "Warehouse acceptance windows being tight relative to flight cutoff for late bookings",
+         "A receipt not promptly issued delaying the shipment's progression to the next handling step"])
+
+P("AC-CG-GH-02",
+  desc="Cargo is built up into unit load devices and a load plan calculated, distributing weight correctly "
+       "across the aircraft hold within centre of gravity limits.",
+  trig="Accepted cargo requires build-up into ULDs ahead of a scheduled flight.",
+  out="Correctly built ULDs with a validated load plan, ready for aircraft loading within performance and "
+      "balance limits.",
+  note="ULD build-up interacts directly with the aircraft weight and balance calculation covered in "
+      "AC-FO-FD-05, since cargo distribution across the hold is one of the inputs the flight's centre of "
+      "gravity calculation depends on.",
+  phases=["ULD build-up", "Load plan calculation", "Build validation"],
+  steps=[
+    S("1.1","Build up cargo into ULDs","Cargo Warehouse Agent","Cargospot neo Handling",
+      "Accepted cargo and available ULDs","Built ULDs",
+      "Built within the required lead time before flight cutoff at 90 percent","N","N",
+      "Build-up sequencing has to account for destination-specific breakdown order at transfer or arrival"),
+    S("2.1","Calculate hold load plan","Cargo Warehouse Agent","Cargospot neo Handling",
+      "Built ULDs and aircraft hold configuration","Calculated load plan",
+      "Calculated within centre of gravity limits at 100 percent","Y","N",
+      "Cargo load distribution is one input to a centre of gravity calculation shared with passenger and fuel weight"),
+    S("3.1","Validate build against the load plan","Cargo Warehouse Agent","Cargospot neo Handling",
+      "Calculated plan and built ULDs","Validated build",
+      "Validated before transport to the aircraft at 100 percent","N","N",
+      "A ULD built differently from the load plan requires rework before it can be transported to the aircraft"),
+    S("3.2","Transport validated ULDs to the aircraft","Cargo Warehouse Agent","Cargospot Mobile",
+      "Validated ULDs","Transported ULDs at the aircraft",
+      "Transported within the flight's loading window at 95 percent","N","N",
+      "Transport timing has to fit within the same turnaround ground time constraint covered in AC-GO-GT-01"),
+  ],
+  kpis=["Built within the required lead time before flight cutoff at 90 percent",
+        "Calculated within centre of gravity limits at 100 percent",
+        "Validated before transport to the aircraft at 100 percent",
+        "ULD rework rate due to load plan mismatch below target"],
+  risks=["Cargo load distribution being one input to a centre of gravity calculation shared with passenger and fuel weight",
+         "A ULD built differently from the load plan requiring rework before transport to the aircraft",
+         "Build-up sequencing not accounting for destination-specific breakdown order at transfer or arrival",
+         "Tight flight cutoff timing compressing the build-up window available for a large shipment"])
+
+P("AC-CG-GH-03",
+  desc="Cold chain and pharmaceutical cargo is handled through temperature-controlled storage and transport, "
+       "maintaining the required temperature range from acceptance through loading.",
+  trig="A cold chain or pharmaceutical shipment is accepted requiring temperature-controlled handling.",
+  out="The shipment maintained within its required temperature range from acceptance through loading, with "
+      "temperature excursions detected and escalated immediately.",
+  note="A temperature excursion in cold chain cargo can render a pharmaceutical shipment unusable, which "
+      "makes continuous temperature monitoring a direct value-protection control, not just a handling "
+      "preference.",
+  phases=["Temperature-controlled acceptance", "Storage and transport monitoring", "Loading confirmation"],
+  steps=[
+    S("1.1","Accept shipment into temperature-controlled storage","Cargo Warehouse Agent","OnAsset Vision",
+      "Cold chain or pharma shipment","Accepted shipment in controlled storage",
+      "Accepted within the required temperature window at 100 percent","N","N",
+      "A shipment arriving already outside its temperature range at acceptance needs immediate escalation, not silent storage"),
+    S("2.1","Monitor temperature continuously through storage","Cargo Warehouse Agent","OnAsset Vision",
+      "Stored shipment","Continuous temperature monitoring",
+      "Monitored continuously with zero gaps for 100 percent of cold chain shipments","N","N",
+      "A monitoring gap during storage, even briefly, undermines the ability to demonstrate continuous compliance"),
+    S("2.2","Detect and escalate temperature excursion","Cargo Warehouse Agent","OnAsset Vision",
+      "Monitoring data outside range","Escalated excursion alert",
+      "Escalated within 5 minutes of a detected excursion at 100 percent","Y","N",
+      "An excursion not immediately escalated risks the shipment being loaded despite a compromised cold chain"),
+    S("3.1","Confirm temperature-controlled loading","Cargo Warehouse Agent","Cargospot neo Handling",
+      "Compliant shipment","Confirmed loading with maintained temperature",
+      "Confirmed for 100 percent of cold chain shipments before departure at 100 percent","N","N",
+      "The temperature control obligation continues through loading and does not end at warehouse storage"),
+  ],
+  kpis=["Monitored continuously with zero gaps for 100 percent of cold chain shipments",
+        "Escalated within 5 minutes of a detected excursion at 100 percent",
+        "Confirmed for 100 percent of cold chain shipments before departure at 100 percent",
+        "Temperature excursion incidents resulting in shipment loss below target"],
+  risks=["A temperature excursion in cold chain cargo rendering a pharmaceutical shipment unusable",
+         "A monitoring gap during storage undermining the ability to demonstrate continuous compliance",
+         "An excursion not immediately escalated risking loading despite a compromised cold chain",
+         "The temperature control obligation continuing through loading, not ending at warehouse storage"])
+
+P("AC-CG-GH-04",
+  desc="Cargo is transferred between connecting flights or handed to an interline partner, coordinating "
+      "physical movement and documentation across the transfer boundary.",
+  trig="A shipment requires transfer to a connecting flight or handoff to an interline partner.",
+  out="Cargo correctly transferred with complete documentation, meeting the connect time available between "
+      "flights or the interline handoff agreement.",
+  note="Cargo transfer faces the same physical connect time constraint as transfer baggage in AC-GO-BA-03, "
+      "but with the added complexity of documentation, such as the air waybill and customs status, that has "
+      "to move correctly with the physical shipment.",
+  phases=["Transfer identification", "Physical and document handling", "Connecting flight or partner handoff"],
+  steps=[
+    S("1.1","Identify transfer cargo on arrival","Cargo Warehouse Agent","Cargospot neo Handling",
+      "Arriving flight manifest","Identified transfer shipments",
+      "Identified within 30 minutes of arrival at 95 percent","N","N",
+      "Identification speed directly consumes the available connect time for the transfer"),
+    S("2.1","Verify and route transfer documentation","Cargo Warehouse Agent","CHAMP Cargospot neo",
+      "Identified shipment","Verified and routed documentation",
+      "Verified for 100 percent of transfers before physical movement at 100 percent","N","N",
+      "Documentation, including customs status, has to move correctly with the physical shipment"),
+    S("2.2","Physically transfer cargo to the connecting handling area","Cargo Warehouse Agent","Cargospot neo Handling",
+      "Verified documentation","Physically transferred cargo",
+      "Transferred within available connect time for 90 percent of shipments","N","N",
+      "A short connect time leaves little margin for any documentation or physical handling delay"),
+    S("3.1","Confirm handoff to connecting flight or interline partner","Cargo Warehouse Agent","Cargospot neo Handling",
+      "Physically transferred cargo","Confirmed handoff",
+      "Confirmed before the connecting flight or partner's cutoff at 90 percent","N","N",
+      "An interline partner handoff depends on their own systems and processes outside Air Canada's direct control"),
+  ],
+  kpis=["Identified within 30 minutes of arrival at 95 percent",
+        "Verified for 100 percent of transfers before physical movement at 100 percent",
+        "Transferred within available connect time for 90 percent of shipments",
+        "Confirmed before the connecting flight or partner's cutoff at 90 percent"],
+  risks=["Documentation, including customs status, needing to move correctly alongside the physical shipment",
+         "A short connect time leaving little margin for any documentation or physical handling delay",
+         "An interline partner handoff depending on their own systems and processes outside Air Canada's control",
+         "Identification speed on arrival directly consuming the connect time available for the transfer"])
+
+P("AC-CG-GH-05",
+  desc="Cargo is delivered to the consignee at destination and proof of delivery obtained, closing out the "
+      "shipment's physical handling chain.",
+  trig="A shipment arrives at its destination station ready for consignee collection or delivery.",
+  out="Cargo delivered to the correct consignee with proof of delivery obtained, closing the shipment "
+      "record.",
+  note="Proof of delivery is the final link in the chain of custody that began at acceptance in AC-CG-GH-01, "
+      "and its absence leaves a shipment's fate genuinely ambiguous if a delivery dispute later arises.",
+  phases=["Consignee notification", "Delivery or collection", "Proof of delivery"],
+  steps=[
+    S("1.1","Notify consignee of arrival","Cargo Warehouse Agent","CHAMP Cargospot neo",
+      "Arrived shipment","Consignee notification",
+      "Notified within 2 hours of arrival at 95 percent","N","N",
+      "Consignee contact information quality varies and can delay notification"),
+    S("2.1","Verify consignee identity at collection or delivery","Cargo Warehouse Agent","Cargospot neo Handling",
+      "Consignee presenting for collection, or delivery attempt","Verified consignee identity",
+      "Verified for 100 percent of deliveries at 100 percent","Y","N",
+      "Identity verification has to prevent a shipment being released to the wrong party"),
+    S("2.2","Release or deliver the shipment","Cargo Warehouse Agent","Cargospot neo Handling",
+      "Verified consignee","Released or delivered shipment",
+      "Completed within the standard service window at 90 percent","N","N",
+      "A shipment awaiting collection ties up warehouse space if the consignee is slow to collect"),
+    S("3.1","Obtain and record proof of delivery","Cargo Warehouse Agent","CHAMP Cargospot neo",
+      "Completed delivery","Recorded proof of delivery",
+      "Recorded within 24 hours of delivery for 100 percent of shipments at 100 percent","N","N",
+      "The absence of proof of delivery leaves a shipment's fate genuinely ambiguous in a later dispute"),
+  ],
+  kpis=["Notified within 2 hours of arrival at 95 percent",
+        "Verified for 100 percent of deliveries at 100 percent",
+        "Completed within the standard service window at 90 percent",
+        "Recorded within 24 hours of delivery for 100 percent of shipments at 100 percent"],
+  risks=["The absence of proof of delivery leaving a shipment's fate genuinely ambiguous in a later dispute",
+         "Identity verification failing to prevent a shipment being released to the wrong party",
+         "Consignee contact information quality varying and delaying notification of arrival",
+         "A shipment awaiting collection tying up warehouse space if the consignee is slow to collect"])

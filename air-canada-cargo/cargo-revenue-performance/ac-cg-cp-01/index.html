@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Cargo Revenue Accounting and CASS Settlement &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Cargo Revenue Accounting and CASS Settlement.">
+<title>AC-CG-CP-01 Cargo Revenue Accounting and CASS Settlement &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-CG-CP-01 Cargo Revenue Accounting and CASS Settlement.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../air-canada-cargo/customs-pact-dangerous-goods/ac-cg-cs-05/",next:"../../../air-canada-cargo/cargo-revenue-performance/ac-cg-cp-02/"};
@@ -129,14 +129,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Air Canada Cargo</a><span class="sep">&rsaquo;</span><a href="../">Cargo Revenue &amp; Performance</a><span class="sep">&rsaquo;</span><span class="cur">AC-CG-CP-01</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CG-CP-01" title="Click to copy the process ID">
     AC-CG-CP-01<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Cargo Revenue Accounting and CASS Settlement</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Cargo Revenue Accounting and CASS Settlement</h1>
+<p class="lede" id="overview">Cargo revenue is recognised and settled against IATA CASS, reconciling flown air waybills to recognised revenue and industry settlement.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Cargo revenue accounting mirrors passenger revenue accounting&#x27;s core discipline in AC-FN-RA-01, recognition on actual carriage rather than on booking, but runs through CASS rather than BSP as its industry settlement mechanism.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A cargo shipment is flown and requires revenue recognition and CASS settlement.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">Recognised cargo revenue correctly settled through IATA CASS, reconciled against flown air waybills.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Air Canada Cargo<br>
+    <span style="color:var(--text-muted);font-size:12px">Cargo Revenue &amp; Performance</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-cg-cp-01.png" alt="Cargo Revenue Accounting and CASS Settlement process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-CG-CP-01-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Flown shipment compilation</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Compile flown air waybills</b></td>
+<td>Cargo Revenue Analyst</td>
+<td><span class="tag champ" data-tooltip="Cargo revenue accounting and IATA CASS settlement. [CHAMP - evidence A]">Cargospot neo Revenue Accounting<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Completed flight and loaded shipments</td>
+<td>Compiled flown air waybill list</td>
+<td>Compiled within 2 business days of flight completion at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A shipment loaded but not correctly matched to its air waybill record creates a revenue recognition gap</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CG-CP-01-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Revenue recognition</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Recognise revenue on flown carriage</b></td>
+<td>Cargo Revenue Analyst</td>
+<td><span class="tag champ" data-tooltip="Cargo revenue accounting and IATA CASS settlement. [CHAMP - evidence A]">Cargospot neo Revenue Accounting<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Compiled air waybills</td>
+<td>Recognised revenue</td>
+<td>Recognised within the standard accounting period close timetable at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Revenue recognition timing has to correctly reflect actual carriage, not the original booking date</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Reconcile against IATA CASS settlement</b></td>
+<td>Cargo Revenue Analyst</td>
+<td><span class="tag iata" data-tooltip="Billing and Settlement Plan. Agency sales settlement and revenue accounting reconciliation. [IATA - evidence B]">IATA BSP<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Recognised revenue and CASS statement</td>
+<td>Reconciled settlement position</td>
+<td>Reconciled within the CASS settlement cycle at 100 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A reconciliation variance between recognised revenue and the CASS statement needs prompt investigation</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CG-CP-01-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; CASS settlement</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Settle and post to the general ledger</b></td>
+<td>Cargo Revenue Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Reconciled position</td>
+<td>Posted settlement</td>
+<td>Posted within the financial close timetable at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A settlement not posted within the close timetable delays the broader finance close it feeds into</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Cargo Revenue Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag champ" data-tooltip="Cargo revenue accounting and IATA CASS settlement. [CHAMP - evidence A]">Cargospot neo Revenue Accounting<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag iata" data-tooltip="Billing and Settlement Plan. Agency sales settlement and revenue accounting reconciliation. [IATA - evidence B]">IATA BSP<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Compiled within 2 business days of flight completion at 100 percent</li><li>Recognised within the standard accounting period close timetable at 100 percent</li><li>Reconciled within the CASS settlement cycle at 100 percent</li><li>Posted within the financial close timetable at 100 percent</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>A shipment loaded but not correctly matched to its air waybill record creating a revenue recognition gap</li><li>A reconciliation variance between recognised revenue and the CASS statement needing prompt investigation</li><li>Revenue recognition timing needing to correctly reflect actual carriage rather than the original booking date</li><li>A settlement not posted within the close timetable delaying the broader finance close</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../air-canada-cargo/customs-pact-dangerous-goods/ac-cg-cs-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Cargo Security Screening Compliance</span></a>
+  <a class="next" href="../../../air-canada-cargo/cargo-revenue-performance/ac-cg-cp-02/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Cargo Yield and Capacity Utilisation Review</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

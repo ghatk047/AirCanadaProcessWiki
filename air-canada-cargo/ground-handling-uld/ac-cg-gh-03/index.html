@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Cold Chain and Pharma Handling &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Cold Chain and Pharma Handling.">
+<title>AC-CG-GH-03 Cold Chain and Pharma Handling &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-CG-GH-03 Cold Chain and Pharma Handling.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../air-canada-cargo/ground-handling-uld/ac-cg-gh-02/",next:"../../../air-canada-cargo/ground-handling-uld/ac-cg-gh-04/"};
@@ -129,14 +129,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Air Canada Cargo</a><span class="sep">&rsaquo;</span><a href="../">Ground Handling &amp; ULD</a><span class="sep">&rsaquo;</span><span class="cur">AC-CG-GH-03</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CG-GH-03" title="Click to copy the process ID">
     AC-CG-GH-03<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Cold Chain and Pharma Handling</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Cold Chain and Pharma Handling</h1>
+<p class="lede" id="overview">Cold chain and pharmaceutical cargo is handled through temperature-controlled storage and transport, maintaining the required temperature range from acceptance through loading.</p>
+<div class="callout"><span class="ct">Air Canada context</span>A temperature excursion in cold chain cargo can render a pharmaceutical shipment unusable, which makes continuous temperature monitoring a direct value-protection control, not just a handling preference.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A cold chain or pharmaceutical shipment is accepted requiring temperature-controlled handling.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">The shipment maintained within its required temperature range from acceptance through loading, with temperature excursions detected and escalated immediately.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Air Canada Cargo<br>
+    <span style="color:var(--text-muted);font-size:12px">Ground Handling &amp; ULD</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-cg-gh-03.png" alt="Cold Chain and Pharma Handling process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-CG-GH-03-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Temperature-controlled acceptance</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Accept shipment into temperature-controlled storage</b></td>
+<td>Cargo Warehouse Agent</td>
+<td><span class="tag champ" data-tooltip="IoT sensor tracking for cargo condition, location and cold-chain compliance. [OnAsset - evidence B]">OnAsset Vision<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Cold chain or pharma shipment</td>
+<td>Accepted shipment in controlled storage</td>
+<td>Accepted within the required temperature window at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A shipment arriving already outside its temperature range at acceptance needs immediate escalation, not silent storage</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CG-GH-03-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Storage and transport monitoring</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Monitor temperature continuously through storage</b></td>
+<td>Cargo Warehouse Agent</td>
+<td><span class="tag champ" data-tooltip="IoT sensor tracking for cargo condition, location and cold-chain compliance. [OnAsset - evidence B]">OnAsset Vision<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Stored shipment</td>
+<td>Continuous temperature monitoring</td>
+<td>Monitored continuously with zero gaps for 100 percent of cold chain shipments</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A monitoring gap during storage, even briefly, undermines the ability to demonstrate continuous compliance</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Detect and escalate temperature excursion</b></td>
+<td>Cargo Warehouse Agent</td>
+<td><span class="tag champ" data-tooltip="IoT sensor tracking for cargo condition, location and cold-chain compliance. [OnAsset - evidence B]">OnAsset Vision<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Monitoring data outside range</td>
+<td>Escalated excursion alert</td>
+<td>Escalated within 5 minutes of a detected excursion at 100 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>An excursion not immediately escalated risks the shipment being loaded despite a compromised cold chain</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CG-GH-03-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Loading confirmation</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Confirm temperature-controlled loading</b></td>
+<td>Cargo Warehouse Agent</td>
+<td><span class="tag champ" data-tooltip="Cargo warehouse and ground handling execution, ULD build-up and breakdown. [CHAMP - evidence A]">Cargospot neo Handling<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Compliant shipment</td>
+<td>Confirmed loading with maintained temperature</td>
+<td>Confirmed for 100 percent of cold chain shipments before departure at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>The temperature control obligation continues through loading and does not end at warehouse storage</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Cargo Warehouse Agent</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag champ" data-tooltip="IoT sensor tracking for cargo condition, location and cold-chain compliance. [OnAsset - evidence B]">OnAsset Vision<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag champ" data-tooltip="Cargo warehouse and ground handling execution, ULD build-up and breakdown. [CHAMP - evidence A]">Cargospot neo Handling<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Monitored continuously with zero gaps for 100 percent of cold chain shipments</li><li>Escalated within 5 minutes of a detected excursion at 100 percent</li><li>Confirmed for 100 percent of cold chain shipments before departure at 100 percent</li><li>Temperature excursion incidents resulting in shipment loss below target</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>A temperature excursion in cold chain cargo rendering a pharmaceutical shipment unusable</li><li>A monitoring gap during storage undermining the ability to demonstrate continuous compliance</li><li>An excursion not immediately escalated risking loading despite a compromised cold chain</li><li>The temperature control obligation continuing through loading, not ending at warehouse storage</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../air-canada-cargo/ground-handling-uld/ac-cg-gh-02/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">ULD Build Up and Load Planning</span></a>
+  <a class="next" href="../../../air-canada-cargo/ground-handling-uld/ac-cg-gh-04/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Cargo Transfer and Interline Handover</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

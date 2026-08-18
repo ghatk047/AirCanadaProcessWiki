@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Cargo Security Screening Compliance &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Cargo Security Screening Compliance.">
+<title>AC-CG-CS-05 Cargo Security Screening Compliance &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-CG-CS-05 Cargo Security Screening Compliance.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../air-canada-cargo/customs-pact-dangerous-goods/ac-cg-cs-04/",next:"../../../air-canada-cargo/cargo-revenue-performance/ac-cg-cp-01/"};
@@ -129,14 +129,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Air Canada Cargo</a><span class="sep">&rsaquo;</span><a href="../">Customs, PACT &amp; Dangerous Goods</a><span class="sep">&rsaquo;</span><span class="cur">AC-CG-CS-05</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CG-CS-05" title="Click to copy the process ID">
     AC-CG-CS-05<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Cargo Security Screening Compliance</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Cargo Security Screening Compliance</h1>
+<p class="lede" id="overview">Cargo security screening is applied in compliance with regulatory requirements, confirming a shipment has undergone required screening before it can be loaded onto a passenger or all-cargo aircraft.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Cargo security screening on a passenger aircraft carries a materially higher regulatory bar than screening for an all-cargo freighter, given the number of passengers whose safety depends on the same hold.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A cargo shipment requires security screening ahead of loading.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A shipment confirmed to have passed required security screening, cleared for loading, or held pending resolution.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Air Canada Cargo<br>
+    <span style="color:var(--text-muted);font-size:12px">Customs, PACT &amp; Dangerous Goods</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-cg-cs-05.png" alt="Cargo Security Screening Compliance process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-CG-CS-05-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Screening requirement determination</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Determine screening requirement</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Shipment and aircraft type</td>
+<td>Determined screening requirement</td>
+<td>Determined for 100 percent of shipments before screening at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Passenger aircraft carry a materially higher screening bar than an all-cargo freighter</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CG-CS-05-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Screening execution</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Execute required security screening</b></td>
+<td>Cargo Warehouse Agent</td>
+<td><span class="tag champ" data-tooltip="Cargo warehouse and ground handling execution, ULD build-up and breakdown. [CHAMP - evidence A]">Cargospot neo Handling<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Determined requirement</td>
+<td>Screening result</td>
+<td>Executed for 100 percent of shipments meeting the determined requirement at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Screening method and equipment availability can vary by station, especially at smaller outstations</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Resolve a screening alert</b></td>
+<td>Cargo Warehouse Agent</td>
+<td><span class="tag champ" data-tooltip="Cargo warehouse and ground handling execution, ULD build-up and breakdown. [CHAMP - evidence A]">Cargospot neo Handling<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Flagged screening alert</td>
+<td>Resolved alert</td>
+<td>Resolved before the shipment can proceed at 100 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>An unresolved screening alert has to hold the shipment regardless of flight timing pressure</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CG-CS-05-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Clearance confirmation</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Confirm screening clearance for loading</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Resolved screening</td>
+<td>Confirmed clearance</td>
+<td>Confirmed before physical loading begins at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Loading without confirmed screening clearance is a direct security compliance violation</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Cargo Compliance Agent</span><span class="lane-steps">1.1 3.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Cargo Warehouse Agent</span><span class="lane-steps">2.1 2.2</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag champ" data-tooltip="Cargo warehouse and ground handling execution, ULD build-up and breakdown. [CHAMP - evidence A]">Cargospot neo Handling<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Determined for 100 percent of shipments before screening at 100 percent</li><li>Executed for 100 percent of shipments meeting the determined requirement at 100 percent</li><li>Resolved before the shipment can proceed at 100 percent</li><li>Zero shipments loaded without confirmed screening clearance</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Passenger aircraft carrying a materially higher regulatory screening bar than an all-cargo freighter</li><li>An unresolved screening alert having to hold the shipment regardless of flight timing pressure</li><li>Screening method and equipment availability varying by station, especially at smaller outstations</li><li>Loading without confirmed screening clearance constituting a direct security compliance violation</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../air-canada-cargo/customs-pact-dangerous-goods/ac-cg-cs-04/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Restricted and Embargoed Goods Screening</span></a>
+  <a class="next" href="../../../air-canada-cargo/cargo-revenue-performance/ac-cg-cp-01/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Cargo Revenue Accounting and CASS Settlement</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

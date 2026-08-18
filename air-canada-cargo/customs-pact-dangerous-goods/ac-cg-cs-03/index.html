@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Dangerous Goods Acceptance and Documentation &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Dangerous Goods Acceptance and Documentation.">
+<title>AC-CG-CS-03 Dangerous Goods Acceptance and Documentation &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-CG-CS-03 Dangerous Goods Acceptance and Documentation.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../air-canada-cargo/customs-pact-dangerous-goods/ac-cg-cs-02/",next:"../../../air-canada-cargo/customs-pact-dangerous-goods/ac-cg-cs-04/"};
@@ -129,14 +129,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Air Canada Cargo</a><span class="sep">&rsaquo;</span><a href="../">Customs, PACT &amp; Dangerous Goods</a><span class="sep">&rsaquo;</span><span class="cur">AC-CG-CS-03</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CG-CS-03" title="Click to copy the process ID">
     AC-CG-CS-03<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Dangerous Goods Acceptance and Documentation</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Dangerous Goods Acceptance and Documentation</h1>
+<p class="lede" id="overview">Dangerous goods are accepted and documented in accordance with IATA dangerous goods regulations, confirming correct classification, packaging and labelling before the shipment is loaded.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Dangerous goods acceptance is one of the highest-consequence checks in the entire cargo operation, since an incorrectly classified or improperly packaged shipment loaded onto an aircraft is a direct safety hazard rather than a compliance technicality.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A shipment containing dangerous goods is presented for acceptance.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">Dangerous goods correctly classified, documented and accepted, or declined where the shipment does not meet regulatory requirements.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Air Canada Cargo<br>
+    <span style="color:var(--text-muted);font-size:12px">Customs, PACT &amp; Dangerous Goods</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-cg-cs-03.png" alt="Dangerous Goods Acceptance and Documentation process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-CG-CS-03-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Classification verification</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Verify dangerous goods classification</b></td>
+<td>Dangerous Goods Agent</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Shipper&#x27;s declaration for dangerous goods</td>
+<td>Verified classification</td>
+<td>Verified for 100 percent of dangerous goods shipments at 100 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Misclassification by the shipper, whether intentional or accidental, is the primary risk this step guards against</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CG-CS-03-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Packaging and labelling inspection</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Inspect packaging and labelling</b></td>
+<td>Dangerous Goods Agent</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Verified classification</td>
+<td>Inspection findings</td>
+<td>Inspected for 100 percent of dangerous goods shipments at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Packaging and labelling standards are extremely specific and easy to fail on a technicality that still matters for safety</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Confirm aircraft loading compatibility</b></td>
+<td>Dangerous Goods Agent</td>
+<td><span class="tag datalink" data-tooltip="Load planning, trim sheet and final loadsheet issue to the flight deck. [Multiple - evidence C]">Weight and Balance System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Classified and inspected shipment</td>
+<td>Confirmed loading compatibility</td>
+<td>Confirmed before acceptance for 100 percent of dangerous goods at 100 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Certain dangerous goods classes are incompatible with each other or with specific aircraft loading positions</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CG-CS-03-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Acceptance decision</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Accept or decline the shipment</b></td>
+<td>Dangerous Goods Agent</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Confirmed compatibility</td>
+<td>Accepted or declined shipment</td>
+<td>Decision documented for 100 percent of dangerous goods shipments at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A shipment accepted despite a marginal compliance gap is a safety exposure, not a commercial trade-off</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Dangerous Goods Agent</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag datalink" data-tooltip="Load planning, trim sheet and final loadsheet issue to the flight deck. [Multiple - evidence C]">Weight and Balance System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Verified for 100 percent of dangerous goods shipments at 100 percent</li><li>Inspected for 100 percent of dangerous goods shipments at 100 percent</li><li>Confirmed before acceptance for 100 percent of dangerous goods at 100 percent</li><li>Zero dangerous goods incidents attributable to acceptance process failure</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>An incorrectly classified or improperly packaged shipment loaded onto an aircraft being a direct safety hazard</li><li>Misclassification by the shipper, whether intentional or accidental, being the primary risk to guard against</li><li>Certain dangerous goods classes being incompatible with each other or with specific loading positions</li><li>A shipment accepted despite a marginal compliance gap constituting a safety exposure, not a trade-off</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../air-canada-cargo/customs-pact-dangerous-goods/ac-cg-cs-02/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Export and Import Customs Declaration</span></a>
+  <a class="next" href="../../../air-canada-cargo/customs-pact-dangerous-goods/ac-cg-cs-04/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Restricted and Embargoed Goods Screening</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

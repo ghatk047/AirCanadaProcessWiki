@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Cargo Claims and Damage Settlement &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Cargo Claims and Damage Settlement.">
+<title>AC-CG-CP-03 Cargo Claims and Damage Settlement &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-CG-CP-03 Cargo Claims and Damage Settlement.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../air-canada-cargo/cargo-revenue-performance/ac-cg-cp-02/",next:"../../../air-canada-cargo/cargo-revenue-performance/ac-cg-cp-04/"};
@@ -129,14 +129,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Air Canada Cargo</a><span class="sep">&rsaquo;</span><a href="../">Cargo Revenue &amp; Performance</a><span class="sep">&rsaquo;</span><span class="cur">AC-CG-CP-03</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CG-CP-03" title="Click to copy the process ID">
     AC-CG-CP-03<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Cargo Claims and Damage Settlement</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Cargo Claims and Damage Settlement</h1>
+<p class="lede" id="overview">A cargo damage or loss claim is investigated and settled within applicable liability limits, distinct from a passenger baggage claim but governed by comparable international liability conventions.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Cargo liability limits and documentation standards under international convention are distinct from the passenger baggage framework in AC-CX-CR-05, and cargo claims often involve materially higher declared values that warrant a correspondingly more rigorous documentation standard.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A consignee or shipper submits a claim for cargo damage or loss.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A settled claim within applicable liability limits, or a documented reason for a reduced or denied settlement.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Air Canada Cargo<br>
+    <span style="color:var(--text-muted);font-size:12px">Cargo Revenue &amp; Performance</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-cg-cp-03.png" alt="Cargo Claims and Damage Settlement process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-CG-CP-03-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Claim intake</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Receive and register the cargo claim</b></td>
+<td>Cargo Claims Agent</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Shipper or consignee claim submission</td>
+<td>Registered claim</td>
+<td>Registered within 1 business day of submission at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A claim not correctly linked to its original air waybill and handling record loses supporting context</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CG-CP-03-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Liability assessment</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Assess claim against liability convention limits</b></td>
+<td>Cargo Claims Agent</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Registered claim and declared value</td>
+<td>Assessed liability position</td>
+<td>Assessed within 15 business days of registration at 90 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Cargo claims often involve higher declared values than baggage claims, warranting more rigorous documentation review</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Investigate cause of damage or loss</b></td>
+<td>Cargo Claims Agent</td>
+<td><span class="tag champ" data-tooltip="Cargo warehouse and ground handling execution, ULD build-up and breakdown. [CHAMP - evidence A]">Cargospot neo Handling<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Assessed claim</td>
+<td>Investigated cause</td>
+<td>Investigated within the assessment window for 100 percent of material claims at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Investigation depends on handling records across every station the shipment passed through</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CG-CP-03-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Settlement</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Settle the claim</b></td>
+<td>Cargo Claims Agent</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Investigated and documented claim</td>
+<td>Settlement payment or documented denial</td>
+<td>Settled within 30 days of complete documentation at 90 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A settlement delay compounds commercial relationship damage with the shipper or forwarder</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Cargo Claims Agent</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag champ" data-tooltip="Cargo warehouse and ground handling execution, ULD build-up and breakdown. [CHAMP - evidence A]">Cargospot neo Handling<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Registered within 1 business day of submission at 100 percent</li><li>Assessed within 15 business days of registration at 90 percent</li><li>Settled within 30 days of complete documentation at 90 percent</li><li>Settlement consistency across similar claims tracked for fairness</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Cargo claims often involving higher declared values than baggage claims, warranting more rigorous documentation review</li><li>Investigation depending on handling records across every station the shipment passed through</li><li>A claim not correctly linked to its original air waybill and handling record losing supporting context</li><li>A settlement delay compounding commercial relationship damage with the shipper or forwarder</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../air-canada-cargo/cargo-revenue-performance/ac-cg-cp-02/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Cargo Yield and Capacity Utilisation Review</span></a>
+  <a class="next" href="../../../air-canada-cargo/cargo-revenue-performance/ac-cg-cp-04/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Cargospot neo Migration Cutover Control</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

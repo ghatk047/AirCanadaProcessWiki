@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Air Waybill Booking and Rate Quotation &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Air Waybill Booking and Rate Quotation.">
+<title>AC-CG-BK-02 Air Waybill Booking and Rate Quotation &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-CG-BK-02 Air Waybill Booking and Rate Quotation.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../air-canada-cargo/capacity-booking/ac-cg-bk-01/",next:"../../../air-canada-cargo/capacity-booking/ac-cg-bk-03/"};
@@ -129,14 +129,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Air Canada Cargo</a><span class="sep">&rsaquo;</span><a href="../">Capacity &amp; Booking</a><span class="sep">&rsaquo;</span><span class="cur">AC-CG-BK-02</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CG-BK-02" title="Click to copy the process ID">
     AC-CG-BK-02<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Air Waybill Booking and Rate Quotation</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Air Waybill Booking and Rate Quotation</h1>
+<p class="lede" id="overview">An air waybill booking is accepted and rate-quoted, capturing shipment details and confirming space against allocated capacity in Cargospot neo.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Cargo booking behaves differently from passenger booking in one important way: cargo weight and dimensions are often estimates at time of booking and get finalised only at physical acceptance, which creates a reconciliation step passenger booking does not need.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A freight forwarder or shipper submits a booking request.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A confirmed air waybill booking with quoted rate and confirmed space, or a documented reason booking could not be confirmed.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Air Canada Cargo<br>
+    <span style="color:var(--text-muted);font-size:12px">Capacity &amp; Booking</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-cg-bk-02.png" alt="Air Waybill Booking and Rate Quotation process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-CG-BK-02-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Booking request intake</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Receive booking request</b></td>
+<td>Cargo Booking Agent</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Shipper or forwarder request with shipment details</td>
+<td>Registered booking request</td>
+<td>Registered within 1 business day of receipt at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Declared weight and dimensions at booking are often estimates rather than final figures</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CG-BK-02-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Rate quotation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Quote applicable rate</b></td>
+<td>Cargo Booking Agent</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Registered request and rate card</td>
+<td>Quoted rate</td>
+<td>Quoted within 4 hours of registration at 90 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Rate quotation has to reflect current capacity scarcity, which changes as the flight fills</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Confirm space against allocated capacity</b></td>
+<td>Cargo Booking Agent</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Quoted rate and requested space</td>
+<td>Confirmed or waitlisted space</td>
+<td>Confirmed within 4 hours of quotation at 90 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Space confirmation against estimated weight and dimensions can require adjustment once actual figures are known</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CG-BK-02-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Space confirmation</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Issue confirmed air waybill booking</b></td>
+<td>Cargo Booking Agent</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Confirmed space</td>
+<td>Issued booking confirmation</td>
+<td>Issued within 1 business day of confirmation at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A booking issued on estimated figures may need revision once the shipment is physically presented</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Cargo Booking Agent</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Registered within 1 business day of receipt at 100 percent</li><li>Quoted within 4 hours of registration at 90 percent</li><li>Confirmed within 4 hours of quotation at 90 percent</li><li>Booking-to-actual weight variance below target at acceptance</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Declared weight and dimensions at booking being estimates that differ from the figures at physical acceptance</li><li>Rate quotation not reflecting current capacity scarcity as the flight fills between quote and confirmation</li><li>Space confirmed against estimated figures requiring adjustment once actual figures are known</li><li>A booking issued on estimated figures needing revision once the shipment is physically presented</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../air-canada-cargo/capacity-booking/ac-cg-bk-01/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Cargo Capacity Forecast and Allocation</span></a>
+  <a class="next" href="../../../air-canada-cargo/capacity-booking/ac-cg-bk-03/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Freighter Network Capacity Management</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

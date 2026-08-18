@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Cargo Charter and Block Space Agreement &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Cargo Charter and Block Space Agreement.">
+<title>AC-CG-BK-05 Cargo Charter and Block Space Agreement &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-CG-BK-05 Cargo Charter and Block Space Agreement.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../air-canada-cargo/capacity-booking/ac-cg-bk-04/",next:"../../../air-canada-cargo/ground-handling-uld/ac-cg-gh-01/"};
@@ -129,14 +129,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Air Canada Cargo</a><span class="sep">&rsaquo;</span><a href="../">Capacity &amp; Booking</a><span class="sep">&rsaquo;</span><span class="cur">AC-CG-BK-05</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CG-BK-05" title="Click to copy the process ID">
     AC-CG-BK-05<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Cargo Charter and Block Space Agreement</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Cargo Charter and Block Space Agreement</h1>
+<p class="lede" id="overview">A charter or block space agreement is negotiated and managed for a customer requiring dedicated or committed cargo capacity outside standard spot booking.</p>
+<div class="callout"><span class="ct">Air Canada context</span>A block space commitment trades pricing certainty for the customer against a capacity commitment for Air Canada Cargo that has to be honoured even if spot market rates move more favourably during the agreement period.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A customer requests a charter or block space agreement for committed cargo capacity.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A negotiated agreement with committed capacity terms, managed against actual utilisation through the agreement period.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Air Canada Cargo<br>
+    <span style="color:var(--text-muted);font-size:12px">Capacity &amp; Booking</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-cg-bk-05.png" alt="Cargo Charter and Block Space Agreement process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-CG-BK-05-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Agreement negotiation</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Negotiate charter or block space terms</b></td>
+<td>Cargo Sales Manager</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Customer requirement and capacity availability</td>
+<td>Negotiated agreement terms</td>
+<td>Negotiated within the customer&#x27;s required timeline at 90 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Committing capacity ahead trades away potential spot market upside if rates rise during the agreement period</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CG-BK-05-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Capacity commitment</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Commit capacity against the agreement</b></td>
+<td>Cargo Capacity Planner</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Negotiated terms</td>
+<td>Committed capacity in the allocation system</td>
+<td>Committed within 5 business days of agreement signing at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Committed capacity has to be correctly protected from being sold on the spot market to another customer</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Monitor customer utilisation against commitment</b></td>
+<td>Cargo Sales Manager</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Committed capacity and actual bookings</td>
+<td>Utilisation tracking</td>
+<td>Tracked each period for 100 percent of active agreements</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Persistent under-utilisation against a committed block represents unsold capacity that could have gone to the spot market</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CG-BK-05-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Utilisation management</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Review and renew or adjust the agreement</b></td>
+<td>Cargo Sales Manager</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Utilisation history</td>
+<td>Renewal or adjustment decision</td>
+<td>Reviewed before agreement expiry at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A renewal decided without reviewing actual utilisation risks repeating an underperforming commitment</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Cargo Sales Manager</span><span class="lane-steps">1.1 2.2 3.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Cargo Capacity Planner</span><span class="lane-steps">2.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Negotiated within the customer&#x27;s required timeline at 90 percent</li><li>Committed within 5 business days of agreement signing at 100 percent</li><li>Tracked each period for 100 percent of active agreements</li><li>Utilisation against committed capacity meeting target across active agreements</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Committing capacity ahead trading away potential spot market upside if rates rise during the agreement period</li><li>Committed capacity not being correctly protected from being sold to a different spot customer</li><li>Persistent under-utilisation against a committed block representing unsold capacity that could have gone elsewhere</li><li>A renewal decided without reviewing actual utilisation risking repeating an underperforming commitment</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../air-canada-cargo/capacity-booking/ac-cg-bk-04/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Special Cargo Acceptance and Booking</span></a>
+  <a class="next" href="../../../air-canada-cargo/ground-handling-uld/ac-cg-gh-01/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Cargo Acceptance and Warehouse Receipt</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources
