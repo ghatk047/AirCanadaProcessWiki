@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Crew Pay Calculation and Credit Reconciliation &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Crew Pay Calculation and Credit Reconciliation.">
+<title>AC-CM-CC-03 Crew Pay Calculation and Credit Reconciliation &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-CM-CC-03 Crew Pay Calculation and Credit Reconciliation.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../crew-management/crew-compliance-training-pay/ac-cm-cc-02/",next:"../../../crew-management/crew-compliance-training-pay/ac-cm-cc-04/"};
@@ -130,14 +130,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Crew Management</a><span class="sep">&rsaquo;</span><a href="../">Crew Compliance, Training &amp; Pay</a><span class="sep">&rsaquo;</span><span class="cur">AC-CM-CC-03</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CM-CC-03" title="Click to copy the process ID">
     AC-CM-CC-03<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Crew Pay Calculation and Credit Reconciliation</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Crew Pay Calculation and Credit Reconciliation</h1>
+<p class="lede" id="overview">Crew pay is calculated from actual flown and credited duty, reconciling the complex credit rules of each collective agreement against the day-of-operations record.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Crew pay calculation is one of the most complex payroll problems in the company, since credit is not simply time worked but a rules-based calculation that differs by agreement, by pairing type and by whether disruption altered the original plan.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">The recurring pay period close cycle runs, compiling actual duty against roster and credit rules.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">Accurate crew pay calculated and posted, correctly reflecting each collective agreement&#x27;s credit rules against actual duty performed.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Crew Management<br>
+    <span style="color:var(--text-muted);font-size:12px">Crew Compliance, Training &amp; Pay</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-cm-cc-03.png" alt="Crew Pay Calculation and Credit Reconciliation process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-CM-CC-03-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Actual duty compilation</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Compile actual duty against the roster</b></td>
+<td>Crew Pay Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Day-of-operations tracking data</td>
+<td>Compiled actual duty record</td>
+<td>Compiled for 100 percent of crew at pay period close at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Actual duty during a disrupted period can differ materially from the original roster in ways that need careful capture</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CC-03-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Credit calculation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Apply collective agreement credit rules</b></td>
+<td>Crew Pay Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Compiled duty and applicable agreement</td>
+<td>Calculated credit by crew member</td>
+<td>Calculated correctly against the applicable agreement at 100 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Credit rules vary meaningfully across four collective agreements and by pairing type within each</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Reconcile disruption-affected pay adjustments</b></td>
+<td>Crew Pay Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Calculated credit and disruption record</td>
+<td>Reconciled adjustments</td>
+<td>Reconciled for 100 percent of disruption-affected pairings at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Disruption pay adjustments, such as irregular operations premiums, require correctly linking back to the specific event</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CC-03-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Pay posting</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Post pay to the payroll system</b></td>
+<td>Crew Pay Analyst</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Reconciled pay calculation</td>
+<td>Posted pay</td>
+<td>Posted within the pay period close timetable at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A posting error discovered after payroll runs requires a correction cycle that delays resolution for the crew member</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Crew Pay Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Calculated correctly against the applicable agreement at 100 percent</li><li>Reconciled for 100 percent of disruption-affected pairings at 100 percent</li><li>Posted within the pay period close timetable at 100 percent</li><li>Pay dispute volume as a share of crew members below target threshold</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Credit rules varying meaningfully across four collective agreements and by pairing type within each</li><li>Disruption pay adjustments requiring correct linkage back to the specific event that caused them</li><li>A posting error discovered after payroll runs requiring a correction cycle that delays crew resolution</li><li>Actual duty during a disrupted period differing materially from the original roster in ways easy to miscapture</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../crew-management/crew-compliance-training-pay/ac-cm-cc-02/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Recurrent Training Scheduling and Compliance</span></a>
+  <a class="next" href="../../../crew-management/crew-compliance-training-pay/ac-cm-cc-04/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Collective Agreement Grievance Handling</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

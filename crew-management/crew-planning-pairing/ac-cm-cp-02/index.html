@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Pairing Optimisation Build in Jeppesen &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Pairing Optimisation Build in Jeppesen.">
+<title>AC-CM-CP-02 Pairing Optimisation Build in Jeppesen &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-CM-CP-02 Pairing Optimisation Build in Jeppesen.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../crew-management/crew-planning-pairing/ac-cm-cp-01/",next:"../../../crew-management/crew-planning-pairing/ac-cm-cp-03/"};
@@ -130,14 +130,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Crew Management</a><span class="sep">&rsaquo;</span><a href="../">Crew Planning &amp; Pairing</a><span class="sep">&rsaquo;</span><span class="cur">AC-CM-CP-02</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CM-CP-02" title="Click to copy the process ID">
     AC-CM-CP-02<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Pairing Optimisation Build in Jeppesen</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Pairing Optimisation Build in Jeppesen</h1>
+<p class="lede" id="overview">Crew pairings, the sequences of flights a crew member operates together as a work unit, are built and optimised in Jeppesen against the committed schedule.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Pairing optimisation has to satisfy flight and duty time regulation, collective agreement terms across four bargaining units, and cost efficiency simultaneously, which makes it one of the more constrained optimisation problems anywhere in the airline.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">The seasonal schedule is committed and crew planning reaches the pairing build stage.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A set of feasible, cost-optimised pairings covering the full flying requirement, ready for bid package assembly.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Crew Management<br>
+    <span style="color:var(--text-muted);font-size:12px">Crew Planning &amp; Pairing</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-cm-cp-02.png" alt="Pairing Optimisation Build in Jeppesen process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-CM-CP-02-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Pairing generation</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Generate candidate pairings from the schedule</b></td>
+<td>Crew Planning Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Committed schedule</td>
+<td>Candidate pairing set</td>
+<td>Candidates generated covering 100 percent of flying requirement</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Pairing generation for a complex hub schedule produces a very large candidate solution space</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CP-02-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Constraint validation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Validate flight and duty time compliance</b></td>
+<td>Crew Planning Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Candidate pairings</td>
+<td>Compliance-validated pairings</td>
+<td>100 percent of pairings compliant with Canadian Aviation Regulations duty limits</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Duty time rules interact with time zone crossing in ways that are easy to miscalculate manually</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Validate collective agreement compliance</b></td>
+<td>Crew Planning Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Candidate pairings</td>
+<td>Agreement-compliant pairings</td>
+<td>100 percent of pairings compliant with the applicable collective agreement</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Four different collective agreements apply to different crew groups on overlapping pairings</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CP-02-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Cost optimisation</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Optimise pairings for cost efficiency</b></td>
+<td>Crew Planning Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Compliant pairing set</td>
+<td>Cost-optimised pairing set</td>
+<td>Optimisation completed within the planning cycle at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Cost optimisation can produce pairings that are technically compliant but operationally fragile to disruption</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Crew Planning Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Candidates generated covering 100 percent of flying requirement</li><li>100 percent of pairings compliant with Canadian Aviation Regulations duty limits</li><li>100 percent of pairings compliant with the applicable collective agreement</li><li>Pairing cost efficiency against the planning target tracked each cycle</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Duty time rules interacting with time zone crossing in ways that are easy to miscalculate manually</li><li>Four different collective agreements applying to different crew groups on overlapping pairings</li><li>Cost-optimised pairings being technically compliant but operationally fragile to routine disruption</li><li>Pairing generation producing a solution space too large to fully explore within the planning window</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../crew-management/crew-planning-pairing/ac-cm-cp-01/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Crew Demand Forecasting and Establishment Planning</span></a>
+  <a class="next" href="../../../crew-management/crew-planning-pairing/ac-cm-cp-03/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Reserve Coverage and Standby Sizing</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Crew Demand Forecasting and Establishment Planning &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Crew Demand Forecasting and Establishment Planning.">
+<title>AC-CM-CP-01 Crew Demand Forecasting and Establishment Planning &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-CM-CP-01 Crew Demand Forecasting and Establishment Planning.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../flight-operations-dispatch/safety-occurrence-reporting/ac-fo-sr-06/",next:"../../../crew-management/crew-planning-pairing/ac-cm-cp-02/"};
@@ -130,14 +130,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Crew Management</a><span class="sep">&rsaquo;</span><a href="../">Crew Planning &amp; Pairing</a><span class="sep">&rsaquo;</span><span class="cur">AC-CM-CP-01</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CM-CP-01" title="Click to copy the process ID">
     AC-CM-CP-01<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Crew Demand Forecasting and Establishment Planning</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Crew Demand Forecasting and Establishment Planning</h1>
+<p class="lede" id="overview">Crew demand is forecast against the seasonal schedule and translated into an establishment plan by base, fleet type and rank, feeding recruitment and training capacity planning.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Establishment planning has to look further ahead than the season it directly serves, because recruitment and type-rating training both have lead times measured in months, not weeks.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A seasonal schedule is committed and requires a corresponding crew establishment plan.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A crew establishment plan by base and rank matched to the committed schedule&#x27;s flying requirement.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Crew Management<br>
+    <span style="color:var(--text-muted);font-size:12px">Crew Planning &amp; Pairing</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-cm-cp-01.png" alt="Crew Demand Forecasting and Establishment Planning process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-CM-CP-01-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Demand translation</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Translate committed schedule into crew flying hours</b></td>
+<td>Crew Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Committed seasonal schedule</td>
+<td>Required flying hours by fleet type and base</td>
+<td>Translated within 10 business days of schedule commitment at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Flying hour requirements do not translate linearly into headcount because of duty and rest limits</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CP-01-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Establishment calculation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Calculate required establishment by rank</b></td>
+<td>Crew Planning Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Required flying hours and duty rules</td>
+<td>Calculated establishment by base and rank</td>
+<td>Calculated for 100 percent of bases each planning cycle</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Establishment calculation has to reserve capacity for training, leave and sick absence, not just flying</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Identify gap against current establishment</b></td>
+<td>Crew Planning Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Calculated requirement and current headcount</td>
+<td>Identified gap by base and rank</td>
+<td>Gap identified within 5 business days of calculation at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A gap identified late compresses the lead time available for recruitment or training response</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CP-01-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Gap identification</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Feed gap into recruitment and training planning</b></td>
+<td>Crew Planning Analyst</td>
+<td><span class="tag hcm" data-tooltip="Talent acquisition and candidate relationship management. [Phenom - evidence B]">Phenom<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Identified gap</td>
+<td>Recruitment and training demand signal</td>
+<td>Signal delivered within 5 business days of gap identification at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Recruitment and type-rating training lead times are measured in months and cannot absorb a late signal</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Crew Planning Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag hcm" data-tooltip="Talent acquisition and candidate relationship management. [Phenom - evidence B]">Phenom<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Translated within 10 business days of schedule commitment at 100 percent</li><li>Gap identified within 5 business days of calculation at 100 percent</li><li>Signal delivered to recruitment within 5 business days of gap identification at 100 percent</li><li>Establishment gap closure rate against the planning horizon tracked</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Recruitment and type-rating training lead times being unable to absorb a late-identified gap</li><li>Establishment calculation understating the reserve needed for training, leave and sick absence</li><li>Flying hour requirements not translating linearly into headcount due to duty and rest limits</li><li>A gap identified late compressing the lead time available for any response</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../flight-operations-dispatch/safety-occurrence-reporting/ac-fo-sr-06/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">IOSA Audit Preparation and Evidence</span></a>
+  <a class="next" href="../../../crew-management/crew-planning-pairing/ac-cm-cp-02/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Pairing Optimisation Build in Jeppesen</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

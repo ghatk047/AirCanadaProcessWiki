@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Training Footprint Integration into the Crew Plan &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Training Footprint Integration into the Crew Plan.">
+<title>AC-CM-CP-06 Training Footprint Integration into the Crew Plan &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-CM-CP-06 Training Footprint Integration into the Crew Plan.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../crew-management/crew-planning-pairing/ac-cm-cp-05/",next:"../../../crew-management/rostering-bidding/ac-cm-cr-01/"};
@@ -130,14 +130,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Crew Management</a><span class="sep">&rsaquo;</span><a href="../">Crew Planning &amp; Pairing</a><span class="sep">&rsaquo;</span><span class="cur">AC-CM-CP-06</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CM-CP-06" title="Click to copy the process ID">
     AC-CM-CP-06<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Training Footprint Integration into the Crew Plan</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Training Footprint Integration into the Crew Plan</h1>
+<p class="lede" id="overview">Recurrent and initial training requirements are embedded into the crew planning and pairing cycle, protecting training slots against operational schedule pressure.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Training slots are one of the first things schedule pressure tends to squeeze, since deferring a training slot has no immediate visible operational cost the way cancelling a flight does, until the currency deadline actually arrives.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">The seasonal pairing build reaches training integration, or an individual crew member&#x27;s training currency approaches its renewal deadline.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">Training slots protected within the pairing build, with every crew member&#x27;s currency maintained ahead of its renewal deadline.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Crew Management<br>
+    <span style="color:var(--text-muted);font-size:12px">Crew Planning &amp; Pairing</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-cm-cp-06.png" alt="Training Footprint Integration into the Crew Plan process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-CM-CP-06-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Training requirement identification</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Identify individual training requirements</b></td>
+<td>Crew Planning Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Crew member currency and training record</td>
+<td>Identified training requirement by crew member</td>
+<td>Identified for 100 percent of crew members each planning cycle</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Currency deadlines are individually staggered across the crew base rather than aligned to a single date</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CP-06-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Slot embedding</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Embed training slots into the pairing build</b></td>
+<td>Crew Planning Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Identified requirements and pairing build</td>
+<td>Embedded training slots</td>
+<td>Embedded for 100 percent of due training requirements at each cycle</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Embedding a training slot can force rebuilding an otherwise efficient pairing</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Protect embedded slots against schedule pressure</b></td>
+<td>Crew Planning Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Embedded training slots</td>
+<td>Protected slots resistant to displacement</td>
+<td>Zero training slots displaced by operational pressure without a compliant rescheduling</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Training slots are one of the first things displaced under schedule pressure since the cost is not immediately visible</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CP-06-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Currency protection</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Monitor currency deadline compliance</b></td>
+<td>Crew Planning Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Protected training schedule</td>
+<td>Currency compliance status</td>
+<td>Zero crew members operating beyond their currency deadline</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>A crew member whose training is displaced too many times risks reaching their deadline without renewal</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Crew Planning Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Identified for 100 percent of crew members each planning cycle</li><li>Embedded for 100 percent of due training requirements at each cycle</li><li>Zero training slots displaced without a compliant rescheduling</li><li>Zero crew members operating beyond their currency deadline</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>A training slot&#x27;s deferral cost being invisible until the currency deadline actually arrives</li><li>Embedding a training slot forcing rebuild of an otherwise efficient pairing</li><li>A crew member whose training is displaced too many times reaching their deadline without renewal</li><li>Currency deadlines being individually staggered rather than aligned to a single manageable date</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../crew-management/crew-planning-pairing/ac-cm-cp-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Collective Agreement Rule Configuration</span></a>
+  <a class="next" href="../../../crew-management/rostering-bidding/ac-cm-cr-01/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Monthly Bid Package Publication</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

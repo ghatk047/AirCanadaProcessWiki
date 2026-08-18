@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Crew Check In and Sign On Tracking &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Crew Check In and Sign On Tracking.">
+<title>AC-CM-DO-01 Crew Check In and Sign On Tracking &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-CM-DO-01 Crew Check In and Sign On Tracking.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../crew-management/rostering-bidding/ac-cm-cr-06/",next:"../../../crew-management/day-of-operations-crew-tracking/ac-cm-do-02/"};
@@ -130,14 +130,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Crew Management</a><span class="sep">&rsaquo;</span><a href="../">Day-of-Operations Crew Tracking</a><span class="sep">&rsaquo;</span><span class="cur">AC-CM-DO-01</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CM-DO-01" title="Click to copy the process ID">
     AC-CM-DO-01<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Crew Check In and Sign On Tracking</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Crew Check In and Sign On Tracking</h1>
+<p class="lede" id="overview">Crew sign-on is tracked at each duty period, confirming a crew member has actually reported for duty against the roster and flagging any no-show or late arrival immediately.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Sign-on tracking is the bridge between the published roster and operational reality; a delay in detecting a no-show delays every recovery action that depends on knowing the crew is actually unavailable.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A crew member&#x27;s scheduled duty period begins.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">Confirmed sign-on status for every scheduled crew member, with any no-show or delay flagged for immediate action.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Crew Management<br>
+    <span style="color:var(--text-muted);font-size:12px">Day-of-Operations Crew Tracking</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-cm-do-01.png" alt="Crew Check In and Sign On Tracking process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-CM-DO-01-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Duty period monitoring</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Monitor scheduled duty period start</b></td>
+<td>Crew Tracking Coordinator</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Published roster and current time</td>
+<td>Monitored duty period status</td>
+<td>Monitored continuously for 100 percent of scheduled duty periods</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Sign-on location can vary between crew report points, which complicates uniform monitoring</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-DO-01-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Sign-on confirmation</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Confirm crew sign-on</b></td>
+<td>Crew Tracking Coordinator</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Crew member sign-on action</td>
+<td>Confirmed sign-on status</td>
+<td>Confirmed within 5 minutes of the scheduled report time at 95 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A system sign-on delay does not always mean the crew member is actually absent</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-DO-01-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Exception flagging</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Flag no-show or late arrival</b></td>
+<td>Crew Tracking Coordinator</td>
+<td><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Unconfirmed sign-on past the threshold</td>
+<td>Flagged exception</td>
+<td>Flagged within 10 minutes of the missed report time at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>A flag raised too early risks a false alarm; raised too late delays the recovery response</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Initiate crew recovery for a confirmed no-show</b></td>
+<td>Crew Tracking Coordinator</td>
+<td><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Confirmed no-show</td>
+<td>Initiated recovery via reassignment or reserve call-out</td>
+<td>Recovery initiated within 5 minutes of confirmation at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Recovery initiation timing directly determines whether the affected flight departs on schedule</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Crew Tracking Coordinator</span><span class="lane-steps">1.1 2.1 3.1 3.2</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Monitored continuously for 100 percent of scheduled duty periods</li><li>Confirmed within 5 minutes of the scheduled report time at 95 percent</li><li>Flagged within 10 minutes of the missed report time at 100 percent</li><li>No-show detection false positive rate below target</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>A delay in detecting a genuine no-show delaying every downstream recovery action</li><li>A flag raised too early producing a false alarm that consumes recovery attention unnecessarily</li><li>Sign-on location variability across report points complicating uniform, reliable monitoring</li><li>A system sign-on delay being mistaken for actual crew absence, or the reverse</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../crew-management/rostering-bidding/ac-cm-cr-06/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Roster Publication and Crew Notification</span></a>
+  <a class="next" href="../../../crew-management/day-of-operations-crew-tracking/ac-cm-do-02/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Crew Legality and Flight Duty Time Verification</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

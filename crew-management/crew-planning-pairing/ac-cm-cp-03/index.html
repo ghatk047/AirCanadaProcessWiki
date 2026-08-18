@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Reserve Coverage and Standby Sizing &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Reserve Coverage and Standby Sizing.">
+<title>AC-CM-CP-03 Reserve Coverage and Standby Sizing &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-CM-CP-03 Reserve Coverage and Standby Sizing.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../crew-management/crew-planning-pairing/ac-cm-cp-02/",next:"../../../crew-management/crew-planning-pairing/ac-cm-cp-04/"};
@@ -130,14 +130,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Crew Management</a><span class="sep">&rsaquo;</span><a href="../">Crew Planning &amp; Pairing</a><span class="sep">&rsaquo;</span><span class="cur">AC-CM-CP-03</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CM-CP-03" title="Click to copy the process ID">
     AC-CM-CP-03<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Reserve Coverage and Standby Sizing</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Reserve Coverage and Standby Sizing</h1>
+<p class="lede" id="overview">Reserve crew coverage is sized and distributed across bases to absorb sick calls, delays and irregular operations without triggering a cascading crew shortage.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Reserve sizing is a direct trade-off between cost, since reserve crew are paid without necessarily flying, and operational resilience, since insufficient reserve is what turns an isolated disruption into a cascading crew shortage.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">The seasonal pairing build is complete and reserve sizing is calculated against expected disruption volume.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A reserve coverage plan by base sized against historical disruption patterns, balancing crew cost against recovery resilience.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Crew Management<br>
+    <span style="color:var(--text-muted);font-size:12px">Crew Planning &amp; Pairing</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-cm-cp-03.png" alt="Reserve Coverage and Standby Sizing process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-CM-CP-03-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Disruption pattern analysis</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Analyse historical disruption and sick call patterns</b></td>
+<td>Crew Planning Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Historical crew disruption data by base</td>
+<td>Disruption pattern analysis by base</td>
+<td>Analysed for 100 percent of bases each planning cycle</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Disruption patterns shift seasonally and a single annual average can misrepresent a specific season&#x27;s need</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CP-03-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Reserve sizing</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Calculate reserve coverage requirement</b></td>
+<td>Crew Planning Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Disruption pattern and cost target</td>
+<td>Calculated reserve level by base</td>
+<td>Calculated for 100 percent of bases each planning cycle</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>The cost-resilience trade-off has no single objectively correct answer</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Validate reserve coverage against fatigue rules</b></td>
+<td>Crew Planning Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Calculated reserve level</td>
+<td>Fatigue-compliant reserve schedule</td>
+<td>100 percent compliant with fatigue risk management standards</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Reserve duty itself carries fatigue implications distinct from active flying duty</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CP-03-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Base distribution</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Distribute reserve across bases in the schedule</b></td>
+<td>Crew Planning Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Validated reserve plan</td>
+<td>Distributed reserve coverage in the published schedule</td>
+<td>Distributed before schedule publication at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Reserve concentrated at the wrong base leaves a different base structurally exposed to a shortage</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Crew Planning Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Analysed for 100 percent of bases each planning cycle</li><li>100 percent compliant with fatigue risk management standards</li><li>Distributed before schedule publication at 100 percent</li><li>Reserve utilisation rate against sizing assumption tracked each season</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Insufficient reserve at a specific base turning an isolated disruption into a cascading crew shortage</li><li>Reserve duty itself carrying fatigue implications distinct from active flying duty</li><li>A single annual average disruption pattern misrepresenting a specific season&#x27;s actual need</li><li>Reserve concentrated at the wrong base leaving a different base structurally exposed</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../crew-management/crew-planning-pairing/ac-cm-cp-02/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Pairing Optimisation Build in Jeppesen</span></a>
+  <a class="next" href="../../../crew-management/crew-planning-pairing/ac-cm-cp-04/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Crew Base Assignment and Transfer</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

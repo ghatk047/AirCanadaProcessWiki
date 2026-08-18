@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Recurrent Training Scheduling and Compliance &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Recurrent Training Scheduling and Compliance.">
+<title>AC-CM-CC-02 Recurrent Training Scheduling and Compliance &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-CM-CC-02 Recurrent Training Scheduling and Compliance.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../crew-management/crew-compliance-training-pay/ac-cm-cc-01/",next:"../../../crew-management/crew-compliance-training-pay/ac-cm-cc-03/"};
@@ -130,14 +130,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Crew Management</a><span class="sep">&rsaquo;</span><a href="../">Crew Compliance, Training &amp; Pay</a><span class="sep">&rsaquo;</span><span class="cur">AC-CM-CC-02</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CM-CC-02" title="Click to copy the process ID">
     AC-CM-CC-02<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Recurrent Training Scheduling and Compliance</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Recurrent Training Scheduling and Compliance</h1>
+<p class="lede" id="overview">Recurrent training is scheduled for every crew member ahead of their currency deadline, tracked through completion and confirmed against the compliance record.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Recurrent training scheduling and the currency protection process in AC-CM-CP-06 are two sides of the same requirement, one embedding the slot into the pairing build and the other tracking the individual crew member through to actual completion.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A crew member&#x27;s recurrent training cycle comes due.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">Recurrent training scheduled, completed and confirmed for every crew member before their currency deadline.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Crew Management<br>
+    <span style="color:var(--text-muted);font-size:12px">Crew Compliance, Training &amp; Pay</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-cm-cc-02.png" alt="Recurrent Training Scheduling and Compliance process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-CM-CC-02-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Training due date identification</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Identify crew members due for recurrent training</b></td>
+<td>Crew Compliance Coordinator</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Training currency records</td>
+<td>Identified due list</td>
+<td>Identified for 100 percent of crew each cycle at the correct lead time</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Due dates are individually staggered and require continuous monitoring rather than a single annual sweep</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CC-02-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Scheduling and completion tracking</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Schedule training against available slots</b></td>
+<td>Crew Compliance Coordinator</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Due list and embedded training slots</td>
+<td>Scheduled training for each crew member</td>
+<td>Scheduled before the currency deadline for 100 percent of due crew</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Available slot capacity has to be coordinated with the embedding done in AC-CM-CP-06</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Track training completion</b></td>
+<td>Crew Compliance Coordinator</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Scheduled training</td>
+<td>Confirmed completion or non-completion</td>
+<td>Tracked within 24 hours of the scheduled training date at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A crew member who misses a scheduled training slot needs immediate rescheduling before their deadline</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CC-02-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Compliance confirmation</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Confirm compliance record update</b></td>
+<td>Crew Compliance Coordinator</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Confirmed completion</td>
+<td>Updated compliance record</td>
+<td>Updated within 24 hours of completion confirmation at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A completion not promptly reflected in the compliance record risks an incorrect rostering restriction</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Crew Compliance Coordinator</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Identified for 100 percent of crew each cycle at the correct lead time</li><li>Scheduled before the currency deadline for 100 percent of due crew</li><li>Tracked within 24 hours of the scheduled training date at 100 percent</li><li>Zero crew members lapsing recurrent training currency</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Due dates being individually staggered, requiring continuous monitoring rather than a single sweep</li><li>A missed scheduled training slot needing immediate rescheduling before the currency deadline</li><li>A completion not promptly reflected in the compliance record risking an incorrect rostering restriction</li><li>Available slot capacity not being properly coordinated with the pairing-build embedding process</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../crew-management/crew-compliance-training-pay/ac-cm-cc-01/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Licence Medical and Qualification Currency Tracking</span></a>
+  <a class="next" href="../../../crew-management/crew-compliance-training-pay/ac-cm-cc-03/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Crew Pay Calculation and Credit Reconciliation</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

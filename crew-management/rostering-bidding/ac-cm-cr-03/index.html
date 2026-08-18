@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Vacation and Leave Bidding &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Vacation and Leave Bidding.">
+<title>AC-CM-CR-03 Vacation and Leave Bidding &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-CM-CR-03 Vacation and Leave Bidding.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../crew-management/rostering-bidding/ac-cm-cr-02/",next:"../../../crew-management/rostering-bidding/ac-cm-cr-04/"};
@@ -130,14 +130,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Crew Management</a><span class="sep">&rsaquo;</span><a href="../">Rostering &amp; Bidding</a><span class="sep">&rsaquo;</span><span class="cur">AC-CM-CR-03</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CM-CR-03" title="Click to copy the process ID">
     AC-CM-CR-03<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Vacation and Leave Bidding</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Vacation and Leave Bidding</h1>
+<p class="lede" id="overview">Crew vacation and other planned leave is bid and awarded separately from the monthly operational roster, coordinated against establishment capacity to avoid a leave-driven crew shortfall.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Vacation bidding awards leave months ahead of when it is taken, which means the establishment capacity assumption behind the award has to hold up over a much longer horizon than a monthly roster award does.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">The annual or seasonal vacation bidding cycle opens.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">Awarded vacation and leave periods by crew member, coordinated against establishment capacity to avoid a shortfall at any base.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Crew Management<br>
+    <span style="color:var(--text-muted);font-size:12px">Rostering &amp; Bidding</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-cm-cr-03.png" alt="Vacation and Leave Bidding process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-CM-CR-03-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Vacation bid collection</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Collect vacation bid submissions</b></td>
+<td>Crew Rostering Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Crew member vacation preferences</td>
+<td>Collected bid submissions</td>
+<td>Collected within the defined bidding window at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Vacation preferences cluster heavily around peak leisure periods, concentrating demand on the same weeks</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CR-03-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Capacity-constrained award</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Assess capacity constraint by base and period</b></td>
+<td>Crew Rostering Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Bid submissions and establishment plan</td>
+<td>Capacity assessment by period</td>
+<td>Assessed for 100 percent of bases before award processing at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A capacity assessment made months ahead can be invalidated by a later establishment change</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Award vacation by seniority within capacity limits</b></td>
+<td>Crew Rostering Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Capacity assessment and seniority order</td>
+<td>Awarded vacation periods</td>
+<td>Awarded within the capacity constraint at 100 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Peak-period demand clustering means many bids compete for the same limited capacity window</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CR-03-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Confirmation</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Confirm awarded vacation to crew members</b></td>
+<td>Crew Rostering Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Awarded periods</td>
+<td>Confirmed vacation award</td>
+<td>Confirmed within the required lead time before the vacation year at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A confirmed award that is later revised due to a capacity change is highly disruptive to personal planning</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Crew Rostering Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Collected within the defined bidding window at 100 percent</li><li>Assessed for 100 percent of bases before award processing at 100 percent</li><li>Awarded within the capacity constraint at 100 percent</li><li>Confirmed within the required lead time before the vacation year at 100 percent</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>A capacity assessment made months ahead being invalidated by a later establishment change</li><li>Peak-period demand clustering meaning many bids compete for the same limited capacity window</li><li>A confirmed vacation award later being revised due to a capacity change, disrupting personal planning</li><li>Vacation award commitments made far ahead of the leave being taken, extending the risk horizon</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../crew-management/rostering-bidding/ac-cm-cr-02/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Preferential Bidding and Roster Award</span></a>
+  <a class="next" href="../../../crew-management/rostering-bidding/ac-cm-cr-04/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Roster Adjustment and Trip Trade</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

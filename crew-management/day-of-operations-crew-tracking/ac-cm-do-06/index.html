@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Crew Positioning and Deadhead Booking &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Crew Positioning and Deadhead Booking.">
+<title>AC-CM-DO-06 Crew Positioning and Deadhead Booking &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-CM-DO-06 Crew Positioning and Deadhead Booking.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../crew-management/day-of-operations-crew-tracking/ac-cm-do-05/",next:"../../../crew-management/crew-compliance-training-pay/ac-cm-cc-01/"};
@@ -130,14 +130,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Crew Management</a><span class="sep">&rsaquo;</span><a href="../">Day-of-Operations Crew Tracking</a><span class="sep">&rsaquo;</span><span class="cur">AC-CM-DO-06</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CM-DO-06" title="Click to copy the process ID">
     AC-CM-DO-06<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Crew Positioning and Deadhead Booking</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Crew Positioning and Deadhead Booking</h1>
+<p class="lede" id="overview">Crew are positioned as passengers, deadheading, on a revenue or ferry flight to reach their next assignment or return to base, coordinated within the constraints of the operating flight&#x27;s capacity.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Deadhead positioning competes directly with revenue passenger capacity on the same flight, which means a crew positioning need discovered late can be blocked by a flight that has already sold out.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A pairing or reassignment requires a crew member to be positioned to a different location without operating the flight.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">Crew correctly positioned to their required location, booked within the operating flight&#x27;s capacity and reflected accurately in the pairing record.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Crew Management<br>
+    <span style="color:var(--text-muted);font-size:12px">Day-of-Operations Crew Tracking</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-cm-do-06.png" alt="Crew Positioning and Deadhead Booking process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-CM-DO-06-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Positioning requirement identification</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Identify crew positioning requirement</b></td>
+<td>Crew Tracking Coordinator</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Pairing or reassignment plan</td>
+<td>Identified positioning need</td>
+<td>Identified within the pairing planning cycle or immediately for a disruption need</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A positioning need identified late competes with revenue inventory that is already largely sold</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-DO-06-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Capacity booking</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Book crew position within flight capacity</b></td>
+<td>Crew Tracking Coordinator</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Positioning need and flight availability</td>
+<td>Booked crew position</td>
+<td>Booked within capacity for 95 percent of positioning needs</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A flight with no available capacity requires an alternative positioning option to be found</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Coordinate with revenue management on capacity impact</b></td>
+<td>Crew Tracking Coordinator</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Booked crew position</td>
+<td>Confirmed capacity impact acknowledged</td>
+<td>Acknowledged within the standard coordination process at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Crew positioning displaces a seat that revenue management would otherwise sell</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-DO-06-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Confirmation</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Confirm positioning in the pairing record</b></td>
+<td>Crew Tracking Coordinator</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Confirmed booking</td>
+<td>Updated pairing record</td>
+<td>Updated within 24 hours of booking confirmation at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A pairing record that does not reflect actual deadhead positioning misstates the crew member&#x27;s duty time</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Crew Tracking Coordinator</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Booked within capacity for 95 percent of positioning needs</li><li>Identified within the pairing planning cycle or immediately for a disruption need</li><li>Acknowledged within the standard coordination process at 100 percent</li><li>Updated within 24 hours of booking confirmation at 100 percent</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>A late-identified positioning need competing with revenue inventory that is already largely sold</li><li>A flight with no available capacity requiring an alternative positioning option under time pressure</li><li>A pairing record that does not reflect actual deadhead positioning, misstating duty time</li><li>Crew positioning displacing revenue seat inventory without visibility to revenue management</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../crew-management/day-of-operations-crew-tracking/ac-cm-do-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Crew Hotel and Transport Coordination</span></a>
+  <a class="next" href="../../../crew-management/crew-compliance-training-pay/ac-cm-cc-01/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Licence Medical and Qualification Currency Tracking</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources
