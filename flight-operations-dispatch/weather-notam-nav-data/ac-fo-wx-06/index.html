@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Runway Condition and Performance Assessment &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Runway Condition and Performance Assessment.">
+<title>AC-FO-WX-06 Runway Condition and Performance Assessment &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-FO-WX-06 Runway Condition and Performance Assessment.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../flight-operations-dispatch/weather-notam-nav-data/ac-fo-wx-05/",next:"../../../flight-operations-dispatch/ops-control-irrop-recovery/ac-fo-oc-01/"};
@@ -130,14 +130,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Flight Operations &amp; Dispatch</a><span class="sep">&rsaquo;</span><a href="../">Weather, NOTAM &amp; Nav Data</a><span class="sep">&rsaquo;</span><span class="cur">AC-FO-WX-06</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-FO-WX-06" title="Click to copy the process ID">
     AC-FO-WX-06<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Runway Condition and Performance Assessment</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Runway Condition and Performance Assessment</h1>
+<p class="lede" id="overview">Runway condition reports and braking action assessments are incorporated into performance calculations for departure and arrival, adjusting for contaminated runway surfaces.</p>
+<div class="callout"><span class="ct">Air Canada context</span>A performance calculation run against an outdated runway condition report can understate the actual stopping distance required, which makes report currency a direct safety input rather than an administrative detail.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A runway condition report is issued or updated for a departure or arrival airport with contamination present.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">Departure and arrival performance calculations correctly adjusted for actual runway surface condition.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Flight Operations &amp; Dispatch<br>
+    <span style="color:var(--text-muted);font-size:12px">Weather, NOTAM &amp; Nav Data</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-fo-wx-06.png" alt="Runway Condition and Performance Assessment process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-FO-WX-06-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Condition report retrieval</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Retrieve current runway condition report</b></td>
+<td>Flight Dispatcher</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Departure or arrival airport</td>
+<td>Retrieved current condition report</td>
+<td>Retrieved before performance calculation at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Runway condition reports can go stale quickly during active precipitation</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-WX-06-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Performance adjustment</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Adjust performance calculation for surface condition</b></td>
+<td>Flight Dispatcher</td>
+<td><span class="tag datalink" data-tooltip="Load planning, trim sheet and final loadsheet issue to the flight deck. [Multiple - evidence C]">Weight and Balance System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Condition report and planned weight</td>
+<td>Adjusted performance calculation</td>
+<td>Adjusted for 100 percent of flights with a reported contamination</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Braking action assessments can vary between different parts of the same runway</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Assess weight or fuel adjustment requirement</b></td>
+<td>Flight Dispatcher</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Adjusted performance calculation</td>
+<td>Determined weight or fuel adjustment if required</td>
+<td>Determined before dispatch release for 100 percent of affected flights</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A performance-limiting condition can require a weight reduction that displaces payload</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-WX-06-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Crew communication</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Communicate condition and adjustment to the crew</b></td>
+<td>Flight Dispatcher</td>
+<td><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Determined adjustment</td>
+<td>Delivered crew communication</td>
+<td>Delivered before departure or descent planning at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A condition report update after the crew briefing requires an active follow-up communication</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Flight Dispatcher</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag datalink" data-tooltip="Load planning, trim sheet and final loadsheet issue to the flight deck. [Multiple - evidence C]">Weight and Balance System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Retrieved before performance calculation at 100 percent</li><li>Adjusted for 100 percent of flights with a reported contamination</li><li>Determined before dispatch release for 100 percent of affected flights</li><li>Delivered before departure or descent planning at 100 percent</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>A performance calculation run against an outdated runway condition report understating stopping distance</li><li>Braking action assessments varying between different parts of the same runway</li><li>A performance-limiting condition requiring a weight reduction that displaces revenue payload</li><li>A condition report updating after the crew briefing without an active follow-up communication</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../flight-operations-dispatch/weather-notam-nav-data/ac-fo-wx-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Winter Operations De Icing Coordination</span></a>
+  <a class="next" href="../../../flight-operations-dispatch/ops-control-irrop-recovery/ac-fo-oc-01/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Flight Watch and Day of Operation Monitoring</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Flight Watch and Day of Operation Monitoring &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Flight Watch and Day of Operation Monitoring.">
+<title>AC-FO-OC-01 Flight Watch and Day of Operation Monitoring &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-FO-OC-01 Flight Watch and Day of Operation Monitoring.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../flight-operations-dispatch/weather-notam-nav-data/ac-fo-wx-06/",next:"../../../flight-operations-dispatch/ops-control-irrop-recovery/ac-fo-oc-02/"};
@@ -130,14 +130,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Flight Operations &amp; Dispatch</a><span class="sep">&rsaquo;</span><a href="../">Ops Control &amp; IRROP Recovery</a><span class="sep">&rsaquo;</span><span class="cur">AC-FO-OC-01</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-FO-OC-01" title="Click to copy the process ID">
     AC-FO-OC-01<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Flight Watch and Day of Operation Monitoring</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Flight Watch and Day of Operation Monitoring</h1>
+<p class="lede" id="overview">Flight watch monitors every active flight through its day of operation, from off-block to on-block, tracking status against plan and identifying irregularities as early as possible.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Flight watch is the baseline situational awareness function everything else in operations control depends on; a monitoring gap here delays every downstream recovery decision by exactly as long as the gap lasted.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A flight is off-block and in active flight watch monitoring.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">Continuous, current status awareness of every active flight, with an irregularity detected and escalated as soon as it emerges.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Flight Operations &amp; Dispatch<br>
+    <span style="color:var(--text-muted);font-size:12px">Ops Control &amp; IRROP Recovery</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-fo-oc-01.png" alt="Flight Watch and Day of Operation Monitoring process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-FO-OC-01-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Status monitoring</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Monitor flight status against plan</b></td>
+<td>Operations Control Analyst</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Active flight datalink and ATC position reports</td>
+<td>Current status against planned progress</td>
+<td>Monitored continuously for 100 percent of active flights</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Datalink coverage gaps over oceanic and remote airspace create monitoring blind spots</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-OC-01-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Irregularity detection</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Detect deviation from plan</b></td>
+<td>Operations Control Analyst</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Current status and planned progress</td>
+<td>Detected deviation flag</td>
+<td>Material deviations detected within 5 minutes at 95 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A gradual deviation is harder to detect promptly than a sudden, discrete event</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Assess deviation severity</b></td>
+<td>Operations Control Analyst</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Detected deviation</td>
+<td>Severity classification</td>
+<td>Classified within 5 minutes of detection at 100 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Severity classification under uncertainty tends toward caution, which can over-trigger escalation</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-OC-01-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Escalation</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Escalate to duty manager where required</b></td>
+<td>Operations Control Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Classified deviation</td>
+<td>Escalated case to the duty manager</td>
+<td>Escalated within 10 minutes of classification at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Escalation volume during a widespread event can exceed what duty management can individually review</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Operations Control Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Monitored continuously for 100 percent of active flights</li><li>Material deviations detected within 5 minutes at 95 percent</li><li>Escalated within 10 minutes of classification at 100 percent</li><li>Datalink coverage gap duration tracked and minimised</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Datalink coverage gaps over oceanic and remote airspace creating monitoring blind spots</li><li>A gradual deviation being detected later than a sudden, discrete event</li><li>Escalation volume during a widespread event exceeding what duty management can individually review</li><li>Severity classification under uncertainty defaulting to caution and over-triggering escalation</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../flight-operations-dispatch/weather-notam-nav-data/ac-fo-wx-06/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Runway Condition and Performance Assessment</span></a>
+  <a class="next" href="../../../flight-operations-dispatch/ops-control-irrop-recovery/ac-fo-oc-02/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Irregular Operations Declaration and Recovery Plan</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Diversion Management and Handling &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Diversion Management and Handling.">
+<title>AC-FO-OC-04 Diversion Management and Handling &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-FO-OC-04 Diversion Management and Handling.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../flight-operations-dispatch/ops-control-irrop-recovery/ac-fo-oc-03/",next:"../../../flight-operations-dispatch/ops-control-irrop-recovery/ac-fo-oc-05/"};
@@ -130,14 +130,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Flight Operations &amp; Dispatch</a><span class="sep">&rsaquo;</span><a href="../">Ops Control &amp; IRROP Recovery</a><span class="sep">&rsaquo;</span><span class="cur">AC-FO-OC-04</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-FO-OC-04" title="Click to copy the process ID">
     AC-FO-OC-04<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Diversion Management and Handling</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Diversion Management and Handling</h1>
+<p class="lede" id="overview">A flight diversion is managed from the decision point through ground handling at the unplanned airport, coordinating a station that was not expecting to receive the flight.</p>
+<div class="callout"><span class="ct">Air Canada context</span>A diversion airport frequently has none of the standard Air Canada ground infrastructure a normal station has, which means almost everything after the safe landing has to be improvised against a station relationship that did not previously exist for this flight.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A flight crew declares or operations control identifies the need for a diversion.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A safely completed diversion with ground handling, passenger care and onward recovery coordinated at the diversion airport.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Flight Operations &amp; Dispatch<br>
+    <span style="color:var(--text-muted);font-size:12px">Ops Control &amp; IRROP Recovery</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-fo-oc-04.png" alt="Diversion Management and Handling process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-FO-OC-04-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Diversion coordination</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Confirm diversion airport and coordinate with the crew</b></td>
+<td>Operations Control Duty Manager</td>
+<td><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Diversion decision</td>
+<td>Confirmed diversion airport</td>
+<td>Confirmed within 10 minutes of the diversion decision at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>The diversion airport may not have been part of the original flight plan&#x27;s alternate selection</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-OC-04-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Ground handling arrangement</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Arrange ground handling at the diversion airport</b></td>
+<td>Operations Control Duty Manager</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Confirmed diversion airport</td>
+<td>Arranged ground handling agreement</td>
+<td>Arranged before or immediately upon arrival at 90 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A station with no existing Air Canada handling relationship requires arrangement from scratch under time pressure</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Coordinate passenger care at the diversion airport</b></td>
+<td>Operations Control Duty Manager</td>
+<td><span class="tag amadeus" data-tooltip="Automated IRROP re-accommodation. Replaced largely manual disruption handling pre-2020. [Amadeus - evidence A]">Amadeus Passenger Recovery<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Diverted passenger complement</td>
+<td>Arranged passenger care</td>
+<td>Care arranged within regulatory timeframes for 100 percent of diversions</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Passenger care standards at an unplanned station are harder to guarantee than at a normal operating station</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-OC-04-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Onward recovery</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Plan onward recovery from the diversion airport</b></td>
+<td>Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Diverted aircraft and passengers</td>
+<td>Onward recovery plan</td>
+<td>Recovery plan developed within 60 minutes of arrival at 85 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Onward recovery competes with continuing the aircraft&#x27;s original rotation from a station not designed to support either</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Operations Control Duty Manager</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag amadeus" data-tooltip="Automated IRROP re-accommodation. Replaced largely manual disruption handling pre-2020. [Amadeus - evidence A]">Amadeus Passenger Recovery<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Confirmed within 10 minutes of the diversion decision at 100 percent</li><li>Arranged before or immediately upon arrival at 90 percent</li><li>Care arranged within regulatory timeframes for 100 percent of diversions</li><li>Recovery plan developed within 60 minutes of arrival at 85 percent</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>A diversion airport having none of the standard ground infrastructure a normal station provides</li><li>Passenger care standards being harder to guarantee at a station not designed to support this flight</li><li>Ground handling arrangement having to be built from scratch under time pressure at an unfamiliar station</li><li>Onward recovery competing with the aircraft&#x27;s original rotation for a resolution the station cannot easily support</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../flight-operations-dispatch/ops-control-irrop-recovery/ac-fo-oc-03/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Aircraft Swap and Rotation Recovery</span></a>
+  <a class="next" href="../../../flight-operations-dispatch/ops-control-irrop-recovery/ac-fo-oc-05/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Express Operator Disruption Reconciliation</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Winter Operations De Icing Coordination &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Winter Operations De Icing Coordination.">
+<title>AC-FO-WX-05 Winter Operations De Icing Coordination &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-FO-WX-05 Winter Operations De Icing Coordination.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../flight-operations-dispatch/weather-notam-nav-data/ac-fo-wx-04/",next:"../../../flight-operations-dispatch/weather-notam-nav-data/ac-fo-wx-06/"};
@@ -130,14 +130,134 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Flight Operations &amp; Dispatch</a><span class="sep">&rsaquo;</span><a href="../">Weather, NOTAM &amp; Nav Data</a><span class="sep">&rsaquo;</span><span class="cur">AC-FO-WX-05</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-FO-WX-05" title="Click to copy the process ID">
     AC-FO-WX-05<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Winter Operations De Icing Coordination</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Winter Operations De Icing Coordination</h1>
+<p class="lede" id="overview">Winter operations de-icing and anti-icing procedures are coordinated between flight dispatch, ground operations and the flight crew, managing holdover time against actual weather conditions.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Holdover time is a hard safety limit that starts counting down the moment treatment begins, which makes the coordination between ground crew, dispatch and the flight deck genuinely time-critical in a way few other winter operations decisions are.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">Winter precipitation conditions require de-icing or anti-icing treatment before departure.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">Aircraft correctly de-iced or anti-iced within valid holdover time, departing with contamination-free critical surfaces.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Flight Operations &amp; Dispatch<br>
+    <span style="color:var(--text-muted);font-size:12px">Weather, NOTAM &amp; Nav Data</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">5 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-fo-wx-05.png" alt="Winter Operations De Icing Coordination process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-FO-WX-05-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Treatment decision</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Assess precipitation type and treatment need</b></td>
+<td>Ground Operations Coordinator</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Current precipitation observation</td>
+<td>Treatment type determination</td>
+<td>Determined before treatment begins at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Precipitation type can change during the treatment process itself</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Select fluid type and holdover time table</b></td>
+<td>Ground Operations Coordinator</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Determined precipitation and temperature</td>
+<td>Selected fluid and holdover time</td>
+<td>Selected against the current published holdover table at 100 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Holdover time tables are temperature and precipitation-rate specific and easy to misread under time pressure</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-WX-05-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Holdover time management</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Apply treatment and record start time</b></td>
+<td>Ground Operations Coordinator</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Selected fluid</td>
+<td>Applied treatment with recorded start time</td>
+<td>Start time recorded for 100 percent of treatments</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>An inaccurate start time record undermines the entire holdover time calculation that follows</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Monitor holdover time against departure sequence</b></td>
+<td>Ground Operations Coordinator</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Treatment start time and departure queue</td>
+<td>Holdover time status against departure</td>
+<td>Monitored continuously until off-block for 100 percent of treated aircraft</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>A departure delay after treatment can push the aircraft past its holdover window, requiring re-treatment</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-WX-05-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Departure clearance</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Confirm contamination-free critical surfaces before departure</b></td>
+<td>Flight Crew</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Jeppesen FliteDeck Pro<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Holdover status at departure</td>
+<td>Confirmed clean aircraft or re-treatment triggered</td>
+<td>Confirmed before takeoff clearance for 100 percent of winter departures</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>The final visual and tactile check before takeoff is the last safety barrier against a treatment lapse</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Ground Operations Coordinator</span><span class="lane-steps">1.1 1.2 2.1 2.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Flight Crew</span><span class="lane-steps">3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Jeppesen FliteDeck Pro<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Determined against the current published holdover table at 100 percent</li><li>Start time recorded for 100 percent of treatments</li><li>Monitored continuously until off-block for 100 percent of treated aircraft</li><li>Zero departures beyond a valid holdover time without re-treatment</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>A departure delay after treatment pushing the aircraft past its holdover window without re-treatment</li><li>An inaccurate treatment start time record undermining the entire holdover calculation</li><li>Precipitation type changing during the treatment process itself</li><li>Holdover time tables being misread under time pressure given their temperature and rate specificity</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../flight-operations-dispatch/weather-notam-nav-data/ac-fo-wx-04/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Volcanic Ash and Space Weather Response</span></a>
+  <a class="next" href="../../../flight-operations-dispatch/weather-notam-nav-data/ac-fo-wx-06/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Runway Condition and Performance Assessment</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

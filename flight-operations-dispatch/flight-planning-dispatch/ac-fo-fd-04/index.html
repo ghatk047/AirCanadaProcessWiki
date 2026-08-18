@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Dispatch Release and Joint Responsibility Sign Off &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Dispatch Release and Joint Responsibility Sign Off.">
+<title>AC-FO-FD-04 Dispatch Release and Joint Responsibility Sign Off &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-FO-FD-04 Dispatch Release and Joint Responsibility Sign Off.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../flight-operations-dispatch/flight-planning-dispatch/ac-fo-fd-03/",next:"../../../flight-operations-dispatch/flight-planning-dispatch/ac-fo-fd-05/"};
@@ -130,14 +130,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Flight Operations &amp; Dispatch</a><span class="sep">&rsaquo;</span><a href="../">Flight Planning &amp; Dispatch</a><span class="sep">&rsaquo;</span><span class="cur">AC-FO-FD-04</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-FO-FD-04" title="Click to copy the process ID">
     AC-FO-FD-04<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Dispatch Release and Joint Responsibility Sign Off</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Dispatch Release and Joint Responsibility Sign Off</h1>
+<p class="lede" id="overview">The dispatch release is issued and jointly signed by the dispatcher and the flight&#x27;s captain, formalising the shared responsibility for the flight&#x27;s operational plan before departure.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Dispatch release under joint operational control is a defining feature of how Air Canada, like most major carriers, splits authority: the dispatcher and captain are both accountable, and either can decline to release the flight.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">The operational flight plan is finalised and ready for dispatch release ahead of departure.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A signed dispatch release with joint dispatcher and captain sign-off, authorising the flight to proceed.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Flight Operations &amp; Dispatch<br>
+    <span style="color:var(--text-muted);font-size:12px">Flight Planning &amp; Dispatch</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-fo-fd-04.png" alt="Dispatch Release and Joint Responsibility Sign Off process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-FO-FD-04-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Release preparation</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Prepare the dispatch release package</b></td>
+<td>Flight Dispatcher</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Finalised flight plan</td>
+<td>Assembled dispatch release package</td>
+<td>Package assembled within the required lead time before departure at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A late-changing weather or NOTAM factor can require the package to be reassembled close to departure</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-FD-04-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Captain briefing and review</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Brief the captain on the flight plan</b></td>
+<td>Flight Dispatcher</td>
+<td><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Dispatch release package</td>
+<td>Captain briefing delivered</td>
+<td>Briefing delivered before the captain&#x27;s review at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Briefing has to convey the material risk factors, not just the mechanical plan details</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Captain reviews and raises questions</b></td>
+<td>Flight Dispatcher</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Delivered briefing</td>
+<td>Resolved captain questions or requested plan revision</td>
+<td>Questions resolved before sign-off for 100 percent of releases</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A captain&#x27;s requested revision close to departure time can compress the remaining planning window</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-FD-04-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Joint sign-off</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Execute joint sign-off</b></td>
+<td>Flight Dispatcher</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Reviewed release</td>
+<td>Signed dispatch release</td>
+<td>Signed before scheduled departure at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Either party declining to sign halts the flight until the underlying concern is resolved</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Flight Dispatcher</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Package assembled within the required lead time before departure at 100 percent</li><li>Questions resolved before sign-off for 100 percent of releases</li><li>Signed before scheduled departure at 100 percent</li><li>Zero flights released without complete joint sign-off</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>A late-changing weather or NOTAM factor requiring the release package to be reassembled close to departure</li><li>A captain&#x27;s requested revision close to departure compressing the remaining planning window</li><li>Briefing that conveys mechanical plan details without adequately communicating material risk factors</li><li>Either party declining to sign halting the flight until the underlying concern is genuinely resolved</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../flight-operations-dispatch/flight-planning-dispatch/ac-fo-fd-03/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">ETOPS and Oceanic Route Planning</span></a>
+  <a class="next" href="../../../flight-operations-dispatch/flight-planning-dispatch/ac-fo-fd-05/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Payload and Weight Balance Load Planning</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

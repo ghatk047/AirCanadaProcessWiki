@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Ground Stop and System Outage Fallback Operation &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Ground Stop and System Outage Fallback Operation.">
+<title>AC-FO-OC-06 Ground Stop and System Outage Fallback Operation &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-FO-OC-06 Ground Stop and System Outage Fallback Operation.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../flight-operations-dispatch/ops-control-irrop-recovery/ac-fo-oc-05/",next:"../../../flight-operations-dispatch/safety-occurrence-reporting/ac-fo-sr-01/"};
@@ -130,14 +130,134 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Flight Operations &amp; Dispatch</a><span class="sep">&rsaquo;</span><a href="../">Ops Control &amp; IRROP Recovery</a><span class="sep">&rsaquo;</span><span class="cur">AC-FO-OC-06</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-FO-OC-06" title="Click to copy the process ID">
     AC-FO-OC-06<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Ground Stop and System Outage Fallback Operation</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Ground Stop and System Outage Fallback Operation</h1>
+<p class="lede" id="overview">Operations control coordinates a fallback operating mode when a ground stop or system outage prevents normal operational tools from functioning, using manual procedures to keep the network safely moving.</p>
+<div class="callout"><span class="ct">Air Canada context</span>The June 2023 communicator outage, which delayed or cancelled the large majority of a day&#x27;s flights, is the direct reference point for why a rehearsed fallback procedure matters more than a hope that the primary system simply does not fail.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A ground stop is declared or a core operational system, such as the departure control or communicator platform, becomes unavailable.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">Continued safe operation under manual fallback procedures until normal system function is restored.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Flight Operations &amp; Dispatch<br>
+    <span style="color:var(--text-muted);font-size:12px">Ops Control &amp; IRROP Recovery</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">5 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-fo-oc-06.png" alt="Ground Stop and System Outage Fallback Operation process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-FO-OC-06-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Outage detection and fallback activation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Detect system outage or declared ground stop</b></td>
+<td>Operations Control Duty Manager</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>System monitoring or external ground stop notification</td>
+<td>Detected outage or ground stop</td>
+<td>Detected within 5 minutes of onset at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A gradual system degradation is harder to detect promptly than a sudden hard outage</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Activate manual fallback procedure</b></td>
+<td>Operations Control Duty Manager</td>
+<td><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Detected outage</td>
+<td>Activated fallback procedure</td>
+<td>Activated within 10 minutes of detection at 90 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Fallback procedures are used rarely enough that staff familiarity cannot be assumed</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-OC-06-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Manual procedure execution</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Execute manual flight tracking and coordination</b></td>
+<td>Operations Control Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Activated fallback</td>
+<td>Manually tracked flight status</td>
+<td>Manual tracking sustained for 100 percent of active flights during the outage</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual tracking throughput is materially lower than the automated system it replaces</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Coordinate manual communication with stations and crew</b></td>
+<td>Operations Control Analyst</td>
+<td><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Manual tracking status</td>
+<td>Manual station and crew communication</td>
+<td>Communication maintained for 100 percent of affected flights during the outage</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Communication channels not dependent on the failed system have to be identified and used correctly</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-OC-06-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Restoration transition</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Transition back to normal system operation</b></td>
+<td>Operations Control Duty Manager</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Restored system</td>
+<td>Confirmed transition with reconciled operational data</td>
+<td>Transition completed with full data reconciliation at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Data captured manually during the outage has to be reconciled back into the restored system accurately</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Operations Control Duty Manager</span><span class="lane-steps">1.1 1.2 3.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Operations Control Analyst</span><span class="lane-steps">2.1 2.2</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Detected within 5 minutes of onset at 100 percent</li><li>Activated within 10 minutes of detection at 90 percent</li><li>Manual tracking sustained for 100 percent of active flights during the outage</li><li>Transition completed with full data reconciliation at 100 percent</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Fallback procedures being used rarely enough that staff familiarity cannot be assumed in a real event</li><li>Manual tracking throughput being materially lower than the automated system it temporarily replaces</li><li>Data captured manually during the outage not reconciling accurately back into the restored system</li><li>A gradual system degradation being detected later than a sudden, unambiguous hard outage</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../flight-operations-dispatch/ops-control-irrop-recovery/ac-fo-oc-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Express Operator Disruption Reconciliation</span></a>
+  <a class="next" href="../../../flight-operations-dispatch/safety-occurrence-reporting/ac-fo-sr-01/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Safety Occurrence Reporting and Capture</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

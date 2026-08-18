@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Weather Briefing Package Assembly &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Weather Briefing Package Assembly.">
+<title>AC-FO-WX-01 Weather Briefing Package Assembly &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-FO-WX-01 Weather Briefing Package Assembly.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../flight-operations-dispatch/flight-planning-dispatch/ac-fo-fd-06/",next:"../../../flight-operations-dispatch/weather-notam-nav-data/ac-fo-wx-02/"};
@@ -130,14 +130,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Flight Operations &amp; Dispatch</a><span class="sep">&rsaquo;</span><a href="../">Weather, NOTAM &amp; Nav Data</a><span class="sep">&rsaquo;</span><span class="cur">AC-FO-WX-01</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-FO-WX-01" title="Click to copy the process ID">
     AC-FO-WX-01<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Weather Briefing Package Assembly</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Weather Briefing Package Assembly</h1>
+<p class="lede" id="overview">A comprehensive weather briefing package is assembled for each flight, covering departure, en route and destination conditions along with significant weather phenomena along the route.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Weather data currency is the defining quality attribute here: a briefing package assembled too early in the planning cycle can already be stale by the time the flight actually departs.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">Flight planning reaches the weather briefing stage ahead of dispatch release.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A complete weather briefing package incorporated into the flight plan and available to the crew.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Flight Operations &amp; Dispatch<br>
+    <span style="color:var(--text-muted);font-size:12px">Weather, NOTAM &amp; Nav Data</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-fo-wx-01.png" alt="Weather Briefing Package Assembly process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-FO-WX-01-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Data compilation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Compile departure, en route and destination weather</b></td>
+<td>Flight Dispatcher</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Current weather observations and forecasts</td>
+<td>Compiled weather data by phase of flight</td>
+<td>Compiled within the standard pre-dispatch window at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Weather forecast confidence decreases the further out the observation window extends</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Assess significant weather along the route</b></td>
+<td>Flight Dispatcher</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Route and compiled weather data</td>
+<td>Assessed significant weather phenomena</td>
+<td>Assessed for 100 percent of flights before dispatch</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Convective weather along a route can develop faster than the standard briefing refresh cycle</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-WX-01-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Significant weather assessment</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Incorporate weather into the flight plan</b></td>
+<td>Flight Dispatcher</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Assessed weather</td>
+<td>Weather-adjusted flight plan</td>
+<td>Incorporated before dispatch release at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A weather-driven route change can cascade into a fuel and performance recalculation</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-WX-01-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Package delivery</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Deliver briefing package to the crew</b></td>
+<td>Flight Dispatcher</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Jeppesen FliteDeck Pro<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Finalised weather-adjusted plan</td>
+<td>Delivered briefing package</td>
+<td>Delivered before crew briefing at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A package delivered too early can already be superseded by an update at the actual briefing time</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Flight Dispatcher</span><span class="lane-steps">1.1 1.2 2.1 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Jeppesen FliteDeck Pro<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Compiled within the standard pre-dispatch window at 100 percent</li><li>Assessed for 100 percent of flights before dispatch</li><li>Incorporated before dispatch release at 100 percent</li><li>Weather-related flight plan revision rate tracked against target</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>A briefing package assembled early in planning already being stale by actual departure</li><li>Convective weather developing along the route faster than the standard briefing refresh cycle</li><li>A weather-driven route change cascading into a fuel and performance recalculation under time pressure</li><li>Forecast confidence decreasing materially the further out the observation window extends</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../flight-operations-dispatch/flight-planning-dispatch/ac-fo-fd-06/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Flight Plan Filing to NAV CANADA</span></a>
+  <a class="next" href="../../../flight-operations-dispatch/weather-notam-nav-data/ac-fo-wx-02/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">NOTAM Review and Applicability Screening</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

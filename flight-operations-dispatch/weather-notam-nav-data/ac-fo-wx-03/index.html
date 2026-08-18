@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Navigation Database Cycle Update &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Navigation Database Cycle Update.">
+<title>AC-FO-WX-03 Navigation Database Cycle Update &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-FO-WX-03 Navigation Database Cycle Update.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../flight-operations-dispatch/weather-notam-nav-data/ac-fo-wx-02/",next:"../../../flight-operations-dispatch/weather-notam-nav-data/ac-fo-wx-04/"};
@@ -130,14 +130,134 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Flight Operations &amp; Dispatch</a><span class="sep">&rsaquo;</span><a href="../">Weather, NOTAM &amp; Nav Data</a><span class="sep">&rsaquo;</span><span class="cur">AC-FO-WX-03</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-FO-WX-03" title="Click to copy the process ID">
     AC-FO-WX-03<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Navigation Database Cycle Update</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Navigation Database Cycle Update</h1>
+<p class="lede" id="overview">Navigation database cycles are updated on the required 28-day AIRAC schedule, keeping route, airport and procedure data current across flight planning and the electronic flight bag.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Navigation database currency is a hard operational dependency: flying with an expired cycle is not permitted, which makes this recurring update a fixed, non-negotiable deadline every 28 days.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">The AIRAC 28-day navigation database cycle comes due for update.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A current navigation database deployed across flight planning systems and the electronic flight bag fleet-wide before the new cycle takes effect.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Flight Operations &amp; Dispatch<br>
+    <span style="color:var(--text-muted);font-size:12px">Weather, NOTAM &amp; Nav Data</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">5 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-fo-wx-03.png" alt="Navigation Database Cycle Update process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-FO-WX-03-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Database receipt and validation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Receive the new AIRAC cycle data</b></td>
+<td>Navigation Data Coordinator</td>
+<td><span class="tag jeppesen" data-tooltip="Terminal charts and navigation data delivered to the flight deck EFB. [Boeing Jeppesen - evidence B]">Jeppesen Charts<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Vendor-supplied navigation database</td>
+<td>Received database update</td>
+<td>Received before the cycle effective date at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Vendor delivery timing leaves a fixed and sometimes tight window before the effective date</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Validate database integrity</b></td>
+<td>Navigation Data Coordinator</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Received database</td>
+<td>Validated database</td>
+<td>Validated before deployment at 100 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A validation failure this close to the effective date leaves little time for vendor remediation</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-WX-03-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Deployment</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Deploy to flight planning systems</b></td>
+<td>Navigation Data Coordinator</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Validated database</td>
+<td>Deployed database in flight planning</td>
+<td>Deployed before the cycle effective date at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Deployment has to complete across every planning system before the old cycle expires</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Deploy to the electronic flight bag fleet-wide</b></td>
+<td>Navigation Data Coordinator</td>
+<td><span class="tag datalink" data-tooltip="Flight-deck EFB carrying charts, performance calculations and operational manuals. [Multiple - evidence C]">Electronic Flight Bag<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Validated database</td>
+<td>Deployed database across the EFB fleet</td>
+<td>Deployed to 100 percent of the fleet before the cycle effective date</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Fleet-wide EFB deployment depends on each aircraft&#x27;s connectivity opportunity before the deadline</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-WX-03-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Currency confirmation</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Confirm currency across all systems</b></td>
+<td>Navigation Data Coordinator</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Deployment across all systems</td>
+<td>Confirmed fleet-wide currency</td>
+<td>Confirmed before the new cycle takes effect at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>An aircraft that missed the deployment window cannot legally operate on the expired cycle</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Navigation Data Coordinator</span><span class="lane-steps">1.1 1.2 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag jeppesen" data-tooltip="Terminal charts and navigation data delivered to the flight deck EFB. [Boeing Jeppesen - evidence B]">Jeppesen Charts<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag datalink" data-tooltip="Flight-deck EFB carrying charts, performance calculations and operational manuals. [Multiple - evidence C]">Electronic Flight Bag<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Received before the cycle effective date at 100 percent</li><li>Deployed to 100 percent of the fleet before the cycle effective date</li><li>Confirmed before the new cycle takes effect at 100 percent</li><li>Zero flights operated on an expired navigation database cycle</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>An aircraft missing the deployment window and being unable to legally operate on the expired cycle</li><li>A validation failure close to the effective date leaving little time for vendor remediation</li><li>Fleet-wide EFB deployment depending on each aircraft&#x27;s connectivity opportunity before the deadline</li><li>Vendor delivery timing leaving a fixed and sometimes tight window before the effective date</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../flight-operations-dispatch/weather-notam-nav-data/ac-fo-wx-02/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">NOTAM Review and Applicability Screening</span></a>
+  <a class="next" href="../../../flight-operations-dispatch/weather-notam-nav-data/ac-fo-wx-04/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Volcanic Ash and Space Weather Response</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources
