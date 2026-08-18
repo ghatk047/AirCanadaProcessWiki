@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Fleet Assignment Optimisation by Demand &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Fleet Assignment Optimisation by Demand.">
+<title>AC-NP-FA-01 Fleet Assignment Optimisation by Demand &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-NP-FA-01 Fleet Assignment Optimisation by Demand.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../network-planning-scheduling/schedule-planning-design/ac-np-sp-08/",next:"../../../network-planning-scheduling/fleet-assignment-rotation/ac-np-fa-02/"};
@@ -132,14 +132,178 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Network Planning &amp; Scheduling</a><span class="sep">&rsaquo;</span><a href="../">Fleet Assignment &amp; Rotation</a><span class="sep">&rsaquo;</span><span class="cur">AC-NP-FA-01</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-NP-FA-01" title="Click to copy the process ID">
     AC-NP-FA-01<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Fleet Assignment Optimisation by Demand</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Fleet Assignment Optimisation by Demand</h1>
+<p class="lede" id="overview">Fleet assignment matches aircraft gauge to route demand across the mainline fleet types, reconciling revenue optimisation against fleet availability during a multi-year renewal programme.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Air Canada is mid-renewal across 777, 787, 737 MAX, A220, A319, A320 and A321, so the assignable fleet itself moves between seasons. Assignment has to optimise against a target that is not fixed.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">Seasonal schedule build reaches fleet assignment, or a fleet delivery or retirement changes the available type mix mid-cycle.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A leg-by-leg fleet assignment that maximises contribution within the available fleet, feasible for rotation building.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Network Planning &amp; Scheduling<br>
+    <span style="color:var(--text-muted);font-size:12px">Fleet Assignment &amp; Rotation</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">9 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-np-fa-01.png" alt="Fleet Assignment Optimisation by Demand process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-NP-FA-01-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Demand and fleet input</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Compile route demand by cabin</b></td>
+<td>Fleet Planner</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Seasonal demand forecast</td>
+<td>Demand by route and cabin class</td>
+<td>Demand compiled before assignment cycle opens</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Demand forecasts for new routes carry no comparable-market anchor</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Confirm fleet delivery and retirement schedule</b></td>
+<td>Fleet Planner</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Fleet delivery contracts and retirement plan</td>
+<td>Available fleet count by type and week</td>
+<td>Fleet count confirmed for the full assignment horizon</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delivery slippage is common and not always reflected in the planning system in time</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-FA-01-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Assignment optimisation</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Run gauge optimisation by route</b></td>
+<td>Fleet Planner</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Demand and available fleet</td>
+<td>Optimised gauge assignment</td>
+<td>Optimisation run completed within the assignment window at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Optimiser output favours revenue and ignores rotation and maintenance feasibility</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Evaluate narrowbody widebody swap options</b></td>
+<td>Fleet Planner</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Marginal routes near the gauge boundary</td>
+<td>Swap recommendation with revenue delta</td>
+<td>Swap evaluated for all borderline routes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Swap value depends on connecting traffic that the point to point model does not see</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Assess A220 fit on thin transcontinental routes</b></td>
+<td>Fleet Planner</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Thin route demand profile</td>
+<td>A220 deployment recommendation</td>
+<td>A220 fit assessed for all eligible transcontinental routes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A220 range and payload trade-offs are route specific and not captured by a single rule</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Allocate Express operator capacity</b></td>
+<td>Fleet Planner</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Capacity purchase agreement limits</td>
+<td>Express capacity allocation</td>
+<td>Express allocation within contracted limits at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Express capacity is contractually fixed and cannot absorb overflow from mainline swaps</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-FA-01-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Feasibility and commitment</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Test rotation feasibility of the assignment</b></td>
+<td>Schedule Planner</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Draft gauge assignment</td>
+<td>Feasibility exceptions by tail</td>
+<td>Assignment feasible for rotation building above 80 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Infeasible assignments are only discovered once rotation building starts</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Resolve assignment conflicts</b></td>
+<td>Fleet Planner</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Feasibility exception list</td>
+<td>Resolved assignment</td>
+<td>Conflicts resolved before schedule freeze at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Resolution usually means giving up the highest-revenue gauge choice</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Commit fleet assignment to the schedule</b></td>
+<td>Fleet Planner</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Resolved assignment</td>
+<td>Committed fleet assignment</td>
+<td>Assignment committed on the published cycle date</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Late fleet delivery changes force reopening a committed assignment</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Fleet Planner</span><span class="lane-steps">1.1 1.2 2.1 2.2 2.3 2.4 3.2 3.3</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Schedule Planner</span><span class="lane-steps">3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Optimisation run completed within the assignment window at 100 percent</li><li>Assignment feasible for rotation building above 80 percent</li><li>A220 fit assessed for all eligible transcontinental routes</li><li>Express capacity allocated within contracted limits at 100 percent</li><li>Assignment conflicts resolved before schedule freeze at 100 percent</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Optimiser output favouring revenue while ignoring rotation and maintenance feasibility</li><li>Fleet delivery slippage invalidating an assignment already committed</li><li>Narrowbody-widebody swap decisions missing connecting traffic value visible only at the network level</li><li>Express capacity unable to absorb overflow when a mainline swap is forced late</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../network-planning-scheduling/schedule-planning-design/ac-np-sp-08/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Schedule Change Management and Passenger Re-protection</span></a>
+  <a class="next" href="../../../network-planning-scheduling/fleet-assignment-rotation/ac-np-fa-02/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Aircraft Rotation and Tail Assignment Build</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

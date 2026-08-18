@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>IATA Slot Conference Coordination &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. IATA Slot Conference Coordination.">
+<title>AC-NP-SL-01 IATA Slot Conference Coordination &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-NP-SL-01 IATA Slot Conference Coordination.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../network-planning-scheduling/fleet-assignment-rotation/ac-np-fa-08/",next:"../../../network-planning-scheduling/slots-alliance-codeshare/ac-np-sl-02/"};
@@ -131,14 +131,145 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Network Planning &amp; Scheduling</a><span class="sep">&rsaquo;</span><a href="../">Slots, Alliance &amp; Codeshare</a><span class="sep">&rsaquo;</span><span class="cur">AC-NP-SL-01</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-NP-SL-01" title="Click to copy the process ID">
     AC-NP-SL-01<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>IATA Slot Conference Coordination</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>IATA Slot Conference Coordination</h1>
+<p class="lede" id="overview">Air Canada participates in the twice-yearly IATA Worldwide Slot Conference to secure and defend arrival and departure slots at Level 3 coordinated airports across its network.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Slot conference outcomes constrain the schedule before commercial optimisation gets a say. A slot held at a poor time is often still worth holding, because giving it up can mean losing historic precedence permanently.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">The IATA slot conference cycle opens for the upcoming Northern Summer or Northern Winter season.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A confirmed slot portfolio at every Level 3 airport the network requires, aligned to the committed schedule.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Network Planning &amp; Scheduling<br>
+    <span style="color:var(--text-muted);font-size:12px">Slots, Alliance &amp; Codeshare</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">6 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-np-sl-01.png" alt="IATA Slot Conference Coordination process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-NP-SL-01-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Slot requirement preparation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Determine slot requirements from the schedule</b></td>
+<td>Slot Coordinator</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Draft seasonal schedule</td>
+<td>Slot requirement list by airport</td>
+<td>Requirements finalised before the conference at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Requirements are drawn from a schedule that is not yet frozen</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Assess historic precedence position</b></td>
+<td>Slot Coordinator</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Prior season slot utilisation</td>
+<td>Precedence position by slot</td>
+<td>Precedence position confirmed for 100 percent of held slots</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Utilisation shortfalls anywhere in the prior season put precedence at risk</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-SL-01-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Conference negotiation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Attend and negotiate at the slot conference</b></td>
+<td>Slot Coordinator</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">SITA AMS<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Requirement list and precedence position</td>
+<td>Negotiated slot outcomes</td>
+<td>Priority slot requirements secured above 85 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>New or growth slot requests compete directly against every other coordinated carrier</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Resolve slot conflicts with connecting bank needs</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Negotiated slot times and bank design</td>
+<td>Reconciled slot and bank position</td>
+<td>Reconciliation completed before schedule freeze at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A negotiated slot time can arrive that no longer fits the bank it was meant to serve</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-SL-01-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Confirmation and load</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Confirm final slot allocation</b></td>
+<td>Slot Coordinator</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">SITA AMS<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Conference outcomes</td>
+<td>Confirmed slot allocation</td>
+<td>Confirmation received before schedule freeze at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Confirmation can arrive after the internal schedule freeze deadline</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Load confirmed slots into the schedule</b></td>
+<td>Schedule Planner</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Confirmed slot allocation</td>
+<td>Slot-aligned committed schedule</td>
+<td>Schedule matches confirmed slots at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A late slot change forces a schedule change after publication is already in motion</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Slot Coordinator</span><span class="lane-steps">1.1 1.2 2.1 3.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Network Planning Analyst</span><span class="lane-steps">2.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Schedule Planner</span><span class="lane-steps">3.2</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">SITA AMS<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Priority slot requirements secured above 85 percent</li><li>Precedence position confirmed for 100 percent of held slots</li><li>Schedule matching confirmed slots at 100 percent</li><li>Reconciliation with connecting bank needs completed before freeze at 100 percent</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Losing historic precedence at a key coordinated airport through a utilisation shortfall</li><li>A negotiated slot time no longer fitting the connecting bank it was meant to serve</li><li>Confirmation arriving after the internal schedule freeze, forcing rework</li><li>New route cases blocked entirely by an inability to secure a required slot</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../network-planning-scheduling/fleet-assignment-rotation/ac-np-fa-08/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Charter and Jetz Sub-Fleet Scheduling</span></a>
+  <a class="next" href="../../../network-planning-scheduling/slots-alliance-codeshare/ac-np-sl-02/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Level 3 Airport Slot Application and Retention</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

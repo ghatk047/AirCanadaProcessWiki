@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>A220 Deployment Planning on Thin Transcontinental Routes &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. A220 Deployment Planning on Thin Transcontinental Routes.">
+<title>AC-NP-FA-05 A220 Deployment Planning on Thin Transcontinental Routes &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-NP-FA-05 A220 Deployment Planning on Thin Transcontinental Routes.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../network-planning-scheduling/fleet-assignment-rotation/ac-np-fa-04/",next:"../../../network-planning-scheduling/fleet-assignment-rotation/ac-np-fa-06/"};
@@ -132,14 +132,145 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Network Planning &amp; Scheduling</a><span class="sep">&rsaquo;</span><a href="../">Fleet Assignment &amp; Rotation</a><span class="sep">&rsaquo;</span><span class="cur">AC-NP-FA-05</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-NP-FA-05" title="Click to copy the process ID">
     AC-NP-FA-05<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>A220 Deployment Planning on Thin Transcontinental Routes</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>A220 Deployment Planning on Thin Transcontinental Routes</h1>
+<p class="lede" id="overview">The A220 is deployed on thin transcontinental routes where its range, payload and unit cost profile outperform larger narrowbody gauge, using a route-specific rather than a blanket rule.</p>
+<div class="callout"><span class="ct">Air Canada context</span>A220 economics are route specific: range and payload trade-offs at maximum sector length differ from a mid-length transcontinental sector, so a single deployment rule misallocates the fleet.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">Seasonal fleet assignment identifies a thin transcontinental route as an A220 candidate, or A220 fleet availability changes.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A validated A220 deployment decision on routes where its economics genuinely fit, with range and payload confirmed for the specific sector.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Network Planning &amp; Scheduling<br>
+    <span style="color:var(--text-muted);font-size:12px">Fleet Assignment &amp; Rotation</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">6 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-np-fa-05.png" alt="A220 Deployment Planning on Thin Transcontinental Routes process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-NP-FA-05-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Route candidacy</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Screen thin transcontinental routes</b></td>
+<td>Fleet Planner</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Route demand and load factor history</td>
+<td>Screened candidate list</td>
+<td>Screening completed each planning cycle</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Thin route demand is volatile and a single season&#x27;s data can mislead</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Validate range at planned payload</b></td>
+<td>Fleet Planner</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Sector distance and typical payload</td>
+<td>Range and payload validation</td>
+<td>Range validated for 100 percent of candidate sectors</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Winter headwind routings can reduce effective range below the summer assumption</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-FA-05-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Range and payload validation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Compare unit cost against incumbent gauge</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>A220 and incumbent gauge cost per seat mile</td>
+<td>Unit cost comparison</td>
+<td>Comparison completed for 100 percent of validated candidates</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Unit cost comparison at typical load factor can mask a poor result in the shoulder season</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Assess fleet availability against other A220 demands</b></td>
+<td>Fleet Planner</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>A220 fleet size and competing deployment candidates</td>
+<td>Availability assessment</td>
+<td>Availability confirmed before commitment at 100 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A220 deployment candidates compete against each other for a limited fleet</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-FA-05-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Deployment decision</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Decide and commit A220 deployment</b></td>
+<td>Fleet Planner</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Validated candidate with confirmed economics</td>
+<td>Committed A220 assignment</td>
+<td>Deployment decisions taken within the planning cycle at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A committed A220 assignment is hard to reverse mid-season without disrupting the route</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Monitor in-service performance against the case</b></td>
+<td>Fleet Planner</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>In-service load factor and cost data</td>
+<td>Performance review against the deployment case</td>
+<td>Performance reviewed within 60 days of season end</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Underperformance is rarely traced back to correct or reverse the original deployment call</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Fleet Planner</span><span class="lane-steps">1.1 1.2 2.2 3.1 3.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Revenue Management Analyst</span><span class="lane-steps">2.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Range validated for 100 percent of candidate sectors</li><li>Unit cost comparison completed for 100 percent of validated candidates</li><li>Availability confirmed before commitment at 100 percent</li><li>Deployment decisions taken within the planning cycle at 100 percent</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Winter headwind routings reducing effective range below the summer planning assumption</li><li>A single deployment rule misallocating a fleet whose economics are genuinely route specific</li><li>A220 candidates competing against each other for a fleet too small to serve them all</li><li>Unit cost comparison at typical load factor masking a poor shoulder-season result</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../network-planning-scheduling/fleet-assignment-rotation/ac-np-fa-04/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Narrowbody Widebody Gauge Swap Evaluation</span></a>
+  <a class="next" href="../../../network-planning-scheduling/fleet-assignment-rotation/ac-np-fa-06/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Express Operator Capacity Purchase Allocation</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

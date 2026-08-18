@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Aircraft Rotation and Tail Assignment Build &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Aircraft Rotation and Tail Assignment Build.">
+<title>AC-NP-FA-02 Aircraft Rotation and Tail Assignment Build &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-NP-FA-02 Aircraft Rotation and Tail Assignment Build.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../network-planning-scheduling/fleet-assignment-rotation/ac-np-fa-01/",next:"../../../network-planning-scheduling/fleet-assignment-rotation/ac-np-fa-03/"};
@@ -132,14 +132,156 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Network Planning &amp; Scheduling</a><span class="sep">&rsaquo;</span><a href="../">Fleet Assignment &amp; Rotation</a><span class="sep">&rsaquo;</span><span class="cur">AC-NP-FA-02</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-NP-FA-02" title="Click to copy the process ID">
     AC-NP-FA-02<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Aircraft Rotation and Tail Assignment Build</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Aircraft Rotation and Tail Assignment Build</h1>
+<p class="lede" id="overview">Individual tail rotations are built from the fleet assignment, sequencing each aircraft through its flying pattern so the rotation closes at a maintenance base with feasible ground time.</p>
+<div class="callout"><span class="ct">Air Canada context</span>A rotation is where gauge assignment becomes a physical, closeable sequence. A rotation that never returns a tail to a maintenance base within its check interval is not a schedule, it is a liability.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">Fleet assignment is committed for the season, or an in-season fleet or route change requires rotation rebuild.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A feasible rotation for every tail, closing at an appropriate maintenance base within the required check interval.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Network Planning &amp; Scheduling<br>
+    <span style="color:var(--text-muted);font-size:12px">Fleet Assignment &amp; Rotation</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">7 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-np-fa-02.png" alt="Aircraft Rotation and Tail Assignment Build process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-NP-FA-02-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Rotation construction</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Sequence legs into candidate rotations</b></td>
+<td>Schedule Planner</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Committed fleet assignment</td>
+<td>Candidate tail rotations</td>
+<td>Candidate rotations generated for 100 percent of assigned legs</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Sequencing optimises block time and can ignore where the tail needs to end up</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Validate minimum ground time by station</b></td>
+<td>Schedule Planner</td>
+<td><span class="tag sita" data-tooltip="Gate, stand and check-in resource allocation at YYZ, YUL and YVR. [Multiple - evidence C]">Airport Resource Management<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Candidate rotations and station turn standards</td>
+<td>Ground time validated rotations</td>
+<td>Turn times meet station minimums at 100 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Minimum turn time varies by station and aircraft type and is not uniformly applied</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-FA-02-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Maintenance and turn validation</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Check maintenance check interval compliance</b></td>
+<td>Technical Services Planner</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Rotation length and check due dates</td>
+<td>Compliance flag by tail</td>
+<td>Zero rotations exceeding a check interval at commitment</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Check due dates shift as flying accumulates differently than planned</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Confirm rotation closes at a maintenance base</b></td>
+<td>Technical Services Planner</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Candidate rotation end points</td>
+<td>Base-closing confirmation or exception</td>
+<td>Rotations close at a maintenance base at 100 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A rotation can be commercially efficient and never return the tail to base</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Validate crew base compatibility</b></td>
+<td>Crew Planning Liaison</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Rotation pattern</td>
+<td>Crew base feasibility flag</td>
+<td>Rotation compatible with crew basing above 90 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Rotation and crew base optimisation are performed in separate systems</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-FA-02-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Commitment</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Resolve infeasible rotations</b></td>
+<td>Schedule Planner</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Exception list</td>
+<td>Resolved rotation or accepted exception</td>
+<td>Infeasible rotations resolved before freeze at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Resolution often trades block time efficiency for maintenance access</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Commit rotations to the schedule</b></td>
+<td>Schedule Planner</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Resolved rotations</td>
+<td>Committed tail rotations</td>
+<td>Rotations committed on the published cycle date</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Late in-season fleet swaps require re-validating the whole rotation set</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Schedule Planner</span><span class="lane-steps">1.1 1.2 3.1 3.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Technical Services Planner</span><span class="lane-steps">2.1 2.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Crew Planning Liaison</span><span class="lane-steps">2.3</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag sita" data-tooltip="Gate, stand and check-in resource allocation at YYZ, YUL and YVR. [Multiple - evidence C]">Airport Resource Management<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Rotations closing at a maintenance base at 100 percent</li><li>Zero rotations exceeding a check interval at commitment</li><li>Turn times meeting station minimums at 100 percent</li><li>Rotation compatible with crew basing above 90 percent</li><li>Infeasible rotations resolved before freeze at 100 percent</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>A rotation that never returns its tail to a maintenance base within the check interval</li><li>Ground time built to the station minimum with no buffer for routine delay</li><li>Rotation and crew base optimisation happening in separate systems, producing conflicting outcomes</li><li>In-season fleet swaps invalidating rotations without full re-validation</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../network-planning-scheduling/fleet-assignment-rotation/ac-np-fa-01/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Fleet Assignment Optimisation by Demand</span></a>
+  <a class="next" href="../../../network-planning-scheduling/fleet-assignment-rotation/ac-np-fa-03/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Maintenance Opportunity Embedding in Rotations</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

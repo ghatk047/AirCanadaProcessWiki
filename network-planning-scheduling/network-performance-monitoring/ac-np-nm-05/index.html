@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Connection Bank Integrity Monitoring &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Connection Bank Integrity Monitoring.">
+<title>AC-NP-NM-05 Connection Bank Integrity Monitoring &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-NP-NM-05 Connection Bank Integrity Monitoring.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../network-planning-scheduling/network-performance-monitoring/ac-np-nm-04/",next:"../../../network-planning-scheduling/network-performance-monitoring/ac-np-nm-06/"};
@@ -131,14 +131,145 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Network Planning &amp; Scheduling</a><span class="sep">&rsaquo;</span><a href="../">Network Performance &amp; Monitoring</a><span class="sep">&rsaquo;</span><span class="cur">AC-NP-NM-05</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-NP-NM-05" title="Click to copy the process ID">
     AC-NP-NM-05<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Connection Bank Integrity Monitoring</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Connection Bank Integrity Monitoring</h1>
+<p class="lede" id="overview">The integrity of connecting banks is monitored in service to confirm the connections sold actually achieve their planned reliability, and to feed structural findings back into bank design.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Not every misconnect is the same kind of problem: an occasional weather-driven misconnect is a different issue from a connection that is structurally too tight to work reliably, and only the second belongs back in bank design.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">The recurring bank integrity reporting cycle runs, or a specific connecting market shows a misconnect spike.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A bank integrity report identifying connections that are structurally unreliable, distinct from those affected by a one-off disruption.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Network Planning &amp; Scheduling<br>
+    <span style="color:var(--text-muted);font-size:12px">Network Performance &amp; Monitoring</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">6 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-np-nm-05.png" alt="Connection Bank Integrity Monitoring process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-NP-NM-05-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Misconnect data compilation</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Compile misconnect data by connecting market</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Actual connection outcomes</td>
+<td>Misconnect data by market</td>
+<td>Compiled within 5 business days of period close at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Misconnect data spans mainline, Rouge and partner-operated legs inconsistently</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-NM-05-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Structural versus incidental classification</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Classify misconnects as structural or incidental</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Misconnect data and disruption records</td>
+<td>Classified misconnect data</td>
+<td>Classification completed for 100 percent of material misconnect markets</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Distinguishing a structurally tight connection from a one-off disruption requires judgement</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Identify structurally unreliable connections</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Classified misconnect data</td>
+<td>Structurally unreliable connection list</td>
+<td>Structural connections identified each reporting cycle at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A connection can look structurally sound on paper while consistently failing in practice</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-NM-05-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Feedback to design</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Feed structural findings back to bank design</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Structurally unreliable connection list</td>
+<td>Bank design input for the next cycle</td>
+<td>Findings fed into the next seasonal build at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Bank design changes take a full season to implement, so the feedback loop is slow</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Report bank integrity trend by hub</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Structural findings history</td>
+<td>Bank integrity trend report by hub</td>
+<td>Trend report issued each reporting cycle at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Without a trend view, an improving or worsening hub is not visible until it is already severe</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Escalate persistent structural failure to network review</b></td>
+<td>Network Strategy Manager</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Trend report showing persistent failure</td>
+<td>Escalated case for the next network review</td>
+<td>Persistent structural failures escalated within one reporting cycle at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>A connection that fails structurally for multiple consecutive seasons still requires an explicit escalation to act on</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Network Planning Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1 3.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Network Strategy Manager</span><span class="lane-steps">3.3</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Compiled within 5 business days of period close at 100 percent</li><li>Classification completed for 100 percent of material misconnect markets</li><li>Findings fed into the next seasonal build at 100 percent</li><li>Structural misconnect rate reduced season over season on flagged markets</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Misconnect data spanning mainline, Rouge and partner-operated legs inconsistently</li><li>A connection sold as reliable that is actually structurally too tight to work</li><li>The feedback loop from in-service finding to bank redesign taking a full season</li><li>One-off disruption misclassified as a structural finding, triggering an unnecessary redesign</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../network-planning-scheduling/network-performance-monitoring/ac-np-nm-04/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">On Time Performance Root Cause Attribution</span></a>
+  <a class="next" href="../../../network-planning-scheduling/network-performance-monitoring/ac-np-nm-06/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Schedule Reliability and Block Time Tuning</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Route Profitability Review and Network Scorecard &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Route Profitability Review and Network Scorecard.">
+<title>AC-NP-NM-01 Route Profitability Review and Network Scorecard &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-NP-NM-01 Route Profitability Review and Network Scorecard.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../network-planning-scheduling/slots-alliance-codeshare/ac-np-sl-07/",next:"../../../network-planning-scheduling/network-performance-monitoring/ac-np-nm-02/"};
@@ -131,14 +131,145 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Network Planning &amp; Scheduling</a><span class="sep">&rsaquo;</span><a href="../">Network Performance &amp; Monitoring</a><span class="sep">&rsaquo;</span><span class="cur">AC-NP-NM-01</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-NP-NM-01" title="Click to copy the process ID">
     AC-NP-NM-01<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Route Profitability Review and Network Scorecard</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Route Profitability Review and Network Scorecard</h1>
+<p class="lede" id="overview">Route profitability is reviewed on a recurring cycle against the original route case, producing a network scorecard that informs whether a route continues, grows or is withdrawn.</p>
+<div class="callout"><span class="ct">Air Canada context</span>A route case is a point-in-time judgement; the review is what tests whether that judgement held. Routes rarely get formally closed out against their original case, so the network&#x27;s collective track record on route decisions is not actually measured.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">The recurring route review cycle runs, or a route&#x27;s performance triggers an off-cycle review.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">An updated profitability position for every active route, with a clear continue, grow or exit recommendation.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Network Planning &amp; Scheduling<br>
+    <span style="color:var(--text-muted);font-size:12px">Network Performance &amp; Monitoring</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">6 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-np-nm-01.png" alt="Route Profitability Review and Network Scorecard process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-NP-NM-01-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Performance compilation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Compile actual route revenue and cost</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Actual traffic, revenue and cost data</td>
+<td>Route profitability by period</td>
+<td>Profitability compiled for 100 percent of active routes each cycle</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Cost allocation to a single route is an estimate built on network-wide cost pools</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Compare actual to the original route case</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Actual profitability and original case assumptions</td>
+<td>Variance against original case</td>
+<td>Variance calculated for 100 percent of routes within their case window</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Original case assumptions are not always retained in a form that supports comparison</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-NM-01-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Case comparison</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Attribute variance to demand, price or cost drivers</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Variance data</td>
+<td>Attributed variance by driver</td>
+<td>Attribution completed for all material variances</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Attribution is judgement-led where drivers interact, such as a price change under weak demand</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Score routes against the network scorecard</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Attributed performance</td>
+<td>Scored route position</td>
+<td>Scorecard produced each review cycle at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A single scorecard metric can obscure a route whose value is mostly connecting contribution</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-NM-01-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Recommendation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Recommend continue, grow or exit</b></td>
+<td>Network Strategy Manager</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Scored route position</td>
+<td>Documented recommendation</td>
+<td>Recommendations issued for 100 percent of underperforming routes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Exit recommendations are commercially and politically harder to act on than grow recommendations</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Track recommendation to decision closure</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Issued recommendation</td>
+<td>Closed decision record</td>
+<td>Recommendations closed to a decision within 60 days at 90 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Recommendations without a forced decision point tend to persist unresolved across cycles</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Network Planning Analyst</span><span class="lane-steps">1.1 1.2 2.2 3.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Revenue Management Analyst</span><span class="lane-steps">2.1</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Network Strategy Manager</span><span class="lane-steps">3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Profitability compiled for 100 percent of active routes each cycle</li><li>Recommendations issued for 100 percent of underperforming routes</li><li>Variance calculated for 100 percent of routes within their case window</li><li>Routes formally closed out against their original case above 60 percent</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Route cost allocation being an estimate that can misstate an individual route&#x27;s true profitability</li><li>Connecting contribution value obscured by a scorecard metric built for point to point routes</li><li>Exit recommendations systematically deferred relative to grow recommendations</li><li>The network&#x27;s collective track record on route decisions never actually being measured</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../network-planning-scheduling/slots-alliance-codeshare/ac-np-sl-07/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Bilateral and Regulatory Route Authority Filing</span></a>
+  <a class="next" href="../../../network-planning-scheduling/network-performance-monitoring/ac-np-nm-02/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Competitor Capacity and Schedule Benchmarking</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Fleet Renewal Impact Modelling &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Fleet Renewal Impact Modelling.">
+<title>AC-NP-FA-07 Fleet Renewal Impact Modelling &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-NP-FA-07 Fleet Renewal Impact Modelling.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../network-planning-scheduling/fleet-assignment-rotation/ac-np-fa-06/",next:"../../../network-planning-scheduling/fleet-assignment-rotation/ac-np-fa-08/"};
@@ -132,14 +132,145 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Network Planning &amp; Scheduling</a><span class="sep">&rsaquo;</span><a href="../">Fleet Assignment &amp; Rotation</a><span class="sep">&rsaquo;</span><span class="cur">AC-NP-FA-07</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-NP-FA-07" title="Click to copy the process ID">
     AC-NP-FA-07<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Fleet Renewal Impact Modelling</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Fleet Renewal Impact Modelling</h1>
+<p class="lede" id="overview">Air Canada&#x27;s multi-year fleet renewal programme, spanning 777, 787, 737 MAX, A220 and A320 family deliveries and retirements, is translated into its schedule and network planning impact each season.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Renewal timing slippage is common in any fleet transition and the practical discipline is keeping the assignable fleet position current rather than assuming the delivery plan will hold.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A fleet delivery or retirement date is confirmed or changes, or the annual renewal programme review updates the multi-year plan.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A network and schedule impact model reflecting the current renewal programme, feeding fleet assignment with an accurate available-fleet position.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Network Planning &amp; Scheduling<br>
+    <span style="color:var(--text-muted);font-size:12px">Fleet Assignment &amp; Rotation</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">6 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-np-fa-07.png" alt="Fleet Renewal Impact Modelling process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-NP-FA-07-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Programme tracking</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Track delivery and retirement schedule</b></td>
+<td>Fleet Planner</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Manufacturer delivery position and retirement plan</td>
+<td>Current delivery and retirement schedule</td>
+<td>Schedule refreshed monthly at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manufacturer delivery slippage is communicated on the manufacturer&#x27;s cycle, not Air Canada&#x27;s</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Assess network capacity impact of timing changes</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Updated delivery schedule</td>
+<td>Capacity impact assessment by season</td>
+<td>Impact assessed within 5 business days of a confirmed change</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A delivery slip cascades into every route case already assuming the new type</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-FA-07-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Impact modelling</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Model transition period fleet mix</b></td>
+<td>Fleet Planner</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Overlapping old and new type operations</td>
+<td>Transition fleet mix by season</td>
+<td>Transition mix modelled for every season with overlapping types</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Operating two types on one route during transition raises crew and spares cost not captured here</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Assess crew training and certification runway</b></td>
+<td>Crew Planning Liaison</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>New type introduction timeline</td>
+<td>Crew readiness assessment</td>
+<td>Crew readiness confirmed before entry into service at 100 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Type rating training capacity is a hard constraint on how fast a new type can scale</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-FA-07-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Plan update</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Update the multi-year network plan</b></td>
+<td>Network Strategy Manager</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Impact and readiness assessments</td>
+<td>Updated multi-year network plan</td>
+<td>Plan updated within 10 business days of a confirmed programme change</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>The multi-year plan is a living document but updates are not always propagated to route cases already committed</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Communicate impact to affected route cases</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Updated multi-year plan</td>
+<td>Notified route case owners with revised assumptions</td>
+<td>Affected route case owners notified within 5 business days of a plan update</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Notification is informal, so a route case can proceed on a superseded fleet assumption</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Fleet Planner</span><span class="lane-steps">1.1 2.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Network Planning Analyst</span><span class="lane-steps">1.2 3.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Crew Planning Liaison</span><span class="lane-steps">2.2</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Network Strategy Manager</span><span class="lane-steps">3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Delivery and retirement schedule refreshed monthly at 100 percent</li><li>Impact assessed within 5 business days of a confirmed change</li><li>Crew readiness confirmed before entry into service at 100 percent</li><li>Multi-year plan updated within 10 business days of a confirmed programme change</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Delivery slippage cascading into route cases that already assumed the new type</li><li>Transition-period dual-type operation raising crew and spares cost not captured in the network model</li><li>Type rating training capacity constraining how fast a new type can scale into the network</li><li>Multi-year plan updates not propagating to route cases already committed on the old assumption</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../network-planning-scheduling/fleet-assignment-rotation/ac-np-fa-06/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Express Operator Capacity Purchase Allocation</span></a>
+  <a class="next" href="../../../network-planning-scheduling/fleet-assignment-rotation/ac-np-fa-08/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Charter and Jetz Sub-Fleet Scheduling</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

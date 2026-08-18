@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>On Time Performance Root Cause Attribution &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. On Time Performance Root Cause Attribution.">
+<title>AC-NP-NM-04 On Time Performance Root Cause Attribution &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-NP-NM-04 On Time Performance Root Cause Attribution.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../network-planning-scheduling/network-performance-monitoring/ac-np-nm-03/",next:"../../../network-planning-scheduling/network-performance-monitoring/ac-np-nm-05/"};
@@ -131,14 +131,145 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Network Planning &amp; Scheduling</a><span class="sep">&rsaquo;</span><a href="../">Network Performance &amp; Monitoring</a><span class="sep">&rsaquo;</span><span class="cur">AC-NP-NM-04</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-NP-NM-04" title="Click to copy the process ID">
     AC-NP-NM-04<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>On Time Performance Root Cause Attribution</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>On Time Performance Root Cause Attribution</h1>
+<p class="lede" id="overview">On-time performance is analysed to root cause, separating network design, airport process, crew and weather contributions so that structural fixes can be distinguished from operational ones.</p>
+<div class="callout"><span class="ct">Air Canada context</span>On-time performance is reported as a single number but its causes sit in different domains, so a network-design problem, an airport turnaround problem and a crew problem can produce an identical OTP figure while needing completely different fixes.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">The recurring OTP reporting cycle runs, or a sustained OTP decline triggers a deep-dive review.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">An OTP root cause report attributing delay to network, airport, crew, weather or aircraft causes, with recommendations addressed to the right owner.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Network Planning &amp; Scheduling<br>
+    <span style="color:var(--text-muted);font-size:12px">Network Performance &amp; Monitoring</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">6 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-np-nm-04.png" alt="On Time Performance Root Cause Attribution process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-NP-NM-04-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Delay data compilation</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Compile delay data by cause code</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Operational delay records</td>
+<td>Compiled delay data by cause code</td>
+<td>Compiled within 3 business days of period close at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Cause codes are recorded under operational time pressure and are not always precise</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-NM-04-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Root cause attribution</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Attribute delay to network design</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Compiled delay data and schedule structure</td>
+<td>Network-attributed delay</td>
+<td>Network attribution completed each reporting cycle</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Insufficient ground time built into the schedule reads as an airport delay unless traced back</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Attribute delay to airport and ground process</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Compiled delay data and station performance</td>
+<td>Airport-attributed delay</td>
+<td>Airport attribution completed each reporting cycle</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Station-level process issues are masked when reported only at the network level</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Attribute delay to crew and maintenance</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Compiled delay data</td>
+<td>Crew and maintenance attributed delay</td>
+<td>Crew and maintenance attribution completed each reporting cycle</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Crew-caused and maintenance-caused delay are sometimes coded interchangeably at source</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-NM-04-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Recommendation and routing</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Route structural findings to the responsible owner</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Attributed root causes</td>
+<td>Findings routed with an owner and target</td>
+<td>Findings routed within 10 business days of the reporting cycle</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A finding routed to the wrong owner sits unactioned until the next review surfaces it again</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Track structural fix implementation</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Routed finding</td>
+<td>Confirmed fix implementation or documented deferral</td>
+<td>Structural fixes implemented or explicitly deferred within one planning cycle at 90 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Implementation tracking stops at the recommendation and is not closed against actual delivery</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Network Planning Analyst</span><span class="lane-steps">1.1 2.1 2.2 2.3 3.1 3.2</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Compiled within 3 business days of period close at 100 percent</li><li>Findings routed within 10 business days of the reporting cycle</li><li>Network attribution completed each reporting cycle</li><li>OTP root cause correctly attributed on 85 percent of material delay drivers</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Insufficient scheduled ground time reading as an airport delay unless explicitly traced back</li><li>Crew-caused and maintenance-caused delay coded interchangeably at the point of entry</li><li>A structural finding routed to the wrong owner going unactioned for a full reporting cycle</li><li>Station-level process issues masked by a network-level aggregate OTP figure</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../network-planning-scheduling/network-performance-monitoring/ac-np-nm-03/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Load Factor and RASK Variance Analysis</span></a>
+  <a class="next" href="../../../network-planning-scheduling/network-performance-monitoring/ac-np-nm-05/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Connection Bank Integrity Monitoring</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

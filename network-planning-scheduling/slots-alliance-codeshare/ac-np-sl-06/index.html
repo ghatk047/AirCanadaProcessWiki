@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Codeshare Agreement Onboarding &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Codeshare Agreement Onboarding.">
+<title>AC-NP-SL-06 Codeshare Agreement Onboarding &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-NP-SL-06 Codeshare Agreement Onboarding.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../network-planning-scheduling/slots-alliance-codeshare/ac-np-sl-05/",next:"../../../network-planning-scheduling/slots-alliance-codeshare/ac-np-sl-07/"};
@@ -131,14 +131,145 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Network Planning &amp; Scheduling</a><span class="sep">&rsaquo;</span><a href="../">Slots, Alliance &amp; Codeshare</a><span class="sep">&rsaquo;</span><span class="cur">AC-NP-SL-06</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-NP-SL-06" title="Click to copy the process ID">
     AC-NP-SL-06<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Codeshare Agreement Onboarding</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Codeshare Agreement Onboarding</h1>
+<p class="lede" id="overview">Star Alliance-wide schedule coordination aligns Air Canada&#x27;s published schedule with the broader alliance network to protect connection quality and status recognition across all 26 members.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Star Alliance coordination is broader but shallower than the A++ joint venture: it covers 26 members rather than five, so in practice Air Canada actively coordinates only with the highest-connecting-value partners and accepts the schedule as given for the rest.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A Star Alliance coordination cycle runs ahead of each season, or a major member&#x27;s schedule change materially affects Air Canada connections.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">An Air Canada schedule coordinated with the alliance network for the season, with priority connections protected.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Network Planning &amp; Scheduling<br>
+    <span style="color:var(--text-muted);font-size:12px">Slots, Alliance &amp; Codeshare</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">6 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-np-sl-06.png" alt="Codeshare Agreement Onboarding process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-NP-SL-06-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Alliance schedule exchange</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Exchange schedules across the alliance</b></td>
+<td>Alliance Manager</td>
+<td><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Air Canada published schedule</td>
+<td>Alliance-wide schedule exchange</td>
+<td>Exchange completed ahead of each season at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>26 members exchange on different cycles, so a complete picture is rarely available at once</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Identify priority connecting partners</b></td>
+<td>Alliance Manager</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Connecting traffic volume by partner</td>
+<td>Prioritised partner list</td>
+<td>Priority list refreshed each season</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Connecting value is concentrated in a handful of partners but the list is not formally reviewed often</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-SL-06-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Priority connection protection</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Protect priority connections in schedule design</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Priority partner schedules</td>
+<td>Protected connection timings</td>
+<td>Priority connections protected on 90 percent of target markets</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Protecting one partner&#x27;s connections can compromise another&#x27;s in the same bank</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Coordinate status recognition and lounge access</b></td>
+<td>Alliance Manager</td>
+<td><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Alliance membership terms</td>
+<td>Confirmed reciprocal recognition</td>
+<td>Recognition confirmed for 100 percent of alliance touchpoints</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Recognition terms are broad but station-level implementation varies</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-SL-06-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Season alignment</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Align final schedule to alliance commitments</b></td>
+<td>Schedule Planner</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Protected connections and alliance terms</td>
+<td>Alliance-aligned committed schedule</td>
+<td>Alignment complete before schedule freeze at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Late alliance schedule changes arrive after Air Canada&#x27;s own schedule is already committed</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Report alliance coordination outcomes</b></td>
+<td>Alliance Manager</td>
+<td><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Aligned schedule</td>
+<td>Coordination outcome report</td>
+<td>Report issued within 10 business days of schedule freeze</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Outcomes are reported per season with no year-over-year trend view</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Alliance Manager</span><span class="lane-steps">1.1 1.2 2.2 3.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Network Planning Analyst</span><span class="lane-steps">2.1</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Schedule Planner</span><span class="lane-steps">3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Priority connections protected on 90 percent of target markets</li><li>Exchange completed ahead of each season at 100 percent</li><li>Reciprocal recognition confirmed for 100 percent of alliance touchpoints</li><li>Alignment complete before schedule freeze at 100 percent</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Protecting one partner&#x27;s connections compromising another&#x27;s in the same connecting bank</li><li>26 members exchanging schedules on different cycles, leaving no single complete picture</li><li>Late alliance schedule changes arriving after Air Canada&#x27;s own schedule is already committed</li><li>Station-level recognition implementation varying despite broad alliance-level terms</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../network-planning-scheduling/slots-alliance-codeshare/ac-np-sl-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">A Plus Plus Atlantic Joint Venture Schedule Alignment</span></a>
+  <a class="next" href="../../../network-planning-scheduling/slots-alliance-codeshare/ac-np-sl-07/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Bilateral and Regulatory Route Authority Filing</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

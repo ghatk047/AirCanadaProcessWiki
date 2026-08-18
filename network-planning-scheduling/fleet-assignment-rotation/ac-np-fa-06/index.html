@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Express Operator Capacity Purchase Allocation &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Express Operator Capacity Purchase Allocation.">
+<title>AC-NP-FA-06 Express Operator Capacity Purchase Allocation &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-NP-FA-06 Express Operator Capacity Purchase Allocation.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../network-planning-scheduling/fleet-assignment-rotation/ac-np-fa-05/",next:"../../../network-planning-scheduling/fleet-assignment-rotation/ac-np-fa-07/"};
@@ -132,14 +132,145 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Network Planning &amp; Scheduling</a><span class="sep">&rsaquo;</span><a href="../">Fleet Assignment &amp; Rotation</a><span class="sep">&rsaquo;</span><span class="cur">AC-NP-FA-06</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-NP-FA-06" title="Click to copy the process ID">
     AC-NP-FA-06<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Express Operator Capacity Purchase Allocation</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Express Operator Capacity Purchase Allocation</h1>
+<p class="lede" id="overview">Express operator capacity purchased from Jazz Aviation and PAL Airlines is allocated across regional routes within the contracted capacity purchase agreement limits.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Express capacity is contractually fixed, not commercially flexible: it cannot absorb overflow from a mainline decision made elsewhere in the schedule, which makes allocation a hard constraint rather than an optimisation input.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">Seasonal schedule build reaches Express allocation, or a change in regional demand requires reallocation within the contract.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">Regional route capacity allocated to Express operators within contracted limits, feeding correctly into the mainline connecting banks.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Network Planning &amp; Scheduling<br>
+    <span style="color:var(--text-muted);font-size:12px">Fleet Assignment &amp; Rotation</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">6 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-np-fa-06.png" alt="Express Operator Capacity Purchase Allocation process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-NP-FA-06-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Demand and contract review</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Review regional route demand</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Regional O and D demand data</td>
+<td>Regional demand by route</td>
+<td>Demand reviewed at the start of the allocation cycle</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Regional demand data is thinner than mainline and harder to forecast confidently</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Confirm capacity purchase agreement limits</b></td>
+<td>Fleet Planner</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Jazz and PAL contracted capacity</td>
+<td>Confirmed contract limits by operator</td>
+<td>Limits confirmed before allocation begins at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Contract limits and actual operator fleet availability are not always the same number</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-FA-06-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Allocation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Allocate routes within contracted limits</b></td>
+<td>Fleet Planner</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Regional demand and contract limits</td>
+<td>Route allocation by operator</td>
+<td>Allocation within contracted limits at 100 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Demand can exceed contracted capacity on a specific route with no immediate remedy</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Assign aircraft type within operator fleet</b></td>
+<td>Fleet Planner</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Operator fleet types and route requirements</td>
+<td>Aircraft type assignment by route</td>
+<td>Type assignment matched to route requirements at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Operator fleet type mix is set by the operator, not chosen route by route</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-FA-06-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Bank alignment</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Align Express timings to mainline connecting banks</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Express schedule draft and bank windows</td>
+<td>Bank-aligned Express schedule</td>
+<td>Express feed aligned to bank windows on 85 percent of connections</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Operator scheduling constraints can conflict with the mainline bank window</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Commit Express allocation to the schedule</b></td>
+<td>Fleet Planner</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Aligned allocation</td>
+<td>Committed Express capacity allocation</td>
+<td>Allocation committed on the published cycle date</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Late demand shifts cannot be absorbed once the contracted allocation is committed</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Network Planning Analyst</span><span class="lane-steps">1.1 3.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Fleet Planner</span><span class="lane-steps">1.2 2.1 2.2 3.2</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag express" data-tooltip="Air Canada Express capacity-purchase operators running their own crew, ops and maintenance systems. [Jazz / PAL - evidence A]">Jazz and PAL Operator Interface<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Allocation within contracted capacity purchase agreement limits at 100 percent</li><li>Express feed aligned to mainline bank windows on 85 percent of connections</li><li>Type assignment matched to route requirements at 100 percent</li><li>Limits confirmed before allocation begins at 100 percent</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Regional demand exceeding contracted capacity with no immediate remedy available</li><li>Operator scheduling constraints conflicting with the mainline connecting bank window</li><li>Contract limits and actual operator fleet availability diverging without notice</li><li>Late regional demand shifts unable to be absorbed once allocation is committed</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../network-planning-scheduling/fleet-assignment-rotation/ac-np-fa-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">A220 Deployment Planning on Thin Transcontinental Routes</span></a>
+  <a class="next" href="../../../network-planning-scheduling/fleet-assignment-rotation/ac-np-fa-07/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Fleet Renewal Impact Modelling</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

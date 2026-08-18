@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Star Alliance Schedule Coordination &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Star Alliance Schedule Coordination.">
+<title>AC-NP-SL-04 Star Alliance Schedule Coordination &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-NP-SL-04 Star Alliance Schedule Coordination.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../network-planning-scheduling/slots-alliance-codeshare/ac-np-sl-03/",next:"../../../network-planning-scheduling/slots-alliance-codeshare/ac-np-sl-05/"};
@@ -131,14 +131,145 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Network Planning &amp; Scheduling</a><span class="sep">&rsaquo;</span><a href="../">Slots, Alliance &amp; Codeshare</a><span class="sep">&rsaquo;</span><span class="cur">AC-NP-SL-04</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-NP-SL-04" title="Click to copy the process ID">
     AC-NP-SL-04<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Star Alliance Schedule Coordination</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Star Alliance Schedule Coordination</h1>
+<p class="lede" id="overview">Filed codeshare and interline agreements are audited against actual schedule and designation data to confirm they remain compliant and correctly constructed for sale.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Filing compliance degrades quietly: a schedule change on either side can silently break a previously working designation, and the first sign is often a booking failure rather than an audit finding.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A scheduled compliance audit cycle runs, or a partner or internal report flags a construction failure on a codeshare itinerary.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A verified codeshare and interline filing position with any construction failure identified and corrected.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Network Planning &amp; Scheduling<br>
+    <span style="color:var(--text-muted);font-size:12px">Slots, Alliance &amp; Codeshare</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">6 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-np-sl-04.png" alt="Star Alliance Schedule Coordination process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-NP-SL-04-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Filing verification</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Extract current codeshare filing position</b></td>
+<td>Alliance Manager</td>
+<td><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Filed designations across active agreements</td>
+<td>Current filing extract</td>
+<td>Extract produced for each audit cycle at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>The extract spans multiple partner systems with no single consolidated source</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Compare filings against agreement terms</b></td>
+<td>Alliance Manager</td>
+<td><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Filing extract and signed agreements</td>
+<td>Compliance comparison with variance list</td>
+<td>Variances identified for 100 percent of active agreements</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Agreement terms change through informal partner communication that is not always reflected in filing</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-SL-04-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Failure investigation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Test itinerary construction for sampled routes</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Filed designations</td>
+<td>Construction test results</td>
+<td>Sampled routes tested each audit cycle at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A construction failure can exist for weeks before a booking attempt surfaces it</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Investigate construction failures</b></td>
+<td>Alliance Manager</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Failed construction case</td>
+<td>Root cause of the failure</td>
+<td>Root cause identified within 5 business days of detection</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Root cause can sit with either carrier&#x27;s filing, which slows joint diagnosis</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-SL-04-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Correction and reporting</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Correct filing discrepancies</b></td>
+<td>Alliance Manager</td>
+<td><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Root cause finding</td>
+<td>Corrected filing</td>
+<td>Corrections filed within 5 business days of root cause confirmation</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A correction on one side must be matched by the partner or the fix does not take</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Report compliance position</b></td>
+<td>Alliance Manager</td>
+<td><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Corrected filings and residual issues</td>
+<td>Compliance report</td>
+<td>Compliance report issued each audit cycle at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Historical compliance trends are not tracked, so recurring issues are not visible over time</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Alliance Manager</span><span class="lane-steps">1.1 1.2 2.2 3.1 3.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Network Planning Analyst</span><span class="lane-steps">2.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Sampled routes tested each audit cycle at 100 percent</li><li>Root cause identified within 5 business days of detection</li><li>Corrections filed within 5 business days of root cause confirmation</li><li>Variances identified for 100 percent of active agreements</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>A schedule change on either carrier silently breaking a previously working codeshare designation</li><li>Construction failures going undetected for weeks until a booking attempt surfaces them</li><li>A correction on one side not matched by the partner, so the underlying fix does not take</li><li>Recurring compliance issues invisible because historical trends are not tracked</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../network-planning-scheduling/slots-alliance-codeshare/ac-np-sl-03/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Slot Compliance and Use It Or Lose It Monitoring</span></a>
+  <a class="next" href="../../../network-planning-scheduling/slots-alliance-codeshare/ac-np-sl-05/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">A Plus Plus Atlantic Joint Venture Schedule Alignment</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

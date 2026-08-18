@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Schedule Reliability and Block Time Tuning &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Schedule Reliability and Block Time Tuning.">
+<title>AC-NP-NM-06 Schedule Reliability and Block Time Tuning &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-NP-NM-06 Schedule Reliability and Block Time Tuning.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../network-planning-scheduling/network-performance-monitoring/ac-np-nm-05/",next:"../../../network-planning-scheduling/network-performance-monitoring/ac-np-nm-07/"};
@@ -131,14 +131,145 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Network Planning &amp; Scheduling</a><span class="sep">&rsaquo;</span><a href="../">Network Performance &amp; Monitoring</a><span class="sep">&rsaquo;</span><span class="cur">AC-NP-NM-06</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-NP-NM-06" title="Click to copy the process ID">
     AC-NP-NM-06<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Schedule Reliability and Block Time Tuning</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Schedule Reliability and Block Time Tuning</h1>
+<p class="lede" id="overview">Schedule reliability is tracked at the block-time level, tuning planned block times so they reflect achievable performance rather than an aspirational target.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Block time sits between two failure modes: too tight and the route chronically reports as late, too generous and aircraft utilisation is wasted. Getting this right is a continuous tuning exercise, not a one-time calculation.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">The recurring block time review cycle runs, or a route shows a persistent gap between planned and actual block time.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">Tuned block times that reflect achievable performance, reducing both chronic delay and unnecessary schedule padding.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Network Planning &amp; Scheduling<br>
+    <span style="color:var(--text-muted);font-size:12px">Network Performance &amp; Monitoring</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">6 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-np-nm-06.png" alt="Schedule Reliability and Block Time Tuning process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-NP-NM-06-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Actual performance analysis</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Compile actual block time distribution</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Actual flight time data by route</td>
+<td>Block time distribution by route</td>
+<td>Distribution compiled for 100 percent of routes each review cycle</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Distribution is affected by seasonal wind patterns that a single average obscures</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Identify chronic over or under performance</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Block time distribution</td>
+<td>Flagged routes with persistent variance</td>
+<td>Flagged routes identified each review cycle at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A single flagged route can be masking a seasonal effect rather than a genuine planning error</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-NM-06-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Block time tuning</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Propose tuned block time by season</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Flagged routes and distribution data</td>
+<td>Proposed block time by route and season</td>
+<td>Proposals produced for 100 percent of flagged routes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Tuning to the average can still leave a route chronically late in one direction on a windy sector</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Assess rotation and gate impact of the change</b></td>
+<td>Schedule Planner</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Proposed block time change</td>
+<td>Rotation feasibility assessment</td>
+<td>Feasibility assessed for 100 percent of proposed changes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A block time increase on one leg can break the rotation it is embedded in</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-NM-06-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Validation and commitment</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Validate and commit tuned block times</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Feasibility-assessed proposal</td>
+<td>Committed block time change</td>
+<td>Changes committed for the next applicable season at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Committed changes only take effect at the next schedule build, so correction is never immediate</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Monitor post-tuning reliability</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Committed block time change</td>
+<td>Post-tuning reliability confirmation</td>
+<td>Reliability confirmed within one season of the change on 90 percent of tuned routes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A tuning that looked correct on historical data can still miss on the season it is applied to</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Network Planning Analyst</span><span class="lane-steps">1.1 1.2 2.1 3.1 3.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Schedule Planner</span><span class="lane-steps">2.2</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Distribution compiled for 100 percent of routes each review cycle</li><li>Flagged routes identified each review cycle at 100 percent</li><li>Feasibility assessed for 100 percent of proposed changes</li><li>Chronic block time variance reduced season over season on tuned routes</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Tuning to an average that still leaves a route chronically late in one direction on a windy sector</li><li>A block time increase on one leg breaking the rotation it is embedded in</li><li>Seasonal wind effects masked by an annual average and misread as a planning error</li><li>Correction only taking effect at the next schedule build, with no immediate remedy</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../network-planning-scheduling/network-performance-monitoring/ac-np-nm-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Connection Bank Integrity Monitoring</span></a>
+  <a class="next" href="../../../network-planning-scheduling/network-performance-monitoring/ac-np-nm-07/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Network Post Implementation Review</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Competitor Capacity and Schedule Benchmarking &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Competitor Capacity and Schedule Benchmarking.">
+<title>AC-NP-NM-02 Competitor Capacity and Schedule Benchmarking &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-NP-NM-02 Competitor Capacity and Schedule Benchmarking.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../network-planning-scheduling/network-performance-monitoring/ac-np-nm-01/",next:"../../../network-planning-scheduling/network-performance-monitoring/ac-np-nm-03/"};
@@ -131,14 +131,145 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Network Planning &amp; Scheduling</a><span class="sep">&rsaquo;</span><a href="../">Network Performance &amp; Monitoring</a><span class="sep">&rsaquo;</span><span class="cur">AC-NP-NM-02</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-NP-NM-02" title="Click to copy the process ID">
     AC-NP-NM-02<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Competitor Capacity and Schedule Benchmarking</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Competitor Capacity and Schedule Benchmarking</h1>
+<p class="lede" id="overview">Competitor capacity and schedule changes are tracked continuously and benchmarked against Air Canada&#x27;s own network to inform both tactical response and the next planning cycle.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Competitive intelligence here is mostly public schedule filings rather than anything proprietary, which means the discipline is in consistent tracking and fast interpretation, not data access.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A competitor announces or files a capacity or schedule change, or the recurring benchmarking cycle runs.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A current competitive capacity picture with flagged material changes and their likely commercial impact on Air Canada&#x27;s network.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Network Planning &amp; Scheduling<br>
+    <span style="color:var(--text-muted);font-size:12px">Network Performance &amp; Monitoring</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">6 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-np-nm-02.png" alt="Competitor Capacity and Schedule Benchmarking process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-NP-NM-02-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Capacity tracking</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Track competitor schedule filings</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">OAG Schedule Analyser<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Published competitor schedules</td>
+<td>Tracked competitor capacity position</td>
+<td>Tracking refreshed weekly for all overlapping markets</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Filed schedules do not always operate as filed, so tracking can overstate real competitive capacity</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Flag material capacity changes</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">OAG Schedule Analyser<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Tracked capacity position</td>
+<td>Flagged material change list</td>
+<td>Material changes flagged within 3 business days of filing</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Materiality thresholds are judgement based and applied inconsistently</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-NM-02-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Impact assessment</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Assess demand and share impact</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Flagged competitor change</td>
+<td>Impact assessment by overlapping route</td>
+<td>Impact assessed within 5 business days of flagging</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Share impact modelling assumes competitor capacity actually operates as filed</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-NM-02-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Response recommendation</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Recommend tactical or structural response</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Impact assessment</td>
+<td>Response recommendation</td>
+<td>Recommendation issued within 10 business days of a material change</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A tactical pricing response and a structural capacity response draw on different planning cycles</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Feed findings into the next planning cycle</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Cumulative competitive findings</td>
+<td>Input to route case and schedule build</td>
+<td>Findings incorporated into every relevant route case at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Findings are captured per incident but not consolidated into a standing competitive picture</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Maintain the standing competitive intelligence picture</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Consolidated incident history</td>
+<td>Standing competitive position by market</td>
+<td>Standing picture refreshed each planning cycle at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Without a standing view, the same competitive pattern is re-analysed from scratch each time</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Network Planning Analyst</span><span class="lane-steps">1.1 1.2 3.1 3.2 3.3</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Revenue Management Analyst</span><span class="lane-steps">2.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">OAG Schedule Analyser<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Material changes flagged within 3 business days of filing</li><li>Impact assessed within 5 business days of flagging</li><li>Response recommendation issued within 10 business days of a material change</li><li>Tracking refreshed weekly for all overlapping markets</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Filed competitor schedules not operating as filed, overstating the real competitive threat</li><li>Materiality thresholds applied inconsistently, so a real threat goes unflagged</li><li>Findings captured per incident rather than consolidated into a standing competitive picture</li><li>Tactical and structural response recommendations competing for the same limited planning capacity</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../network-planning-scheduling/network-performance-monitoring/ac-np-nm-01/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Route Profitability Review and Network Scorecard</span></a>
+  <a class="next" href="../../../network-planning-scheduling/network-performance-monitoring/ac-np-nm-03/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Load Factor and RASK Variance Analysis</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources
