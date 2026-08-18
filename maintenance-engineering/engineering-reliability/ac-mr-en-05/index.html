@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Predictive Maintenance Model Deployment &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Predictive Maintenance Model Deployment.">
+<title>AC-MR-EN-05 Predictive Maintenance Model Deployment &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-MR-EN-05 Predictive Maintenance Model Deployment.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../maintenance-engineering/engineering-reliability/ac-mr-en-04/",next:"../../../maintenance-engineering/engineering-reliability/ac-mr-en-06/"};
@@ -130,14 +130,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Maintenance &amp; Engineering</a><span class="sep">&rsaquo;</span><a href="../">Engineering &amp; Reliability</a><span class="sep">&rsaquo;</span><span class="cur">AC-MR-EN-05</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-MR-EN-05" title="Click to copy the process ID">
     AC-MR-EN-05<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Predictive Maintenance Model Deployment</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Predictive Maintenance Model Deployment</h1>
+<p class="lede" id="overview">A predictive maintenance model is developed and deployed, using aircraft sensor and reliability data to forecast a component failure before it manifests as an in-service defect.</p>
+<div class="callout"><span class="ct">Air Canada context</span>A false negative and a false positive have very different costs in this application: missing a genuine failure risk is a safety exposure, while a false alarm wastes a serviceable component&#x27;s remaining life, which shapes how the model&#x27;s threshold has to be set.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A predictive maintenance opportunity is identified for a component with a material failure consequence, or an existing model requires retraining.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A deployed predictive model correctly forecasting failure risk, feeding proactive component replacement scheduling ahead of an in-service failure.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Maintenance &amp; Engineering<br>
+    <span style="color:var(--text-muted);font-size:12px">Engineering &amp; Reliability</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-mr-en-05.png" alt="Predictive Maintenance Model Deployment process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-MR-EN-05-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Model development</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Develop the predictive model</b></td>
+<td>Reliability Engineer</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Historical sensor and failure data</td>
+<td>Developed model</td>
+<td>Developed within the project timeline at 90 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Model training data quality depends on historical sensor data completeness that is not always consistent</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-EN-05-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Validation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Validate model performance against held-out data</b></td>
+<td>Reliability Engineer</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Developed model and validation data</td>
+<td>Validated model performance</td>
+<td>Validated against a defined accuracy standard before deployment at 100 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A false negative and a false positive carry very different costs, and the threshold has to reflect that asymmetry</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Deploy model into predictive maintenance workflow</b></td>
+<td>Reliability Engineer</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Validated model</td>
+<td>Deployed model generating predictions</td>
+<td>Deployed within the project timeline at 90 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Predictions have to reach materials planning in time to actually act on them before failure</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-EN-05-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Deployment and monitoring</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Monitor model performance in production</b></td>
+<td>Reliability Engineer</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Production predictions and actual outcomes</td>
+<td>Production performance monitoring</td>
+<td>Monitored on a recurring cycle for 100 percent of deployed models</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A model that drifts in production without monitoring can silently degrade to below its validated accuracy</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Reliability Engineer</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Validated against a defined accuracy standard before deployment at 100 percent</li><li>Deployed within the project timeline at 90 percent</li><li>Monitored on a recurring cycle for 100 percent of deployed models</li><li>In-service failures avoided through predictive replacement tracked against target</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>A false negative representing a genuine safety exposure while a false positive wastes component life</li><li>A model drifting in production without monitoring, silently degrading below its validated accuracy</li><li>Predictions not reaching materials planning in time to act before the predicted failure occurs</li><li>Model training data quality depending on historical sensor data completeness that is not always consistent</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../maintenance-engineering/engineering-reliability/ac-mr-en-04/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Reliability Monitoring and Trend Analysis</span></a>
+  <a class="next" href="../../../maintenance-engineering/engineering-reliability/ac-mr-en-06/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Technical Publication and Manual Revision Control</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

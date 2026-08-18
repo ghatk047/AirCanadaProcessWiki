@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Heavy Check Planning and Slot Booking &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Heavy Check Planning and Slot Booking.">
+<title>AC-MR-HM-01 Heavy Check Planning and Slot Booking &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-MR-HM-01 Heavy Check Planning and Slot Booking.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../maintenance-engineering/line-maintenance/ac-mr-lm-06/",next:"../../../maintenance-engineering/heavy-base-maintenance/ac-mr-hm-02/"};
@@ -130,14 +130,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Maintenance &amp; Engineering</a><span class="sep">&rsaquo;</span><a href="../">Heavy &amp; Base Maintenance</a><span class="sep">&rsaquo;</span><span class="cur">AC-MR-HM-01</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-MR-HM-01" title="Click to copy the process ID">
     AC-MR-HM-01<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Heavy Check Planning and Slot Booking</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Heavy Check Planning and Slot Booking</h1>
+<p class="lede" id="overview">A heavy check is planned and its slot booked at a maintenance base months ahead, coordinating the aircraft&#x27;s availability, check scope and base capacity into a committed check window.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Heavy check planning has to work backward from the base&#x27;s slot availability, which is booked months ahead, into the network schedule established in AC-NP-FA-03, making it one of the longest-lead-time coordination points between maintenance and network planning.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">An aircraft&#x27;s heavy check interval approaches based on flight hours, cycles or calendar time.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A booked heavy check slot with the aircraft&#x27;s fleet rotation adjusted to make it available for the committed window.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Maintenance &amp; Engineering<br>
+    <span style="color:var(--text-muted);font-size:12px">Heavy &amp; Base Maintenance</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-mr-hm-01.png" alt="Heavy Check Planning and Slot Booking process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-MR-HM-01-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Check interval forecasting</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Forecast heavy check due date</b></td>
+<td>Heavy Maintenance Planner</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Utilisation history and check interval</td>
+<td>Forecast check due date</td>
+<td>Forecast for 100 percent of the fleet at the required planning horizon</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Utilisation running ahead of or behind plan shifts the forecast due date</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-HM-01-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Slot booking</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Book maintenance base slot</b></td>
+<td>Heavy Maintenance Planner</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Forecast due date and base availability</td>
+<td>Booked slot</td>
+<td>Booked within the required lead time before the check is due at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Base slot availability is finite and shared across the whole fleet, so booking timing is competitive</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Coordinate with network fleet assignment</b></td>
+<td>Heavy Maintenance Planner</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Booked slot</td>
+<td>Fleet rotation adjusted for check availability</td>
+<td>Coordinated before the affected season&#x27;s schedule freeze at 100 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A slot booked without coordinating fleet availability can conflict with the committed flying schedule</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-HM-01-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Rotation coordination</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Confirm aircraft availability for the check window</b></td>
+<td>Heavy Maintenance Planner</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Coordinated rotation</td>
+<td>Confirmed aircraft availability</td>
+<td>Confirmed before the check window opens at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A confirmed availability that later changes forces a slot rebooking, competing with other aircraft for base capacity</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Heavy Maintenance Planner</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Forecast for 100 percent of the fleet at the required planning horizon</li><li>Booked within the required lead time before the check is due at 100 percent</li><li>Coordinated before the affected season&#x27;s schedule freeze at 100 percent</li><li>Confirmed before the check window opens at 100 percent</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>A slot booked without coordinating fleet availability conflicting with the committed flying schedule</li><li>Base slot availability being finite and shared across the whole fleet, making booking timing competitive</li><li>A confirmed availability later changing and forcing a slot rebooking against other aircraft</li><li>Utilisation running ahead of or behind plan shifting the forecast check due date</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../maintenance-engineering/line-maintenance/ac-mr-lm-06/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Line Station Support and Contract Maintenance</span></a>
+  <a class="next" href="../../../maintenance-engineering/heavy-base-maintenance/ac-mr-hm-02/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Base Maintenance Work Package Build</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

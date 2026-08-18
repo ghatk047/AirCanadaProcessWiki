@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Engineering Order and Modification Design &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Engineering Order and Modification Design.">
+<title>AC-MR-EN-01 Engineering Order and Modification Design &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-MR-EN-01 Engineering Order and Modification Design.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../maintenance-engineering/heavy-base-maintenance/ac-mr-hm-06/",next:"../../../maintenance-engineering/engineering-reliability/ac-mr-en-02/"};
@@ -130,14 +130,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Maintenance &amp; Engineering</a><span class="sep">&rsaquo;</span><a href="../">Engineering &amp; Reliability</a><span class="sep">&rsaquo;</span><span class="cur">AC-MR-EN-01</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-MR-EN-01" title="Click to copy the process ID">
     AC-MR-EN-01<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Engineering Order and Modification Design</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Engineering Order and Modification Design</h1>
+<p class="lede" id="overview">An engineering order or aircraft modification is designed and approved, defining the technical solution and documentation before it can be embodied on the fleet.</p>
+<div class="callout"><span class="ct">Air Canada context</span>An engineering order is a genuinely technical design activity, not a paperwork exercise, and its quality directly determines how smoothly the embodiment work goes when it eventually reaches a hangar floor.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A modification requirement is identified, from reliability data, a service bulletin or an operational need.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">An approved engineering order with complete embodiment documentation, ready for planning into aircraft maintenance visits.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Maintenance &amp; Engineering<br>
+    <span style="color:var(--text-muted);font-size:12px">Engineering &amp; Reliability</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-mr-en-01.png" alt="Engineering Order and Modification Design process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-MR-EN-01-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Requirement definition</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Define the modification requirement</b></td>
+<td>Engineering Planner</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Source requirement, reliability finding or service bulletin</td>
+<td>Defined requirement</td>
+<td>Defined with a clear technical basis for 100 percent of engineering orders</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A requirement defined without a clear technical basis produces an order that is hard to design against</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-EN-01-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Design and approval</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Design the technical solution</b></td>
+<td>Engineering Planner</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Defined requirement</td>
+<td>Designed technical solution</td>
+<td>Designed within the project&#x27;s planning timeline at 90 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Design has to account for the specific aircraft configuration across the fleet, which is not always uniform</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Obtain regulatory design approval where required</b></td>
+<td>Engineering Planner</td>
+<td><span class="tag regulator" data-tooltip="Airworthiness directive and continuing-airworthiness compliance against CARs. [Transport Canada - evidence C]">Transport Canada CAWIS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Designed solution</td>
+<td>Approved design</td>
+<td>Approved before embodiment planning begins for 100 percent of major modifications</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Regulatory approval timelines are outside Air Canada&#x27;s own control and can extend the project</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-EN-01-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Documentation finalisation</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Finalise embodiment documentation</b></td>
+<td>Engineering Planner</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Approved design</td>
+<td>Finalised embodiment instructions</td>
+<td>Finalised before handoff to maintenance planning at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Documentation quality here directly determines how smoothly embodiment goes on the hangar floor</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Engineering Planner</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag regulator" data-tooltip="Airworthiness directive and continuing-airworthiness compliance against CARs. [Transport Canada - evidence C]">Transport Canada CAWIS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Defined with a clear technical basis for 100 percent of engineering orders</li><li>Approved before embodiment planning begins for 100 percent of major modifications</li><li>Finalised before handoff to maintenance planning at 100 percent</li><li>Embodiment issues attributable to documentation quality below target</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>A requirement defined without a clear technical basis producing a hard-to-design order</li><li>Regulatory approval timelines outside Air Canada&#x27;s control extending the project</li><li>Design not accounting for fleet configuration variation that is not always uniform</li><li>Documentation quality at finalisation directly determining embodiment difficulty on the hangar floor</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../maintenance-engineering/heavy-base-maintenance/ac-mr-hm-06/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Return to Service and Check Closure</span></a>
+  <a class="next" href="../../../maintenance-engineering/engineering-reliability/ac-mr-en-02/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Airworthiness Directive Assessment and Embodiment</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

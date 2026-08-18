@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Maintenance Audit and Finding Closure &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Maintenance Audit and Finding Closure.">
+<title>AC-MR-QA-05 Maintenance Audit and Finding Closure &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-MR-QA-05 Maintenance Audit and Finding Closure.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../maintenance-engineering/airworthiness-records-quality/ac-mr-qa-04/",next:"../../../maintenance-engineering/airworthiness-records-quality/ac-mr-qa-06/"};
@@ -130,14 +130,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Maintenance &amp; Engineering</a><span class="sep">&rsaquo;</span><a href="../">Airworthiness, Records &amp; Quality</a><span class="sep">&rsaquo;</span><span class="cur">AC-MR-QA-05</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-MR-QA-05" title="Click to copy the process ID">
     AC-MR-QA-05<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Maintenance Audit and Finding Closure</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Maintenance Audit and Finding Closure</h1>
+<p class="lede" id="overview">A maintenance audit finding, whether from an internal audit or a Transport Canada inspection, is investigated and closed with a documented corrective action.</p>
+<div class="callout"><span class="ct">Air Canada context</span>A finding closed superficially, addressing the immediate symptom without the underlying root cause, tends to recur at the next audit, which is why root cause discipline matters more here than closure speed alone.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">An audit finding is raised by an internal quality audit or a Transport Canada inspection.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A finding investigated to root cause, with a corrective action implemented and closed within the required timeframe.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Maintenance &amp; Engineering<br>
+    <span style="color:var(--text-muted);font-size:12px">Airworthiness, Records &amp; Quality</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-mr-qa-05.png" alt="Maintenance Audit and Finding Closure process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-MR-QA-05-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Finding intake</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Receive and register the audit finding</b></td>
+<td>Quality Assurance Coordinator</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Audit finding notification</td>
+<td>Registered finding with required response deadline</td>
+<td>Registered within 2 business days of receipt at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Transport Canada findings carry a specific regulatory response deadline distinct from internal audit findings</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-QA-05-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Root cause investigation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Investigate root cause</b></td>
+<td>Quality Assurance Coordinator</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Registered finding</td>
+<td>Root cause determination</td>
+<td>Investigated within the defined response window at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A finding closed on the immediate symptom rather than the root cause tends to recur at the next audit</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Develop corrective action plan</b></td>
+<td>Quality Assurance Coordinator</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Root cause determination</td>
+<td>Corrective action plan</td>
+<td>Developed before the required response deadline at 100 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A corrective action addressing only the specific instance, not the systemic cause, has limited durability</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-QA-05-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Corrective action and closure</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Implement and close the corrective action</b></td>
+<td>Quality Assurance Coordinator</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Approved plan</td>
+<td>Closed finding with verified corrective action</td>
+<td>Closed within the required timeframe for 90 percent of findings</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Closure verification has to confirm the corrective action actually took effect, not just that it was implemented</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Quality Assurance Coordinator</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Registered within 2 business days of receipt at 100 percent</li><li>Investigated within the defined response window at 100 percent</li><li>Closed within the required timeframe for 90 percent of findings</li><li>Repeat finding rate on the same underlying issue below target</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>A finding closed on the immediate symptom rather than root cause tending to recur at the next audit</li><li>Closure verification not confirming the corrective action actually took effect</li><li>A corrective action addressing only the specific instance rather than the systemic cause</li><li>Transport Canada findings carrying a specific regulatory response deadline distinct from internal audits</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../maintenance-engineering/airworthiness-records-quality/ac-mr-qa-04/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Supplier Quality and Spec 2000 Ordering</span></a>
+  <a class="next" href="../../../maintenance-engineering/airworthiness-records-quality/ac-mr-qa-06/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Certification and Approval Maintenance with Transport Canada</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

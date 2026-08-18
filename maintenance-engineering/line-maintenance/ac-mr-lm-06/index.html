@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Line Station Support and Contract Maintenance &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Line Station Support and Contract Maintenance.">
+<title>AC-MR-LM-06 Line Station Support and Contract Maintenance &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-MR-LM-06 Line Station Support and Contract Maintenance.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../maintenance-engineering/line-maintenance/ac-mr-lm-05/",next:"../../../maintenance-engineering/heavy-base-maintenance/ac-mr-hm-01/"};
@@ -130,14 +130,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Maintenance &amp; Engineering</a><span class="sep">&rsaquo;</span><a href="../">Line Maintenance</a><span class="sep">&rsaquo;</span><span class="cur">AC-MR-LM-06</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-MR-LM-06" title="Click to copy the process ID">
     AC-MR-LM-06<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Line Station Support and Contract Maintenance</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Line Station Support and Contract Maintenance</h1>
+<p class="lede" id="overview">A third-party contract maintenance provider performs line maintenance on Air Canada&#x27;s behalf at a station without in-house technician coverage, governed by a service agreement.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Contract line maintenance stations are a genuine oversight gap risk, since the work itself happens outside Air Canada&#x27;s direct supervision, which makes correct recording and periodic audit the actual controls rather than direct oversight.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">An aircraft requires line maintenance at a station where Air Canada relies on contract maintenance coverage.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">Contract maintenance performed to Air Canada&#x27;s standard and certified, with the work correctly recorded in TRAX despite being performed by a third party.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Maintenance &amp; Engineering<br>
+    <span style="color:var(--text-muted);font-size:12px">Line Maintenance</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-mr-lm-06.png" alt="Line Station Support and Contract Maintenance process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-MR-LM-06-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Contract station engagement</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Engage the contract maintenance provider</b></td>
+<td>Maintenance Controller</td>
+<td><span class="tag trax" data-tooltip="Aviation parts B2B marketplace and ATA Spec 2000 supplier messaging. [Aeroxchange - evidence C]">Aeroxchange<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Aircraft requiring service at the contract station</td>
+<td>Engaged contract provider</td>
+<td>Engaged within the required lead time at 95 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Contract station engagement is coordinated remotely without direct Air Canada supervision at the point of work</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-LM-06-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Contract maintenance execution</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Contract technician performs and certifies work</b></td>
+<td>Contract Technician</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Task requirement per Air Canada standard</td>
+<td>Completed and certified work</td>
+<td>Completed to Air Canada&#x27;s specified standard at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Verifying work quality against Air Canada&#x27;s standard is harder without direct on-site supervision</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Transmit work record for TRAX entry</b></td>
+<td>Maintenance Controller</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Completed contract work</td>
+<td>Work record transmitted for entry</td>
+<td>Transmitted within 24 hours of completion at 95 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A work record not promptly transmitted delays the aircraft&#x27;s technical record currency</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-LM-06-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Record integration and audit</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Audit contract station performance periodically</b></td>
+<td>Maintenance Controller</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Cumulative contract work history</td>
+<td>Audit findings</td>
+<td>Audited on a recurring cycle for 100 percent of contract stations</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Periodic audit is the actual oversight mechanism given the absence of direct supervision at the point of work</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Maintenance Controller</span><span class="lane-steps">1.1 2.2 3.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Contract Technician</span><span class="lane-steps">2.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag trax" data-tooltip="Aviation parts B2B marketplace and ATA Spec 2000 supplier messaging. [Aeroxchange - evidence C]">Aeroxchange<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Engaged within the required lead time at 95 percent</li><li>Completed to Air Canada&#x27;s specified standard at 100 percent</li><li>Transmitted within 24 hours of completion at 95 percent</li><li>Audited on a recurring cycle for 100 percent of contract stations</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Contract work happening outside Air Canada&#x27;s direct supervision at the actual point of work</li><li>Verifying work quality against Air Canada&#x27;s standard being harder without on-site supervision</li><li>A work record not promptly transmitted delaying the aircraft&#x27;s technical record currency</li><li>Periodic audit being the actual oversight control given the absence of direct supervision</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../maintenance-engineering/line-maintenance/ac-mr-lm-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Transit and Daily Check Execution</span></a>
+  <a class="next" href="../../../maintenance-engineering/heavy-base-maintenance/ac-mr-hm-01/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Heavy Check Planning and Slot Booking</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

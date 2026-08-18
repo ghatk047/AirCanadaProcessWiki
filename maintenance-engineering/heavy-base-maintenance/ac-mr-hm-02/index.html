@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Base Maintenance Work Package Build &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Base Maintenance Work Package Build.">
+<title>AC-MR-HM-02 Base Maintenance Work Package Build &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-MR-HM-02 Base Maintenance Work Package Build.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../maintenance-engineering/heavy-base-maintenance/ac-mr-hm-01/",next:"../../../maintenance-engineering/heavy-base-maintenance/ac-mr-hm-03/"};
@@ -130,14 +130,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Maintenance &amp; Engineering</a><span class="sep">&rsaquo;</span><a href="../">Heavy &amp; Base Maintenance</a><span class="sep">&rsaquo;</span><span class="cur">AC-MR-HM-02</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-MR-HM-02" title="Click to copy the process ID">
     AC-MR-HM-02<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Base Maintenance Work Package Build</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Base Maintenance Work Package Build</h1>
+<p class="lede" id="overview">A base maintenance work package is built for a committed heavy check, defining the full scope of scheduled tasks, expected findings work and modification embodiments for the check.</p>
+<div class="callout"><span class="ct">Air Canada context</span>A well-scoped work package is what keeps a heavy check within its planned duration, since the gap between anticipated and actual findings work is the single largest source of check duration overrun.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A heavy check slot is booked and work package build begins ahead of aircraft induction.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A complete work package defining scheduled tasks, anticipated findings allowance and modification scope for the check.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Maintenance &amp; Engineering<br>
+    <span style="color:var(--text-muted);font-size:12px">Heavy &amp; Base Maintenance</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-mr-hm-02.png" alt="Base Maintenance Work Package Build process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-MR-HM-02-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Scope definition</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Define scheduled task scope</b></td>
+<td>Heavy Maintenance Planner</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Check type and maintenance programme</td>
+<td>Defined scheduled task scope</td>
+<td>Defined for 100 percent of committed checks before induction</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Task scope has to correctly reference the current maintenance programme revision</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-HM-02-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Modification embodiment planning</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Plan modification and service bulletin embodiment</b></td>
+<td>Engineering Planner</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Open modification and service bulletin backlog</td>
+<td>Planned embodiment scope for the check</td>
+<td>Planned before package finalisation for 100 percent of eligible modifications</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Embodying every eligible modification in one check can extend duration beyond what the base slot allows</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Estimate anticipated findings allowance</b></td>
+<td>Heavy Maintenance Planner</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Aircraft age, history and check type</td>
+<td>Estimated findings allowance</td>
+<td>Estimated using documented historical basis for 100 percent of checks</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>The gap between anticipated and actual findings work is the largest source of check duration overrun</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-HM-02-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Package finalisation</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Finalise and issue the work package</b></td>
+<td>Heavy Maintenance Planner</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Defined scope and estimated allowance</td>
+<td>Finalised work package</td>
+<td>Finalised before aircraft induction at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A package finalised without adequate findings allowance sets an unrealistic duration expectation from the start</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Heavy Maintenance Planner</span><span class="lane-steps">1.1 2.2 3.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Engineering Planner</span><span class="lane-steps">2.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Defined for 100 percent of committed checks before induction</li><li>Planned before package finalisation for 100 percent of eligible modifications</li><li>Estimated using documented historical basis for 100 percent of checks</li><li>Actual check duration within the planned window at target rate</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>The gap between anticipated and actual findings work being the largest source of check duration overrun</li><li>Embodying every eligible modification in one check extending duration beyond what the base slot allows</li><li>Task scope not correctly referencing the current maintenance programme revision</li><li>A package finalised without adequate findings allowance setting an unrealistic duration expectation</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../maintenance-engineering/heavy-base-maintenance/ac-mr-hm-01/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Heavy Check Planning and Slot Booking</span></a>
+  <a class="next" href="../../../maintenance-engineering/heavy-base-maintenance/ac-mr-hm-03/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Third Party MRO Vendor Management</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

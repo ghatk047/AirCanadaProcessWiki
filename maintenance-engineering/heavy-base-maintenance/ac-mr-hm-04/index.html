@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Component Removal and Shop Visit Routing &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Component Removal and Shop Visit Routing.">
+<title>AC-MR-HM-04 Component Removal and Shop Visit Routing &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-MR-HM-04 Component Removal and Shop Visit Routing.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../maintenance-engineering/heavy-base-maintenance/ac-mr-hm-03/",next:"../../../maintenance-engineering/heavy-base-maintenance/ac-mr-hm-05/"};
@@ -130,14 +130,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Maintenance &amp; Engineering</a><span class="sep">&rsaquo;</span><a href="../">Heavy &amp; Base Maintenance</a><span class="sep">&rsaquo;</span><span class="cur">AC-MR-HM-04</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-MR-HM-04" title="Click to copy the process ID">
     AC-MR-HM-04<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Component Removal and Shop Visit Routing</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Component Removal and Shop Visit Routing</h1>
+<p class="lede" id="overview">A component is removed for shop visit, routed to the appropriate repair facility, and tracked through repair or overhaul back to a serviceable condition.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Component routing decisions balance repair cost, turnaround time and shop capability, and a component sent to the wrong facility or without correct documentation can lose weeks in transit and administrative correction rather than repair time itself.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A component reaches its removal interval, or a defect requires its removal for shop repair.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A component repaired or overhauled and returned to serviceable stock, correctly tracked through the full shop visit cycle.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Maintenance &amp; Engineering<br>
+    <span style="color:var(--text-muted);font-size:12px">Heavy &amp; Base Maintenance</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-mr-hm-04.png" alt="Component Removal and Shop Visit Routing process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-MR-HM-04-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Removal and routing decision</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Remove component and confirm routing destination</b></td>
+<td>Materials Planner</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Removed component and repair capability data</td>
+<td>Confirmed routing destination</td>
+<td>Routing confirmed before shipment for 100 percent of removed components</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Routing to the wrong facility, one lacking the specific capability, loses time in redirection</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-HM-04-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Repair tracking</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Ship component with correct documentation</b></td>
+<td>Materials Planner</td>
+<td><span class="tag trax" data-tooltip="Aviation parts B2B marketplace and ATA Spec 2000 supplier messaging. [Aeroxchange - evidence C]">Aeroxchange<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Confirmed routing</td>
+<td>Shipped component with documentation</td>
+<td>Documentation complete for 100 percent of shipments at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Incomplete documentation can delay a shop&#x27;s ability to even begin work on receipt</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Track repair progress against expected turnaround</b></td>
+<td>Materials Planner</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Shipped component</td>
+<td>Tracked repair status</td>
+<td>Tracked continuously against expected turnaround for 100 percent of open shop visits</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Turnaround time overruns are not always proactively flagged by the repair facility itself</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-HM-04-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Return to serviceable stock</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Receive and return component to serviceable stock</b></td>
+<td>Materials Planner</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Returned component with certification</td>
+<td>Confirmed serviceable stock entry</td>
+<td>Confirmed serviceable within 48 hours of receipt at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A component received without complete certification documentation cannot legally be returned to serviceable stock</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Materials Planner</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag trax" data-tooltip="Aviation parts B2B marketplace and ATA Spec 2000 supplier messaging. [Aeroxchange - evidence C]">Aeroxchange<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Routing confirmed before shipment for 100 percent of removed components</li><li>Documentation complete for 100 percent of shipments at 100 percent</li><li>Tracked continuously against expected turnaround for 100 percent of open shop visits</li><li>Confirmed serviceable within 48 hours of receipt at 100 percent</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Routing to a facility lacking the specific capability required, losing time in redirection</li><li>Incomplete documentation delaying a shop&#x27;s ability to even begin work on receipt</li><li>A component received without complete certification documentation being unable to legally return to stock</li><li>Turnaround time overruns not being proactively flagged by the repair facility itself</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../maintenance-engineering/heavy-base-maintenance/ac-mr-hm-03/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Third Party MRO Vendor Management</span></a>
+  <a class="next" href="../../../maintenance-engineering/heavy-base-maintenance/ac-mr-hm-05/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Cabin Reconfiguration and Modification</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Third Party MRO Vendor Management &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Third Party MRO Vendor Management.">
+<title>AC-MR-HM-03 Third Party MRO Vendor Management &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-MR-HM-03 Third Party MRO Vendor Management.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../maintenance-engineering/heavy-base-maintenance/ac-mr-hm-02/",next:"../../../maintenance-engineering/heavy-base-maintenance/ac-mr-hm-04/"};
@@ -130,14 +130,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Maintenance &amp; Engineering</a><span class="sep">&rsaquo;</span><a href="../">Heavy &amp; Base Maintenance</a><span class="sep">&rsaquo;</span><span class="cur">AC-MR-HM-03</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-MR-HM-03" title="Click to copy the process ID">
     AC-MR-HM-03<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Third Party MRO Vendor Management</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Third Party MRO Vendor Management</h1>
+<p class="lede" id="overview">Third-party MRO vendors performing heavy maintenance work on Air Canada&#x27;s behalf are managed and governed against contracted service levels and quality standards.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Air Canada remains ultimately accountable to Transport Canada for airworthiness regardless of who physically performs the work, which means vendor governance is a compliance control, not just a commercial contract management exercise.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A heavy check or specific maintenance scope is contracted to a third-party MRO vendor.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">Vendor-performed work meeting Air Canada&#x27;s quality and airworthiness standards, delivered within contracted timelines.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Maintenance &amp; Engineering<br>
+    <span style="color:var(--text-muted);font-size:12px">Heavy &amp; Base Maintenance</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-mr-hm-03.png" alt="Third Party MRO Vendor Management process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-MR-HM-03-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Vendor scope agreement</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Agree work scope and standard with the vendor</b></td>
+<td>MRO Vendor Manager</td>
+<td><span class="tag sap" data-tooltip="Source-to-pay, supplier management and contract compliance. [SAP - evidence A]">SAP Ariba<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Committed check and vendor contract</td>
+<td>Agreed scope and standard</td>
+<td>Agreed before work begins for 100 percent of contracted checks</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Scope ambiguity between Air Canada&#x27;s expectation and the vendor&#x27;s contract terms surfaces mid-check</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-HM-03-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Work oversight</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Provide oversight during vendor execution</b></td>
+<td>MRO Vendor Manager</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Agreed scope and in-progress work</td>
+<td>Oversight findings</td>
+<td>On-site or remote oversight maintained for 100 percent of the check duration</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>The depth of practical oversight Air Canada can maintain at a vendor&#x27;s own facility is inherently limited</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Review and approve findings work</b></td>
+<td>MRO Vendor Manager</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Vendor-identified findings</td>
+<td>Approved or queried findings disposition</td>
+<td>Reviewed within the vendor&#x27;s required response window at 95 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A findings disposition approved too quickly under schedule pressure risks an inadequate technical review</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-HM-03-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Delivery and quality confirmation</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Confirm delivery meets quality standard</b></td>
+<td>MRO Vendor Manager</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Completed vendor work</td>
+<td>Confirmed quality acceptance</td>
+<td>Confirmed before aircraft release for 100 percent of vendor checks</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Air Canada remains accountable to Transport Canada regardless of which organisation physically performed the work</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>MRO Vendor Manager</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag sap" data-tooltip="Source-to-pay, supplier management and contract compliance. [SAP - evidence A]">SAP Ariba<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Agreed before work begins for 100 percent of contracted checks</li><li>On-site or remote oversight maintained for 100 percent of the check duration</li><li>Reviewed within the vendor&#x27;s required response window at 95 percent</li><li>Confirmed before aircraft release for 100 percent of vendor checks</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Air Canada remaining accountable to Transport Canada regardless of which organisation performed the work</li><li>The depth of practical oversight at a vendor&#x27;s own facility being inherently limited</li><li>A findings disposition approved too quickly under schedule pressure risking inadequate technical review</li><li>Scope ambiguity between Air Canada&#x27;s expectation and the vendor&#x27;s contract terms surfacing mid-check</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../maintenance-engineering/heavy-base-maintenance/ac-mr-hm-02/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Base Maintenance Work Package Build</span></a>
+  <a class="next" href="../../../maintenance-engineering/heavy-base-maintenance/ac-mr-hm-04/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Component Removal and Shop Visit Routing</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

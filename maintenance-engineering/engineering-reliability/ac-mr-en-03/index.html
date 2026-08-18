@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Service Bulletin Evaluation &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Service Bulletin Evaluation.">
+<title>AC-MR-EN-03 Service Bulletin Evaluation &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-MR-EN-03 Service Bulletin Evaluation.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../maintenance-engineering/engineering-reliability/ac-mr-en-02/",next:"../../../maintenance-engineering/engineering-reliability/ac-mr-en-04/"};
@@ -130,14 +130,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Maintenance &amp; Engineering</a><span class="sep">&rsaquo;</span><a href="../">Engineering &amp; Reliability</a><span class="sep">&rsaquo;</span><span class="cur">AC-MR-EN-03</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-MR-EN-03" title="Click to copy the process ID">
     AC-MR-EN-03<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Service Bulletin Evaluation</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Service Bulletin Evaluation</h1>
+<p class="lede" id="overview">A manufacturer service bulletin is evaluated for adoption, distinct from a mandatory airworthiness directive, weighing technical merit and cost against Air Canada&#x27;s own fleet experience.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Unlike a mandatory directive, service bulletin adoption is a genuine engineering judgement call, which means the evaluation has to weigh technical merit against cost and operational disruption rather than simply complying.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A manufacturer issues a service bulletin applicable to Air Canada&#x27;s fleet.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A documented adoption decision, embodying the bulletin where justified or declining with a documented rationale.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Maintenance &amp; Engineering<br>
+    <span style="color:var(--text-muted);font-size:12px">Engineering &amp; Reliability</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-mr-en-03.png" alt="Service Bulletin Evaluation process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-MR-EN-03-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Bulletin evaluation</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Evaluate technical merit against fleet experience</b></td>
+<td>Engineering Planner</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Issued service bulletin and fleet reliability history</td>
+<td>Technical evaluation</td>
+<td>Evaluated within the manufacturer&#x27;s recommended review period at 90 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Air Canada&#x27;s own fleet experience can differ materially from the manufacturer&#x27;s basis for issuing the bulletin</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-EN-03-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Adoption decision</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Assess cost against expected benefit</b></td>
+<td>Engineering Planner</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Technical evaluation</td>
+<td>Cost-benefit assessment</td>
+<td>Assessed for 100 percent of material bulletins before decision at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Benefit quantification for a reliability improvement is inherently an estimate, not a certainty</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Decide adoption, decline or defer</b></td>
+<td>Engineering Planner</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Cost-benefit assessment</td>
+<td>Documented adoption decision</td>
+<td>Decision documented with rationale for 100 percent of evaluated bulletins</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A decline decision has to be documented well enough to defend the reasoning if later questioned</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-EN-03-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Embodiment or documented decline</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Embody adopted bulletin or close the evaluation</b></td>
+<td>Engineering Planner</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Adoption decision</td>
+<td>Embodied bulletin or closed evaluation record</td>
+<td>Closed within the planning cycle at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>An open evaluation left unresolved indefinitely represents an unmanaged engineering decision</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Engineering Planner</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Evaluated within the manufacturer&#x27;s recommended review period at 90 percent</li><li>Assessed for 100 percent of material bulletins before decision at 100 percent</li><li>Decision documented with rationale for 100 percent of evaluated bulletins</li><li>Closed within the planning cycle at 100 percent</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Air Canada&#x27;s own fleet experience differing materially from the manufacturer&#x27;s basis for the bulletin</li><li>Benefit quantification for a reliability improvement being inherently an estimate rather than a certainty</li><li>A decline decision not being documented well enough to defend the reasoning if later questioned</li><li>An open evaluation left unresolved indefinitely representing an unmanaged engineering decision</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../maintenance-engineering/engineering-reliability/ac-mr-en-02/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Airworthiness Directive Assessment and Embodiment</span></a>
+  <a class="next" href="../../../maintenance-engineering/engineering-reliability/ac-mr-en-04/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Reliability Monitoring and Trend Analysis</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

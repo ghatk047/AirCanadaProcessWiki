@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Transit and Daily Check Execution &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Transit and Daily Check Execution.">
+<title>AC-MR-LM-05 Transit and Daily Check Execution &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-MR-LM-05 Transit and Daily Check Execution.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../maintenance-engineering/line-maintenance/ac-mr-lm-04/",next:"../../../maintenance-engineering/line-maintenance/ac-mr-lm-06/"};
@@ -130,14 +130,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Maintenance &amp; Engineering</a><span class="sep">&rsaquo;</span><a href="../">Line Maintenance</a><span class="sep">&rsaquo;</span><span class="cur">AC-MR-LM-05</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-MR-LM-05" title="Click to copy the process ID">
     AC-MR-LM-05<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Transit and Daily Check Execution</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Transit and Daily Check Execution</h1>
+<p class="lede" id="overview">Transit and daily checks are performed within the turnaround or overnight ground time, confirming the aircraft&#x27;s continued airworthiness for the next flight or flying day.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Transit and daily checks are the routine backbone of line maintenance, and their reliability depends on being consistently performed within a ground time that also has to accommodate every other turnaround service, as covered in AC-GO-GT-01.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">An aircraft&#x27;s scheduled transit or daily check interval comes due.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A completed check confirming continued airworthiness, with the aircraft cleared for its next flight or flying day.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Maintenance &amp; Engineering<br>
+    <span style="color:var(--text-muted);font-size:12px">Line Maintenance</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-mr-lm-05.png" alt="Transit and Daily Check Execution process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-MR-LM-05-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Check scheduling</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Schedule the check within available ground time</b></td>
+<td>Line Maintenance Supervisor</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Check due date and turnaround plan</td>
+<td>Scheduled check within ground time</td>
+<td>Scheduled within available ground time at 90 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A check competing for the same ground time as every other turnaround service can be squeezed</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-LM-05-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Check execution</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Perform the check per the task card</b></td>
+<td>Line Maintenance Technician</td>
+<td><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Task card and aircraft</td>
+<td>Completed check with findings</td>
+<td>Completed within the scheduled window at 90 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A finding during the check can extend the check beyond its scheduled time, competing with departure pressure</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-LM-05-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Clearance</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Certify and clear the aircraft</b></td>
+<td>Certifying Technician</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Completed check</td>
+<td>Certified aircraft cleared for flight</td>
+<td>Certified before the required departure time at 95 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Certification depends on an authorised technician being physically available at the check completion time</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Close the check record in TRAX</b></td>
+<td>Line Maintenance Supervisor</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Certified clearance</td>
+<td>Closed check record</td>
+<td>Closed within 1 hour of certification at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>An unclosed check record leaves the next station&#x27;s maintenance review without a clean starting point</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Line Maintenance Supervisor</span><span class="lane-steps">1.1 3.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Line Maintenance Technician</span><span class="lane-steps">2.1</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Certifying Technician</span><span class="lane-steps">3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Scheduled within available ground time at 90 percent</li><li>Completed within the scheduled window at 90 percent</li><li>Certified before the required departure time at 95 percent</li><li>Check-related departure delay rate below target</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>A check competing for the same ground time as every other turnaround service, risking being squeezed</li><li>A finding during the check extending it beyond its scheduled time under departure pressure</li><li>Certification depending on an authorised technician being physically available at completion time</li><li>Routine check reliability depending on consistency across a very high volume of daily occurrences</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../maintenance-engineering/line-maintenance/ac-mr-lm-04/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">AOG Response and Recovery</span></a>
+  <a class="next" href="../../../maintenance-engineering/line-maintenance/ac-mr-lm-06/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Line Station Support and Contract Maintenance</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

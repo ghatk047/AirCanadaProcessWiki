@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Airworthiness Directive Assessment and Embodiment &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Airworthiness Directive Assessment and Embodiment.">
+<title>AC-MR-EN-02 Airworthiness Directive Assessment and Embodiment &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-MR-EN-02 Airworthiness Directive Assessment and Embodiment.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../maintenance-engineering/engineering-reliability/ac-mr-en-01/",next:"../../../maintenance-engineering/engineering-reliability/ac-mr-en-03/"};
@@ -130,14 +130,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Maintenance &amp; Engineering</a><span class="sep">&rsaquo;</span><a href="../">Engineering &amp; Reliability</a><span class="sep">&rsaquo;</span><span class="cur">AC-MR-EN-02</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-MR-EN-02" title="Click to copy the process ID">
     AC-MR-EN-02<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Airworthiness Directive Assessment and Embodiment</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Airworthiness Directive Assessment and Embodiment</h1>
+<p class="lede" id="overview">An airworthiness directive from Transport Canada or the design authority is assessed for applicability and embodied within its mandated compliance timeframe across the affected fleet.</p>
+<div class="callout"><span class="ct">Air Canada context</span>An airworthiness directive is a mandatory regulatory instruction, not a recommendation, and the compliance timeframe is set by the regulator based on the safety risk the directive addresses, which makes this one of the least flexible deadlines anywhere in maintenance planning.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">Transport Canada or the type design authority issues an airworthiness directive.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">The directive assessed, embodied across the affected fleet and closed within its mandated compliance timeframe.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Maintenance &amp; Engineering<br>
+    <span style="color:var(--text-muted);font-size:12px">Engineering &amp; Reliability</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-mr-en-02.png" alt="Airworthiness Directive Assessment and Embodiment process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-MR-EN-02-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Applicability assessment</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Assess directive applicability to the fleet</b></td>
+<td>Engineering Planner</td>
+<td><span class="tag regulator" data-tooltip="Airworthiness directive and continuing-airworthiness compliance against CARs. [Transport Canada - evidence C]">Transport Canada CAWIS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Issued directive and fleet configuration</td>
+<td>Applicability assessment by tail</td>
+<td>Assessed within the directive&#x27;s initial review period at 100 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Applicability depends on precise configuration matching that can be ambiguous for a modified fleet</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-EN-02-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Fleet-wide embodiment planning</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Plan fleet-wide embodiment against compliance deadline</b></td>
+<td>Engineering Planner</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Applicability assessment and compliance deadline</td>
+<td>Embodiment plan by tail</td>
+<td>Planned to meet the mandated deadline for 100 percent of applicable tails</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Embodiment planning has to compete for the same maintenance slots as every other scheduled work</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Embody the directive at scheduled maintenance opportunity</b></td>
+<td>Base Maintenance Technician</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Embodiment plan and induced aircraft</td>
+<td>Embodied directive</td>
+<td>Embodied within the planned window for 95 percent of applicable tails</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A directive with a very short compliance window can require an unscheduled maintenance visit</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-EN-02-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Compliance closure</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Close compliance and report to the regulator where required</b></td>
+<td>Engineering Planner</td>
+<td><span class="tag regulator" data-tooltip="Airworthiness directive and continuing-airworthiness compliance against CARs. [Transport Canada - evidence C]">Transport Canada CAWIS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Embodied directive across the fleet</td>
+<td>Closed compliance with regulatory reporting</td>
+<td>Compliance closed within the mandated deadline at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A directive not closed within its deadline is a direct regulatory compliance failure</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Engineering Planner</span><span class="lane-steps">1.1 2.1 3.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Base Maintenance Technician</span><span class="lane-steps">2.2</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag regulator" data-tooltip="Airworthiness directive and continuing-airworthiness compliance against CARs. [Transport Canada - evidence C]">Transport Canada CAWIS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Assessed within the directive&#x27;s initial review period at 100 percent</li><li>Planned to meet the mandated deadline for 100 percent of applicable tails</li><li>Embodied within the planned window for 95 percent of applicable tails</li><li>Compliance closed within the mandated deadline at 100 percent</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>A directive not closed within its mandated deadline constituting a direct regulatory compliance failure</li><li>A very short compliance window requiring an unscheduled maintenance visit outside the normal cycle</li><li>Applicability assessment being ambiguous for a fleet with varying modification configurations</li><li>Embodiment planning competing for the same maintenance slots as every other scheduled work</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../maintenance-engineering/engineering-reliability/ac-mr-en-01/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Engineering Order and Modification Design</span></a>
+  <a class="next" href="../../../maintenance-engineering/engineering-reliability/ac-mr-en-03/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Service Bulletin Evaluation</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources
