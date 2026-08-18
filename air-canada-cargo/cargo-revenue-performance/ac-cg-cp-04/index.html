@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AC-CG-CP-04 Cargospot neo Migration Cutover Control &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-CG-CP-04 Cargospot neo Migration Cutover Control.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
+<link rel="stylesheet" href="../../../assets/css/wiki.css">
+<script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../air-canada-cargo/cargo-revenue-performance/ac-cg-cp-03/",next:"../../../air-canada-cargo/cargo-revenue-performance/ac-cg-cp-05/"};
+(function(){try{var t=localStorage.getItem('ac-theme');
+if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+</head>
+<body>
+<div id="progress-bar"></div>
+<header class="topbar">
+  <button class="tb-btn" id="mob-menu" style="display:none" aria-label="Menu">&#9776;</button>
+  <a class="brand" href="../../../index.html"><span class="leaf">&#127809;</span>
+    <span><span class="ac">Air Canada</span> Process Wiki</span></a>
+  <span class="badge-aeroplan">Aeroplan</span>
+  <div class="spacer"></div>
+  <div class="tb-search">
+    <input id="search-input" type="search" placeholder="Search processes, steps, systems&hellip;"
+           autocomplete="off" spellcheck="false" aria-label="Search">
+    <span class="kbd">/</span>
+  </div>
+  <button class="tb-btn" id="theme-btn" aria-label="Toggle theme">&#127769; <span class="lbl">Dark</span></button>
+  <a class="tb-btn" href="../../../ea-diagrams/">&#128506; <span class="lbl">EA</span></a>
+</header>
+<div id="search-results"></div>
+<aside class="sidebar" id="sidebar">
+<div class="sb-head">
+<button class="sb-toggle" id="sb-toggle" title="Toggle sidebar  [" aria-label="Toggle sidebar">&#9776;</button>
+<span class="sb-title">Process Domains</span>
+</div>
+<nav>
+<div class="l1-block"><a class="l1-link" href="../../../network-planning-scheduling/"><span class="ic">🗺</span><span class="sb-label">Network Planning &amp; Scheduling</span><span class="cnt">30</span></a>
+<div class="l2-block">
+<a class="l2-link" href="../../../network-planning-scheduling/schedule-planning-design/">Schedule Planning &amp; Design</a>
+<a class="l2-link" href="../../../network-planning-scheduling/fleet-assignment-rotation/">Fleet Assignment &amp; Rotation</a>
+<a class="l2-link" href="../../../network-planning-scheduling/slots-alliance-codeshare/">Slots, Alliance &amp; Codeshare</a>
+<a class="l2-link" href="../../../network-planning-scheduling/network-performance-monitoring/">Network Performance &amp; Monitoring</a>
+</div></div>
+<div class="l1-block"><a class="l1-link" href="../../../revenue-management-pricing/"><span class="ic">📈</span><span class="sb-label">Revenue Management &amp; Pricing</span><span class="cnt">30</span></a>
+<div class="l2-block">
+<a class="l2-link" href="../../../revenue-management-pricing/inventory-yield-control/">Inventory &amp; Yield Control</a>
+<a class="l2-link" href="../../../revenue-management-pricing/pricing-fare-filing/">Pricing &amp; Fare Filing</a>
+<a class="l2-link" href="../../../revenue-management-pricing/ancillary-merchandising/">Ancillary &amp; Merchandising</a>
+<a class="l2-link" href="../../../revenue-management-pricing/rm-analytics-performance/">RM Analytics &amp; Performance</a>
+</div></div>
+<div class="l1-block"><a class="l1-link" href="../../../aeroplan-loyalty/"><span class="ic">🍁</span><span class="sb-label">Aeroplan Loyalty</span><span class="cnt">24</span></a>
+<div class="l2-block">
+<a class="l2-link" href="../../../aeroplan-loyalty/enrolment-member-identity/">Enrolment &amp; Member Identity</a>
+<a class="l2-link" href="../../../aeroplan-loyalty/redemption/">Redemption</a>
+<a class="l2-link" href="../../../aeroplan-loyalty/partner-co-brand-accrual/">Partner &amp; Co-Brand Accrual</a>
+<a class="l2-link" href="../../../aeroplan-loyalty/altitude-tier-management/">Altitude Tier Management</a>
+</div></div>
+<div class="l1-block"><a class="l1-link" href="../../../customer-experience-channels/"><span class="ic">💬</span><span class="sb-label">Customer Experience &amp; Channels</span><span class="cnt">24</span></a>
+<div class="l2-block">
+<a class="l2-link" href="../../../customer-experience-channels/digital-channels/">Digital Channels</a>
+<a class="l2-link" href="../../../customer-experience-channels/contact-centre/">Contact Centre</a>
+<a class="l2-link" href="../../../customer-experience-channels/special-services-accessibility/">Special Services &amp; Accessibility</a>
+<a class="l2-link" href="../../../customer-experience-channels/complaints-appr-claims/">Complaints, APPR &amp; Claims</a>
+</div></div>
+<div class="l1-block"><a class="l1-link" href="../../../flight-operations-dispatch/"><span class="ic">✈</span><span class="sb-label">Flight Operations &amp; Dispatch</span><span class="cnt">24</span></a>
+<div class="l2-block">
+<a class="l2-link" href="../../../flight-operations-dispatch/flight-planning-dispatch/">Flight Planning &amp; Dispatch</a>
+<a class="l2-link" href="../../../flight-operations-dispatch/weather-notam-nav-data/">Weather, NOTAM &amp; Nav Data</a>
+<a class="l2-link" href="../../../flight-operations-dispatch/ops-control-irrop-recovery/">Ops Control &amp; IRROP Recovery</a>
+<a class="l2-link" href="../../../flight-operations-dispatch/safety-occurrence-reporting/">Safety &amp; Occurrence Reporting</a>
+</div></div>
+<div class="l1-block"><a class="l1-link" href="../../../crew-management/"><span class="ic">👨‍✈</span><span class="sb-label">Crew Management</span><span class="cnt">24</span></a>
+<div class="l2-block">
+<a class="l2-link" href="../../../crew-management/crew-planning-pairing/">Crew Planning &amp; Pairing</a>
+<a class="l2-link" href="../../../crew-management/rostering-bidding/">Rostering &amp; Bidding</a>
+<a class="l2-link" href="../../../crew-management/day-of-operations-crew-tracking/">Day-of-Operations Crew Tracking</a>
+<a class="l2-link" href="../../../crew-management/crew-compliance-training-pay/">Crew Compliance, Training &amp; Pay</a>
+</div></div>
+<div class="l1-block"><a class="l1-link" href="../../../ground-operations-airports/"><span class="ic">🛫</span><span class="sb-label">Ground Operations &amp; Airports</span><span class="cnt">24</span></a>
+<div class="l2-block">
+<a class="l2-link" href="../../../ground-operations-airports/check-in-dcs-boarding/">Check-In, DCS &amp; Boarding</a>
+<a class="l2-link" href="../../../ground-operations-airports/baggage/">Baggage</a>
+<a class="l2-link" href="../../../ground-operations-airports/gate-turnaround-resource/">Gate, Turnaround &amp; Resource</a>
+<a class="l2-link" href="../../../ground-operations-airports/premium-lounge-vip-handling/">Premium, Lounge &amp; VIP Handling</a>
+</div></div>
+<div class="l1-block"><a class="l1-link" href="../../../maintenance-engineering/"><span class="ic">🔧</span><span class="sb-label">Maintenance &amp; Engineering</span><span class="cnt">24</span></a>
+<div class="l2-block">
+<a class="l2-link" href="../../../maintenance-engineering/line-maintenance/">Line Maintenance</a>
+<a class="l2-link" href="../../../maintenance-engineering/heavy-base-maintenance/">Heavy &amp; Base Maintenance</a>
+<a class="l2-link" href="../../../maintenance-engineering/engineering-reliability/">Engineering &amp; Reliability</a>
+<a class="l2-link" href="../../../maintenance-engineering/airworthiness-records-quality/">Airworthiness, Records &amp; Quality</a>
+</div></div>
+<div class="l1-block"><a class="l1-link active" href="../../../air-canada-cargo/"><span class="ic">📦</span><span class="sb-label">Air Canada Cargo</span><span class="cnt">20</span></a>
+<div class="l2-block">
+<a class="l2-link" href="../../../air-canada-cargo/capacity-booking/">Capacity &amp; Booking</a>
+<a class="l2-link" href="../../../air-canada-cargo/ground-handling-uld/">Ground Handling &amp; ULD</a>
+<a class="l2-link" href="../../../air-canada-cargo/customs-pact-dangerous-goods/">Customs, PACT &amp; Dangerous Goods</a>
+<a class="l2-link active" href="../../../air-canada-cargo/cargo-revenue-performance/">Cargo Revenue &amp; Performance</a>
+<a class="l3-link" href="../../../air-canada-cargo/cargo-revenue-performance/ac-cg-cp-01/">Cargo Revenue Accounting and CASS Settlement</a>
+<a class="l3-link" href="../../../air-canada-cargo/cargo-revenue-performance/ac-cg-cp-02/">Cargo Yield and Capacity Utilisation Review</a>
+<a class="l3-link" href="../../../air-canada-cargo/cargo-revenue-performance/ac-cg-cp-03/">Cargo Claims and Damage Settlement</a>
+<a class="l3-link active" href="../../../air-canada-cargo/cargo-revenue-performance/ac-cg-cp-04/">Cargospot neo Migration Cutover Control</a>
+<a class="l3-link" href="../../../air-canada-cargo/cargo-revenue-performance/ac-cg-cp-05/">Cargo Partner and GSA Performance Review</a>
+</div></div>
+<div class="l1-block"><a class="l1-link" href="../../../information-technology-security/"><span class="ic">🖥</span><span class="sb-label">Information Technology &amp; Security</span><span class="cnt">20</span></a>
+<div class="l2-block">
+<a class="l2-link" href="../../../information-technology-security/service-management-user-support/">Service Management &amp; User Support</a>
+<a class="l2-link" href="../../../information-technology-security/cybersecurity-identity/">Cybersecurity &amp; Identity</a>
+<a class="l2-link" href="../../../information-technology-security/data-engineering-integration/">Data Engineering &amp; Integration</a>
+<a class="l2-link" href="../../../information-technology-security/ai-ml-platform/">AI &amp; ML Platform</a>
+</div></div>
+<div class="l1-block"><a class="l1-link" href="../../../finance-procurement-treasury/"><span class="ic">💰</span><span class="sb-label">Finance, Procurement &amp; Treasury</span><span class="cnt">20</span></a>
+<div class="l2-block">
+<a class="l2-link" href="../../../finance-procurement-treasury/revenue-accounting/">Revenue Accounting</a>
+<a class="l2-link" href="../../../finance-procurement-treasury/procure-to-pay/">Procure-to-Pay</a>
+<a class="l2-link" href="../../../finance-procurement-treasury/treasury-risk/">Treasury &amp; Risk</a>
+<a class="l2-link" href="../../../finance-procurement-treasury/planning-analysis/">Planning &amp; Analysis</a>
+</div></div>
+<div class="l1-block"><a class="l1-link" href="../../../human-resources-labour/"><span class="ic">👥</span><span class="sb-label">Human Resources &amp; Labour</span><span class="cnt">20</span></a>
+<div class="l2-block">
+<a class="l2-link" href="../../../human-resources-labour/talent-acquisition/">Talent Acquisition</a>
+<a class="l2-link" href="../../../human-resources-labour/workforce-management-payroll/">Workforce Management &amp; Payroll</a>
+<a class="l2-link" href="../../../human-resources-labour/labour-relations/">Labour Relations</a>
+<a class="l2-link" href="../../../human-resources-labour/engagement-learning-inclusion/">Engagement, Learning &amp; Inclusion</a>
+</div></div>
+<div class="sb-section-title">Enterprise Architecture</div>
+<div class="l1-block"><a class="l1-link" href="../../../ea-diagrams/"><span class="ic">&#128506;</span><span class="sb-label">EA Diagrams</span><span class="cnt">27</span></a></div>
+</nav></aside>
+<div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Air Canada Cargo</a><span class="sep">&rsaquo;</span><a href="../">Cargo Revenue &amp; Performance</a><span class="sep">&rsaquo;</span><span class="cur">AC-CG-CP-04</span></div>
+<main class="content">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
+  <button class="pid-badge" data-pid="AC-CG-CP-04" title="Click to copy the process ID">
+    AC-CG-CP-04<span class="copy-ic">&#128203;</span></button>
+  <span class="updated">Updated 2026-08-18</span>
+</div>
+<h1>Cargospot neo Migration Cutover Control</h1>
+<p class="lede" id="overview">Air Canada Cargo is migrating onto CHAMP Cargospot neo across booking, handling, mobile and revenue accounting. Cutover control governs how each station and capability moves, how the interim double-entry period is managed, and how the migration is reversed if a wave fails.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Air Canada Cargo selected CHAMP Cargospot neo in 2026, covering Cargospot neo Airline, Handling, Mobile and Revenue Accounting. The commercially important detail is that the migration is in flight right now, which means an interim period where consignment data is entered twice, once in the legacy platform and once in Cargospot. That double entry is a live re-key risk with direct revenue-accounting and customs consequences, and it is time-bounded, so it is worth solving now rather than after cutover.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A migration wave reaches its go or no-go decision gate, or a defect in a migrated station forces a rollback assessment.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A station or capability operating on Cargospot neo with reconciled shipment and revenue data, or a controlled rollback to the legacy platform with no lost consignments.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Air Canada Cargo<br>
+    <span style="color:var(--text-muted);font-size:12px">Cargo Revenue &amp; Performance</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">12 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-cg-cp-04.png" alt="Cargospot neo Migration Cutover Control process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-CG-CP-04-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Wave readiness</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Define wave scope and station sequence</b></td>
+<td>Cargo Migration Lead</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Migration plan and station profile</td>
+<td>Approved wave scope with entry and exit criteria</td>
+<td>Wave scope frozen 4 weeks before cutover</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Station-level process variance is discovered late because it is not documented centrally</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Validate master and reference data</b></td>
+<td>Cargo Data Analyst</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Legacy rates, routes, agents and ULD registers</td>
+<td>Migrated reference data with reconciliation report</td>
+<td>Reference data reconciliation variance below 0.5 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Legacy rate and agent data carries years of uncontrolled local edits</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Certify interfaces to customs and revenue accounting</b></td>
+<td>Integration Analyst</td>
+<td><span class="tag regulator" data-tooltip="CBSA pre-load air cargo targeting. Mandatory pre-load data filing in force since 1 April 2025. [CBSA - evidence B]">Canada PACT<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Interface specifications</td>
+<td>Certified interfaces for pre-load filing and settlement</td>
+<td>All regulated interfaces certified before go-live</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Pre-load filing has no tolerance for interface downtime once the wave is live</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Train station staff and confirm readiness</b></td>
+<td>Cargo Operations Manager</td>
+<td><span class="tag champ" data-tooltip="Mobile cargo warehouse and ramp execution. [CHAMP - evidence A]">Cargospot Mobile<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Training curriculum and station roster</td>
+<td>Signed station readiness confirmation</td>
+<td>95 percent of station staff certified before cutover</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Warehouse shift patterns make it hard to train a full station inside the wave window</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CG-CP-04-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Cutover execution</span>
+    <span class="ph-n">5 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Execute go or no-go decision</b></td>
+<td>Cargo Migration Lead</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Readiness evidence pack</td>
+<td>Go or no-go decision with recorded rationale</td>
+<td>Decision taken at least 48 hours before the cutover window</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Readiness evidence arrives too close to the gate for genuine scrutiny</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Freeze legacy bookings and drain in-flight consignments</b></td>
+<td>Cargo Operations Manager</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Open consignment list</td>
+<td>Legacy platform frozen with in-flight shipments identified</td>
+<td>Zero consignments stranded across the freeze boundary</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Consignments already in transit span both systems for the duration of the freeze</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Operate interim double entry</b></td>
+<td>Cargo Agent</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Consignment details at acceptance</td>
+<td>Shipment recorded in both legacy and Cargospot</td>
+<td>Double-entry variance below 1 percent of consignments</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>This is the migration&#x27;s live manual re-key risk and the main source of revenue-accounting variance</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Reconcile shipment and revenue records daily</b></td>
+<td>Cargo Revenue Analyst</td>
+<td><span class="tag champ" data-tooltip="Cargo revenue accounting and IATA CASS settlement. [CHAMP - evidence A]">Cargospot neo Revenue Accounting<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Legacy and Cargospot shipment extracts</td>
+<td>Daily reconciliation with exception list</td>
+<td>Reconciliation completed within 24 hours of each operating day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Reconciliation is performed in spreadsheets against two extracts with different keys</td>
+</tr><tr>
+<td class="c-step">2.5</td>
+<td><b>Invoke rollback on wave failure</b></td>
+<td>Cargo Migration Lead</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Defect severity assessment</td>
+<td>Controlled rollback with consignment integrity confirmed</td>
+<td>Rollback completed within the agreed 4-hour window</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Rollback has not been rehearsed end to end with live consignment data</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CG-CP-04-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Stabilisation and legacy decommission</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Monitor post-cutover defects and service levels</b></td>
+<td>Cargo Operations Manager</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Incident and defect queue</td>
+<td>Stabilisation report against exit criteria</td>
+<td>Priority 1 defects closed within 24 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Defects raised at a station are hard to distinguish from training gaps</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Close double entry and confirm single source</b></td>
+<td>Cargo Revenue Analyst</td>
+<td><span class="tag champ" data-tooltip="Cargo revenue accounting and IATA CASS settlement. [CHAMP - evidence A]">Cargospot neo Revenue Accounting<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Clean reconciliation across the stabilisation period</td>
+<td>Double entry stopped for the wave</td>
+<td>Double entry closed within 14 days of cutover</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Stations retain the legacy entry informally as a safety net, extending the risk window</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Decommission legacy capability and archive records</b></td>
+<td>Cargo Migration Lead</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Migration completion evidence</td>
+<td>Legacy capability retired with records archived for retention</td>
+<td>Legacy decommissioned within 90 days of final wave</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Retention obligations on historic air waybills are not fully mapped to the legacy archive</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Cargo Migration Lead</span><span class="lane-steps">1.1 2.1 2.5 3.3</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Cargo Data Analyst</span><span class="lane-steps">1.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Integration Analyst</span><span class="lane-steps">1.3</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Cargo Operations Manager</span><span class="lane-steps">1.4 2.2 3.1</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Cargo Agent</span><span class="lane-steps">2.3</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>Cargo Revenue Analyst</span><span class="lane-steps">2.4 3.2</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag regulator" data-tooltip="CBSA pre-load air cargo targeting. Mandatory pre-load data filing in force since 1 April 2025. [CBSA - evidence B]">Canada PACT<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag champ" data-tooltip="Mobile cargo warehouse and ramp execution. [CHAMP - evidence A]">Cargospot Mobile<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag champ" data-tooltip="Cargo revenue accounting and IATA CASS settlement. [CHAMP - evidence A]">Cargospot neo Revenue Accounting<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag champ" data-tooltip="Cargo warehouse and ground handling execution, ULD build-up and breakdown. [CHAMP - evidence A]">Cargospot neo Handling<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag champ" data-tooltip="IoT sensor tracking for cargo condition, location and cold-chain compliance. [OnAsset - evidence B]">OnAsset Vision<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Double-entry variance below 1 percent of consignments during the interim period</li><li>Zero consignments stranded across a cutover freeze boundary</li><li>Pre-load customs filings unaffected by cutover at 100 percent</li><li>Double entry closed within 14 days of each wave cutover</li><li>Priority 1 post-cutover defects closed within 24 hours</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Interim double entry producing divergent shipment records with direct revenue-accounting consequences</li><li>Pre-load customs filing interrupted during a cutover window, exposing shipments to CBSA holds</li><li>Unrehearsed rollback leaving consignments recorded in neither platform</li><li>Legacy reference data carrying uncontrolled local edits into the new platform</li><li>Stations retaining legacy entry informally after the wave, extending the double-entry risk window</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../air-canada-cargo/cargo-revenue-performance/ac-cg-cp-03/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Cargo Claims and Damage Settlement</span></a>
+  <a class="next" href="../../../air-canada-cargo/cargo-revenue-performance/ac-cg-cp-05/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Cargo Partner and GSA Performance Review</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
+</div>
+<div class="foot">
+<b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources
+for IT Application Management and User Support pre-sales discovery.
+Built 2026-08-18. Every system carries an evidence tier: tier C is an industry pattern and tier U is an open
+question, and neither should be asserted as fact about Air Canada without confirmation in discovery.
+Not affiliated with or endorsed by Air Canada. Air Canada, Aeroplan and Altitude are trademarks of Air Canada.
+</div>
+</main>
+<div id="lightbox" role="dialog" aria-label="Diagram viewer">
+  <div class="lb-bar">
+    <button id="lb-out" title="Zoom out  -">&minus;</button>
+    <span id="lb-zoom-pct">100%</span>
+    <button id="lb-in" title="Zoom in  +">+</button>
+    <button id="lb-reset" title="Reset  0">&#8634;</button>
+    <button id="lb-open" title="Open full size">&#8599;</button>
+    <button id="lb-close" title="Close  Esc">&times;</button>
+  </div>
+  <div class="lb-stage"><img id="lb-img" alt="Diagram"></div>
+  <div class="lb-title" id="lb-title"></div>
+</div>
+<div id="kbd-help"><div class="kh-box">
+  <h3>Keyboard shortcuts</h3>
+  <dl>
+    <dt>/</dt><dd>Focus search</dd>
+    <dt>J</dt><dd>Next process</dd>
+    <dt>K</dt><dd>Previous process</dd>
+    <dt>D</dt><dd>Toggle dark mode</dd>
+    <dt>[</dt><dd>Collapse or expand sidebar</dd>
+    <dt>P</dt><dd>Print this page</dd>
+    <dt>+ &minus; 0</dt><dd>Zoom in the diagram viewer</dd>
+    <dt>Esc</dt><dd>Close overlays</dd>
+    <dt>?</dt><dd>This help</dd>
+  </dl>
+</div></div>
+<button id="back-to-top" title="Back to top" aria-label="Back to top">&uarr;</button>
+<script src="../../../assets/js/wiki.js"></script>
+</body>
+</html>

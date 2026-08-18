@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Home &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. Home.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
+<link rel="stylesheet" href="assets/css/wiki.css">
+<script>window.AC_ROOT="";
+(function(){try{var t=localStorage.getItem('ac-theme');
+if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+</head>
+<body>
+<div id="progress-bar"></div>
+<header class="topbar">
+  <button class="tb-btn" id="mob-menu" style="display:none" aria-label="Menu">&#9776;</button>
+  <a class="brand" href="index.html"><span class="leaf">&#127809;</span>
+    <span><span class="ac">Air Canada</span> Process Wiki</span></a>
+  <span class="badge-aeroplan">Aeroplan</span>
+  <div class="spacer"></div>
+  <div class="tb-search">
+    <input id="search-input" type="search" placeholder="Search processes, steps, systems&hellip;"
+           autocomplete="off" spellcheck="false" aria-label="Search">
+    <span class="kbd">/</span>
+  </div>
+  <button class="tb-btn" id="theme-btn" aria-label="Toggle theme">&#127769; <span class="lbl">Dark</span></button>
+  <a class="tb-btn" href="ea-diagrams/">&#128506; <span class="lbl">EA</span></a>
+</header>
+<div id="search-results"></div>
+<aside class="sidebar" id="sidebar">
+<div class="sb-head">
+<button class="sb-toggle" id="sb-toggle" title="Toggle sidebar  [" aria-label="Toggle sidebar">&#9776;</button>
+<span class="sb-title">Process Domains</span>
+</div>
+<nav>
+<div class="l1-block"><a class="l1-link" href="network-planning-scheduling/"><span class="ic">🗺</span><span class="sb-label">Network Planning &amp; Scheduling</span><span class="cnt">30</span></a>
+<div class="l2-block">
+<a class="l2-link" href="network-planning-scheduling/schedule-planning-design/">Schedule Planning &amp; Design</a>
+<a class="l2-link" href="network-planning-scheduling/fleet-assignment-rotation/">Fleet Assignment &amp; Rotation</a>
+<a class="l2-link" href="network-planning-scheduling/slots-alliance-codeshare/">Slots, Alliance &amp; Codeshare</a>
+<a class="l2-link" href="network-planning-scheduling/network-performance-monitoring/">Network Performance &amp; Monitoring</a>
+</div></div>
+<div class="l1-block"><a class="l1-link" href="revenue-management-pricing/"><span class="ic">📈</span><span class="sb-label">Revenue Management &amp; Pricing</span><span class="cnt">30</span></a>
+<div class="l2-block">
+<a class="l2-link" href="revenue-management-pricing/inventory-yield-control/">Inventory &amp; Yield Control</a>
+<a class="l2-link" href="revenue-management-pricing/pricing-fare-filing/">Pricing &amp; Fare Filing</a>
+<a class="l2-link" href="revenue-management-pricing/ancillary-merchandising/">Ancillary &amp; Merchandising</a>
+<a class="l2-link" href="revenue-management-pricing/rm-analytics-performance/">RM Analytics &amp; Performance</a>
+</div></div>
+<div class="l1-block"><a class="l1-link" href="aeroplan-loyalty/"><span class="ic">🍁</span><span class="sb-label">Aeroplan Loyalty</span><span class="cnt">24</span></a>
+<div class="l2-block">
+<a class="l2-link" href="aeroplan-loyalty/enrolment-member-identity/">Enrolment &amp; Member Identity</a>
+<a class="l2-link" href="aeroplan-loyalty/redemption/">Redemption</a>
+<a class="l2-link" href="aeroplan-loyalty/partner-co-brand-accrual/">Partner &amp; Co-Brand Accrual</a>
+<a class="l2-link" href="aeroplan-loyalty/altitude-tier-management/">Altitude Tier Management</a>
+</div></div>
+<div class="l1-block"><a class="l1-link" href="customer-experience-channels/"><span class="ic">💬</span><span class="sb-label">Customer Experience &amp; Channels</span><span class="cnt">24</span></a>
+<div class="l2-block">
+<a class="l2-link" href="customer-experience-channels/digital-channels/">Digital Channels</a>
+<a class="l2-link" href="customer-experience-channels/contact-centre/">Contact Centre</a>
+<a class="l2-link" href="customer-experience-channels/special-services-accessibility/">Special Services &amp; Accessibility</a>
+<a class="l2-link" href="customer-experience-channels/complaints-appr-claims/">Complaints, APPR &amp; Claims</a>
+</div></div>
+<div class="l1-block"><a class="l1-link" href="flight-operations-dispatch/"><span class="ic">✈</span><span class="sb-label">Flight Operations &amp; Dispatch</span><span class="cnt">24</span></a>
+<div class="l2-block">
+<a class="l2-link" href="flight-operations-dispatch/flight-planning-dispatch/">Flight Planning &amp; Dispatch</a>
+<a class="l2-link" href="flight-operations-dispatch/weather-notam-nav-data/">Weather, NOTAM &amp; Nav Data</a>
+<a class="l2-link" href="flight-operations-dispatch/ops-control-irrop-recovery/">Ops Control &amp; IRROP Recovery</a>
+<a class="l2-link" href="flight-operations-dispatch/safety-occurrence-reporting/">Safety &amp; Occurrence Reporting</a>
+</div></div>
+<div class="l1-block"><a class="l1-link" href="crew-management/"><span class="ic">👨‍✈</span><span class="sb-label">Crew Management</span><span class="cnt">24</span></a>
+<div class="l2-block">
+<a class="l2-link" href="crew-management/crew-planning-pairing/">Crew Planning &amp; Pairing</a>
+<a class="l2-link" href="crew-management/rostering-bidding/">Rostering &amp; Bidding</a>
+<a class="l2-link" href="crew-management/day-of-operations-crew-tracking/">Day-of-Operations Crew Tracking</a>
+<a class="l2-link" href="crew-management/crew-compliance-training-pay/">Crew Compliance, Training &amp; Pay</a>
+</div></div>
+<div class="l1-block"><a class="l1-link" href="ground-operations-airports/"><span class="ic">🛫</span><span class="sb-label">Ground Operations &amp; Airports</span><span class="cnt">24</span></a>
+<div class="l2-block">
+<a class="l2-link" href="ground-operations-airports/check-in-dcs-boarding/">Check-In, DCS &amp; Boarding</a>
+<a class="l2-link" href="ground-operations-airports/baggage/">Baggage</a>
+<a class="l2-link" href="ground-operations-airports/gate-turnaround-resource/">Gate, Turnaround &amp; Resource</a>
+<a class="l2-link" href="ground-operations-airports/premium-lounge-vip-handling/">Premium, Lounge &amp; VIP Handling</a>
+</div></div>
+<div class="l1-block"><a class="l1-link" href="maintenance-engineering/"><span class="ic">🔧</span><span class="sb-label">Maintenance &amp; Engineering</span><span class="cnt">24</span></a>
+<div class="l2-block">
+<a class="l2-link" href="maintenance-engineering/line-maintenance/">Line Maintenance</a>
+<a class="l2-link" href="maintenance-engineering/heavy-base-maintenance/">Heavy &amp; Base Maintenance</a>
+<a class="l2-link" href="maintenance-engineering/engineering-reliability/">Engineering &amp; Reliability</a>
+<a class="l2-link" href="maintenance-engineering/airworthiness-records-quality/">Airworthiness, Records &amp; Quality</a>
+</div></div>
+<div class="l1-block"><a class="l1-link" href="air-canada-cargo/"><span class="ic">📦</span><span class="sb-label">Air Canada Cargo</span><span class="cnt">20</span></a>
+<div class="l2-block">
+<a class="l2-link" href="air-canada-cargo/capacity-booking/">Capacity &amp; Booking</a>
+<a class="l2-link" href="air-canada-cargo/ground-handling-uld/">Ground Handling &amp; ULD</a>
+<a class="l2-link" href="air-canada-cargo/customs-pact-dangerous-goods/">Customs, PACT &amp; Dangerous Goods</a>
+<a class="l2-link" href="air-canada-cargo/cargo-revenue-performance/">Cargo Revenue &amp; Performance</a>
+</div></div>
+<div class="l1-block"><a class="l1-link" href="information-technology-security/"><span class="ic">🖥</span><span class="sb-label">Information Technology &amp; Security</span><span class="cnt">20</span></a>
+<div class="l2-block">
+<a class="l2-link" href="information-technology-security/service-management-user-support/">Service Management &amp; User Support</a>
+<a class="l2-link" href="information-technology-security/cybersecurity-identity/">Cybersecurity &amp; Identity</a>
+<a class="l2-link" href="information-technology-security/data-engineering-integration/">Data Engineering &amp; Integration</a>
+<a class="l2-link" href="information-technology-security/ai-ml-platform/">AI &amp; ML Platform</a>
+</div></div>
+<div class="l1-block"><a class="l1-link" href="finance-procurement-treasury/"><span class="ic">💰</span><span class="sb-label">Finance, Procurement &amp; Treasury</span><span class="cnt">20</span></a>
+<div class="l2-block">
+<a class="l2-link" href="finance-procurement-treasury/revenue-accounting/">Revenue Accounting</a>
+<a class="l2-link" href="finance-procurement-treasury/procure-to-pay/">Procure-to-Pay</a>
+<a class="l2-link" href="finance-procurement-treasury/treasury-risk/">Treasury &amp; Risk</a>
+<a class="l2-link" href="finance-procurement-treasury/planning-analysis/">Planning &amp; Analysis</a>
+</div></div>
+<div class="l1-block"><a class="l1-link" href="human-resources-labour/"><span class="ic">👥</span><span class="sb-label">Human Resources &amp; Labour</span><span class="cnt">20</span></a>
+<div class="l2-block">
+<a class="l2-link" href="human-resources-labour/talent-acquisition/">Talent Acquisition</a>
+<a class="l2-link" href="human-resources-labour/workforce-management-payroll/">Workforce Management &amp; Payroll</a>
+<a class="l2-link" href="human-resources-labour/labour-relations/">Labour Relations</a>
+<a class="l2-link" href="human-resources-labour/engagement-learning-inclusion/">Engagement, Learning &amp; Inclusion</a>
+</div></div>
+<div class="sb-section-title">Enterprise Architecture</div>
+<div class="l1-block"><a class="l1-link" href="ea-diagrams/"><span class="ic">&#128506;</span><span class="sb-label">EA Diagrams</span><span class="cnt">27</span></a></div>
+</nav></aside>
+<div class="breadcrumb"><span class="cur">Home</span></div>
+<main class="content">
+<div class="page">
+<h1>Air Canada Process Wiki</h1>
+<p class="lede">A working reference for Air Canada's business processes and the systems that carry them &mdash;
+284 processes across 12 domains, mapped to 71 named systems, with every
+system claim carrying an evidence tier. Built for IT Application Management and User Support discovery.</p>
+
+<div class="stats">
+  <div class="stat"><div class="n">284</div><div class="l">Processes</div></div>
+  <div class="stat"><div class="n">12</div><div class="l">L1 Domains</div></div>
+  <div class="stat"><div class="n">48</div><div class="l">L2 Groups</div></div>
+  <div class="stat"><div class="n">71</div><div class="l">Systems</div></div>
+  <div class="stat"><div class="n">28</div><div class="l">Tier A Confirmed</div></div>
+  <div class="stat"><div class="n">27</div><div class="l">EA Diagrams</div></div>
+</div>
+
+<div class="tier-legend"><span><b>Evidence tier</b></span><span><span class="tier tier-A">A</span> Confirmed - public AC or vendor source</span><span><span class="tier tier-B">B</span> Indicated - postings, technographics, trade press</span><span><span class="tier tier-C">C</span> Industry pattern - not evidenced for AC</span><span><span class="tier tier-U">U</span> Unknown - open discovery question</span></div>
+
+<div class="callout"><span class="ct">How to read this wiki</span>
+Every system tag carries a letter badge. <b>A</b> means Air Canada or the vendor has said it publicly.
+<b>B</b> means job postings, technographic data or trade press point to it. <b>C</b> is an industry pattern
+that is <i>not</i> evidenced for Air Canada. <b>U</b> is a named gap we would resolve in discovery rather than
+paper over. The four U-tier entries &mdash; integration middleware, SIEM and SOC, workforce identity, and the
+ITSM product &mdash; are deliberately visible: they are the questions to ask, not omissions.</div>
+
+<h2>Process Domains</h2>
+<div class="grid">
+<a class="dcard" href="network-planning-scheduling/">
+  <div class="dc-top"><span class="dc-ic">🗺</span>
+    <span class="dc-code">NP</span><h3>Network Planning &amp; Scheduling</h3></div>
+  <p>Schedule design, fleet assignment and slot strategy across mainline, Rouge and the Express operators. Built in Lufthansa Systems NetLine and published to the industry through SSIM.</p>
+  <div><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+  <div class="dc-foot"><span class="dc-n">30</span> processes
+    <span>&middot;</span> 4 groups
+    <span>&middot;</span> 0 documented</div>
+</a><a class="dcard" href="revenue-management-pricing/">
+  <div class="dc-top"><span class="dc-ic">📈</span>
+    <span class="dc-code">RM</span><h3>Revenue Management &amp; Pricing</h3></div>
+  <p>O&amp;D revenue management and continuous pricing on PROS, feeding inventory controls into Amadeus Altea. Fare filing through ATPCO remains the rate-limiting step on pricing agility.</p>
+  <div><span class="tag pros" data-tooltip="Continuous willingness-to-pay pricing. Air Canada is a 30-year-plus PROS reference account. [PROS - evidence A]">PROS Real-Time Dynamic Pricing<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+  <div class="dc-foot"><span class="dc-n">30</span> processes
+    <span>&middot;</span> 4 groups
+    <span>&middot;</span> 0 documented</div>
+</a><a class="dcard" href="aeroplan-loyalty/">
+  <div class="dc-top"><span class="dc-ic">🍁</span>
+    <span class="dc-code">AP</span><h3>Aeroplan Loyalty</h3></div>
+  <p>The in-house loyalty engine reacquired from Aimia and relaunched in November 2020, with customer identity consolidated onto SAP Customer Data Cloud and accrual flowing from TD, CIBC and Amex.</p>
+  <div><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag aeroplan" data-tooltip="Co-brand and partner accrual feeds: TD, CIBC, Amex, retail and hotel partners. [Air Canada - evidence A]">Aeroplan Partner Interfaces<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+  <div class="dc-foot"><span class="dc-n">24</span> processes
+    <span>&middot;</span> 4 groups
+    <span>&middot;</span> 1 documented</div>
+</a><a class="dcard" href="customer-experience-channels/">
+  <div class="dc-top"><span class="dc-ic">💬</span>
+    <span class="dc-code">CX</span><h3>Customer Experience &amp; Channels</h3></div>
+  <p>Digital channels on AWS, a contact centre on Amazon Connect with Salesforce Service Cloud Voice, and the APPR complaint machine that the Canadian Transportation Agency backlog runs through.</p>
+  <div><span class="tag channel" data-tooltip="Primary direct digital channel, cloud-native on AWS. Undergoing redevelopment under the CDO. [Air Canada - evidence A]">aircanada.com<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag channel" data-tooltip="iOS and Android. Booking, check-in, boarding pass, in-app bag tracking and mobility-aid tracking. [Air Canada - evidence A]">Air Canada Mobile App<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+  <div class="dc-foot"><span class="dc-n">24</span> processes
+    <span>&middot;</span> 4 groups
+    <span>&middot;</span> 1 documented</div>
+</a><a class="dcard" href="flight-operations-dispatch/">
+  <div class="dc-top"><span class="dc-ic">✈</span>
+    <span class="dc-code">FO</span><h3>Flight Operations &amp; Dispatch</h3></div>
+  <p>Dispatch and operations control from the YYZ operations centre. NetLine Ops and Jeppesen carry flight watch and recovery; the June 2023 communicator outage is the resilience reference point.</p>
+  <div><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+  <div class="dc-foot"><span class="dc-n">24</span> processes
+    <span>&middot;</span> 4 groups
+    <span>&middot;</span> 1 documented</div>
+</a><a class="dcard" href="crew-management/">
+  <div class="dc-top"><span class="dc-ic">👨‍✈</span>
+    <span class="dc-code">CM</span><h3>Crew Management</h3></div>
+  <p>Pairing, rostering and day-of-operations crew tracking in Jeppesen, against four collective agreements and Canadian Aviation Regulations flight and duty time limits.</p>
+  <div><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+  <div class="dc-foot"><span class="dc-n">24</span> processes
+    <span>&middot;</span> 4 groups
+    <span>&middot;</span> 0 documented</div>
+</a><a class="dcard" href="ground-operations-airports/">
+  <div class="dc-top"><span class="dc-ic">🛫</span>
+    <span class="dc-code">GO</span><h3>Ground Operations &amp; Airports</h3></div>
+  <p>Check-in, boarding, baggage and turnaround on Amadeus Altea DCS across the YYZ, YUL, YVR and YYC hubs, with SITA WorldTracer carrying mishandled bag tracing.</p>
+  <div><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sita" data-tooltip="Global mishandled-baggage tracing and PIR file management. [SITA - evidence B]">SITA WorldTracer<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
+  <div class="dc-foot"><span class="dc-n">24</span> processes
+    <span>&middot;</span> 4 groups
+    <span>&middot;</span> 0 documented</div>
+</a><a class="dcard" href="maintenance-engineering/">
+  <div class="dc-top"><span class="dc-ic">🔧</span>
+    <span class="dc-code">MR</span><h3>Maintenance &amp; Engineering</h3></div>
+  <p>Air Canada Technical Services running line and base maintenance on TRAX, against Transport Canada continuing-airworthiness obligations under the Canadian Aviation Regulations.</p>
+  <div><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag regulator" data-tooltip="Airworthiness directive and continuing-airworthiness compliance against CARs. [Transport Canada - evidence C]">Transport Canada CAWIS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
+  <div class="dc-foot"><span class="dc-n">24</span> processes
+    <span>&middot;</span> 4 groups
+    <span>&middot;</span> 1 documented</div>
+</a><a class="dcard" href="air-canada-cargo/">
+  <div class="dc-top"><span class="dc-ic">📦</span>
+    <span class="dc-code">CG</span><h3>Air Canada Cargo</h3></div>
+  <p>Freighter and belly cargo, mid-implementation on CHAMP Cargospot neo, with mandatory CBSA pre-load air cargo targeting filing in force since April 2025.</p>
+  <div><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag champ" data-tooltip="Cargo warehouse and ground handling execution, ULD build-up and breakdown. [CHAMP - evidence A]">Cargospot neo Handling<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag regulator" data-tooltip="CBSA pre-load air cargo targeting. Mandatory pre-load data filing in force since 1 April 2025. [CBSA - evidence B]">Canada PACT<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+  <div class="dc-foot"><span class="dc-n">20</span> processes
+    <span>&middot;</span> 4 groups
+    <span>&middot;</span> 1 documented</div>
+</a><a class="dcard" href="information-technology-security/">
+  <div class="dc-top"><span class="dc-ic">🖥</span>
+    <span class="dc-code">IT</span><h3>Information Technology &amp; Security</h3></div>
+  <p>Service management, cybersecurity, data engineering and AI platform. This is the application management and user support tower, and the domain the Moffatt ruling made a governance question.</p>
+  <div><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag aws" data-tooltip="Primary hyperscaler. Loyalty platform, contact centre and digital channels run cloud-native on AWS. [AWS - evidence A]">AWS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+  <div class="dc-foot"><span class="dc-n">20</span> processes
+    <span>&middot;</span> 4 groups
+    <span>&middot;</span> 1 documented</div>
+</a><a class="dcard" href="finance-procurement-treasury/">
+  <div class="dc-top"><span class="dc-ic">💰</span>
+    <span class="dc-code">FN</span><h3>Finance, Procurement &amp; Treasury</h3></div>
+  <p>SAP S/4HANA finance core delivered under the internal Unifier programme, with SAP Ariba source-to-pay and passenger revenue accounting reconciling to IATA BSP.</p>
+  <div><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sap" data-tooltip="Source-to-pay, supplier management and contract compliance. [SAP - evidence A]">SAP Ariba<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+  <div class="dc-foot"><span class="dc-n">20</span> processes
+    <span>&middot;</span> 4 groups
+    <span>&middot;</span> 0 documented</div>
+</a><a class="dcard" href="human-resources-labour/">
+  <div class="dc-top"><span class="dc-ic">👥</span>
+    <span class="dc-code">HR</span><h3>Human Resources &amp; Labour</h3></div>
+  <p>Approximately 35,000 employees across four bargaining units, with Dayforce carrying time, attendance and payroll under some of the most complex union rule sets in Canadian aviation.</p>
+  <div><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag hcm" data-tooltip="Talent acquisition and candidate relationship management. [Phenom - evidence B]">Phenom<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag m365" data-tooltip="Email, collaboration and document management for approximately 35,000 employees. [Microsoft - evidence C]">Microsoft 365<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
+  <div class="dc-foot"><span class="dc-n">20</span> processes
+    <span>&middot;</span> 4 groups
+    <span>&middot;</span> 0 documented</div>
+</a>
+</div>
+
+<h2>Where the estate is under strain</h2>
+<div class="grid">
+  <div class="dcard" style="cursor:default">
+    <div class="dc-top"><span class="dc-ic">&#9878;</span><h3>APPR complaint load</h3></div>
+    <p>Air Passenger Protection Regulations entitlement is determined largely by hand from the PNR and the
+    disruption reason code, then re-keyed into the case tool. The Canadian Transportation Agency backlog and
+    the 2026 arbitration pilot make this a board-level process, not a back-office one.</p>
+    <div class="dc-foot">See <b>CX &rsaquo; Complaints, APPR &amp; Claims</b></div>
+  </div>
+  <div class="dcard" style="cursor:default">
+    <div class="dc-top"><span class="dc-ic">&#9889;</span><h3>Ops control resilience</h3></div>
+    <p>The June 2023 communicator outage delayed or cancelled the large majority of a day's flights. Ops
+    control, crew and DCS share a seam that has no documented degraded-mode operating procedure.</p>
+    <div class="dc-foot">See <b>FO &rsaquo; Ops Control &amp; IRROP Recovery</b></div>
+  </div>
+  <div class="dcard" style="cursor:default">
+    <div class="dc-top"><span class="dc-ic">&#128279;</span><h3>The Express operator seam</h3></div>
+    <p>Jazz and PAL fly Air Canada Express under capacity purchase agreements on their own crew, ops and
+    maintenance systems. Disruption data crosses that seam by spreadsheet and phone.</p>
+    <div class="dc-foot">See <b>FO &rsaquo; Express Operator Disruption Reconciliation</b></div>
+  </div>
+  <div class="dcard" style="cursor:default">
+    <div class="dc-top"><span class="dc-ic">&#129302;</span><h3>AI governance after Moffatt</h3></div>
+    <p>A civil resolution tribunal held Air Canada liable for its website assistant's wrong advice and
+    rejected the argument that the bot was a separate legal entity. Human-in-loop control is now a hard
+    requirement on any customer-facing automation, not a design option.</p>
+    <div class="dc-foot">See <b>IT &rsaquo; AI &amp; ML Platform</b></div>
+  </div>
+</div>
+
+<h2>Documentation status</h2>
+<div class="callout warn"><span class="ct">Build progress</span>
+6 of 284 processes carry full L4 step documentation.
+Undocumented processes are listed and navigable but marked <b>Queued</b>.</div>
+
+</div>
+<div class="foot">
+<b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources
+for IT Application Management and User Support pre-sales discovery.
+Built 2026-08-18. Every system carries an evidence tier: tier C is an industry pattern and tier U is an open
+question, and neither should be asserted as fact about Air Canada without confirmation in discovery.
+Not affiliated with or endorsed by Air Canada. Air Canada, Aeroplan and Altitude are trademarks of Air Canada.
+</div>
+</main>
+<div id="lightbox" role="dialog" aria-label="Diagram viewer">
+  <div class="lb-bar">
+    <button id="lb-out" title="Zoom out  -">&minus;</button>
+    <span id="lb-zoom-pct">100%</span>
+    <button id="lb-in" title="Zoom in  +">+</button>
+    <button id="lb-reset" title="Reset  0">&#8634;</button>
+    <button id="lb-open" title="Open full size">&#8599;</button>
+    <button id="lb-close" title="Close  Esc">&times;</button>
+  </div>
+  <div class="lb-stage"><img id="lb-img" alt="Diagram"></div>
+  <div class="lb-title" id="lb-title"></div>
+</div>
+<div id="kbd-help"><div class="kh-box">
+  <h3>Keyboard shortcuts</h3>
+  <dl>
+    <dt>/</dt><dd>Focus search</dd>
+    <dt>J</dt><dd>Next process</dd>
+    <dt>K</dt><dd>Previous process</dd>
+    <dt>D</dt><dd>Toggle dark mode</dd>
+    <dt>[</dt><dd>Collapse or expand sidebar</dd>
+    <dt>P</dt><dd>Print this page</dd>
+    <dt>+ &minus; 0</dt><dd>Zoom in the diagram viewer</dd>
+    <dt>Esc</dt><dd>Close overlays</dd>
+    <dt>?</dt><dd>This help</dd>
+  </dl>
+</div></div>
+<button id="back-to-top" title="Back to top" aria-label="Back to top">&uarr;</button>
+<script src="assets/js/wiki.js"></script>
+</body>
+</html>

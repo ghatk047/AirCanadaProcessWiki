@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AC-IT-AI-03 AI Governance and Human In Loop Control Design &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-IT-AI-03 AI Governance and Human In Loop Control Design.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
+<link rel="stylesheet" href="../../../assets/css/wiki.css">
+<script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../information-technology-security/ai-ml-platform/ac-it-ai-02/",next:"../../../information-technology-security/ai-ml-platform/ac-it-ai-04/"};
+(function(){try{var t=localStorage.getItem('ac-theme');
+if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+</head>
+<body>
+<div id="progress-bar"></div>
+<header class="topbar">
+  <button class="tb-btn" id="mob-menu" style="display:none" aria-label="Menu">&#9776;</button>
+  <a class="brand" href="../../../index.html"><span class="leaf">&#127809;</span>
+    <span><span class="ac">Air Canada</span> Process Wiki</span></a>
+  <span class="badge-aeroplan">Aeroplan</span>
+  <div class="spacer"></div>
+  <div class="tb-search">
+    <input id="search-input" type="search" placeholder="Search processes, steps, systems&hellip;"
+           autocomplete="off" spellcheck="false" aria-label="Search">
+    <span class="kbd">/</span>
+  </div>
+  <button class="tb-btn" id="theme-btn" aria-label="Toggle theme">&#127769; <span class="lbl">Dark</span></button>
+  <a class="tb-btn" href="../../../ea-diagrams/">&#128506; <span class="lbl">EA</span></a>
+</header>
+<div id="search-results"></div>
+<aside class="sidebar" id="sidebar">
+<div class="sb-head">
+<button class="sb-toggle" id="sb-toggle" title="Toggle sidebar  [" aria-label="Toggle sidebar">&#9776;</button>
+<span class="sb-title">Process Domains</span>
+</div>
+<nav>
+<div class="l1-block"><a class="l1-link" href="../../../network-planning-scheduling/"><span class="ic">🗺</span><span class="sb-label">Network Planning &amp; Scheduling</span><span class="cnt">30</span></a>
+<div class="l2-block">
+<a class="l2-link" href="../../../network-planning-scheduling/schedule-planning-design/">Schedule Planning &amp; Design</a>
+<a class="l2-link" href="../../../network-planning-scheduling/fleet-assignment-rotation/">Fleet Assignment &amp; Rotation</a>
+<a class="l2-link" href="../../../network-planning-scheduling/slots-alliance-codeshare/">Slots, Alliance &amp; Codeshare</a>
+<a class="l2-link" href="../../../network-planning-scheduling/network-performance-monitoring/">Network Performance &amp; Monitoring</a>
+</div></div>
+<div class="l1-block"><a class="l1-link" href="../../../revenue-management-pricing/"><span class="ic">📈</span><span class="sb-label">Revenue Management &amp; Pricing</span><span class="cnt">30</span></a>
+<div class="l2-block">
+<a class="l2-link" href="../../../revenue-management-pricing/inventory-yield-control/">Inventory &amp; Yield Control</a>
+<a class="l2-link" href="../../../revenue-management-pricing/pricing-fare-filing/">Pricing &amp; Fare Filing</a>
+<a class="l2-link" href="../../../revenue-management-pricing/ancillary-merchandising/">Ancillary &amp; Merchandising</a>
+<a class="l2-link" href="../../../revenue-management-pricing/rm-analytics-performance/">RM Analytics &amp; Performance</a>
+</div></div>
+<div class="l1-block"><a class="l1-link" href="../../../aeroplan-loyalty/"><span class="ic">🍁</span><span class="sb-label">Aeroplan Loyalty</span><span class="cnt">24</span></a>
+<div class="l2-block">
+<a class="l2-link" href="../../../aeroplan-loyalty/enrolment-member-identity/">Enrolment &amp; Member Identity</a>
+<a class="l2-link" href="../../../aeroplan-loyalty/redemption/">Redemption</a>
+<a class="l2-link" href="../../../aeroplan-loyalty/partner-co-brand-accrual/">Partner &amp; Co-Brand Accrual</a>
+<a class="l2-link" href="../../../aeroplan-loyalty/altitude-tier-management/">Altitude Tier Management</a>
+</div></div>
+<div class="l1-block"><a class="l1-link" href="../../../customer-experience-channels/"><span class="ic">💬</span><span class="sb-label">Customer Experience &amp; Channels</span><span class="cnt">24</span></a>
+<div class="l2-block">
+<a class="l2-link" href="../../../customer-experience-channels/digital-channels/">Digital Channels</a>
+<a class="l2-link" href="../../../customer-experience-channels/contact-centre/">Contact Centre</a>
+<a class="l2-link" href="../../../customer-experience-channels/special-services-accessibility/">Special Services &amp; Accessibility</a>
+<a class="l2-link" href="../../../customer-experience-channels/complaints-appr-claims/">Complaints, APPR &amp; Claims</a>
+</div></div>
+<div class="l1-block"><a class="l1-link" href="../../../flight-operations-dispatch/"><span class="ic">✈</span><span class="sb-label">Flight Operations &amp; Dispatch</span><span class="cnt">24</span></a>
+<div class="l2-block">
+<a class="l2-link" href="../../../flight-operations-dispatch/flight-planning-dispatch/">Flight Planning &amp; Dispatch</a>
+<a class="l2-link" href="../../../flight-operations-dispatch/weather-notam-nav-data/">Weather, NOTAM &amp; Nav Data</a>
+<a class="l2-link" href="../../../flight-operations-dispatch/ops-control-irrop-recovery/">Ops Control &amp; IRROP Recovery</a>
+<a class="l2-link" href="../../../flight-operations-dispatch/safety-occurrence-reporting/">Safety &amp; Occurrence Reporting</a>
+</div></div>
+<div class="l1-block"><a class="l1-link" href="../../../crew-management/"><span class="ic">👨‍✈</span><span class="sb-label">Crew Management</span><span class="cnt">24</span></a>
+<div class="l2-block">
+<a class="l2-link" href="../../../crew-management/crew-planning-pairing/">Crew Planning &amp; Pairing</a>
+<a class="l2-link" href="../../../crew-management/rostering-bidding/">Rostering &amp; Bidding</a>
+<a class="l2-link" href="../../../crew-management/day-of-operations-crew-tracking/">Day-of-Operations Crew Tracking</a>
+<a class="l2-link" href="../../../crew-management/crew-compliance-training-pay/">Crew Compliance, Training &amp; Pay</a>
+</div></div>
+<div class="l1-block"><a class="l1-link" href="../../../ground-operations-airports/"><span class="ic">🛫</span><span class="sb-label">Ground Operations &amp; Airports</span><span class="cnt">24</span></a>
+<div class="l2-block">
+<a class="l2-link" href="../../../ground-operations-airports/check-in-dcs-boarding/">Check-In, DCS &amp; Boarding</a>
+<a class="l2-link" href="../../../ground-operations-airports/baggage/">Baggage</a>
+<a class="l2-link" href="../../../ground-operations-airports/gate-turnaround-resource/">Gate, Turnaround &amp; Resource</a>
+<a class="l2-link" href="../../../ground-operations-airports/premium-lounge-vip-handling/">Premium, Lounge &amp; VIP Handling</a>
+</div></div>
+<div class="l1-block"><a class="l1-link" href="../../../maintenance-engineering/"><span class="ic">🔧</span><span class="sb-label">Maintenance &amp; Engineering</span><span class="cnt">24</span></a>
+<div class="l2-block">
+<a class="l2-link" href="../../../maintenance-engineering/line-maintenance/">Line Maintenance</a>
+<a class="l2-link" href="../../../maintenance-engineering/heavy-base-maintenance/">Heavy &amp; Base Maintenance</a>
+<a class="l2-link" href="../../../maintenance-engineering/engineering-reliability/">Engineering &amp; Reliability</a>
+<a class="l2-link" href="../../../maintenance-engineering/airworthiness-records-quality/">Airworthiness, Records &amp; Quality</a>
+</div></div>
+<div class="l1-block"><a class="l1-link" href="../../../air-canada-cargo/"><span class="ic">📦</span><span class="sb-label">Air Canada Cargo</span><span class="cnt">20</span></a>
+<div class="l2-block">
+<a class="l2-link" href="../../../air-canada-cargo/capacity-booking/">Capacity &amp; Booking</a>
+<a class="l2-link" href="../../../air-canada-cargo/ground-handling-uld/">Ground Handling &amp; ULD</a>
+<a class="l2-link" href="../../../air-canada-cargo/customs-pact-dangerous-goods/">Customs, PACT &amp; Dangerous Goods</a>
+<a class="l2-link" href="../../../air-canada-cargo/cargo-revenue-performance/">Cargo Revenue &amp; Performance</a>
+</div></div>
+<div class="l1-block"><a class="l1-link active" href="../../../information-technology-security/"><span class="ic">🖥</span><span class="sb-label">Information Technology &amp; Security</span><span class="cnt">20</span></a>
+<div class="l2-block">
+<a class="l2-link" href="../../../information-technology-security/service-management-user-support/">Service Management &amp; User Support</a>
+<a class="l2-link" href="../../../information-technology-security/cybersecurity-identity/">Cybersecurity &amp; Identity</a>
+<a class="l2-link" href="../../../information-technology-security/data-engineering-integration/">Data Engineering &amp; Integration</a>
+<a class="l2-link active" href="../../../information-technology-security/ai-ml-platform/">AI &amp; ML Platform</a>
+<a class="l3-link" href="../../../information-technology-security/ai-ml-platform/ac-it-ai-01/">AI Use Case Intake and Value Assessment</a>
+<a class="l3-link" href="../../../information-technology-security/ai-ml-platform/ac-it-ai-02/">Model Development and Feature Engineering</a>
+<a class="l3-link active" href="../../../information-technology-security/ai-ml-platform/ac-it-ai-03/">AI Governance and Human In Loop Control Design</a>
+<a class="l3-link" href="../../../information-technology-security/ai-ml-platform/ac-it-ai-04/">Model Deployment and Production Monitoring</a>
+<a class="l3-link" href="../../../information-technology-security/ai-ml-platform/ac-it-ai-05/">Customer Facing Assistant Content Grounding</a>
+</div></div>
+<div class="l1-block"><a class="l1-link" href="../../../finance-procurement-treasury/"><span class="ic">💰</span><span class="sb-label">Finance, Procurement &amp; Treasury</span><span class="cnt">20</span></a>
+<div class="l2-block">
+<a class="l2-link" href="../../../finance-procurement-treasury/revenue-accounting/">Revenue Accounting</a>
+<a class="l2-link" href="../../../finance-procurement-treasury/procure-to-pay/">Procure-to-Pay</a>
+<a class="l2-link" href="../../../finance-procurement-treasury/treasury-risk/">Treasury &amp; Risk</a>
+<a class="l2-link" href="../../../finance-procurement-treasury/planning-analysis/">Planning &amp; Analysis</a>
+</div></div>
+<div class="l1-block"><a class="l1-link" href="../../../human-resources-labour/"><span class="ic">👥</span><span class="sb-label">Human Resources &amp; Labour</span><span class="cnt">20</span></a>
+<div class="l2-block">
+<a class="l2-link" href="../../../human-resources-labour/talent-acquisition/">Talent Acquisition</a>
+<a class="l2-link" href="../../../human-resources-labour/workforce-management-payroll/">Workforce Management &amp; Payroll</a>
+<a class="l2-link" href="../../../human-resources-labour/labour-relations/">Labour Relations</a>
+<a class="l2-link" href="../../../human-resources-labour/engagement-learning-inclusion/">Engagement, Learning &amp; Inclusion</a>
+</div></div>
+<div class="sb-section-title">Enterprise Architecture</div>
+<div class="l1-block"><a class="l1-link" href="../../../ea-diagrams/"><span class="ic">&#128506;</span><span class="sb-label">EA Diagrams</span><span class="cnt">27</span></a></div>
+</nav></aside>
+<div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Information Technology &amp; Security</a><span class="sep">&rsaquo;</span><a href="../">AI &amp; ML Platform</a><span class="sep">&rsaquo;</span><span class="cur">AC-IT-AI-03</span></div>
+<main class="content">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
+  <button class="pid-badge" data-pid="AC-IT-AI-03" title="Click to copy the process ID">
+    AC-IT-AI-03<span class="copy-ic">&#128203;</span></button>
+  <span class="updated">Updated 2026-08-18</span>
+</div>
+<h1>AI Governance and Human In Loop Control Design</h1>
+<p class="lede" id="overview">Every customer-facing or decision-supporting model at Air Canada is put through a governance gate that fixes where a human makes the decision, what sources the model may ground on, and how failures escalate. The control design is a condition of deployment, not a post-launch review.</p>
+<div class="callout"><span class="ct">Air Canada context</span>This process exists because of Moffatt v. Air Canada, 2024 BCCRT 149. The tribunal held Air Canada liable for negligent misrepresentation after its website assistant gave incorrect bereavement-fare guidance, and expressly rejected the argument that the chatbot was a separate legal entity. The bot was withdrawn around April 2024. The operative lesson is that Air Canada owns everything its automation says, so a defined human-in-loop point, restricted grounding, a logged escalation path and named ownership are hard requirements on any customer-facing agent rather than design options.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">An AI use case passes value assessment and requests deployment approval, or an existing model is materially retrained or its scope extended.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">An approved control design naming the human decision point, the permitted grounding sources, the escalation path and the accountable owner, recorded before the model reaches a customer.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Information Technology &amp; Security<br>
+    <span style="color:var(--text-muted);font-size:12px">AI &amp; ML Platform</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">12 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-it-ai-03.png" alt="AI Governance and Human In Loop Control Design process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-IT-AI-03-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Control design</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Classify use case exposure</b></td>
+<td>AI Governance Lead</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Approved use case definition</td>
+<td>Exposure classification covering customer, regulatory and safety impact</td>
+<td>100 percent of use cases classified before build</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Classification depends on a self-declared scope that tends to understate customer exposure</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Define the human decision point</b></td>
+<td>AI Governance Lead</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Exposure classification and process map</td>
+<td>Named human-in-loop control with an accountable role</td>
+<td>Every customer-facing model has a named human decision point</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Teams propose review-after-the-fact controls, which do not prevent the Moffatt failure mode</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Restrict grounding to authoritative sources</b></td>
+<td>Data Platform Engineer</td>
+<td><span class="tag databricks" data-tooltip="Lakehouse governance, lineage and access control. Foundation for governed AI grounding. [Databricks - evidence C]">Unity Catalog<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Candidate content and policy corpora</td>
+<td>Allow-listed grounding sources with lineage</td>
+<td>Zero customer-facing responses grounded on unapproved sources</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Policy content is scattered across the web estate with no single authoritative version</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Design the failure and escalation path</b></td>
+<td>AI Governance Lead</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Control design draft</td>
+<td>Defined failure modes with a no-auto-send default and escalation route</td>
+<td>Every model has a tested escalation path before release</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Failure modes are specified in prose and are not testable as written</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-AI-03-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Assurance and approval</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Review bilingual and accessibility obligations</b></td>
+<td>Official Languages Advisor</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Draft control design</td>
+<td>Confirmation of English and French parity in model output</td>
+<td>Full parity confirmed on 100 percent of customer-facing models</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Parity is treated as a translation step rather than as an architectural constraint</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Assess privacy and consent position</b></td>
+<td>Privacy Counsel</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Data inventory for the model</td>
+<td>Privacy assessment covering PIPEDA and Quebec Law 25</td>
+<td>Privacy assessment completed before any production data access</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Consent state lives with customer identity and is not natively visible to model pipelines</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Conduct adversarial and refusal testing</b></td>
+<td>ML Engineer</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Candidate model and control design</td>
+<td>Test evidence covering misstatement and refusal behaviour</td>
+<td>Zero unescalated misstatements in the adversarial test set</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>There is no standing adversarial suite, so each team writes its own tests</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Approve or refuse deployment</b></td>
+<td>AI Governance Board</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Complete assurance pack</td>
+<td>Deployment decision with named accountable owner</td>
+<td>No customer-facing model deployed without board approval</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Board cadence can become the critical path on delivery timelines</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-AI-03-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Production monitoring and review</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Deploy with logging and traceability</b></td>
+<td>ML Engineer</td>
+<td><span class="tag aws" data-tooltip="Primary hyperscaler. Loyalty platform, contact centre and digital channels run cloud-native on AWS. [AWS - evidence A]">AWS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Approved model and control design</td>
+<td>Model in production with full response logging</td>
+<td>100 percent of customer-facing responses logged and retrievable</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Response logs and case records are not joined, so a complaint cannot be traced to a response</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Monitor drift and escalation volume</b></td>
+<td>ML Engineer</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Production telemetry</td>
+<td>Drift and escalation report against control thresholds</td>
+<td>Drift breach detected within 24 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Thresholds are set at launch and rarely revisited as behaviour changes</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Withdraw or constrain on control breach</b></td>
+<td>AI Governance Lead</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Breach notification</td>
+<td>Model withdrawn, constrained or re-approved</td>
+<td>Control breach acted on within one business day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>There is no rehearsed withdrawal runbook, which is what made the 2024 removal disruptive</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Re-certify on retrain or scope change</b></td>
+<td>AI Governance Lead</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Retrained model or extended scope</td>
+<td>Re-certified control design</td>
+<td>No model serves customers on an expired certification</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Retraining is treated as a technical change and can bypass governance</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>AI Governance Lead</span><span class="lane-steps">1.1 1.2 1.4 3.3 3.4</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Data Platform Engineer</span><span class="lane-steps">1.3</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Official Languages Advisor</span><span class="lane-steps">2.1</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Privacy Counsel</span><span class="lane-steps">2.2</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>ML Engineer</span><span class="lane-steps">2.3 3.1 3.2</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>AI Governance Board</span><span class="lane-steps">2.4</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag databricks" data-tooltip="Lakehouse governance, lineage and access control. Foundation for governed AI grounding. [Databricks - evidence C]">Unity Catalog<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag aws" data-tooltip="Primary hyperscaler. Loyalty platform, contact centre and digital channels run cloud-native on AWS. [AWS - evidence A]">AWS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag aiml" data-tooltip="Bilingual customer-facing assistant. Predecessor bot was withdrawn c. April 2024 after the Moffatt ruling. [Air Canada - evidence B]">Air Canada Virtual Assistant<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Every customer-facing model carries a named human decision point at 100 percent</li><li>Zero customer-facing responses grounded on sources outside the allow list</li><li>Control breach acted on within one business day</li><li>Full English and French parity confirmed on all customer-facing models</li><li>Complaint-to-response traceability achievable for 100 percent of logged interactions</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Repeating the Moffatt liability where automation states a policy position the airline must then honour</li><li>Grounding drift as policy content changes on the web estate without the allow list being updated</li><li>Retraining bypassing governance and silently changing customer-facing behaviour</li><li>Bilingual parity treated as translation rather than as a design constraint, creating an Official Languages exposure alongside the accuracy exposure</li><li>Absent response-to-case traceability preventing defence of a specific interaction under challenge</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../information-technology-security/ai-ml-platform/ac-it-ai-02/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Model Development and Feature Engineering</span></a>
+  <a class="next" href="../../../information-technology-security/ai-ml-platform/ac-it-ai-04/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Model Deployment and Production Monitoring</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
+</div>
+<div class="foot">
+<b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources
+for IT Application Management and User Support pre-sales discovery.
+Built 2026-08-18. Every system carries an evidence tier: tier C is an industry pattern and tier U is an open
+question, and neither should be asserted as fact about Air Canada without confirmation in discovery.
+Not affiliated with or endorsed by Air Canada. Air Canada, Aeroplan and Altitude are trademarks of Air Canada.
+</div>
+</main>
+<div id="lightbox" role="dialog" aria-label="Diagram viewer">
+  <div class="lb-bar">
+    <button id="lb-out" title="Zoom out  -">&minus;</button>
+    <span id="lb-zoom-pct">100%</span>
+    <button id="lb-in" title="Zoom in  +">+</button>
+    <button id="lb-reset" title="Reset  0">&#8634;</button>
+    <button id="lb-open" title="Open full size">&#8599;</button>
+    <button id="lb-close" title="Close  Esc">&times;</button>
+  </div>
+  <div class="lb-stage"><img id="lb-img" alt="Diagram"></div>
+  <div class="lb-title" id="lb-title"></div>
+</div>
+<div id="kbd-help"><div class="kh-box">
+  <h3>Keyboard shortcuts</h3>
+  <dl>
+    <dt>/</dt><dd>Focus search</dd>
+    <dt>J</dt><dd>Next process</dd>
+    <dt>K</dt><dd>Previous process</dd>
+    <dt>D</dt><dd>Toggle dark mode</dd>
+    <dt>[</dt><dd>Collapse or expand sidebar</dd>
+    <dt>P</dt><dd>Print this page</dd>
+    <dt>+ &minus; 0</dt><dd>Zoom in the diagram viewer</dd>
+    <dt>Esc</dt><dd>Close overlays</dd>
+    <dt>?</dt><dd>This help</dd>
+  </dl>
+</div></div>
+<button id="back-to-top" title="Back to top" aria-label="Back to top">&uarr;</button>
+<script src="../../../assets/js/wiki.js"></script>
+</body>
+</html>

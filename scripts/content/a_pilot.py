@@ -1,0 +1,502 @@
+# -*- coding: utf-8 -*-
+"""Pilot batch: six processes spanning domains, each anchored on a real Air Canada pain point."""
+from content_lib import P, S
+
+# ────────────────────────────────────────────────────────────────────────────
+P("AC-CX-CR-02",
+  desc="Air Canada determines whether a disrupted passenger is owed compensation under the Air Passenger "
+       "Protection Regulations, based on the disruption reason code, the length of delay at arrival and the "
+       "carrier size band. The determination is assembled by hand from the PNR, the operational record and "
+       "the flight's coded delay reason, then keyed into the Salesforce case as a reasoned decision.",
+  trig="A passenger claim arrives through the web form, contact centre or a Canadian Transportation Agency "
+       "referral, citing a delay, cancellation or denied boarding within the regulated window.",
+  out="A documented entitlement determination with a reason-code basis, a compensation payment or a reasoned "
+      "refusal issued to the passenger, and an evidence trail capable of surviving CTA review.",
+  note="This is the highest-exposure customer process in the estate. The CTA complaint backlog runs to roughly "
+       "92,500 files, the Agency issued a CA$426,000 administrative monetary penalty in March 2026 for 71 "
+       "violations of APPR section 18(1.1), and Air Canada opened a third-party arbitration pilot covering an "
+       "initial 500 cases. Entitlement is calculated manually from the PNR plus the disruption reason and then "
+       "re-keyed into the case tool. That re-key is the single most defensible automation target in the "
+       "customer estate, provided the adjudicator remains the decision-maker of record.",
+  phases=["Intake and eligibility screening", "Entitlement determination", "Settlement and regulatory closure"],
+  steps=[
+    S("1.1","Receive and register claim","Customer Relations Agent","Salesforce Service Cloud",
+      "Web form, call transcript or CTA referral","Registered case with claim reference",
+      "Case registered within 2 business days of receipt","N","N",
+      "Claims arrive across four channels in inconsistent formats and are registered by hand"),
+    S("1.2","Verify passenger and booking identity","Customer Relations Agent","Amadeus Altea Customer Management",
+      "Claimed booking reference and passenger name","Verified PNR linked to the case",
+      "Identity verified on first attempt above 90 percent","N","N",
+      "Agents work two screens because the PNR does not surface inside the case record"),
+    S("1.3","Retrieve operating flight record","Customer Relations Agent","Amadeus Altea Customer Management",
+      "Flight number and date of travel","Actual departure and arrival times with delay duration",
+      "Flight record retrieved within 10 minutes of case open","N","N",
+      "Express operator flights need a separate lookup outside the mainline record"),
+    S("1.4","Screen claim eligibility window","Customer Relations Agent","Salesforce Service Cloud",
+      "Travel date and claim submission date","Eligible or time-barred flag on the case",
+      "Zero eligible claims incorrectly time-barred","Y","N",
+      "Manual date arithmetic against a one-year filing limit invites error"),
+    S("2.1","Obtain coded disruption reason","Ops Data Analyst","NetLine/Ops",
+      "Flight leg and operational log","Delay reason code with controllable classification",
+      "Reason code obtained for 100 percent of adjudicated claims","N","N",
+      "Reason codes are coded for operational reporting, not for regulatory defensibility"),
+    S("2.2","Classify controllable, controllable-for-safety or outside control",
+      "APPR Adjudicator","Salesforce Service Cloud",
+      "Coded reason and supporting operational narrative","Regulatory disruption category on the case",
+      "Category upheld on CTA review above 85 percent","Y","N",
+      "The safety carve-out is the most contested judgement and is applied inconsistently between adjudicators"),
+    S("2.3","Calculate delay at arrival and compensation band","APPR Adjudicator","Salesforce Service Cloud",
+      "Scheduled and actual arrival times","Compensation band of 400, 700 or 1000 Canadian dollars",
+      "Calculation error rate below 2 percent","N","N",
+      "Band calculation is performed by hand from two timestamps and re-keyed into the case"),
+    S("2.4","Assess standard-of-treatment and rebooking obligations","APPR Adjudicator","Amadeus Passenger Recovery",
+      "Rebooking record and care provided at station","Treatment obligation assessment",
+      "Treatment obligations evidenced on 100 percent of upheld claims","N","N",
+      "Meals, hotel and rebooking evidence sits in station records the adjudicator cannot query directly"),
+    S("2.5","Escalate contested or high-value determination","Customer Relations Team Lead","Salesforce Service Cloud",
+      "Draft determination above the delegation threshold","Reviewed determination or legal referral",
+      "Escalations resolved within 10 business days","N","Y",
+      "Escalation queues are the largest single contributor to cycle time"),
+    S("3.1","Issue determination and reasons to the passenger","Customer Relations Agent","Salesforce Service Cloud",
+      "Approved determination","Bilingual written decision with reasons",
+      "Decision issued within the 30-day regulatory response window","N","N",
+      "English and French parity on reasons is maintained manually"),
+    S("3.2","Process compensation disbursement","Finance Disbursement Analyst","SAP S/4HANA",
+      "Approved compensation amount and payee details","Payment issued and posted to the ledger",
+      "Payment issued within 30 days of a favourable determination","N","N",
+      "Disbursement is a separate hand-off with no status visible back in the case"),
+    S("3.3","Respond to CTA and close the regulatory file","APPR Adjudicator","CTA Complaint Interface",
+      "Complete case file with determination and evidence","Regulatory response filed and case closed",
+      "Binding decisions answered inside the 90-day CTA service standard","N","N",
+      "Assembling the evidence bundle for the Agency is manual and repeats work already done in the case"),
+  ],
+  kpis=[
+    "Complaint cycle time from registration to determination under 30 days",
+    "Determination upheld on CTA review above 85 percent",
+    "Compensation disbursed within 30 days of a favourable determination",
+    "Cases answered inside the 90-day binding decision standard at 100 percent",
+    "Reason-code completeness on adjudicated claims at 100 percent",
+  ],
+  risks=[
+    "Administrative monetary penalties where reason codes are absent, late or inconsistent with the "
+    "operational record, as in the March 2026 penalty for 71 section 18 violations",
+    "Adjudicator-to-adjudicator variance on the controllable-for-safety carve-out creating inconsistent "
+    "outcomes on materially identical facts",
+    "Backlog growth outrunning adjudication capacity and pushing cases into arbitration",
+    "Manual re-key between the PNR, the operational record and the case tool introducing calculation error "
+    "into a regulated determination",
+    "English and French parity failures on issued reasons creating a separate Official Languages exposure",
+  ],
+  extra_systems=["Amazon Connect", "aircanada.com"])
+
+# ────────────────────────────────────────────────────────────────────────────
+P("AC-FO-OC-05",
+  desc="During irregular operations, disruption data for Air Canada Express flights operated by Jazz Aviation "
+       "and PAL Airlines must be reconciled into the mainline operational picture at the Toronto operations "
+       "centre. The operators run their own crew, ops-control and maintenance systems, so the reconciliation "
+       "happens at a seam rather than inside a shared system of record.",
+  trig="An Express-operated flight is delayed, cancelled or diverted, or a mainline recovery plan requires "
+       "capacity from an Express operator.",
+  out="A single reconciled operational picture covering mainline and Express flights, with consistent delay "
+      "reason codes, passenger disposition and a recovery plan the operator has accepted.",
+  note="This is the highest-value integration seam in the Air Canada estate. Jazz and PAL fly Air Canada "
+       "Express under capacity purchase agreements on their own systems, and disruption data crosses the "
+       "boundary today by spreadsheet, email and phone. The seam matters twice over: it delays recovery, and "
+       "because APPR entitlement depends on the disruption reason code, an inconsistent code at the seam "
+       "becomes a regulatory exposure downstream in AC-CX-CR-02.",
+  phases=["Detection and operator contact", "Reconciliation and recovery planning", "Confirmation and downstream posting"],
+  steps=[
+    S("1.1","Detect Express flight irregularity","Operations Control Duty Manager","NetLine/Ops",
+      "Flight watch alert or operator notification","Logged irregularity against the Express leg",
+      "Irregularity detected within 5 minutes of the operator event","N","N",
+      "Mainline flight watch does not receive Express operator telemetry in real time"),
+    S("1.2","Contact operator operations control","Operations Control Duty Manager","Jazz and PAL Operator Interface",
+      "Flight identifier and observed status","Verbal confirmation of operator status and cause",
+      "Operator contact established within 10 minutes","N","N",
+      "First contact is by telephone because there is no shared operational channel"),
+    S("1.3","Capture operator disruption reason","Operations Control Analyst","Jazz and PAL Operator Interface",
+      "Operator delay narrative","Disruption reason recorded against the mainline leg",
+      "Reason captured for 100 percent of Express irregularities","N","N",
+      "Operator reason taxonomies do not map cleanly to the mainline code set"),
+    S("1.4","Normalise reason code to the mainline taxonomy","Operations Control Analyst","NetLine/Ops",
+      "Operator narrative and code","Mainline delay code with controllable classification",
+      "Code normalisation completed before passenger notification","Y","N",
+      "Mapping is a judgement call made under time pressure and is the origin of downstream APPR disputes"),
+    S("2.1","Assess passenger impact and connections","Operations Control Analyst","Amadeus Altea Customer Management",
+      "Affected PNR list and connection bank","Impact assessment with misconnect count",
+      "Impact assessed within 15 minutes of confirmed disruption","N","N",
+      "Express PNR data must be pulled separately from the mainline connection view"),
+    S("2.2","Determine recovery option","Operations Control Duty Manager","NetLine/Ops",
+      "Impact assessment and available capacity","Selected recovery option",
+      "Recovery decision within 30 minutes of irregularity","Y","N",
+      "Recovery options spanning mainline and Express cannot be optimised in one system"),
+    S("2.3","Confirm operator crew and aircraft availability","Operations Control Analyst","Jazz and PAL Operator Interface",
+      "Proposed recovery plan","Operator confirmation of crew legality and tail availability",
+      "Operator confirmation within 20 minutes of request","N","N",
+      "Operator crew legality is invisible to mainline and must be asked for every time"),
+    S("2.4","Escalate where operator cannot support recovery","Operations Control Duty Manager","NetLine/Ops",
+      "Declined recovery option","Escalated plan using mainline or partner capacity",
+      "Escalation resolved without further passenger delay","N","Y",
+      "Escalation depends on individual relationships rather than a defined contractual path"),
+    S("3.1","Reaccommodate affected passengers","Operations Control Analyst","Amadeus Passenger Recovery",
+      "Confirmed recovery plan","Reissued itineraries for affected passengers",
+      "Reaccommodation completed for 95 percent of passengers within 60 minutes","N","N",
+      "Passenger recovery covers the mainline leg cleanly but handles the operator leg inconsistently"),
+    S("3.2","Notify passengers and stations","Customer Communications Analyst","Air Canada Mobile App",
+      "Confirmed disposition","Bilingual passenger notification and station brief",
+      "Notification issued within 30 minutes of the recovery decision","N","N",
+      "Notification content is assembled manually and must be produced in English and French"),
+    S("3.3","Post reconciled record to the operational log","Operations Control Analyst","NetLine/Ops",
+      "Final disposition and normalised reason code","Closed operational record for the Express leg",
+      "Operational record closed same day at 100 percent","N","N",
+      "Reconciliation is re-keyed from the operator spreadsheet into the mainline log"),
+    S("3.4","Release reason code to downstream regulatory use","Operations Control Analyst","Databricks Lakehouse",
+      "Closed operational record","Reason code available to customer relations and reporting",
+      "Reason code available to adjudication within 24 hours","N","N",
+      "A code corrected after release does not propagate to cases already adjudicated"),
+  ],
+  kpis=[
+    "Express irregularity detected and logged within 5 minutes of the operator event",
+    "Recovery decision made within 30 minutes of confirmed disruption",
+    "Reason-code normalisation completed before passenger notification at 100 percent",
+    "Express disruption records closed same day at 100 percent",
+    "Reason-code disputes raised downstream by customer relations below 2 percent of Express irregularities",
+  ],
+  risks=[
+    "Manual reconciliation at the mainline and operator seam delaying recovery and extending passenger delay",
+    "Reason-code mismatch between operator and mainline taxonomies producing an indefensible APPR determination",
+    "No shared real-time operational picture, so the mainline recovery plan can assume operator capacity that "
+    "does not exist",
+    "Dependence on telephone and spreadsheet exchange with no audit trail for a regulated decision input",
+    "Corrected reason codes not propagating to cases already adjudicated downstream",
+  ],
+  extra_systems=["Jeppesen OCC", "Amadeus Altea DCS"])
+
+# ────────────────────────────────────────────────────────────────────────────
+P("AC-IT-AI-03",
+  desc="Every customer-facing or decision-supporting model at Air Canada is put through a governance gate that "
+       "fixes where a human makes the decision, what sources the model may ground on, and how failures escalate. "
+       "The control design is a condition of deployment, not a post-launch review.",
+  trig="An AI use case passes value assessment and requests deployment approval, or an existing model is "
+       "materially retrained or its scope extended.",
+  out="An approved control design naming the human decision point, the permitted grounding sources, the "
+      "escalation path and the accountable owner, recorded before the model reaches a customer.",
+  note="This process exists because of Moffatt v. Air Canada, 2024 BCCRT 149. The tribunal held Air Canada "
+       "liable for negligent misrepresentation after its website assistant gave incorrect bereavement-fare "
+       "guidance, and expressly rejected the argument that the chatbot was a separate legal entity. The bot "
+       "was withdrawn around April 2024. The operative lesson is that Air Canada owns everything its automation "
+       "says, so a defined human-in-loop point, restricted grounding, a logged escalation path and named "
+       "ownership are hard requirements on any customer-facing agent rather than design options.",
+  phases=["Control design", "Assurance and approval", "Production monitoring and review"],
+  steps=[
+    S("1.1","Classify use case exposure","AI Governance Lead","ITSM Platform",
+      "Approved use case definition","Exposure classification covering customer, regulatory and safety impact",
+      "100 percent of use cases classified before build",  "Y","N",
+      "Classification depends on a self-declared scope that tends to understate customer exposure"),
+    S("1.2","Define the human decision point","AI Governance Lead","ITSM Platform",
+      "Exposure classification and process map","Named human-in-loop control with an accountable role",
+      "Every customer-facing model has a named human decision point","N","N",
+      "Teams propose review-after-the-fact controls, which do not prevent the Moffatt failure mode"),
+    S("1.3","Restrict grounding to authoritative sources","Data Platform Engineer","Unity Catalog",
+      "Candidate content and policy corpora","Allow-listed grounding sources with lineage",
+      "Zero customer-facing responses grounded on unapproved sources","N","N",
+      "Policy content is scattered across the web estate with no single authoritative version"),
+    S("1.4","Design the failure and escalation path","AI Governance Lead","ITSM Platform",
+      "Control design draft","Defined failure modes with a no-auto-send default and escalation route",
+      "Every model has a tested escalation path before release","N","N",
+      "Failure modes are specified in prose and are not testable as written"),
+    S("2.1","Review bilingual and accessibility obligations","Official Languages Advisor","ITSM Platform",
+      "Draft control design","Confirmation of English and French parity in model output",
+      "Full parity confirmed on 100 percent of customer-facing models","Y","N",
+      "Parity is treated as a translation step rather than as an architectural constraint"),
+    S("2.2","Assess privacy and consent position","Privacy Counsel","SAP Customer Data Cloud",
+      "Data inventory for the model","Privacy assessment covering PIPEDA and Quebec Law 25",
+      "Privacy assessment completed before any production data access","N","N",
+      "Consent state lives with customer identity and is not natively visible to model pipelines"),
+    S("2.3","Conduct adversarial and refusal testing","ML Engineer","Databricks Lakehouse",
+      "Candidate model and control design","Test evidence covering misstatement and refusal behaviour",
+      "Zero unescalated misstatements in the adversarial test set","N","N",
+      "There is no standing adversarial suite, so each team writes its own tests"),
+    S("2.4","Approve or refuse deployment","AI Governance Board","ITSM Platform",
+      "Complete assurance pack","Deployment decision with named accountable owner",
+      "No customer-facing model deployed without board approval","Y","N",
+      "Board cadence can become the critical path on delivery timelines"),
+    S("3.1","Deploy with logging and traceability","ML Engineer","AWS",
+      "Approved model and control design","Model in production with full response logging",
+      "100 percent of customer-facing responses logged and retrievable","N","N",
+      "Response logs and case records are not joined, so a complaint cannot be traced to a response"),
+    S("3.2","Monitor drift and escalation volume","ML Engineer","Databricks Lakehouse",
+      "Production telemetry","Drift and escalation report against control thresholds",
+      "Drift breach detected within 24 hours","N","N",
+      "Thresholds are set at launch and rarely revisited as behaviour changes"),
+    S("3.3","Withdraw or constrain on control breach","AI Governance Lead","ITSM Platform",
+      "Breach notification","Model withdrawn, constrained or re-approved",
+      "Control breach acted on within one business day","N","Y",
+      "There is no rehearsed withdrawal runbook, which is what made the 2024 removal disruptive"),
+    S("3.4","Re-certify on retrain or scope change","AI Governance Lead","ITSM Platform",
+      "Retrained model or extended scope","Re-certified control design",
+      "No model serves customers on an expired certification","N","N",
+      "Retraining is treated as a technical change and can bypass governance"),
+  ],
+  kpis=[
+    "Every customer-facing model carries a named human decision point at 100 percent",
+    "Zero customer-facing responses grounded on sources outside the allow list",
+    "Control breach acted on within one business day",
+    "Full English and French parity confirmed on all customer-facing models",
+    "Complaint-to-response traceability achievable for 100 percent of logged interactions",
+  ],
+  risks=[
+    "Repeating the Moffatt liability where automation states a policy position the airline must then honour",
+    "Grounding drift as policy content changes on the web estate without the allow list being updated",
+    "Retraining bypassing governance and silently changing customer-facing behaviour",
+    "Bilingual parity treated as translation rather than as a design constraint, creating an Official "
+    "Languages exposure alongside the accuracy exposure",
+    "Absent response-to-case traceability preventing defence of a specific interaction under challenge",
+  ],
+  extra_systems=["Air Canada Virtual Assistant", "Salesforce Service Cloud"])
+
+# ────────────────────────────────────────────────────────────────────────────
+P("AC-CG-CP-04",
+  desc="Air Canada Cargo is migrating onto CHAMP Cargospot neo across booking, handling, mobile and revenue "
+       "accounting. Cutover control governs how each station and capability moves, how the interim double-entry "
+       "period is managed, and how the migration is reversed if a wave fails.",
+  trig="A migration wave reaches its go or no-go decision gate, or a defect in a migrated station forces a "
+       "rollback assessment.",
+  out="A station or capability operating on Cargospot neo with reconciled shipment and revenue data, or a "
+      "controlled rollback to the legacy platform with no lost consignments.",
+  note="Air Canada Cargo selected CHAMP Cargospot neo in 2026, covering Cargospot neo Airline, Handling, "
+       "Mobile and Revenue Accounting. The commercially important detail is that the migration is in flight "
+       "right now, which means an interim period where consignment data is entered twice, once in the legacy "
+       "platform and once in Cargospot. That double entry is a live re-key risk with direct revenue-accounting "
+       "and customs consequences, and it is time-bounded, so it is worth solving now rather than after cutover.",
+  phases=["Wave readiness", "Cutover execution", "Stabilisation and legacy decommission"],
+  steps=[
+    S("1.1","Define wave scope and station sequence","Cargo Migration Lead","ITSM Platform",
+      "Migration plan and station profile","Approved wave scope with entry and exit criteria",
+      "Wave scope frozen 4 weeks before cutover","N","N",
+      "Station-level process variance is discovered late because it is not documented centrally"),
+    S("1.2","Validate master and reference data","Cargo Data Analyst","CHAMP Cargospot neo",
+      "Legacy rates, routes, agents and ULD registers","Migrated reference data with reconciliation report",
+      "Reference data reconciliation variance below 0.5 percent","N","N",
+      "Legacy rate and agent data carries years of uncontrolled local edits"),
+    S("1.3","Certify interfaces to customs and revenue accounting","Integration Analyst","Canada PACT",
+      "Interface specifications","Certified interfaces for pre-load filing and settlement",
+      "All regulated interfaces certified before go-live","Y","N",
+      "Pre-load filing has no tolerance for interface downtime once the wave is live"),
+    S("1.4","Train station staff and confirm readiness","Cargo Operations Manager","Cargospot Mobile",
+      "Training curriculum and station roster","Signed station readiness confirmation",
+      "95 percent of station staff certified before cutover","N","N",
+      "Warehouse shift patterns make it hard to train a full station inside the wave window"),
+    S("2.1","Execute go or no-go decision","Cargo Migration Lead","ITSM Platform",
+      "Readiness evidence pack","Go or no-go decision with recorded rationale",
+      "Decision taken at least 48 hours before the cutover window","Y","N",
+      "Readiness evidence arrives too close to the gate for genuine scrutiny"),
+    S("2.2","Freeze legacy bookings and drain in-flight consignments","Cargo Operations Manager","CHAMP Cargospot neo",
+      "Open consignment list","Legacy platform frozen with in-flight shipments identified",
+      "Zero consignments stranded across the freeze boundary","N","N",
+      "Consignments already in transit span both systems for the duration of the freeze"),
+    S("2.3","Operate interim double entry","Cargo Agent","CHAMP Cargospot neo",
+      "Consignment details at acceptance","Shipment recorded in both legacy and Cargospot",
+      "Double-entry variance below 1 percent of consignments","N","N",
+      "This is the migration's live manual re-key risk and the main source of revenue-accounting variance"),
+    S("2.4","Reconcile shipment and revenue records daily","Cargo Revenue Analyst","Cargospot neo Revenue Accounting",
+      "Legacy and Cargospot shipment extracts","Daily reconciliation with exception list",
+      "Reconciliation completed within 24 hours of each operating day","N","N",
+      "Reconciliation is performed in spreadsheets against two extracts with different keys"),
+    S("2.5","Invoke rollback on wave failure","Cargo Migration Lead","ITSM Platform",
+      "Defect severity assessment","Controlled rollback with consignment integrity confirmed",
+      "Rollback completed within the agreed 4-hour window","N","Y",
+      "Rollback has not been rehearsed end to end with live consignment data"),
+    S("3.1","Monitor post-cutover defects and service levels","Cargo Operations Manager","ITSM Platform",
+      "Incident and defect queue","Stabilisation report against exit criteria",
+      "Priority 1 defects closed within 24 hours","N","N",
+      "Defects raised at a station are hard to distinguish from training gaps"),
+    S("3.2","Close double entry and confirm single source","Cargo Revenue Analyst","Cargospot neo Revenue Accounting",
+      "Clean reconciliation across the stabilisation period","Double entry stopped for the wave",
+      "Double entry closed within 14 days of cutover","Y","N",
+      "Stations retain the legacy entry informally as a safety net, extending the risk window"),
+    S("3.3","Decommission legacy capability and archive records","Cargo Migration Lead","ITSM Platform",
+      "Migration completion evidence","Legacy capability retired with records archived for retention",
+      "Legacy decommissioned within 90 days of final wave","N","N",
+      "Retention obligations on historic air waybills are not fully mapped to the legacy archive"),
+  ],
+  kpis=[
+    "Double-entry variance below 1 percent of consignments during the interim period",
+    "Zero consignments stranded across a cutover freeze boundary",
+    "Pre-load customs filings unaffected by cutover at 100 percent",
+    "Double entry closed within 14 days of each wave cutover",
+    "Priority 1 post-cutover defects closed within 24 hours",
+  ],
+  risks=[
+    "Interim double entry producing divergent shipment records with direct revenue-accounting consequences",
+    "Pre-load customs filing interrupted during a cutover window, exposing shipments to CBSA holds",
+    "Unrehearsed rollback leaving consignments recorded in neither platform",
+    "Legacy reference data carrying uncontrolled local edits into the new platform",
+    "Stations retaining legacy entry informally after the wave, extending the double-entry risk window",
+  ],
+  extra_systems=["Cargospot neo Handling", "OnAsset Vision"])
+
+# ────────────────────────────────────────────────────────────────────────────
+P("AC-MR-LM-01",
+  desc="Air Canada Technical Services raises, plans and closes line maintenance work orders in TRAX against "
+       "aircraft on turnaround at the hubs and line stations. The process covers scheduled transit tasks and "
+       "unscheduled defects arising from the technical log, and it governs the release of the aircraft back to "
+       "service.",
+  trig="A scheduled transit or daily check falls due, or a defect is raised by the flight crew in the aircraft "
+       "technical log on arrival.",
+  out="A closed work order with certified task completion, parts and labour recorded against the tail, and the "
+      "aircraft released to service or deferred under the minimum equipment list.",
+  note="Air Canada's maintenance and engineering core is TRAX. The recurring operational constraint is at the "
+       "aircraft rather than in the system of record: technicians work a turnaround against a short ground time, "
+       "and the more the work order requires a return to a terminal to transact, the more that ground time is "
+       "consumed. TRAX eMobility exists to close that gap. The maintenance opportunity itself is set upstream in "
+       "the rotation build, so a late work order does not just delay one flight, it consumes the buffer the "
+       "network plan assumed.",
+  phases=["Work order raise and plan", "Execution at the aircraft", "Certification and release"],
+  steps=[
+    S("1.1","Receive defect or scheduled task trigger","Maintenance Control Coordinator","TRAX",
+      "Technical log entry or maintenance forecast","Raised work order against the tail",
+      "Work order raised within 15 minutes of trigger","N","N",
+      "Crew technical log entries are free text and need interpretation before they can be coded"),
+    S("1.2","Assess against the minimum equipment list","Maintenance Controller","TRAX",
+      "Defect description and aircraft configuration","MEL applicability decision",
+      "MEL assessment completed before the aircraft leaves the gate","Y","N",
+      "MEL interpretation under turnaround pressure is the highest-judgement step in the process"),
+    S("1.3","Confirm parts availability and reserve stock","Materials Planner","TRAX",
+      "Required part numbers","Reserved parts with a location and a delivery route",
+      "Parts available at station for 92 percent of line defects","Y","N",
+      "Parts held at an outstation are invisible to the hub planner in practice"),
+    S("1.4","Assign technician and confirm ground time","Line Maintenance Supervisor","TRAX",
+      "Work order and turnaround plan","Assigned technician with an agreed work window",
+      "Assignment completed within 10 minutes of work order raise","N","N",
+      "Ground time is negotiated verbally with the turnaround coordinator rather than being scheduled"),
+    S("2.1","Retrieve task card and technical data","Line Maintenance Technician","TRAX eMobility",
+      "Work order reference","Task card with the applicable maintenance manual reference",
+      "Task card retrieved at the aircraft in under 2 minutes","N","N",
+      "Retrieving technical data at the aircraft is the usability constraint that costs the most ground time"),
+    S("2.2","Perform maintenance task","Line Maintenance Technician","TRAX eMobility",
+      "Task card and reserved parts","Completed task with findings recorded",
+      "Task completed inside the agreed ground time for 88 percent of defects","N","N",
+      "Findings are noted on paper at the aircraft and transcribed later"),
+    S("2.3","Record parts consumed and labour","Line Maintenance Technician","TRAX eMobility",
+      "Parts fitted and hours worked","Parts and labour posted against the work order",
+      "Parts and labour posted same shift at 100 percent","N","N",
+      "Late posting distorts both inventory position and reliability data"),
+    S("2.4","Escalate to AOG where the task cannot be completed","Line Maintenance Supervisor","TRAX",
+      "Incomplete task and cause","AOG event raised with recovery plan",
+      "AOG raised within 20 minutes of the completion failure","N","Y",
+      "The threshold for declaring AOG is applied inconsistently between stations"),
+    S("3.1","Defer under MEL where permitted","Maintenance Controller","TRAX",
+      "Uncompleted defect with MEL relief","Deferred defect with a rectification interval",
+      "Zero deferrals recorded outside their permitted interval","Y","N",
+      "Deferral intervals are tracked in TRAX but the operational consequence is not visible to ops control"),
+    S("3.2","Certify task completion","Certifying Technician","TRAX",
+      "Completed task record","Certification of release with authorisation stamp",
+      "Certification recorded before off-block at 100 percent","N","N",
+      "Certification depends on an authorised individual being physically present at the station"),
+    S("3.3","Release aircraft to service","Maintenance Controller","TRAX",
+      "Certified work order and MEL position","Aircraft released to service",
+      "Maintenance-attributed departure delay below 1.5 percent of departures","N","N",
+      "Release status is communicated to ops control by telephone rather than by system event"),
+    S("3.4","Close work order and feed reliability data","Maintenance Control Coordinator","TRAX",
+      "Certified and released work order","Closed work order feeding reliability trend analysis",
+      "Work orders closed within 24 hours at 98 percent","N","N",
+      "Transcribed findings lose the detail that reliability engineering needs for trend analysis"),
+  ],
+  kpis=[
+    "Maintenance-attributed departure delay below 1.5 percent of departures",
+    "Line defects rectified inside the agreed ground time above 88 percent",
+    "Parts available at station for 92 percent of line defects",
+    "Work orders closed within 24 hours at 98 percent",
+    "Zero deferrals carried beyond their permitted MEL rectification interval",
+  ],
+  risks=[
+    "Continuing-airworthiness exposure where certification or parts records are posted late or incompletely",
+    "Ground time consumed by transacting away from the aircraft, converting a maintenance task into a "
+    "departure delay",
+    "MEL deferrals accumulating without operational visibility to ops control or network planning",
+    "Transcription from paper to system losing the fault detail that reliability engineering depends on",
+    "Outstation parts positions being invisible to hub planning, forcing avoidable AOG events",
+  ],
+  extra_systems=["Transport Canada CAWIS", "Aeroxchange"])
+
+# ────────────────────────────────────────────────────────────────────────────
+P("AC-AP-PA-01",
+  desc="Aeroplan points earned on co-branded credit cards issued by TD, CIBC and American Express are received, "
+       "validated and posted to the member's points ledger. The process governs the accrual file exchange, the "
+       "posting itself, and the financial settlement of the points the issuer has purchased.",
+  trig="A co-brand issuer transmits a scheduled accrual file, or a member disputes a missing or incorrect "
+       "card-earned accrual.",
+  out="Points posted to the correct member account within the service window, with a matched settlement "
+      "position against the issuer and a reconciled points liability.",
+  note="Aeroplan was reacquired from Aimia and relaunched in November 2020 as an in-house platform, with member "
+       "identity consolidated onto SAP Customer Data Cloud. Co-brand accrual is the commercial engine of the "
+       "programme: the issuers buy points, and the points liability that results is a material balance-sheet "
+       "item rather than a marketing metric. Posting latency is the most visible failure to the member, and "
+       "identity mismatch is the most common cause of it.",
+  phases=["File receipt and validation", "Posting and exception handling", "Settlement and liability reconciliation"],
+  steps=[
+    S("1.1","Receive issuer accrual file","Loyalty Operations Analyst","Aeroplan Partner Interfaces",
+      "Scheduled accrual file from TD, CIBC or Amex","Received file logged with control totals",
+      "Files received on schedule at 99.5 percent","N","N",
+      "Each issuer sends a different format on a different schedule"),
+    S("1.2","Validate file structure and control totals","Loyalty Operations Analyst","Aeroplan Partner Interfaces",
+      "Raw accrual file","Validated file or rejection notice to the issuer",
+      "Structural validation completed within 1 hour of receipt","Y","N",
+      "A late-arriving file silently pushes the whole posting window"),
+    S("1.3","Match member identity","Loyalty Operations Analyst","SAP Customer Data Cloud",
+      "Member identifiers in the accrual record","Matched member account or unmatched exception",
+      "First-pass identity match above 98 percent","Y","N",
+      "Identity mismatch is the single largest cause of accrual exceptions and member complaints"),
+    S("1.4","Screen for duplicate and out-of-period records","Loyalty Operations Analyst","Aeroplan Platform",
+      "Validated accrual records","Deduplicated accrual set",
+      "Duplicate posting rate below 0.05 percent","N","N",
+      "Issuer re-sends after a failed run are not always flagged as replacements"),
+    S("2.1","Calculate points from qualifying spend","Loyalty Operations Analyst","Aeroplan Platform",
+      "Qualifying transaction amounts and card product","Calculated points per member record",
+      "Calculation variance against the issuer statement below 0.1 percent","N","N",
+      "Promotional multiplier rules are configured per campaign and are easy to misapply"),
+    S("2.2","Post points to the member ledger","Loyalty Operations Analyst","Aeroplan Platform",
+      "Calculated accrual records","Points posted and visible to the member",
+      "Points posted and visible within 48 hours of file receipt","N","N",
+      "Posting runs are batch, so a member who transacts just after a run waits a full cycle"),
+    S("2.3","Route unmatched records to exception handling","Loyalty Operations Analyst","Aeroplan Platform",
+      "Unmatched accrual records","Exception queue with an assigned owner",
+      "Exception queue cleared within 5 business days","N","Y",
+      "Exception volume is driven by upstream identity quality that this process cannot fix"),
+    S("2.4","Update member-visible activity and notify","Loyalty Operations Analyst","Air Canada Mobile App",
+      "Posted accrual","Member activity statement updated",
+      "Member activity reflects posting within 1 hour of ledger update","N","N",
+      "Members see the card statement before the points, which drives avoidable contact volume"),
+    S("2.5","Investigate member accrual dispute","Aeroplan Member Services Agent","Aeroplan Platform",
+      "Member claim of missing or incorrect points","Resolved dispute with a points adjustment or explanation",
+      "Disputes resolved within 10 business days at 95 percent","N","N",
+      "Agents cannot see the issuer file that should have carried the transaction"),
+    S("3.1","Reconcile posted points to the issuer statement","Loyalty Finance Analyst","Aeroplan Partner Interfaces",
+      "Posted accrual totals and issuer statement","Reconciliation with a variance report",
+      "Reconciliation variance below 0.1 percent per issuer per period","Y","N",
+      "Reconciliation spans the loyalty ledger and the finance ledger with no shared key"),
+    S("3.2","Settle points purchased by the issuer","Loyalty Finance Analyst","SAP S/4HANA",
+      "Agreed reconciliation position","Settlement invoice raised and payment matched",
+      "Settlement completed within the contractual period at 100 percent","N","N",
+      "Disputed variances delay the whole settlement rather than only the disputed portion"),
+    S("3.3","Update the points liability position","Loyalty Finance Analyst","SAP S/4HANA",
+      "Net points issued and redeemed in period","Updated points liability for financial reporting",
+      "Liability position reported within the month-end close timetable","N","N",
+      "Breakage assumptions feeding the liability are revisited less often than earn behaviour changes"),
+  ],
+  kpis=[
+    "Points posted and visible to the member within 48 hours of file receipt",
+    "First-pass member identity match above 98 percent",
+    "Duplicate posting rate below 0.05 percent",
+    "Issuer reconciliation variance below 0.1 percent per period",
+    "Accrual disputes resolved within 10 business days at 95 percent",
+  ],
+  risks=[
+    "Identity mismatch stranding accruals in an exception queue and surfacing to the member as missing points",
+    "Duplicate posting from an unflagged issuer re-send, inflating both the ledger and the liability",
+    "Promotional multiplier misconfiguration producing a systematic accrual error across a campaign",
+    "Points liability misstatement where breakage assumptions lag actual member earn and burn behaviour",
+    "Settlement delay from a disputed variance blocking an otherwise agreed position",
+  ],
+  extra_systems=["Databricks Lakehouse", "Salesforce Service Cloud"])
