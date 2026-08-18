@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Baggage Performance and Resolution 753 Reporting &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Baggage Performance and Resolution 753 Reporting.">
+<title>AC-GO-BA-06 Baggage Performance and Resolution 753 Reporting &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-GO-BA-06 Baggage Performance and Resolution 753 Reporting.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../ground-operations-airports/baggage/ac-go-ba-05/",next:"../../../ground-operations-airports/gate-turnaround-resource/ac-go-gt-01/"};
@@ -130,14 +130,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Ground Operations &amp; Airports</a><span class="sep">&rsaquo;</span><a href="../">Baggage</a><span class="sep">&rsaquo;</span><span class="cur">AC-GO-BA-06</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-GO-BA-06" title="Click to copy the process ID">
     AC-GO-BA-06<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Baggage Performance and Resolution 753 Reporting</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Baggage Performance and Resolution 753 Reporting</h1>
+<p class="lede" id="overview">Baggage handling performance is measured and reported against IATA Resolution 753 obligations and internal targets, feeding both regulatory reporting and operational improvement.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Resolution 753 reporting sits alongside internal performance management as a genuinely dual-purpose process, one output for the regulator and industry benchmarking, and a separate practical output for operational improvement at the station level.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">The recurring baggage performance reporting cycle runs.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A consolidated baggage handling performance report against mishandling rate, tracking compliance and delivery time targets, with findings routed for operational action.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Ground Operations &amp; Airports<br>
+    <span style="color:var(--text-muted);font-size:12px">Baggage</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-go-ba-06.png" alt="Baggage Performance and Resolution 753 Reporting process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-GO-BA-06-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Data compilation</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Compile mishandling and delivery time data</b></td>
+<td>Baggage Performance Analyst</td>
+<td><span class="tag sita" data-tooltip="Global mishandled-baggage tracing and PIR file management. [SITA - evidence B]">SITA WorldTracer<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>PIR and delivery records across the period</td>
+<td>Compiled performance data</td>
+<td>Compiled within 5 business days of period close at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Data spans multiple systems, WorldTracer and the reconciliation system, that need consistent joining</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-BA-06-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Performance analysis</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Analyse performance by station and route</b></td>
+<td>Baggage Performance Analyst</td>
+<td><span class="tag sita" data-tooltip="Global mishandled-baggage tracing and PIR file management. [SITA - evidence B]">SITA WorldTracer<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Compiled data</td>
+<td>Performance analysis by station and route</td>
+<td>Analysed for 100 percent of material stations each cycle</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A network-wide average can mask a specific station&#x27;s persistent underperformance</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Compare against Resolution 753 tracking obligations</b></td>
+<td>Baggage Performance Analyst</td>
+<td><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Performance data</td>
+<td>Resolution 753 compliance assessment</td>
+<td>Assessed for 100 percent of tracking touchpoints each cycle</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Tracking touchpoint compliance is distinct from mishandling rate and needs its own separate assessment</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-BA-06-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Reporting and action routing</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Route findings for operational action</b></td>
+<td>Baggage Performance Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Analysis and compliance assessment</td>
+<td>Routed findings with an owner</td>
+<td>Routed within 10 business days of period close at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Findings without a clear operational owner risk being reported repeatedly without ever being acted on</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Baggage Performance Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag sita" data-tooltip="Global mishandled-baggage tracing and PIR file management. [SITA - evidence B]">SITA WorldTracer<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Compiled within 5 business days of period close at 100 percent</li><li>Assessed for 100 percent of tracking touchpoints each cycle</li><li>Routed within 10 business days of period close at 100 percent</li><li>Mishandled bags per 1,000 passengers trending against target</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>A network-wide average masking a specific station&#x27;s persistent underperformance</li><li>Findings without a clear operational owner being reported repeatedly without ever being acted on</li><li>Data spanning multiple systems that need consistent joining before analysis can be trusted</li><li>Resolution 753 tracking touchpoint compliance needing separate assessment from the mishandling rate</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../ground-operations-airports/baggage/ac-go-ba-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Baggage Delivery and Repatriation</span></a>
+  <a class="next" href="../../../ground-operations-airports/gate-turnaround-resource/ac-go-gt-01/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Turnaround Plan and Gate Assignment</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

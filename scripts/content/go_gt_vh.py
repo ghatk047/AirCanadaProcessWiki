@@ -1,0 +1,448 @@
+# -*- coding: utf-8 -*-
+"""AC-GO-GT — Gate, Turnaround and Resource (6) and AC-GO-VH — Premium, Lounge and VIP Handling (6)."""
+from content_lib import P, S
+
+# ── GT: Gate, Turnaround and Resource ───────────────────────────────────────
+P("AC-GO-GT-01",
+  desc="A turnaround plan is built for each arriving and departing aircraft rotation, sequencing every "
+       "ground service against the available ground time at the assigned stand.",
+  trig="An aircraft is scheduled to arrive and depart the same station within a defined turn.",
+  out="A sequenced turnaround plan with every ground service, cleaning, catering, fuelling and baggage, "
+      "fitted within the available ground time.",
+  note="The turnaround plan is where the ground time built into the schedule in AC-NP-SP-02 either holds up "
+      "or does not; every service on the plan competes for the same limited minutes at the stand.",
+  phases=["Ground time assessment", "Service sequencing", "Plan confirmation"],
+  steps=[
+    S("1.1","Confirm available ground time","Turnaround Coordinator","Airport Resource Management",
+      "Scheduled arrival and departure times","Confirmed ground time window",
+      "Confirmed before turnaround begins at 100 percent","N","N",
+      "A late-arriving inbound flight compresses the ground time actually available below the scheduled figure"),
+    S("2.1","Sequence required ground services","Turnaround Coordinator","Airport Resource Management",
+      "Confirmed ground time and service requirements","Sequenced service plan",
+      "Sequenced to fit within available ground time at 90 percent","N","N",
+      "Services that could run in parallel are sometimes scheduled sequentially due to resource constraints"),
+    S("2.2","Identify critical path services","Turnaround Coordinator","Airport Resource Management",
+      "Sequenced plan","Identified critical path",
+      "Critical path identified for 100 percent of turnarounds","Y","N",
+      "The critical path can shift mid-turn if one service runs longer than planned"),
+    S("3.1","Confirm plan to all ground service providers","Turnaround Coordinator","Airport Resource Management",
+      "Confirmed critical path plan","Communicated plan to all providers",
+      "Communicated before service begins at 100 percent","N","N",
+      "A plan not communicated consistently to every provider risks services running out of sequence"),
+  ],
+  kpis=["Confirmed before turnaround begins at 100 percent",
+        "Sequenced to fit within available ground time at 90 percent",
+        "Critical path identified for 100 percent of turnarounds",
+        "Turnaround completed within planned ground time at target rate"],
+  risks=["A late-arriving inbound flight compressing the ground time actually available below the scheduled figure",
+         "The critical path shifting mid-turn if one service runs longer than planned",
+         "A plan not communicated consistently to every ground service provider",
+         "Services that could run in parallel being sequenced due to resource constraints, extending the turn"])
+
+P("AC-GO-GT-02",
+  desc="The physical ground handling sequence, from chocks-on through pushback, is executed and monitored "
+       "against the turnaround plan at the aircraft stand.",
+  trig="An aircraft arrives on-stand and ground handling begins.",
+  out="All ground handling services completed in sequence, with the aircraft ready for pushback within the "
+      "planned turn.",
+  note="This is where the turnaround plan meets physical reality at the stand; the plan is only as good as "
+      "the execution, and execution has to absorb the inevitable small variances every real turn produces.",
+  phases=["Arrival services", "Servicing execution", "Departure readiness"],
+  steps=[
+    S("1.1","Confirm chocks-on and begin arrival services","Ramp Coordinator","Airport Resource Management",
+      "Aircraft arrival at stand","Confirmed chocks-on with services initiated",
+      "Initiated within 2 minutes of chocks-on at 95 percent","N","N",
+      "A stand not fully prepared on arrival delays the start of every subsequent service"),
+    S("2.1","Execute ground servicing in planned sequence","Ramp Coordinator","Airport Resource Management",
+      "Turnaround plan","Executed services per sequence",
+      "Executed per the planned sequence at 90 percent","N","N",
+      "A single delayed service can cascade into every service scheduled after it on the critical path"),
+    S("2.2","Monitor progress against the critical path","Ramp Coordinator","Airport Resource Management",
+      "In-progress services","Progress status against plan",
+      "Monitored continuously through the turn at 100 percent","N","N",
+      "Real-time visibility into service progress is not always uniformly available across every provider"),
+    S("3.1","Confirm pushback readiness","Ramp Coordinator","NetLine/Ops",
+      "Completed services","Confirmed departure readiness",
+      "Confirmed within the planned turnaround time at 90 percent","N","N",
+      "A readiness confirmation issued before every service is genuinely complete risks a late pushback delay"),
+  ],
+  kpis=["Initiated within 2 minutes of chocks-on at 95 percent",
+        "Executed per the planned sequence at 90 percent",
+        "Confirmed within the planned turnaround time at 90 percent",
+        "On-time pushback rate meeting target"],
+  risks=["A single delayed service cascading into every service scheduled after it on the critical path",
+         "A stand not fully prepared on arrival delaying the start of every subsequent service",
+         "Real-time service progress visibility not being uniformly available across every ground provider",
+         "A readiness confirmation issued before every service is genuinely complete"])
+
+P("AC-GO-GT-03",
+  desc="Fuelling is coordinated and confirmed against the planned fuel load, verifying the correct quantity "
+       "is uplifted before the aircraft can depart.",
+  trig="A turnaround requires fuel uplift ahead of departure.",
+  out="Confirmed fuel uplift matching the planned load from the flight plan, with the quantity verified "
+      "before departure clearance.",
+  note="A fuel quantity error caught before departure is an operational inconvenience; the same error not "
+      "caught is a safety-critical failure, which is why confirmation against the flight plan is a "
+      "non-negotiable step regardless of time pressure.",
+  phases=["Fuel order confirmation", "Uplift execution", "Quantity verification"],
+  steps=[
+    S("1.1","Confirm fuel order against the flight plan","Ramp Coordinator","Weight and Balance System",
+      "Flight plan fuel requirement","Confirmed fuel order",
+      "Confirmed before uplift begins at 100 percent","N","N",
+      "A fuel order not matching the current flight plan indicates either a stale plan or an order error"),
+    S("2.1","Execute fuel uplift","Fuelling Coordinator","Weight and Balance System",
+      "Confirmed order","Uplifted fuel quantity",
+      "Completed within the turnaround window at 95 percent","N","N",
+      "Fuelling equipment availability at a busy hub can constrain uplift timing"),
+    S("2.2","Verify uplifted quantity against order","Fuelling Coordinator","Weight and Balance System",
+      "Completed uplift","Verified quantity match",
+      "Verified for 100 percent of uplifts before departure clearance","Y","N",
+      "A quantity discrepancy has to be resolved before departure regardless of the time pressure involved"),
+    S("3.1","Confirm fuel figure for the final loadsheet","Ramp Coordinator","Weight and Balance System",
+      "Verified quantity","Confirmed figure for loadsheet",
+      "Confirmed before loadsheet issuance at 100 percent","N","N",
+      "A late fuel change after loadsheet issuance requires the loadsheet itself to be revised"),
+  ],
+  kpis=["Confirmed before uplift begins at 100 percent",
+        "Completed within the turnaround window at 95 percent",
+        "Verified for 100 percent of uplifts before departure clearance",
+        "Zero departures with an unresolved fuel quantity discrepancy"],
+  risks=["A fuel quantity error not caught before departure being a safety-critical failure rather than an inconvenience",
+         "A fuel order not matching the current flight plan indicating a stale plan or an order error",
+         "Fuelling equipment availability at a busy hub constraining uplift timing within the turn",
+         "A late fuel change after loadsheet issuance requiring the loadsheet to be revised under time pressure"])
+
+P("AC-GO-GT-04",
+  desc="Cabin servicing and catering uplift are coordinated within the turnaround, restocking the cabin and "
+       "loading catering to match the flight's planned service and passenger load.",
+  trig="A turnaround requires cabin servicing and catering uplift ahead of departure.",
+  out="A serviced cabin with catering matching the planned service level and passenger load, ready before "
+      "boarding.",
+  note="Catering quantity has to match actual passenger load, not a standard assumption, which means a "
+      "late change in booked passenger count creates a real catering coordination problem within an already "
+      "tight turn.",
+  phases=["Cabin servicing", "Catering order confirmation", "Uplift and loading"],
+  steps=[
+    S("1.1","Complete cabin cleaning and restocking","Cabin Servicing Coordinator","Airport Resource Management",
+      "Arriving aircraft cabin","Serviced and restocked cabin",
+      "Completed within the allocated servicing window at 90 percent","N","N",
+      "A tight turnaround leaves limited buffer if the arriving cabin needs more than standard servicing"),
+    S("2.1","Confirm catering order against passenger load","Cabin Servicing Coordinator","Amadeus Altea DCS",
+      "Booked and checked-in passenger count","Confirmed catering order",
+      "Confirmed against actual load before catering uplift at 95 percent","N","N",
+      "A late change in booked passenger count creates a real catering coordination problem within a tight turn"),
+    S("2.2","Uplift and load catering","Cabin Servicing Coordinator","Airport Resource Management",
+      "Confirmed order","Loaded catering",
+      "Loaded within the turnaround window at 95 percent","N","N",
+      "Catering supplier delivery timing is a dependency outside the turnaround coordinator's direct control"),
+    S("3.1","Confirm cabin ready for boarding","Cabin Servicing Coordinator","Amadeus Altea DCS",
+      "Completed servicing and catering","Confirmed cabin readiness",
+      "Confirmed before boarding begins at 95 percent","N","N",
+      "A readiness confirmation issued prematurely can mean boarding starts into an incomplete cabin"),
+  ],
+  kpis=["Completed within the allocated servicing window at 90 percent",
+        "Confirmed against actual load before catering uplift at 95 percent",
+        "Loaded within the turnaround window at 95 percent",
+        "Cabin readiness confirmed before boarding at 95 percent"],
+  risks=["A late change in booked passenger count creating a real catering coordination problem within a tight turn",
+         "Catering supplier delivery timing being a dependency outside the turnaround coordinator's direct control",
+         "A tight turnaround leaving limited buffer for a cabin needing more than standard servicing",
+         "A premature readiness confirmation meaning boarding starts into an incomplete cabin"])
+
+P("AC-GO-GT-05",
+  desc="Pushback clearance is obtained and off-block time is reported, closing out the ground handling "
+      "sequence and formally starting the flight's active operation.",
+  trig="All turnaround services are complete and the aircraft is ready to leave the stand.",
+  out="Pushback clearance obtained and off-block time accurately reported, transitioning the flight from "
+      "ground handling to active operation.",
+  note="Off-block time reported here is the timestamp that later determines on-time performance and, in a "
+      "disruption, the delay duration that feeds an APPR determination, which makes its accuracy more "
+      "consequential than a purely administrative record.",
+  phases=["Readiness confirmation", "Pushback coordination", "Off-block reporting"],
+  steps=[
+    S("1.1","Confirm all services complete and doors closed","Ramp Coordinator","Airport Resource Management",
+      "Completed turnaround services","Confirmed readiness for pushback",
+      "Confirmed before pushback request at 100 percent","N","N",
+      "A readiness confirmation before genuine completion risks pushback being requested prematurely"),
+    S("2.1","Request pushback clearance from ATC","Ramp Coordinator","NAV CANADA",
+      "Confirmed readiness","Obtained pushback clearance",
+      "Obtained within the standard request window at 95 percent","N","N",
+      "Pushback clearance timing depends on ATC sequencing that is outside the ramp team's control"),
+    S("2.2","Execute pushback","Ramp Coordinator","Airport Resource Management",
+      "Obtained clearance","Completed pushback",
+      "Completed safely for 100 percent of pushbacks","N","N",
+      "Pushback execution safety depends on correct communication between ground crew and the flight deck"),
+    S("3.1","Report off-block time","Ramp Coordinator","NetLine/Ops",
+      "Completed pushback","Reported off-block time",
+      "Reported within 2 minutes of actual off-block at 98 percent","N","N",
+      "An inaccurate off-block time misstates on-time performance and any subsequent delay calculation"),
+  ],
+  kpis=["Confirmed before pushback request at 100 percent",
+        "Obtained within the standard request window at 95 percent",
+        "Reported within 2 minutes of actual off-block at 98 percent",
+        "Off-block time reporting accuracy meeting target"],
+  risks=["An inaccurate off-block time misstating on-time performance and any subsequent APPR delay calculation",
+         "Pushback clearance timing depending on ATC sequencing outside the ramp team's own control",
+         "A premature readiness confirmation resulting in pushback being requested before genuine completion",
+         "Pushback execution safety depending on correct communication between ground crew and the flight deck"])
+
+P("AC-GO-GT-06",
+  desc="Ground handler performance is measured and managed against service level agreements, covering both "
+       "in-house operations and third-party handling contracts at outstations.",
+  trig="The recurring ground handler performance review cycle runs, or a service level breach is identified.",
+  out="Ground handler performance assessed against agreed service levels, with underperformance addressed "
+      "through the contract's defined escalation path.",
+  note="Third-party handling at outstations is contractually governed rather than directly managed, which "
+      "means performance improvement depends on the contract's escalation mechanisms rather than direct "
+      "operational authority over the handler's staff.",
+  phases=["Performance data compilation", "Service level assessment", "Escalation and improvement"],
+  steps=[
+    S("1.1","Compile ground handling performance data","Ground Handling Contract Manager","Airport Resource Management",
+      "Turnaround and service completion data by handler","Compiled performance data",
+      "Compiled within 5 business days of period close at 100 percent","N","N",
+      "Data quality from a third-party handler's own reporting can vary in completeness"),
+    S("2.1","Assess against contracted service levels","Ground Handling Contract Manager","Airport Resource Management",
+      "Compiled data and contract terms","Service level assessment",
+      "Assessed for 100 percent of contracted handlers each cycle","N","N",
+      "Contracted service levels vary by station and are not uniform across the outstation network"),
+    S("2.2","Identify underperformance patterns","Ground Handling Contract Manager","SAP Analytics Cloud",
+      "Assessment results","Identified underperformance pattern",
+      "Patterns identified within 10 business days of assessment at 100 percent","N","N",
+      "A single service level breach is different from a persistent pattern, and the two need different responses"),
+    S("3.1","Escalate persistent underperformance per contract terms","Ground Handling Contract Manager","SAP Ariba",
+      "Identified pattern","Escalated case with contractual remedy",
+      "Escalated within the contract's defined timeframe at 100 percent","N","Y",
+      "Direct operational authority over the handler's staff does not exist, so improvement depends on the contract mechanism"),
+  ],
+  kpis=["Compiled within 5 business days of period close at 100 percent",
+        "Assessed for 100 percent of contracted handlers each cycle",
+        "Patterns identified within 10 business days of assessment at 100 percent",
+        "Persistent underperformance cases resolved within the contract's remedy timeframe"],
+  risks=["Improvement depending on contractual escalation mechanisms rather than direct operational authority",
+         "Data quality from a third-party handler's own reporting varying in completeness",
+         "A single breach being treated the same as a persistent pattern requiring a materially different response",
+         "Contracted service levels varying by station, complicating consistent network-wide assessment"])
+
+# ── VH: Premium, Lounge and VIP Handling ────────────────────────────────────
+P("AC-GO-VH-01",
+  desc="Maple Leaf Lounge access is controlled at the entrance, verifying eligibility by Altitude tier, "
+       "Star Alliance Gold status, day pass purchase or premium cabin ticket.",
+  trig="A customer presents at a Maple Leaf Lounge entrance requesting access.",
+  out="Correctly verified lounge access, admitting eligible customers and consistently declining "
+      "ineligible ones.",
+  note="Lounge access eligibility draws on several independent entitlement sources simultaneously, "
+      "Altitude tier, alliance status, cabin of travel and day pass purchase, which means the verification "
+      "check has to correctly evaluate all of them rather than any single one.",
+  phases=["Eligibility verification", "Access decision", "Capacity management"],
+  steps=[
+    S("1.1","Verify boarding pass and identity","Lounge Agent","Amadeus Altea Customer Management",
+      "Presented boarding pass or membership card","Verified identity against booking or membership",
+      "Verified for 100 percent of lounge access attempts at 100 percent","N","N",
+      "Same-day standby or gate changes can mean the boarding pass presented does not immediately match the system record"),
+    S("2.1","Determine eligibility source","Lounge Agent","Aeroplan Platform",
+      "Verified identity","Determined eligibility basis",
+      "Determined correctly at 98 percent of access attempts","Y","N",
+      "Star Alliance Gold recognition and Altitude tier are evaluated through separate systems that both need to be checked"),
+    S("2.2","Process day pass or guest purchase where applicable","Lounge Agent","aircanada.com",
+      "Non-eligible customer requesting paid access","Processed purchase",
+      "Processed within 2 minutes at 90 percent","N","N",
+      "Guest pass entitlement rules differ by Altitude tier and are easy to apply inconsistently"),
+    S("3.1","Manage lounge capacity at peak periods","Lounge Agent","Amadeus Altea Customer Management",
+      "Current lounge occupancy","Managed capacity against comfortable occupancy target",
+      "Occupancy managed within comfortable capacity for 90 percent of operating hours","N","N",
+      "A lounge at capacity has no clean mechanism to manage further eligible arrivals gracefully"),
+  ],
+  kpis=["Verified for 100 percent of lounge access attempts at 100 percent",
+        "Determined correctly at 98 percent of access attempts",
+        "Processed within 2 minutes at 90 percent",
+        "Occupancy managed within comfortable capacity for 90 percent of operating hours"],
+  risks=["Star Alliance Gold recognition and Altitude tier being evaluated through separate systems both needing verification",
+         "Guest pass entitlement rules differing by tier and being easy to apply inconsistently",
+         "A lounge at capacity having no clean mechanism to manage further eligible arrivals gracefully",
+         "A same-day standby or gate change meaning the presented boarding pass does not immediately match the system"])
+
+P("AC-GO-VH-02",
+  desc="Premium cabin passengers receive a differentiated ground experience, from expedited check-in "
+       "through priority baggage handling, consistent with the premium fare paid.",
+  trig="A passenger holding a premium cabin ticket presents for any ground touchpoint through their "
+       "journey.",
+  out="A consistently differentiated premium ground experience delivered at every touchpoint, matching what "
+      "the premium fare promised.",
+  note="Premium experience consistency is tested at every single touchpoint, and a single weak link, such "
+      "as priority baggage not actually arriving first, undermines the entire premium value proposition "
+      "regardless of how well every other touchpoint performed.",
+  phases=["Premium identification", "Touchpoint delivery", "Consistency monitoring"],
+  steps=[
+    S("1.1","Identify premium cabin status across touchpoints","Ground Services Agent","Amadeus Altea Customer Management",
+      "Booking and check-in data","Flagged premium cabin status",
+      "Flagged consistently across every touchpoint at 100 percent","N","N",
+      "A premium flag has to propagate consistently from check-in through to baggage and boarding"),
+    S("2.1","Deliver expedited check-in and security where available","Ground Services Agent","Amadeus Altea DCS",
+      "Flagged premium status","Delivered expedited service",
+      "Delivered for 95 percent of eligible premium passengers","N","N",
+      "Expedited lane availability differs by station and is not consistent across the network"),
+    S("2.2","Ensure priority baggage handling","Ramp Baggage Handler","Baggage Reconciliation System",
+      "Premium baggage tag","Priority-handled baggage",
+      "Priority bags among the first delivered at 90 percent of arrivals","N","N",
+      "Priority tagging alone does not guarantee priority physical handling on the ramp"),
+    S("3.1","Monitor premium experience consistency","Ground Services Agent","Salesforce Service Cloud",
+      "Delivered touchpoints and customer feedback","Consistency assessment",
+      "Assessed each reporting cycle for 100 percent of premium touchpoints","N","N",
+      "A single weak touchpoint undermines the entire premium proposition regardless of the others"),
+  ],
+  kpis=["Flagged consistently across every touchpoint at 100 percent",
+        "Delivered for 95 percent of eligible premium passengers",
+        "Priority bags among the first delivered at 90 percent of arrivals",
+        "Premium experience consistency score meeting target across all touchpoints"],
+  risks=["A single weak touchpoint undermining the entire premium proposition regardless of the others",
+         "Priority tagging alone not guaranteeing priority physical handling on the ramp",
+         "Expedited lane availability differing by station without a consistent network-wide standard",
+         "A premium flag not propagating consistently from check-in through to baggage and boarding"])
+
+P("AC-GO-VH-03",
+  desc="Super Elite 100K and other top-tier VIP passengers receive dedicated proactive handling, including "
+       "personal escort and disruption priority, distinct from standard premium cabin service.",
+  trig="A Super Elite or designated VIP passenger travels on a flagged itinerary.",
+  out="Proactive, personalised handling delivered throughout the journey, with disruption priority applied "
+      "when needed.",
+  note="Super Elite handling is proactive rather than reactive, the station is expected to know a top-tier "
+      "member is travelling before they arrive, which is a materially different service model from every "
+      "other tier below it.",
+  phases=["VIP identification and briefing", "Personalised handling", "Disruption priority"],
+  steps=[
+    S("1.1","Identify and brief stations on VIP travel","VIP Services Coordinator","Aeroplan Platform",
+      "Booked Super Elite or VIP itinerary","Station briefing on upcoming VIP travel",
+      "Briefed at least 24 hours ahead for 95 percent of VIP travel","N","N",
+      "Last-minute bookings compress or eliminate the advance briefing window"),
+    S("2.1","Provide personal escort and meet-and-greet","VIP Services Coordinator","Amadeus Altea Customer Management",
+      "Briefed station","Delivered personal escort service",
+      "Delivered for 95 percent of flagged VIP arrivals","N","N",
+      "Escort availability depends on VIP services staffing at the specific station"),
+    S("2.2","Apply disruption priority where applicable","VIP Services Coordinator","Amadeus Passenger Recovery",
+      "VIP status and disruption event","Applied recovery priority",
+      "Priority applied consistently for 100 percent of flagged VIP disruption cases","Y","N",
+      "Disruption priority has to be balanced visibly and fairly against the needs of other affected passengers"),
+    S("3.1","Confirm service delivery and gather feedback","VIP Services Coordinator","Salesforce Service Cloud",
+      "Delivered service","Confirmed delivery with feedback captured",
+      "Feedback captured for 90 percent of flagged VIP journeys","N","N",
+      "The highest-value members are also the most likely to notice and report any service inconsistency"),
+  ],
+  kpis=["Briefed at least 24 hours ahead for 95 percent of VIP travel",
+        "Delivered for 95 percent of flagged VIP arrivals",
+        "Priority applied consistently for 100 percent of flagged VIP disruption cases",
+        "Feedback captured for 90 percent of flagged VIP journeys"],
+  risks=["Last-minute bookings compressing or eliminating the advance station briefing window",
+         "Disruption priority needing to be balanced visibly and fairly against other affected passengers",
+         "Escort availability depending on VIP services staffing that varies by specific station",
+         "The highest-value members being the most likely to notice and report any service inconsistency"])
+
+P("AC-GO-VH-04",
+  desc="Star Alliance Gold members are recognised at the airport with priority services equivalent to Air "
+       "Canada's own Altitude entitlement, regardless of which alliance carrier they are flying.",
+  trig="A Star Alliance Gold member presents at an Air Canada touchpoint, whether flying Air Canada or a "
+       "partner carrier through an Air Canada station.",
+  out="Consistent priority recognition delivered to Star Alliance Gold members matching the alliance-wide "
+      "reciprocal standard.",
+  note="Reciprocal recognition is a genuine alliance-wide commitment, not a courtesy, so a station "
+      "under-delivering on it affects Air Canada's standing within Star Alliance, not just the individual "
+      "member's experience.",
+  phases=["Gold status verification", "Reciprocal service delivery", "Alliance standard compliance"],
+  steps=[
+    S("1.1","Verify Star Alliance Gold status","Ground Services Agent","Star Alliance Interline",
+      "Presented alliance membership","Verified Gold status",
+      "Verified for 100 percent of presented alliance memberships at 100 percent","N","N",
+      "Partner carrier status verification depends on a system link Air Canada does not fully control"),
+    S("2.1","Deliver reciprocal priority services","Ground Services Agent","Amadeus Altea DCS",
+      "Verified Gold status","Delivered priority services",
+      "Delivered matching the Altitude-equivalent standard at 95 percent","N","N",
+      "Front-line staff need to correctly know what the reciprocal standard actually entitles a Gold member to"),
+    S("2.2","Provide lounge access per alliance agreement","Lounge Agent","Star Alliance Interline",
+      "Verified Gold status","Lounge access granted",
+      "Access granted correctly for 100 percent of eligible Gold members","Y","N",
+      "Lounge eligibility by cabin and status combination has specific alliance rules that differ from Air Canada's own tier rules"),
+    S("3.1","Monitor reciprocal service compliance","Ground Services Agent","Salesforce Service Cloud",
+      "Delivered service","Compliance assessment against alliance standard",
+      "Assessed each reporting cycle for 100 percent of stations","N","N",
+      "Under-delivery on reciprocal recognition reflects on Air Canada's standing within Star Alliance, not just the member's experience"),
+  ],
+  kpis=["Verified for 100 percent of presented alliance memberships at 100 percent",
+        "Delivered matching the Altitude-equivalent standard at 95 percent",
+        "Access granted correctly for 100 percent of eligible Gold members",
+        "Reciprocal service compliance assessed each cycle for 100 percent of stations"],
+  risks=["Partner carrier status verification depending on a system link Air Canada does not fully control",
+         "Front-line staff not correctly knowing what the reciprocal standard actually entitles a Gold member to",
+         "Under-delivery on reciprocal recognition affecting Air Canada's standing within Star Alliance",
+         "Lounge eligibility rules by cabin and status combination differing from Air Canada's own tier rules"])
+
+P("AC-GO-VH-05",
+  desc="Priority baggage is delivered first at the arrival carousel for premium and top-tier passengers, "
+       "coordinating physical handling to match the priority tag applied at check-in.",
+  trig="A flight with priority-tagged baggage arrives at its destination.",
+  out="Priority-tagged baggage delivered among the first bags at the arrival carousel, matching the "
+      "entitlement promised at check-in.",
+  note="This is where the premium and VIP promise from AC-VH-02 and AC-VH-03 is either honoured or broken "
+      "in the most visible way possible: a passenger standing at the carousel watching for their bag.",
+  phases=["Priority bag identification", "Priority offload sequencing", "Carousel delivery"],
+  steps=[
+    S("1.1","Identify priority-tagged baggage on the aircraft","Ramp Baggage Handler","Baggage Reconciliation System",
+      "Aircraft baggage hold manifest","Identified priority bags",
+      "Identified before offload begins at 100 percent","N","N",
+      "Priority tag identification depends on the tag being correctly applied and scanned at the original check-in"),
+    S("2.1","Sequence priority bags for first offload","Ramp Baggage Handler","Baggage Reconciliation System",
+      "Identified priority bags","Sequenced offload plan",
+      "Priority bags offloaded first for 90 percent of arrivals","Y","N",
+      "Physical loading position in the hold does not always match the priority sequence intended at check-in"),
+    S("3.1","Deliver priority bags to the carousel first","Ramp Baggage Handler","Baggage Reconciliation System",
+      "Sequenced offload","Delivered priority bags first",
+      "Priority bags among the first delivered to the carousel at 90 percent","N","N",
+      "A carousel delivery sequence can be disrupted between offload and carousel loading if not actively managed"),
+    S("3.2","Monitor and report priority delivery performance","Ramp Baggage Handler","SAP Analytics Cloud",
+      "Delivery timing data","Priority delivery performance report",
+      "Reported each reporting cycle for 100 percent of premium and VIP arrivals","N","N",
+      "Performance is not visible without an active measurement, since a missed priority delivery has no automatic flag"),
+  ],
+  kpis=["Identified before offload begins at 100 percent",
+        "Priority bags offloaded first for 90 percent of arrivals",
+        "Priority bags among the first delivered to the carousel at 90 percent",
+        "Premium and VIP baggage complaint rate below target"],
+  risks=["Physical loading position in the hold not always matching the priority sequence intended at check-in",
+         "A carousel delivery sequence being disrupted between offload and carousel loading if not actively managed",
+         "Priority tag identification depending entirely on correct application and scanning at original check-in",
+         "The most visible point of premium and VIP service failure being a passenger watching an empty carousel"])
+
+P("AC-GO-VH-06",
+  desc="A premium or VIP passenger experiencing a service failure is offered a targeted recovery, "
+       "coordinating across ground, lounge and customer relations functions to protect the relationship.",
+  trig="A premium or VIP passenger experiences a service failure during their airport journey.",
+  out="A proportionate, coordinated service recovery delivered promptly, protecting the high-value customer "
+      "relationship.",
+  note="Recovery for this passenger segment has to be faster and more coordinated than standard service "
+      "recovery, since the commercial value of the relationship and the visibility of any failure are both "
+      "disproportionately high.",
+  phases=["Service failure identification", "Recovery coordination", "Delivery and follow-up"],
+  steps=[
+    S("1.1","Identify the service failure","Ground Services Agent","Salesforce Service Cloud",
+      "Observed or reported service gap","Identified failure with severity",
+      "Identified at the point of occurrence for 90 percent of cases","N","N",
+      "Not every service gap for this segment is reported in the moment it happens"),
+    S("2.1","Coordinate recovery across affected functions","VIP Services Coordinator","Salesforce Service Cloud",
+      "Identified failure","Coordinated recovery plan across ground, lounge and customer relations",
+      "Coordinated within 30 minutes of identification at 90 percent","N","N",
+      "Coordination across three separate functions under time pressure is harder than a single-function response"),
+    S("2.2","Determine proportionate recovery gesture","VIP Services Coordinator","Aeroplan Platform",
+      "Coordinated plan","Determined recovery gesture",
+      "Determined within delegated authority at 95 percent","Y","N",
+      "Recovery for this segment has to be proportionate to both the failure and the relationship value at stake"),
+    S("3.1","Deliver recovery and follow up with the passenger","VIP Services Coordinator","Salesforce Service Cloud",
+      "Determined gesture","Delivered recovery with follow-up contact",
+      "Delivered within 5 business days for 95 percent of cases","N","N",
+      "A recovery that is not personally followed up loses much of its relationship-protecting value"),
+  ],
+  kpis=["Identified at the point of occurrence for 90 percent of cases",
+        "Coordinated within 30 minutes of identification at 90 percent",
+        "Determined within delegated authority at 95 percent",
+        "Delivered within 5 business days for 95 percent of cases"],
+  risks=["Coordination across three separate functions under time pressure being harder than a single-function response",
+         "A recovery gesture disproportionate to either the failure or the relationship value at stake",
+         "A recovery not personally followed up losing much of its relationship-protecting value",
+         "Not every service gap for this high-value segment being reported in the moment it happens"])

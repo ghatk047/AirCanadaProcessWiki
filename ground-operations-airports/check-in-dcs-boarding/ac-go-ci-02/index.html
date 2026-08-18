@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Kiosk and Mobile Self Service Check In &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Kiosk and Mobile Self Service Check In.">
+<title>AC-GO-CI-02 Kiosk and Mobile Self Service Check In &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-GO-CI-02 Kiosk and Mobile Self Service Check In.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../ground-operations-airports/check-in-dcs-boarding/ac-go-ci-01/",next:"../../../ground-operations-airports/check-in-dcs-boarding/ac-go-ci-03/"};
@@ -130,14 +130,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Ground Operations &amp; Airports</a><span class="sep">&rsaquo;</span><a href="../">Check-In, DCS &amp; Boarding</a><span class="sep">&rsaquo;</span><span class="cur">AC-GO-CI-02</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-GO-CI-02" title="Click to copy the process ID">
     AC-GO-CI-02<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Kiosk and Mobile Self Service Check In</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Kiosk and Mobile Self Service Check In</h1>
+<p class="lede" id="overview">A passenger completes check-in through a self-service kiosk, using the common-use CUPPS platform shared across airlines at the airport.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Kiosk check-in runs on shared common-use infrastructure that Air Canada does not fully control, which means kiosk availability and performance depend partly on the airport authority&#x27;s own infrastructure management.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A passenger approaches a self-service kiosk to check in.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A checked-in passenger with an issued boarding pass, or a clean handoff to a staffed counter where self-service cannot complete the transaction.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Ground Operations &amp; Airports<br>
+    <span style="color:var(--text-muted);font-size:12px">Check-In, DCS &amp; Boarding</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-go-ci-02.png" alt="Kiosk and Mobile Self Service Check In process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-GO-CI-02-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Kiosk session initiation</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Initiate kiosk session</b></td>
+<td>Airport Check-In Agent</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Passenger booking reference or document scan</td>
+<td>Initiated kiosk session</td>
+<td>Session initiated within 10 seconds at 95 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Common-use kiosk performance depends partly on infrastructure Air Canada does not directly control</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-CI-02-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Self-service check-in</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Process self-service check-in</b></td>
+<td>Airport Check-In Agent</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Initiated session</td>
+<td>Completed check-in or identified exception</td>
+<td>Completed without agent assistance for 80 percent of eligible passengers</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>International document verification at a kiosk is inherently less thorough than an agent review</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Print baggage tags for self-tagging</b></td>
+<td>Airport Check-In Agent</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Completed check-in with checked baggage</td>
+<td>Printed self-service baggage tags</td>
+<td>Tags printed within 15 seconds of check-in completion at 95 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Self-service tagging accuracy depends on the passenger correctly applying the tag</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-CI-02-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Completion or handoff</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Route exceptions to a staffed counter</b></td>
+<td>Airport Check-In Agent</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Exception at self-service</td>
+<td>Routed passenger with preserved check-in progress</td>
+<td>Exceptions routed with context preserved for 100 percent of handoffs</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>A handoff that loses check-in progress forces the passenger to restart at the counter</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Airport Check-In Agent</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Session initiated within 10 seconds at 95 percent</li><li>Completed without agent assistance for 80 percent of eligible passengers</li><li>Exceptions routed with context preserved for 100 percent of handoffs</li><li>Kiosk availability across the network meeting target uptime</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Kiosk availability and performance depending partly on shared common-use infrastructure Air Canada does not control</li><li>International document verification at a kiosk being inherently less thorough than an agent review</li><li>A handoff to the counter losing check-in progress and forcing the passenger to restart</li><li>Self-service baggage tagging accuracy depending on the passenger applying the tag correctly</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../ground-operations-airports/check-in-dcs-boarding/ac-go-ci-01/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Airport Check In and Bag Acceptance</span></a>
+  <a class="next" href="../../../ground-operations-airports/check-in-dcs-boarding/ac-go-ci-03/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Advance Passenger Information Transmission</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

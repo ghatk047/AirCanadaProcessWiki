@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Maple Leaf Lounge Access Control &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Maple Leaf Lounge Access Control.">
+<title>AC-GO-VH-01 Maple Leaf Lounge Access Control &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-GO-VH-01 Maple Leaf Lounge Access Control.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../ground-operations-airports/gate-turnaround-resource/ac-go-gt-06/",next:"../../../ground-operations-airports/premium-lounge-vip-handling/ac-go-vh-02/"};
@@ -130,14 +130,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Ground Operations &amp; Airports</a><span class="sep">&rsaquo;</span><a href="../">Premium, Lounge &amp; VIP Handling</a><span class="sep">&rsaquo;</span><span class="cur">AC-GO-VH-01</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-GO-VH-01" title="Click to copy the process ID">
     AC-GO-VH-01<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Maple Leaf Lounge Access Control</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Maple Leaf Lounge Access Control</h1>
+<p class="lede" id="overview">Maple Leaf Lounge access is controlled at the entrance, verifying eligibility by Altitude tier, Star Alliance Gold status, day pass purchase or premium cabin ticket.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Lounge access eligibility draws on several independent entitlement sources simultaneously, Altitude tier, alliance status, cabin of travel and day pass purchase, which means the verification check has to correctly evaluate all of them rather than any single one.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A customer presents at a Maple Leaf Lounge entrance requesting access.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">Correctly verified lounge access, admitting eligible customers and consistently declining ineligible ones.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Ground Operations &amp; Airports<br>
+    <span style="color:var(--text-muted);font-size:12px">Premium, Lounge &amp; VIP Handling</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-go-vh-01.png" alt="Maple Leaf Lounge Access Control process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-GO-VH-01-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Eligibility verification</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Verify boarding pass and identity</b></td>
+<td>Lounge Agent</td>
+<td><span class="tag amadeus" data-tooltip="Customer profile and PNR servicing layer. Feeds case context to Salesforce. [Amadeus - evidence A]">Amadeus Altea Customer Management<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Presented boarding pass or membership card</td>
+<td>Verified identity against booking or membership</td>
+<td>Verified for 100 percent of lounge access attempts at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Same-day standby or gate changes can mean the boarding pass presented does not immediately match the system record</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-VH-01-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Access decision</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Determine eligibility source</b></td>
+<td>Lounge Agent</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Verified identity</td>
+<td>Determined eligibility basis</td>
+<td>Determined correctly at 98 percent of access attempts</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Star Alliance Gold recognition and Altitude tier are evaluated through separate systems that both need to be checked</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Process day pass or guest purchase where applicable</b></td>
+<td>Lounge Agent</td>
+<td><span class="tag channel" data-tooltip="Primary direct digital channel, cloud-native on AWS. Undergoing redevelopment under the CDO. [Air Canada - evidence A]">aircanada.com<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Non-eligible customer requesting paid access</td>
+<td>Processed purchase</td>
+<td>Processed within 2 minutes at 90 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Guest pass entitlement rules differ by Altitude tier and are easy to apply inconsistently</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-VH-01-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Capacity management</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Manage lounge capacity at peak periods</b></td>
+<td>Lounge Agent</td>
+<td><span class="tag amadeus" data-tooltip="Customer profile and PNR servicing layer. Feeds case context to Salesforce. [Amadeus - evidence A]">Amadeus Altea Customer Management<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Current lounge occupancy</td>
+<td>Managed capacity against comfortable occupancy target</td>
+<td>Occupancy managed within comfortable capacity for 90 percent of operating hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A lounge at capacity has no clean mechanism to manage further eligible arrivals gracefully</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Lounge Agent</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag amadeus" data-tooltip="Customer profile and PNR servicing layer. Feeds case context to Salesforce. [Amadeus - evidence A]">Amadeus Altea Customer Management<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag channel" data-tooltip="Primary direct digital channel, cloud-native on AWS. Undergoing redevelopment under the CDO. [Air Canada - evidence A]">aircanada.com<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Verified for 100 percent of lounge access attempts at 100 percent</li><li>Determined correctly at 98 percent of access attempts</li><li>Processed within 2 minutes at 90 percent</li><li>Occupancy managed within comfortable capacity for 90 percent of operating hours</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Star Alliance Gold recognition and Altitude tier being evaluated through separate systems both needing verification</li><li>Guest pass entitlement rules differing by tier and being easy to apply inconsistently</li><li>A lounge at capacity having no clean mechanism to manage further eligible arrivals gracefully</li><li>A same-day standby or gate change meaning the presented boarding pass does not immediately match the system</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../ground-operations-airports/gate-turnaround-resource/ac-go-gt-06/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Ground Handler Performance Management</span></a>
+  <a class="next" href="../../../ground-operations-airports/premium-lounge-vip-handling/ac-go-vh-02/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Premium Cabin Ground Experience</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>DCS Degraded Mode and Manual Fallback &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. DCS Degraded Mode and Manual Fallback.">
+<title>AC-GO-CI-06 DCS Degraded Mode and Manual Fallback &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-GO-CI-06 DCS Degraded Mode and Manual Fallback.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../ground-operations-airports/check-in-dcs-boarding/ac-go-ci-05/",next:"../../../ground-operations-airports/baggage/ac-go-ba-01/"};
@@ -130,14 +130,134 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Ground Operations &amp; Airports</a><span class="sep">&rsaquo;</span><a href="../">Check-In, DCS &amp; Boarding</a><span class="sep">&rsaquo;</span><span class="cur">AC-GO-CI-06</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-GO-CI-06" title="Click to copy the process ID">
     AC-GO-CI-06<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>DCS Degraded Mode and Manual Fallback</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>DCS Degraded Mode and Manual Fallback</h1>
+<p class="lede" id="overview">Departure control operates in degraded or manual mode when Amadeus Altea DCS is unavailable, using documented fallback procedures to keep check-in and boarding functioning at reduced capacity.</p>
+<div class="callout"><span class="ct">Air Canada context</span>The February 2023 DCS and intranet outage at Toronto is the direct reference point for this process: manual fallback capability is what stands between a system outage and a station-wide operational stop.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">Amadeus Altea DCS becomes unavailable or materially degraded at one or more stations.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">Continued check-in and boarding operation under manual fallback procedures until DCS service is restored.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Ground Operations &amp; Airports<br>
+    <span style="color:var(--text-muted);font-size:12px">Check-In, DCS &amp; Boarding</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">5 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-go-ci-06.png" alt="DCS Degraded Mode and Manual Fallback process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-GO-CI-06-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Outage detection and fallback activation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Detect DCS outage or degradation</b></td>
+<td>Station Operations Duty Manager</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>System monitoring alert</td>
+<td>Detected outage or degradation</td>
+<td>Detected within 5 minutes of onset at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A partial degradation is harder to detect and characterise than a complete outage</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Activate manual check-in and boarding procedure</b></td>
+<td>Station Operations Duty Manager</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Detected outage</td>
+<td>Activated manual procedure</td>
+<td>Activated within 15 minutes of detection at 90 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual procedure familiarity cannot be assumed given how rarely it is actually used</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-CI-06-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Manual operation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Process check-in manually</b></td>
+<td>Airport Check-In Agent</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Activated manual procedure</td>
+<td>Manually checked-in passengers</td>
+<td>Manual throughput sustained at a defined minimum rate during the outage</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual throughput is materially lower than the automated system it temporarily replaces</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Process boarding manually with paper manifest</b></td>
+<td>Gate Agent</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Manual check-in records</td>
+<td>Manually boarded passengers with paper manifest</td>
+<td>Manifest reconciled against actual boarding for 100 percent of manual-mode flights</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>A paper manifest reconciliation gap creates uncertainty about who actually boarded</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-CI-06-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Restoration and reconciliation</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Restore system operation and reconcile data</b></td>
+<td>Station Operations Duty Manager</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Restored DCS and manual records</td>
+<td>Reconciled operational data</td>
+<td>Reconciled within 24 hours of restoration at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual-mode data captured on paper has to be accurately re-entered into the restored system</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Station Operations Duty Manager</span><span class="lane-steps">1.1 1.2 3.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Airport Check-In Agent</span><span class="lane-steps">2.1</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Gate Agent</span><span class="lane-steps">2.2</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Detected within 5 minutes of onset at 100 percent</li><li>Activated within 15 minutes of detection at 90 percent</li><li>Manifest reconciled against actual boarding for 100 percent of manual-mode flights</li><li>Reconciled within 24 hours of restoration at 100 percent</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Manual procedure familiarity not being safely assumed given how rarely the fallback is actually used</li><li>Manual throughput being materially lower than the automated system it temporarily replaces</li><li>A paper manifest reconciliation gap creating genuine uncertainty about who actually boarded</li><li>Manual-mode data not being accurately re-entered into the restored system after recovery</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../ground-operations-airports/check-in-dcs-boarding/ac-go-ci-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Denied Boarding and Oversale Management</span></a>
+  <a class="next" href="../../../ground-operations-airports/baggage/ac-go-ba-01/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Baggage Acceptance and Tag Issue</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

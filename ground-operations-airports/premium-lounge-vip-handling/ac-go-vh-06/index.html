@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Ground Product Service Recovery &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Ground Product Service Recovery.">
+<title>AC-GO-VH-06 Ground Product Service Recovery &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-GO-VH-06 Ground Product Service Recovery.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../ground-operations-airports/premium-lounge-vip-handling/ac-go-vh-05/",next:"../../../maintenance-engineering/line-maintenance/ac-mr-lm-01/"};
@@ -130,14 +130,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Ground Operations &amp; Airports</a><span class="sep">&rsaquo;</span><a href="../">Premium, Lounge &amp; VIP Handling</a><span class="sep">&rsaquo;</span><span class="cur">AC-GO-VH-06</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-GO-VH-06" title="Click to copy the process ID">
     AC-GO-VH-06<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Ground Product Service Recovery</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Ground Product Service Recovery</h1>
+<p class="lede" id="overview">A premium or VIP passenger experiencing a service failure is offered a targeted recovery, coordinating across ground, lounge and customer relations functions to protect the relationship.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Recovery for this passenger segment has to be faster and more coordinated than standard service recovery, since the commercial value of the relationship and the visibility of any failure are both disproportionately high.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A premium or VIP passenger experiences a service failure during their airport journey.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A proportionate, coordinated service recovery delivered promptly, protecting the high-value customer relationship.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Ground Operations &amp; Airports<br>
+    <span style="color:var(--text-muted);font-size:12px">Premium, Lounge &amp; VIP Handling</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-go-vh-06.png" alt="Ground Product Service Recovery process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-GO-VH-06-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Service failure identification</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Identify the service failure</b></td>
+<td>Ground Services Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Observed or reported service gap</td>
+<td>Identified failure with severity</td>
+<td>Identified at the point of occurrence for 90 percent of cases</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Not every service gap for this segment is reported in the moment it happens</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-VH-06-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Recovery coordination</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Coordinate recovery across affected functions</b></td>
+<td>VIP Services Coordinator</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Identified failure</td>
+<td>Coordinated recovery plan across ground, lounge and customer relations</td>
+<td>Coordinated within 30 minutes of identification at 90 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Coordination across three separate functions under time pressure is harder than a single-function response</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Determine proportionate recovery gesture</b></td>
+<td>VIP Services Coordinator</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Coordinated plan</td>
+<td>Determined recovery gesture</td>
+<td>Determined within delegated authority at 95 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Recovery for this segment has to be proportionate to both the failure and the relationship value at stake</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-VH-06-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Delivery and follow-up</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Deliver recovery and follow up with the passenger</b></td>
+<td>VIP Services Coordinator</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Determined gesture</td>
+<td>Delivered recovery with follow-up contact</td>
+<td>Delivered within 5 business days for 95 percent of cases</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A recovery that is not personally followed up loses much of its relationship-protecting value</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Ground Services Agent</span><span class="lane-steps">1.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>VIP Services Coordinator</span><span class="lane-steps">2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Identified at the point of occurrence for 90 percent of cases</li><li>Coordinated within 30 minutes of identification at 90 percent</li><li>Determined within delegated authority at 95 percent</li><li>Delivered within 5 business days for 95 percent of cases</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Coordination across three separate functions under time pressure being harder than a single-function response</li><li>A recovery gesture disproportionate to either the failure or the relationship value at stake</li><li>A recovery not personally followed up losing much of its relationship-protecting value</li><li>Not every service gap for this high-value segment being reported in the moment it happens</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../ground-operations-airports/premium-lounge-vip-handling/ac-go-vh-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Priority Baggage and Fast Track Delivery</span></a>
+  <a class="next" href="../../../maintenance-engineering/line-maintenance/ac-mr-lm-01/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Line Maintenance Work Order Execution</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

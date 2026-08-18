@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Turnaround Plan and Gate Assignment &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Turnaround Plan and Gate Assignment.">
+<title>AC-GO-GT-01 Turnaround Plan and Gate Assignment &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-GO-GT-01 Turnaround Plan and Gate Assignment.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../ground-operations-airports/baggage/ac-go-ba-06/",next:"../../../ground-operations-airports/gate-turnaround-resource/ac-go-gt-02/"};
@@ -130,14 +130,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Ground Operations &amp; Airports</a><span class="sep">&rsaquo;</span><a href="../">Gate, Turnaround &amp; Resource</a><span class="sep">&rsaquo;</span><span class="cur">AC-GO-GT-01</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-GO-GT-01" title="Click to copy the process ID">
     AC-GO-GT-01<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Turnaround Plan and Gate Assignment</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Turnaround Plan and Gate Assignment</h1>
+<p class="lede" id="overview">A turnaround plan is built for each arriving and departing aircraft rotation, sequencing every ground service against the available ground time at the assigned stand.</p>
+<div class="callout"><span class="ct">Air Canada context</span>The turnaround plan is where the ground time built into the schedule in AC-NP-SP-02 either holds up or does not; every service on the plan competes for the same limited minutes at the stand.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">An aircraft is scheduled to arrive and depart the same station within a defined turn.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A sequenced turnaround plan with every ground service, cleaning, catering, fuelling and baggage, fitted within the available ground time.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Ground Operations &amp; Airports<br>
+    <span style="color:var(--text-muted);font-size:12px">Gate, Turnaround &amp; Resource</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-go-gt-01.png" alt="Turnaround Plan and Gate Assignment process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-GO-GT-01-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Ground time assessment</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Confirm available ground time</b></td>
+<td>Turnaround Coordinator</td>
+<td><span class="tag sita" data-tooltip="Gate, stand and check-in resource allocation at YYZ, YUL and YVR. [Multiple - evidence C]">Airport Resource Management<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Scheduled arrival and departure times</td>
+<td>Confirmed ground time window</td>
+<td>Confirmed before turnaround begins at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A late-arriving inbound flight compresses the ground time actually available below the scheduled figure</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-GT-01-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Service sequencing</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Sequence required ground services</b></td>
+<td>Turnaround Coordinator</td>
+<td><span class="tag sita" data-tooltip="Gate, stand and check-in resource allocation at YYZ, YUL and YVR. [Multiple - evidence C]">Airport Resource Management<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Confirmed ground time and service requirements</td>
+<td>Sequenced service plan</td>
+<td>Sequenced to fit within available ground time at 90 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Services that could run in parallel are sometimes scheduled sequentially due to resource constraints</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Identify critical path services</b></td>
+<td>Turnaround Coordinator</td>
+<td><span class="tag sita" data-tooltip="Gate, stand and check-in resource allocation at YYZ, YUL and YVR. [Multiple - evidence C]">Airport Resource Management<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Sequenced plan</td>
+<td>Identified critical path</td>
+<td>Critical path identified for 100 percent of turnarounds</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>The critical path can shift mid-turn if one service runs longer than planned</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-GT-01-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Plan confirmation</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Confirm plan to all ground service providers</b></td>
+<td>Turnaround Coordinator</td>
+<td><span class="tag sita" data-tooltip="Gate, stand and check-in resource allocation at YYZ, YUL and YVR. [Multiple - evidence C]">Airport Resource Management<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Confirmed critical path plan</td>
+<td>Communicated plan to all providers</td>
+<td>Communicated before service begins at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A plan not communicated consistently to every provider risks services running out of sequence</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Turnaround Coordinator</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag sita" data-tooltip="Gate, stand and check-in resource allocation at YYZ, YUL and YVR. [Multiple - evidence C]">Airport Resource Management<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Confirmed before turnaround begins at 100 percent</li><li>Sequenced to fit within available ground time at 90 percent</li><li>Critical path identified for 100 percent of turnarounds</li><li>Turnaround completed within planned ground time at target rate</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>A late-arriving inbound flight compressing the ground time actually available below the scheduled figure</li><li>The critical path shifting mid-turn if one service runs longer than planned</li><li>A plan not communicated consistently to every ground service provider</li><li>Services that could run in parallel being sequenced due to resource constraints, extending the turn</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../ground-operations-airports/baggage/ac-go-ba-06/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Baggage Performance and Resolution 753 Reporting</span></a>
+  <a class="next" href="../../../ground-operations-airports/gate-turnaround-resource/ac-go-gt-02/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Aircraft Ground Handling Sequence</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

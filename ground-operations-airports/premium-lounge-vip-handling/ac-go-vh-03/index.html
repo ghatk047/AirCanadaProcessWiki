@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Super Elite and VIP Handling &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Super Elite and VIP Handling.">
+<title>AC-GO-VH-03 Super Elite and VIP Handling &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-GO-VH-03 Super Elite and VIP Handling.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../ground-operations-airports/premium-lounge-vip-handling/ac-go-vh-02/",next:"../../../ground-operations-airports/premium-lounge-vip-handling/ac-go-vh-04/"};
@@ -130,14 +130,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Ground Operations &amp; Airports</a><span class="sep">&rsaquo;</span><a href="../">Premium, Lounge &amp; VIP Handling</a><span class="sep">&rsaquo;</span><span class="cur">AC-GO-VH-03</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-GO-VH-03" title="Click to copy the process ID">
     AC-GO-VH-03<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Super Elite and VIP Handling</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Super Elite and VIP Handling</h1>
+<p class="lede" id="overview">Super Elite 100K and other top-tier VIP passengers receive dedicated proactive handling, including personal escort and disruption priority, distinct from standard premium cabin service.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Super Elite handling is proactive rather than reactive, the station is expected to know a top-tier member is travelling before they arrive, which is a materially different service model from every other tier below it.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A Super Elite or designated VIP passenger travels on a flagged itinerary.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">Proactive, personalised handling delivered throughout the journey, with disruption priority applied when needed.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Ground Operations &amp; Airports<br>
+    <span style="color:var(--text-muted);font-size:12px">Premium, Lounge &amp; VIP Handling</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-go-vh-03.png" alt="Super Elite and VIP Handling process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-GO-VH-03-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; VIP identification and briefing</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Identify and brief stations on VIP travel</b></td>
+<td>VIP Services Coordinator</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Booked Super Elite or VIP itinerary</td>
+<td>Station briefing on upcoming VIP travel</td>
+<td>Briefed at least 24 hours ahead for 95 percent of VIP travel</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Last-minute bookings compress or eliminate the advance briefing window</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-VH-03-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Personalised handling</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Provide personal escort and meet-and-greet</b></td>
+<td>VIP Services Coordinator</td>
+<td><span class="tag amadeus" data-tooltip="Customer profile and PNR servicing layer. Feeds case context to Salesforce. [Amadeus - evidence A]">Amadeus Altea Customer Management<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Briefed station</td>
+<td>Delivered personal escort service</td>
+<td>Delivered for 95 percent of flagged VIP arrivals</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Escort availability depends on VIP services staffing at the specific station</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Apply disruption priority where applicable</b></td>
+<td>VIP Services Coordinator</td>
+<td><span class="tag amadeus" data-tooltip="Automated IRROP re-accommodation. Replaced largely manual disruption handling pre-2020. [Amadeus - evidence A]">Amadeus Passenger Recovery<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>VIP status and disruption event</td>
+<td>Applied recovery priority</td>
+<td>Priority applied consistently for 100 percent of flagged VIP disruption cases</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Disruption priority has to be balanced visibly and fairly against the needs of other affected passengers</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-VH-03-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Disruption priority</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Confirm service delivery and gather feedback</b></td>
+<td>VIP Services Coordinator</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Delivered service</td>
+<td>Confirmed delivery with feedback captured</td>
+<td>Feedback captured for 90 percent of flagged VIP journeys</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>The highest-value members are also the most likely to notice and report any service inconsistency</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>VIP Services Coordinator</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag amadeus" data-tooltip="Customer profile and PNR servicing layer. Feeds case context to Salesforce. [Amadeus - evidence A]">Amadeus Altea Customer Management<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag amadeus" data-tooltip="Automated IRROP re-accommodation. Replaced largely manual disruption handling pre-2020. [Amadeus - evidence A]">Amadeus Passenger Recovery<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Briefed at least 24 hours ahead for 95 percent of VIP travel</li><li>Delivered for 95 percent of flagged VIP arrivals</li><li>Priority applied consistently for 100 percent of flagged VIP disruption cases</li><li>Feedback captured for 90 percent of flagged VIP journeys</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Last-minute bookings compressing or eliminating the advance station briefing window</li><li>Disruption priority needing to be balanced visibly and fairly against other affected passengers</li><li>Escort availability depending on VIP services staffing that varies by specific station</li><li>The highest-value members being the most likely to notice and report any service inconsistency</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../ground-operations-airports/premium-lounge-vip-handling/ac-go-vh-02/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Premium Cabin Ground Experience</span></a>
+  <a class="next" href="../../../ground-operations-airports/premium-lounge-vip-handling/ac-go-vh-04/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Star Alliance Gold Recognition at Airport</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

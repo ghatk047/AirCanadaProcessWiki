@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Premium Cabin Ground Experience &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Premium Cabin Ground Experience.">
+<title>AC-GO-VH-02 Premium Cabin Ground Experience &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-GO-VH-02 Premium Cabin Ground Experience.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../ground-operations-airports/premium-lounge-vip-handling/ac-go-vh-01/",next:"../../../ground-operations-airports/premium-lounge-vip-handling/ac-go-vh-03/"};
@@ -130,14 +130,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Ground Operations &amp; Airports</a><span class="sep">&rsaquo;</span><a href="../">Premium, Lounge &amp; VIP Handling</a><span class="sep">&rsaquo;</span><span class="cur">AC-GO-VH-02</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-GO-VH-02" title="Click to copy the process ID">
     AC-GO-VH-02<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Premium Cabin Ground Experience</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Premium Cabin Ground Experience</h1>
+<p class="lede" id="overview">Premium cabin passengers receive a differentiated ground experience, from expedited check-in through priority baggage handling, consistent with the premium fare paid.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Premium experience consistency is tested at every single touchpoint, and a single weak link, such as priority baggage not actually arriving first, undermines the entire premium value proposition regardless of how well every other touchpoint performed.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A passenger holding a premium cabin ticket presents for any ground touchpoint through their journey.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A consistently differentiated premium ground experience delivered at every touchpoint, matching what the premium fare promised.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Ground Operations &amp; Airports<br>
+    <span style="color:var(--text-muted);font-size:12px">Premium, Lounge &amp; VIP Handling</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-go-vh-02.png" alt="Premium Cabin Ground Experience process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-GO-VH-02-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Premium identification</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Identify premium cabin status across touchpoints</b></td>
+<td>Ground Services Agent</td>
+<td><span class="tag amadeus" data-tooltip="Customer profile and PNR servicing layer. Feeds case context to Salesforce. [Amadeus - evidence A]">Amadeus Altea Customer Management<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Booking and check-in data</td>
+<td>Flagged premium cabin status</td>
+<td>Flagged consistently across every touchpoint at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A premium flag has to propagate consistently from check-in through to baggage and boarding</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-VH-02-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Touchpoint delivery</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Deliver expedited check-in and security where available</b></td>
+<td>Ground Services Agent</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Flagged premium status</td>
+<td>Delivered expedited service</td>
+<td>Delivered for 95 percent of eligible premium passengers</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Expedited lane availability differs by station and is not consistent across the network</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Ensure priority baggage handling</b></td>
+<td>Ramp Baggage Handler</td>
+<td><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Premium baggage tag</td>
+<td>Priority-handled baggage</td>
+<td>Priority bags among the first delivered at 90 percent of arrivals</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Priority tagging alone does not guarantee priority physical handling on the ramp</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-VH-02-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Consistency monitoring</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Monitor premium experience consistency</b></td>
+<td>Ground Services Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Delivered touchpoints and customer feedback</td>
+<td>Consistency assessment</td>
+<td>Assessed each reporting cycle for 100 percent of premium touchpoints</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A single weak touchpoint undermines the entire premium proposition regardless of the others</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Ground Services Agent</span><span class="lane-steps">1.1 2.1 3.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Ramp Baggage Handler</span><span class="lane-steps">2.2</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag amadeus" data-tooltip="Customer profile and PNR servicing layer. Feeds case context to Salesforce. [Amadeus - evidence A]">Amadeus Altea Customer Management<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Flagged consistently across every touchpoint at 100 percent</li><li>Delivered for 95 percent of eligible premium passengers</li><li>Priority bags among the first delivered at 90 percent of arrivals</li><li>Premium experience consistency score meeting target across all touchpoints</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>A single weak touchpoint undermining the entire premium proposition regardless of the others</li><li>Priority tagging alone not guaranteeing priority physical handling on the ramp</li><li>Expedited lane availability differing by station without a consistent network-wide standard</li><li>A premium flag not propagating consistently from check-in through to baggage and boarding</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../ground-operations-airports/premium-lounge-vip-handling/ac-go-vh-01/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Maple Leaf Lounge Access Control</span></a>
+  <a class="next" href="../../../ground-operations-airports/premium-lounge-vip-handling/ac-go-vh-03/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Super Elite and VIP Handling</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

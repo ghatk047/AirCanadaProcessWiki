@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Baggage Delivery and Repatriation &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Baggage Delivery and Repatriation.">
+<title>AC-GO-BA-05 Baggage Delivery and Repatriation &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-GO-BA-05 Baggage Delivery and Repatriation.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../ground-operations-airports/baggage/ac-go-ba-04/",next:"../../../ground-operations-airports/baggage/ac-go-ba-06/"};
@@ -130,14 +130,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Ground Operations &amp; Airports</a><span class="sep">&rsaquo;</span><a href="../">Baggage</a><span class="sep">&rsaquo;</span><span class="cur">AC-GO-BA-05</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-GO-BA-05" title="Click to copy the process ID">
     AC-GO-BA-05<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Baggage Delivery and Repatriation</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Baggage Delivery and Repatriation</h1>
+<p class="lede" id="overview">A traced or delivered bag is repatriated to the passenger, coordinating final delivery logistics when the passenger has already left the airport.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Repatriation logistics have to reach wherever the passenger actually is, which is frequently not the airport and not always even the city the passenger was originally travelling to.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A mishandled bag is located and the passenger has already departed the airport.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">The bag delivered to the passenger&#x27;s actual location, whether a hotel, residence or onward destination, with delivery confirmed.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Ground Operations &amp; Airports<br>
+    <span style="color:var(--text-muted);font-size:12px">Baggage</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-go-ba-05.png" alt="Baggage Delivery and Repatriation process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-GO-BA-05-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Delivery location confirmation</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Confirm passenger&#x27;s current delivery location</b></td>
+<td>Baggage Services Agent</td>
+<td><span class="tag sita" data-tooltip="Global mishandled-baggage tracing and PIR file management. [SITA - evidence B]">SITA WorldTracer<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Located bag and passenger contact</td>
+<td>Confirmed delivery address</td>
+<td>Confirmed within 4 hours of bag location at 95 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A passenger continuing onward travel may have a delivery location that changes again before the bag arrives</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-BA-05-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Courier coordination</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Arrange courier delivery</b></td>
+<td>Baggage Services Agent</td>
+<td><span class="tag sita" data-tooltip="Global mishandled-baggage tracing and PIR file management. [SITA - evidence B]">SITA WorldTracer<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Confirmed delivery address</td>
+<td>Arranged courier delivery</td>
+<td>Arranged within 24 hours of location for 90 percent of cases</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Courier availability and delivery timeframes vary significantly by geography</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Track delivery progress</b></td>
+<td>Baggage Services Agent</td>
+<td><span class="tag sita" data-tooltip="Global mishandled-baggage tracing and PIR file management. [SITA - evidence B]">SITA WorldTracer<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Arranged delivery</td>
+<td>Tracked delivery status</td>
+<td>Tracked continuously until confirmed delivery at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A delivery that fails at the first attempt requires prompt rescheduling to avoid extending the delay further</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-BA-05-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Delivery confirmation</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Confirm delivery and close repatriation</b></td>
+<td>Baggage Services Agent</td>
+<td><span class="tag sita" data-tooltip="Global mishandled-baggage tracing and PIR file management. [SITA - evidence B]">SITA WorldTracer<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Delivery confirmation</td>
+<td>Closed repatriation record</td>
+<td>Closed within 24 hours of confirmed delivery at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A repatriation not properly closed leaves ambiguity about whether the bag actually reached the passenger</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Baggage Services Agent</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag sita" data-tooltip="Global mishandled-baggage tracing and PIR file management. [SITA - evidence B]">SITA WorldTracer<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Confirmed within 4 hours of bag location at 95 percent</li><li>Arranged within 24 hours of location for 90 percent of cases</li><li>Tracked continuously until confirmed delivery at 100 percent</li><li>Average time from bag location to confirmed delivery meeting target</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>A passenger continuing onward travel changing their delivery location again before the bag arrives</li><li>Courier availability and delivery timeframes varying significantly by geography</li><li>A failed first delivery attempt requiring prompt rescheduling to avoid extending the delay further</li><li>A repatriation not properly closed leaving ambiguity about whether the bag actually reached the passenger</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../ground-operations-airports/baggage/ac-go-ba-04/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Mishandled Baggage Tracing and PIR Creation</span></a>
+  <a class="next" href="../../../ground-operations-airports/baggage/ac-go-ba-06/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Baggage Performance and Resolution 753 Reporting</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources
