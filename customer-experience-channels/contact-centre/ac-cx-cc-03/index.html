@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Virtual Assistant Conversation Handling &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Virtual Assistant Conversation Handling.">
+<title>AC-CX-CC-03 Virtual Assistant Conversation Handling &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-CX-CC-03 Virtual Assistant Conversation Handling.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../customer-experience-channels/contact-centre/ac-cx-cc-02/",next:"../../../customer-experience-channels/contact-centre/ac-cx-cc-04/"};
@@ -130,14 +130,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Customer Experience &amp; Channels</a><span class="sep">&rsaquo;</span><a href="../">Contact Centre</a><span class="sep">&rsaquo;</span><span class="cur">AC-CX-CC-03</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CX-CC-03" title="Click to copy the process ID">
     AC-CX-CC-03<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Virtual Assistant Conversation Handling</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Virtual Assistant Conversation Handling</h1>
+<p class="lede" id="overview">Conversations with the Air Canada virtual assistant are handled and escalated to a human agent when the assistant&#x27;s confidence or authority is insufficient to resolve the request safely.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Every response the assistant gives is subject to the human-in-loop governance established in AC-IT-AI-03, following the Moffatt ruling. The escalation threshold here is a compliance control, not just a service design choice.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A customer initiates a chat conversation with the virtual assistant through the website or app.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A resolved conversation within the assistant&#x27;s governed scope, or a clean escalation to a human agent with context preserved.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Customer Experience &amp; Channels<br>
+    <span style="color:var(--text-muted);font-size:12px">Contact Centre</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-cx-cc-03.png" alt="Virtual Assistant Conversation Handling process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-CX-CC-03-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Conversation handling</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Process customer message</b></td>
+<td>Contact Centre Agent</td>
+<td><span class="tag aiml" data-tooltip="Bilingual customer-facing assistant. Predecessor bot was withdrawn c. April 2024 after the Moffatt ruling. [Air Canada - evidence B]">Air Canada Virtual Assistant<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Customer message</td>
+<td>Interpreted intent and context</td>
+<td>Intent interpreted within 2 seconds at 90 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Ambiguous customer phrasing produces a lower-confidence interpretation more often than clear requests</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Ground response against approved policy sources</b></td>
+<td>Contact Centre Agent</td>
+<td><span class="tag aiml" data-tooltip="Bilingual customer-facing assistant. Predecessor bot was withdrawn c. April 2024 after the Moffatt ruling. [Air Canada - evidence B]">Air Canada Virtual Assistant<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Interpreted intent</td>
+<td>Response grounded in allow-listed sources</td>
+<td>100 percent of responses grounded within the approved source set</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A response drawing on unapproved or outdated content risks repeating the Moffatt failure mode</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-CC-03-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Confidence and scope assessment</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Assess response confidence against escalation threshold</b></td>
+<td>Contact Centre Agent</td>
+<td><span class="tag aiml" data-tooltip="Bilingual customer-facing assistant. Predecessor bot was withdrawn c. April 2024 after the Moffatt ruling. [Air Canada - evidence B]">Air Canada Virtual Assistant<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Grounded response</td>
+<td>Confidence score against threshold</td>
+<td>Below-threshold responses escalated at 100 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A threshold set too low still lets an uncertain answer reach the customer</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-CC-03-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Escalation or resolution</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Escalate to a live agent when required</b></td>
+<td>Contact Centre Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Below-threshold or out-of-scope request</td>
+<td>Escalated conversation with full context</td>
+<td>Context preserved for 100 percent of escalations at handoff</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A conversation history that does not transfer cleanly forces the customer to restart with a human agent</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Contact Centre Agent</span><span class="lane-steps">1.1 1.2 2.1 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag aiml" data-tooltip="Bilingual customer-facing assistant. Predecessor bot was withdrawn c. April 2024 after the Moffatt ruling. [Air Canada - evidence B]">Air Canada Virtual Assistant<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>100 percent of responses grounded within the approved source set</li><li>Below-threshold responses escalated at 100 percent</li><li>Context preserved for 100 percent of escalations at handoff</li><li>Zero confirmed cases of the assistant stating an incorrect policy position</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>A response drawing on unapproved or outdated content, repeating the Moffatt failure mode</li><li>An escalation threshold set too low, letting an uncertain answer reach the customer directly</li><li>Conversation history not transferring cleanly at escalation, forcing the customer to restart</li><li>Ambiguous customer phrasing producing lower-confidence interpretations more often than clear requests</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../customer-experience-channels/contact-centre/ac-cx-cc-02/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">IVR Routing and Self Service Containment</span></a>
+  <a class="next" href="../../../customer-experience-channels/contact-centre/ac-cx-cc-04/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Agent Assist Knowledge Grounding</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

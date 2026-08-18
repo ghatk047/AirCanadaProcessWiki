@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Online Booking Flow and Shopping Session &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Online Booking Flow and Shopping Session.">
+<title>AC-CX-DC-01 Online Booking Flow and Shopping Session &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-CX-DC-01 Online Booking Flow and Shopping Session.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../aeroplan-loyalty/altitude-tier-management/ac-ap-tm-06/",next:"../../../customer-experience-channels/digital-channels/ac-cx-dc-02/"};
@@ -130,14 +130,145 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Customer Experience &amp; Channels</a><span class="sep">&rsaquo;</span><a href="../">Digital Channels</a><span class="sep">&rsaquo;</span><span class="cur">AC-CX-DC-01</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CX-DC-01" title="Click to copy the process ID">
     AC-CX-DC-01<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Online Booking Flow and Shopping Session</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Online Booking Flow and Shopping Session</h1>
+<p class="lede" id="overview">A customer searches, selects and completes a booking through aircanada.com or the mobile app, from initial search through payment confirmation.</p>
+<div class="callout"><span class="ct">Air Canada context</span>The direct channel booking flow is the highest-traffic transaction in the entire estate, so a friction point here is amplified across a very large number of customers before anyone notices a pattern.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A customer initiates a flight search on a direct digital channel.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A confirmed booking with payment processed and confirmation delivered to the customer.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Customer Experience &amp; Channels<br>
+    <span style="color:var(--text-muted);font-size:12px">Digital Channels</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">6 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-cx-dc-01.png" alt="Online Booking Flow and Shopping Session process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-CX-DC-01-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Search and selection</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Process flight search request</b></td>
+<td>Digital Platform Engineer</td>
+<td><span class="tag amadeus" data-tooltip="IATA NDC distribution via Amadeus Travel Platform, live 2023. Single-PNR NDC and EDIFACT. [Amadeus - evidence A]">Amadeus Altea NDC<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Search criteria from the customer</td>
+<td>Returned fare and availability options</td>
+<td>Search results returned within 3 seconds at 95 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Peak search volume periods can push response time beyond the target</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Present ancillary offers during selection</b></td>
+<td>Digital Platform Engineer</td>
+<td><span class="tag amadeus" data-tooltip="Ancillary offer construction and dynamic bundling at the shopping touchpoint. [Amadeus - evidence A]">Amadeus Anytime Merchandising<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Selected fare</td>
+<td>Presented ancillary bundle options</td>
+<td>Offers presented without materially slowing the selection flow at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Too many ancillary prompts in sequence measurably reduces booking completion</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-DC-01-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Booking and payment</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Capture passenger and contact details</b></td>
+<td>Digital Platform Engineer</td>
+<td><span class="tag channel" data-tooltip="Primary direct digital channel, cloud-native on AWS. Undergoing redevelopment under the CDO. [Air Canada - evidence A]">aircanada.com<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Customer-entered details</td>
+<td>Captured booking details</td>
+<td>Form completion rate above target for 90 percent of sessions</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Required field validation that is too strict abandons otherwise valid bookings</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Process payment securely</b></td>
+<td>Digital Platform Engineer</td>
+<td><span class="tag channel" data-tooltip="Primary direct digital channel, cloud-native on AWS. Undergoing redevelopment under the CDO. [Air Canada - evidence A]">aircanada.com<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Payment details</td>
+<td>Processed payment authorisation</td>
+<td>Payment processed within 5 seconds at 98 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Payment gateway timeouts during peak periods are the leading cause of abandoned bookings at this step</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-DC-01-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Confirmation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Issue booking confirmation</b></td>
+<td>Digital Platform Engineer</td>
+<td><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Authorised payment</td>
+<td>Issued PNR with confirmation</td>
+<td>Confirmation issued within 10 seconds of payment at 99 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A confirmation delay after payment has already been captured creates real customer anxiety</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Deliver confirmation across channels</b></td>
+<td>Digital Platform Engineer</td>
+<td><span class="tag channel" data-tooltip="iOS and Android. Booking, check-in, boarding pass, in-app bag tracking and mobility-aid tracking. [Air Canada - evidence A]">Air Canada Mobile App<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Issued booking</td>
+<td>Delivered confirmation email and app notification</td>
+<td>Delivered within 2 minutes of issuance at 98 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Email delivery depends on infrastructure outside Air Canada&#x27;s direct control</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Digital Platform Engineer</span><span class="lane-steps">1.1 1.2 2.1 2.2 3.1 3.2</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag amadeus" data-tooltip="IATA NDC distribution via Amadeus Travel Platform, live 2023. Single-PNR NDC and EDIFACT. [Amadeus - evidence A]">Amadeus Altea NDC<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag amadeus" data-tooltip="Ancillary offer construction and dynamic bundling at the shopping touchpoint. [Amadeus - evidence A]">Amadeus Anytime Merchandising<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag channel" data-tooltip="Primary direct digital channel, cloud-native on AWS. Undergoing redevelopment under the CDO. [Air Canada - evidence A]">aircanada.com<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag channel" data-tooltip="iOS and Android. Booking, check-in, boarding pass, in-app bag tracking and mobility-aid tracking. [Air Canada - evidence A]">Air Canada Mobile App<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Search results returned within 3 seconds at 95 percent</li><li>Payment processed within 5 seconds at 98 percent</li><li>Booking completion rate from search to confirmation meeting target</li><li>Confirmation delivered within 2 minutes of issuance at 98 percent</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Payment gateway timeouts during peak periods being the leading cause of abandoned bookings</li><li>Too many sequential ancillary prompts measurably reducing overall booking completion</li><li>A confirmation delay after payment capture creating real customer anxiety and contact volume</li><li>Strict field validation abandoning otherwise valid bookings at the details capture step</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../aeroplan-loyalty/altitude-tier-management/ac-ap-tm-06/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Points Liability Actuarial Valuation</span></a>
+  <a class="next" href="../../../customer-experience-channels/digital-channels/ac-cx-dc-02/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Mobile App Check In and Boarding Pass Issue</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

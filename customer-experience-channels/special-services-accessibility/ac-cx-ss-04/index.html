@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Special Meal and Medical Clearance &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Special Meal and Medical Clearance.">
+<title>AC-CX-SS-04 Special Meal and Medical Clearance &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-CX-SS-04 Special Meal and Medical Clearance.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../customer-experience-channels/special-services-accessibility/ac-cx-ss-03/",next:"../../../customer-experience-channels/special-services-accessibility/ac-cx-ss-05/"};
@@ -130,14 +130,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Customer Experience &amp; Channels</a><span class="sep">&rsaquo;</span><a href="../">Special Services &amp; Accessibility</a><span class="sep">&rsaquo;</span><span class="cur">AC-CX-SS-04</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CX-SS-04" title="Click to copy the process ID">
     AC-CX-SS-04<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Special Meal and Medical Clearance</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Special Meal and Medical Clearance</h1>
+<p class="lede" id="overview">A customer&#x27;s special meal request or medical travel clearance is validated and provisioned through the booking and catering chain, or a fitness-to-fly clearance is obtained before travel is confirmed.</p>
+<div class="callout"><span class="ct">Air Canada context</span>A medical clearance decision is fundamentally different from a meal preference: it can determine whether a customer is permitted to travel at all, so the two threads of this process carry very different risk profiles despite sharing an intake channel.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A customer submits a special meal request or a medical condition requiring clearance before travel.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">The special meal correctly provisioned on board, or medical clearance obtained and recorded before the booking is confirmed for travel.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Customer Experience &amp; Channels<br>
+    <span style="color:var(--text-muted);font-size:12px">Special Services &amp; Accessibility</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-cx-ss-04.png" alt="Special Meal and Medical Clearance process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-CX-SS-04-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Request and clearance intake</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Receive special meal or medical clearance request</b></td>
+<td>Special Services Agent</td>
+<td><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Customer-submitted request</td>
+<td>Registered request</td>
+<td>Registered within 1 business day of submission at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Medical clearance requests need supporting documentation that customers do not always provide up front</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-SS-04-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Validation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Validate medical fitness-to-fly where required</b></td>
+<td>Medical Review Coordinator</td>
+<td><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Medical documentation</td>
+<td>Fitness-to-fly determination</td>
+<td>Determined within the required lead time before travel at 95 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A late-arriving medical clearance can leave a booking unresolved close to the departure date</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Confirm special meal request against catering lead time</b></td>
+<td>Special Services Agent</td>
+<td><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Meal request</td>
+<td>Confirmed meal request within catering deadline</td>
+<td>Confirmed within the catering system&#x27;s required lead time at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A request submitted after the catering cutoff cannot be guaranteed regardless of validity</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-SS-04-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Provisioning or confirmation</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Provision meal or finalise medical clearance record</b></td>
+<td>Special Services Agent</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Confirmed request or clearance</td>
+<td>Provisioned meal or finalised clearance on the booking</td>
+<td>Finalised before departure for 98 percent of requests</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A clearance recorded in the booking system has to actually reach the operating crew for the flight</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Special Services Agent</span><span class="lane-steps">1.1 2.2 3.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Medical Review Coordinator</span><span class="lane-steps">2.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Registered within 1 business day of submission at 100 percent</li><li>Determined within the required lead time before travel at 95 percent</li><li>Confirmed within the catering system&#x27;s required lead time at 100 percent</li><li>Finalised before departure for 98 percent of requests</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>A late-arriving medical clearance leaving a booking unresolved close to the departure date</li><li>A meal request submitted after the catering cutoff being unable to be guaranteed regardless of validity</li><li>A clearance recorded in the booking system not actually reaching the operating crew for the flight</li><li>Medical documentation requirements not being provided up front, delaying a time-sensitive determination</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../customer-experience-channels/special-services-accessibility/ac-cx-ss-03/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Unaccompanied Minor Handling</span></a>
+  <a class="next" href="../../../customer-experience-channels/special-services-accessibility/ac-cx-ss-05/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Service Animal Acceptance</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

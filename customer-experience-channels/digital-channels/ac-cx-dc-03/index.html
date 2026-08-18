@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>In App Baggage Tracking Experience &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. In App Baggage Tracking Experience.">
+<title>AC-CX-DC-03 In App Baggage Tracking Experience &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-CX-DC-03 In App Baggage Tracking Experience.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../customer-experience-channels/digital-channels/ac-cx-dc-02/",next:"../../../customer-experience-channels/digital-channels/ac-cx-dc-04/"};
@@ -130,14 +130,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Customer Experience &amp; Channels</a><span class="sep">&rsaquo;</span><a href="../">Digital Channels</a><span class="sep">&rsaquo;</span><span class="cur">AC-CX-DC-03</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CX-DC-03" title="Click to copy the process ID">
     AC-CX-DC-03<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>In App Baggage Tracking Experience</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>In App Baggage Tracking Experience</h1>
+<p class="lede" id="overview">A customer tracks their checked baggage through the mobile app, from bag tag scan at acceptance through delivery confirmation at the destination carousel.</p>
+<div class="callout"><span class="ct">Air Canada context</span>In-app bag tracking was launched specifically to reduce the anxiety and contact volume around checked baggage, so its value is entirely dependent on the underlying scan events actually being captured and surfaced promptly.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A bag is tagged and accepted at check-in for a customer who has enabled bag tracking.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">Real-time bag status visible to the customer through each handling milestone, correctly reflecting the bag&#x27;s actual physical location.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Customer Experience &amp; Channels<br>
+    <span style="color:var(--text-muted);font-size:12px">Digital Channels</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-cx-dc-03.png" alt="In App Baggage Tracking Experience process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-CX-DC-03-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Bag tag and scan capture</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Capture bag tag scan events</b></td>
+<td>Digital Platform Engineer</td>
+<td><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Physical scan at each handling milestone</td>
+<td>Captured scan event</td>
+<td>Scan events captured for 95 percent of handling milestones</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual handling steps at some stations do not consistently generate a scan event</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-DC-03-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Status tracking</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Update bag status in real time</b></td>
+<td>Digital Platform Engineer</td>
+<td><span class="tag channel" data-tooltip="iOS and Android. Booking, check-in, boarding pass, in-app bag tracking and mobility-aid tracking. [Air Canada - evidence A]">Air Canada Mobile App<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Captured scan events</td>
+<td>Updated bag status visible to the customer</td>
+<td>Status updated within 5 minutes of each scan event at 90 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A missing scan event leaves the customer&#x27;s tracking view showing a stale status</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Flag bags with anomalous handling patterns</b></td>
+<td>Digital Platform Engineer</td>
+<td><span class="tag sita" data-tooltip="Global mishandled-baggage tracing and PIR file management. [SITA - evidence B]">SITA WorldTracer<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Bag status history</td>
+<td>Flagged anomaly for proactive customer contact</td>
+<td>Anomalies flagged within 30 minutes of the missed expected scan at 85 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Distinguishing a genuinely mishandled bag from a delayed but normal scan event requires tuning</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-DC-03-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Delivery confirmation</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Confirm delivery at destination</b></td>
+<td>Digital Platform Engineer</td>
+<td><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Carousel delivery scan</td>
+<td>Confirmed delivery status</td>
+<td>Delivery confirmed within 5 minutes of the carousel scan at 90 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A missing final scan leaves the app showing the bag as still in transit after the customer already has it</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Digital Platform Engineer</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag channel" data-tooltip="iOS and Android. Booking, check-in, boarding pass, in-app bag tracking and mobility-aid tracking. [Air Canada - evidence A]">Air Canada Mobile App<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sita" data-tooltip="Global mishandled-baggage tracing and PIR file management. [SITA - evidence B]">SITA WorldTracer<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Scan events captured for 95 percent of handling milestones</li><li>Status updated within 5 minutes of each scan event at 90 percent</li><li>Anomalies flagged within 30 minutes of a missed expected scan at 85 percent</li><li>Customer contact volume for bag status enquiries reduced against pre-launch baseline</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Manual handling steps at some stations not consistently generating the scan event the app depends on</li><li>A missing scan leaving the customer&#x27;s tracking view stale or showing an inaccurate status</li><li>A missing final scan showing a bag as in transit after the customer has already collected it</li><li>Anomaly detection tuning that is too loose or too tight relative to genuine mishandling</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../customer-experience-channels/digital-channels/ac-cx-dc-02/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Mobile App Check In and Boarding Pass Issue</span></a>
+  <a class="next" href="../../../customer-experience-channels/digital-channels/ac-cx-dc-04/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Digital Content Publication with English and French Parity</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

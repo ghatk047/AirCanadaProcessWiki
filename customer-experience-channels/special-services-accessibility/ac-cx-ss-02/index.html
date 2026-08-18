@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Accessible Travel Request under ATPDR &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Accessible Travel Request under ATPDR.">
+<title>AC-CX-SS-02 Accessible Travel Request under ATPDR &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-CX-SS-02 Accessible Travel Request under ATPDR.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../customer-experience-channels/special-services-accessibility/ac-cx-ss-01/",next:"../../../customer-experience-channels/special-services-accessibility/ac-cx-ss-03/"};
@@ -130,14 +130,134 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Customer Experience &amp; Channels</a><span class="sep">&rsaquo;</span><a href="../">Special Services &amp; Accessibility</a><span class="sep">&rsaquo;</span><span class="cur">AC-CX-SS-02</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CX-SS-02" title="Click to copy the process ID">
     AC-CX-SS-02<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Accessible Travel Request under ATPDR</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Accessible Travel Request under ATPDR</h1>
+<p class="lede" id="overview">A customer&#x27;s accessible travel request, covering communication needs, boarding assistance and in-flight accommodation, is processed and communicated to every station and crew involved in the journey.</p>
+<div class="callout"><span class="ct">Air Canada context</span>An accessibility request has to reach several independently operating touchpoints, the booking system, the departure station, the crew and any connecting station, and a gap at any one of them means the accommodation simply does not happen.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A customer submits an accessibility request at booking or in advance of travel.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">The customer&#x27;s accessibility needs correctly recorded and communicated to every touchpoint in the journey, with assistance delivered as requested.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Customer Experience &amp; Channels<br>
+    <span style="color:var(--text-muted);font-size:12px">Special Services &amp; Accessibility</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">5 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-cx-ss-02.png" alt="Accessible Travel Request under ATPDR process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-CX-SS-02-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Request capture</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Capture the accessibility request</b></td>
+<td>Special Services Agent</td>
+<td><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Customer-stated accessibility need</td>
+<td>Captured request in the booking record</td>
+<td>Captured for 100 percent of submitted requests at booking or pre-travel</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Request categories do not always map precisely to what the customer actually needs</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-SS-02-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Cross-touchpoint communication</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Communicate request to departure station</b></td>
+<td>Special Services Agent</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Captured request</td>
+<td>Station-level assistance instruction</td>
+<td>Communicated at least 24 hours before departure for 95 percent of requests</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Late-submitted requests compress the notice window available to the station</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Communicate request to the flight crew</b></td>
+<td>Special Services Agent</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Captured request</td>
+<td>Crew briefing on the accessibility need</td>
+<td>Crew briefed before boarding for 100 percent of flagged requests</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Crew briefing has to reach the specific crew assigned to that flight, not a general notice</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Communicate request to connecting stations</b></td>
+<td>Special Services Agent</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Captured request and connecting itinerary</td>
+<td>Connecting station assistance instruction</td>
+<td>Communicated to 100 percent of connecting stations before the connection</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A gap at a connecting station is a common single point of failure for the whole journey</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-SS-02-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Assistance delivery</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Deliver assistance at each touchpoint</b></td>
+<td>Special Services Agent</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Station and crew instructions</td>
+<td>Delivered assistance</td>
+<td>Delivered as requested for 95 percent of flagged interactions</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Assistance delivery quality depends on staffing levels the accessibility process itself does not control</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Special Services Agent</span><span class="lane-steps">1.1 2.1 2.2 2.3 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Captured for 100 percent of submitted requests at booking or pre-travel</li><li>Communicated at least 24 hours before departure for 95 percent of requests</li><li>Communicated to 100 percent of connecting stations before the connection</li><li>Delivered as requested for 95 percent of flagged interactions</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>A gap at any single touchpoint, booking, station, crew or connection, meaning the accommodation does not happen</li><li>A connecting station being a common single point of failure for an otherwise well-communicated request</li><li>Late-submitted requests compressing the notice window available to the departure station</li><li>Assistance delivery quality depending on station staffing levels outside the process&#x27;s own control</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../customer-experience-channels/special-services-accessibility/ac-cx-ss-01/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Mobility Aid Handling and Tracking</span></a>
+  <a class="next" href="../../../customer-experience-channels/special-services-accessibility/ac-cx-ss-03/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Unaccompanied Minor Handling</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

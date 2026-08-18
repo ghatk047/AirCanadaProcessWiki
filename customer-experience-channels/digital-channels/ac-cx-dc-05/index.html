@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Digital Personalisation and Offer Targeting &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Digital Personalisation and Offer Targeting.">
+<title>AC-CX-DC-05 Digital Personalisation and Offer Targeting &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-CX-DC-05 Digital Personalisation and Offer Targeting.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../customer-experience-channels/digital-channels/ac-cx-dc-04/",next:"../../../customer-experience-channels/digital-channels/ac-cx-dc-06/"};
@@ -130,14 +130,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Customer Experience &amp; Channels</a><span class="sep">&rsaquo;</span><a href="../">Digital Channels</a><span class="sep">&rsaquo;</span><span class="cur">AC-CX-DC-05</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CX-DC-05" title="Click to copy the process ID">
     AC-CX-DC-05<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Digital Personalisation and Offer Targeting</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Digital Personalisation and Offer Targeting</h1>
+<p class="lede" id="overview">Digital experiences are personalised and A/B tested using Adobe Target, tailoring content and offer presentation to customer segments and measuring the impact of variant changes.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Personalisation and testing on a channel this high-traffic carries real commercial stakes: a poorly designed test can degrade conversion for a meaningful customer volume before the result is even known.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A personalisation or experimentation opportunity is identified, or a scheduled test concludes and requires a rollout decision.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A validated personalisation rule or winning test variant rolled out to the full customer base.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Customer Experience &amp; Channels<br>
+    <span style="color:var(--text-muted);font-size:12px">Digital Channels</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-cx-dc-05.png" alt="Digital Personalisation and Offer Targeting process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-CX-DC-05-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Test design</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Design the test hypothesis and variants</b></td>
+<td>Digital Product Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Adobe Target<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Personalisation or conversion opportunity</td>
+<td>Designed test with control and variant</td>
+<td>Test design reviewed and approved before launch at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A poorly isolated variant can be affected by an unrelated concurrent change on the same page</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-DC-05-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Execution and measurement</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Launch and run the test</b></td>
+<td>Digital Product Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Adobe Target<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Approved test design</td>
+<td>Live test collecting data</td>
+<td>Statistically significant sample reached within the planned test window at 85 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Traffic allocation has to balance statistical power against limiting exposure to an underperforming variant</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Monitor for early negative signal</b></td>
+<td>Digital Product Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Adobe Analytics<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Live test performance</td>
+<td>Early stop decision or continuation</td>
+<td>Reviewed daily during the test window at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Stopping too early on noisy early data risks a wrong rollout decision</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-DC-05-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Rollout decision</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Analyse results and decide rollout</b></td>
+<td>Digital Product Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Adobe Analytics<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Completed test data</td>
+<td>Rollout, iteration or discard decision</td>
+<td>Decision made within 5 business days of test conclusion at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A result that is statistically significant is not always commercially meaningful at the observed magnitude</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Digital Product Manager</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Adobe Target<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Adobe Analytics<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Test design reviewed and approved before launch at 100 percent</li><li>Statistically significant sample reached within the planned test window at 85 percent</li><li>Reviewed daily during the test window at 100 percent</li><li>Decision made within 5 business days of test conclusion at 100 percent</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>A poorly isolated test variant being affected by an unrelated concurrent page change</li><li>Stopping a test too early on noisy data and making the wrong rollout decision</li><li>A statistically significant result that is not commercially meaningful at the observed magnitude</li><li>Traffic allocation exposing too many customers to an underperforming variant before detection</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../customer-experience-channels/digital-channels/ac-cx-dc-04/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Digital Content Publication with English and French Parity</span></a>
+  <a class="next" href="../../../customer-experience-channels/digital-channels/ac-cx-dc-06/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Digital Channel Incident and Degraded Mode</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

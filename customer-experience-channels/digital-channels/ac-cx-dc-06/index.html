@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Digital Channel Incident and Degraded Mode &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Digital Channel Incident and Degraded Mode.">
+<title>AC-CX-DC-06 Digital Channel Incident and Degraded Mode &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-CX-DC-06 Digital Channel Incident and Degraded Mode.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../customer-experience-channels/digital-channels/ac-cx-dc-05/",next:"../../../customer-experience-channels/contact-centre/ac-cx-cc-01/"};
@@ -130,14 +130,145 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Customer Experience &amp; Channels</a><span class="sep">&rsaquo;</span><a href="../">Digital Channels</a><span class="sep">&rsaquo;</span><span class="cur">AC-CX-DC-06</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CX-DC-06" title="Click to copy the process ID">
     AC-CX-DC-06<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Digital Channel Incident and Degraded Mode</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Digital Channel Incident and Degraded Mode</h1>
+<p class="lede" id="overview">Digital channel incidents, including outages and degraded performance on aircanada.com or the mobile app, are detected, communicated and resolved, with a fallback path activated for affected customers.</p>
+<div class="callout"><span class="ct">Air Canada context</span>A digital channel outage does not stop customer demand, it just displaces it onto the contact centre and airport counters, so the incident response has to plan for that displacement, not only for the technical restoration.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A monitoring alert detects a digital channel outage or material performance degradation.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">Restored digital channel service, with affected customers informed and directed to an alternative channel during the incident.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Customer Experience &amp; Channels<br>
+    <span style="color:var(--text-muted);font-size:12px">Digital Channels</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">6 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-cx-dc-06.png" alt="Digital Channel Incident and Degraded Mode process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-CX-DC-06-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Detection and triage</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Detect and triage the incident</b></td>
+<td>Digital Platform Engineer</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Dynatrace<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Monitoring alert</td>
+<td>Triaged incident with severity classification</td>
+<td>Triaged within 5 minutes of detection at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Distinguishing a genuine customer-impacting outage from a monitoring false positive under pressure is difficult</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Activate the incident response</b></td>
+<td>Digital Platform Engineer</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Triaged incident</td>
+<td>Activated incident response with an incident commander</td>
+<td>Activated within 10 minutes of triage for severity 1 incidents at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Weekend and overnight incident response depends on on-call coverage that can be thinner than business hours</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-DC-06-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Customer communication and fallback</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Communicate status to affected customers</b></td>
+<td>Digital Platform Engineer</td>
+<td><span class="tag channel" data-tooltip="Primary direct digital channel, cloud-native on AWS. Undergoing redevelopment under the CDO. [Air Canada - evidence A]">aircanada.com<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Active incident</td>
+<td>Published status update</td>
+<td>First status update published within 15 minutes of activation at 90 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A status page hosted on the same infrastructure as the outage may itself be unavailable</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Redirect customers to a fallback channel</b></td>
+<td>Digital Platform Engineer</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Active incident</td>
+<td>Customers directed to contact centre or airport counter</td>
+<td>Fallback guidance published within 20 minutes of activation at 90 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Fallback redirection increases contact centre and airport volume that those channels may not be staffed to absorb</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-DC-06-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Restoration and review</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Restore service and confirm resolution</b></td>
+<td>Digital Platform Engineer</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Dynatrace<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Applied fix</td>
+<td>Confirmed restored service</td>
+<td>Restoration confirmed with monitoring evidence at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A fix that resolves the symptom without addressing the root cause risks recurrence</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Conduct post-incident review</b></td>
+<td>Digital Platform Engineer</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Resolved incident</td>
+<td>Documented review with root cause and follow-up actions</td>
+<td>Review conducted within 5 business days of resolution for severity 1 incidents at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Follow-up actions from a review are not always tracked through to actual completion</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Digital Platform Engineer</span><span class="lane-steps">1.1 1.2 2.1 2.2 3.1 3.2</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Dynatrace<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag channel" data-tooltip="Primary direct digital channel, cloud-native on AWS. Undergoing redevelopment under the CDO. [Air Canada - evidence A]">aircanada.com<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Triaged within 5 minutes of detection at 100 percent</li><li>First status update published within 15 minutes of activation at 90 percent</li><li>Restoration confirmed with monitoring evidence at 100 percent</li><li>Review conducted within 5 business days of resolution for severity 1 incidents at 100 percent</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>A digital outage displacing demand onto a contact centre and airport counters not staffed to absorb it</li><li>A status page hosted on the same infrastructure as the outage becoming unavailable at the worst moment</li><li>A fix resolving the symptom without addressing root cause, risking recurrence</li><li>Follow-up actions from a post-incident review not being tracked through to actual completion</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../customer-experience-channels/digital-channels/ac-cx-dc-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Digital Personalisation and Offer Targeting</span></a>
+  <a class="next" href="../../../customer-experience-channels/contact-centre/ac-cx-cc-01/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Inbound Service Call Handling</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Inbound Service Call Handling &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Inbound Service Call Handling.">
+<title>AC-CX-CC-01 Inbound Service Call Handling &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-CX-CC-01 Inbound Service Call Handling.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../customer-experience-channels/digital-channels/ac-cx-dc-06/",next:"../../../customer-experience-channels/contact-centre/ac-cx-cc-02/"};
@@ -130,14 +130,134 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Customer Experience &amp; Channels</a><span class="sep">&rsaquo;</span><a href="../">Contact Centre</a><span class="sep">&rsaquo;</span><span class="cur">AC-CX-CC-01</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CX-CC-01" title="Click to copy the process ID">
     AC-CX-CC-01<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Inbound Service Call Handling</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Inbound Service Call Handling</h1>
+<p class="lede" id="overview">An inbound customer service call is handled from IVR routing through resolution, on Amazon Connect with Salesforce Service Cloud Voice carrying the case record.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Air Canada&#x27;s contact centre handles a very high monthly IVR call volume, and the interaction record created here is what a later APPR determination or complaint investigation depends on being complete.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A customer calls the Air Canada contact centre for booking, servicing or general enquiry support.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A resolved or appropriately escalated customer interaction, logged as a case with full context available for any follow-up.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Customer Experience &amp; Channels<br>
+    <span style="color:var(--text-muted);font-size:12px">Contact Centre</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">5 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-cx-cc-01.png" alt="Inbound Service Call Handling process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-CX-CC-01-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Call routing</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Route call through IVR</b></td>
+<td>Contact Centre Agent</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Inbound call and customer input</td>
+<td>Routed call to the appropriate queue</td>
+<td>Correctly routed on first pass at 90 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>IVR menu depth that is too deep frustrates customers before they ever reach an agent</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Authenticate customer identity</b></td>
+<td>Contact Centre Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Booking reference or member number</td>
+<td>Authenticated customer context</td>
+<td>Authenticated within 30 seconds of connection at 95 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Authentication has to balance security against not making a distressed customer repeat information</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-CC-01-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Servicing</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Retrieve booking and loyalty context</b></td>
+<td>Contact Centre Agent</td>
+<td><span class="tag amadeus" data-tooltip="Customer profile and PNR servicing layer. Feeds case context to Salesforce. [Amadeus - evidence A]">Amadeus Altea Customer Management<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Authenticated identity</td>
+<td>Retrieved booking and member context</td>
+<td>Context retrieved within 15 seconds at 95 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Context spans several systems and does not always assemble into one agent-facing view</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Resolve the customer&#x27;s request</b></td>
+<td>Contact Centre Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Retrieved context and customer request</td>
+<td>Resolved request or identified escalation need</td>
+<td>First contact resolution above target for 75 percent of calls</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex multi-system requests, such as an Express-operator itinerary change, exceed a single agent&#x27;s system access</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-CC-01-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Case documentation</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Document the case record</b></td>
+<td>Contact Centre Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Resolved or escalated interaction</td>
+<td>Complete case record</td>
+<td>Documented within 2 minutes of call end at 90 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Documentation completeness under call-volume pressure is the first thing to suffer</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Contact Centre Agent</span><span class="lane-steps">1.1 1.2 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag amadeus" data-tooltip="Customer profile and PNR servicing layer. Feeds case context to Salesforce. [Amadeus - evidence A]">Amadeus Altea Customer Management<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Correctly routed on first pass at 90 percent</li><li>First contact resolution above target for 75 percent of calls</li><li>Documented within 2 minutes of call end at 90 percent</li><li>Average handle time within target while maintaining resolution quality</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Case documentation quality degrading under call-volume pressure, weakening later APPR evidence</li><li>A multi-system request such as an Express-operator change exceeding a single agent&#x27;s access</li><li>An IVR menu too deep for the situation, frustrating the customer before reaching an agent</li><li>Context assembled from several systems failing to present as one coherent agent view</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../customer-experience-channels/digital-channels/ac-cx-dc-06/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Digital Channel Incident and Degraded Mode</span></a>
+  <a class="next" href="../../../customer-experience-channels/contact-centre/ac-cx-cc-02/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">IVR Routing and Self Service Containment</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

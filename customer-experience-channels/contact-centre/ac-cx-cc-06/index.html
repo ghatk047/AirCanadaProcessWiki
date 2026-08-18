@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Secure Payment Capture in the Contact Centre &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Secure Payment Capture in the Contact Centre.">
+<title>AC-CX-CC-06 Secure Payment Capture in the Contact Centre &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-CX-CC-06 Secure Payment Capture in the Contact Centre.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../customer-experience-channels/contact-centre/ac-cx-cc-05/",next:"../../../customer-experience-channels/special-services-accessibility/ac-cx-ss-01/"};
@@ -130,14 +130,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Customer Experience &amp; Channels</a><span class="sep">&rsaquo;</span><a href="../">Contact Centre</a><span class="sep">&rsaquo;</span><span class="cur">AC-CX-CC-06</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CX-CC-06" title="Click to copy the process ID">
     AC-CX-CC-06<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Secure Payment Capture in the Contact Centre</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Secure Payment Capture in the Contact Centre</h1>
+<p class="lede" id="overview">Payment card details are captured and processed securely within the contact centre interaction, meeting PCI-DSS requirements while an agent remains on the call.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Secure payment capture exists specifically so the agent handling the call never sees or hears the full card number, which is what keeps a live voice interaction compliant with PCI-DSS.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A customer needs to provide payment during a live contact centre interaction.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A securely processed payment with cardholder data never exposed to the agent or retained outside the compliant payment pathway.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Customer Experience &amp; Channels<br>
+    <span style="color:var(--text-muted);font-size:12px">Contact Centre</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-cx-cc-06.png" alt="Secure Payment Capture in the Contact Centre process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-CX-CC-06-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Secure capture initiation</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Initiate secure payment capture</b></td>
+<td>Contact Centre Agent</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Customer readiness to pay</td>
+<td>Initiated secure capture session</td>
+<td>Initiated within the interaction without material delay at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A customer unfamiliar with the secure capture flow can be confused by the handoff from voice to keypad entry</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-CC-06-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Isolated payment processing</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Capture card data outside agent access</b></td>
+<td>Contact Centre Agent</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Customer keypad input</td>
+<td>Captured card data in the isolated payment channel</td>
+<td>100 percent of card data captured outside agent audio and screen access</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Any leakage of card data into the agent&#x27;s audio or screen path is a direct PCI-DSS violation</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Process payment authorisation</b></td>
+<td>Contact Centre Agent</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Captured card data</td>
+<td>Payment authorisation result</td>
+<td>Authorisation processed within 10 seconds at 97 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A failed authorisation requires the customer to re-enter card data through the same secure flow</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-CC-06-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Confirmation</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Confirm payment to the customer and agent</b></td>
+<td>Contact Centre Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Authorisation result</td>
+<td>Confirmed payment status visible to the agent</td>
+<td>Confirmation visible to the agent within 5 seconds of authorisation at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>The agent needs confirmation of success without ever seeing the underlying card data</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Contact Centre Agent</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>100 percent of card data captured outside agent audio and screen access</li><li>Authorisation processed within 10 seconds at 97 percent</li><li>Zero confirmed PCI-DSS scope violations from contact centre payment capture</li><li>Payment capture completion rate above target</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Any leakage of card data into the agent&#x27;s audio or screen path constituting a direct PCI-DSS violation</li><li>A customer unfamiliar with the secure capture handoff abandoning the payment mid-flow</li><li>A failed authorisation requiring a full re-entry through the same secure flow, frustrating the customer</li><li>The agent needing payment status confirmation without ever gaining visibility into the card data itself</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../customer-experience-channels/contact-centre/ac-cx-cc-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Contact Centre Capacity and Workforce Planning</span></a>
+  <a class="next" href="../../../customer-experience-channels/special-services-accessibility/ac-cx-ss-01/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Mobility Aid Handling and Tracking</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources
