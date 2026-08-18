@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Interface Design and API Lifecycle Management &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Interface Design and API Lifecycle Management.">
+<title>AC-IT-DE-02 Interface Design and API Lifecycle Management &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-IT-DE-02 Interface Design and API Lifecycle Management.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../information-technology-security/data-engineering-integration/ac-it-de-01/",next:"../../../information-technology-security/data-engineering-integration/ac-it-de-03/"};
@@ -129,14 +129,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Information Technology &amp; Security</a><span class="sep">&rsaquo;</span><a href="../">Data Engineering &amp; Integration</a><span class="sep">&rsaquo;</span><span class="cur">AC-IT-DE-02</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-IT-DE-02" title="Click to copy the process ID">
     AC-IT-DE-02<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Interface Design and API Lifecycle Management</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Interface Design and API Lifecycle Management</h1>
+<p class="lede" id="overview">An interface or API is designed, built and versioned across its lifecycle, governing how internal systems and external partners exchange data with Air Canada&#x27;s platforms.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Interface design decisions have a much longer lifespan than the project that originally created them, since other systems build dependencies on the interface&#x27;s specific behaviour that persist long after the original requirement is forgotten.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A new interface requirement is identified, or an existing interface requires a version change.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A documented, versioned interface meeting the consuming system&#x27;s requirements, deployed with appropriate backward compatibility.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Information Technology &amp; Security<br>
+    <span style="color:var(--text-muted);font-size:12px">Data Engineering &amp; Integration</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-it-de-02.png" alt="Interface Design and API Lifecycle Management process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-IT-DE-02-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Interface design</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Design the interface specification</b></td>
+<td>Integration Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Consumer requirement</td>
+<td>Designed interface specification</td>
+<td>Designed with documented versioning approach for 100 percent of new interfaces</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A design decision here has a much longer lifespan than the project that originally created it</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-DE-02-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Build and versioning</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Build and test the interface</b></td>
+<td>Integration Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Design specification</td>
+<td>Built and tested interface</td>
+<td>Tested against 100 percent of documented consumer scenarios before release</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Test coverage rarely spans every consumer&#x27;s actual usage pattern, only the documented ones</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Version and document the interface</b></td>
+<td>Integration Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Built interface</td>
+<td>Versioned and documented interface</td>
+<td>Documented for 100 percent of released interfaces at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Undocumented interface behaviour becomes tribal knowledge that is lost when the original team moves on</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-DE-02-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Deployment and lifecycle management</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Deploy with backward compatibility management</b></td>
+<td>Integration Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Versioned interface</td>
+<td>Deployed interface with compatibility plan</td>
+<td>Deployed without breaking an existing consumer at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Breaking a consumer that depends on old interface behaviour is a common cause of an unexpected downstream failure</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Integration Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Designed with documented versioning approach for 100 percent of new interfaces</li><li>Tested against 100 percent of documented consumer scenarios before release</li><li>Documented for 100 percent of released interfaces at 100 percent</li><li>Deployed without breaking an existing consumer at 100 percent</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>A design decision having a much longer lifespan than the project that originally created it</li><li>Test coverage spanning only documented consumer scenarios, not every actual usage pattern</li><li>Undocumented interface behaviour becoming tribal knowledge lost when the original team moves on</li><li>Breaking an existing consumer that depends on old behaviour causing an unexpected downstream failure</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../information-technology-security/data-engineering-integration/ac-it-de-01/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Source System Ingestion to the Lakehouse</span></a>
+  <a class="next" href="../../../information-technology-security/data-engineering-integration/ac-it-de-03/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Type B and EDIFACT Message Gateway Operations</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

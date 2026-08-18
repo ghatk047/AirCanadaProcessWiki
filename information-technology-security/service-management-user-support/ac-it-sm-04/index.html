@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Configuration Management and CMDB Assurance &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Configuration Management and CMDB Assurance.">
+<title>AC-IT-SM-04 Configuration Management and CMDB Assurance &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-IT-SM-04 Configuration Management and CMDB Assurance.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../information-technology-security/service-management-user-support/ac-it-sm-03/",next:"../../../information-technology-security/service-management-user-support/ac-it-sm-05/"};
@@ -129,14 +129,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Information Technology &amp; Security</a><span class="sep">&rsaquo;</span><a href="../">Service Management &amp; User Support</a><span class="sep">&rsaquo;</span><span class="cur">AC-IT-SM-04</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-IT-SM-04" title="Click to copy the process ID">
     AC-IT-SM-04<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Configuration Management and CMDB Assurance</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Configuration Management and CMDB Assurance</h1>
+<p class="lede" id="overview">The configuration management database is maintained as the authoritative record of IT assets and their relationships, kept current as systems are deployed, changed and retired.</p>
+<div class="callout"><span class="ct">Air Canada context</span>A CMDB that has drifted from reality is worse than no CMDB at all, since incident responders and change planners make decisions trusting it, and a wrong assumption sourced from a stale record can actively mislead a response under pressure.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A system or asset is deployed, materially changed or retired, requiring a CMDB update.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">An accurate, current CMDB reflecting the actual state of IT assets and their interdependencies.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Information Technology &amp; Security<br>
+    <span style="color:var(--text-muted);font-size:12px">Service Management &amp; User Support</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-it-sm-04.png" alt="Configuration Management and CMDB Assurance process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-IT-SM-04-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Asset lifecycle tracking</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Update CMDB on asset deployment or change</b></td>
+<td>IT Asset Coordinator</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Deployed or changed asset</td>
+<td>Updated CMDB entry</td>
+<td>Updated within 5 business days of the change at 90 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Updates depend on teams remembering to report a change, which is not always the first priority during a deployment</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-SM-04-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Relationship mapping</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Map asset relationships and dependencies</b></td>
+<td>IT Asset Coordinator</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Updated asset entry</td>
+<td>Mapped relationship and dependency data</td>
+<td>Mapped for 100 percent of material assets at 90 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Dependency mapping for a complex integration is genuinely difficult to capture completely and accurately</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Retire asset records on decommission</b></td>
+<td>IT Asset Coordinator</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Decommissioned asset</td>
+<td>Retired CMDB entry</td>
+<td>Retired within 5 business days of decommission at 90 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A retired system left active in the CMDB misleads future incident and change decisions</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-SM-04-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Currency assurance</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Audit CMDB accuracy against actual state</b></td>
+<td>IT Asset Coordinator</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>CMDB records and actual infrastructure state</td>
+<td>Audit findings with corrections</td>
+<td>Audited on a recurring cycle for 100 percent of critical systems at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A CMDB drifted from reality is worse than no CMDB, since responders make decisions trusting a wrong record</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>IT Asset Coordinator</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Updated within 5 business days of the change at 90 percent</li><li>Mapped for 100 percent of material assets at 90 percent</li><li>Retired within 5 business days of decommission at 90 percent</li><li>Audited on a recurring cycle for 100 percent of critical systems at 100 percent</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>A CMDB drifted from reality being worse than no CMDB, since responders trust a wrong record under pressure</li><li>Updates depending on teams remembering to report a change, not always a priority during a deployment</li><li>A retired system left active in the CMDB misleading future incident and change decisions</li><li>Dependency mapping for a complex integration being genuinely difficult to capture completely</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../information-technology-security/service-management-user-support/ac-it-sm-03/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Change and Release Management</span></a>
+  <a class="next" href="../../../information-technology-security/service-management-user-support/ac-it-sm-05/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Service Level Management and Vendor Governance</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

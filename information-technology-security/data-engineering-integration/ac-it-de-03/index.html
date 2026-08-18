@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Type B and EDIFACT Message Gateway Operations &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Type B and EDIFACT Message Gateway Operations.">
+<title>AC-IT-DE-03 Type B and EDIFACT Message Gateway Operations &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-IT-DE-03 Type B and EDIFACT Message Gateway Operations.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../information-technology-security/data-engineering-integration/ac-it-de-02/",next:"../../../information-technology-security/data-engineering-integration/ac-it-de-04/"};
@@ -129,14 +129,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Information Technology &amp; Security</a><span class="sep">&rsaquo;</span><a href="../">Data Engineering &amp; Integration</a><span class="sep">&rsaquo;</span><span class="cur">AC-IT-DE-03</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-IT-DE-03" title="Click to copy the process ID">
     AC-IT-DE-03<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Type B and EDIFACT Message Gateway Operations</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Type B and EDIFACT Message Gateway Operations</h1>
+<p class="lede" id="overview">IATA Type-B and EDIFACT airline messaging is operated and monitored, the legacy but still load-bearing messaging layer underneath schedule, PNL, ADL and interline communication across the estate.</p>
+<div class="callout"><span class="ct">Air Canada context</span>This messaging standard predates almost every other integration pattern in the estate but still carries genuinely load-bearing traffic, schedule change, PNL and ADL, which means an outage here has consequences that reach all the way back to network planning and departure control.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">The Type-B and EDIFACT messaging gateway processes a continuous stream of industry airline messages.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">Continuous, reliable operation of the messaging gateway, with any interruption detected and resolved before it disrupts a dependent operational process.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Information Technology &amp; Security<br>
+    <span style="color:var(--text-muted);font-size:12px">Data Engineering &amp; Integration</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-it-de-03.png" alt="Type B and EDIFACT Message Gateway Operations process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-IT-DE-03-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Message flow monitoring</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Monitor message flow through the gateway</b></td>
+<td>Integration Analyst</td>
+<td><span class="tag iata" data-tooltip="Legacy airline teletype messaging: PNL, ADL, BSM, LDM, MVT. Still load-bearing across the estate. [IATA - evidence C]">IATA Type-B Messaging<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Continuous message traffic</td>
+<td>Monitored flow status</td>
+<td>Monitored continuously with 100 percent coverage</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Message volume and format variety across the whole industry make comprehensive monitoring genuinely complex</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-DE-03-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Issue detection and resolution</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Detect message delivery failure or delay</b></td>
+<td>Integration Analyst</td>
+<td><span class="tag iata" data-tooltip="Legacy airline teletype messaging: PNL, ADL, BSM, LDM, MVT. Still load-bearing across the estate. [IATA - evidence C]">IATA Type-B Messaging<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Monitored flow</td>
+<td>Detected failure or delay</td>
+<td>Detected within 5 minutes of a material delay at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A delayed schedule or PNL message has downstream consequences that reach back into network planning and departure control</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Resolve the delivery issue</b></td>
+<td>Integration Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Detected issue</td>
+<td>Resolved delivery</td>
+<td>Resolved within the defined service level at 90 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Resolution can depend on a third-party message routing provider outside Air Canada&#x27;s direct control</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-DE-03-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Reliability reporting</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Report gateway reliability performance</b></td>
+<td>Integration Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Resolved and ongoing issues</td>
+<td>Reliability performance report</td>
+<td>Reported each reporting cycle at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>This messaging layer is old enough that its reliability is sometimes assumed rather than actively measured</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Integration Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag iata" data-tooltip="Legacy airline teletype messaging: PNL, ADL, BSM, LDM, MVT. Still load-bearing across the estate. [IATA - evidence C]">IATA Type-B Messaging<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Monitored continuously with 100 percent coverage</li><li>Detected within 5 minutes of a material delay at 100 percent</li><li>Resolved within the defined service level at 90 percent</li><li>Gateway uptime meeting target each reporting cycle</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>A delayed schedule or PNL message having downstream consequences reaching back into network planning</li><li>Resolution depending on a third-party message routing provider outside Air Canada&#x27;s direct control</li><li>This legacy messaging layer&#x27;s reliability being assumed rather than actively measured given its age</li><li>Message volume and format variety across the whole industry making comprehensive monitoring genuinely complex</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../information-technology-security/data-engineering-integration/ac-it-de-02/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Interface Design and API Lifecycle Management</span></a>
+  <a class="next" href="../../../information-technology-security/data-engineering-integration/ac-it-de-04/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Data Quality Monitoring and Remediation</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

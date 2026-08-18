@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Identity and Access Lifecycle Management &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Identity and Access Lifecycle Management.">
+<title>AC-IT-CS-01 Identity and Access Lifecycle Management &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-IT-CS-01 Identity and Access Lifecycle Management.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../information-technology-security/service-management-user-support/ac-it-sm-05/",next:"../../../information-technology-security/cybersecurity-identity/ac-it-cs-02/"};
@@ -129,14 +129,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Information Technology &amp; Security</a><span class="sep">&rsaquo;</span><a href="../">Cybersecurity &amp; Identity</a><span class="sep">&rsaquo;</span><span class="cur">AC-IT-CS-01</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-IT-CS-01" title="Click to copy the process ID">
     AC-IT-CS-01<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Identity and Access Lifecycle Management</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Identity and Access Lifecycle Management</h1>
+<p class="lede" id="overview">An employee&#x27;s access is provisioned, modified and deprovisioned through the identity and access lifecycle, matching system access to the employee&#x27;s current role and employment status.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Deprovisioning speed at departure is the highest-consequence part of this process: access that should have been revoked at termination but was not is a live security exposure for exactly as long as it takes to notice.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">An employee joins, changes role, or leaves Air Canada, triggering an access lifecycle event.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">Access correctly provisioned for a new or changed role, and promptly revoked on departure, with no orphaned access remaining.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Information Technology &amp; Security<br>
+    <span style="color:var(--text-muted);font-size:12px">Cybersecurity &amp; Identity</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-it-cs-01.png" alt="Identity and Access Lifecycle Management process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-IT-CS-01-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Access request and approval</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Request access against role requirement</b></td>
+<td>IT Access Coordinator</td>
+<td><span class="tag unknown" data-tooltip="Employee SSO, MFA and privileged access. Product UNCONFIRMED. Note: SAP CDC covers customer identity only.">Workforce Identity<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>New hire, role change or system need</td>
+<td>Registered access request</td>
+<td>Registered within 1 business day of the triggering event at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Access requirements are not always fully specified for a genuinely new role</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-CS-01-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Provisioning</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Approve access against least privilege</b></td>
+<td>IT Access Coordinator</td>
+<td><span class="tag unknown" data-tooltip="Employee SSO, MFA and privileged access. Product UNCONFIRMED. Note: SAP CDC covers customer identity only.">Workforce Identity<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Registered request</td>
+<td>Approved or declined access</td>
+<td>Approved within the defined service level at 90 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Approval under time pressure to unblock a new employee can favour broader access than the role strictly requires</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Provision approved access</b></td>
+<td>IT Access Coordinator</td>
+<td><span class="tag unknown" data-tooltip="Employee SSO, MFA and privileged access. Product UNCONFIRMED. Note: SAP CDC covers customer identity only.">Workforce Identity<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Approved access request</td>
+<td>Provisioned access</td>
+<td>Provisioned within 1 business day of approval at 95 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A provisioning delay for a new employee&#x27;s first day generates avoidable friction and support volume</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-CS-01-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Deprovisioning on departure</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Deprovision access on departure</b></td>
+<td>IT Access Coordinator</td>
+<td><span class="tag unknown" data-tooltip="Employee SSO, MFA and privileged access. Product UNCONFIRMED. Note: SAP CDC covers customer identity only.">Workforce Identity<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Departure notification</td>
+<td>Revoked access across all systems</td>
+<td>Revoked within 4 hours of the departure effective time at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Access not revoked at termination is a live security exposure for exactly as long as it takes to notice</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>IT Access Coordinator</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag unknown" data-tooltip="Employee SSO, MFA and privileged access. Product UNCONFIRMED. Note: SAP CDC covers customer identity only.">Workforce Identity<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Registered within 1 business day of the triggering event at 100 percent</li><li>Provisioned within 1 business day of approval at 95 percent</li><li>Revoked within 4 hours of the departure effective time at 100 percent</li><li>Zero orphaned access accounts found in a periodic access review</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Access not revoked at termination being a live security exposure for as long as it takes to notice</li><li>Approval under time pressure favouring broader access than the role strictly requires</li><li>Access requirements not being fully specified for a genuinely new role</li><li>A provisioning delay on a new employee&#x27;s first day generating avoidable friction and support volume</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../information-technology-security/service-management-user-support/ac-it-sm-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Service Level Management and Vendor Governance</span></a>
+  <a class="next" href="../../../information-technology-security/cybersecurity-identity/ac-it-cs-02/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Privileged Access and Credential Control</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

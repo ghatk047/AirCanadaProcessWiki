@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Privileged Access and Credential Control &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Privileged Access and Credential Control.">
+<title>AC-IT-CS-02 Privileged Access and Credential Control &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-IT-CS-02 Privileged Access and Credential Control.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../information-technology-security/cybersecurity-identity/ac-it-cs-01/",next:"../../../information-technology-security/cybersecurity-identity/ac-it-cs-03/"};
@@ -129,14 +129,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Information Technology &amp; Security</a><span class="sep">&rsaquo;</span><a href="../">Cybersecurity &amp; Identity</a><span class="sep">&rsaquo;</span><span class="cur">AC-IT-CS-02</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-IT-CS-02" title="Click to copy the process ID">
     AC-IT-CS-02<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Privileged Access and Credential Control</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Privileged Access and Credential Control</h1>
+<p class="lede" id="overview">Privileged access to sensitive systems is granted, time-bounded and monitored, requiring a higher standard of control than standard employee access given the elevated risk of misuse.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Privileged access is the highest-value target for both external attackers and insider risk, which is why the standard here, time-bounded and monitored rather than standing, is deliberately stricter than the standard employee access lifecycle.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">An administrator or engineer requires privileged access to perform a specific task.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">Privileged access granted for the minimum necessary duration, monitored during use, and automatically expired.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Information Technology &amp; Security<br>
+    <span style="color:var(--text-muted);font-size:12px">Cybersecurity &amp; Identity</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-it-cs-02.png" alt="Privileged Access and Credential Control process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-IT-CS-02-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Privileged access request</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Request privileged access for a specific task</b></td>
+<td>Security Operations Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CyberArk<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Specific administrative task requiring elevated access</td>
+<td>Registered privileged access request</td>
+<td>Registered with a documented business justification for 100 percent of requests</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A justification too vague to evaluate can still be approved under operational time pressure</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-CS-02-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Time-bounded grant</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Grant time-bounded privileged access</b></td>
+<td>Security Operations Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CyberArk<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Justified request</td>
+<td>Granted access with defined expiry</td>
+<td>100 percent of privileged grants carry an explicit expiry, none standing indefinitely</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Standing privileged access, rather than time-bounded, is the single highest-risk configuration in the identity estate</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Monitor privileged session activity</b></td>
+<td>Security Operations Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CyberArk<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Active privileged session</td>
+<td>Monitored session activity</td>
+<td>100 percent of privileged sessions logged and monitored</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Monitoring without active review is a record after the fact, not a real-time control</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-CS-02-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Monitoring and expiry</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Expire access and confirm revocation</b></td>
+<td>Security Operations Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CyberArk<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Expiry reached</td>
+<td>Confirmed revoked access</td>
+<td>Zero privileged grants remaining active past their expiry at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>An expiry that is not system-enforced depends entirely on manual follow-through to actually take effect</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Security Operations Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CyberArk<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>100 percent of privileged grants carry an explicit expiry, none standing indefinitely</li><li>100 percent of privileged sessions logged and monitored</li><li>Zero privileged grants remaining active past their expiry at 100 percent</li><li>Privileged access requests with a documented business justification at 100 percent</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Standing privileged access, rather than time-bounded, being the single highest-risk identity configuration</li><li>A justification too vague to genuinely evaluate still being approved under operational time pressure</li><li>Monitoring without active review being a record after the fact rather than a real-time control</li><li>An expiry not system-enforced depending entirely on manual follow-through to actually take effect</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../information-technology-security/cybersecurity-identity/ac-it-cs-01/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Identity and Access Lifecycle Management</span></a>
+  <a class="next" href="../../../information-technology-security/cybersecurity-identity/ac-it-cs-03/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Security Monitoring and Threat Detection</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

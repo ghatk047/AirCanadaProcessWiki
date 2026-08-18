@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Service Request and End User Support &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Service Request and End User Support.">
+<title>AC-IT-SM-02 Service Request and End User Support &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-IT-SM-02 Service Request and End User Support.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../information-technology-security/service-management-user-support/ac-it-sm-01/",next:"../../../information-technology-security/service-management-user-support/ac-it-sm-03/"};
@@ -129,14 +129,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Information Technology &amp; Security</a><span class="sep">&rsaquo;</span><a href="../">Service Management &amp; User Support</a><span class="sep">&rsaquo;</span><span class="cur">AC-IT-SM-02</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-IT-SM-02" title="Click to copy the process ID">
     AC-IT-SM-02<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Service Request and End User Support</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Service Request and End User Support</h1>
+<p class="lede" id="overview">An employee service request, from access provisioning to a hardware request, is submitted, fulfilled and closed through the standard service request channel.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Service request volume at a company of roughly 35,000 employees is high enough that fulfilment consistency, not any single request, is what actually determines whether the function is perceived as reliable.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">An employee submits a service request through the ITSM portal or the service desk.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A fulfilled service request closed within the standard service level, with the requesting employee confirmed satisfied.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Information Technology &amp; Security<br>
+    <span style="color:var(--text-muted);font-size:12px">Service Management &amp; User Support</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-it-sm-02.png" alt="Service Request and End User Support process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-IT-SM-02-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Request submission and validation</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Submit and validate the request</b></td>
+<td>IT Service Desk Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Employee submitted request</td>
+<td>Validated request with approval where required</td>
+<td>Validated within 4 business hours of submission at 95 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Requests requiring manager approval add a dependency outside the service desk&#x27;s direct control</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-SM-02-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Fulfilment</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Fulfil the request</b></td>
+<td>IT Service Desk Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Validated request</td>
+<td>Fulfilled request</td>
+<td>Fulfilled within the standard service level for the request type at 90 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Fulfilment time varies materially by request type, from a quick access change to a hardware procurement</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-SM-02-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Closure confirmation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Confirm closure with the requester</b></td>
+<td>IT Service Desk Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Fulfilled request</td>
+<td>Confirmed closed request</td>
+<td>Confirmed within 1 business day of fulfilment at 90 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A request closed without confirmation risks being marked complete when the employee&#x27;s actual need was not met</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Capture satisfaction feedback</b></td>
+<td>IT Service Desk Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Confirmed closure</td>
+<td>Captured satisfaction rating</td>
+<td>Captured for 60 percent of closed requests</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Satisfaction feedback response rate is inherently voluntary and skews toward strongly positive or negative experiences</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>IT Service Desk Analyst</span><span class="lane-steps">1.1 2.1 3.1 3.2</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Validated within 4 business hours of submission at 95 percent</li><li>Fulfilled within the standard service level for the request type at 90 percent</li><li>Confirmed within 1 business day of fulfilment at 90 percent</li><li>Employee satisfaction score on closed requests meeting target</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>A request closed without confirmation risking being marked complete when the actual need was not met</li><li>Requests requiring manager approval adding a dependency outside the service desk&#x27;s direct control</li><li>Fulfilment consistency across a very high request volume mattering more than any single request</li><li>Fulfilment time varying materially by request type without a clearly communicated expectation</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../information-technology-security/service-management-user-support/ac-it-sm-01/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Incident Management and Major Incident Command</span></a>
+  <a class="next" href="../../../information-technology-security/service-management-user-support/ac-it-sm-03/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Change and Release Management</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

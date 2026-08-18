@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Service Level Management and Vendor Governance &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Service Level Management and Vendor Governance.">
+<title>AC-IT-SM-05 Service Level Management and Vendor Governance &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-IT-SM-05 Service Level Management and Vendor Governance.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../information-technology-security/service-management-user-support/ac-it-sm-04/",next:"../../../information-technology-security/cybersecurity-identity/ac-it-cs-01/"};
@@ -129,14 +129,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Information Technology &amp; Security</a><span class="sep">&rsaquo;</span><a href="../">Service Management &amp; User Support</a><span class="sep">&rsaquo;</span><span class="cur">AC-IT-SM-05</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-IT-SM-05" title="Click to copy the process ID">
     AC-IT-SM-05<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Service Level Management and Vendor Governance</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Service Level Management and Vendor Governance</h1>
+<p class="lede" id="overview">Vendor and managed service provider performance is governed against contracted service levels, covering the specific unconfirmed but assumed application management and infrastructure vendor relationships this wiki exists to help win.</p>
+<div class="callout"><span class="ct">Air Canada context</span>This is the exact process an application management and user support engagement would be measured against, which makes it the most self-referential process in the wiki: the discipline described here is the discipline this sales artifact is arguing Air Canada should trust a new vendor to deliver.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">The recurring vendor governance review cycle runs, or a service level breach is identified.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">Vendor performance assessed against contracted service levels, with underperformance addressed through the contract&#x27;s defined governance mechanism.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Information Technology &amp; Security<br>
+    <span style="color:var(--text-muted);font-size:12px">Service Management &amp; User Support</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-it-sm-05.png" alt="Service Level Management and Vendor Governance process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-IT-SM-05-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Performance data compilation</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Compile vendor performance data</b></td>
+<td>Vendor Governance Manager</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Service delivery data against contract terms</td>
+<td>Compiled performance data</td>
+<td>Compiled within 5 business days of period close at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Performance data quality depends partly on the vendor&#x27;s own reporting, which is not independently verified in every instance</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-SM-05-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Service level assessment</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Assess against contracted service levels</b></td>
+<td>Vendor Governance Manager</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Compiled data and contract terms</td>
+<td>Service level assessment</td>
+<td>Assessed for 100 percent of governed vendors each cycle at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Service levels negotiated years earlier may no longer reflect the operational priorities that matter most today</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Identify underperformance requiring escalation</b></td>
+<td>Vendor Governance Manager</td>
+<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Assessment results</td>
+<td>Identified underperformance pattern</td>
+<td>Identified within 10 business days of assessment at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A single service level breach is different from a persistent pattern and needs a different response</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-SM-05-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Governance action</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Escalate per the governance framework</b></td>
+<td>Vendor Governance Manager</td>
+<td><span class="tag sap" data-tooltip="Source-to-pay, supplier management and contract compliance. [SAP - evidence A]">SAP Ariba<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Identified pattern</td>
+<td>Escalated case with contractual remedy</td>
+<td>Escalated within the contract&#x27;s defined timeframe at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Vendor performance is entirely dependent on governance mechanisms working as designed, since direct operational authority does not exist</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Vendor Governance Manager</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag sap" data-tooltip="Source-to-pay, supplier management and contract compliance. [SAP - evidence A]">SAP Ariba<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Compiled within 5 business days of period close at 100 percent</li><li>Assessed for 100 percent of governed vendors each cycle at 100 percent</li><li>Identified within 10 business days of assessment at 100 percent</li><li>Escalated within the contract&#x27;s defined timeframe at 100 percent</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Performance data quality depending partly on the vendor&#x27;s own reporting, not independently verified in every instance</li><li>Service levels negotiated years earlier no longer reflecting today&#x27;s actual operational priorities</li><li>Vendor performance being entirely dependent on governance mechanisms working as designed</li><li>A single breach being treated the same as a persistent underperformance pattern</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../information-technology-security/service-management-user-support/ac-it-sm-04/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Configuration Management and CMDB Assurance</span></a>
+  <a class="next" href="../../../information-technology-security/cybersecurity-identity/ac-it-cs-01/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Identity and Access Lifecycle Management</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

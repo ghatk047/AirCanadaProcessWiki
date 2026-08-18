@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Security Monitoring and Threat Detection &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Security Monitoring and Threat Detection.">
+<title>AC-IT-CS-03 Security Monitoring and Threat Detection &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-IT-CS-03 Security Monitoring and Threat Detection.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../information-technology-security/cybersecurity-identity/ac-it-cs-02/",next:"../../../information-technology-security/cybersecurity-identity/ac-it-cs-04/"};
@@ -129,14 +129,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Information Technology &amp; Security</a><span class="sep">&rsaquo;</span><a href="../">Cybersecurity &amp; Identity</a><span class="sep">&rsaquo;</span><span class="cur">AC-IT-CS-03</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-IT-CS-03" title="Click to copy the process ID">
     AC-IT-CS-03<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Security Monitoring and Threat Detection</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Security Monitoring and Threat Detection</h1>
+<p class="lede" id="overview">Security monitoring detects and triages a potential threat across the IT estate, distinguishing a genuine security event from noise before it reaches full incident response.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Alert volume at enterprise scale is high enough that triage quality, not detection coverage alone, determines whether a genuine threat gets timely attention or is lost in noise the monitoring system generates by design.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A security monitoring alert is generated from any monitored system or network segment.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A triaged security alert either dismissed as a false positive with documented reasoning, or escalated into the security incident response process.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Information Technology &amp; Security<br>
+    <span style="color:var(--text-muted);font-size:12px">Cybersecurity &amp; Identity</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-it-cs-03.png" alt="Security Monitoring and Threat Detection process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-IT-CS-03-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Alert generation and initial triage</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Generate and receive security alert</b></td>
+<td>Security Operations Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Crowdstrike Falcon<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Monitored system or network activity</td>
+<td>Generated alert</td>
+<td>Received by the security operations function within 1 minute of generation at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Alert volume at enterprise scale is high enough that individual review depth is inherently constrained</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-CS-03-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Threat assessment</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Perform initial triage against known patterns</b></td>
+<td>Security Operations Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Splunk<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Generated alert</td>
+<td>Initial triage classification</td>
+<td>Triaged within 15 minutes of receipt at 90 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Triage quality, not detection coverage alone, determines whether a genuine threat gets timely attention</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Assess genuine threat indicators</b></td>
+<td>Security Operations Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Splunk<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Triaged alert requiring deeper review</td>
+<td>Threat assessment</td>
+<td>Assessed within 1 hour of triage for elevated-priority alerts at 90 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A genuine threat assessed too slowly gives an attacker additional time inside the environment</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-CS-03-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Escalation or dismissal</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Escalate to incident response or dismiss with documentation</b></td>
+<td>Security Operations Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Threat assessment</td>
+<td>Escalated incident or documented dismissal</td>
+<td>100 percent of assessed alerts closed with a documented outcome</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>An undocumented dismissal cannot be reviewed later if the same pattern recurs and turns out to be genuine</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Security Operations Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Crowdstrike Falcon<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Splunk<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Received by the security operations function within 1 minute of generation at 100 percent</li><li>Triaged within 15 minutes of receipt at 90 percent</li><li>Assessed within 1 hour of triage for elevated-priority alerts at 90 percent</li><li>100 percent of assessed alerts closed with a documented outcome</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Triage quality, not detection coverage alone, determining whether a genuine threat gets timely attention</li><li>A genuine threat assessed too slowly giving an attacker additional time inside the environment</li><li>Alert volume at enterprise scale inherently constraining the depth of individual review</li><li>An undocumented dismissal being unreviewable later if the same pattern recurs and proves genuine</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../information-technology-security/cybersecurity-identity/ac-it-cs-02/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Privileged Access and Credential Control</span></a>
+  <a class="next" href="../../../information-technology-security/cybersecurity-identity/ac-it-cs-04/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Vulnerability Management and Patch Assurance</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

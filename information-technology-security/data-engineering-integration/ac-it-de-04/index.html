@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Data Quality Monitoring and Remediation &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Data Quality Monitoring and Remediation.">
+<title>AC-IT-DE-04 Data Quality Monitoring and Remediation &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-IT-DE-04 Data Quality Monitoring and Remediation.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../information-technology-security/data-engineering-integration/ac-it-de-03/",next:"../../../information-technology-security/data-engineering-integration/ac-it-de-05/"};
@@ -129,14 +129,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Information Technology &amp; Security</a><span class="sep">&rsaquo;</span><a href="../">Data Engineering &amp; Integration</a><span class="sep">&rsaquo;</span><span class="cur">AC-IT-DE-04</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-IT-DE-04" title="Click to copy the process ID">
     AC-IT-DE-04<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Data Quality Monitoring and Remediation</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Data Quality Monitoring and Remediation</h1>
+<p class="lede" id="overview">Data quality across the lakehouse is monitored on a standing basis, independent of any individual pipeline&#x27;s own validation, catching a data quality issue that crosses multiple source systems.</p>
+<div class="callout"><span class="ct">Air Canada context</span>An individual pipeline&#x27;s own quality check, as in AC-IT-DE-01, cannot catch an inconsistency that only becomes visible when data from two different source systems is compared, which is what this standing monitoring layer exists to find.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">The recurring cross-system data quality monitoring cycle runs.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A data quality report identifying issues that individual pipeline validation alone would not catch, routed to the appropriate data owner for remediation.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Information Technology &amp; Security<br>
+    <span style="color:var(--text-muted);font-size:12px">Data Engineering &amp; Integration</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-it-de-04.png" alt="Data Quality Monitoring and Remediation process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-IT-DE-04-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Cross-system quality screening</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Screen for cross-system data inconsistency</b></td>
+<td>Data Engineer</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Data from multiple ingested source systems</td>
+<td>Screened inconsistency findings</td>
+<td>Screened for 100 percent of defined cross-system checks each cycle</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A cross-system check depends on both source systems&#x27; data being genuinely comparable in the first place</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-DE-04-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Issue investigation</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Investigate flagged inconsistencies</b></td>
+<td>Data Engineer</td>
+<td><span class="tag databricks" data-tooltip="Lakehouse governance, lineage and access control. Foundation for governed AI grounding. [Databricks - evidence C]">Unity Catalog<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Screening findings</td>
+<td>Investigated root cause</td>
+<td>Investigated within 5 business days of flagging at 90 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Root cause can sit in either source system or in the transformation logic joining them, complicating diagnosis</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-DE-04-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Remediation routing</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Route remediation to the responsible data owner</b></td>
+<td>Data Engineer</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Investigated finding</td>
+<td>Routed remediation with an owner</td>
+<td>Routed within 2 business days of investigation at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A finding routed without a clear owner defaults to being unresolved across data quality review cycles</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Track remediation to closure</b></td>
+<td>Data Engineer</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Routed remediation</td>
+<td>Closed remediation record</td>
+<td>Closed within the defined timeframe for 90 percent of routed findings</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A remediation not tracked to closure can recur in the next standing screening cycle unresolved</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Data Engineer</span><span class="lane-steps">1.1 2.1 3.1 3.2</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag databricks" data-tooltip="Lakehouse governance, lineage and access control. Foundation for governed AI grounding. [Databricks - evidence C]">Unity Catalog<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Screened for 100 percent of defined cross-system checks each cycle</li><li>Investigated within 5 business days of flagging at 90 percent</li><li>Routed within 2 business days of investigation at 100 percent</li><li>Cross-system data quality issues resolved within one review cycle at target rate</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>A finding routed without a clear owner defaulting to being unresolved across data quality review cycles</li><li>Root cause sitting in either source system or the transformation logic joining them, complicating diagnosis</li><li>A cross-system check depending on both source systems&#x27; data being genuinely comparable in the first place</li><li>An inconsistency only becoming visible when compared across systems, invisible to any single pipeline check</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../information-technology-security/data-engineering-integration/ac-it-de-03/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Type B and EDIFACT Message Gateway Operations</span></a>
+  <a class="next" href="../../../information-technology-security/data-engineering-integration/ac-it-de-05/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Cloudera to Databricks Migration Execution</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

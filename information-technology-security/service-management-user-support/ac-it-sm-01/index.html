@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Incident Management and Major Incident Command &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Incident Management and Major Incident Command.">
+<title>AC-IT-SM-01 Incident Management and Major Incident Command &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-IT-SM-01 Incident Management and Major Incident Command.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../air-canada-cargo/cargo-revenue-performance/ac-cg-cp-05/",next:"../../../information-technology-security/service-management-user-support/ac-it-sm-02/"};
@@ -129,14 +129,134 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Information Technology &amp; Security</a><span class="sep">&rsaquo;</span><a href="../">Service Management &amp; User Support</a><span class="sep">&rsaquo;</span><span class="cur">AC-IT-SM-01</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-IT-SM-01" title="Click to copy the process ID">
     AC-IT-SM-01<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Incident Management and Major Incident Command</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Incident Management and Major Incident Command</h1>
+<p class="lede" id="overview">An IT incident is detected, triaged and resolved, with a major incident command structure mobilised for anything materially affecting operations, drawing on the same discipline the June 2023 outage exposed as underdeveloped.</p>
+<div class="callout"><span class="ct">Air Canada context</span>This process is the same discipline referenced across the operational domains, AC-CX-DC-06 and AC-FO-OC-06, applied at the enterprise IT level; the difference is scale and the specific systems involved rather than the underlying incident management principle.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A monitoring alert or user report indicates an IT service disruption.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A resolved incident with service restored, and for a major incident, a command structure that coordinated the response and a documented post-incident review.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Information Technology &amp; Security<br>
+    <span style="color:var(--text-muted);font-size:12px">Service Management &amp; User Support</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">5 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-it-sm-01.png" alt="Incident Management and Major Incident Command process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-IT-SM-01-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Detection and triage</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Detect and log the incident</b></td>
+<td>IT Service Desk Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Monitoring alert or user report</td>
+<td>Logged incident with initial severity</td>
+<td>Logged within 5 minutes of detection at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Initial severity classification under uncertainty tends toward caution, which can over-trigger major incident process</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Triage and assign the incident</b></td>
+<td>IT Service Desk Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Logged incident</td>
+<td>Triaged incident with assigned owner</td>
+<td>Triaged within 15 minutes of logging at 95 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>An incident affecting a shared platform can be misassigned to a single team when it is actually cross-functional</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-SM-01-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Major incident mobilisation</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Mobilise major incident command for severity 1</b></td>
+<td>Incident Commander</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Severity 1 classification</td>
+<td>Mobilised incident command</td>
+<td>Mobilised within 10 minutes of severity 1 classification at 100 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Effective incident command depends on rehearsed procedure, not just a role being assigned in the moment</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-SM-01-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Resolution and review</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Resolve the incident</b></td>
+<td>IT Service Desk Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Diagnosed cause</td>
+<td>Applied fix with confirmed resolution</td>
+<td>Resolved within the defined service level for the severity at 90 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A fix that resolves the symptom without addressing root cause risks recurrence</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Conduct post-incident review for major incidents</b></td>
+<td>Incident Commander</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Resolved severity 1 incident</td>
+<td>Documented review with root cause and actions</td>
+<td>Conducted within 5 business days of resolution at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Follow-up actions from a review are not always tracked through to actual completion</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>IT Service Desk Analyst</span><span class="lane-steps">1.1 1.2 3.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Incident Commander</span><span class="lane-steps">2.1 3.2</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Logged within 5 minutes of detection at 100 percent</li><li>Mobilised within 10 minutes of severity 1 classification at 100 percent</li><li>Resolved within the defined service level for the severity at 90 percent</li><li>Conducted within 5 business days of resolution at 100 percent</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Effective incident command depending on rehearsed procedure, not just a role assigned in the moment</li><li>A fix that resolves the symptom without addressing root cause risking recurrence</li><li>An incident affecting a shared platform being misassigned to a single team when it is cross-functional</li><li>Follow-up actions from a post-incident review not being tracked through to actual completion</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../air-canada-cargo/cargo-revenue-performance/ac-cg-cp-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Cargo Partner and GSA Performance Review</span></a>
+  <a class="next" href="../../../information-technology-security/service-management-user-support/ac-it-sm-02/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Service Request and End User Support</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

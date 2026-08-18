@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AI Use Case Intake and Value Assessment &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. AI Use Case Intake and Value Assessment.">
+<title>AC-IT-AI-01 AI Use Case Intake and Value Assessment &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-IT-AI-01 AI Use Case Intake and Value Assessment.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../information-technology-security/data-engineering-integration/ac-it-de-05/",next:"../../../information-technology-security/ai-ml-platform/ac-it-ai-02/"};
@@ -129,14 +129,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Information Technology &amp; Security</a><span class="sep">&rsaquo;</span><a href="../">AI &amp; ML Platform</a><span class="sep">&rsaquo;</span><span class="cur">AC-IT-AI-01</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-IT-AI-01" title="Click to copy the process ID">
     AC-IT-AI-01<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>AI Use Case Intake and Value Assessment</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>AI Use Case Intake and Value Assessment</h1>
+<p class="lede" id="overview">A proposed AI use case is assessed for business value and feasibility before it enters the development pipeline, distinct from the governance and control design process in AC-IT-AI-03.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Value assessment happens before governance design specifically because a use case that is not commercially or operationally worthwhile does not merit the governance investment described in AC-IT-AI-03; the two processes are sequential, not parallel.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A business function proposes an AI use case.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A use case either approved to enter development with a defined value case, or declined with documented reasoning.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Information Technology &amp; Security<br>
+    <span style="color:var(--text-muted);font-size:12px">AI &amp; ML Platform</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-it-ai-01.png" alt="AI Use Case Intake and Value Assessment process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-IT-AI-01-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Use case intake</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Receive and register the proposed use case</b></td>
+<td>AI Product Manager</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Business function proposal</td>
+<td>Registered use case</td>
+<td>Registered within 5 business days of proposal at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Proposals arrive with varying levels of business case detail depending on the proposing function&#x27;s own maturity</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-AI-01-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Value and feasibility assessment</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Assess business value and feasibility</b></td>
+<td>AI Product Manager</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Registered proposal</td>
+<td>Value and feasibility assessment</td>
+<td>Assessed within the standard intake cycle at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Value estimation for a novel AI use case is inherently more speculative than for a conventional IT project</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Screen against available data and technical feasibility</b></td>
+<td>AI Product Manager</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Value assessment</td>
+<td>Technical feasibility screening</td>
+<td>Screened for 100 percent of value-approved use cases at 100 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A use case that is commercially attractive can still be technically infeasible given actual data availability</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-AI-01-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Development decision</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Approve or decline entry to development</b></td>
+<td>AI Product Manager</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Feasibility screening</td>
+<td>Development decision with documented rationale</td>
+<td>Decided within the standard intake cycle at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A declined use case without documented rationale can be re-proposed repeatedly without addressing the original reason</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>AI Product Manager</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Registered within 5 business days of proposal at 100 percent</li><li>Assessed within the standard intake cycle at 100 percent</li><li>Screened for 100 percent of value-approved use cases at 100 percent</li><li>Decided within the standard intake cycle at 100 percent</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Value estimation for a novel AI use case being inherently more speculative than a conventional IT project</li><li>A use case that is commercially attractive still being technically infeasible given actual data availability</li><li>A declined use case without documented rationale being re-proposed repeatedly without resolution</li><li>Proposals arriving with varying business case detail depending on the proposing function&#x27;s own maturity</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../information-technology-security/data-engineering-integration/ac-it-de-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Cloudera to Databricks Migration Execution</span></a>
+  <a class="next" href="../../../information-technology-security/ai-ml-platform/ac-it-ai-02/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Model Development and Feature Engineering</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources
