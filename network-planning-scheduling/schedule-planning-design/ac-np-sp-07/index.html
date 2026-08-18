@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Rouge Leisure Schedule Integration &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Rouge Leisure Schedule Integration.">
+<title>AC-NP-SP-07 Rouge Leisure Schedule Integration &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-NP-SP-07 Rouge Leisure Schedule Integration.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../network-planning-scheduling/schedule-planning-design/ac-np-sp-06/",next:"../../../network-planning-scheduling/schedule-planning-design/ac-np-sp-08/"};
@@ -128,18 +128,215 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <a class="l2-link" href="../../../human-resources-labour/engagement-learning-inclusion/">Engagement, Learning &amp; Inclusion</a>
 </div></div>
 <div class="sb-section-title">Enterprise Architecture</div>
-<div class="l1-block"><a class="l1-link" href="../../../ea-diagrams/"><span class="ic">&#128506;</span><span class="sb-label">EA Diagrams</span><span class="cnt">27</span></a></div>
+<div class="l1-block"><a class="l1-link" href="../../../ea-diagrams/"><span class="ic">&#128506;</span><span class="sb-label">EA Diagrams</span><span class="cnt">28</span></a></div>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Network Planning &amp; Scheduling</a><span class="sep">&rsaquo;</span><a href="../">Schedule Planning &amp; Design</a><span class="sep">&rsaquo;</span><span class="cur">AC-NP-SP-07</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-NP-SP-07" title="Click to copy the process ID">
     AC-NP-SP-07<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Rouge Leisure Schedule Integration</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Rouge Leisure Schedule Integration</h1>
+<p class="lede" id="overview">Air Canada Rouge operates leisure routes under a separate air operator certificate with a different cabin configuration and cost structure. Its schedule is integrated with the mainline plan so that capacity is placed on the right operating platform without breaking connectivity.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Rouge shares the mainline IT backbone but runs a distinct operational configuration: separate air operator certificate, different cabin product and a different crew cost base. That creates a real process seam. Product and fare configuration diverge on a shared passenger service system, so a passenger connecting from a mainline flight onto a Rouge flight experiences two products under one brand. Rouge was also swept up in the June 2023 mainline outage, which is a reminder that operational separation does not imply IT independence.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">Seasonal schedule build reaches operator allocation, or a route&#x27;s seasonal demand profile shifts enough to justify moving it between mainline and Rouge.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">An integrated schedule with each leg allocated to the appropriate operating platform, with cabin configuration, connectivity and crew implications resolved.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Network Planning &amp; Scheduling<br>
+    <span style="color:var(--text-muted);font-size:12px">Schedule Planning &amp; Design</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">12 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-np-sp-07.png" alt="Rouge Leisure Schedule Integration process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-NP-SP-07-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Allocation assessment</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Assess route demand and product fit</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Route demand profile and passenger mix</td>
+<td>Leisure or mainline product fit assessment</td>
+<td>Product fit assessed for 100 percent of candidate routes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Routes with mixed business and leisure demand fit neither platform cleanly</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Compare operating economics by platform</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Cost base and revenue projection by platform</td>
+<td>Comparative economics by operating platform</td>
+<td>Platform allocation supported by economics on 100 percent of decisions</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Comparative economics ignore the connectivity value that a mainline product carries</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Confirm Rouge fleet and certificate coverage</b></td>
+<td>Fleet Planner</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Rouge fleet availability and route requirements</td>
+<td>Feasible Rouge allocation</td>
+<td>Rouge allocation feasible within available fleet at 100 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Rouge fleet is finite, so allocation is a zero-sum choice between leisure routes</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Assess seasonal switching requirement</b></td>
+<td>Schedule Planner</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Seasonal demand variation</td>
+<td>Seasonal platform switching plan</td>
+<td>Seasonal switches identified before schedule freeze at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Switching platform between seasons disrupts crew basing and product expectations</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-SP-07-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Configuration and connectivity</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Configure cabin product and fare families</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Platform allocation</td>
+<td>Cabin and fare configuration by leg</td>
+<td>Configuration correct at first publication above 95 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Product divergence on a shared PSS is a recurring source of misconfigured legs</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Validate connectivity onto mainline banks</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Rouge schedule and mainline bank structure</td>
+<td>Validated Rouge to mainline connections</td>
+<td>Rouge feed aligned to mainline waves on 85 percent of connections</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Rouge timings optimised for leisure demand can miss the mainline connecting wave</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Confirm crew basing and certificate compliance</b></td>
+<td>Crew Planning Liaison</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Rouge schedule</td>
+<td>Crew basing plan and certificate compliance confirmation</td>
+<td>Crew basing feasible for 100 percent of allocated Rouge flying</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Separate certificate means crew cannot be interchanged with mainline to cover shortfalls</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Align maintenance support to the Rouge pattern</b></td>
+<td>Technical Services Planner</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Rouge rotations</td>
+<td>Maintenance support plan</td>
+<td>Maintenance opportunity protected on Rouge rotations at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Leisure patterns concentrate flying at times that leave little overnight base ground time</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-SP-07-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Integration and commitment</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Integrate into the combined seasonal schedule</b></td>
+<td>Schedule Planner</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Rouge and mainline schedules</td>
+<td>Integrated seasonal schedule</td>
+<td>Integration complete before schedule freeze at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Rouge is integrated late in the cycle, so its constraints arrive after mainline is settled</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Resolve product and connectivity exceptions</b></td>
+<td>Schedule Planner</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Exception list</td>
+<td>Resolved configuration or accepted exception</td>
+<td>Unresolved product exceptions at freeze below 1 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Accepted exceptions become customer-visible product inconsistency under one brand</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Publish integrated schedule with correct operator</b></td>
+<td>Schedule Publication Analyst</td>
+<td><span class="tag iata" data-tooltip="Legacy airline teletype messaging: PNL, ADL, BSM, LDM, MVT. Still load-bearing across the estate. [IATA - evidence C]">IATA Type-B Messaging<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Integrated schedule</td>
+<td>Published schedule with correct operating carrier</td>
+<td>Operating carrier correct at publication at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Operating carrier designation drives regulatory responsibility and must be exact</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Monitor platform allocation performance</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>In-service performance by platform</td>
+<td>Allocation performance review</td>
+<td>Allocation review completed within 60 days of season end</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Review compares revenue by platform without isolating the connectivity effect</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Network Planning Analyst</span><span class="lane-steps">1.1 2.2 3.4</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Revenue Management Analyst</span><span class="lane-steps">1.2 2.1</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Fleet Planner</span><span class="lane-steps">1.3</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Schedule Planner</span><span class="lane-steps">1.4 3.1 3.2</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Crew Planning Liaison</span><span class="lane-steps">2.3</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>Technical Services Planner</span><span class="lane-steps">2.4</span></div><div class="lane"><span class="swatch" style="background:#8A5A1E"></span><span>Schedule Publication Analyst</span><span class="lane-steps">3.3</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag iata" data-tooltip="Legacy airline teletype messaging: PNL, ADL, BSM, LDM, MVT. Still load-bearing across the estate. [IATA - evidence C]">IATA Type-B Messaging<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Platform allocation supported by comparative economics on 100 percent of decisions</li><li>Rouge feed aligned to mainline waves on 85 percent of connections</li><li>Cabin and fare configuration correct at first publication above 95 percent</li><li>Operating carrier correct at publication at 100 percent</li><li>Maintenance opportunity protected on Rouge rotations at 100 percent</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Product and fare configuration diverging on a shared passenger service system and reaching the customer as an inconsistent experience under one brand</li><li>Separate air operator certificate preventing crew interchange when either platform is short</li><li>Rouge timings optimised for leisure demand missing the mainline connecting wave</li><li>Operating carrier misdesignation misdirecting regulatory responsibility for the flight</li><li>Rouge integrated late in the planning cycle, so its constraints surface after mainline is settled</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../network-planning-scheduling/schedule-planning-design/ac-np-sp-06/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Codeshare and Interline Schedule Alignment</span></a>
+  <a class="next" href="../../../network-planning-scheduling/schedule-planning-design/ac-np-sp-08/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Schedule Change Management and Passenger Re-protection</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

@@ -67,6 +67,9 @@ TIER_LEGEND = (
 )
 
 
+EA_COUNT = 0
+
+
 def build_sidebar(depth, active_l1=None, active_l2=None, active_pid=None, procs_by_group=None):
     """
     Static nav. All 12 L1 and all 48 L2 always present; the L3 list is emitted
@@ -113,7 +116,7 @@ def build_sidebar(depth, active_l1=None, active_l2=None, active_pid=None, procs_
                f'<a class="l1-link{" active" if active_l1 == "EA" else ""}" href="{p}ea-diagrams/">'
                '<span class="ic">&#128506;</span>'
                '<span class="sb-label">EA Diagrams</span>'
-               '<span class="cnt">27</span></a></div>')
+               f'<span class="cnt">{EA_COUNT}</span></a></div>')
     out.append("</nav></aside>")
     return "\n".join(out)
 
@@ -263,7 +266,7 @@ system claim carrying an evidence tier. Built for IT Application Management and 
   <div class="stat"><div class="n">{sum(len(d['l2']) for d in DOMAINS)}</div><div class="l">L2 Groups</div></div>
   <div class="stat"><div class="n">{n_sys}</div><div class="l">Systems</div></div>
   <div class="stat"><div class="n">{tier_a}</div><div class="l">Tier A Confirmed</div></div>
-  <div class="stat"><div class="n">27</div><div class="l">EA Diagrams</div></div>
+  <div class="stat"><div class="n">{EA_COUNT}</div><div class="l">EA Diagrams</div></div>
 </div>
 
 {TIER_LEGEND}
@@ -516,6 +519,8 @@ This process is defined in the taxonomy but its L4 step documentation has not be
 
 def render_ea(ea):
     diagrams = ea.get("diagrams", [])
+    n_land = sum(1 for d in diagrams if d.get("kind") == "Domain landscape")
+    n_flow = len(diagrams) - n_land
     cards = []
     for dg in diagrams:
         cards.append(f"""<a class="dcard" href="{dg['slug']}/">
@@ -524,8 +529,8 @@ def render_ea(ea):
   <div class="dc-foot">{E(dg.get('kind','Cross-domain flow'))}</div>
 </a>""")
     body = f"""<h1>Enterprise Architecture Diagrams</h1>
-<p class="lede">Twelve domain landscapes and fifteen cross-domain integration flows showing how Air Canada's
-systems actually connect &mdash; including the seams where data is re-keyed by hand.</p>
+<p class="lede">{n_land} domain landscapes and {n_flow} cross-domain integration flows showing how Air Canada's
+systems actually connect, including the seams where data is re-keyed by hand.</p>
 {TIER_LEGEND}
 <div class="grid">{"".join(cards) or '<p>No diagrams generated yet.</p>'}</div>"""
     write("ea-diagrams/index.html",
@@ -586,9 +591,11 @@ def build_search_index(procs, content, ea):
 
 
 def main():
+    global EA_COUNT
     procs = all_processes()
     content = load_json(DATA, {})
     ea = load_json(EA_DATA, {"diagrams": []})
+    EA_COUNT = len(ea.get("diagrams", []))
 
     procs_by_group = OrderedDict()
     for p in procs:

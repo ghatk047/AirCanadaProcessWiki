@@ -1,0 +1,559 @@
+{
+ "diagrams": [
+  {
+   "id": "AC-EA-NP",
+   "slug": "ac-np-landscape",
+   "title": "Network Planning and Scheduling Landscape",
+   "kind": "Domain landscape",
+   "blurb": "How a route case becomes a published schedule, and where slot and alliance obligations constrain it.",
+   "systems": [
+    "Lufthansa Systems NetLine",
+    "NetLine/Plan",
+    "Amadeus Altea Inventory",
+    "PROS Revenue Management",
+    "Star Alliance Interline",
+    "A++ Atlantic Joint Venture"
+   ],
+   "notes": [
+    "Schedule is the master input to almost every downstream domain: inventory, crew, maintenance opportunity and airport resource all derive from it.",
+    "The A++ transatlantic joint venture and Star Alliance codeshares constrain schedule freedom before commercial optimisation begins.",
+    "Slot holdings at Level 3 airports are a use-it-or-lose-it asset and are governed outside the planning system itself."
+   ],
+   "mermaid": "%%{init: {'theme':'base','themeVariables':{'fontSize':'14px'}}}%%\nflowchart LR\nsubgraph C1 [Demand and market inputs]\nXMarket_demand_data[Market demand data]\nXOAG_competitor_schedules[OAG competitor schedules]\nXDatabricks_Lakehouse[Databricks Lakehouse]\nend\nsubgraph C2 [Planning core]\nXNetLine_Plan[NetLine/Plan]\nXLufthansa_Systems_NetLine[Lufthansa Systems NetLine]\nend\nsubgraph C3 [Commercial coupling]\nXAmadeus_Altea_Inventory[Amadeus Altea Inventory]\nXPROS_Revenue_Management[PROS Revenue Management]\nend\nsubgraph C4 [Publication and coordination]\nXIATA_Type_B_Messaging[IATA Type-B Messaging]\nXStar_Alliance_Interline[Star Alliance Interline]\nXA_Atlantic_Joint_Venture[A++ Atlantic Joint Venture]\nXSabre_GDS[Sabre GDS]\nend\nXMarket_demand_data -->|forecast| XNetLine_Plan\nXOAG_competitor_schedules -->|benchmark| XNetLine_Plan\nXDatabricks_Lakehouse -->|route performance| XNetLine_Plan\nXNetLine_Plan -->|schedule build| XLufthansa_Systems_NetLine\nXLufthansa_Systems_NetLine -->|SSIM schedule| XAmadeus_Altea_Inventory\nXAmadeus_Altea_Inventory -->|inventory position| XPROS_Revenue_Management\nXLufthansa_Systems_NetLine -->|schedule change| XIATA_Type_B_Messaging\nXLufthansa_Systems_NetLine -->|codeshare| XStar_Alliance_Interline\nXLufthansa_Systems_NetLine -->|JV coordination| XA_Atlantic_Joint_Venture\nXIATA_Type_B_Messaging -->|distribution| XSabre_GDS\nstyle C1 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C2 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C3 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C4 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nclassDef sys fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1px,color:#1A1A1A\nclassDef gap fill:#1A1A1A,stroke:#D2001F,stroke-width:2px,color:#FFFFFF\nclass XMarket_demand_data,XOAG_competitor_schedules,XDatabricks_Lakehouse,XNetLine_Plan,XLufthansa_Systems_NetLine,XAmadeus_Altea_Inventory,XPROS_Revenue_Management,XIATA_Type_B_Messaging,XStar_Alliance_Interline,XA_Atlantic_Joint_Venture,XSabre_GDS sys"
+  },
+  {
+   "id": "AC-EA-RM",
+   "slug": "ac-rm-landscape",
+   "title": "Revenue Management and Pricing Landscape",
+   "kind": "Domain landscape",
+   "blurb": "PROS drives price and inventory controls into Amadeus Altea, while ATPCO filing remains the rate-limiting step on pricing agility.",
+   "systems": [
+    "PROS Real-Time Dynamic Pricing",
+    "PROS Revenue Management",
+    "Amadeus Altea Inventory",
+    "ATPCO",
+    "Amadeus Altea NDC",
+    "Amadeus Anytime Merchandising"
+   ],
+   "notes": [
+    "Air Canada is a long-tenured PROS account; dynamic pricing is strategic rather than experimental.",
+    "ATPCO filing latency is the practical ceiling on how fast a price change can reach every channel.",
+    "NDC gives an offer-and-order path that the legacy GDS route does not, which is where merchandising differentiation now lives."
+   ],
+   "mermaid": "%%{init: {'theme':'base','themeVariables':{'fontSize':'14px'}}}%%\nflowchart LR\nsubgraph C1 [Demand signal]\nXDatabricks_Lakehouse[Databricks Lakehouse]\nXAmadeus_Altea_Reservations[Amadeus Altea Reservations]\nend\nsubgraph C2 [Optimisation]\nXPROS_Real_Time_Dynamic_Pricing[PROS Real-Time Dynamic Pricing]\nXPROS_Revenue_Management[PROS Revenue Management]\nend\nsubgraph C3 [Inventory and fare control]\nXAmadeus_Altea_Inventory[Amadeus Altea Inventory]\nXATPCO[ATPCO]\nend\nsubgraph C4 [Distribution]\nXAmadeus_Altea_NDC[Amadeus Altea NDC]\nXAmadeus_Anytime_Merchandising[Amadeus Anytime Merchandising]\nXSabre_GDS[Sabre GDS]\nXaircanada_com[aircanada.com]\nend\nXAmadeus_Altea_Reservations -->|booking signal| XPROS_Real_Time_Dynamic_Pricing\nXDatabricks_Lakehouse -->|demand history| XPROS_Revenue_Management\nXPROS_Revenue_Management -->|bid price| XAmadeus_Altea_Inventory\nXPROS_Real_Time_Dynamic_Pricing -->|dynamic offer| XAmadeus_Altea_Inventory\nXATPCO -->|filed fares| XAmadeus_Altea_Inventory\nXAmadeus_Altea_Inventory -->|availability| XAmadeus_Altea_NDC\nXAmadeus_Altea_Inventory -->|availability| XSabre_GDS\nXAmadeus_Altea_NDC -->|offer| Xaircanada_com\nXAmadeus_Anytime_Merchandising -->|ancillary offer| Xaircanada_com\nstyle C1 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C2 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C3 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C4 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nclassDef sys fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1px,color:#1A1A1A\nclassDef gap fill:#1A1A1A,stroke:#D2001F,stroke-width:2px,color:#FFFFFF\nclass XDatabricks_Lakehouse,XAmadeus_Altea_Reservations,XPROS_Real_Time_Dynamic_Pricing,XPROS_Revenue_Management,XAmadeus_Altea_Inventory,XATPCO,XAmadeus_Altea_NDC,XAmadeus_Anytime_Merchandising,XSabre_GDS,Xaircanada_com sys"
+  },
+  {
+   "id": "AC-EA-AP",
+   "slug": "ac-ap-landscape",
+   "title": "Aeroplan Loyalty Landscape",
+   "kind": "Domain landscape",
+   "blurb": "The in-house loyalty engine relaunched in 2020, with identity on SAP Customer Data Cloud and accrual flowing from the co-brand card issuers.",
+   "systems": [
+    "Aeroplan Platform",
+    "SAP Customer Data Cloud",
+    "Aeroplan Partner Interfaces",
+    "Amadeus Altea Reservations",
+    "SAP S/4HANA"
+   ],
+   "notes": [
+    "Identity quality on SAP Customer Data Cloud is the upstream determinant of accrual exception volume.",
+    "The points liability is a material balance-sheet item, so the loyalty ledger and the finance ledger must reconcile rather than merely agree in aggregate.",
+    "Co-brand issuers TD, CIBC and Amex each send a different file on a different schedule."
+   ],
+   "mermaid": "%%{init: {'theme':'base','themeVariables':{'fontSize':'14px'}}}%%\nflowchart LR\nsubgraph C1 [Member channels]\nXAir_Canada_Mobile_App[Air Canada Mobile App]\nXaircanada_com[aircanada.com]\nend\nsubgraph C2 [Identity and consent]\nXSAP_Customer_Data_Cloud[SAP Customer Data Cloud]\nend\nsubgraph C3 [Loyalty core]\nXAeroplan_Platform[Aeroplan Platform]\nend\nsubgraph C4 [Partners and finance]\nXAeroplan_Partner_Interfaces[Aeroplan Partner Interfaces]\nXAmadeus_Altea_Reservations[Amadeus Altea Reservations]\nXSAP_S_4HANA[SAP S/4HANA]\nend\nXAir_Canada_Mobile_App -->|authenticate| XSAP_Customer_Data_Cloud\nXaircanada_com -->|authenticate| XSAP_Customer_Data_Cloud\nXSAP_Customer_Data_Cloud -->|member identity| XAeroplan_Platform\nXAeroplan_Partner_Interfaces -->|accrual file| XAeroplan_Platform\nXAeroplan_Platform -->|award booking| XAmadeus_Altea_Reservations\nXAmadeus_Altea_Reservations -->|flight accrual| XAeroplan_Platform\nXAeroplan_Platform -->|points liability| XSAP_S_4HANA\nstyle C1 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C2 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C3 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C4 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nclassDef sys fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1px,color:#1A1A1A\nclassDef gap fill:#1A1A1A,stroke:#D2001F,stroke-width:2px,color:#FFFFFF\nclass XAir_Canada_Mobile_App,Xaircanada_com,XSAP_Customer_Data_Cloud,XAeroplan_Platform,XAeroplan_Partner_Interfaces,XAmadeus_Altea_Reservations,XSAP_S_4HANA sys"
+  },
+  {
+   "id": "AC-EA-CX",
+   "slug": "ac-cx-landscape",
+   "title": "Customer Experience and Channels Landscape",
+   "kind": "Domain landscape",
+   "blurb": "Digital channels and the contact centre on AWS, feeding the case machine that carries APPR exposure.",
+   "systems": [
+    "Amazon Connect",
+    "Salesforce Service Cloud",
+    "Amadeus Altea Customer Management",
+    "CTA Complaint Interface",
+    "Air Canada Virtual Assistant",
+    "aircanada.com"
+   ],
+   "notes": [
+    "Salesforce Service Cloud is the system of record for customer cases and therefore for APPR entitlement determinations.",
+    "The virtual assistant sits inside the liability perimeter established by Moffatt v. Air Canada: whatever it states, the airline owns.",
+    "Every channel in this landscape carries an Official Languages obligation for English and French parity."
+   ],
+   "mermaid": "%%{init: {'theme':'base','themeVariables':{'fontSize':'14px'}}}%%\nflowchart LR\nsubgraph C1 [Customer touchpoints]\nXaircanada_com[aircanada.com]\nXAir_Canada_Mobile_App[Air Canada Mobile App]\nXAir_Canada_Virtual_Assistant[Air Canada Virtual Assistant]\nend\nsubgraph C2 [Contact centre]\nXAmazon_Connect[Amazon Connect]\nXSalesforce_Service_Cloud[Salesforce Service Cloud]\nend\nsubgraph C3 [Servicing core]\nXAmadeus_Altea_Customer_Management[Amadeus Altea Customer Management]\nXAmadeus_Passenger_Recovery[Amadeus Passenger Recovery]\nend\nsubgraph C4 [Regulatory]\nXCTA_Complaint_Interface[CTA Complaint Interface]\nXSAP_S_4HANA[SAP S/4HANA]\nend\nXaircanada_com -->|booking servicing| XAmadeus_Altea_Customer_Management\nXAir_Canada_Mobile_App -->|self service| XAmadeus_Altea_Customer_Management\nXAir_Canada_Virtual_Assistant -->|escalation| XSalesforce_Service_Cloud\nXAmazon_Connect -->|voice to case| XSalesforce_Service_Cloud\nXAmadeus_Altea_Customer_Management -->|case context| XSalesforce_Service_Cloud\nXAmadeus_Passenger_Recovery -->|disruption record| XSalesforce_Service_Cloud\nXSalesforce_Service_Cloud -->|regulatory response| XCTA_Complaint_Interface\nXSalesforce_Service_Cloud -->|compensation payment| XSAP_S_4HANA\nstyle C1 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C2 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C3 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C4 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nclassDef sys fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1px,color:#1A1A1A\nclassDef gap fill:#1A1A1A,stroke:#D2001F,stroke-width:2px,color:#FFFFFF\nclass Xaircanada_com,XAir_Canada_Mobile_App,XAir_Canada_Virtual_Assistant,XAmazon_Connect,XSalesforce_Service_Cloud,XAmadeus_Altea_Customer_Management,XAmadeus_Passenger_Recovery,XCTA_Complaint_Interface,XSAP_S_4HANA sys"
+  },
+  {
+   "id": "AC-EA-FO",
+   "slug": "ac-fo-landscape",
+   "title": "Flight Operations and Dispatch Landscape",
+   "kind": "Domain landscape",
+   "blurb": "Dispatch and operations control from the Toronto operations centre, including the Express operator seam.",
+   "systems": [
+    "NetLine/Ops",
+    "Jeppesen OCC",
+    "NAV CANADA",
+    "ACARS Datalink",
+    "Amadeus Passenger Recovery",
+    "Jazz and PAL Operator Interface"
+   ],
+   "notes": [
+    "The Express operator link into ops control is reconciled manually today. It is the highest-value integration seam in the estate.",
+    "The June 2023 communicator outage delayed or cancelled the large majority of a day's flights and is the reference point for degraded-mode design.",
+    "Delay reason codes originate here and become regulatory evidence downstream in APPR adjudication."
+   ],
+   "mermaid": "%%{init: {'theme':'base','themeVariables':{'fontSize':'14px'}}}%%\nflowchart LR\nsubgraph C1 [Planning inputs]\nXLufthansa_Systems_NetLine[Lufthansa Systems NetLine]\nXNAV_CANADA[NAV CANADA]\nend\nsubgraph C2 [Dispatch]\nXJeppesen_Charts[Jeppesen Charts]\nXWeight_and_Balance_System[Weight and Balance System]\nXElectronic_Flight_Bag[Electronic Flight Bag]\nend\nsubgraph C3 [Operations control]\nXNetLine_Ops[NetLine/Ops]\nXJeppesen_OCC[Jeppesen OCC]\nend\nsubgraph C4 [Execution and recovery]\nXACARS_Datalink[ACARS Datalink]\nXAmadeus_Altea_DCS[Amadeus Altea DCS]\nXAmadeus_Passenger_Recovery[Amadeus Passenger Recovery]\nXJazz_and_PAL_Operator_Interface[Jazz and PAL Operator Interface]\nend\nXLufthansa_Systems_NetLine -->|planned schedule| XNetLine_Ops\nXNAV_CANADA -->|NOTAM and flight data| XNetLine_Ops\nXJeppesen_Charts -->|charts| XElectronic_Flight_Bag\nXWeight_and_Balance_System -->|loadsheet| XElectronic_Flight_Bag\nXNetLine_Ops -->|recovery decision| XJeppesen_OCC\nXJeppesen_OCC -->|crew and ops message| XACARS_Datalink\nXNetLine_Ops -->|flight status| XAmadeus_Altea_DCS\nXNetLine_Ops -->|disruption trigger| XAmadeus_Passenger_Recovery\nXJazz_and_PAL_Operator_Interface -->|manual reconciliation| XNetLine_Ops\nstyle C1 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C2 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C3 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C4 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nclassDef sys fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1px,color:#1A1A1A\nclassDef gap fill:#1A1A1A,stroke:#D2001F,stroke-width:2px,color:#FFFFFF\nclass XLufthansa_Systems_NetLine,XNAV_CANADA,XJeppesen_Charts,XWeight_and_Balance_System,XElectronic_Flight_Bag,XNetLine_Ops,XJeppesen_OCC,XACARS_Datalink,XAmadeus_Altea_DCS,XAmadeus_Passenger_Recovery,XJazz_and_PAL_Operator_Interface sys"
+  },
+  {
+   "id": "AC-EA-CM",
+   "slug": "ac-cm-landscape",
+   "title": "Crew Management Landscape",
+   "kind": "Domain landscape",
+   "blurb": "Pairing through pay on Jeppesen, against four collective agreements and Canadian flight and duty limits.",
+   "systems": [
+    "Jeppesen Crew",
+    "Jeppesen OCC",
+    "Dayforce",
+    "Lufthansa Systems NetLine",
+    "SAP S/4HANA"
+   ],
+   "notes": [
+    "Four bargaining units mean four distinct rule sets encoded in pairing, rostering and pay.",
+    "Flight and duty time limits under the Canadian Aviation Regulations are a hard operational constraint on recovery options, not a preference.",
+    "Crew legality is the binding constraint in most irregular operations recovery decisions."
+   ],
+   "mermaid": "%%{init: {'theme':'base','themeVariables':{'fontSize':'14px'}}}%%\nflowchart LR\nsubgraph C1 [Demand]\nXLufthansa_Systems_NetLine[Lufthansa Systems NetLine]\nend\nsubgraph C2 [Crew planning]\nXJeppesen_Crew[Jeppesen Crew]\nend\nsubgraph C3 [Day of operations]\nXJeppesen_OCC[Jeppesen OCC]\nXACARS_Datalink[ACARS Datalink]\nend\nsubgraph C4 [Compliance and pay]\nXDayforce[Dayforce]\nXSAP_S_4HANA[SAP S/4HANA]\nend\nXLufthansa_Systems_NetLine -->|published schedule| XJeppesen_Crew\nXJeppesen_Crew -->|published roster| XJeppesen_OCC\nXJeppesen_OCC -->|crew notification| XACARS_Datalink\nXJeppesen_OCC -->|day of ops changes| XJeppesen_Crew\nXJeppesen_Crew -->|credit and duty record| XDayforce\nXDayforce -->|payroll posting| XSAP_S_4HANA\nstyle C1 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C2 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C3 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C4 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nclassDef sys fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1px,color:#1A1A1A\nclassDef gap fill:#1A1A1A,stroke:#D2001F,stroke-width:2px,color:#FFFFFF\nclass XLufthansa_Systems_NetLine,XJeppesen_Crew,XJeppesen_OCC,XACARS_Datalink,XDayforce,XSAP_S_4HANA sys"
+  },
+  {
+   "id": "AC-EA-GO",
+   "slug": "ac-go-landscape",
+   "title": "Ground Operations and Airports Landscape",
+   "kind": "Domain landscape",
+   "blurb": "Check-in through off-block on Amadeus Altea DCS across the hubs, with baggage tracing on SITA WorldTracer.",
+   "systems": [
+    "Amadeus Altea DCS",
+    "SITA WorldTracer",
+    "Baggage Reconciliation System",
+    "CBSA API and PNR",
+    "IATA Type-B Messaging"
+   ],
+   "notes": [
+    "A February 2023 outage took out departure control at Toronto, so manual fallback is a real operating mode rather than a theoretical one.",
+    "Bag-to-passenger matching under IATA Resolution 753 depends on Type-B messaging that predates every other integration pattern in the estate.",
+    "Mishandled-bag claim details are re-entered between WorldTracer and the compensation process."
+   ],
+   "mermaid": "%%{init: {'theme':'base','themeVariables':{'fontSize':'14px'}}}%%\nflowchart LR\nsubgraph C1 [Passenger channels]\nXAir_Canada_Mobile_App[Air Canada Mobile App]\nXCUPPS[CUPPS]\nend\nsubgraph C2 [Departure control]\nXAmadeus_Altea_DCS[Amadeus Altea DCS]\nend\nsubgraph C3 [Baggage]\nXBaggage_Reconciliation_System[Baggage Reconciliation System]\nXSITA_WorldTracer[SITA WorldTracer]\nend\nsubgraph C4 [Turnaround and reporting]\nXAirport_Resource_Management[Airport Resource Management]\nXWeight_and_Balance_System[Weight and Balance System]\nXCBSA_API_and_PNR[CBSA API and PNR]\nXIATA_Type_B_Messaging[IATA Type-B Messaging]\nend\nXAir_Canada_Mobile_App -->|mobile check in| XAmadeus_Altea_DCS\nXCUPPS -->|common use check in| XAmadeus_Altea_DCS\nXAmadeus_Altea_DCS -->|bag message| XBaggage_Reconciliation_System\nXBaggage_Reconciliation_System -->|mishandled bag| XSITA_WorldTracer\nXAmadeus_Altea_DCS -->|advance passenger info| XCBSA_API_and_PNR\nXAmadeus_Altea_DCS -->|passenger load| XWeight_and_Balance_System\nXAmadeus_Altea_DCS -->|PNL and ADL| XIATA_Type_B_Messaging\nXAirport_Resource_Management -->|gate and stand| XAmadeus_Altea_DCS\nstyle C1 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C2 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C3 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C4 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nclassDef sys fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1px,color:#1A1A1A\nclassDef gap fill:#1A1A1A,stroke:#D2001F,stroke-width:2px,color:#FFFFFF\nclass XAir_Canada_Mobile_App,XCUPPS,XAmadeus_Altea_DCS,XBaggage_Reconciliation_System,XSITA_WorldTracer,XAirport_Resource_Management,XWeight_and_Balance_System,XCBSA_API_and_PNR,XIATA_Type_B_Messaging sys"
+  },
+  {
+   "id": "AC-EA-MR",
+   "slug": "ac-mr-landscape",
+   "title": "Maintenance and Engineering Landscape",
+   "kind": "Domain landscape",
+   "blurb": "Air Canada Technical Services on TRAX, against Transport Canada continuing-airworthiness obligations.",
+   "systems": [
+    "TRAX",
+    "TRAX eMobility",
+    "Aeroxchange",
+    "Transport Canada CAWIS",
+    "SAP S/4HANA"
+   ],
+   "notes": [
+    "TRAX is the maintenance and engineering core. It is not AMOS, Ramco or Maintenix, and naming one of those is a credibility failure in front of Technical Services.",
+    "Maintenance opportunity is set upstream in the rotation build, so a late work order consumes buffer the network plan already spent.",
+    "Usability of the maintenance record at the aircraft is the practical constraint on turnaround time."
+   ],
+   "mermaid": "%%{init: {'theme':'base','themeVariables':{'fontSize':'14px'}}}%%\nflowchart LR\nsubgraph C1 [Maintenance demand]\nXLufthansa_Systems_NetLine[Lufthansa Systems NetLine]\nXACARS_Datalink[ACARS Datalink]\nend\nsubgraph C2 [M and E core]\nXTRAX[TRAX]\nend\nsubgraph C3 [Execution]\nXTRAX_eMobility[TRAX eMobility]\nend\nsubgraph C4 [Supply and regulator]\nXAeroxchange[Aeroxchange]\nXTransport_Canada_CAWIS[Transport Canada CAWIS]\nXSAP_S_4HANA[SAP S/4HANA]\nend\nXLufthansa_Systems_NetLine -->|maintenance opportunity| XTRAX\nXACARS_Datalink -->|fault downlink| XTRAX\nXTRAX -->|task card| XTRAX_eMobility\nXTRAX_eMobility -->|findings and parts| XTRAX\nXTRAX -->|parts order| XAeroxchange\nXTRAX -->|airworthiness compliance| XTransport_Canada_CAWIS\nXTRAX -->|cost and inventory| XSAP_S_4HANA\nstyle C1 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C2 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C3 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C4 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nclassDef sys fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1px,color:#1A1A1A\nclassDef gap fill:#1A1A1A,stroke:#D2001F,stroke-width:2px,color:#FFFFFF\nclass XLufthansa_Systems_NetLine,XACARS_Datalink,XTRAX,XTRAX_eMobility,XAeroxchange,XTransport_Canada_CAWIS,XSAP_S_4HANA sys"
+  },
+  {
+   "id": "AC-EA-CG",
+   "slug": "ac-cg-landscape",
+   "title": "Air Canada Cargo Landscape",
+   "kind": "Domain landscape",
+   "blurb": "Cargo mid-migration onto CHAMP Cargospot neo, with mandatory CBSA pre-load filing since April 2025.",
+   "systems": [
+    "CHAMP Cargospot neo",
+    "Cargospot neo Handling",
+    "Cargospot neo Revenue Accounting",
+    "Canada PACT",
+    "Cargospot Mobile",
+    "OnAsset Vision"
+   ],
+   "notes": [
+    "The migration is in flight, which means a live interim period of double entry between the legacy platform and Cargospot. That is a time-bounded re-key risk worth solving now.",
+    "Pre-load air cargo targeting has no tolerance for interface downtime during a cutover window.",
+    "Air Canada Cargo selected CHAMP Cargospot neo. Claiming IBS iCargo is a known-wrong assertion."
+   ],
+   "mermaid": "%%{init: {'theme':'base','themeVariables':{'fontSize':'14px'}}}%%\nflowchart LR\nsubgraph C1 [Booking channels]\nXCHAMP_Cargospot_neo[CHAMP Cargospot neo]\nend\nsubgraph C2 [Handling]\nXCargospot_neo_Handling[Cargospot neo Handling]\nXCargospot_Mobile[Cargospot Mobile]\nXOnAsset_Vision[OnAsset Vision]\nend\nsubgraph C3 [Capacity]\nXLufthansa_Systems_NetLine[Lufthansa Systems NetLine]\nXAmadeus_Altea_DCS[Amadeus Altea DCS]\nend\nsubgraph C4 [Compliance and settlement]\nXCanada_PACT[Canada PACT]\nXCargospot_neo_Revenue_Accounting[Cargospot neo Revenue Accounting]\nXSAP_S_4HANA[SAP S/4HANA]\nend\nXCHAMP_Cargospot_neo -->|booking to warehouse| XCargospot_neo_Handling\nXCargospot_neo_Handling -->|warehouse execution| XCargospot_Mobile\nXOnAsset_Vision -->|condition telemetry| XCargospot_neo_Handling\nXLufthansa_Systems_NetLine -->|belly capacity| XCHAMP_Cargospot_neo\nXCHAMP_Cargospot_neo -->|pre-load filing| XCanada_PACT\nXCHAMP_Cargospot_neo -->|air waybill| XCargospot_neo_Revenue_Accounting\nXCargospot_neo_Revenue_Accounting -->|CASS settlement| XSAP_S_4HANA\nXCargospot_neo_Handling -->|load to aircraft| XAmadeus_Altea_DCS\nstyle C1 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C2 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C3 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C4 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nclassDef sys fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1px,color:#1A1A1A\nclassDef gap fill:#1A1A1A,stroke:#D2001F,stroke-width:2px,color:#FFFFFF\nclass XCHAMP_Cargospot_neo,XCargospot_neo_Handling,XCargospot_Mobile,XOnAsset_Vision,XLufthansa_Systems_NetLine,XAmadeus_Altea_DCS,XCanada_PACT,XCargospot_neo_Revenue_Accounting,XSAP_S_4HANA sys"
+  },
+  {
+   "id": "AC-EA-IT",
+   "slug": "ac-it-landscape",
+   "title": "Information Technology and Security Landscape",
+   "kind": "Domain landscape",
+   "blurb": "The application management and user support tower, with the four genuine discovery gaps shown in black.",
+   "systems": [
+    "ITSM Platform",
+    "Integration Platform",
+    "Databricks Lakehouse",
+    "AWS",
+    "SIEM and SOC",
+    "Workforce Identity",
+    "Unity Catalog"
+   ],
+   "notes": [
+    "The four black nodes are genuinely unknown from public sources: integration middleware, SIEM and SOC, workforce identity, and the ITSM product. They are the top clarification asks for any data room.",
+    "Every agentic or automation use case depends on read and write access through the integration layer, which makes it the single most consequential unknown.",
+    "The lakehouse migration means the grounding surface for AI is being rebuilt right now."
+   ],
+   "mermaid": "%%{init: {'theme':'base','themeVariables':{'fontSize':'14px'}}}%%\nflowchart LR\nsubgraph C1 [Service management]\nXITSM_Platform[ITSM Platform]\nXObservability_Platform[Observability Platform]\nend\nsubgraph C2 [Integration]\nXIntegration_Platform[Integration Platform]\nXIATA_Type_B_Messaging[IATA Type-B Messaging]\nend\nsubgraph C3 [Data and AI]\nXDatabricks_Lakehouse[Databricks Lakehouse]\nXUnity_Catalog[Unity Catalog]\nXCloudera[Cloudera]\nXAWS[AWS]\nend\nsubgraph C4 [Security and identity]\nXSIEM_and_SOC[SIEM and SOC]\nXWorkforce_Identity[Workforce Identity]\nXSAP_Customer_Data_Cloud[SAP Customer Data Cloud]\nend\nXObservability_Platform -->|event to incident| XITSM_Platform\nXIntegration_Platform -->|interface incident| XITSM_Platform\nXIATA_Type_B_Messaging -->|airline messaging| XIntegration_Platform\nXIntegration_Platform -->|event stream| XDatabricks_Lakehouse\nXCloudera -->|migration| XDatabricks_Lakehouse\nXDatabricks_Lakehouse -->|governance| XUnity_Catalog\nXAWS -->|platform| XDatabricks_Lakehouse\nXWorkforce_Identity -->|access request| XITSM_Platform\nXSIEM_and_SOC -->|security incident| XITSM_Platform\nstyle C1 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C2 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C3 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C4 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nclassDef sys fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1px,color:#1A1A1A\nclassDef gap fill:#1A1A1A,stroke:#D2001F,stroke-width:2px,color:#FFFFFF\nclass XIATA_Type_B_Messaging,XDatabricks_Lakehouse,XUnity_Catalog,XCloudera,XAWS,XSAP_Customer_Data_Cloud sys\nclass XIntegration_Platform,XSIEM_and_SOC,XWorkforce_Identity,XITSM_Platform,XObservability_Platform gap"
+  },
+  {
+   "id": "AC-EA-FN",
+   "slug": "ac-fn-landscape",
+   "title": "Finance, Procurement and Treasury Landscape",
+   "kind": "Domain landscape",
+   "blurb": "SAP S/4HANA finance core delivered under the internal Unifier programme, with revenue accounting reconciling to IATA settlement.",
+   "systems": [
+    "SAP S/4HANA",
+    "SAP Ariba",
+    "SAP Analytics Cloud",
+    "IATA BSP",
+    "Revenue Accounting System"
+   ],
+   "notes": [
+    "Air traffic liability, the value of tickets sold but not yet flown, is the largest single judgement in the revenue accounting close.",
+    "Interline billing crosses the Star Alliance and A++ joint venture boundary and settles on industry clearing timetables rather than Air Canada's own.",
+    "The points liability arriving from Aeroplan depends on breakage assumptions set outside finance."
+   ],
+   "mermaid": "%%{init: {'theme':'base','themeVariables':{'fontSize':'14px'}}}%%\nflowchart LR\nsubgraph C1 [Revenue sources]\nXAmadeus_Altea_Reservations[Amadeus Altea Reservations]\nXCargospot_neo_Revenue_Accounting[Cargospot neo Revenue Accounting]\nXAeroplan_Platform[Aeroplan Platform]\nend\nsubgraph C2 [Revenue accounting]\nXRevenue_Accounting_System[Revenue Accounting System]\nXIATA_BSP[IATA BSP]\nXARC[ARC]\nend\nsubgraph C3 [Finance core]\nXSAP_S_4HANA[SAP S/4HANA]\nXSAP_Ariba[SAP Ariba]\nend\nsubgraph C4 [Planning]\nXSAP_Analytics_Cloud[SAP Analytics Cloud]\nXDatabricks_Lakehouse[Databricks Lakehouse]\nend\nXAmadeus_Altea_Reservations -->|coupon and sales| XRevenue_Accounting_System\nXIATA_BSP -->|agency settlement| XRevenue_Accounting_System\nXARC -->|US agency sales| XRevenue_Accounting_System\nXRevenue_Accounting_System -->|recognised revenue| XSAP_S_4HANA\nXCargospot_neo_Revenue_Accounting -->|cargo revenue| XSAP_S_4HANA\nXAeroplan_Platform -->|points liability| XSAP_S_4HANA\nXSAP_Ariba -->|source to pay| XSAP_S_4HANA\nXSAP_S_4HANA -->|actuals| XSAP_Analytics_Cloud\nXDatabricks_Lakehouse -->|operational drivers| XSAP_Analytics_Cloud\nstyle C1 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C2 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C3 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C4 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nclassDef sys fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1px,color:#1A1A1A\nclassDef gap fill:#1A1A1A,stroke:#D2001F,stroke-width:2px,color:#FFFFFF\nclass XAmadeus_Altea_Reservations,XCargospot_neo_Revenue_Accounting,XAeroplan_Platform,XRevenue_Accounting_System,XIATA_BSP,XARC,XSAP_S_4HANA,XSAP_Ariba,XSAP_Analytics_Cloud,XDatabricks_Lakehouse sys"
+  },
+  {
+   "id": "AC-EA-HR",
+   "slug": "ac-hr-landscape",
+   "title": "Human Resources and Labour Landscape",
+   "kind": "Domain landscape",
+   "blurb": "Roughly 35,000 employees across four bargaining units, with Dayforce carrying union-rule payroll.",
+   "systems": [
+    "Dayforce",
+    "Phenom",
+    "SAP S/4HANA",
+    "Jeppesen Crew",
+    "Microsoft 365"
+   ],
+   "notes": [
+    "Four bargaining units with materially different rule sets make payroll one of the most complex configurations in the estate.",
+    "Crew pay derives from Jeppesen credit rather than from clock time, so the interface between crew systems and payroll is a reconciliation, not a feed.",
+    "Official Languages obligations apply to the employee experience, not only to the customer channels."
+   ],
+   "mermaid": "%%{init: {'theme':'base','themeVariables':{'fontSize':'14px'}}}%%\nflowchart LR\nsubgraph C1 [Attraction]\nXPhenom[Phenom]\nend\nsubgraph C2 [Workforce management]\nXDayforce[Dayforce]\nend\nsubgraph C3 [Operational demand]\nXJeppesen_Crew[Jeppesen Crew]\nXLufthansa_Systems_NetLine[Lufthansa Systems NetLine]\nend\nsubgraph C4 [Corporate]\nXSAP_S_4HANA[SAP S/4HANA]\nXMicrosoft_365[Microsoft 365]\nend\nXPhenom -->|new hire| XDayforce\nXJeppesen_Crew -->|crew credit| XDayforce\nXLufthansa_Systems_NetLine -->|operational demand| XDayforce\nXDayforce -->|payroll posting| XSAP_S_4HANA\nXDayforce -->|provisioning| XMicrosoft_365\nstyle C1 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C2 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C3 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C4 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nclassDef sys fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1px,color:#1A1A1A\nclassDef gap fill:#1A1A1A,stroke:#D2001F,stroke-width:2px,color:#FFFFFF\nclass XPhenom,XDayforce,XJeppesen_Crew,XLufthansa_Systems_NetLine,XSAP_S_4HANA,XMicrosoft_365 sys"
+  },
+  {
+   "id": "AC-X1",
+   "slug": "ac-x1-aeroplan-earn-to-burn",
+   "title": "Aeroplan Earn to Burn: Accrual through Redemption",
+   "kind": "Cross-domain flow",
+   "blurb": "A member earns points on a co-brand card and burns them on an award seat, crossing identity, loyalty, inventory and finance.",
+   "systems": [
+    "Aeroplan Platform",
+    "SAP Customer Data Cloud",
+    "Aeroplan Partner Interfaces",
+    "Amadeus Altea Inventory",
+    "SAP S/4HANA",
+    "Star Alliance Interline"
+   ],
+   "notes": [
+    "Identity match quality at the first hop determines exception volume for the whole flow.",
+    "Award seat availability is an inventory decision, so loyalty value is ultimately set by revenue management rather than by the loyalty platform."
+   ],
+   "mermaid": "%%{init: {'theme':'base','themeVariables':{'fontSize':'14px'}}}%%\nflowchart LR\nsubgraph C1 [Earn]\nXAeroplan_Partner_Interfaces[Aeroplan Partner Interfaces]\nXAmadeus_Altea_Reservations[Amadeus Altea Reservations]\nend\nsubgraph C2 [Identity]\nXSAP_Customer_Data_Cloud[SAP Customer Data Cloud]\nend\nsubgraph C3 [Ledger]\nXAeroplan_Platform[Aeroplan Platform]\nend\nsubgraph C4 [Burn]\nXAmadeus_Altea_Inventory[Amadeus Altea Inventory]\nXStar_Alliance_Interline[Star Alliance Interline]\nend\nsubgraph C5 [Settle]\nXSAP_S_4HANA[SAP S/4HANA]\nend\nXAeroplan_Partner_Interfaces -->|match member| XSAP_Customer_Data_Cloud\nXAmadeus_Altea_Reservations -->|flight accrual| XAeroplan_Platform\nXSAP_Customer_Data_Cloud -->|verified identity| XAeroplan_Platform\nXAeroplan_Platform -->|award seat request| XAmadeus_Altea_Inventory\nXAmadeus_Altea_Inventory -->|award availability| XAeroplan_Platform\nXAeroplan_Platform -->|partner award| XStar_Alliance_Interline\nXAeroplan_Platform -->|liability movement| XSAP_S_4HANA\nXAeroplan_Partner_Interfaces -->|issuer settlement| XSAP_S_4HANA\nstyle C1 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C2 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C3 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C4 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C5 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nclassDef sys fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1px,color:#1A1A1A\nclassDef gap fill:#1A1A1A,stroke:#D2001F,stroke-width:2px,color:#FFFFFF\nclass XAeroplan_Partner_Interfaces,XAmadeus_Altea_Reservations,XSAP_Customer_Data_Cloud,XAeroplan_Platform,XAmadeus_Altea_Inventory,XStar_Alliance_Interline,XSAP_S_4HANA sys"
+  },
+  {
+   "id": "AC-X2",
+   "slug": "ac-x2-revenue-management",
+   "title": "Revenue Management: PROS, Altea Inventory and ATPCO",
+   "kind": "Cross-domain flow",
+   "blurb": "How a demand signal becomes a filed fare and an inventory control, and where the latency sits.",
+   "systems": [
+    "PROS Real-Time Dynamic Pricing",
+    "PROS Revenue Management",
+    "Amadeus Altea Inventory",
+    "ATPCO",
+    "Amadeus Altea NDC"
+   ],
+   "notes": [
+    "The ATPCO filing hop is the slowest link in an otherwise near-real-time chain.",
+    "NDC allows a dynamic offer that never has to become a filed fare, which is why the NDC path and the GDS path increasingly diverge in price."
+   ],
+   "mermaid": "%%{init: {'theme':'base','themeVariables':{'fontSize':'14px'}}}%%\nflowchart LR\nsubgraph C1 [Signal]\nXAmadeus_Altea_Reservations[Amadeus Altea Reservations]\nXDatabricks_Lakehouse[Databricks Lakehouse]\nend\nsubgraph C2 [Optimise]\nXPROS_Revenue_Management[PROS Revenue Management]\nXPROS_Real_Time_Dynamic_Pricing[PROS Real-Time Dynamic Pricing]\nend\nsubgraph C3 [File and control]\nXATPCO[ATPCO]\nXAmadeus_Altea_Inventory[Amadeus Altea Inventory]\nend\nsubgraph C4 [Sell]\nXAmadeus_Altea_NDC[Amadeus Altea NDC]\nXSabre_GDS[Sabre GDS]\nXaircanada_com[aircanada.com]\nend\nXAmadeus_Altea_Reservations -->|bookings| XPROS_Revenue_Management\nXDatabricks_Lakehouse -->|history| XPROS_Revenue_Management\nXPROS_Revenue_Management -->|willingness to pay| XPROS_Real_Time_Dynamic_Pricing\nXPROS_Revenue_Management -->|bid price| XAmadeus_Altea_Inventory\nXPROS_Real_Time_Dynamic_Pricing -->|fare change| XATPCO\nXATPCO -->|filed fare| XAmadeus_Altea_Inventory\nXAmadeus_Altea_Inventory -->|offer| XAmadeus_Altea_NDC\nXAmadeus_Altea_Inventory -->|availability| XSabre_GDS\nXAmadeus_Altea_NDC -->|dynamic offer| Xaircanada_com\nstyle C1 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C2 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C3 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C4 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nclassDef sys fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1px,color:#1A1A1A\nclassDef gap fill:#1A1A1A,stroke:#D2001F,stroke-width:2px,color:#FFFFFF\nclass XAmadeus_Altea_Reservations,XDatabricks_Lakehouse,XPROS_Revenue_Management,XPROS_Real_Time_Dynamic_Pricing,XATPCO,XAmadeus_Altea_Inventory,XAmadeus_Altea_NDC,XSabre_GDS,Xaircanada_com sys"
+  },
+  {
+   "id": "AC-X3",
+   "slug": "ac-x3-passenger-journey",
+   "title": "Passenger Journey: Shop to Boarding Gate",
+   "kind": "Cross-domain flow",
+   "blurb": "One passenger, end to end, and the eight systems that touch them between shopping and boarding.",
+   "systems": [
+    "aircanada.com",
+    "Amadeus Altea NDC",
+    "Amadeus Altea Reservations",
+    "Amadeus Altea DCS",
+    "SAP Customer Data Cloud",
+    "CBSA API and PNR"
+   ],
+   "notes": [
+    "Identity is established once and then relied on by every subsequent stage.",
+    "The advance passenger information hop is a regulatory hard gate; failure there stops the flight, not just the passenger."
+   ],
+   "mermaid": "%%{init: {'theme':'base','themeVariables':{'fontSize':'14px'}}}%%\nflowchart LR\nsubgraph C1 [Shop and book]\nXaircanada_com[aircanada.com]\nXAmadeus_Altea_NDC[Amadeus Altea NDC]\nXAmadeus_Altea_Reservations[Amadeus Altea Reservations]\nend\nsubgraph C2 [Identify]\nXSAP_Customer_Data_Cloud[SAP Customer Data Cloud]\nXAeroplan_Platform[Aeroplan Platform]\nend\nsubgraph C3 [Check in]\nXAir_Canada_Mobile_App[Air Canada Mobile App]\nXAmadeus_Altea_DCS[Amadeus Altea DCS]\nend\nsubgraph C4 [Board]\nXBaggage_Reconciliation_System[Baggage Reconciliation System]\nXCBSA_API_and_PNR[CBSA API and PNR]\nend\nXaircanada_com -->|shopping request| XAmadeus_Altea_NDC\nXAmadeus_Altea_NDC -->|create PNR| XAmadeus_Altea_Reservations\nXSAP_Customer_Data_Cloud -->|authenticated member| Xaircanada_com\nXAeroplan_Platform -->|member benefits| XAmadeus_Altea_Reservations\nXAmadeus_Altea_Reservations -->|passenger list| XAmadeus_Altea_DCS\nXAir_Canada_Mobile_App -->|check in| XAmadeus_Altea_DCS\nXAmadeus_Altea_DCS -->|advance passenger info| XCBSA_API_and_PNR\nXAmadeus_Altea_DCS -->|bag match| XBaggage_Reconciliation_System\nstyle C1 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C2 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C3 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C4 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nclassDef sys fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1px,color:#1A1A1A\nclassDef gap fill:#1A1A1A,stroke:#D2001F,stroke-width:2px,color:#FFFFFF\nclass Xaircanada_com,XAmadeus_Altea_NDC,XAmadeus_Altea_Reservations,XSAP_Customer_Data_Cloud,XAeroplan_Platform,XAir_Canada_Mobile_App,XAmadeus_Altea_DCS,XBaggage_Reconciliation_System,XCBSA_API_and_PNR sys"
+  },
+  {
+   "id": "AC-X4",
+   "slug": "ac-x4-flight-ops",
+   "title": "Flight Operations: Dispatch, Datalink and the Operations Centre",
+   "kind": "Cross-domain flow",
+   "blurb": "From planned schedule to airborne aircraft, and back through datalink into the operational record.",
+   "systems": [
+    "NetLine/Ops",
+    "Jeppesen OCC",
+    "NAV CANADA",
+    "ACARS Datalink",
+    "Weight and Balance System"
+   ],
+   "notes": [
+    "OOOI times returning through datalink are the timestamps that later determine APPR delay duration.",
+    "The dispatch release is a joint responsibility between dispatcher and captain, which makes the sign-off a control point rather than a formality."
+   ],
+   "mermaid": "%%{init: {'theme':'base','themeVariables':{'fontSize':'14px'}}}%%\nflowchart LR\nsubgraph C1 [Plan]\nXLufthansa_Systems_NetLine[Lufthansa Systems NetLine]\nXNAV_CANADA[NAV CANADA]\nend\nsubgraph C2 [Dispatch]\nXNetLine_Ops[NetLine/Ops]\nXWeight_and_Balance_System[Weight and Balance System]\nend\nsubgraph C3 [Flight deck]\nXElectronic_Flight_Bag[Electronic Flight Bag]\nXJeppesen_Charts[Jeppesen Charts]\nend\nsubgraph C4 [Monitor]\nXACARS_Datalink[ACARS Datalink]\nXJeppesen_OCC[Jeppesen OCC]\nend\nXLufthansa_Systems_NetLine -->|flight schedule| XNetLine_Ops\nXNAV_CANADA -->|NOTAM and weather| XNetLine_Ops\nXNetLine_Ops -->|planned payload| XWeight_and_Balance_System\nXWeight_and_Balance_System -->|loadsheet| XElectronic_Flight_Bag\nXJeppesen_Charts -->|terminal charts| XElectronic_Flight_Bag\nXElectronic_Flight_Bag -->|crew acknowledgement| XACARS_Datalink\nXACARS_Datalink -->|OOOI times| XJeppesen_OCC\nXJeppesen_OCC -->|operational status| XNetLine_Ops\nstyle C1 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C2 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C3 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C4 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nclassDef sys fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1px,color:#1A1A1A\nclassDef gap fill:#1A1A1A,stroke:#D2001F,stroke-width:2px,color:#FFFFFF\nclass XLufthansa_Systems_NetLine,XNAV_CANADA,XNetLine_Ops,XWeight_and_Balance_System,XElectronic_Flight_Bag,XJeppesen_Charts,XACARS_Datalink,XJeppesen_OCC sys"
+  },
+  {
+   "id": "AC-X5",
+   "slug": "ac-x5-crew-recovery",
+   "title": "Crew Management: Pairing through Irregular Operations Recovery",
+   "kind": "Cross-domain flow",
+   "blurb": "How a published roster survives contact with a disrupted day, and where legality binds.",
+   "systems": [
+    "Jeppesen Crew",
+    "Jeppesen OCC",
+    "NetLine/Ops",
+    "Dayforce",
+    "SAP S/4HANA"
+   ],
+   "notes": [
+    "The legality check is the binding constraint on recovery. An aircraft without a legal crew is not a recovery option regardless of what the network plan says.",
+    "Collective agreement rules under four bargaining units are encoded in the pairing engine, so a recovery that breaks them creates a grievance rather than a delay."
+   ],
+   "mermaid": "%%{init: {'theme':'base','themeVariables':{'fontSize':'14px'}}}%%\nflowchart LR\nsubgraph C1 [Plan]\nXLufthansa_Systems_NetLine[Lufthansa Systems NetLine]\nXJeppesen_Crew[Jeppesen Crew]\nend\nsubgraph C2 [Publish]\nXDayforce[Dayforce]\nend\nsubgraph C3 [Disrupt]\nXNetLine_Ops[NetLine/Ops]\nXJeppesen_OCC[Jeppesen OCC]\nend\nsubgraph C4 [Recover and pay]\nXACARS_Datalink[ACARS Datalink]\nXSAP_S_4HANA[SAP S/4HANA]\nend\nXLufthansa_Systems_NetLine -->|schedule demand| XJeppesen_Crew\nXJeppesen_Crew -->|published roster| XDayforce\nXNetLine_Ops -->|irregularity| XJeppesen_OCC\nXJeppesen_OCC -->|legality check| XJeppesen_Crew\nXJeppesen_Crew -->|legal crew options| XJeppesen_OCC\nXJeppesen_OCC -->|crew reassignment| XACARS_Datalink\nXJeppesen_Crew -->|actual credit| XDayforce\nXDayforce -->|pay posting| XSAP_S_4HANA\nstyle C1 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C2 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C3 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C4 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nclassDef sys fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1px,color:#1A1A1A\nclassDef gap fill:#1A1A1A,stroke:#D2001F,stroke-width:2px,color:#FFFFFF\nclass XLufthansa_Systems_NetLine,XJeppesen_Crew,XDayforce,XNetLine_Ops,XJeppesen_OCC,XACARS_Datalink,XSAP_S_4HANA sys"
+  },
+  {
+   "id": "AC-X6",
+   "slug": "ac-x6-mro-airworthiness",
+   "title": "Maintenance and Airworthiness: TRAX, Regulator and Finance",
+   "kind": "Cross-domain flow",
+   "blurb": "A defect from the technical log through rectification, certification and cost posting.",
+   "systems": [
+    "TRAX",
+    "TRAX eMobility",
+    "Transport Canada CAWIS",
+    "Aeroxchange",
+    "SAP S/4HANA"
+   ],
+   "notes": [
+    "Certification is the gate that releases the aircraft; everything downstream of it is accounting.",
+    "Ground time available comes from the rotation build, which is why a maintenance overrun is a network problem before it is an engineering one."
+   ],
+   "mermaid": "%%{init: {'theme':'base','themeVariables':{'fontSize':'14px'}}}%%\nflowchart LR\nsubgraph C1 [Detect]\nXACARS_Datalink[ACARS Datalink]\nXTRAX[TRAX]\nend\nsubgraph C2 [Plan]\nXAeroxchange[Aeroxchange]\nXLufthansa_Systems_NetLine[Lufthansa Systems NetLine]\nend\nsubgraph C3 [Execute]\nXTRAX_eMobility[TRAX eMobility]\nend\nsubgraph C4 [Certify and post]\nXTransport_Canada_CAWIS[Transport Canada CAWIS]\nXSAP_S_4HANA[SAP S/4HANA]\nend\nXACARS_Datalink -->|fault downlink| XTRAX\nXTRAX -->|parts requirement| XAeroxchange\nXLufthansa_Systems_NetLine -->|ground time available| XTRAX\nXTRAX -->|task card| XTRAX_eMobility\nXTRAX_eMobility -->|certification and findings| XTRAX\nXTRAX -->|airworthiness record| XTransport_Canada_CAWIS\nXTRAX -->|labour and parts cost| XSAP_S_4HANA\nstyle C1 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C2 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C3 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C4 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nclassDef sys fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1px,color:#1A1A1A\nclassDef gap fill:#1A1A1A,stroke:#D2001F,stroke-width:2px,color:#FFFFFF\nclass XACARS_Datalink,XTRAX,XAeroxchange,XLufthansa_Systems_NetLine,XTRAX_eMobility,XTransport_Canada_CAWIS,XSAP_S_4HANA sys"
+  },
+  {
+   "id": "AC-X7",
+   "slug": "ac-x7-cargo",
+   "title": "Cargo: Cargospot neo, Pre-Load Customs and Settlement",
+   "kind": "Cross-domain flow",
+   "blurb": "An air waybill from booking to settlement, across the live Cargospot migration boundary.",
+   "systems": [
+    "CHAMP Cargospot neo",
+    "Cargospot neo Handling",
+    "Canada PACT",
+    "Cargospot neo Revenue Accounting",
+    "SAP S/4HANA"
+   ],
+   "notes": [
+    "Pre-load filing must complete before loading. It is a gate, not a report.",
+    "During the migration this whole flow runs twice, once in legacy and once in Cargospot, which is where revenue-accounting variance originates."
+   ],
+   "mermaid": "%%{init: {'theme':'base','themeVariables':{'fontSize':'14px'}}}%%\nflowchart LR\nsubgraph C1 [Book]\nXCHAMP_Cargospot_neo[CHAMP Cargospot neo]\nend\nsubgraph C2 [Comply]\nXCanada_PACT[Canada PACT]\nend\nsubgraph C3 [Handle and fly]\nXCargospot_neo_Handling[Cargospot neo Handling]\nXCargospot_Mobile[Cargospot Mobile]\nXAmadeus_Altea_DCS[Amadeus Altea DCS]\nend\nsubgraph C4 [Settle]\nXCargospot_neo_Revenue_Accounting[Cargospot neo Revenue Accounting]\nXSAP_S_4HANA[SAP S/4HANA]\nend\nXCHAMP_Cargospot_neo -->|pre-load data| XCanada_PACT\nXCHAMP_Cargospot_neo -->|booking| XCargospot_neo_Handling\nXCargospot_neo_Handling -->|warehouse task| XCargospot_Mobile\nXCargospot_neo_Handling -->|uplift to aircraft| XAmadeus_Altea_DCS\nXCargospot_neo_Handling -->|proof of carriage| XCargospot_neo_Revenue_Accounting\nXCargospot_neo_Revenue_Accounting -->|CASS settlement| XSAP_S_4HANA\nstyle C1 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C2 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C3 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C4 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nclassDef sys fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1px,color:#1A1A1A\nclassDef gap fill:#1A1A1A,stroke:#D2001F,stroke-width:2px,color:#FFFFFF\nclass XCHAMP_Cargospot_neo,XCanada_PACT,XCargospot_neo_Handling,XCargospot_Mobile,XAmadeus_Altea_DCS,XCargospot_neo_Revenue_Accounting,XSAP_S_4HANA sys"
+  },
+  {
+   "id": "AC-X8",
+   "slug": "ac-x8-network-publication",
+   "title": "Network Planning: Schedule Build to Market Publication",
+   "kind": "Cross-domain flow",
+   "blurb": "How a schedule decision reaches every selling channel and every alliance partner.",
+   "systems": [
+    "NetLine/Plan",
+    "Lufthansa Systems NetLine",
+    "Amadeus Altea Inventory",
+    "Star Alliance Interline",
+    "IATA Type-B Messaging"
+   ],
+   "notes": [
+    "A schedule change after load triggers passenger re-protection, so late changes are expensive in a way the planning system does not price.",
+    "Joint venture coordination happens before the schedule is committed, not after."
+   ],
+   "mermaid": "%%{init: {'theme':'base','themeVariables':{'fontSize':'14px'}}}%%\nflowchart LR\nsubgraph C1 [Build]\nXNetLine_Plan[NetLine/Plan]\nend\nsubgraph C2 [Coordinate]\nXStar_Alliance_Interline[Star Alliance Interline]\nXA_Atlantic_Joint_Venture[A++ Atlantic Joint Venture]\nend\nsubgraph C3 [Load]\nXAmadeus_Altea_Inventory[Amadeus Altea Inventory]\nXLufthansa_Systems_NetLine[Lufthansa Systems NetLine]\nend\nsubgraph C4 [Publish]\nXIATA_Type_B_Messaging[IATA Type-B Messaging]\nXSabre_GDS[Sabre GDS]\nXaircanada_com[aircanada.com]\nend\nXNetLine_Plan -->|codeshare intent| XStar_Alliance_Interline\nXNetLine_Plan -->|JV schedule| XA_Atlantic_Joint_Venture\nXNetLine_Plan -->|committed schedule| XLufthansa_Systems_NetLine\nXLufthansa_Systems_NetLine -->|SSIM load| XAmadeus_Altea_Inventory\nXLufthansa_Systems_NetLine -->|schedule change| XIATA_Type_B_Messaging\nXIATA_Type_B_Messaging -->|distribution| XSabre_GDS\nXAmadeus_Altea_Inventory -->|sellable schedule| Xaircanada_com\nstyle C1 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C2 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C3 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C4 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nclassDef sys fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1px,color:#1A1A1A\nclassDef gap fill:#1A1A1A,stroke:#D2001F,stroke-width:2px,color:#FFFFFF\nclass XNetLine_Plan,XStar_Alliance_Interline,XA_Atlantic_Joint_Venture,XAmadeus_Altea_Inventory,XLufthansa_Systems_NetLine,XIATA_Type_B_Messaging,XSabre_GDS,Xaircanada_com sys"
+  },
+  {
+   "id": "AC-X9",
+   "slug": "ac-x9-finance-settlement",
+   "title": "Finance: Revenue Accounting, Interline Settlement and Treasury",
+   "kind": "Cross-domain flow",
+   "blurb": "From a flown coupon to recognised revenue, settled interline balances and a cash position.",
+   "systems": [
+    "Revenue Accounting System",
+    "IATA BSP",
+    "SAP S/4HANA",
+    "SAP Analytics Cloud",
+    "Star Alliance Interline"
+   ],
+   "notes": [
+    "Revenue is recognised on lift, not on sale, which is what creates the air traffic liability.",
+    "Interline settlement runs on industry clearing timetables outside Air Canada's control."
+   ],
+   "mermaid": "%%{init: {'theme':'base','themeVariables':{'fontSize':'14px'}}}%%\nflowchart LR\nsubgraph C1 [Sell]\nXAmadeus_Altea_Reservations[Amadeus Altea Reservations]\nXIATA_BSP[IATA BSP]\nend\nsubgraph C2 [Account]\nXRevenue_Accounting_System[Revenue Accounting System]\nend\nsubgraph C3 [Settle]\nXStar_Alliance_Interline[Star Alliance Interline]\nXSAP_S_4HANA[SAP S/4HANA]\nend\nsubgraph C4 [Report]\nXSAP_Analytics_Cloud[SAP Analytics Cloud]\nend\nXAmadeus_Altea_Reservations -->|coupon lifted| XRevenue_Accounting_System\nXIATA_BSP -->|agency sales| XRevenue_Accounting_System\nXRevenue_Accounting_System -->|interline billing| XStar_Alliance_Interline\nXRevenue_Accounting_System -->|recognised revenue| XSAP_S_4HANA\nXStar_Alliance_Interline -->|settled balances| XSAP_S_4HANA\nXSAP_S_4HANA -->|management reporting| XSAP_Analytics_Cloud\nstyle C1 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C2 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C3 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C4 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nclassDef sys fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1px,color:#1A1A1A\nclassDef gap fill:#1A1A1A,stroke:#D2001F,stroke-width:2px,color:#FFFFFF\nclass XAmadeus_Altea_Reservations,XIATA_BSP,XRevenue_Accounting_System,XStar_Alliance_Interline,XSAP_S_4HANA,XSAP_Analytics_Cloud sys"
+  },
+  {
+   "id": "AC-X10",
+   "slug": "ac-x10-data-platform",
+   "title": "Data Platform: AWS, Databricks and the Cloudera Sunset",
+   "kind": "Cross-domain flow",
+   "blurb": "The grounding surface for analytics and AI, currently being rebuilt.",
+   "systems": [
+    "Databricks Lakehouse",
+    "Cloudera",
+    "Unity Catalog",
+    "Integration Platform",
+    "AWS"
+   ],
+   "notes": [
+    "The ingest layer is an unconfirmed product and every AI use case depends on it.",
+    "Because the lakehouse is being rebuilt now, governance and lineage can be designed in rather than retrofitted."
+   ],
+   "mermaid": "%%{init: {'theme':'base','themeVariables':{'fontSize':'14px'}}}%%\nflowchart LR\nsubgraph C1 [Sources]\nXAmadeus_Altea_Reservations[Amadeus Altea Reservations]\nXNetLine_Ops[NetLine/Ops]\nXTRAX[TRAX]\nXSalesforce_Service_Cloud[Salesforce Service Cloud]\nend\nsubgraph C2 [Ingest]\nXIntegration_Platform[Integration Platform]\nend\nsubgraph C3 [Lakehouse]\nXCloudera[Cloudera]\nXDatabricks_Lakehouse[Databricks Lakehouse]\nXUnity_Catalog[Unity Catalog]\nend\nsubgraph C4 [Consume]\nXPROS_Revenue_Management[PROS Revenue Management]\nXSAP_Analytics_Cloud[SAP Analytics Cloud]\nend\nXAmadeus_Altea_Reservations -->|booking events| XIntegration_Platform\nXNetLine_Ops -->|operational events| XIntegration_Platform\nXTRAX -->|maintenance events| XIntegration_Platform\nXSalesforce_Service_Cloud -->|case events| XIntegration_Platform\nXIntegration_Platform -->|ingest| XDatabricks_Lakehouse\nXCloudera -->|migrate and retire| XDatabricks_Lakehouse\nXDatabricks_Lakehouse -->|govern| XUnity_Catalog\nXDatabricks_Lakehouse -->|demand history| XPROS_Revenue_Management\nXDatabricks_Lakehouse -->|operational drivers| XSAP_Analytics_Cloud\nstyle C1 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C2 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C3 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C4 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nclassDef sys fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1px,color:#1A1A1A\nclassDef gap fill:#1A1A1A,stroke:#D2001F,stroke-width:2px,color:#FFFFFF\nclass XAmadeus_Altea_Reservations,XNetLine_Ops,XTRAX,XSalesforce_Service_Cloud,XCloudera,XDatabricks_Lakehouse,XUnity_Catalog,XPROS_Revenue_Management,XSAP_Analytics_Cloud sys\nclass XIntegration_Platform gap"
+  },
+  {
+   "id": "AC-X11",
+   "slug": "ac-x11-irrop-end-to-end",
+   "title": "Irregular Operations End to End: Detection to Compensation",
+   "kind": "Cross-domain flow",
+   "blurb": "The single most consequential chain in the estate: a disruption becomes a crew problem, a passenger problem and finally a regulatory liability.",
+   "systems": [
+    "NetLine/Ops",
+    "Jeppesen OCC",
+    "Amadeus Passenger Recovery",
+    "Salesforce Service Cloud",
+    "Jazz and PAL Operator Interface",
+    "CTA Complaint Interface"
+   ],
+   "notes": [
+    "The delay reason code set at the first hop determines the compensation outcome at the last. An inconsistent code at the Express operator seam becomes a regulatory exposure four systems later.",
+    "This chain crosses six domains and no single system holds the whole picture.",
+    "Improving reason-code fidelity at source is worth more than improving adjudication downstream."
+   ],
+   "mermaid": "%%{init: {'theme':'base','themeVariables':{'fontSize':'14px'}}}%%\nflowchart LR\nsubgraph C1 [Detect]\nXNetLine_Ops[NetLine/Ops]\nXJazz_and_PAL_Operator_Interface[Jazz and PAL Operator Interface]\nend\nsubgraph C2 [Recover]\nXJeppesen_OCC[Jeppesen OCC]\nXJeppesen_Crew[Jeppesen Crew]\nXAmadeus_Passenger_Recovery[Amadeus Passenger Recovery]\nend\nsubgraph C3 [Notify]\nXAir_Canada_Mobile_App[Air Canada Mobile App]\nXAmazon_Connect[Amazon Connect]\nend\nsubgraph C4 [Adjudicate]\nXSalesforce_Service_Cloud[Salesforce Service Cloud]\nXCTA_Complaint_Interface[CTA Complaint Interface]\nXSAP_S_4HANA[SAP S/4HANA]\nend\nXJazz_and_PAL_Operator_Interface -->|manual reconciliation| XNetLine_Ops\nXNetLine_Ops -->|recovery decision| XJeppesen_OCC\nXJeppesen_OCC -->|crew legality| XJeppesen_Crew\nXJeppesen_OCC -->|reaccommodate| XAmadeus_Passenger_Recovery\nXAmadeus_Passenger_Recovery -->|new itinerary| XAir_Canada_Mobile_App\nXAmadeus_Passenger_Recovery -->|assisted rebooking| XAmazon_Connect\nXNetLine_Ops -->|delay reason code| XSalesforce_Service_Cloud\nXSalesforce_Service_Cloud -->|regulatory response| XCTA_Complaint_Interface\nXSalesforce_Service_Cloud -->|compensation| XSAP_S_4HANA\nstyle C1 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C2 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C3 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C4 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nclassDef sys fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1px,color:#1A1A1A\nclassDef gap fill:#1A1A1A,stroke:#D2001F,stroke-width:2px,color:#FFFFFF\nclass XNetLine_Ops,XJazz_and_PAL_Operator_Interface,XJeppesen_OCC,XJeppesen_Crew,XAmadeus_Passenger_Recovery,XAir_Canada_Mobile_App,XAmazon_Connect,XSalesforce_Service_Cloud,XCTA_Complaint_Interface,XSAP_S_4HANA sys"
+  },
+  {
+   "id": "AC-X12",
+   "slug": "ac-x12-service-management",
+   "title": "IT Service Management: Event to Resolution",
+   "kind": "Cross-domain flow",
+   "blurb": "How an operational event becomes an incident, a change and a service level position.",
+   "systems": [
+    "ITSM Platform",
+    "Observability Platform",
+    "Integration Platform",
+    "AWS"
+   ],
+   "notes": [
+    "The ITSM product and the observability product are both unconfirmed and are direct scope questions for an application management engagement.",
+    "The 2023 outages show the gap is not detection alone but the absence of a rehearsed degraded-mode operating procedure for the airport and ops-control estate."
+   ],
+   "mermaid": "%%{init: {'theme':'base','themeVariables':{'fontSize':'14px'}}}%%\nflowchart LR\nsubgraph C1 [Detect]\nXObservability_Platform[Observability Platform]\nXAmadeus_Altea_DCS[Amadeus Altea DCS]\nXNetLine_Ops[NetLine/Ops]\nend\nsubgraph C2 [Triage]\nXITSM_Platform[ITSM Platform]\nend\nsubgraph C3 [Resolve]\nXIntegration_Platform[Integration Platform]\nXAWS[AWS]\nend\nsubgraph C4 [Govern]\nXSAP_Ariba[SAP Ariba]\nend\nXObservability_Platform -->|alert to incident| XITSM_Platform\nXAmadeus_Altea_DCS -->|user-reported fault| XITSM_Platform\nXNetLine_Ops -->|operational impact| XITSM_Platform\nXITSM_Platform -->|interface fix| XIntegration_Platform\nXITSM_Platform -->|platform change| XAWS\nXITSM_Platform -->|vendor service credit| XSAP_Ariba\nstyle C1 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C2 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C3 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C4 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nclassDef sys fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1px,color:#1A1A1A\nclassDef gap fill:#1A1A1A,stroke:#D2001F,stroke-width:2px,color:#FFFFFF\nclass XAmadeus_Altea_DCS,XNetLine_Ops,XAWS,XSAP_Ariba sys\nclass XITSM_Platform,XObservability_Platform,XIntegration_Platform gap"
+  },
+  {
+   "id": "AC-X13",
+   "slug": "ac-x13-cybersecurity",
+   "title": "Cybersecurity and Identity: Customer and Workforce Perimeters",
+   "kind": "Cross-domain flow",
+   "blurb": "Two distinct identity perimeters, one evidenced and one not.",
+   "systems": [
+    "SAP Customer Data Cloud",
+    "Workforce Identity",
+    "SIEM and SOC",
+    "Microsoft 365",
+    "ITSM Platform"
+   ],
+   "notes": [
+    "Customer identity on SAP Customer Data Cloud is confirmed. Workforce identity is not evidenced in public sources and should not be named in a bid.",
+    "SAP Customer Data Cloud also carries consent, which makes it a privacy control point under PIPEDA and Quebec Law 25, not only an authentication service."
+   ],
+   "mermaid": "%%{init: {'theme':'base','themeVariables':{'fontSize':'14px'}}}%%\nflowchart LR\nsubgraph C1 [Customer perimeter]\nXSAP_Customer_Data_Cloud[SAP Customer Data Cloud]\nXaircanada_com[aircanada.com]\nXAir_Canada_Mobile_App[Air Canada Mobile App]\nend\nsubgraph C2 [Workforce perimeter]\nXWorkforce_Identity[Workforce Identity]\nXMicrosoft_365[Microsoft 365]\nend\nsubgraph C3 [Detect]\nXSIEM_and_SOC[SIEM and SOC]\nend\nsubgraph C4 [Respond]\nXITSM_Platform[ITSM Platform]\nend\nXaircanada_com -->|customer authentication| XSAP_Customer_Data_Cloud\nXAir_Canada_Mobile_App -->|customer authentication| XSAP_Customer_Data_Cloud\nXWorkforce_Identity -->|employee SSO| XMicrosoft_365\nXSAP_Customer_Data_Cloud -->|auth telemetry| XSIEM_and_SOC\nXMicrosoft_365 -->|auth telemetry| XSIEM_and_SOC\nXSIEM_and_SOC -->|security incident| XITSM_Platform\nstyle C1 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C2 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C3 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C4 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nclassDef sys fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1px,color:#1A1A1A\nclassDef gap fill:#1A1A1A,stroke:#D2001F,stroke-width:2px,color:#FFFFFF\nclass XSAP_Customer_Data_Cloud,Xaircanada_com,XAir_Canada_Mobile_App,XMicrosoft_365 sys\nclass XWorkforce_Identity,XSIEM_and_SOC,XITSM_Platform gap"
+  },
+  {
+   "id": "AC-X14",
+   "slug": "ac-x14-contact-centre",
+   "title": "Contact Centre: Voice, Assistant and Case",
+   "kind": "Cross-domain flow",
+   "blurb": "How a customer contact becomes a case, and where the AI governance boundary sits.",
+   "systems": [
+    "Amazon Connect",
+    "Salesforce Service Cloud",
+    "Air Canada Virtual Assistant",
+    "Amadeus Altea Customer Management",
+    "Simul8"
+   ],
+   "notes": [
+    "The virtual assistant is inside the liability perimeter set by Moffatt v. Air Canada. Any automated response that states policy must have a human decision point and restricted grounding.",
+    "Every interaction in this flow carries a bilingual obligation in English and French."
+   ],
+   "mermaid": "%%{init: {'theme':'base','themeVariables':{'fontSize':'14px'}}}%%\nflowchart LR\nsubgraph C1 [Contact]\nXAir_Canada_Virtual_Assistant[Air Canada Virtual Assistant]\nXAmazon_Connect[Amazon Connect]\nend\nsubgraph C2 [Context]\nXAmadeus_Altea_Customer_Management[Amadeus Altea Customer Management]\nXAeroplan_Platform[Aeroplan Platform]\nend\nsubgraph C3 [Case]\nXSalesforce_Service_Cloud[Salesforce Service Cloud]\nend\nsubgraph C4 [Plan capacity]\nXSimul8[Simul8]\nend\nXAir_Canada_Virtual_Assistant -->|escalated conversation| XSalesforce_Service_Cloud\nXAmazon_Connect -->|voice to case| XSalesforce_Service_Cloud\nXAmadeus_Altea_Customer_Management -->|booking context| XSalesforce_Service_Cloud\nXAeroplan_Platform -->|member context| XSalesforce_Service_Cloud\nXAmazon_Connect -->|volume telemetry| XSimul8\nXSimul8 -->|staffing model| XAmazon_Connect\nstyle C1 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C2 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C3 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C4 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nclassDef sys fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1px,color:#1A1A1A\nclassDef gap fill:#1A1A1A,stroke:#D2001F,stroke-width:2px,color:#FFFFFF\nclass XAir_Canada_Virtual_Assistant,XAmazon_Connect,XAmadeus_Altea_Customer_Management,XAeroplan_Platform,XSalesforce_Service_Cloud,XSimul8 sys"
+  },
+  {
+   "id": "AC-X15",
+   "slug": "ac-x15-turnaround",
+   "title": "Ground Turnaround: Arrival to Off-Block at the Hub",
+   "kind": "Cross-domain flow",
+   "blurb": "The turn itself, where schedule, baggage, load and maintenance all have to agree inside the ground time.",
+   "systems": [
+    "Amadeus Altea DCS",
+    "Weight and Balance System",
+    "Baggage Reconciliation System",
+    "TRAX eMobility",
+    "NetLine/Ops"
+   ],
+   "notes": [
+    "The loadsheet is the last gate before off-block, so every upstream delay compresses into it.",
+    "A maintenance release arriving late converts an engineering task into a departure delay and, if it runs long enough, into an APPR liability."
+   ],
+   "mermaid": "%%{init: {'theme':'base','themeVariables':{'fontSize':'14px'}}}%%\nflowchart LR\nsubgraph C1 [Arrive]\nXACARS_Datalink[ACARS Datalink]\nXAirport_Resource_Management[Airport Resource Management]\nend\nsubgraph C2 [Service]\nXAmadeus_Altea_DCS[Amadeus Altea DCS]\nXBaggage_Reconciliation_System[Baggage Reconciliation System]\nXTRAX_eMobility[TRAX eMobility]\nend\nsubgraph C3 [Load]\nXWeight_and_Balance_System[Weight and Balance System]\nend\nsubgraph C4 [Depart]\nXNetLine_Ops[NetLine/Ops]\nXIATA_Type_B_Messaging[IATA Type-B Messaging]\nend\nXACARS_Datalink -->|on-block| XAirport_Resource_Management\nXAirport_Resource_Management -->|gate assignment| XAmadeus_Altea_DCS\nXAmadeus_Altea_DCS -->|bag reconciliation| XBaggage_Reconciliation_System\nXTRAX_eMobility -->|maintenance release| XNetLine_Ops\nXAmadeus_Altea_DCS -->|final passenger load| XWeight_and_Balance_System\nXBaggage_Reconciliation_System -->|bag load| XWeight_and_Balance_System\nXWeight_and_Balance_System -->|loadsheet issued| XNetLine_Ops\nXNetLine_Ops -->|movement message| XIATA_Type_B_Messaging\nstyle C1 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C2 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C3 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C4 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nclassDef sys fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1px,color:#1A1A1A\nclassDef gap fill:#1A1A1A,stroke:#D2001F,stroke-width:2px,color:#FFFFFF\nclass XACARS_Datalink,XAirport_Resource_Management,XAmadeus_Altea_DCS,XBaggage_Reconciliation_System,XTRAX_eMobility,XWeight_and_Balance_System,XNetLine_Ops,XIATA_Type_B_Messaging sys"
+  },
+  {
+   "id": "AC-X16",
+   "slug": "ac-x16-manual-rekey",
+   "title": "Manual Re-Key Hotspots and Automation Targets",
+   "kind": "Cross-domain flow",
+   "blurb": "The seams where a human retypes data that a system already holds. These are the highest-value automation targets in the estate, and each one is a defect surface as well as a cost.",
+   "systems": [
+    "Jazz and PAL Operator Interface",
+    "Salesforce Service Cloud",
+    "SITA WorldTracer",
+    "CHAMP Cargospot neo"
+   ],
+   "notes": [
+    "Each hotspot is a place where a system already holds the data and a person retypes it into another system. That is both a cost and a defect surface.",
+    "The APPR and Express-operator hotspots compound: a wrong reason code entered at the operational seam produces a wrong entitlement determination three systems downstream.",
+    "The cargo hotspot is time-bounded by the Cargospot migration, which makes it the cheapest one to justify solving now.",
+    "Any automation proposed against these seams must carry a human decision point, given the Moffatt precedent on automated statements."
+   ],
+   "mermaid": "%%{init: {'theme':'base','themeVariables':{'fontSize':'14px'}}}%%\nflowchart LR\nsubgraph C1 [Re-key hotspot]\nXExpress_operator_disruption_reconcilia[Express operator disruption...]\nXAPPR_entitlement_from_PNR_and_reason_c[APPR entitlement from PNR and reason...]\nXMishandled_bag_claim_to_compensation[Mishandled bag claim to compensation]\nXCargo_interim_double_entry[Cargo interim double entry]\nXBilingual_content_parity[Bilingual content parity]\nend\nsubgraph C2 [Systems either side]\nXJazz_and_PAL_Operator_Interface[Jazz and PAL Operator Interface]\nXSalesforce_Service_Cloud[Salesforce Service Cloud]\nXSITA_WorldTracer[SITA WorldTracer]\nXCHAMP_Cargospot_neo[CHAMP Cargospot neo]\nend\nsubgraph C3 [Consequence]\nXRegulatory_exposure[Regulatory exposure]\nXRevenue_variance[Revenue variance]\nXCycle_time_and_cost[Cycle time and cost]\nend\nXExpress_operator_disruption_reconcilia --> XJazz_and_PAL_Operator_Interface\nXAPPR_entitlement_from_PNR_and_reason_c --> XSalesforce_Service_Cloud\nXMishandled_bag_claim_to_compensation --> XSITA_WorldTracer\nXCargo_interim_double_entry --> XCHAMP_Cargospot_neo\nXJazz_and_PAL_Operator_Interface -->|wrong reason code| XRegulatory_exposure\nXSalesforce_Service_Cloud -->|wrong entitlement| XRegulatory_exposure\nXSITA_WorldTracer -->|claim delay| XCycle_time_and_cost\nXCHAMP_Cargospot_neo -->|divergent records| XRevenue_variance\nXBilingual_content_parity -->|duplicated QA| XCycle_time_and_cost\nstyle C1 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C2 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nstyle C3 fill:#FFF0F2,stroke:#D2001F,stroke-width:2px\nclassDef sys fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1px,color:#1A1A1A\nclassDef gap fill:#1A1A1A,stroke:#D2001F,stroke-width:2px,color:#FFFFFF\nclass XExpress_operator_disruption_reconcilia,XAPPR_entitlement_from_PNR_and_reason_c,XMishandled_bag_claim_to_compensation,XCargo_interim_double_entry,XBilingual_content_parity,XJazz_and_PAL_Operator_Interface,XSalesforce_Service_Cloud,XSITA_WorldTracer,XCHAMP_Cargospot_neo sys\nclass XRegulatory_exposure,XRevenue_variance,XCycle_time_and_cost gap"
+  }
+ ]
+}

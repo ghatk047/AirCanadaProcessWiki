@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Seasonal Schedule Build in NetLine Plan &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Seasonal Schedule Build in NetLine Plan.">
+<title>AC-NP-SP-02 Seasonal Schedule Build in NetLine Plan &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-NP-SP-02 Seasonal Schedule Build in NetLine Plan.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../network-planning-scheduling/schedule-planning-design/ac-np-sp-01/",next:"../../../network-planning-scheduling/schedule-planning-design/ac-np-sp-03/"};
@@ -128,18 +128,215 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <a class="l2-link" href="../../../human-resources-labour/engagement-learning-inclusion/">Engagement, Learning &amp; Inclusion</a>
 </div></div>
 <div class="sb-section-title">Enterprise Architecture</div>
-<div class="l1-block"><a class="l1-link" href="../../../ea-diagrams/"><span class="ic">&#128506;</span><span class="sb-label">EA Diagrams</span><span class="cnt">27</span></a></div>
+<div class="l1-block"><a class="l1-link" href="../../../ea-diagrams/"><span class="ic">&#128506;</span><span class="sb-label">EA Diagrams</span><span class="cnt">28</span></a></div>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Network Planning &amp; Scheduling</a><span class="sep">&rsaquo;</span><a href="../">Schedule Planning &amp; Design</a><span class="sep">&rsaquo;</span><span class="cur">AC-NP-SP-02</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-NP-SP-02" title="Click to copy the process ID">
     AC-NP-SP-02<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Seasonal Schedule Build in NetLine Plan</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Seasonal Schedule Build in NetLine Plan</h1>
+<p class="lede" id="overview">The seasonal schedule is constructed in NetLine Plan from the committed long-range plan, resolving frequency, timing, fleet assignment and rotation feasibility into a schedule that can actually be flown, crewed and maintained.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Seasonal build is where the plan meets physical reality. NetLine Plan has to reconcile four constraints that pull in different directions: revenue wants peak-time departures, the connecting bank wants coordinated arrival and departure waves, maintenance wants overnight ground time at a base, and crew wants pairings that close legally at a crew base. Air Canada runs this across mainline, Rouge and the Express operators, which means three operating models on one schedule.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">The seasonal planning cycle opens for a Northern Summer or Northern Winter season, typically eleven to twelve months before the season starts.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A committed seasonal schedule with feasible aircraft rotations, ready for slot filing, alliance coordination and publication.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Network Planning &amp; Scheduling<br>
+    <span style="color:var(--text-muted);font-size:12px">Schedule Planning &amp; Design</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">12 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-np-sp-02.png" alt="Seasonal Schedule Build in NetLine Plan process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-NP-SP-02-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Baseline and demand shaping</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Roll forward the prior season baseline</b></td>
+<td>Schedule Planner</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Prior equivalent season and long-range plan</td>
+<td>Draft baseline schedule</td>
+<td>Baseline available at cycle open at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>The prior season carries forward compromises whose original reason is undocumented</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Apply committed network changes</b></td>
+<td>Schedule Planner</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Approved route cases and exits</td>
+<td>Baseline updated with committed changes</td>
+<td>All committed changes applied before demand shaping</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Late-approved route cases arrive after the baseline is already being optimised</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Shape frequency and timing to demand</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>O and D demand forecast by day of week</td>
+<td>Frequency and timing proposal</td>
+<td>Schedule matched to demand profile within 1 frequency on 90 percent of routes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Demand shaping and connecting bank integrity frequently want different departure times</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Design connecting wave structure</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Timing proposal and hub bank definition</td>
+<td>Connection wave structure by hub</td>
+<td>Connecting itineraries within the target window above 85 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Every timing change made for local demand ripples through the connecting bank</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-SP-02-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Constraint resolution</span>
+    <span class="ph-n">5 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Assign fleet by gauge and range</b></td>
+<td>Fleet Planner</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Frequency proposal and fleet availability</td>
+<td>Fleet assignment by leg</td>
+<td>Fleet assignment feasible on first pass above 80 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Fleet renewal means the available fleet in the target season is itself still moving</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Build aircraft rotations</b></td>
+<td>Schedule Planner</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Fleet assignment and turn time standards</td>
+<td>Feasible tail rotations</td>
+<td>Rotations feasible without manual intervention above 75 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Rotation infeasibility is discovered late and forces timing changes back through the bank design</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Embed maintenance opportunity</b></td>
+<td>Technical Services Planner</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Draft rotations and maintenance requirement</td>
+<td>Rotations with protected maintenance ground time</td>
+<td>Maintenance opportunity protected on 100 percent of tails</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Maintenance ground time is the first thing traded away when the schedule is tight</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Validate crew pairing feasibility</b></td>
+<td>Crew Planning Liaison</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Draft schedule</td>
+<td>Pairing feasibility assessment with cost estimate</td>
+<td>Schedule pairs within crew cost budget above 90 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Crew cost consequences of a timing decision are not visible inside the scheduling tool</td>
+</tr><tr>
+<td class="c-step">2.5</td>
+<td><b>Allocate Rouge and Express operating capacity</b></td>
+<td>Schedule Planner</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Committed schedule and operator agreements</td>
+<td>Legs assigned to mainline, Rouge or Express</td>
+<td>Operator allocation complete before freeze at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Express operator capacity is contractually bounded and cannot flex late in the cycle</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-SP-02-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Schedule freeze and handover</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Resolve residual infeasibility</b></td>
+<td>Schedule Planner</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Constraint violation list</td>
+<td>Resolved schedule or accepted exception</td>
+<td>Residual infeasible legs at freeze below 1 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Late resolution is manual and trades one constraint for another without visibility of the cost</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Freeze the seasonal schedule</b></td>
+<td>Network Strategy Manager</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Resolved schedule</td>
+<td>Frozen seasonal schedule</td>
+<td>Schedule frozen on the published cycle date at 100 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Freeze slips when a single route case is unresolved, delaying every downstream function</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Hand over to slot filing and publication</b></td>
+<td>Schedule Planner</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Frozen schedule</td>
+<td>Schedule released to slot coordination and publication</td>
+<td>Handover within 2 business days of freeze</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Post-freeze changes still occur and each one re-triggers slot and publication work</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Schedule Planner</span><span class="lane-steps">1.1 1.2 2.2 2.5 3.1 3.3</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Network Planning Analyst</span><span class="lane-steps">1.3 1.4</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Fleet Planner</span><span class="lane-steps">2.1</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Technical Services Planner</span><span class="lane-steps">2.3</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Crew Planning Liaison</span><span class="lane-steps">2.4</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>Network Strategy Manager</span><span class="lane-steps">3.2</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Seasonal schedule frozen on the published cycle date at 100 percent</li><li>Aircraft rotations feasible without manual intervention above 75 percent</li><li>Maintenance opportunity protected on 100 percent of tails at freeze</li><li>Connecting itineraries within the target window above 85 percent</li><li>Schedule pairs within the crew cost budget above 90 percent</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Maintenance ground time traded away under schedule pressure, converting a planning decision into a downstream airworthiness and AOG risk</li><li>Crew cost consequences invisible during build and surfacing only at pairing</li><li>Fleet availability moving during fleet renewal after fleet assignment is complete</li><li>Freeze slipping and compressing slot filing, alliance coordination and publication</li><li>Local demand shaping degrading the connecting bank that carries Sixth Freedom traffic</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../network-planning-scheduling/schedule-planning-design/ac-np-sp-01/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Long-Range Network Strategy and Route Case Development</span></a>
+  <a class="next" href="../../../network-planning-scheduling/schedule-planning-design/ac-np-sp-03/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Sixth Freedom Connecting Bank Design at YYZ</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

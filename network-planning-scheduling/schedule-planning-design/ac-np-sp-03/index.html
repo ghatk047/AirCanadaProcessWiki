@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Sixth Freedom Connecting Bank Design at YYZ &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Sixth Freedom Connecting Bank Design at YYZ.">
+<title>AC-NP-SP-03 Sixth Freedom Connecting Bank Design at YYZ &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-NP-SP-03 Sixth Freedom Connecting Bank Design at YYZ.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../network-planning-scheduling/schedule-planning-design/ac-np-sp-02/",next:"../../../network-planning-scheduling/schedule-planning-design/ac-np-sp-04/"};
@@ -128,18 +128,215 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <a class="l2-link" href="../../../human-resources-labour/engagement-learning-inclusion/">Engagement, Learning &amp; Inclusion</a>
 </div></div>
 <div class="sb-section-title">Enterprise Architecture</div>
-<div class="l1-block"><a class="l1-link" href="../../../ea-diagrams/"><span class="ic">&#128506;</span><span class="sb-label">EA Diagrams</span><span class="cnt">27</span></a></div>
+<div class="l1-block"><a class="l1-link" href="../../../ea-diagrams/"><span class="ic">&#128506;</span><span class="sb-label">EA Diagrams</span><span class="cnt">28</span></a></div>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Network Planning &amp; Scheduling</a><span class="sep">&rsaquo;</span><a href="../">Schedule Planning &amp; Design</a><span class="sep">&rsaquo;</span><span class="cur">AC-NP-SP-03</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-NP-SP-03" title="Click to copy the process ID">
     AC-NP-SP-03<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Sixth Freedom Connecting Bank Design at YYZ</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Sixth Freedom Connecting Bank Design at YYZ</h1>
+<p class="lede" id="overview">Toronto Pearson is designed as a connecting hub for Sixth Freedom traffic, carrying passengers between the United States and Europe or Asia over Canada. Bank design sets the arrival and departure waves so that these itineraries connect within a competitive elapsed time.</p>
+<div class="callout"><span class="ct">Air Canada context</span>This process is where Air Canada&#x27;s network strategy is actually implemented. Sixth Freedom connecting traffic over Toronto is a core part of the airline&#x27;s economics, and it only exists if the bank works: a transborder arrival wave has to land far enough ahead of the transatlantic departure wave to clear connections including customs and security, but not so far ahead that the elapsed journey stops competing with a direct routing or a US hub. Every minute of bank slack is revenue on one side and aircraft utilisation on the other.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A seasonal schedule build reaches bank design, or connecting performance degrades enough in service to trigger a structural review.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A defined bank structure at Toronto with arrival and departure waves, minimum connect times by itinerary type, and a validated set of sellable connecting itineraries.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Network Planning &amp; Scheduling<br>
+    <span style="color:var(--text-muted);font-size:12px">Schedule Planning &amp; Design</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">12 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-np-sp-03.png" alt="Sixth Freedom Connecting Bank Design at YYZ process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-NP-SP-03-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Bank structure definition</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Define target connecting markets</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>O and D demand by connecting market</td>
+<td>Prioritised connecting market list</td>
+<td>Top 50 connecting markets identified before bank design</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Connecting market value competes directly with local Toronto demand for the same timings</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Set arrival and departure wave windows</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Target markets and long-haul departure requirements</td>
+<td>Defined bank windows by time of day</td>
+<td>Bank windows defined for all long-haul departure waves</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Wave windows are constrained by night curfews and slot availability at the far end</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Establish minimum connect times by itinerary type</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Terminal layout and border processing times</td>
+<td>Minimum connect time matrix</td>
+<td>Minimum connect times validated against actual transfer performance annually</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Transborder and international connections cross border controls with variable processing time</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Model bank capacity against infrastructure</b></td>
+<td>Schedule Planner</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Bank windows and available stands</td>
+<td>Bank capacity assessment by wave</td>
+<td>Peak wave within available stand and gate capacity at 100 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Peak wave demand exceeds contact stand availability, pushing aircraft to remote positions</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-SP-03-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Connection feasibility validation</span>
+    <span class="ph-n">5 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Generate candidate connecting itineraries</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Draft schedule and connect time matrix</td>
+<td>Candidate connecting itinerary set</td>
+<td>Candidate itineraries generated for 100 percent of target markets</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Itinerary generation does not weight the connection by its actual reliability</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Test elapsed journey competitiveness</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Candidate itineraries and competitor routings</td>
+<td>Competitiveness assessment by market</td>
+<td>Elapsed time competitive against the best alternative on 80 percent of target markets</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A US hub alternative frequently offers a shorter elapsed journey on the same market</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Validate transfer feasibility with ground operations</b></td>
+<td>Schedule Planner</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Candidate connections and terminal transfer routes</td>
+<td>Ground-validated connection set</td>
+<td>Ground operations validate 100 percent of sub-90-minute connections</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Bag transfer feasibility at tight connections is assessed separately from passenger transfer</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Assess baggage transfer capacity in the peak</b></td>
+<td>Schedule Planner</td>
+<td><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Peak wave connection volume</td>
+<td>Baggage transfer capacity assessment</td>
+<td>Peak transfer bag volume within sortation capacity at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Bag transfer is the binding constraint on tight connections more often than passenger walk time</td>
+</tr><tr>
+<td class="c-step">2.5</td>
+<td><b>Resolve infeasible connections</b></td>
+<td>Schedule Planner</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Failed feasibility list</td>
+<td>Adjusted timings or withdrawn connections</td>
+<td>Infeasible connections removed before publication at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Withdrawing a connection removes revenue that the route case already counted</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-SP-03-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Commitment and monitoring</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Commit bank structure to the schedule</b></td>
+<td>Network Strategy Manager</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Validated bank design</td>
+<td>Committed bank structure in the seasonal schedule</td>
+<td>Bank structure committed before schedule freeze at 100 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Committing the bank constrains every subsequent timing change in the season</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Publish sellable connections to inventory</b></td>
+<td>Schedule Planner</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Validated connecting itinerary set</td>
+<td>Connections available for sale</td>
+<td>Sellable connections match the validated set at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inventory can construct connections that were never ground-validated</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Monitor connection performance in service</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Actual misconnect and transfer data</td>
+<td>Bank performance report with structural findings</td>
+<td>Misconnect rate on target connections below 3 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Structural findings arrive too late in the season to act on and are often lost by the next cycle</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Network Planning Analyst</span><span class="lane-steps">1.1 1.2 1.3 2.1 2.2 3.3</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Schedule Planner</span><span class="lane-steps">1.4 2.3 2.4 2.5 3.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Network Strategy Manager</span><span class="lane-steps">3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Misconnect rate on target connecting markets below 3 percent</li><li>Elapsed journey competitive against the best alternative on 80 percent of target markets</li><li>Peak wave within available stand and gate capacity at 100 percent</li><li>Ground operations validation on 100 percent of sub-90-minute connections</li><li>Sellable connections matching the ground-validated set at 100 percent</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Inventory constructing and selling connections that ground operations never validated, producing systematic misconnects on a specific itinerary</li><li>Baggage sortation capacity binding in the peak wave and driving mishandled bag volume</li><li>Bank slack tuned for connection reliability at the cost of aircraft utilisation, or the reverse</li><li>Border processing time variability invalidating the minimum connect time matrix in practice</li><li>Peak wave exceeding contact stand availability and extending transfer times beyond the model</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../network-planning-scheduling/schedule-planning-design/ac-np-sp-02/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Seasonal Schedule Build in NetLine Plan</span></a>
+  <a class="next" href="../../../network-planning-scheduling/schedule-planning-design/ac-np-sp-04/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Hub Bank Structure Design for YUL and YVR</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources
