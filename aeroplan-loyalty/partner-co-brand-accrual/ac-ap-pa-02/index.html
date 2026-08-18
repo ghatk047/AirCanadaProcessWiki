@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Flight Accrual and Retro Credit Processing &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Flight Accrual and Retro Credit Processing.">
+<title>AC-AP-PA-02 Flight Accrual and Retro Credit Processing &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-AP-PA-02 Flight Accrual and Retro Credit Processing.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../aeroplan-loyalty/partner-co-brand-accrual/ac-ap-pa-01/",next:"../../../aeroplan-loyalty/partner-co-brand-accrual/ac-ap-pa-03/"};
@@ -130,14 +130,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Aeroplan Loyalty</a><span class="sep">&rsaquo;</span><a href="../">Partner &amp; Co-Brand Accrual</a><span class="sep">&rsaquo;</span><span class="cur">AC-AP-PA-02</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-AP-PA-02" title="Click to copy the process ID">
     AC-AP-PA-02<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Flight Accrual and Retro Credit Processing</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Flight Accrual and Retro Credit Processing</h1>
+<p class="lede" id="overview">Flight accrual for a member&#x27;s own flying, along with any retroactive credit for a missed posting, is calculated and posted from Amadeus Altea Reservations into the Aeroplan ledger.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Flight accrual is the original core of the loyalty programme and still the accrual type members expect to be flawless, so a missing-mileage claim is a visible failure of a process that should be fully automatic.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A flight is flown and the coupon lifted, or a member submits a missing-mileage claim for a past flight.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">Flight accrual correctly posted to the member&#x27;s ledger, including any approved retroactive credit.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Aeroplan Loyalty<br>
+    <span style="color:var(--text-muted);font-size:12px">Partner &amp; Co-Brand Accrual</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-ap-pa-02.png" alt="Flight Accrual and Retro Credit Processing process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-AP-PA-02-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Automatic accrual posting</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Post accrual on coupon lift</b></td>
+<td>Loyalty Operations Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Lifted flight coupon and fare class</td>
+<td>Posted flight accrual</td>
+<td>Posted within 72 hours of flight completion at 98 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Coupon lift timing and accrual posting are not always perfectly synchronised</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-PA-02-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Missing credit investigation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Receive missing-mileage claim</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Member claim with flight details</td>
+<td>Registered claim</td>
+<td>Claims registered within 1 business day at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Members submit claims through several channels with inconsistent supporting detail</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Verify flight completion against the operational record</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Claimed flight details</td>
+<td>Verified or unverified flight record</td>
+<td>Verified within 5 business days of claim at 95 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A flight flown under a partner codeshare needs a separate operational record lookup</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-PA-02-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Retroactive posting</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Post retroactive accrual</b></td>
+<td>Loyalty Operations Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Verified claim</td>
+<td>Posted retroactive accrual</td>
+<td>Posted within 10 business days of claim submission at 95 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Retroactive posting has to correctly apply the accrual rate that was in effect at the time of travel</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Loyalty Operations Analyst</span><span class="lane-steps">1.1 3.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Aeroplan Member Services Agent</span><span class="lane-steps">2.1 2.2</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Posted within 72 hours of flight completion at 98 percent</li><li>Verified within 5 business days of claim at 95 percent</li><li>Posted within 10 business days of claim submission at 95 percent</li><li>Missing-mileage claim volume as a share of flights below target</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>A codeshare flight requiring a separate operational lookup that is easy to miss</li><li>Retroactive posting applying the wrong accrual rate for the actual date of travel</li><li>Coupon lift and accrual posting not being perfectly synchronised, producing avoidable claims</li><li>Inconsistent supporting detail across claim channels slowing verification</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../aeroplan-loyalty/partner-co-brand-accrual/ac-ap-pa-01/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Co Brand Card Accrual Posting</span></a>
+  <a class="next" href="../../../aeroplan-loyalty/partner-co-brand-accrual/ac-ap-pa-03/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Retail and Hotel Partner Accrual Integration</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Consent Capture and Preference Management &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Consent Capture and Preference Management.">
+<title>AC-AP-EN-02 Consent Capture and Preference Management &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-AP-EN-02 Consent Capture and Preference Management.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../aeroplan-loyalty/enrolment-member-identity/ac-ap-en-01/",next:"../../../aeroplan-loyalty/enrolment-member-identity/ac-ap-en-03/"};
@@ -130,14 +130,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Aeroplan Loyalty</a><span class="sep">&rsaquo;</span><a href="../">Enrolment &amp; Member Identity</a><span class="sep">&rsaquo;</span><span class="cur">AC-AP-EN-02</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-AP-EN-02" title="Click to copy the process ID">
     AC-AP-EN-02<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Consent Capture and Preference Management</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Consent Capture and Preference Management</h1>
+<p class="lede" id="overview">Member consent for marketing communication, data sharing with partners, and profile preferences are captured and kept current on SAP Customer Data Cloud.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Consent state is a live legal record, not a one-time checkbox; PIPEDA and Quebec Law 25 both expect it to be current and to actually govern what the airline does with member data.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A member enrols, updates their preferences, or a consent renewal requirement is triggered by policy or regulation.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">An accurate, current consent record governing what communications and data sharing the member has actually agreed to.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Aeroplan Loyalty<br>
+    <span style="color:var(--text-muted);font-size:12px">Enrolment &amp; Member Identity</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-ap-en-02.png" alt="Consent Capture and Preference Management process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-AP-EN-02-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Consent capture</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Capture consent at enrolment</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Member enrolment interaction</td>
+<td>Recorded consent by category</td>
+<td>Consent captured for 100 percent of new enrolments</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Consent categories are granular and easy to under-specify at speed during enrolment</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-EN-02-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Preference management</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Allow member self-service preference update</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag channel" data-tooltip="iOS and Android. Booking, check-in, boarding pass, in-app bag tracking and mobility-aid tracking. [Air Canada - evidence A]">Air Canada Mobile App<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Member preference change request</td>
+<td>Updated consent record</td>
+<td>Updates take effect within 24 hours of the member&#x27;s change at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A preference update in one channel does not always propagate to every downstream system on the same timeline</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Screen partner data-sharing consent before transfer</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Partner data request and member consent state</td>
+<td>Permitted or blocked data transfer</td>
+<td>Zero data transfers made without the required consent in place</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>A consent state that is not correctly current can either wrongly block or wrongly permit a transfer</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-EN-02-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Ongoing currency</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Refresh consent on a periodic or triggered basis</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Consent expiry or policy change trigger</td>
+<td>Refreshed consent record</td>
+<td>Refresh completed before the compliance deadline at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A missed refresh silently reverts the member to a more restrictive default that can suppress legitimate service</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Aeroplan Member Services Agent</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag channel" data-tooltip="iOS and Android. Booking, check-in, boarding pass, in-app bag tracking and mobility-aid tracking. [Air Canada - evidence A]">Air Canada Mobile App<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Consent captured for 100 percent of new enrolments</li><li>Zero data transfers made without the required consent in place</li><li>Refresh completed before the compliance deadline at 100 percent</li><li>Preference updates taking effect within 24 hours across all systems</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>A consent state that does not accurately reflect the member&#x27;s actual choice</li><li>A missed refresh silently reverting the member to a more restrictive default</li><li>A preference update in one channel not propagating to every downstream system in time</li><li>An incorrect consent state either wrongly blocking service or wrongly permitting a partner data transfer</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../aeroplan-loyalty/enrolment-member-identity/ac-ap-en-01/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Member Enrolment and Identity Creation</span></a>
+  <a class="next" href="../../../aeroplan-loyalty/enrolment-member-identity/ac-ap-en-03/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Member Profile Consolidation Across Channels</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

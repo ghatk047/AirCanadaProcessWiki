@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Partner Onboarding and Interface Certification &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Partner Onboarding and Interface Certification.">
+<title>AC-AP-PA-05 Partner Onboarding and Interface Certification &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-AP-PA-05 Partner Onboarding and Interface Certification.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../aeroplan-loyalty/partner-co-brand-accrual/ac-ap-pa-04/",next:"../../../aeroplan-loyalty/partner-co-brand-accrual/ac-ap-pa-06/"};
@@ -130,14 +130,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Aeroplan Loyalty</a><span class="sep">&rsaquo;</span><a href="../">Partner &amp; Co-Brand Accrual</a><span class="sep">&rsaquo;</span><span class="cur">AC-AP-PA-05</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-AP-PA-05" title="Click to copy the process ID">
     AC-AP-PA-05<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Partner Onboarding and Interface Certification</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Partner Onboarding and Interface Certification</h1>
+<p class="lede" id="overview">A member disputes an accrual, claiming a transaction that should have earned points did not post correctly, and the dispute is investigated against the originating partner&#x27;s transaction record.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Dispute investigation depends on evidence the member cannot see and Air Canada does not always fully control, since the underlying transaction record sits with the partner.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A member submits an accrual dispute through self-service or the contact centre.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A resolved dispute with either a corrected accrual posted or a documented reason the original posting was correct.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Aeroplan Loyalty<br>
+    <span style="color:var(--text-muted);font-size:12px">Partner &amp; Co-Brand Accrual</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-ap-pa-05.png" alt="Partner Onboarding and Interface Certification process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-AP-PA-05-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Dispute intake</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Receive and register the accrual dispute</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Member dispute with transaction detail</td>
+<td>Registered dispute case</td>
+<td>Registered within 1 business day of receipt at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Member-provided transaction detail is not always sufficient to locate the record without follow-up</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-PA-05-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Partner record investigation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Request the transaction record from the partner</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag aeroplan" data-tooltip="Co-brand and partner accrual feeds: TD, CIBC, Amex, retail and hotel partners. [Air Canada - evidence A]">Aeroplan Partner Interfaces<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Registered dispute</td>
+<td>Partner transaction record</td>
+<td>Requested within 2 business days of registration at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Partner response time to a record request is outside Air Canada&#x27;s direct control</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Compare partner record to posted accrual</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Partner record and posted accrual</td>
+<td>Comparison finding</td>
+<td>Comparison completed within 3 business days of receiving the partner record at 95 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A genuine partner-side posting failure and a member-side misunderstanding can look identical from the member&#x27;s evidence</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-PA-05-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Resolution</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Resolve with correction or explanation</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Comparison finding</td>
+<td>Corrected accrual or documented resolution</td>
+<td>Resolved within 15 business days of dispute registration at 90 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A correction requires the same partner settlement adjustment as the original posting</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Aeroplan Member Services Agent</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag aeroplan" data-tooltip="Co-brand and partner accrual feeds: TD, CIBC, Amex, retail and hotel partners. [Air Canada - evidence A]">Aeroplan Partner Interfaces<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Registered within 1 business day of receipt at 100 percent</li><li>Resolved within 15 business days of dispute registration at 90 percent</li><li>Requested within 2 business days of registration at 100 percent</li><li>Dispute resolution rate in the member&#x27;s favour tracked to detect systemic partner issues</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Partner response time to a record request being outside Air Canada&#x27;s direct control</li><li>A genuine partner posting failure being indistinguishable from a member misunderstanding at first review</li><li>A correction requiring the same settlement adjustment burden as the original disputed posting</li><li>Dispute resolution rate not being tracked in aggregate to detect a systemic partner-side issue</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../aeroplan-loyalty/partner-co-brand-accrual/ac-ap-pa-04/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Partner Settlement and Points Liability Reconciliation</span></a>
+  <a class="next" href="../../../aeroplan-loyalty/partner-co-brand-accrual/ac-ap-pa-06/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Accrual Dispute Investigation</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

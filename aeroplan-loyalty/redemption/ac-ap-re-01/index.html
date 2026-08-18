@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Flight Award Redemption Booking &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Flight Award Redemption Booking.">
+<title>AC-AP-RE-01 Flight Award Redemption Booking &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-AP-RE-01 Flight Award Redemption Booking.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../aeroplan-loyalty/enrolment-member-identity/ac-ap-en-06/",next:"../../../aeroplan-loyalty/redemption/ac-ap-re-02/"};
@@ -130,14 +130,134 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Aeroplan Loyalty</a><span class="sep">&rsaquo;</span><a href="../">Redemption</a><span class="sep">&rsaquo;</span><span class="cur">AC-AP-RE-01</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-AP-RE-01" title="Click to copy the process ID">
     AC-AP-RE-01<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Flight Award Redemption Booking</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Flight Award Redemption Booking</h1>
+<p class="lede" id="overview">A member books a flight award using Aeroplan points, drawing on dynamic award availability and pricing calculated against Amadeus Altea Inventory.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Award pricing is dynamic, so the points cost a member sees can move between search and booking if demand or inventory shifts, which is one of the most common sources of redemption complaint.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A member searches and selects a flight award redemption through a self-service or contact centre channel.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A confirmed flight award booking with points deducted from the member&#x27;s ledger.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Aeroplan Loyalty<br>
+    <span style="color:var(--text-muted);font-size:12px">Redemption</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">5 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-ap-re-01.png" alt="Flight Award Redemption Booking process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-AP-RE-01-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Award search and pricing</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Search award availability</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Member search criteria</td>
+<td>Available award options with points pricing</td>
+<td>Search results returned within 3 seconds at 95 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Award availability changes in real time and a result can be stale by the time the member selects it</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-RE-01-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Booking confirmation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Confirm points price at booking</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Selected award option</td>
+<td>Confirmed current points price</td>
+<td>Price re-confirmed at the point of booking for 100 percent of redemptions</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A price change between search and booking is the leading cause of redemption complaints</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Verify sufficient points balance</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Member points balance and confirmed price</td>
+<td>Verified sufficient balance or insufficient-balance flag</td>
+<td>Balance verified before booking confirmation at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A points-plus-cash option has to be offered correctly when the balance is insufficient</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-RE-01-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Ledger settlement</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Issue the award booking</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Verified balance and confirmed price</td>
+<td>Issued award ticket</td>
+<td>Booking issued within 5 minutes of confirmation at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Award ticket issuance failures leave points deducted without a valid booking if not handled atomically</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Deduct points and settle the ledger</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Issued booking</td>
+<td>Points deducted from member ledger</td>
+<td>Ledger settled within the same transaction as booking issuance at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A settlement failure after ticket issuance can leave the member&#x27;s ledger and booking out of sync</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Aeroplan Member Services Agent</span><span class="lane-steps">1.1 2.1 2.2 3.1 3.2</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Price re-confirmed at the point of booking for 100 percent of redemptions</li><li>Booking issued within 5 minutes of confirmation at 100 percent</li><li>Ledger settled within the same transaction as booking issuance at 100 percent</li><li>Redemption booking complaint rate below target threshold</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>A points price changing between search and booking, the leading cause of redemption complaints</li><li>A ticket issuance failure leaving points deducted without a corresponding valid booking</li><li>A settlement failure leaving the member&#x27;s ledger and booking record out of sync</li><li>Stale award availability shown in search results by the time the member attempts to book</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../aeroplan-loyalty/enrolment-member-identity/ac-ap-en-06/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Member Data Privacy Request Handling</span></a>
+  <a class="next" href="../../../aeroplan-loyalty/redemption/ac-ap-re-02/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Dynamic Award Pricing and Availability</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

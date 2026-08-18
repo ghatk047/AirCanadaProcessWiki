@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Member Data Privacy Request Handling &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Member Data Privacy Request Handling.">
+<title>AC-AP-EN-06 Member Data Privacy Request Handling &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-AP-EN-06 Member Data Privacy Request Handling.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../aeroplan-loyalty/enrolment-member-identity/ac-ap-en-05/",next:"../../../aeroplan-loyalty/redemption/ac-ap-re-01/"};
@@ -130,14 +130,134 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Aeroplan Loyalty</a><span class="sep">&rsaquo;</span><a href="../">Enrolment &amp; Member Identity</a><span class="sep">&rsaquo;</span><span class="cur">AC-AP-EN-06</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-AP-EN-06" title="Click to copy the process ID">
     AC-AP-EN-06<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Member Data Privacy Request Handling</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Member Data Privacy Request Handling</h1>
+<p class="lede" id="overview">A member&#x27;s request to access, correct or delete their personal data under PIPEDA or Quebec Law 25 is processed within the regulated response timeframe.</p>
+<div class="callout"><span class="ct">Air Canada context</span>This is a hard regulatory deadline, not a service level target: Law 25 in particular imposes specific timeframes and documentation obligations that do not flex for operational convenience.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A member submits a data access, correction or deletion request through any channel.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">The member&#x27;s request fulfilled within the regulated timeframe, with a documented audit trail of the action taken.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Aeroplan Loyalty<br>
+    <span style="color:var(--text-muted);font-size:12px">Enrolment &amp; Member Identity</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">5 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-ap-en-06.png" alt="Member Data Privacy Request Handling process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-AP-EN-06-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Request intake and identity verification</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Receive and log the privacy request</b></td>
+<td>Privacy Request Coordinator</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Member submitted request</td>
+<td>Logged request with regulatory deadline</td>
+<td>Requests logged within 2 business days of receipt at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Requests can arrive through channels not designed for privacy request intake, such as a general complaint form</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Verify requester identity</b></td>
+<td>Privacy Request Coordinator</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Logged request</td>
+<td>Verified requester identity</td>
+<td>Identity verified before any data action at 100 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Verification has to be robust enough to prevent someone else accessing or deleting a member&#x27;s data</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-EN-06-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Data action</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Locate all personal data across systems</b></td>
+<td>Privacy Request Coordinator</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Verified request scope</td>
+<td>Located data across all relevant systems</td>
+<td>Data location completed within the regulatory response window at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Member data is distributed across loyalty, booking, contact centre and partner systems with no single index</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Execute the requested action</b></td>
+<td>Privacy Request Coordinator</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Located data and requested action</td>
+<td>Data accessed, corrected or deleted as requested</td>
+<td>Action executed within the regulatory deadline at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Deletion has to be reconciled against legitimate retention obligations, such as unresolved financial records</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-EN-06-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Response and documentation</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Document and respond to the member</b></td>
+<td>Privacy Request Coordinator</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Completed action</td>
+<td>Documented response to the member</td>
+<td>Response issued within the regulatory deadline at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A missed regulatory deadline is a compliance failure independent of whether the underlying action was completed</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Privacy Request Coordinator</span><span class="lane-steps">1.1 1.2 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Identity verified before any data action at 100 percent</li><li>Data location completed within the regulatory response window at 100 percent</li><li>Action executed within the regulatory deadline at 100 percent</li><li>Response issued within the regulatory deadline at 100 percent</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Member personal data being distributed across systems with no single index to locate it completely</li><li>A missed regulatory deadline constituting a compliance failure regardless of the underlying action</li><li>Deletion conflicting with a legitimate retention obligation such as an unresolved financial record</li><li>Insufficiently robust verification allowing someone other than the member to action the request</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../aeroplan-loyalty/enrolment-member-identity/ac-ap-en-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Member Authentication and Account Recovery</span></a>
+  <a class="next" href="../../../aeroplan-loyalty/redemption/ac-ap-re-01/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Flight Award Redemption Booking</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

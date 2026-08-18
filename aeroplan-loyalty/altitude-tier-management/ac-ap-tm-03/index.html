@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Elite Benefit Entitlement Provisioning &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Elite Benefit Entitlement Provisioning.">
+<title>AC-AP-TM-03 Elite Benefit Entitlement Provisioning &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-AP-TM-03 Elite Benefit Entitlement Provisioning.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../aeroplan-loyalty/altitude-tier-management/ac-ap-tm-02/",next:"../../../aeroplan-loyalty/altitude-tier-management/ac-ap-tm-04/"};
@@ -130,14 +130,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Aeroplan Loyalty</a><span class="sep">&rsaquo;</span><a href="../">Altitude Tier Management</a><span class="sep">&rsaquo;</span><span class="cur">AC-AP-TM-03</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-AP-TM-03" title="Click to copy the process ID">
     AC-AP-TM-03<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Elite Benefit Entitlement Provisioning</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Elite Benefit Entitlement Provisioning</h1>
+<p class="lede" id="overview">Elite benefits, including priority services, lounge access and baggage allowance, are provisioned correctly to a member&#x27;s profile in line with their current Altitude tier.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Benefit entitlement is checked in several different operational systems, from lounge access control to baggage allowance at check-in, so provisioning has to reach all of them consistently rather than just the central loyalty profile.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A member&#x27;s tier status is awarded, retained or changed.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">All entitled benefits correctly provisioned and visible across every system a member&#x27;s benefit is checked in.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Aeroplan Loyalty<br>
+    <span style="color:var(--text-muted);font-size:12px">Altitude Tier Management</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-ap-tm-03.png" alt="Elite Benefit Entitlement Provisioning process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-AP-TM-03-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Entitlement determination</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Determine entitled benefits for the current tier</b></td>
+<td>Loyalty Operations Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Current tier status</td>
+<td>Entitlement list by tier</td>
+<td>Entitlement list current for 100 percent of active tiers at all times</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Benefit entitlements change with programme updates that are not always reflected everywhere at once</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-TM-03-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Cross-system provisioning</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Provision lounge access control</b></td>
+<td>Loyalty Operations Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Customer profile and PNR servicing layer. Feeds case context to Salesforce. [Amadeus - evidence A]">Amadeus Altea Customer Management<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Entitlement list</td>
+<td>Provisioned lounge access</td>
+<td>Provisioned within 24 hours of a tier change at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Lounge access control sits in a separate system from the core loyalty profile</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Provision baggage allowance at check-in</b></td>
+<td>Loyalty Operations Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Entitlement list</td>
+<td>Provisioned baggage allowance recognised at check-in</td>
+<td>Provisioned within 24 hours of a tier change at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A baggage allowance not correctly provisioned at check-in generates a fee dispute in front of the member</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-TM-03-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Verification</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Verify cross-system entitlement consistency</b></td>
+<td>Loyalty Operations Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Provisioned entitlements across systems</td>
+<td>Consistency verification</td>
+<td>Verified on a recurring cycle for 100 percent of active elite members</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A missed system in the provisioning chain is discovered only when a member is denied a benefit in person</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Loyalty Operations Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag amadeus" data-tooltip="Customer profile and PNR servicing layer. Feeds case context to Salesforce. [Amadeus - evidence A]">Amadeus Altea Customer Management<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Entitlement list current for 100 percent of active tiers at all times</li><li>Provisioned within 24 hours of a tier change at 100 percent across all systems</li><li>Verified on a recurring cycle for 100 percent of active elite members</li><li>Denied-benefit incident rate below target threshold</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>A benefit not correctly provisioned in every system it is checked in, surfacing as a denial in person</li><li>Programme entitlement updates not being reflected consistently across all provisioning systems</li><li>A baggage allowance discrepancy generating a fee dispute directly in front of the member at check-in</li><li>A missed provisioning step only being discovered when a specific member is denied a benefit</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../aeroplan-loyalty/altitude-tier-management/ac-ap-tm-02/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Status Tier Award and Downgrade Cycle</span></a>
+  <a class="next" href="../../../aeroplan-loyalty/altitude-tier-management/ac-ap-tm-04/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Status Match and Challenge Administration</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

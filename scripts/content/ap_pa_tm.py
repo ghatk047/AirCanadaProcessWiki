@@ -1,0 +1,373 @@
+# -*- coding: utf-8 -*-
+"""AC-AP-PA (5 remaining, PA-01 already in a_pilot) and AC-AP-TM (6) — Aeroplan Loyalty."""
+from content_lib import P, S
+
+# ── PA: Partner and Co-Brand Accrual (remaining 5) ──────────────────────────
+P("AC-AP-PA-02",
+  desc="Flight accrual for a member's own flying, along with any retroactive credit for a missed posting, "
+       "is calculated and posted from Amadeus Altea Reservations into the Aeroplan ledger.",
+  trig="A flight is flown and the coupon lifted, or a member submits a missing-mileage claim for a past "
+       "flight.",
+  out="Flight accrual correctly posted to the member's ledger, including any approved retroactive credit.",
+  note="Flight accrual is the original core of the loyalty programme and still the accrual type members "
+      "expect to be flawless, so a missing-mileage claim is a visible failure of a process that should be "
+      "fully automatic.",
+  phases=["Automatic accrual posting", "Missing credit investigation", "Retroactive posting"],
+  steps=[
+    S("1.1","Post accrual on coupon lift","Loyalty Operations Analyst","Amadeus Altea Reservations",
+      "Lifted flight coupon and fare class","Posted flight accrual",
+      "Posted within 72 hours of flight completion at 98 percent","N","N",
+      "Coupon lift timing and accrual posting are not always perfectly synchronised"),
+    S("2.1","Receive missing-mileage claim","Aeroplan Member Services Agent","Salesforce Service Cloud",
+      "Member claim with flight details","Registered claim",
+      "Claims registered within 1 business day at 100 percent","N","N",
+      "Members submit claims through several channels with inconsistent supporting detail"),
+    S("2.2","Verify flight completion against the operational record","Aeroplan Member Services Agent","Amadeus Altea Reservations",
+      "Claimed flight details","Verified or unverified flight record",
+      "Verified within 5 business days of claim at 95 percent","Y","N",
+      "A flight flown under a partner codeshare needs a separate operational record lookup"),
+    S("3.1","Post retroactive accrual","Loyalty Operations Analyst","Aeroplan Platform",
+      "Verified claim","Posted retroactive accrual",
+      "Posted within 10 business days of claim submission at 95 percent","N","N",
+      "Retroactive posting has to correctly apply the accrual rate that was in effect at the time of travel"),
+  ],
+  kpis=["Posted within 72 hours of flight completion at 98 percent",
+        "Verified within 5 business days of claim at 95 percent",
+        "Posted within 10 business days of claim submission at 95 percent",
+        "Missing-mileage claim volume as a share of flights below target"],
+  risks=["A codeshare flight requiring a separate operational lookup that is easy to miss",
+         "Retroactive posting applying the wrong accrual rate for the actual date of travel",
+         "Coupon lift and accrual posting not being perfectly synchronised, producing avoidable claims",
+         "Inconsistent supporting detail across claim channels slowing verification"])
+
+P("AC-AP-PA-03",
+  desc="Accrual from retail, hotel and other non-flight partners is integrated and posted to member "
+       "ledgers, covering a wider and more heterogeneous set of partner interfaces than card accrual.",
+  trig="A retail or hotel partner transmits an accrual file or real-time transaction feed.",
+  out="Non-flight partner accrual correctly posted to member ledgers with the partner relationship settled.",
+  note="Unlike the small number of co-brand card issuers, the retail and hotel partner ecosystem is wide "
+       "and each integration has its own quirks, which makes consistency across partners harder to hold than "
+       "in the card accrual process.",
+  phases=["Partner feed receipt", "Accrual calculation and posting", "Partner settlement"],
+  steps=[
+    S("1.1","Receive partner transaction feed","Loyalty Operations Analyst","Aeroplan Partner Interfaces",
+      "Retail or hotel partner transaction data","Received feed logged with control totals",
+      "Feeds received on schedule at 98 percent","N","N",
+      "Each retail or hotel partner integration has its own format and cadence"),
+    S("2.1","Match member identity to partner transaction","Loyalty Operations Analyst","SAP Customer Data Cloud",
+      "Partner transaction record","Matched member account or exception",
+      "First-pass match above 95 percent","N","N",
+      "Retail partner identity matching often relies on a loosely linked loyalty card number"),
+    S("2.2","Calculate and post accrual","Loyalty Operations Analyst","Aeroplan Platform",
+      "Matched transaction and partner earn rate","Posted accrual",
+      "Posted within the partner's committed service window at 95 percent","N","N",
+      "Partner earn rates and promotional multipliers change frequently and are easy to misapply"),
+    S("3.1","Settle partner accrual liability","Loyalty Finance Analyst","SAP S/4HANA",
+      "Posted accrual across the period","Settled partner invoice",
+      "Settled within the contractual period at 100 percent","N","N",
+      "A high volume of low-value partner transactions makes reconciliation labour-intensive relative to the amounts involved"),
+  ],
+  kpis=["Feeds received on schedule at 98 percent",
+        "First-pass member match above 95 percent",
+        "Posted within the partner's committed service window at 95 percent",
+        "Settled within the contractual period at 100 percent"],
+  risks=["Each partner integration having its own quirks that resist a standardised control approach",
+         "Loosely linked loyalty card identity matching producing a higher exception rate than card accrual",
+         "Frequently changing partner earn rates being misapplied in the accrual calculation",
+         "Reconciliation effort being disproportionate to the value of a high volume of small transactions"])
+
+P("AC-AP-PA-04",
+  desc="A new accrual or redemption partner is onboarded and its interface to the Aeroplan platform is "
+       "certified before the relationship goes live.",
+  trig="A new partnership agreement is signed and requires technical integration before member-facing "
+       "activity can begin.",
+  out="A certified, tested partner interface live and correctly posting or redeeming on behalf of members.",
+  note="Interface certification is where a signed commercial agreement either does or does not translate "
+       "into a working member experience, and testing gaps here surface later as accrual exceptions at scale.",
+  phases=["Interface specification and build", "Certification testing", "Go-live"],
+  steps=[
+    S("1.1","Specify the partner interface","Integration Analyst","Aeroplan Partner Interfaces",
+      "Partnership agreement terms","Interface specification",
+      "Specification completed before build begins at 100 percent","N","N",
+      "Commercial terms are not always specific enough to translate directly into a technical specification"),
+    S("2.1","Build and configure the interface","Integration Analyst","Aeroplan Partner Interfaces",
+      "Interface specification","Built and configured interface",
+      "Build completed within the agreed project timeline at 90 percent","N","N",
+      "Partner-side technical capability varies widely and is not always apparent until build begins"),
+    S("2.2","Certify accrual and redemption accuracy","Integration Analyst","Aeroplan Platform",
+      "Built interface","Certification test results",
+      "100 percent of test scenarios pass before go-live","Y","N",
+      "Test scenario coverage rarely spans every promotional and edge case the partnership will eventually use"),
+    S("3.1","Go live and monitor early performance","Integration Analyst","Aeroplan Partner Interfaces",
+      "Certified interface","Live partner integration with early monitoring",
+      "Early performance reviewed within 30 days of go-live at 100 percent","N","N",
+      "Issues that only appear at production volume are not caught by certification testing at lower volume"),
+  ],
+  kpis=["Specification completed before build begins at 100 percent",
+        "100 percent of test scenarios pass before go-live",
+        "Build completed within the agreed project timeline at 90 percent",
+        "Early performance reviewed within 30 days of go-live at 100 percent"],
+  risks=["Commercial terms not being specific enough to translate directly into a technical specification",
+         "Test scenario coverage missing a promotional or edge case the partnership later relies on",
+         "Production-volume issues not surfacing until after certification testing at lower volume",
+         "Partner-side technical capability proving weaker than assumed once build actually begins"])
+
+P("AC-AP-PA-05",
+  desc="A member disputes an accrual, claiming a transaction that should have earned points did not post "
+       "correctly, and the dispute is investigated against the originating partner's transaction record.",
+  trig="A member submits an accrual dispute through self-service or the contact centre.",
+  out="A resolved dispute with either a corrected accrual posted or a documented reason the original "
+      "posting was correct.",
+  note="Dispute investigation depends on evidence the member cannot see and Air Canada does not always fully "
+      "control, since the underlying transaction record sits with the partner.",
+  phases=["Dispute intake", "Partner record investigation", "Resolution"],
+  steps=[
+    S("1.1","Receive and register the accrual dispute","Aeroplan Member Services Agent","Salesforce Service Cloud",
+      "Member dispute with transaction detail","Registered dispute case",
+      "Registered within 1 business day of receipt at 100 percent","N","N",
+      "Member-provided transaction detail is not always sufficient to locate the record without follow-up"),
+    S("2.1","Request the transaction record from the partner","Aeroplan Member Services Agent","Aeroplan Partner Interfaces",
+      "Registered dispute","Partner transaction record",
+      "Requested within 2 business days of registration at 100 percent","N","N",
+      "Partner response time to a record request is outside Air Canada's direct control"),
+    S("2.2","Compare partner record to posted accrual","Aeroplan Member Services Agent","Aeroplan Platform",
+      "Partner record and posted accrual","Comparison finding",
+      "Comparison completed within 3 business days of receiving the partner record at 95 percent","N","N",
+      "A genuine partner-side posting failure and a member-side misunderstanding can look identical from the member's evidence"),
+    S("3.1","Resolve with correction or explanation","Aeroplan Member Services Agent","Aeroplan Platform",
+      "Comparison finding","Corrected accrual or documented resolution",
+      "Resolved within 15 business days of dispute registration at 90 percent","N","N",
+      "A correction requires the same partner settlement adjustment as the original posting"),
+  ],
+  kpis=["Registered within 1 business day of receipt at 100 percent",
+        "Resolved within 15 business days of dispute registration at 90 percent",
+        "Requested within 2 business days of registration at 100 percent",
+        "Dispute resolution rate in the member's favour tracked to detect systemic partner issues"],
+  risks=["Partner response time to a record request being outside Air Canada's direct control",
+         "A genuine partner posting failure being indistinguishable from a member misunderstanding at first review",
+         "A correction requiring the same settlement adjustment burden as the original disputed posting",
+         "Dispute resolution rate not being tracked in aggregate to detect a systemic partner-side issue"])
+
+# ── TM: Altitude Tier Management ────────────────────────────────────────────
+P("AC-AP-TM-01",
+  desc="A member's progress toward Prestige 25K, 35K, 50K or Super Elite 100K status is tracked against "
+       "qualifying miles, segments and spend thresholds throughout the qualification year.",
+  trig="A qualifying flight or spend transaction posts to the member's account.",
+  out="An accurate, current status qualification position visible to the member and ready to trigger tier "
+      "award at threshold.",
+  note="Status qualification tracking has to combine three different measures, miles, segments and spend, "
+       "which creates more room for a tracking error than a single-metric loyalty tier would.",
+  phases=["Qualifying activity capture", "Progress calculation", "Threshold monitoring"],
+  steps=[
+    S("1.1","Capture qualifying flight activity","Loyalty Operations Analyst","Amadeus Altea Reservations",
+      "Flown qualifying segment","Captured qualifying miles and segment count",
+      "Captured within 72 hours of flight completion at 98 percent","N","N",
+      "Not every flown segment qualifies, and eligibility rules are easy to misapply at the edge"),
+    S("1.2","Capture qualifying spend activity","Loyalty Operations Analyst","Aeroplan Platform",
+      "Eligible spend transaction","Captured qualifying spend",
+      "Captured within the standard accrual posting window at 98 percent","N","N",
+      "Qualifying spend rules differ from earning-rate rules and are a separate configuration to maintain"),
+    S("2.1","Calculate cumulative qualification position","Loyalty Operations Analyst","Aeroplan Platform",
+      "Captured miles, segments and spend","Updated qualification position",
+      "Position updated within 24 hours of new qualifying activity at 100 percent","N","N",
+      "Combining three different measures into one qualification standard creates edge cases in the calculation logic"),
+    S("3.1","Monitor position against tier thresholds","Loyalty Operations Analyst","Aeroplan Platform",
+      "Qualification position","Threshold proximity flag",
+      "Flagged to the member when within a defined range of the next threshold at 100 percent","N","N",
+      "A member close to a threshold has a strong incentive to dispute any miscalculation"),
+  ],
+  kpis=["Captured within 72 hours of flight completion at 98 percent",
+        "Position updated within 24 hours of new qualifying activity at 100 percent",
+        "Flagged to the member when within range of the next threshold at 100 percent",
+        "Qualification tracking dispute rate below target threshold"],
+  risks=["A qualification calculation error being disproportionately visible to members close to a threshold",
+         "Flight and spend qualification rules being separately configured and prone to drifting out of sync",
+         "Edge cases in combining three different qualification measures into one standard",
+         "Not every flown segment qualifying, with eligibility rules easy to misapply"])
+
+P("AC-AP-TM-02",
+  desc="Status tiers are awarded at qualification threshold and reassessed at the end of each qualification "
+       "year, with a downgrade applied where a member no longer meets the retention threshold.",
+  trig="A member crosses a qualification threshold, or the qualification year closes and retention is "
+       "assessed.",
+  out="Correctly awarded or retained status for every qualifying member, with downgrades applied "
+      "consistently against the retention threshold.",
+  note="A downgrade is one of the most sensitive member-facing events in the loyalty programme, so "
+      "consistency in how the retention threshold is applied matters as much as the calculation itself.",
+  phases=["Threshold crossing detection", "Award or downgrade determination", "Notification"],
+  steps=[
+    S("1.1","Detect threshold crossing","Loyalty Operations Analyst","Aeroplan Platform",
+      "Updated qualification position","Detected threshold crossing event",
+      "Detected within 24 hours of the qualifying transaction at 100 percent","N","N",
+      "A threshold crossing near a promotional bonus period needs correct sequencing against the promotion terms"),
+    S("2.1","Award new tier status","Loyalty Operations Analyst","Aeroplan Platform",
+      "Detected crossing","Awarded tier status",
+      "Status awarded within 24 hours of threshold crossing at 100 percent","N","N",
+      "Benefit provisioning for the new tier has to activate at the same time as the status award itself"),
+    S("2.2","Assess retention at qualification year close","Loyalty Operations Analyst","Aeroplan Platform",
+      "Full year qualification position","Retained or downgraded status determination",
+      "Assessed for 100 percent of members at qualification year close","Y","N",
+      "Retention threshold logic has to correctly account for status match and challenge exceptions"),
+    S("3.1","Notify the member of status change","Loyalty Operations Analyst","Air Canada Mobile App",
+      "Status determination","Bilingual member notification",
+      "Notified within 5 business days of the determination at 100 percent","N","N",
+      "A downgrade notification is one of the highest-sensitivity communications the programme sends"),
+  ],
+  kpis=["Detected within 24 hours of the qualifying transaction at 100 percent",
+        "Status awarded within 24 hours of threshold crossing at 100 percent",
+        "Assessed for 100 percent of members at qualification year close",
+        "Notified within 5 business days of the determination at 100 percent"],
+  risks=["Threshold crossing sequencing against a promotional bonus period being applied incorrectly",
+         "Retention logic mishandling a status match or challenge exception at year close",
+         "Benefit provisioning lagging the status award itself, so a member does not receive entitled benefits",
+         "A downgrade notification landing without adequate context, generating avoidable escalation"])
+
+P("AC-AP-TM-03",
+  desc="Elite benefits, including priority services, lounge access and baggage allowance, are provisioned "
+       "correctly to a member's profile in line with their current Altitude tier.",
+  trig="A member's tier status is awarded, retained or changed.",
+  out="All entitled benefits correctly provisioned and visible across every system a member's benefit is "
+      "checked in.",
+  note="Benefit entitlement is checked in several different operational systems, from lounge access control "
+      "to baggage allowance at check-in, so provisioning has to reach all of them consistently rather than "
+      "just the central loyalty profile.",
+  phases=["Entitlement determination", "Cross-system provisioning", "Verification"],
+  steps=[
+    S("1.1","Determine entitled benefits for the current tier","Loyalty Operations Analyst","Aeroplan Platform",
+      "Current tier status","Entitlement list by tier",
+      "Entitlement list current for 100 percent of active tiers at all times","N","N",
+      "Benefit entitlements change with programme updates that are not always reflected everywhere at once"),
+    S("2.1","Provision lounge access control","Loyalty Operations Analyst","Amadeus Altea Customer Management",
+      "Entitlement list","Provisioned lounge access",
+      "Provisioned within 24 hours of a tier change at 100 percent","N","N",
+      "Lounge access control sits in a separate system from the core loyalty profile"),
+    S("2.2","Provision baggage allowance at check-in","Loyalty Operations Analyst","Amadeus Altea DCS",
+      "Entitlement list","Provisioned baggage allowance recognised at check-in",
+      "Provisioned within 24 hours of a tier change at 100 percent","N","N",
+      "A baggage allowance not correctly provisioned at check-in generates a fee dispute in front of the member"),
+    S("3.1","Verify cross-system entitlement consistency","Loyalty Operations Analyst","Aeroplan Platform",
+      "Provisioned entitlements across systems","Consistency verification",
+      "Verified on a recurring cycle for 100 percent of active elite members","N","N",
+      "A missed system in the provisioning chain is discovered only when a member is denied a benefit in person"),
+  ],
+  kpis=["Entitlement list current for 100 percent of active tiers at all times",
+        "Provisioned within 24 hours of a tier change at 100 percent across all systems",
+        "Verified on a recurring cycle for 100 percent of active elite members",
+        "Denied-benefit incident rate below target threshold"],
+  risks=["A benefit not correctly provisioned in every system it is checked in, surfacing as a denial in person",
+         "Programme entitlement updates not being reflected consistently across all provisioning systems",
+         "A baggage allowance discrepancy generating a fee dispute directly in front of the member at check-in",
+         "A missed provisioning step only being discovered when a specific member is denied a benefit"])
+
+P("AC-AP-TM-04",
+  desc="A status match or challenge is evaluated for a prospective member holding elite status with another "
+       "airline or alliance, granting temporary or conditional Aeroplan status.",
+  trig="A prospective or existing member submits a status match or challenge request with competitor status "
+       "evidence.",
+  out="A determined status match or challenge outcome, with temporary status provisioned and a clear "
+      "conversion path to permanent qualification.",
+  note="Status match programmes exist to win share from competitor loyalty programmes, so the evaluation "
+       "has to be generous enough to be commercially attractive while still protecting the value of "
+       "Altitude status for members who qualified the standard way.",
+  phases=["Evidence evaluation", "Match determination", "Conditional status provisioning"],
+  steps=[
+    S("1.1","Receive and evaluate competitor status evidence","Loyalty Operations Analyst","Aeroplan Platform",
+      "Submitted competitor status documentation","Evaluated evidence",
+      "Evaluated within 5 business days of submission at 100 percent","N","N",
+      "Verifying competitor status evidence depends on documentation Air Canada cannot independently confirm"),
+    S("2.1","Determine equivalent Altitude tier","Loyalty Operations Analyst","Aeroplan Platform",
+      "Evaluated evidence","Determined equivalent tier",
+      "Determination made consistently against the published matching policy at 100 percent","Y","N",
+      "Mapping a competitor's tier structure onto Altitude's is a judgement call without a perfect equivalence"),
+    S("2.2","Set challenge qualification terms where applicable","Loyalty Operations Analyst","Aeroplan Platform",
+      "Determined tier and challenge type","Defined challenge terms and window",
+      "Terms communicated to the member within 5 business days at 100 percent","N","N",
+      "Challenge terms have to be specific enough to be enforceable but understandable to the member"),
+    S("3.1","Provision conditional status","Loyalty Operations Analyst","Aeroplan Platform",
+      "Determined terms","Conditional status provisioned",
+      "Provisioned within 5 business days of determination at 100 percent","N","N",
+      "Conditional status has to correctly expire or convert automatically at the end of the match or challenge window"),
+  ],
+  kpis=["Evaluated within 5 business days of submission at 100 percent",
+        "Determination made consistently against the published matching policy at 100 percent",
+        "Provisioned within 5 business days of determination at 100 percent",
+        "Match-to-qualification conversion rate tracked as a commercial performance measure"],
+  risks=["Competitor status evidence being unverifiable independently by Air Canada",
+         "Mapping a competitor's tier structure onto Altitude's requiring an inherently imperfect equivalence judgement",
+         "Conditional status not correctly expiring or converting automatically at the end of the window",
+         "Match terms generous enough to attract share while still protecting the value of standard-earned status"])
+
+P("AC-AP-TM-05",
+  desc="Members are segmented by tier, behaviour and value for targeted marketing campaigns, delivered "
+       "through Salesforce Marketing Cloud with consent-governed reach.",
+  trig="A marketing campaign requires a defined member segment, or the recurring segmentation refresh cycle "
+       "runs.",
+  out="A defined, consent-compliant member segment available for a targeted campaign, correctly excluding "
+      "members without the required marketing consent.",
+  note="Segmentation sits directly downstream of the consent record established in enrolment, so a "
+      "segmentation error can mean sending marketing to a member who explicitly opted out.",
+  phases=["Segment definition", "Consent filtering", "Campaign delivery"],
+  steps=[
+    S("1.1","Define segment criteria","Loyalty Marketing Analyst","SAP Customer Data Cloud",
+      "Campaign objective and target profile","Defined segment criteria",
+      "Criteria defined before segment build begins at 100 percent","N","N",
+      "Segment criteria can unintentionally overlap with a protected characteristic if not carefully reviewed"),
+    S("1.2","Build the member segment","Loyalty Marketing Analyst","Databricks Lakehouse",
+      "Defined criteria and member data","Built segment population",
+      "Segment built within the campaign planning lead time at 100 percent","N","N",
+      "Segment build quality depends on the same profile currency issues tracked in AC-AP-EN-03"),
+    S("2.1","Filter segment against marketing consent","Loyalty Marketing Analyst","SAP Customer Data Cloud",
+      "Built segment and consent records","Consent-filtered segment",
+      "Zero members without consent included in a delivered campaign at 100 percent","Y","N",
+      "A consent state that is not current can either wrongly include or wrongly exclude a member"),
+    S("3.1","Deliver campaign to the filtered segment","Loyalty Marketing Analyst","Salesforce Marketing Cloud",
+      "Consent-filtered segment","Delivered campaign",
+      "Delivered on the planned campaign schedule at 100 percent","N","N",
+      "A delivery to a stale segment list can include a member who has since left the filtered population"),
+  ],
+  kpis=["Zero members without consent included in a delivered campaign at 100 percent",
+        "Segment built within the campaign planning lead time at 100 percent",
+        "Delivered on the planned campaign schedule at 100 percent",
+        "Campaign engagement rate by segment tracked against target"],
+  risks=["A member without marketing consent receiving a campaign due to a consent filtering error",
+         "Segment criteria unintentionally overlapping with a protected characteristic",
+         "A stale segment list including a member who has since left the filtered population",
+         "Segment build quality inheriting profile currency issues from the underlying member data"])
+
+P("AC-AP-TM-06",
+  desc="The financial value of the points liability, driven by member earn and burn behaviour across all "
+       "tiers, is periodically valued for the balance sheet, distinct from the operational breakage rate "
+       "estimation in AC-AP-RE-06.",
+  trig="The recurring financial valuation cycle runs as part of period close.",
+  out="A current points liability valuation reflecting outstanding points balances, tier-weighted burn "
+      "propensity and the approved breakage assumption.",
+  note="This valuation combines the breakage assumption from AC-AP-RE-06 with the actual outstanding "
+      "balance and tier mix, which makes it a genuinely cross-functional calculation between loyalty "
+      "operations and finance rather than either function's number alone.",
+  phases=["Balance and behaviour compilation", "Valuation calculation", "Reporting"],
+  steps=[
+    S("1.1","Compile outstanding points balance by tier","Loyalty Finance Analyst","Aeroplan Platform",
+      "Member ledger balances","Outstanding balance compiled by tier",
+      "Compiled at each period close at 100 percent","N","N",
+      "Balance compilation has to reconcile against every accrual and redemption process feeding the ledger"),
+    S("2.1","Apply the approved breakage assumption","Loyalty Finance Analyst","SAP S/4HANA",
+      "Outstanding balance and approved breakage rate","Breakage-adjusted liability base",
+      "Applied consistently with the rate approved in AC-AP-RE-06 at 100 percent","N","N",
+      "Using an outdated breakage rate here would misstate the liability independent of the rate itself being correct"),
+    S("2.2","Calculate final liability valuation","Loyalty Finance Analyst","SAP S/4HANA",
+      "Breakage-adjusted base","Final points liability valuation",
+      "Calculated within the period close timetable at 100 percent","N","N",
+      "The calculation is sensitive to tier mix shifts that change average redemption cost per point"),
+    S("3.1","Report the valuation for financial statements","Loyalty Finance Analyst","SAP Analytics Cloud",
+      "Final valuation","Reported liability for financial statement inclusion",
+      "Reported within the financial close timetable at 100 percent","N","N",
+      "The reported figure is material enough that an error requires prompt correction rather than deferral"),
+  ],
+  kpis=["Compiled at each period close at 100 percent",
+        "Applied consistently with the approved breakage rate at 100 percent",
+        "Calculated within the period close timetable at 100 percent",
+        "Reported within the financial close timetable at 100 percent"],
+  risks=["Using an outdated breakage rate and misstating the liability independent of the rate's own correctness",
+         "Tier mix shifts changing the average redemption cost per point in ways the model does not immediately capture",
+         "Balance compilation failing to reconcile against every accrual and redemption process feeding the ledger",
+         "An error material enough to require prompt correction rather than deferral to the next cycle"])

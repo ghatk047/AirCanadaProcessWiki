@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Status Tier Award and Downgrade Cycle &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Status Tier Award and Downgrade Cycle.">
+<title>AC-AP-TM-02 Status Tier Award and Downgrade Cycle &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-AP-TM-02 Status Tier Award and Downgrade Cycle.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../aeroplan-loyalty/altitude-tier-management/ac-ap-tm-01/",next:"../../../aeroplan-loyalty/altitude-tier-management/ac-ap-tm-03/"};
@@ -130,14 +130,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Aeroplan Loyalty</a><span class="sep">&rsaquo;</span><a href="../">Altitude Tier Management</a><span class="sep">&rsaquo;</span><span class="cur">AC-AP-TM-02</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-AP-TM-02" title="Click to copy the process ID">
     AC-AP-TM-02<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Status Tier Award and Downgrade Cycle</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Status Tier Award and Downgrade Cycle</h1>
+<p class="lede" id="overview">Status tiers are awarded at qualification threshold and reassessed at the end of each qualification year, with a downgrade applied where a member no longer meets the retention threshold.</p>
+<div class="callout"><span class="ct">Air Canada context</span>A downgrade is one of the most sensitive member-facing events in the loyalty programme, so consistency in how the retention threshold is applied matters as much as the calculation itself.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A member crosses a qualification threshold, or the qualification year closes and retention is assessed.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">Correctly awarded or retained status for every qualifying member, with downgrades applied consistently against the retention threshold.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Aeroplan Loyalty<br>
+    <span style="color:var(--text-muted);font-size:12px">Altitude Tier Management</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-ap-tm-02.png" alt="Status Tier Award and Downgrade Cycle process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-AP-TM-02-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Threshold crossing detection</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Detect threshold crossing</b></td>
+<td>Loyalty Operations Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Updated qualification position</td>
+<td>Detected threshold crossing event</td>
+<td>Detected within 24 hours of the qualifying transaction at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A threshold crossing near a promotional bonus period needs correct sequencing against the promotion terms</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-TM-02-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Award or downgrade determination</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Award new tier status</b></td>
+<td>Loyalty Operations Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Detected crossing</td>
+<td>Awarded tier status</td>
+<td>Status awarded within 24 hours of threshold crossing at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Benefit provisioning for the new tier has to activate at the same time as the status award itself</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Assess retention at qualification year close</b></td>
+<td>Loyalty Operations Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Full year qualification position</td>
+<td>Retained or downgraded status determination</td>
+<td>Assessed for 100 percent of members at qualification year close</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Retention threshold logic has to correctly account for status match and challenge exceptions</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-TM-02-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Notification</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Notify the member of status change</b></td>
+<td>Loyalty Operations Analyst</td>
+<td><span class="tag channel" data-tooltip="iOS and Android. Booking, check-in, boarding pass, in-app bag tracking and mobility-aid tracking. [Air Canada - evidence A]">Air Canada Mobile App<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Status determination</td>
+<td>Bilingual member notification</td>
+<td>Notified within 5 business days of the determination at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A downgrade notification is one of the highest-sensitivity communications the programme sends</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Loyalty Operations Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag channel" data-tooltip="iOS and Android. Booking, check-in, boarding pass, in-app bag tracking and mobility-aid tracking. [Air Canada - evidence A]">Air Canada Mobile App<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Detected within 24 hours of the qualifying transaction at 100 percent</li><li>Status awarded within 24 hours of threshold crossing at 100 percent</li><li>Assessed for 100 percent of members at qualification year close</li><li>Notified within 5 business days of the determination at 100 percent</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Threshold crossing sequencing against a promotional bonus period being applied incorrectly</li><li>Retention logic mishandling a status match or challenge exception at year close</li><li>Benefit provisioning lagging the status award itself, so a member does not receive entitled benefits</li><li>A downgrade notification landing without adequate context, generating avoidable escalation</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../aeroplan-loyalty/altitude-tier-management/ac-ap-tm-01/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Altitude Status Qualification Tracking</span></a>
+  <a class="next" href="../../../aeroplan-loyalty/altitude-tier-management/ac-ap-tm-03/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Elite Benefit Entitlement Provisioning</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources
