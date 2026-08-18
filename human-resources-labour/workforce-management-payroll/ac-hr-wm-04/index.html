@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Absence Leave and Return to Work Management &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Absence Leave and Return to Work Management.">
+<title>AC-HR-WM-04 Absence Leave and Return to Work Management &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-HR-WM-04 Absence Leave and Return to Work Management.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../human-resources-labour/workforce-management-payroll/ac-hr-wm-03/",next:"../../../human-resources-labour/workforce-management-payroll/ac-hr-wm-05/"};
@@ -129,14 +129,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Human Resources &amp; Labour</a><span class="sep">&rsaquo;</span><a href="../">Workforce Management &amp; Payroll</a><span class="sep">&rsaquo;</span><span class="cur">AC-HR-WM-04</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-HR-WM-04" title="Click to copy the process ID">
     AC-HR-WM-04<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Absence Leave and Return to Work Management</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Absence Leave and Return to Work Management</h1>
+<p class="lede" id="overview">An employee&#x27;s absence and leave, including illness, is managed through the process, coordinating coverage, entitlement tracking and return to work.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Unplanned absence at short notice creates an immediate coverage gap that the workforce management function has to fill from the same limited pool the shift roster in AC-HR-WM-01 already scheduled against forecast demand.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">An employee reports an absence or requests a planned leave.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">Correctly managed absence with appropriate entitlement applied, coverage arranged where needed, and a coordinated return to work.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Human Resources &amp; Labour<br>
+    <span style="color:var(--text-muted);font-size:12px">Workforce Management &amp; Payroll</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-hr-wm-04.png" alt="Absence Leave and Return to Work Management process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-HR-WM-04-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Absence reporting and entitlement determination</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Report and register absence</b></td>
+<td>Workforce Planning Analyst</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Employee-reported absence</td>
+<td>Registered absence with type</td>
+<td>Registered within the required notification window at 95 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Short-notice absence for an operational shift creates an immediate coverage gap</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-HR-WM-04-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Coverage arrangement</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Determine leave entitlement</b></td>
+<td>Workforce Planning Analyst</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Registered absence and employee record</td>
+<td>Determined entitlement</td>
+<td>Determined correctly against policy for 100 percent of registered absences at 100 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Entitlement rules differ by absence type and employee tenure, and misapplication creates a pay accuracy issue downstream</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Arrange coverage for the absence</b></td>
+<td>Workforce Planning Analyst</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Determined absence</td>
+<td>Arranged coverage or accepted gap</td>
+<td>Coverage arranged for 90 percent of operationally critical absences</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Coverage has to be filled from the same limited staff pool the roster already scheduled against forecast demand</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-HR-WM-04-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Return to work</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Coordinate return to work</b></td>
+<td>Workforce Planning Analyst</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Employee returning from leave</td>
+<td>Coordinated return with updated roster</td>
+<td>Coordinated within 2 business days of the confirmed return date at 95 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A return not coordinated with the roster leaves the employee&#x27;s schedule inconsistent with actual availability</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Workforce Planning Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Registered within the required notification window at 95 percent</li><li>Determined correctly against policy for 100 percent of registered absences at 100 percent</li><li>Coverage arranged for 90 percent of operationally critical absences</li><li>Coordinated within 2 business days of the confirmed return date at 95 percent</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Coverage having to be filled from the same limited staff pool already scheduled against forecast demand</li><li>Entitlement rules differing by absence type and tenure, with misapplication creating a pay accuracy issue</li><li>A return not coordinated with the roster leaving the schedule inconsistent with actual availability</li><li>Short-notice absence for an operational shift creating an immediate coverage gap</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../human-resources-labour/workforce-management-payroll/ac-hr-wm-03/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Payroll Processing and Union Rule Application</span></a>
+  <a class="next" href="../../../human-resources-labour/workforce-management-payroll/ac-hr-wm-05/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Overtime and Premium Pay Control</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

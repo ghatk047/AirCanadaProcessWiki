@@ -137,11 +137,11 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
   <span class="updated">Updated 2026-08-18</span>
 </div>
 <h1>Partner Onboarding and Interface Certification</h1>
-<p class="lede" id="overview">A member disputes an accrual, claiming a transaction that should have earned points did not post correctly, and the dispute is investigated against the originating partner&#x27;s transaction record.</p>
-<div class="callout"><span class="ct">Air Canada context</span>Dispute investigation depends on evidence the member cannot see and Air Canada does not always fully control, since the underlying transaction record sits with the partner.</div>
+<p class="lede" id="overview">A new accrual or redemption partner is onboarded and its interface to the Aeroplan platform is certified before the relationship goes live.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Interface certification is where a signed commercial agreement either does or does not translate into a working member experience, and testing gaps here surface later as accrual exceptions at scale.</div>
 <div class="meta-grid">
-  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A member submits an accrual dispute through self-service or the contact centre.</div></div>
-  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A resolved dispute with either a corrected accrual posted or a documented reason the original posting was correct.</div></div>
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A new partnership agreement is signed and requires technical integration before member-facing activity can begin.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A certified, tested partner interface live and correctly posting or redeeming on behalf of members.</div></div>
   <div class="meta-item"><div class="lbl">Domain</div><div class="val">Aeroplan Loyalty<br>
     <span style="color:var(--text-muted);font-size:12px">Partner &amp; Co-Brand Accrual</span></div></div>
   <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
@@ -154,85 +154,85 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-AP-PA-05-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Dispute intake</span>
+    <span class="ph-name">Phase 1 &mdash; Interface specification and build</span>
     <span class="ph-n">1 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Receive and register the accrual dispute</b></td>
-<td>Aeroplan Member Services Agent</td>
-<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Member dispute with transaction detail</td>
-<td>Registered dispute case</td>
-<td>Registered within 1 business day of receipt at 100 percent</td>
+<td><b>Specify the partner interface</b></td>
+<td>Integration Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="Co-brand and partner accrual feeds: TD, CIBC, Amex, retail and hotel partners. [Air Canada - evidence A]">Aeroplan Partner Interfaces<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Partnership agreement terms</td>
+<td>Interface specification</td>
+<td>Specification completed before build begins at 100 percent</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Member-provided transaction detail is not always sufficient to locate the record without follow-up</td>
+<td>Commercial terms are not always specific enough to translate directly into a technical specification</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-AP-PA-05-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Partner record investigation</span>
+    <span class="ph-name">Phase 2 &mdash; Certification testing</span>
     <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Request the transaction record from the partner</b></td>
-<td>Aeroplan Member Services Agent</td>
+<td><b>Build and configure the interface</b></td>
+<td>Integration Analyst</td>
 <td><span class="tag aeroplan" data-tooltip="Co-brand and partner accrual feeds: TD, CIBC, Amex, retail and hotel partners. [Air Canada - evidence A]">Aeroplan Partner Interfaces<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Registered dispute</td>
-<td>Partner transaction record</td>
-<td>Requested within 2 business days of registration at 100 percent</td>
+<td>Interface specification</td>
+<td>Built and configured interface</td>
+<td>Build completed within the agreed project timeline at 90 percent</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Partner response time to a record request is outside Air Canada&#x27;s direct control</td>
+<td>Partner-side technical capability varies widely and is not always apparent until build begins</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Compare partner record to posted accrual</b></td>
-<td>Aeroplan Member Services Agent</td>
+<td><b>Certify accrual and redemption accuracy</b></td>
+<td>Integration Analyst</td>
 <td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Partner record and posted accrual</td>
-<td>Comparison finding</td>
-<td>Comparison completed within 3 business days of receiving the partner record at 95 percent</td>
+<td>Built interface</td>
+<td>Certification test results</td>
+<td>100 percent of test scenarios pass before go-live</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>A genuine partner-side posting failure and a member-side misunderstanding can look identical from the member&#x27;s evidence</td>
+<td>Test scenario coverage rarely spans every promotional and edge case the partnership will eventually use</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-AP-PA-05-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Resolution</span>
+    <span class="ph-name">Phase 3 &mdash; Go-live</span>
     <span class="ph-n">1 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Resolve with correction or explanation</b></td>
-<td>Aeroplan Member Services Agent</td>
-<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Comparison finding</td>
-<td>Corrected accrual or documented resolution</td>
-<td>Resolved within 15 business days of dispute registration at 90 percent</td>
+<td><b>Go live and monitor early performance</b></td>
+<td>Integration Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="Co-brand and partner accrual feeds: TD, CIBC, Amex, retail and hotel partners. [Air Canada - evidence A]">Aeroplan Partner Interfaces<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Certified interface</td>
+<td>Live partner integration with early monitoring</td>
+<td>Early performance reviewed within 30 days of go-live at 100 percent</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A correction requires the same partner settlement adjustment as the original posting</td>
+<td>Issues that only appear at production volume are not caught by certification testing at lower volume</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Aeroplan Member Services Agent</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Integration Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag aeroplan" data-tooltip="Co-brand and partner accrual feeds: TD, CIBC, Amex, retail and hotel partners. [Air Canada - evidence A]">Aeroplan Partner Interfaces<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+<div class="card"><span class="tag aeroplan" data-tooltip="Co-brand and partner accrual feeds: TD, CIBC, Amex, retail and hotel partners. [Air Canada - evidence A]">Aeroplan Partner Interfaces<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Registered within 1 business day of receipt at 100 percent</li><li>Resolved within 15 business days of dispute registration at 90 percent</li><li>Requested within 2 business days of registration at 100 percent</li><li>Dispute resolution rate in the member&#x27;s favour tracked to detect systemic partner issues</li></ul>
+<ul class="bullets"><li>Specification completed before build begins at 100 percent</li><li>100 percent of test scenarios pass before go-live</li><li>Build completed within the agreed project timeline at 90 percent</li><li>Early performance reviewed within 30 days of go-live at 100 percent</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Partner response time to a record request being outside Air Canada&#x27;s direct control</li><li>A genuine partner posting failure being indistinguishable from a member misunderstanding at first review</li><li>A correction requiring the same settlement adjustment burden as the original disputed posting</li><li>Dispute resolution rate not being tracked in aggregate to detect a systemic partner-side issue</li></ul>
+<ul class="bullets risk"><li>Commercial terms not being specific enough to translate directly into a technical specification</li><li>Test scenario coverage missing a promotional or edge case the partnership later relies on</li><li>Production-volume issues not surfacing until after certification testing at lower volume</li><li>Partner-side technical capability proving weaker than assumed once build actually begins</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../aeroplan-loyalty/partner-co-brand-accrual/ac-ap-pa-04/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Partner Settlement and Points Liability Reconciliation</span></a>

@@ -77,6 +77,44 @@ P("AC-AP-PA-03",
          "Reconciliation effort being disproportionate to the value of a high volume of small transactions"])
 
 P("AC-AP-PA-04",
+  desc="Points liability owed to and from co-brand and retail partners is settled and reconciled, "
+       "confirming the financial position behind the accrual postings made in AC-AP-PA-02 and AC-AP-PA-03.",
+  trig="The recurring partner settlement cycle runs, following a period of accrual postings across "
+       "partner interfaces.",
+  out="A reconciled settlement position with each partner, correctly reflecting points issued, points "
+      "redeemed on the partner's behalf, and the resulting financial liability movement.",
+  note="This is the financial reconciliation layer sitting behind every accrual posting process: the "
+      "points ledger and the partner's own financial settlement have to agree, or the points liability "
+      "valuation in AC-AP-TM-06 is built on an unreliable base.",
+  phases=["Settlement position compilation", "Partner reconciliation", "Liability posting"],
+  steps=[
+    S("1.1","Compile points issued and redeemed by partner","Loyalty Finance Analyst","Aeroplan Partner Interfaces",
+      "Accrual and redemption activity by partner over the period","Compiled settlement position by partner",
+      "Compiled within 5 business days of period close at 100 percent","N","N",
+      "Settlement compilation spans both the co-brand card and retail partner interfaces, each with a different posting cadence"),
+    S("2.1","Reconcile against partner-reported statement","Loyalty Finance Analyst","Aeroplan Partner Interfaces",
+      "Compiled position and partner statement","Reconciled position with variance report",
+      "Reconciled within the settlement cycle at 100 percent","Y","N",
+      "A variance against a partner's own statement can originate in either side's system and needs bilateral investigation"),
+    S("2.2","Invoice or settle amounts owed","Loyalty Finance Analyst","SAP S/4HANA",
+      "Reconciled position","Issued invoice or processed settlement",
+      "Settled within the contractual settlement period at 100 percent","N","N",
+      "A settlement delay with a co-brand issuer strains a commercial relationship that also drives new member accrual"),
+    S("3.1","Post liability movement to the ledger","Loyalty Finance Analyst","SAP S/4HANA",
+      "Settled position","Posted liability movement",
+      "Posted within the financial close timetable at 100 percent","N","N",
+      "The points liability valuation in AC-AP-TM-06 depends on this reconciliation being accurate and current"),
+  ],
+  kpis=["Compiled within 5 business days of period close at 100 percent",
+        "Reconciled within the settlement cycle at 100 percent",
+        "Settled within the contractual settlement period at 100 percent",
+        "Posted within the financial close timetable at 100 percent"],
+  risks=["The points liability valuation depending on this reconciliation being accurate and current",
+         "A variance against a partner's own statement originating in either system and needing bilateral investigation",
+         "A settlement delay straining a commercial relationship that also drives new member accrual",
+         "Settlement compilation spanning interfaces with different posting cadences, complicating a clean period cutoff"])
+
+P("AC-AP-PA-05",
   desc="A new accrual or redemption partner is onboarded and its interface to the Aeroplan platform is "
        "certified before the relationship goes live.",
   trig="A new partnership agreement is signed and requires technical integration before member-facing "
@@ -112,7 +150,7 @@ P("AC-AP-PA-04",
          "Production-volume issues not surfacing until after certification testing at lower volume",
          "Partner-side technical capability proving weaker than assumed once build actually begins"])
 
-P("AC-AP-PA-05",
+P("AC-AP-PA-06",
   desc="A member disputes an accrual, claiming a transaction that should have earned points did not post "
        "correctly, and the dispute is investigated against the originating partner's transaction record.",
   trig="A member submits an accrual dispute through self-service or the contact centre.",

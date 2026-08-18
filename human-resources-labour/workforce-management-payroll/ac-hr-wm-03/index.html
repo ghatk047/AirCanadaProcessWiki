@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Payroll Processing and Union Rule Application &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Payroll Processing and Union Rule Application.">
+<title>AC-HR-WM-03 Payroll Processing and Union Rule Application &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-HR-WM-03 Payroll Processing and Union Rule Application.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../human-resources-labour/workforce-management-payroll/ac-hr-wm-02/",next:"../../../human-resources-labour/workforce-management-payroll/ac-hr-wm-04/"};
@@ -129,14 +129,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Human Resources &amp; Labour</a><span class="sep">&rsaquo;</span><a href="../">Workforce Management &amp; Payroll</a><span class="sep">&rsaquo;</span><span class="cur">AC-HR-WM-03</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-HR-WM-03" title="Click to copy the process ID">
     AC-HR-WM-03<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Payroll Processing and Union Rule Application</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Payroll Processing and Union Rule Application</h1>
+<p class="lede" id="overview">Payroll is processed for the ground and corporate workforce, applying the correct union rule set where applicable, distinct from the crew-specific pay calculation covered in AC-CM-CC-03.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Payroll for the ground workforce spans multiple bargaining units, CUPE, Teamsters and UNIFOR depending on role and station, each with distinct rule sets that have to be correctly applied alongside non-union corporate pay rules in the same processing cycle.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">The recurring payroll processing cycle runs following validated time and attendance data.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">Accurate payroll calculated and posted, correctly applying the applicable union rule set for each employee group.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Human Resources &amp; Labour<br>
+    <span style="color:var(--text-muted);font-size:12px">Workforce Management &amp; Payroll</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-hr-wm-03.png" alt="Payroll Processing and Union Rule Application process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-HR-WM-03-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Time and attendance compilation</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Compile validated time and attendance</b></td>
+<td>Payroll Analyst</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Validated attendance records</td>
+<td>Compiled payroll input</td>
+<td>Compiled for 100 percent of employees at period close at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Compilation has to correctly aggregate across employees who may work across multiple stations in one pay period</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-HR-WM-03-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Union rule application</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Apply applicable union or corporate pay rules</b></td>
+<td>Payroll Analyst</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Compiled input and employee bargaining unit</td>
+<td>Calculated pay by employee</td>
+<td>Calculated correctly against the applicable rule set at 100 percent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Multiple bargaining units with distinct rule sets have to be correctly applied alongside non-union corporate rules</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Reconcile payroll calculation exceptions</b></td>
+<td>Payroll Analyst</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Calculated pay with flagged anomalies</td>
+<td>Resolved exceptions</td>
+<td>Resolved before the pay run deadline for 95 percent of exceptions at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>An exception unresolved before the pay run deadline delays that employee&#x27;s payment</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-HR-WM-03-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Payroll posting</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Post payroll and disburse payment</b></td>
+<td>Payroll Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Reconciled calculation</td>
+<td>Posted and disbursed payroll</td>
+<td>Disbursed on the scheduled pay date at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A posting error discovered after disbursement requires a correction cycle that delays resolution for the employee</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Payroll Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Compiled for 100 percent of employees at period close at 100 percent</li><li>Calculated correctly against the applicable rule set at 100 percent</li><li>Resolved before the pay run deadline for 95 percent of exceptions at 100 percent</li><li>Disbursed on the scheduled pay date at 100 percent</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Multiple bargaining units with distinct rule sets needing correct application alongside non-union rules</li><li>An exception unresolved before the pay run deadline delaying that employee&#x27;s payment</li><li>A posting error discovered after disbursement requiring a correction cycle that delays employee resolution</li><li>Compilation needing to correctly aggregate across employees working multiple stations in one pay period</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../human-resources-labour/workforce-management-payroll/ac-hr-wm-02/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Time and Attendance Capture</span></a>
+  <a class="next" href="../../../human-resources-labour/workforce-management-payroll/ac-hr-wm-04/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Absence Leave and Return to Work Management</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources

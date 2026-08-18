@@ -137,11 +137,11 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
   <span class="updated">Updated 2026-08-18</span>
 </div>
 <h1>Partner Settlement and Points Liability Reconciliation</h1>
-<p class="lede" id="overview">A new accrual or redemption partner is onboarded and its interface to the Aeroplan platform is certified before the relationship goes live.</p>
-<div class="callout"><span class="ct">Air Canada context</span>Interface certification is where a signed commercial agreement either does or does not translate into a working member experience, and testing gaps here surface later as accrual exceptions at scale.</div>
+<p class="lede" id="overview">Points liability owed to and from co-brand and retail partners is settled and reconciled, confirming the financial position behind the accrual postings made in AC-AP-PA-02 and AC-AP-PA-03.</p>
+<div class="callout"><span class="ct">Air Canada context</span>This is the financial reconciliation layer sitting behind every accrual posting process: the points ledger and the partner&#x27;s own financial settlement have to agree, or the points liability valuation in AC-AP-TM-06 is built on an unreliable base.</div>
 <div class="meta-grid">
-  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A new partnership agreement is signed and requires technical integration before member-facing activity can begin.</div></div>
-  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A certified, tested partner interface live and correctly posting or redeeming on behalf of members.</div></div>
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">The recurring partner settlement cycle runs, following a period of accrual postings across partner interfaces.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A reconciled settlement position with each partner, correctly reflecting points issued, points redeemed on the partner&#x27;s behalf, and the resulting financial liability movement.</div></div>
   <div class="meta-item"><div class="lbl">Domain</div><div class="val">Aeroplan Loyalty<br>
     <span style="color:var(--text-muted);font-size:12px">Partner &amp; Co-Brand Accrual</span></div></div>
   <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
@@ -154,85 +154,85 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-AP-PA-04-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Interface specification and build</span>
+    <span class="ph-name">Phase 1 &mdash; Settlement position compilation</span>
     <span class="ph-n">1 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Specify the partner interface</b></td>
-<td>Integration Analyst</td>
+<td><b>Compile points issued and redeemed by partner</b></td>
+<td>Loyalty Finance Analyst</td>
 <td><span class="tag aeroplan" data-tooltip="Co-brand and partner accrual feeds: TD, CIBC, Amex, retail and hotel partners. [Air Canada - evidence A]">Aeroplan Partner Interfaces<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Partnership agreement terms</td>
-<td>Interface specification</td>
-<td>Specification completed before build begins at 100 percent</td>
+<td>Accrual and redemption activity by partner over the period</td>
+<td>Compiled settlement position by partner</td>
+<td>Compiled within 5 business days of period close at 100 percent</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Commercial terms are not always specific enough to translate directly into a technical specification</td>
+<td>Settlement compilation spans both the co-brand card and retail partner interfaces, each with a different posting cadence</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-AP-PA-04-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Certification testing</span>
+    <span class="ph-name">Phase 2 &mdash; Partner reconciliation</span>
     <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Build and configure the interface</b></td>
-<td>Integration Analyst</td>
+<td><b>Reconcile against partner-reported statement</b></td>
+<td>Loyalty Finance Analyst</td>
 <td><span class="tag aeroplan" data-tooltip="Co-brand and partner accrual feeds: TD, CIBC, Amex, retail and hotel partners. [Air Canada - evidence A]">Aeroplan Partner Interfaces<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Interface specification</td>
-<td>Built and configured interface</td>
-<td>Build completed within the agreed project timeline at 90 percent</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Partner-side technical capability varies widely and is not always apparent until build begins</td>
-</tr><tr>
-<td class="c-step">2.2</td>
-<td><b>Certify accrual and redemption accuracy</b></td>
-<td>Integration Analyst</td>
-<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Built interface</td>
-<td>Certification test results</td>
-<td>100 percent of test scenarios pass before go-live</td>
+<td>Compiled position and partner statement</td>
+<td>Reconciled position with variance report</td>
+<td>Reconciled within the settlement cycle at 100 percent</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Test scenario coverage rarely spans every promotional and edge case the partnership will eventually use</td>
+<td>A variance against a partner&#x27;s own statement can originate in either side&#x27;s system and needs bilateral investigation</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Invoice or settle amounts owed</b></td>
+<td>Loyalty Finance Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Reconciled position</td>
+<td>Issued invoice or processed settlement</td>
+<td>Settled within the contractual settlement period at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A settlement delay with a co-brand issuer strains a commercial relationship that also drives new member accrual</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-AP-PA-04-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Go-live</span>
+    <span class="ph-name">Phase 3 &mdash; Liability posting</span>
     <span class="ph-n">1 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Go live and monitor early performance</b></td>
-<td>Integration Analyst</td>
-<td><span class="tag aeroplan" data-tooltip="Co-brand and partner accrual feeds: TD, CIBC, Amex, retail and hotel partners. [Air Canada - evidence A]">Aeroplan Partner Interfaces<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Certified interface</td>
-<td>Live partner integration with early monitoring</td>
-<td>Early performance reviewed within 30 days of go-live at 100 percent</td>
+<td><b>Post liability movement to the ledger</b></td>
+<td>Loyalty Finance Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Settled position</td>
+<td>Posted liability movement</td>
+<td>Posted within the financial close timetable at 100 percent</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Issues that only appear at production volume are not caught by certification testing at lower volume</td>
+<td>The points liability valuation in AC-AP-TM-06 depends on this reconciliation being accurate and current</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Integration Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Loyalty Finance Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag aeroplan" data-tooltip="Co-brand and partner accrual feeds: TD, CIBC, Amex, retail and hotel partners. [Air Canada - evidence A]">Aeroplan Partner Interfaces<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+<div class="card"><span class="tag aeroplan" data-tooltip="Co-brand and partner accrual feeds: TD, CIBC, Amex, retail and hotel partners. [Air Canada - evidence A]">Aeroplan Partner Interfaces<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Specification completed before build begins at 100 percent</li><li>100 percent of test scenarios pass before go-live</li><li>Build completed within the agreed project timeline at 90 percent</li><li>Early performance reviewed within 30 days of go-live at 100 percent</li></ul>
+<ul class="bullets"><li>Compiled within 5 business days of period close at 100 percent</li><li>Reconciled within the settlement cycle at 100 percent</li><li>Settled within the contractual settlement period at 100 percent</li><li>Posted within the financial close timetable at 100 percent</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Commercial terms not being specific enough to translate directly into a technical specification</li><li>Test scenario coverage missing a promotional or edge case the partnership later relies on</li><li>Production-volume issues not surfacing until after certification testing at lower volume</li><li>Partner-side technical capability proving weaker than assumed once build actually begins</li></ul>
+<ul class="bullets risk"><li>The points liability valuation depending on this reconciliation being accurate and current</li><li>A variance against a partner&#x27;s own statement originating in either system and needing bilateral investigation</li><li>A settlement delay straining a commercial relationship that also drives new member accrual</li><li>Settlement compilation spanning interfaces with different posting cadences, complicating a clean period cutoff</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../aeroplan-loyalty/partner-co-brand-accrual/ac-ap-pa-03/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Retail and Hotel Partner Accrual Integration</span></a>

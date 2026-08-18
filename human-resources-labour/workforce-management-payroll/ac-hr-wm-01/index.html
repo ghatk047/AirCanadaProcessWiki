@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Shift Rostering for Airport and Contact Centre Staff &middot; Air Canada Process Wiki</title>
-<meta name="description" content="Air Canada business process and systems reference. Shift Rostering for Airport and Contact Centre Staff.">
+<title>AC-HR-WM-01 Shift Rostering for Airport and Contact Centre Staff &middot; Air Canada Process Wiki</title>
+<meta name="description" content="Air Canada business process and systems reference. AC-HR-WM-01 Shift Rostering for Airport and Contact Centre Staff.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127809;</text></svg>">
 <link rel="stylesheet" href="../../../assets/css/wiki.css">
 <script>window.AC_ROOT="../../../";window.AC_NAV={prev:"../../../human-resources-labour/talent-acquisition/ac-hr-ta-05/",next:"../../../human-resources-labour/workforce-management-payroll/ac-hr-wm-02/"};
@@ -129,14 +129,123 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </nav></aside>
 <div class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../">Human Resources &amp; Labour</a><span class="sep">&rsaquo;</span><a href="../">Workforce Management &amp; Payroll</a><span class="sep">&rsaquo;</span><span class="cur">AC-HR-WM-01</span></div>
 <main class="content">
-<div class="page">
-<div class="page-head">
+<div class="page has-toc">
+<div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-HR-WM-01" title="Click to copy the process ID">
     AC-HR-WM-01<span class="copy-ic">&#128203;</span></button>
   <span class="updated">Updated 2026-08-18</span>
 </div>
-<h1>Shift Rostering for Airport and Contact Centre Staff</h1><div class="callout warn"><span class="ct">Queued</span>
-This process is defined in the taxonomy but its L4 step documentation has not been authored yet.</div>
+<h1>Shift Rostering for Airport and Contact Centre Staff</h1>
+<p class="lede" id="overview">Shift rosters are built for airport and contact centre staff, distinct from the crew rostering process in AC-CM-CR-01, covering ground-based workforce scheduling against forecast operational demand.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Ground and contact centre shift scheduling shares the same fundamental demand-forecasting discipline as the contact centre workforce planning covered in AC-CX-CC-05, applied to a wider ground operations workforce with its own peak patterns.</div>
+<div class="meta-grid">
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">The recurring shift scheduling cycle runs ahead of an operating period.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A published shift roster meeting forecast demand within labour cost and employee preference constraints.</div></div>
+  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Human Resources &amp; Labour<br>
+    <span style="color:var(--text-muted);font-size:12px">Workforce Management &amp; Payroll</span></div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">4 across
+    3 phases</div></div>
+</div>
+
+<h2 id="bpmn">Process flow</h2>
+<div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-hr-wm-01.png" alt="Shift Rostering for Airport and Contact Centre Staff process flow" loading="lazy"></div>
+
+<h2 id="steps">Process steps</h2>
+<div class="phase-group" data-phase-id="AC-HR-WM-01-1">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 1 &mdash; Demand forecasting</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Forecast demand by shift interval</b></td>
+<td>Workforce Planning Analyst</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Historical demand and known operational drivers</td>
+<td>Forecast demand by interval</td>
+<td>Forecast for 100 percent of scheduling intervals each cycle at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Airport demand forecasting has to account for the flight schedule&#x27;s own peaks and troughs, distinct from contact centre call volume</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-HR-WM-01-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Shift build</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Build shift roster against forecast</b></td>
+<td>Workforce Planning Analyst</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Forecast demand and available staff</td>
+<td>Built shift roster</td>
+<td>Built to meet forecast demand within labour budget at 90 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Balancing labour cost against service coverage has no single objectively correct answer</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Apply employee preference and fairness rules</b></td>
+<td>Workforce Planning Analyst</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Built roster and preference data</td>
+<td>Preference-adjusted roster</td>
+<td>Preferences accommodated where operationally feasible for 80 percent of requests</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Preference accommodation competes directly with meeting minimum coverage at every shift interval</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-HR-WM-01-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Roster publication</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Publish shift roster</b></td>
+<td>Workforce Planning Analyst</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Finalised roster</td>
+<td>Published roster</td>
+<td>Published within the required lead time before the operating period at 100 percent</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A late-published roster reduces staff ability to plan personal commitments around their shifts</td>
+</tr></tbody></table></div></div>
+</div>
+
+<h2 id="lanes">Swim lanes</h2>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Workforce Planning Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+
+<h2 id="systems">Systems touched</h2>
+<div class="card"><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+
+<h2 id="kpis">Key performance indicators</h2>
+<ul class="bullets"><li>Forecast for 100 percent of scheduling intervals each cycle at 100 percent</li><li>Built to meet forecast demand within labour budget at 90 percent</li><li>Preferences accommodated where operationally feasible for 80 percent of requests</li><li>Published within the required lead time before the operating period at 100 percent</li></ul>
+
+<h2 id="risks">Risks and control points</h2>
+<ul class="bullets risk"><li>Balancing labour cost against service coverage having no single objectively correct answer</li><li>Preference accommodation competing directly with meeting minimum coverage at every shift interval</li><li>Airport demand forecasting needing to account for flight schedule peaks distinct from contact centre patterns</li><li>A late-published roster reducing staff ability to plan personal commitments around their shifts</li></ul>
+
+<div class="pager">
+  <a class="prev" href="../../../human-resources-labour/talent-acquisition/ac-hr-ta-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Onboarding and First Day Enablement</span></a>
+  <a class="next" href="../../../human-resources-labour/workforce-management-payroll/ac-hr-wm-02/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Time and Attendance Capture</span></a>
+</div></div><aside class="toc">
+  <div class="toc-t">On this page</div>
+  <a href="#overview">Overview</a>
+  <a href="#bpmn">Process flow</a>
+  <a href="#steps">Process steps</a>
+  <a href="#lanes">Swim lanes</a>
+  <a href="#systems">Systems</a>
+  <a href="#kpis">KPIs</a>
+  <a href="#risks">Risks</a>
+</aside>
 </div>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources
