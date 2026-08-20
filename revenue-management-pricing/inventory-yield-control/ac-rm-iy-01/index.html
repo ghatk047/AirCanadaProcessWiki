@@ -136,7 +136,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-RM-IY-01" title="Click to copy the process ID">
     AC-RM-IY-01<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>O and D Demand Forecast Generation</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -145,107 +145,271 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-RM-IY-01-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Data compilation</span>
-    <span class="ph-n">1 steps</span></div>
-  <div class="phase-body"><div class="tbl-wrap"><table>
-  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
-  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
-  <tbody><tr>
-<td class="c-step">1.1</td>
-<td><b>Compile historical booking curves</b></td>
-<td>Revenue Management Analyst</td>
-<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Historical booking and show data</td>
-<td>Compiled booking curve history</td>
-<td>Compiled nightly for 100 percent of active flights</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>New routes have no comparable history to build a curve from</td>
-</tr></tbody></table></div></div>
-</div><div class="phase-group" data-phase-id="AC-RM-IY-01-2">
-  <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Forecast generation</span>
-    <span class="ph-n">2 steps</span></div>
-  <div class="phase-body"><div class="tbl-wrap"><table>
-  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
-  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
-  <tbody><tr>
-<td class="c-step">2.1</td>
-<td><b>Generate baseline demand forecast</b></td>
-<td>Revenue Management Analyst</td>
-<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Booking curve history and current bookings-on-hand</td>
-<td>Baseline forecast by flight and class</td>
-<td>Forecast generated nightly for 100 percent of flights within 90 days</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Baseline forecasting struggles on routes with irregular demand patterns such as charter-adjacent markets</td>
-</tr><tr>
-<td class="c-step">2.2</td>
-<td><b>Adjust for known demand shocks</b></td>
-<td>Revenue Management Analyst</td>
-<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Event calendar and known disruptions</td>
-<td>Adjusted forecast</td>
-<td>Known shocks incorporated before the nightly run at 95 percent</td>
-<td class="c-flag"><span class="yes">Y</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Adjustment relies on analysts manually knowing about the event in the first place</td>
-</tr></tbody></table></div></div>
-</div><div class="phase-group" data-phase-id="AC-RM-IY-01-3">
-  <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Validation and release</span>
+    <span class="ph-name">Phase 1 &mdash; Data Collection</span>
     <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
-<td class="c-step">3.1</td>
-<td><b>Validate forecast against analyst judgement</b></td>
+<td class="c-step">1.1</td>
+<td><b>Collect historical sales data</b></td>
 <td>Revenue Management Analyst</td>
 <td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Generated forecast</td>
-<td>Validated or overridden forecast</td>
-<td>Material overrides reviewed for cause within 24 hours</td>
+<td>Historical booking records</td>
+<td>Sales data report</td>
+<td>Data accuracy &gt;95%</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Override volume is not tracked in aggregate, so systemic model weaknesses stay invisible</td>
+<td>Inconsistent historical data quality affects forecasting accuracy.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Gather current market trends</b></td>
+<td>Market Analyst</td>
+<td><span class="tag pros" data-tooltip="Continuous willingness-to-pay pricing. Air Canada is a 30-year-plus PROS reference account. [PROS - evidence A]">PROS Real-Time Dynamic Pricing<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Current booking patterns, competitor pricing</td>
+<td>Market trend analysis</td>
+<td>Trend identification within 48 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed market data impacts real-time forecasting.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Request additional market data</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Data request form</td>
+<td>Updated market data</td>
+<td>Response time &lt;24 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Slow response from external data providers.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-IY-01-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Market Analysis</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Conduct demand analysis</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Historical sales data, market trends</td>
+<td>Demand forecast model</td>
+<td>Model accuracy &gt;85%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inaccurate initial models require rework.</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Adjust demand parameters</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Demand forecast adjustments</td>
+<td>Updated demand forecast model</td>
+<td>Parameter tuning &lt;1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Time-consuming parameter tweaking process.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Re-run demand analysis</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Adjusted parameters, historical data</td>
+<td>Finalized demand forecast model</td>
+<td>Model accuracy &gt;90%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Multiple iterations may be needed for optimal results.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-IY-01-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Forecast Generation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Generate bid prices based on forecast</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Finalized demand forecast model</td>
+<td>Bid prices</td>
+<td>Price generation within 4 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Bid prices may exceed regulatory limits.</td>
 </tr><tr>
 <td class="c-step">3.2</td>
-<td><b>Release forecast to inventory optimisation</b></td>
+<td><b>Adjust bid prices to comply with regulations</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Regulatory guidelines, bid prices</td>
+<td>Compliant bid prices</td>
+<td>Price adjustment &lt;1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex regulatory requirements.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-IY-01-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Bid-Price Optimization</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Submit bid prices to Amadeus Altea Inventory</b></td>
 <td>Revenue Management Analyst</td>
 <td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Validated forecast</td>
-<td>Forecast available for bid price calculation</td>
-<td>Released before the nightly optimisation run at 100 percent</td>
+<td>Compliant bid prices</td>
+<td>Inventory update request</td>
+<td>Submission time &lt;1 hour</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>A late release delays the entire nightly inventory update</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System downtime affecting submission.</td>
 </tr><tr>
-<td class="c-step">3.3</td>
-<td><b>Log forecast accuracy for the closed booking window</b></td>
+<td class="c-step">4.2</td>
+<td><b>Retry inventory update submission</b></td>
 <td>Revenue Management Analyst</td>
-<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Forecast versus actual bookings for departed flights</td>
-<td>Logged accuracy record</td>
-<td>Accuracy logged for 100 percent of departed flights</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Inventory update request</td>
+<td>Acknowledgment of submission</td>
+<td>Retry time &lt;30 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Persistent system issues may delay updates.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-IY-01-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Inventory Control</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Monitor ATPCO fare filing status</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag iata" data-tooltip="Industry fare filing, rules, footnotes and tax data. The rate-limiting step on pricing agility. [ATPCO - evidence B]">ATPCO<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Inventory update request</td>
+<td>Fare filing status report</td>
+<td>Filing time &lt;24 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Accuracy logging happens well after the fact and rarely feeds back into model tuning promptly</td>
+<td>ATPCO&#x27;s slow processing introduces latency.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Check ATPCO system status</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag iata" data-tooltip="Industry fare filing, rules, footnotes and tax data. The rate-limiting step on pricing agility. [ATPCO - evidence B]">ATPCO<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>System health check</td>
+<td>Status report</td>
+<td>Response time &lt;1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System outages can delay fare filings.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Notify IT support of ATPCO issue</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada IT Support<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Issue report</td>
+<td>Acknowledgment ticket</td>
+<td>Response time &lt;2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed IT response may prolong system downtime.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-IY-01-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Phase 6</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Review final demand forecast</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Finalized demand forecast model, ATPCO status</td>
+<td>Forecast review report</td>
+<td>Review time &lt;2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inconsistent data impacts final review.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Revisit demand parameters and adjust</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Demand forecast adjustments</td>
+<td>Updated demand forecast model</td>
+<td>Adjustment time &lt;1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex parameter adjustments required.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Escalate to senior revenue manager</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada IT Support<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Review report, issues summary</td>
+<td>Escalation ticket</td>
+<td>Escalation time &lt;1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Senior management intervention required for complex issues.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-IY-01-7">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 7 &mdash; Phase 7</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">7.1</td>
+<td><b>Finalize and distribute demand forecast</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Compliant bid prices, final review report</td>
+<td>Demand forecast distribution</td>
+<td>Distribution time &lt;1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed distribution may impact operations.</td>
+</tr><tr>
+<td class="c-step">7.2</td>
+<td><b>Retry demand forecast distribution</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Demand forecast distribution request</td>
+<td>Distribution acknowledgment</td>
+<td>Retry time &lt;30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Persistent issues may delay finalization.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Revenue Management Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1 3.2 3.3</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Revenue Management Analyst</span><span class="lane-steps">1.1 1.3 2.1 2.2 2.3 3.1 3.2 4.1 4.2 5.1 5.2 5.3 6.1 6.2 6.3 7.1 7.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Market Analyst</span><span class="lane-steps">1.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag pros" data-tooltip="Continuous willingness-to-pay pricing. Air Canada is a 30-year-plus PROS reference account. [PROS - evidence A]">PROS Real-Time Dynamic Pricing<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag iata" data-tooltip="Industry fare filing, rules, footnotes and tax data. The rate-limiting step on pricing agility. [ATPCO - evidence B]">ATPCO<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada IT Support<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Forecast generated nightly for 100 percent of flights within 90 days of departure</li><li>Forecast accuracy within 15 percent of actual bookings at 30 days out</li><li>Known demand shocks incorporated before the nightly run at 95 percent</li><li>Released before the nightly optimisation run at 100 percent</li></ul>
+<ul class="bullets"><li>Data accuracy &gt;95%</li><li>Trend identification within 48 hours</li><li>Parameter tuning &lt;1 hour</li><li>Model accuracy &gt;90%</li><li>Filing time &lt;24 hours</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>New and thin routes having no comparable booking history to forecast against</li><li>Override volume not tracked in aggregate, hiding systemic model weakness</li><li>A demand shock missed because no analyst flagged it before the nightly run</li><li>A late forecast release delaying the entire nightly inventory optimisation cycle</li></ul>
+<ul class="bullets risk"><li>Inconsistent historical data quality affects forecasting accuracy.</li><li>Delayed market data impacts real-time forecasting.</li><li>Slow response from external data providers.</li><li>Complex regulatory requirements.</li><li>Persistent issues may delay finalization.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../network-planning-scheduling/network-performance-monitoring/ac-np-nm-07/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Network Post Implementation Review</span></a>

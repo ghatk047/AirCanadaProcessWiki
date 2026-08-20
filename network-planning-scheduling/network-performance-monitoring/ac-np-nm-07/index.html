@@ -135,7 +135,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-NP-NM-07" title="Click to copy the process ID">
     AC-NP-NM-07<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Network Post Implementation Review</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -144,107 +144,274 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-NP-NM-07-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Performance reconciliation</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Preparation</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Reconcile delivered schedule against plan</b></td>
-<td>Network Planning Analyst</td>
-<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Planned and actual seasonal schedule</td>
-<td>Delivered versus planned reconciliation</td>
-<td>Reconciliation completed within 20 business days of season end</td>
+<td><b>Initiate Review Process</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Network change implementation details</td>
+<td>Pre-review checklist</td>
+<td>24-hour review initiation time</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>In-season changes accumulate and the final delivered schedule can differ substantially from the frozen plan</td>
+<td>Late initiation can delay overall network planning.</td>
 </tr><tr>
 <td class="c-step">1.2</td>
-<td><b>Compile commercial and operational performance</b></td>
+<td><b>Verify Implementation Status</b></td>
 <td>Network Planning Analyst</td>
-<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Route profitability, OTP and bank integrity data</td>
-<td>Consolidated season performance</td>
-<td>Consolidated within 20 business days of season end</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Pre-review checklist</td>
+<td>Verification report</td>
+<td>Within 48 hours of implementation</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Miscommunication can lead to incomplete verification.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Request Additional Verification Details</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Verification report</td>
+<td>Updated verification details</td>
+<td>Within 24 hours of request</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed updates can cause further delays.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Re-verify Implementation</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Updated verification details</td>
+<td>Final verification report</td>
+<td>Within 24 hours of receiving updated details</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Consolidation draws on several separate reporting processes that close on different schedules</td>
+<td>Multiple verifications increase the time-to-market.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-NP-NM-07-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Findings synthesis</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Data Collection</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Synthesise structural findings</b></td>
-<td>Network Strategy Manager</td>
-<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Consolidated performance and prior findings</td>
-<td>Synthesised structural findings</td>
-<td>Findings synthesised within 30 business days of season end</td>
+<td><b>Collect Performance Metrics</b></td>
+<td>Network Operations Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Final verification report</td>
+<td>Performance metrics report</td>
+<td>Within 7 days of implementation</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Findings from different functions are not automatically cross-referenced against each other</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inaccurate data can lead to flawed analysis.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Compare findings against the prior season&#x27;s review</b></td>
-<td>Network Strategy Manager</td>
-<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Current and prior season findings</td>
-<td>Trend assessment across seasons</td>
-<td>Trend comparison completed for every recurring finding</td>
+<td><b>Request Data Correction</b></td>
+<td>Network Operations Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Performance metrics report</td>
+<td>Corrected performance metrics</td>
+<td>Within 48 hours of request</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Further delays in data correction can impact review timelines.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Re-collect Performance Metrics</b></td>
+<td>Network Operations Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Corrected performance metrics</td>
+<td>Final performance metrics report</td>
+<td>Within 7 days of corrected data</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Without this comparison, the same structural issue can be rediscovered every season</td>
+<td>Continuous data collection ensures accurate review.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-NP-NM-07-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Action assignment</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Analysis</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Assign findings to an owner and target cycle</b></td>
-<td>Network Strategy Manager</td>
-<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Synthesised findings</td>
-<td>Assigned action with owner and target</td>
-<td>100 percent of material findings assigned an owner</td>
+<td><b>Analyze Performance Metrics</b></td>
+<td>Network Performance Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Final performance metrics report</td>
+<td>Analysis report</td>
+<td>Within 5 days of final performance metrics</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Findings without a named owner and a target cycle default to being lost by the next season</td>
+<td>Complex analysis can consume significant time.</td>
 </tr><tr>
 <td class="c-step">3.2</td>
-<td><b>Publish the season review to stakeholders</b></td>
-<td>Network Strategy Manager</td>
-<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Assigned findings and actions</td>
-<td>Published season review</td>
-<td>Review published within 40 business days of season end at 100 percent</td>
+<td><b>Request Additional Data Points</b></td>
+<td>Network Performance Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Analysis report</td>
+<td>Additional data points</td>
+<td>Within 48 hours of request</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Insufficient data can lead to inaccurate analysis.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Re-analyze with Additional Data</b></td>
+<td>Network Performance Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Additional data points</td>
+<td>Updated analysis report</td>
+<td>Within 5 days of receiving additional data</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A review that is not actively distributed is read only by the team that wrote it</td>
+<td>Continuous re-analysis ensures accurate conclusions.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-NM-07-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Review Meeting</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Conduct Review Meeting</b></td>
+<td>Network Planning Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Updated analysis report</td>
+<td>Meeting minutes</td>
+<td>Within 3 days of updated analysis</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed meetings can impact decision-making timelines.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Request Clarifications or Adjustments</b></td>
+<td>Network Planning Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Meeting minutes</td>
+<td>Clarified points and adjustments</td>
+<td>Within 24 hours of request</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Further clarifications can delay the process.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Re-conduct Review Meeting</b></td>
+<td>Network Planning Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Clarified points and adjustments</td>
+<td>Final meeting minutes</td>
+<td>Within 3 days of receiving clarifications</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Continuous meetings ensure thorough review.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-NM-07-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Documentation</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Document Review Findings</b></td>
+<td>Network Planning Documenter</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Final meeting minutes</td>
+<td>Review findings document</td>
+<td>Within 4 days of final meeting</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delays in documentation can impact stakeholder communication.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Request Additional Information for Documentation</b></td>
+<td>Network Planning Documenter</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Review findings document</td>
+<td>Additional information</td>
+<td>Within 24 hours of request</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Further requests can delay the documentation process.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Re-document with Additional Information</b></td>
+<td>Network Planning Documenter</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Additional information</td>
+<td>Final review findings document</td>
+<td>Within 4 days of receiving additional information</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Continuous documentation ensures accurate reporting.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-NM-07-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Feedback Loop</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Distribute Review Findings</b></td>
+<td>Network Planning Coordinator</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Final review findings document</td>
+<td>Distribution list</td>
+<td>Within 2 days of final document</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed distribution can impact stakeholder action.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Request Recipients to Acknowledge Receipt</b></td>
+<td>Network Planning Coordinator</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Distribution list</td>
+<td>Acknowledgment receipts</td>
+<td>Within 24 hours of distribution</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Non-acknowledgment can delay follow-up actions.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Re-distribute with Follow-Up</b></td>
+<td>Network Planning Coordinator</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Acknowledgment receipts</td>
+<td>Final distribution list</td>
+<td>Within 2 days of follow-up</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Continuous follow-ups ensure effective communication.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Network Planning Analyst</span><span class="lane-steps">1.1 1.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Network Strategy Manager</span><span class="lane-steps">2.1 2.2 3.1 3.2</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">1.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Network Planning Analyst</span><span class="lane-steps">1.2 1.3 1.4</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Network Operations Analyst</span><span class="lane-steps">2.1 2.2 2.3</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Network Performance Analyst</span><span class="lane-steps">3.1 3.2 3.3</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Network Planning Manager</span><span class="lane-steps">4.1 4.2 4.3</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>Network Planning Documenter</span><span class="lane-steps">5.1 5.2 5.3</span></div><div class="lane"><span class="swatch" style="background:#8A5A1E"></span><span>Network Planning Coordinator</span><span class="lane-steps">6.1 6.2 6.3</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Reconciliation completed within 20 business days of season end</li><li>100 percent of material findings assigned an owner</li><li>Findings synthesised within 30 business days of season end</li><li>Recurring findings from the prior season correctly identified as recurring</li></ul>
+<ul class="bullets"><li>Review initiation within 24 hours</li><li>Verification completion within 7 days</li><li>Performance metrics collection within 14 days</li><li>Analysis completed within 10 days</li><li>Documentation finalized within 6 days</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>In-season changes accumulating until the delivered schedule differs substantially from the frozen plan</li><li>The same structural issue being rediscovered every season with no year-over-year comparison</li><li>Findings without a named owner and target cycle defaulting to being lost</li><li>Institutional knowledge about what worked in a season eroding with planner turnover</li></ul>
+<ul class="bullets risk"><li>Inaccurate data leading to flawed analysis</li><li>Delayed data correction causing review delays</li><li>No consensus in review meetings leading to prolonged discussions</li><li>Incomplete documentation resulting in delayed reporting</li><li>Non-acknowledgment of distributed findings impacting follow-up actions</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../network-planning-scheduling/network-performance-monitoring/ac-np-nm-06/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Schedule Reliability and Block Time Tuning</span></a>
