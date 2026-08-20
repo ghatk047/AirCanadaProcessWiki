@@ -136,7 +136,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-RM-PF-02" title="Click to copy the process ID">
     AC-RM-PF-02<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Real Time Dynamic Pricing Model Governance</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -145,96 +145,252 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-RM-PF-02-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Model performance review</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Market Data Collection</span>
+    <span class="ph-n">6 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Review model performance against revenue targets</b></td>
-<td>Revenue Management Analyst</td>
+<td><b>Collect market data</b></td>
+<td>Revenue Analyst</td>
 <td><span class="tag pros" data-tooltip="Continuous willingness-to-pay pricing. Air Canada is a 30-year-plus PROS reference account. [PROS - evidence A]">PROS Real-Time Dynamic Pricing<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Model output and realised revenue</td>
-<td>Performance review against target</td>
-<td>Reviewed each governance cycle at 100 percent</td>
+<td>Current market conditions, competitor prices</td>
+<td>Market data report</td>
+<td>Data collection time &lt; 5 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Attributing revenue outcome specifically to the pricing model versus demand is inherently imprecise</td>
+<td>Delayed market data can lead to outdated pricing decisions.</td>
 </tr><tr>
 <td class="c-step">1.2</td>
-<td><b>Screen for anomalous pricing patterns</b></td>
-<td>Revenue Management Analyst</td>
+<td><b>Calculate new fares</b></td>
+<td>Pricing Specialist</td>
 <td><span class="tag pros" data-tooltip="Continuous willingness-to-pay pricing. Air Canada is a 30-year-plus PROS reference account. [PROS - evidence A]">PROS Real-Time Dynamic Pricing<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Live pricing output</td>
-<td>Flagged anomaly list</td>
-<td>Screening run daily at 100 percent</td>
+<td>Market data report</td>
+<td>New fare prices</td>
+<td>Fare calculation time &lt; 3 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inaccurate fare calculations can lead to regulatory violations.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Review and approve fares</b></td>
+<td>Pricing Manager</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>New fare prices</td>
+<td>Approved fare prices</td>
+<td>Approval time &lt; 10 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual review can introduce delays.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Correct and recalculate fares</b></td>
+<td>Pricing Specialist</td>
+<td><span class="tag pros" data-tooltip="Continuous willingness-to-pay pricing. Air Canada is a 30-year-plus PROS reference account. [PROS - evidence A]">PROS Real-Time Dynamic Pricing<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Invalid fare calculation details</td>
+<td>Revised fare prices</td>
+<td>Recalculation time &lt; 2 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Anomaly thresholds are tuned to avoid false positives and can miss a genuine slow drift</td>
+<td>Multiple recalculations can slow down the entire process.</td>
+</tr><tr>
+<td class="c-step">1.5</td>
+<td><b>Validate recalculated fares</b></td>
+<td>Pricing Analyst</td>
+<td><span class="tag pros" data-tooltip="Continuous willingness-to-pay pricing. Air Canada is a 30-year-plus PROS reference account. [PROS - evidence A]">PROS Real-Time Dynamic Pricing<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Revised fare prices</td>
+<td>Validation report</td>
+<td>Validation time &lt; 3 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Fare validation can take longer than expected.</td>
+</tr><tr>
+<td class="c-step">1.6</td>
+<td><b>Adjust and recalculate fares again</b></td>
+<td>Pricing Specialist</td>
+<td><span class="tag pros" data-tooltip="Continuous willingness-to-pay pricing. Air Canada is a 30-year-plus PROS reference account. [PROS - evidence A]">PROS Real-Time Dynamic Pricing<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Validation report</td>
+<td>Adjusted fare prices</td>
+<td>Recalculation time &lt; 2 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Multiple recalculations can slow down the entire process.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-RM-PF-02-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Drift investigation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Pricing Adjustment Calculation</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Investigate flagged anomalies</b></td>
-<td>Revenue Management Analyst</td>
-<td><span class="tag pros" data-tooltip="Continuous willingness-to-pay pricing. Air Canada is a 30-year-plus PROS reference account. [PROS - evidence A]">PROS Real-Time Dynamic Pricing<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Anomaly flag</td>
-<td>Root cause of the pricing anomaly</td>
-<td>Root cause identified within 3 business days of flagging</td>
-<td class="c-flag"><span class="no">N</span></td>
+<td><b>Check regulatory compliance</b></td>
+<td>Regulatory Compliance Officer</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Approved fare prices</td>
+<td>Compliance report</td>
+<td>Compliance check time &lt; 5 minutes</td>
 <td class="c-flag"><span class="yes">Y</span></td>
-<td>Model behaviour is not always fully explainable from the output alone</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Non-compliance can lead to fines and penalties.</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Document compliance</b></td>
+<td>Regulatory Compliance Officer</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Compliance report</td>
+<td>Compliance documentation</td>
+<td>Documentation time &lt; 1 minute</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Incomplete documentation can delay the filing process.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Correct and recheck compliance</b></td>
+<td>Regulatory Compliance Officer</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Non-compliant details</td>
+<td>Revised compliance report</td>
+<td>Re-check time &lt; 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Multiple checks can delay the entire process.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-RM-PF-02-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Governance action</span>
+    <span class="ph-name">Phase 3 &mdash; Regulatory Compliance Check</span>
     <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Approve or constrain model parameters</b></td>
-<td>Revenue Management Analyst</td>
-<td><span class="tag pros" data-tooltip="Continuous willingness-to-pay pricing. Air Canada is a 30-year-plus PROS reference account. [PROS - evidence A]">PROS Real-Time Dynamic Pricing<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Root cause finding</td>
-<td>Approved parameters or applied constraint</td>
-<td>Governance decision taken within 5 business days of investigation at 100 percent</td>
-<td class="c-flag"><span class="yes">Y</span></td>
+<td><b>Prepare fare filing</b></td>
+<td>Fare Filing Specialist</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Compliance documentation, approved fares</td>
+<td>Fare filing package</td>
+<td>Preparation time &lt; 2 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A constraint applied to fix one anomaly can create an unintended effect elsewhere in the network</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Incorrect preparation can lead to delays.</td>
 </tr><tr>
 <td class="c-step">3.2</td>
-<td><b>Document governance decisions</b></td>
-<td>Revenue Management Analyst</td>
-<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Approved decision</td>
-<td>Documented governance record</td>
-<td>100 percent of governance decisions documented with rationale</td>
+<td><b>Reprepare fare filing</b></td>
+<td>Fare Filing Specialist</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Preparation details</td>
+<td>Corrected fare filing package</td>
+<td>Correction time &lt; 1 minute</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Undocumented parameter changes accumulate and make later model behaviour hard to explain</td>
+<td>Multiple corrections can slow down the entire process.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-PF-02-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Fare Filing Preparation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Submit fare filing to ATPCO</b></td>
+<td>Fare Filing Specialist</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Corrected fare filing package</td>
+<td>ATPCO submission confirmation</td>
+<td>Submission time &lt; 5 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Submission delays can occur due to network issues.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Retry fare filing submission</b></td>
+<td>Fare Filing Specialist</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Submission details</td>
+<td>Retry confirmation</td>
+<td>Retry time &lt; 1 minute</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Multiple retries can slow down the entire process.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-PF-02-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Fare Filing Submission</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Monitor fare filing status</b></td>
+<td>Fare Filing Specialist</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>ATPCO submission confirmation</td>
+<td>Fare filing status report</td>
+<td>Monitoring time &lt; 2 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Monitoring can take longer than expected.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Re-monitor fare filing status</b></td>
+<td>Fare Filing Specialist</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Filing details</td>
+<td>Updated status report</td>
+<td>Monitoring time &lt; 2 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Continuous monitoring can be resource-intensive.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-PF-02-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Post-Filing Monitoring</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Review post-filing reports</b></td>
+<td>Pricing Manager</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Fare filing status report</td>
+<td>Post-filing review</td>
+<td>Review time &lt; 5 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Review can take longer than expected.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Address and resolve issues</b></td>
+<td>Pricing Specialist</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Issue details</td>
+<td>Resolved issue report</td>
+<td>Resolution time &lt; 3 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Multiple issues can slow down the entire process.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Revenue Management Analyst</span><span class="lane-steps">1.1 1.2 2.1 3.1 3.2</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Revenue Analyst</span><span class="lane-steps">1.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Pricing Specialist</span><span class="lane-steps">1.2 1.4 1.6 6.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Pricing Manager</span><span class="lane-steps">1.3 6.1</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Pricing Analyst</span><span class="lane-steps">1.5</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Regulatory Compliance Officer</span><span class="lane-steps">2.1 2.2 2.3</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>Fare Filing Specialist</span><span class="lane-steps">3.1 3.2 4.1 4.2 5.1 5.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag pros" data-tooltip="Continuous willingness-to-pay pricing. Air Canada is a 30-year-plus PROS reference account. [PROS - evidence A]">PROS Real-Time Dynamic Pricing<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
+<div class="card"><span class="tag pros" data-tooltip="Continuous willingness-to-pay pricing. Air Canada is a 30-year-plus PROS reference account. [PROS - evidence A]">PROS Real-Time Dynamic Pricing<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Screening run daily at 100 percent</li><li>Root cause identified within 3 business days of flagging</li><li>Governance decision taken within 5 business days of investigation at 100 percent</li><li>100 percent of governance decisions documented with rationale</li></ul>
+<ul class="bullets"><li>Data collection time &lt; 5 minutes</li><li>Fare calculation time &lt; 3 minutes</li><li>Approval time &lt; 10 minutes</li><li>Recalculation time &lt; 2 minutes</li><li>Validation time &lt; 3 minutes</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A subtle model misconfiguration producing locally optimal but commercially wrong pricing</li><li>Anomaly thresholds tuned against false positives missing a genuine slow drift</li><li>A constraint fixing one anomaly creating an unintended effect elsewhere in the network</li><li>Undocumented parameter changes accumulating until model behaviour is no longer explainable</li></ul>
+<ul class="bullets risk"><li>Market data delays leading to outdated pricing decisions</li><li>Inaccurate fare calculations causing regulatory violations</li><li>Manual review introducing delays</li><li>Multiple recalculations slowing the process</li><li>Non-compliance leading to fines and penalties</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../revenue-management-pricing/pricing-fare-filing/ac-rm-pf-01/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Fare Construction and Filing to ATPCO</span></a>
