@@ -135,7 +135,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-NP-SL-01" title="Click to copy the process ID">
     AC-NP-SL-01<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>IATA Slot Conference Coordination</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -144,107 +144,252 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-NP-SL-01-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Slot requirement preparation</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Slot Request Validation</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Determine slot requirements from the schedule</b></td>
-<td>Slot Coordinator</td>
-<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Draft seasonal schedule</td>
-<td>Slot requirement list by airport</td>
-<td>Requirements finalised before the conference at 100 percent</td>
+<td><b>Receive slot request</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Slot request form</td>
+<td>Validated slot request</td>
+<td>Response time within 2 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Requirements are drawn from a schedule that is not yet frozen</td>
+<td>Delays in receiving requests from ground staff.</td>
 </tr><tr>
 <td class="c-step">1.2</td>
-<td><b>Assess historic precedence position</b></td>
-<td>Slot Coordinator</td>
-<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Prior season slot utilisation</td>
-<td>Precedence position by slot</td>
-<td>Precedence position confirmed for 100 percent of held slots</td>
+<td><b>Check for conflicting slots</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Validated slot request</td>
+<td>Conflicting slot report</td>
+<td>Conflict detection rate 95%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Overlooked conflicts leading to operational disruptions.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Escalate conflicting slots</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Conflicting slot report</td>
+<td>Escalation ticket</td>
+<td>Escalation response time within 1 hour</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Utilisation shortfalls anywhere in the prior season put precedence at risk</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual intervention required for complex conflicts.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-NP-SL-01-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Conference negotiation</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Interline Coordination</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Attend and negotiate at the slot conference</b></td>
-<td>Slot Coordinator</td>
-<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">SITA AMS<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
-<td>Requirement list and precedence position</td>
-<td>Negotiated slot outcomes</td>
-<td>Priority slot requirements secured above 85 percent</td>
-<td class="c-flag"><span class="yes">Y</span></td>
+<td><b>Initiate interline coordination</b></td>
+<td>Star Alliance Interline Agent</td>
+<td><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Validated slot request</td>
+<td>Interline communication log</td>
+<td>Communication response rate 90%</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>New or growth slot requests compete directly against every other coordinated carrier</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delays in receiving responses from partner airlines.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Resolve slot conflicts with connecting bank needs</b></td>
-<td>Network Planning Analyst</td>
-<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Negotiated slot times and bank design</td>
-<td>Reconciled slot and bank position</td>
-<td>Reconciliation completed before schedule freeze at 100 percent</td>
+<td><b>Notify A++ JV partners</b></td>
+<td>A++ Atlantic Joint Venture Coordinator</td>
+<td><span class="tag iata" data-tooltip="Transatlantic JV with United and Lufthansa Group. Coordinated schedules and revenue share. [A++ JV - evidence A]">A++ Atlantic Joint Venture<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Validated slot request</td>
+<td>Confirmation email</td>
+<td>Notification response time within 3 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Non-compliance with joint venture protocols.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Request A++ JV approval</b></td>
+<td>A++ Atlantic Joint Venture Coordinator</td>
+<td><span class="tag iata" data-tooltip="Transatlantic JV with United and Lufthansa Group. Coordinated schedules and revenue share. [A++ JV - evidence A]">A++ Atlantic Joint Venture<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Interline communication log</td>
+<td>JV approval document</td>
+<td>Approval time within 4 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A negotiated slot time can arrive that no longer fits the bank it was meant to serve</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex negotiations for slot allocation.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-NP-SL-01-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Confirmation and load</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; A++ JV Notification</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Confirm final slot allocation</b></td>
-<td>Slot Coordinator</td>
-<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">SITA AMS<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
-<td>Conference outcomes</td>
-<td>Confirmed slot allocation</td>
-<td>Confirmation received before schedule freeze at 100 percent</td>
+<td><b>Prepare regulatory compliance documents</b></td>
+<td>Regulatory Compliance Officer</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>JV approval document</td>
+<td>Compliance checklist</td>
+<td>Document preparation time within 2 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Confirmation can arrive after the internal schedule freeze deadline</td>
+<td>Misinterpretation of regulatory requirements.</td>
 </tr><tr>
 <td class="c-step">3.2</td>
-<td><b>Load confirmed slots into the schedule</b></td>
-<td>Schedule Planner</td>
-<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Confirmed slot allocation</td>
-<td>Slot-aligned committed schedule</td>
-<td>Schedule matches confirmed slots at 100 percent</td>
+<td><b>Submit compliance check to IATA</b></td>
+<td>Regulatory Compliance Officer</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Compliance checklist</td>
+<td>IATA submission confirmation</td>
+<td>Submission time within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Rejection due to non-compliance.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Escalate rejection to compliance team</b></td>
+<td>Regulatory Compliance Officer</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>IATA submission confirmation</td>
+<td>Rejection resolution ticket</td>
+<td>Resolution time within 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex regulatory issues require expert intervention.</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Revise compliance documents</b></td>
+<td>Regulatory Compliance Officer</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Rejection resolution ticket</td>
+<td>Revised compliance checklist</td>
+<td>Revision time within 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Multiple revisions due to regulatory changes.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-SL-01-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Regulatory Compliance Check</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Finalize slot allocation</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Revised compliance checklist</td>
+<td>Slot allocation document</td>
+<td>Allocation time within 1 hour</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A late slot change forces a schedule change after publication is already in motion</td>
+<td>Delays in finalizing allocations due to system limitations.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Notify all stakeholders</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Slot allocation document</td>
+<td>Stakeholder notification log</td>
+<td>Notification rate 100%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Missing notifications leading to operational confusion.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Escalate missing notifications</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Slot allocation document</td>
+<td>Notification escalation ticket</td>
+<td>Escalation response time within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual follow-ups required for missed notifications.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-SL-01-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Final Slot Allocation</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Monitor slot usage</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Slot allocation document</td>
+<td>Usage report</td>
+<td>Adherence rate 90%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Non-adherence to allocated slots leading to delays.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Adjust slot allocation as needed</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Usage report</td>
+<td>Adjusted slot allocation document</td>
+<td>Adjustment time within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex adjustments due to unforeseen circumstances.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Escalate non-adherence issues</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Usage report</td>
+<td>Non-adherence escalation ticket</td>
+<td>Escalation response time within 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual intervention required for complex non-adherence issues.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-SL-01-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Post-Conf Resolution</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Close slot conference coordination</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Final slot allocation document</td>
+<td>Completion report</td>
+<td>Closure time within 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delays in closing the process leading to missed opportunities.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Slot Coordinator</span><span class="lane-steps">1.1 1.2 2.1 3.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Network Planning Analyst</span><span class="lane-steps">2.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Schedule Planner</span><span class="lane-steps">3.2</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">1.1 1.2 1.3 4.1 4.2 4.3 5.1 5.2 5.3 6.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Star Alliance Interline Agent</span><span class="lane-steps">2.1</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>A++ Atlantic Joint Venture Coordinator</span><span class="lane-steps">2.2 2.3</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Regulatory Compliance Officer</span><span class="lane-steps">3.1 3.2 3.3 3.4</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">SITA AMS<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag iata" data-tooltip="Transatlantic JV with United and Lufthansa Group. Coordinated schedules and revenue share. [A++ JV - evidence A]">A++ Atlantic Joint Venture<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Priority slot requirements secured above 85 percent</li><li>Precedence position confirmed for 100 percent of held slots</li><li>Schedule matching confirmed slots at 100 percent</li><li>Reconciliation with connecting bank needs completed before freeze at 100 percent</li></ul>
+<ul class="bullets"><li>Response time within 2 hours</li><li>Conflict detection rate 95%</li><li>Communication response rate 90%</li><li>Approval time within 4 hours</li><li>Document preparation time within 2 hours</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Losing historic precedence at a key coordinated airport through a utilisation shortfall</li><li>A negotiated slot time no longer fitting the connecting bank it was meant to serve</li><li>Confirmation arriving after the internal schedule freeze, forcing rework</li><li>New route cases blocked entirely by an inability to secure a required slot</li></ul>
+<ul class="bullets risk"><li>Misinterpretation of regulatory requirements leading to non-compliance.</li><li>Complex negotiations with A++ JV partners causing delays.</li><li>System limitations affecting the finalization of slot allocations.</li><li>Manual follow-ups required for missed notifications.</li><li>Non-adherence to allocated slots leading to operational disruptions.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../network-planning-scheduling/fleet-assignment-rotation/ac-np-fa-08/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Charter and Jetz Sub-Fleet Scheduling</span></a>

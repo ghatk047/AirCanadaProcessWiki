@@ -135,7 +135,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-NP-SL-02" title="Click to copy the process ID">
     AC-NP-SL-02<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Level 3 Airport Slot Application and Retention</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -144,107 +144,307 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-NP-SL-02-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Utilisation tracking</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Slot Application Preparation</span>
+    <span class="ph-n">6 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Track slot utilisation on a rolling basis</b></td>
-<td>Slot Coordinator</td>
-<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">SITA AMS<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
-<td>Actual flight operation against held slots</td>
-<td>Rolling utilisation position by slot</td>
-<td>Utilisation tracked weekly for 100 percent of held slots</td>
+<td><b>Initiate Slot Application Request</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Flight route details, aircraft type, and operational requirements</td>
+<td>Application request form</td>
+<td>Time to initiate &lt; 2 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Utilisation tracking is manual reconciliation against the operational record</td>
+<td>Delays in initiating requests can impact flight schedules.</td>
 </tr><tr>
 <td class="c-step">1.2</td>
-<td><b>Identify slots approaching the risk threshold</b></td>
-<td>Slot Coordinator</td>
-<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">SITA AMS<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
-<td>Rolling utilisation position</td>
-<td>At-risk slot list</td>
-<td>At-risk slots identified at least 6 weeks before season end</td>
+<td><b>Review Slot Requirements</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Application request form</td>
+<td>Slot requirements document</td>
+<td>Time to review &lt; 4 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inconsistent interpretation of slot requirements can lead to over-provisioning.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Check Slot Availability</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Slot requirements document</td>
+<td>Availability report</td>
+<td>Time to check availability &lt; 8 hours</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A single irregular operations event can push a slot from safe to at-risk with no warning</td>
+<td>Delayed slot availability checks can delay flight planning.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Escalate Slot Unavailability</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Availability report</td>
+<td>Escalation request</td>
+<td>Time to escalate &lt; 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual escalation can lead to delays.</td>
+</tr><tr>
+<td class="c-step">1.5</td>
+<td><b>Recheck Slot Availability</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Escalation request</td>
+<td>Updated availability report</td>
+<td>Time to recheck &lt; 8 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Continuous slot checks are resource-intensive.</td>
+</tr><tr>
+<td class="c-step">1.6</td>
+<td><b>Request Slot Allocation</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Updated availability report</td>
+<td>Slot allocation request</td>
+<td>Time to request &lt; 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual slot allocation can lead to errors.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-NP-SL-02-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Risk identification and remediation</span>
+    <span class="ph-name">Phase 2 &mdash; Slot Availability Check</span>
     <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Assess cause of shortfall</b></td>
-<td>Slot Coordinator</td>
-<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>At-risk slot and operational history</td>
-<td>Shortfall cause assessment</td>
-<td>Cause assessed for 100 percent of at-risk slots</td>
+<td><b>Prepare Application Document</b></td>
+<td>APPR Adjudicator</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Slot allocation request</td>
+<td>Application document</td>
+<td>Time to prepare &lt; 4 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Distinguishing an excusable disruption from a planning shortfall affects the waiver case</td>
+<td>Complex application documents can lead to errors.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>File for justified non-use waiver where applicable</b></td>
-<td>Slot Coordinator</td>
-<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">SITA AMS<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
-<td>Shortfall cause assessment</td>
-<td>Filed waiver request or accepted risk</td>
-<td>Justified waivers filed within the coordinator&#x27;s deadline at 100 percent</td>
+<td><b>Submit Application Document</b></td>
+<td>APPR Adjudicator</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Application document</td>
+<td>Submitted application</td>
+<td>Time to submit &lt; 1 hour</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="yes">Y</span></td>
-<td>Waiver criteria are coordinator-specific and not uniform across the network</td>
+<td>System downtime can delay submissions.</td>
 </tr><tr>
 <td class="c-step">2.3</td>
-<td><b>Adjust operation to protect utilisation</b></td>
-<td>Schedule Planner</td>
-<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>At-risk slot without a waiver basis</td>
-<td>Adjusted operation protecting the threshold</td>
-<td>At-risk slots returned above threshold above 90 percent</td>
+<td><b>Retry Application Submission</b></td>
+<td>APPR Adjudicator</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Submitted application</td>
+<td>Successful submission</td>
+<td>Time to retry &lt; 1 hour</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Protecting a marginal slot can mean flying a leg that is not commercially justified on its own</td>
+<td>Frequent retries can exhaust system resources.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-NP-SL-02-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Season-end reporting</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Application Submission</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Report season-end utilisation position</b></td>
+<td><b>Review Application Submission</b></td>
 <td>Slot Coordinator</td>
-<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">SITA AMS<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
-<td>Final season utilisation</td>
-<td>Season-end utilisation report</td>
-<td>Report filed within the coordinator&#x27;s deadline at 100 percent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Submitted application</td>
+<td>Review report</td>
+<td>Time to review &lt; 2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inconsistent review processes can lead to delays.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Escalate Rejection</b></td>
+<td>Slot Coordinator</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Review report</td>
+<td>Escalation request</td>
+<td>Time to escalate &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual escalations can delay the process.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Reprepare Application Document</b></td>
+<td>APPR Adjudicator</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Review report</td>
+<td>Updated application document</td>
+<td>Time to reprepare &lt; 4 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Reworking documents can lead to additional errors.</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Resubmit Application Document</b></td>
+<td>APPR Adjudicator</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Updated application document</td>
+<td>Successful submission</td>
+<td>Time to resubmit &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Continuous submissions can exhaust system bandwidth.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-SL-02-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Approval Process</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Approve Application</b></td>
+<td>Slot Approval Officer</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Successful submission</td>
+<td>Approval document</td>
+<td>Time to approve &lt; 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual approvals can introduce errors.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Notify Stakeholders</b></td>
+<td>Slot Coordinator</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Approval document</td>
+<td>Notification to stakeholders</td>
+<td>Time to notify &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System delays can cause notification failures.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Retry Notification</b></td>
+<td>Slot Coordinator</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Approval document</td>
+<td>Successful notification</td>
+<td>Time to retry &lt; 1 hour</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Season-end reporting is the input to the following season&#x27;s precedence, so an error compounds</td>
+<td>Frequent retries can exhaust system resources.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-SL-02-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Retention Management</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Monitor Slot Usage</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Approval document</td>
+<td>Usage report</td>
+<td>Time to monitor &lt; 8 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual monitoring can lead to delays.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Adjust Slot Allocation</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Usage report</td>
+<td>Adjusted allocation request</td>
+<td>Time to adjust &lt; 4 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual adjustments can lead to errors.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Resubmit Adjusted Allocation</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Adjusted allocation request</td>
+<td>Successful submission</td>
+<td>Time to resubmit &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Continuous submissions can exhaust system bandwidth.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-SL-02-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Final Validation</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Final Validation</b></td>
+<td>Slot Coordinator</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Successful submission</td>
+<td>Validation report</td>
+<td>Time to validate &lt; 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual validation can introduce errors.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Notify Final Approval</b></td>
+<td>Slot Coordinator</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Validation report</td>
+<td>Final approval notification</td>
+<td>Time to notify &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System delays can cause notification failures.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Retry Final Notification</b></td>
+<td>Slot Coordinator</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Validation report</td>
+<td>Successful notification</td>
+<td>Time to retry &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Frequent retries can exhaust system resources.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Slot Coordinator</span><span class="lane-steps">1.1 1.2 2.1 2.2 3.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Schedule Planner</span><span class="lane-steps">2.3</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">1.1 5.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Network Planning Analyst</span><span class="lane-steps">1.2 1.3 1.4 1.5 1.6 5.2 5.3</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>APPR Adjudicator</span><span class="lane-steps">2.1 2.2 2.3 3.3 3.4</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Slot Coordinator</span><span class="lane-steps">3.1 3.2 4.2 4.3 6.1 6.2 6.3</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Slot Approval Officer</span><span class="lane-steps">4.1</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">SITA AMS<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>At-risk slots identified at least 6 weeks before season end</li><li>At-risk slots returned above threshold above 90 percent</li><li>Justified non-use waivers filed within the coordinator&#x27;s deadline at 100 percent</li><li>Utilisation tracked weekly for 100 percent of held slots</li></ul>
+<ul class="bullets"><li>Time to initiate slot application request &lt; 2 hours</li><li>Time to review slot requirements &lt; 4 hours</li><li>Time to check slot availability &lt; 8 hours</li><li>Time to approve slot application &lt; 2 hours</li><li>Time to monitor slot usage &lt; 8 hours</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A slot lost to irregular operations counting against utilisation the same as one lost to poor planning</li><li>Protecting a marginal slot by flying a leg with no independent commercial justification</li><li>Waiver criteria varying by coordinator and being applied inconsistently</li><li>Season-end reporting error compounding into the following season&#x27;s precedence position</li></ul>
+<ul class="bullets risk"><li>System downtime affecting slot application submissions</li><li>Manual errors in review and approval processes</li><li>Capacity constraints at major hubs like Toronto Pearson</li><li>Inconsistent communication between Air Canada and A++ JV partners</li><li>Resource exhaustion from frequent retries and system usage</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../network-planning-scheduling/slots-alliance-codeshare/ac-np-sl-01/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">IATA Slot Conference Coordination</span></a>
