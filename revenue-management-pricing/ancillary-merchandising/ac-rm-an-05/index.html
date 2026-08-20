@@ -135,7 +135,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-RM-AN-05" title="Click to copy the process ID">
     AC-RM-AN-05<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Ancillary Bundle Construction in Anytime Merchandising</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -144,96 +144,296 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-RM-AN-05-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Partner and offer configuration</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Initiation</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Configure partner commercial terms</b></td>
-<td>Revenue Management Analyst</td>
-<td><span class="tag amadeus" data-tooltip="Ancillary offer construction and dynamic bundling at the shopping touchpoint. [Amadeus - evidence A]">Amadeus Anytime Merchandising<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Signed partner agreement</td>
-<td>Configured commission and settlement terms</td>
-<td>Configured within 10 business days of agreement signing at 100 percent</td>
+<td><b>Receive bundle construction request</b></td>
+<td>Revenue Manager</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Internal request details</td>
+<td>Bundle construction task</td>
+<td>Time to initiate bundle</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Settlement terms across multiple third-party partners are not standardised</td>
+<td>Delayed internal approvals can stall the process.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Review historical sales data</b></td>
+<td>Revenue Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Historical sales records</td>
+<td>Demand analysis report</td>
+<td>Accuracy of demand prediction</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inaccurate data can lead to poor bundle design.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Identify high-demand ancillary products</b></td>
+<td>Revenue Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Demand analysis report</td>
+<td>Product list for bundle</td>
+<td>Number of relevant products identified</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Lack of data on product performance can hinder selection.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-RM-AN-05-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Presentation integration</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Demand Analysis</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Integrate offer presentation into the booking flow</b></td>
-<td>Revenue Management Analyst</td>
-<td><span class="tag channel" data-tooltip="Primary direct digital channel, cloud-native on AWS. Undergoing redevelopment under the CDO. [Air Canada - evidence A]">aircanada.com<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Partner offer content</td>
-<td>Integrated presentation at the appropriate step</td>
-<td>Integration tested before go-live at 100 percent</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Offer placement that adds friction to the core booking flow risks reducing overall conversion</td>
-</tr><tr>
-<td class="c-step">2.2</td>
-<td><b>Validate booking conversion impact</b></td>
-<td>Revenue Management Analyst</td>
-<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Adobe Analytics<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
-<td>Pre and post-integration conversion data</td>
-<td>Conversion impact assessment</td>
-<td>Assessed within 30 days of integration at 100 percent</td>
+<td><b>Design initial ancillary bundle</b></td>
+<td>Revenue Manager</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Product list</td>
+<td>Initial bundle design</td>
+<td>Bundle complexity</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A conversion drop attributable to the new offer is not always immediately obvious from aggregate data</td>
+<td>Overly complex bundles can confuse customers.</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Review initial bundle design</b></td>
+<td>Revenue Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Initial bundle design</td>
+<td>Design feedback</td>
+<td>Feedback time</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Poor communication can delay design iterations.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Simplify initial bundle design</b></td>
+<td>Revenue Manager</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Design feedback</td>
+<td>Simplified bundle design</td>
+<td>Time to simplify</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Too many iterations can extend the process.</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Adjust initial bundle design</b></td>
+<td>Revenue Manager</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Design feedback</td>
+<td>Adjusted bundle design</td>
+<td>Time to adjust</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inflexible adjustments can lead to missed opportunities.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-RM-AN-05-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Performance management</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Bundle Design</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Track partner offer performance</b></td>
-<td>Revenue Management Analyst</td>
-<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Offer uptake and commission data</td>
-<td>Performance report against target</td>
-<td>Reviewed quarterly for 100 percent of active partners</td>
+<td><b>Optimize pricing for bundle</b></td>
+<td>Pricing Analyst</td>
+<td><span class="tag pros" data-tooltip="Continuous willingness-to-pay pricing. Air Canada is a 30-year-plus PROS reference account. [PROS - evidence A]">PROS Real-Time Dynamic Pricing<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Simplified or adjusted bundle design</td>
+<td>Price optimization report</td>
+<td>Time to optimize price</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Underperforming partner placements are not automatically reconsidered without an active review</td>
+<td>Complex pricing rules can slow down the process.</td>
 </tr><tr>
 <td class="c-step">3.2</td>
-<td><b>Renew, adjust or terminate partner placement</b></td>
-<td>Revenue Management Analyst</td>
-<td><span class="tag amadeus" data-tooltip="Ancillary offer construction and dynamic bundling at the shopping touchpoint. [Amadeus - evidence A]">Amadeus Anytime Merchandising<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Performance report</td>
-<td>Renewal, adjustment or termination decision</td>
-<td>Decisions taken within the performance review cycle at 100 percent</td>
+<td><b>Set dynamic pricing parameters</b></td>
+<td>Pricing Analyst</td>
+<td><span class="tag pros" data-tooltip="Continuous willingness-to-pay pricing. Air Canada is a 30-year-plus PROS reference account. [PROS - evidence A]">PROS Real-Time Dynamic Pricing<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Price optimization report</td>
+<td>Dynamic pricing settings</td>
+<td>Number of parameters set</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Terminating a placement requires coordinating removal across every channel it was integrated into</td>
+<td>Incorrect parameter settings can lead to suboptimal pricing.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Re-optimize pricing for bundle</b></td>
+<td>Pricing Analyst</td>
+<td><span class="tag pros" data-tooltip="Continuous willingness-to-pay pricing. Air Canada is a 30-year-plus PROS reference account. [PROS - evidence A]">PROS Real-Time Dynamic Pricing<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Price optimization report</td>
+<td>Revised price optimization report</td>
+<td>Time to re-optimize</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Multiple optimizations can increase process duration.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-AN-05-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Pricing Optimization</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Update Amadeus Altea Inventory with bundle details</b></td>
+<td>Inventory Manager</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Final bundle design and pricing settings</td>
+<td>Updated inventory records</td>
+<td>Time to update inventory</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inventory updates can be delayed due to system constraints.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Verify bundle availability in Amadeus Altea Inventory</b></td>
+<td>Inventory Manager</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Updated inventory records</td>
+<td>Availability verification report</td>
+<td>Time to verify availability</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual verification can be error-prone.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Retry updating Amadeus Altea Inventory</b></td>
+<td>Inventory Manager</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Final bundle design and pricing settings</td>
+<td>Updated inventory records</td>
+<td>Time to retry update</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System failures can impact availability.</td>
+</tr><tr>
+<td class="c-step">4.4</td>
+<td><b>Adjust inventory levels for bundle</b></td>
+<td>Inventory Manager</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Availability verification report</td>
+<td>Adjusted inventory levels</td>
+<td>Time to adjust inventory</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inflexible adjustments can lead to stockouts.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-AN-05-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Inventory Management</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Submit bundle details to ATPCO for fare filing</b></td>
+<td>Fare Filing Specialist</td>
+<td><span class="tag iata" data-tooltip="Industry fare filing, rules, footnotes and tax data. The rate-limiting step on pricing agility. [ATPCO - evidence B]">ATPCO<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Final bundle design and pricing settings</td>
+<td>Fare filing submission</td>
+<td>Time to submit fare filing</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>ATPCO&#x27;s rate-limiting step can delay the process.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Wait for ATPCO approval</b></td>
+<td>Fare Filing Specialist</td>
+<td><span class="tag iata" data-tooltip="Industry fare filing, rules, footnotes and tax data. The rate-limiting step on pricing agility. [ATPCO - evidence B]">ATPCO<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Fare filing submission</td>
+<td>Approval status</td>
+<td>Time to receive approval</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delays in ATPCO processing can impact sales.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Retry submitting bundle details to ATPCO</b></td>
+<td>Fare Filing Specialist</td>
+<td><span class="tag iata" data-tooltip="Industry fare filing, rules, footnotes and tax data. The rate-limiting step on pricing agility. [ATPCO - evidence B]">ATPCO<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Final bundle design and pricing settings</td>
+<td>Fare filing submission</td>
+<td>Time to retry submission</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Multiple re-submissions can increase latency.</td>
+</tr><tr>
+<td class="c-step">5.4</td>
+<td><b>Adjust bundle details for ATPCO compliance</b></td>
+<td>Fare Filing Specialist</td>
+<td><span class="tag iata" data-tooltip="Industry fare filing, rules, footnotes and tax data. The rate-limiting step on pricing agility. [ATPCO - evidence B]">ATPCO<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Approval status</td>
+<td>Adjusted bundle details</td>
+<td>Time to adjust</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Non-compliance can lead to further delays.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-AN-05-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Deployment</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Deploy ancillary bundle in Anytime Merchandising</b></td>
+<td>Merchandising Specialist</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Anytime Merchandising<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Adjusted bundle details</td>
+<td>Active ancillary bundle</td>
+<td>Time to deploy</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Deployment issues can disrupt customer experience.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Monitor bundle performance</b></td>
+<td>Merchandising Specialist</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Anytime Merchandising<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Active ancillary bundle</td>
+<td>Performance metrics</td>
+<td>Time to monitor</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inadequate monitoring can lead to missed opportunities.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Adjust bundle based on performance data</b></td>
+<td>Merchandising Specialist</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Anytime Merchandising<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Performance metrics</td>
+<td>Adjusted bundle settings</td>
+<td>Time to adjust</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inflexible adjustments can lead to further underperformance.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Revenue Management Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1 3.2</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Revenue Manager</span><span class="lane-steps">1.1 2.1 2.3 2.4</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Revenue Analyst</span><span class="lane-steps">1.2 1.3 2.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Pricing Analyst</span><span class="lane-steps">3.1 3.2 3.3</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Inventory Manager</span><span class="lane-steps">4.1 4.2 4.3 4.4</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Fare Filing Specialist</span><span class="lane-steps">5.1 5.2 5.3 5.4</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>Merchandising Specialist</span><span class="lane-steps">6.1 6.2 6.3</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag amadeus" data-tooltip="Ancillary offer construction and dynamic bundling at the shopping touchpoint. [Amadeus - evidence A]">Amadeus Anytime Merchandising<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag channel" data-tooltip="Primary direct digital channel, cloud-native on AWS. Undergoing redevelopment under the CDO. [Air Canada - evidence A]">aircanada.com<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Adobe Analytics<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag pros" data-tooltip="Continuous willingness-to-pay pricing. Air Canada is a 30-year-plus PROS reference account. [PROS - evidence A]">PROS Real-Time Dynamic Pricing<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag iata" data-tooltip="Industry fare filing, rules, footnotes and tax data. The rate-limiting step on pricing agility. [ATPCO - evidence B]">ATPCO<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Anytime Merchandising<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Configured within 10 business days of agreement signing at 100 percent</li><li>Integration tested before go-live at 100 percent</li><li>Reviewed quarterly for 100 percent of active partners</li><li>Zero material core booking conversion decline attributable to a partner offer</li></ul>
+<ul class="bullets"><li>10 minutes to initiate bundle</li><li>95% accurate demand prediction</li><li>3 products identified per bundle design</li><li>20 minutes to optimize price</li><li>10 minutes to update inventory</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Offer placement adding enough friction to the booking flow to reduce core conversion</li><li>A conversion drop attributable to a new offer not being immediately visible in aggregate data</li><li>Underperforming partner placements persisting without an active review forcing a decision</li><li>Settlement terms across multiple partners being inconsistent and error-prone to administer</li></ul>
+<ul class="bullets risk"><li>Delays in internal approvals can stall the process.</li><li>Inaccurate data can lead to poor bundle design.</li><li>Overly complex bundles can confuse customers.</li><li>Complex pricing rules can slow down the process.</li><li>System failures can impact availability.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../revenue-management-pricing/ancillary-merchandising/ac-rm-an-04/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Upgrade and Cabin Buy Up Offer Management</span></a>
