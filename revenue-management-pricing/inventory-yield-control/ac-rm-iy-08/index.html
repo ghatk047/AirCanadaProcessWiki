@@ -136,7 +136,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-RM-IY-08" title="Click to copy the process ID">
     AC-RM-IY-08<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Interline and Codeshare Inventory Control</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -145,107 +145,241 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-RM-IY-08-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Partner sales consolidation</span>
+    <span class="ph-name">Phase 1 &mdash; Demand Analysis</span>
     <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Consolidate partner sales activity</b></td>
-<td>Revenue Management Analyst</td>
-<td><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Prior day partner booking activity</td>
-<td>Consolidated partner sales position</td>
-<td>Consolidated before the nightly optimisation run at 100 percent</td>
+<td><b>Receive demand forecast updates</b></td>
+<td>Revenue Manager</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Demand forecasts from CRM systems</td>
+<td>Updated bid prices for interline/codeshare flights</td>
+<td>Accuracy of demand forecasts (95%)</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Partner sales reporting lags vary by partner and are not all same-day</td>
+<td>Inaccurate demand forecasts can lead to overbooking or underutilization.</td>
 </tr><tr>
 <td class="c-step">1.2</td>
-<td><b>Reconcile partner sales against operated capacity</b></td>
-<td>Revenue Management Analyst</td>
-<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Consolidated sales and operated seat map</td>
-<td>Reconciled capacity position</td>
-<td>Reconciliation completed for 100 percent of codeshare flights nightly</td>
+<td><b>Generate bid prices based on demand analysis</b></td>
+<td>Revenue Manager</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Updated demand forecast data</td>
+<td>Bid-price matrix for interline/codeshare flights</td>
+<td>Time to generate bid prices (30 minutes)</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>A partner-side booking error can show as available capacity that does not actually exist</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System crashes during bid price generation can cause delays.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-RM-IY-08-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Unified optimisation input</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Revenue Management Bid-Price Generation</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Feed unified position into optimisation</b></td>
-<td>Revenue Management Analyst</td>
-<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Reconciled capacity position</td>
-<td>Unified demand input to nightly optimisation</td>
-<td>Unified input feeds 100 percent of codeshare flights each night</td>
+<td><b>Push bid prices to Amadeus Altea Inventory</b></td>
+<td>Inventory Control Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Bid-price matrix from PROS</td>
+<td>Updated seat inventory and availability</td>
+<td>Time to update inventory (5 minutes)</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A stale reconciliation feeding the optimisation produces controls based on outdated capacity</td>
+<td>Network connectivity issues between systems can cause delays.</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Monitor for synchronization errors between PROS and Amadeus</b></td>
+<td>Inventory Control Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Real-time inventory data from both systems</td>
+<td>Error report if discrepancies found</td>
+<td>Time to detect discrepancies (10 minutes)</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual reconciliation is time-consuming.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Initiate manual reconciliation process</b></td>
+<td>Inventory Control Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Error report from step 2.2</td>
+<td>Reconciled inventory data</td>
+<td>Time to reconcile (1 hour)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual reconciliation can introduce errors.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-RM-IY-08-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Control distribution</span>
+    <span class="ph-name">Phase 3 &mdash; Inventory Control</span>
     <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Distribute updated controls to partner systems</b></td>
-<td>Revenue Management Analyst</td>
-<td><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Optimised controls</td>
-<td>Controls distributed to partner booking systems</td>
-<td>Distribution completed within 2 hours of the optimisation run at 100 percent</td>
+<td><b>Prepare fare filing data for ATPCO</b></td>
+<td>Fare Filer</td>
+<td><span class="tag iata" data-tooltip="Industry fare filing, rules, footnotes and tax data. The rate-limiting step on pricing agility. [ATPCO - evidence B]">ATPCO<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Reconciled inventory data from Amadeus</td>
+<td>Formatted fare filing data</td>
+<td>Time to format data (20 minutes)</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Distribution latency to a partner system can leave it selling against outdated availability</td>
+<td>Data formatting errors can delay fare updates.</td>
 </tr><tr>
 <td class="c-step">3.2</td>
-<td><b>Monitor cross-channel consistency</b></td>
-<td>Revenue Management Analyst</td>
-<td><span class="tag gds" data-tooltip="Legacy GDS distribution channel. Agency bookings settle through IATA BSP. [Sabre - evidence C]">Sabre GDS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Distributed controls</td>
-<td>Consistency confirmation across all channels</td>
-<td>Consistency confirmed within 4 hours of distribution at 100 percent</td>
+<td><b>Submit fare filing request to ATPCO</b></td>
+<td>Fare Filer</td>
+<td><span class="tag iata" data-tooltip="Industry fare filing, rules, footnotes and tax data. The rate-limiting step on pricing agility. [ATPCO - evidence B]">ATPCO<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Formatted fare filing data</td>
+<td>Confirmation of receipt by ATPCO</td>
+<td>Time to receive confirmation (15 minutes)</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>A codeshare flight can show different availability on the partner&#x27;s channel than on Air Canada&#x27;s own</td>
+<td>ATPCO system can be slow, causing delays.</td>
 </tr><tr>
 <td class="c-step">3.3</td>
-<td><b>Escalate persistent partner distribution failures</b></td>
-<td>Revenue Management Analyst</td>
-<td><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Repeated cross-channel inconsistency</td>
-<td>Escalated case to the partner&#x27;s revenue management team</td>
-<td>Persistent cases escalated within 1 business day at 100 percent</td>
+<td><b>Monitor fare filing status with ATPCO</b></td>
+<td>Fare Filer</td>
+<td><span class="tag iata" data-tooltip="Industry fare filing, rules, footnotes and tax data. The rate-limiting step on pricing agility. [ATPCO - evidence B]">ATPCO<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Confirmation of receipt from step 3.2</td>
+<td>Fare update status</td>
+<td>Time to receive status (5 minutes)</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="yes">Y</span></td>
-<td>Resolution depends on the partner&#x27;s own systems and is outside Air Canada&#x27;s direct control</td>
+<td>Status updates can be delayed, causing uncertainty.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-IY-08-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Fare Filing with ATPCO</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Attempt resubmission of fare filing request</b></td>
+<td>Fare Filer</td>
+<td><span class="tag iata" data-tooltip="Industry fare filing, rules, footnotes and tax data. The rate-limiting step on pricing agility. [ATPCO - evidence B]">ATPCO<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Formatted fare filing data from step 3.3</td>
+<td>Confirmation of receipt by ATPCO</td>
+<td>Time to receive confirmation (15 minutes)</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Repeated failures can lead to operational disruption.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Escalate fare filing issue to ATPCO support</b></td>
+<td>Fare Filer</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">ATPCO Support<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Details of failed fare filing request</td>
+<td>Resolution from ATPCO support</td>
+<td>Time to receive resolution (1 hour)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Escalation can be time-consuming and may not always resolve quickly.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Update internal tracking with ATPCO support case ID</b></td>
+<td>Fare Filer</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Internal CRM<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Resolution from ATPCO support</td>
+<td>Updated case status in CRM</td>
+<td>Time to update CRM (10 minutes)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>CRM system integration issues can cause delays.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-IY-08-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Monitoring and Adjustment</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Monitor for resolution of ATPCO support case</b></td>
+<td>Fare Filer</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Internal CRM<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Resolution status from step 4.3</td>
+<td>Resolved case status</td>
+<td>Time to resolve (2 hours)</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Long resolution times can impact operations.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Escalate unresolved ATPCO support case to senior management</b></td>
+<td>Senior Management</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Internal CRM<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Details of unresolved ATPCO support case</td>
+<td>Approval for escalation</td>
+<td>Time to approve escalation (30 minutes)</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual intervention can be slow.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Take manual action to update fares based on ATPCO resolution</b></td>
+<td>Fare Filer</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Resolution details from step 5.2</td>
+<td>Updated seat inventory and availability</td>
+<td>Time to update (1 hour)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual updates can introduce errors.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-IY-08-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Exception Handling</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Notify relevant stakeholders of manual fare update</b></td>
+<td>Senior Management</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Internal Communication System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Details of updated fares</td>
+<td>Notification sent to stakeholders</td>
+<td>Time to notify (30 minutes)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Communication delays can lead to misalignment.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Review and confirm fare updates with senior management</b></td>
+<td>Senior Management</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Internal CRM<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Notification from step 6.1</td>
+<td>Confirmation of review</td>
+<td>Time to review (30 minutes)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual reviews can be time-consuming.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Revenue Management Analyst</span><span class="lane-steps">1.1 1.2 2.1 3.1 3.2 3.3</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Revenue Manager</span><span class="lane-steps">1.1 1.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Inventory Control Analyst</span><span class="lane-steps">2.1 2.2 2.3</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Fare Filer</span><span class="lane-steps">3.1 3.2 3.3 4.1 4.2 4.3 5.1 5.3</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Senior Management</span><span class="lane-steps">5.2 6.1 6.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag gds" data-tooltip="Legacy GDS distribution channel. Agency bookings settle through IATA BSP. [Sabre - evidence C]">Sabre GDS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
+<div class="card"><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag iata" data-tooltip="Industry fare filing, rules, footnotes and tax data. The rate-limiting step on pricing agility. [ATPCO - evidence B]">ATPCO<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">ATPCO Support<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Internal CRM<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Internal Communication System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Consolidated before the nightly optimisation run at 100 percent</li><li>Reconciliation completed for 100 percent of codeshare flights nightly</li><li>Distribution completed within 2 hours of the optimisation run at 100 percent</li><li>Consistency confirmed across all channels within 4 hours of distribution</li></ul>
+<ul class="bullets"><li>95% accuracy in demand forecasts</li><li>30-minute average time to generate bid prices</li><li>5-minute average time to update inventory</li><li>15-minute average time to receive confirmation from ATPCO</li><li>2-hour average time to resolve ATPCO support cases</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A partner-side booking error showing as available capacity that does not actually exist</li><li>Distribution latency leaving a partner system selling against outdated availability</li><li>A codeshare flight showing different availability depending on which carrier&#x27;s channel is checked</li><li>Partner sales reporting lags of more than a day feeding a stale position into optimisation</li></ul>
+<ul class="bullets risk"><li>Inaccurate demand forecasts leading to overbooking or underutilization</li><li>System crashes during bid price generation causing delays</li><li>Network connectivity issues between systems affecting inventory updates</li><li>Manual reconciliation errors introducing discrepancies</li><li>Data formatting errors delaying fare updates</li><li>ATPCO system slowness causing operational disruption</li><li>Delayed status updates from ATPCO leading to uncertainty</li><li>Repeated failures in fare filing requiring multiple resubmissions</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../revenue-management-pricing/inventory-yield-control/ac-rm-iy-07/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Award Seat Inventory Allocation for Aeroplan</span></a>

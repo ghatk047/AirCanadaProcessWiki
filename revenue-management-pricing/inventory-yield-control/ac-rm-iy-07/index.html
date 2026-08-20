@@ -136,7 +136,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-RM-IY-07" title="Click to copy the process ID">
     AC-RM-IY-07<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Award Seat Inventory Allocation for Aeroplan</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -145,107 +145,241 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-RM-IY-07-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Redemption demand assessment</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Request Validation</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Assess redemption demand by route</b></td>
-<td>Loyalty Operations Analyst</td>
-<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Historical and forecast redemption search activity</td>
-<td>Redemption demand estimate by route</td>
-<td>Demand estimated for 100 percent of routes each cycle</td>
+<td><b>Receive reservation request</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Member&#x27;s request details</td>
+<td>Request validation status</td>
+<td>Response time within 5 seconds</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>High volume of requests can overwhelm the system, causing delays.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Validate member eligibility</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Member&#x27;s account status</td>
+<td>Eligibility status</td>
+<td>95% accuracy in validation</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Redemption search activity does not always convert to an actual booking, overstating true demand</td>
+<td>Incorrect data entries can lead to false negatives, affecting member satisfaction.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Check seat availability</b></td>
+<td>Inventory Control Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Requested flight and date</td>
+<td>Availability status</td>
+<td>98% accuracy in inventory data</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Real-time updates can lag, leading to over-allocation.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Log request for audit</b></td>
+<td>Inventory Control Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Member&#x27;s request details</td>
+<td>Audit log entry</td>
+<td>100% logged requests</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Missing logs can lead to compliance issues.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-RM-IY-07-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Allocation calculation</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Pricing Calculation</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Calculate award allocation against cash protection</b></td>
+<td><b>Query pricing rules from PROS</b></td>
 <td>Revenue Management Analyst</td>
 <td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Redemption demand and cash revenue forecast</td>
-<td>Award allocation by flight and class</td>
-<td>Allocation calculated for 100 percent of eligible flights each cycle</td>
+<td>Flight details and member status</td>
+<td>Pricing bid</td>
+<td>90% match with ATPCO rates</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>The trade-off between member satisfaction and protected cash revenue has no single objective answer</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Latency in ATPCO updates can cause pricing discrepancies.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Set dynamic award pricing tiers</b></td>
-<td>Loyalty Operations Analyst</td>
-<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Allocation and cash fare position</td>
-<td>Dynamic award pricing by flight</td>
-<td>Pricing tiers set for 100 percent of allocated flights</td>
+<td><b>Adjust bid for Aeroplan program</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Pricing bid and member status</td>
+<td>Adjusted pricing bid</td>
+<td>5-minute response time</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex rules can lead to manual adjustments, increasing risk of errors.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Send adjusted bid to Amadeus</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Adjusted pricing bid</td>
+<td>Bid acceptance status</td>
+<td>95% bid acceptance rate</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Dynamic award pricing complexity is a recurring source of member confusion and contact volume</td>
+<td>Incorrect bids can lead to seat unavailability.</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Manually adjust bid</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Pricing bid and member status</td>
+<td>Manually adjusted pricing bid</td>
+<td>10-minute response time</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual adjustments are prone to human error.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-RM-IY-07-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Release and monitoring</span>
-    <span class="ph-n">3 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Inventory Check</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Release award inventory to Aeroplan</b></td>
-<td>Loyalty Operations Analyst</td>
+<td><b>Allocate seat in Amadeus</b></td>
+<td>Inventory Control Analyst</td>
 <td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Calculated allocation</td>
-<td>Released award availability</td>
-<td>Released before the redemption sales window opens at 100 percent</td>
+<td>Adjusted bid and member details</td>
+<td>Allocation status</td>
+<td>99% successful allocations</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>A release failure shows to the member as no award availability with no visible explanation</td>
+<td>Concurrency issues can cause allocation failures.</td>
 </tr><tr>
 <td class="c-step">3.2</td>
-<td><b>Monitor redemption uptake against allocation</b></td>
-<td>Loyalty Operations Analyst</td>
-<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Redemption booking activity</td>
-<td>Uptake report against allocation</td>
-<td>Uptake reviewed weekly at 100 percent</td>
+<td><b>Retry seat allocation</b></td>
+<td>Inventory Control Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Adjusted bid and member details</td>
+<td>Allocation status</td>
+<td>90% successful retries</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Multiple retries can further delay the process.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-IY-07-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Allocation Decision</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Confirm allocation with member</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Allocation status and flight details</td>
+<td>Member confirmation</td>
+<td>90% successful confirmations</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Persistent low uptake on an allocated route is not automatically fed back into the next cycle</td>
+<td>Members may cancel or decline, causing reallocation issues.</td>
 </tr><tr>
-<td class="c-step">3.3</td>
-<td><b>Feed uptake trend into the next allocation cycle</b></td>
-<td>Revenue Management Analyst</td>
-<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Uptake trend report</td>
-<td>Adjusted allocation input for the next cycle</td>
-<td>Trend incorporated into 100 percent of routes with two consecutive low-uptake cycles</td>
+<td class="c-step">4.2</td>
+<td><b>Attempt alternative seat allocation</b></td>
+<td>Inventory Control Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Flight details and member preferences</td>
+<td>Alternative allocation status</td>
+<td>85% successful alternatives</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Finding an alternative can be time-consuming.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-IY-07-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Reservation Update</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Update reservation records</b></td>
+<td>Inventory Control Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Member details and allocation status</td>
+<td>Updated reservation record</td>
+<td>98% accurate updates</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>The feedback loop between uptake and the next allocation is manual rather than systematic</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Incorrect updates can lead to discrepancies.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Send confirmation email</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Email System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Member details and flight information</td>
+<td>Confirmation email sent status</td>
+<td>95% successful sends</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Email failures can cause customer dissatisfaction.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-IY-07-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Confirmation Notification</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Monitor allocation for issues</b></td>
+<td>Inventory Control Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Allocation status and system logs</td>
+<td>No issues detected</td>
+<td>90% issue-free allocations</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Post-allocation issues can arise.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Log post-allocation audit</b></td>
+<td>Inventory Control Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Allocation status and system logs</td>
+<td>Audit log entry</td>
+<td>100% logged audits</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Missing logs can lead to compliance issues.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Loyalty Operations Analyst</span><span class="lane-steps">1.1 2.2 3.1 3.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Revenue Management Analyst</span><span class="lane-steps">2.1 3.3</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Aeroplan Member Services Agent</span><span class="lane-steps">1.1 1.2 4.1 5.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Inventory Control Analyst</span><span class="lane-steps">1.3 1.4 3.1 3.2 4.2 5.1 6.1 6.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Revenue Management Analyst</span><span class="lane-steps">2.1 2.2 2.3 2.4</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+<div class="card"><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Email System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Demand estimated for 100 percent of routes each cycle</li><li>Released before the redemption sales window opens at 100 percent</li><li>Allocation calculated for 100 percent of eligible flights each cycle</li><li>Member redemption satisfaction score maintained above target</li></ul>
+<ul class="bullets"><li>Response time within 5 seconds</li><li>95% accuracy in validation</li><li>98% accuracy in inventory data</li><li>90% match with ATPCO rates</li><li>95% bid acceptance rate</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Award seats allocated against protected cash revenue with no single objectively correct trade-off</li><li>A release failure appearing to the member as simply no availability, with no diagnostic trail</li><li>Redemption search activity overstating true demand and skewing the allocation calculation</li><li>Persistent low uptake on an allocated route not feeding back into the next allocation cycle</li></ul>
+<ul class="bullets risk"><li>High volume of requests can overwhelm the system</li><li>Incorrect data entries can lead to false negatives</li><li>Real-time updates can lag, leading to over-allocation</li><li>Latency in ATPCO updates can cause pricing discrepancies</li><li>Manual adjustments are prone to human error</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../revenue-management-pricing/inventory-yield-control/ac-rm-iy-06/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Class Availability Override and Manual Intervention</span></a>

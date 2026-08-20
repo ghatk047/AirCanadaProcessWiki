@@ -136,7 +136,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-RM-IY-06" title="Click to copy the process ID">
     AC-RM-IY-06<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Class Availability Override and Manual Intervention</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -145,107 +145,288 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-RM-IY-06-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Override justification</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Request Validation</span>
+    <span class="ph-n">5 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Identify the override requirement</b></td>
-<td>Revenue Management Analyst</td>
+<td><b>Receive override request</b></td>
+<td>YYZ Operations Control Duty Manager</td>
 <td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Local knowledge or commercial request</td>
-<td>Documented override rationale</td>
-<td>Rationale documented for 100 percent of overrides</td>
+<td>Request details from RM team</td>
+<td>Validated request</td>
+<td>Response time within 5 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Informal requests can bypass the documentation step under time pressure</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delays in receiving requests can disrupt pricing agility.</td>
 </tr><tr>
 <td class="c-step">1.2</td>
-<td><b>Assess revenue impact of the override</b></td>
-<td>Revenue Management Analyst</td>
+<td><b>Validate request details</b></td>
+<td>APPR Adjudicator</td>
 <td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Override rationale and current forecast</td>
-<td>Estimated revenue impact</td>
-<td>Impact estimated before application for 100 percent of overrides</td>
+<td>Validated request</td>
+<td>Validation report</td>
+<td>Accuracy rate 95%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Inaccurate validations can lead to incorrect overrides.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Notify RM team of invalid request</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Validation report</td>
+<td>Notification sent</td>
+<td>Notification time within 2 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Impact estimation for a novel situation has no historical comparable to anchor it</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Late notifications can cause further delays.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Escalate to supervisor for review</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Validation report</td>
+<td>Escalation ticket</td>
+<td>Escalation time within 10 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Supervisor escalation can be slow due to high workload.</td>
+</tr><tr>
+<td class="c-step">1.5</td>
+<td><b>Monitor for new request</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>System status</td>
+<td>No action needed</td>
+<td>Monitoring frequency every 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Continuous monitoring can be resource-intensive.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-RM-IY-06-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Application</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Class Availability Check</span>
+    <span class="ph-n">5 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Apply the override with a defined expiry</b></td>
-<td>Revenue Management Analyst</td>
+<td><b>Check class availability</b></td>
+<td>Cargo Compliance Agent</td>
 <td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Assessed override</td>
-<td>Applied override with expiry date</td>
-<td>100 percent of overrides carry an explicit expiry date</td>
+<td>Override request details</td>
+<td>Availability report</td>
+<td>Response time within 2 minutes</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>An override without an expiry silently persists past the situation that justified it</td>
+<td>Inventory system can be slow, causing delays.</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Update inventory with override</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Availability report</td>
+<td>Updated inventory record</td>
+<td>Update accuracy 98%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Incorrect updates can lead to overbooking.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Notify RM team of insufficient availability</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Availability report</td>
+<td>Notification sent</td>
+<td>Notification time within 1 minute</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Late notifications can cause further delays.</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Retry update after resolving issue</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>System status</td>
+<td>Updated inventory record</td>
+<td>Retry success rate 90%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Continuous retries can strain system resources.</td>
+</tr><tr>
+<td class="c-step">2.5</td>
+<td><b>Monitor for new override request</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>System status</td>
+<td>No action needed</td>
+<td>Monitoring frequency every 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Continuous monitoring can be resource-intensive.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-RM-IY-06-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Expiry and review</span>
+    <span class="ph-name">Phase 3 &mdash; Override Request Approval</span>
     <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Monitor override performance against forecast</b></td>
-<td>Revenue Management Analyst</td>
+<td><b>Approve override request</b></td>
+<td>YYZ Operations Control Duty Manager</td>
 <td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Applied override</td>
-<td>Performance comparison against the counterfactual forecast</td>
-<td>Performance reviewed before expiry for 90 percent of material overrides</td>
+<td>Updated inventory record</td>
+<td>Approval status</td>
+<td>Approval time within 5 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>The counterfactual, what would have happened without the override, is inherently unmeasurable</td>
+<td>Delays in approvals can disrupt pricing agility.</td>
 </tr><tr>
 <td class="c-step">3.2</td>
-<td><b>Expire and return control to the system</b></td>
-<td>Revenue Management Analyst</td>
-<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Expiry date reached</td>
-<td>Control returned to system optimisation</td>
-<td>Zero overrides remaining active past their expiry date</td>
+<td><b>Notify RM team of approval</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Approval status</td>
+<td>Notification sent</td>
+<td>Notification time within 2 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Expiry is a manual step and is missed when the analyst who set it is unavailable</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Late notifications can cause further delays.</td>
 </tr><tr>
 <td class="c-step">3.3</td>
-<td><b>Audit standing overrides monthly</b></td>
-<td>Revenue Management Analyst</td>
+<td><b>Monitor for new override request</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>System status</td>
+<td>No action needed</td>
+<td>Monitoring frequency every 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Continuous monitoring can be resource-intensive.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-IY-06-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; System Update</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Update PROS with override details</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Approval status</td>
+<td>Updated PROS record</td>
+<td>Update accuracy 98%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Incorrect updates can lead to pricing anomalies.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Notify RM team of update success</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Updated PROS record</td>
+<td>Notification sent</td>
+<td>Notification time within 1 minute</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Late notifications can cause further delays.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Retry update after resolving issue</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>System status</td>
+<td>Updated PROS record</td>
+<td>Retry success rate 90%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Continuous retries can strain system resources.</td>
+</tr><tr>
+<td class="c-step">4.4</td>
+<td><b>Monitor for new override request</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>System status</td>
+<td>No action needed</td>
+<td>Monitoring frequency every 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Continuous monitoring can be resource-intensive.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-IY-06-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Post-Override Monitoring</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Monitor class availability post-override</b></td>
+<td>Cargo Compliance Agent</td>
 <td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Full override log</td>
-<td>Audit report of standing and expired overrides</td>
-<td>Monthly audit covers 100 percent of active overrides</td>
+<td>Updated inventory record</td>
+<td>Availability report</td>
+<td>Monitoring frequency every 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Continuous monitoring can be resource-intensive.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Notify RM team of post-override availability</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Availability report</td>
+<td>Notification sent</td>
+<td>Notification time within 1 minute</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Without a standing audit, an override with a distant or missing expiry can persist for months unnoticed</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Late notifications can cause further delays.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Escalate to supervisor for review</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Availability report</td>
+<td>Escalation ticket</td>
+<td>Escalation time within 10 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Supervisor escalation can be slow due to high workload.</td>
+</tr><tr>
+<td class="c-step">5.4</td>
+<td><b>Monitor for new override request</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>System status</td>
+<td>No action needed</td>
+<td>Monitoring frequency every 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Continuous monitoring can be resource-intensive.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Revenue Management Analyst</span><span class="lane-steps">1.1 1.2 2.1 3.1 3.2 3.3</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">1.1 1.3 1.4 1.5 3.1 3.2 3.3</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>APPR Adjudicator</span><span class="lane-steps">1.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Cargo Compliance Agent</span><span class="lane-steps">2.1 2.2 2.3 2.4 2.5 4.1 4.2 4.3 4.4 5.1 5.2 5.3 5.4</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
 <div class="card"><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>100 percent of overrides carry an explicit expiry date</li><li>Zero overrides remaining active past their expiry date</li><li>Rationale documented for 100 percent of overrides</li><li>Performance reviewed before expiry for 90 percent of material overrides</li></ul>
+<ul class="bullets"><li>Response time within 5 minutes</li><li>Validation accuracy rate 95%</li><li>Approval time within 5 minutes</li><li>Update accuracy 98%</li><li>Retry success rate 90%</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>An override without an expiry silently persisting as a permanent, undocumented deviation</li><li>Informal override requests bypassing documentation under commercial time pressure</li><li>Expiry depending on the availability of the specific analyst who applied the override</li><li>Override revenue impact being fundamentally unmeasurable against an unobservable counterfactual</li></ul>
+<ul class="bullets risk"><li>Delays in receiving requests can disrupt pricing agility.</li><li>Inaccurate validations can lead to incorrect overrides.</li><li>Inventory system can be slow, causing delays.</li><li>Incorrect updates can lead to overbooking or pricing anomalies.</li><li>Continuous monitoring can be resource-intensive.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../revenue-management-pricing/inventory-yield-control/ac-rm-iy-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Inventory Feed Reconciliation to Altea</span></a>
