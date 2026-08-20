@@ -136,18 +136,18 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-NP-SP-01" title="Click to copy the process ID">
     AC-NP-SP-01<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Long-Range Network Strategy and Route Case Development</h1>
-<p class="lede" id="overview">Air Canada develops the long-range case for entering, exiting or materially re-sizing a route, covering demand, competitive position, fleet fit, and the alliance and joint venture implications. The output is a decision paper that commits capacity two to three seasons ahead of flying.</p>
-<div class="callout"><span class="ct">Air Canada context</span>Air Canada&#x27;s network economics rest heavily on Sixth Freedom connecting traffic through Toronto, carrying passengers between the United States and Europe or Asia over a Canadian hub. A route case is therefore rarely judged on its own local demand: it is judged on what it contributes to the connecting bank. The A++ transatlantic joint venture with United and Lufthansa Group constrains transatlantic route cases before commercial optimisation begins, because capacity there is a joint decision rather than a unilateral one.</div>
+<p class="lede" id="overview">A representative Air Canada process for developing long-range network strategies and route cases, involving detailed schedule planning and fleet assignment using NetLine/Plan.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Air Canada&#x27;s long-range network planning is heavily influenced by regulatory requirements, particularly Sixth Freedom rights at Toronto Pearson. The A++ Atlantic Joint Venture with United and Lufthansa Group complicates capacity decisions as they must coordinate across three airlines. This process requires seamless integration of NetLine/Plan with other systems to ensure accurate scheduling and fleet assignments.</div>
 <div class="meta-grid">
-  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A network strategy cycle opens, a competitor announces a material capacity change, or a bilateral or slot opportunity creates a window that has to be taken or lost.</div></div>
-  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">An approved or rejected route case with a committed fleet type, frequency and season, entered into the long-range plan and handed to seasonal schedule build.</div></div>
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">Initiation of a new market analysis or seasonal demand forecast update by the Network Planning &amp; Scheduling team.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A comprehensive route case document, including optimized schedules and fleet assignments, ready for approval by senior management.</div></div>
   <div class="meta-item"><div class="lbl">Domain</div><div class="val">Network Planning &amp; Scheduling<br>
     <span style="color:var(--text-muted);font-size:12px">Schedule Planning &amp; Design</span></div></div>
-  <div class="meta-item"><div class="lbl">Steps</div><div class="val">12 across
-    3 phases</div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">16 across
+    8 phases</div></div>
 </div>
 
 <h2 id="bpmn">Process flow</h2>
@@ -156,173 +156,257 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-NP-SP-01-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Opportunity framing</span>
-    <span class="ph-n">4 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Market Analysis</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Register route opportunity</b></td>
-<td>Network Planning Analyst</td>
-<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Strategy cycle input or market signal</td>
-<td>Registered opportunity with a case reference</td>
-<td>Opportunities registered within 5 business days of identification</td>
+<td><b>Conduct market analysis</b></td>
+<td>Network Analyst</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Market data, competitive intelligence</td>
+<td>Market analysis report</td>
+<td>Completion within 2 weeks</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Opportunities surface informally through commercial contacts and are not consistently captured</td>
+<td>Accessing up-to-date market data from external sources can be slow.</td>
 </tr><tr>
 <td class="c-step">1.2</td>
-<td><b>Build origin and destination demand estimate</b></td>
-<td>Network Planning Analyst</td>
-<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Historic traffic, booking curves and market size data</td>
-<td>O and D demand estimate by cabin</td>
-<td>Demand estimate within 10 percent of first-season actual</td>
+<td><b>Identify potential routes</b></td>
+<td>Network Analyst</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Market analysis report</td>
+<td>List of potential routes</td>
+<td>At least 5 new routes identified</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Thin and unserved markets have no Air Canada booking history to anchor the estimate</td>
-</tr><tr>
-<td class="c-step">1.3</td>
-<td><b>Assess competitive position and response</b></td>
-<td>Network Planning Analyst</td>
-<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Competitor schedules and published capacity</td>
-<td>Competitive assessment with expected response</td>
-<td>Competitive response correctly anticipated in 70 percent of cases</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Competitor response modelling is judgement-led and rarely revisited after the decision</td>
-</tr><tr>
-<td class="c-step">1.4</td>
-<td><b>Quantify connecting contribution over the hub</b></td>
-<td>Network Planning Analyst</td>
-<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Bank structure and connecting itinerary options</td>
-<td>Connecting traffic contribution by hub</td>
-<td>Connecting contribution quantified for 100 percent of long-haul cases</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Connecting value depends on the future bank structure, which is not fixed at this point</td>
+<td>Balancing market demand with regulatory constraints on Sixth Freedom rights.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-NP-SP-01-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Commercial and operational validation</span>
-    <span class="ph-n">5 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Route Case Development</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Test fleet and range feasibility</b></td>
-<td>Fleet Planner</td>
+<td><b>Develop route case outline</b></td>
+<td>Network Analyst</td>
 <td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Candidate fleet types and sector length</td>
-<td>Feasible fleet options with payload and range limits</td>
-<td>Fleet feasibility confirmed before commercial approval at 100 percent</td>
-<td class="c-flag"><span class="yes">Y</span></td>
+<td>Potential routes, market analysis</td>
+<td>Route case outline document</td>
+<td>Outline completed within 1 week</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Fleet availability in the target season is itself uncertain during fleet renewal</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Creating a detailed outline requires extensive collaboration with stakeholders.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Model revenue and unit cost</b></td>
-<td>Revenue Management Analyst</td>
-<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Demand estimate and fare environment</td>
-<td>Revenue and RASK projection by season</td>
-<td>Revenue projection within 12 percent of first-season actual</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Projections use current fare levels and do not price the competitive response modelled earlier</td>
-</tr><tr>
-<td class="c-step">2.3</td>
-<td><b>Assess joint venture and alliance implications</b></td>
-<td>Alliance Manager</td>
-<td><span class="tag iata" data-tooltip="Transatlantic JV with United and Lufthansa Group. Coordinated schedules and revenue share. [A++ JV - evidence A]">A++ Atlantic Joint Venture<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Route case and partner network</td>
-<td>Joint venture position or partner objection</td>
-<td>Alliance position obtained before commitment at 100 percent</td>
-<td class="c-flag"><span class="yes">Y</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Transatlantic capacity is a joint decision, so the case can be commercially sound and still blocked</td>
-</tr><tr>
-<td class="c-step">2.4</td>
-<td><b>Confirm slot and infrastructure availability</b></td>
-<td>Slot Coordinator</td>
+<td><b>Assign preliminary schedules</b></td>
+<td>Schedule Planner</td>
 <td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Required timings at both ends</td>
-<td>Slot feasibility assessment</td>
-<td>Slot feasibility confirmed before commitment at 100 percent</td>
+<td>Route case outline</td>
+<td>Preliminary schedule draft</td>
+<td>Schedules assigned within 1 week</td>
+<td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="yes">Y</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Level 3 slots at the required timing may only be obtainable at a historic-precedence disadvantage</td>
-</tr><tr>
-<td class="c-step">2.5</td>
-<td><b>Assess crew and maintenance base implications</b></td>
-<td>Network Strategy Manager</td>
-<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Proposed pattern and base structure</td>
-<td>Crew and engineering support assessment</td>
-<td>Support implications assessed for all new-station cases</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Crew base and line-station consequences surface late and can invert a marginal case</td>
+<td>Ensuring schedules comply with union contracts and regulatory requirements.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-NP-SP-01-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Decision and commitment</span>
-    <span class="ph-n">3 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Schedule Planning</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Assemble decision paper</b></td>
-<td>Network Planning Analyst</td>
+<td><b>Optimize schedules for capacity</b></td>
+<td>Schedule Planner</td>
 <td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>All validation outputs</td>
-<td>Consolidated route case decision paper</td>
-<td>Decision paper complete 2 weeks before the network committee</td>
+<td>Preliminary schedule draft</td>
+<td>Optimized schedule document</td>
+<td>Capacity utilization increased by 5%</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Inputs arrive from six functions in different formats and are consolidated by hand</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Coordinating with A++ Atlantic Joint Venture on transatlantic capacity.</td>
 </tr><tr>
 <td class="c-step">3.2</td>
-<td><b>Take network committee decision</b></td>
-<td>Network Strategy Manager</td>
-<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Decision paper</td>
-<td>Approved, rejected or deferred route case</td>
-<td>Decisions taken at the scheduled committee without deferral above 80 percent</td>
+<td><b>Validate schedules for regulatory compliance</b></td>
+<td>Regulatory Compliance Officer</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Optimized schedule document</td>
+<td>Compliance report</td>
+<td>100% compliance rate</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Deferral is the default outcome when one input is weak, which pushes the whole season</td>
-</tr><tr>
-<td class="c-step">3.3</td>
-<td><b>Commit to the long-range plan</b></td>
-<td>Network Planning Analyst</td>
+<td>Navigating complex Sixth Freedom regulations at Toronto Pearson.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-SP-01-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Fleet Assignment</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Assign initial fleet to routes</b></td>
+<td>Fleet Planner</td>
 <td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Approved route case</td>
-<td>Capacity committed in the long-range plan</td>
-<td>Approved cases committed to plan within 5 business days</td>
+<td>Optimized schedule document</td>
+<td>Initial fleet assignment</td>
+<td>Fleet utilization rate 80%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Balancing aircraft types against seasonal demand fluctuations.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Review fleet assignments for financial viability</b></td>
+<td>Financial Analyst</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Initial fleet assignment</td>
+<td>Viability report</td>
+<td>Cost savings of $1M</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inaccurate cost models can lead to over- or under-utilization.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-SP-01-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Review &amp; Approval</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Present route case to stakeholders</b></td>
+<td>Network Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">None<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Route case document, compliance report, viability report</td>
+<td>Stakeholder feedback</td>
+<td>Feedback received within 2 days</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Obtaining buy-in from diverse stakeholders with conflicting interests.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Address stakeholder concerns</b></td>
+<td>Network Analyst</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Stakeholder feedback</td>
+<td>Revised route case document</td>
+<td>2 iterations within 1 week</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Some stakeholders have rigid requirements that are difficult to meet.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-SP-01-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Implementation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Finalize schedule adjustments</b></td>
+<td>Schedule Planner</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Revised route case document</td>
+<td>Finalized schedule document</td>
+<td>Adjustments made within 2 days</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Timely execution of final adjustments to meet deadlines.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Conduct a pilot run</b></td>
+<td>Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Finalized schedule document</td>
+<td>Pilot run report</td>
+<td>No major disruptions</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Pilot runs can highlight unforeseen operational issues.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-SP-01-7">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 7 &mdash; Phase 7</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">7.1</td>
+<td><b>Prepare for implementation</b></td>
+<td>Network Planning &amp; Scheduling Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">None<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Finalized schedule document, pilot run report</td>
+<td>Implementation plan</td>
+<td>Plan completed within 3 days</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A commitment made this far ahead is expensive to unwind once crew and maintenance plan against it</td>
+<td>Ensuring all operational teams are aligned with the new schedules.</td>
+</tr><tr>
+<td class="c-step">7.2</td>
+<td><b>Communicate changes to staff</b></td>
+<td>Operations Control Duty Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">None<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Implementation plan</td>
+<td>Staff communication completed</td>
+<td>100% coverage</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Effective communication can be challenging with large teams and multiple shifts.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-SP-01-8">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 8 &mdash; Phase 8</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">8.1</td>
+<td><b>Monitor implementation</b></td>
+<td>Network Analyst</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Implementation plan</td>
+<td>Implementation monitoring report</td>
+<td>90% adherence to schedule</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Monitoring for deviations and making real-time adjustments is crucial.</td>
+</tr><tr>
+<td class="c-step">8.2</td>
+<td><b>Adjust implementation as needed</b></td>
+<td>Network Analyst</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Implementation monitoring report</td>
+<td>Adjusted schedules</td>
+<td>Within 1 day of detection</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Quick response to unexpected changes is essential for maintaining service quality.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Network Planning Analyst</span><span class="lane-steps">1.1 1.2 1.3 1.4 3.1 3.3</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Fleet Planner</span><span class="lane-steps">2.1</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Revenue Management Analyst</span><span class="lane-steps">2.2</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Alliance Manager</span><span class="lane-steps">2.3</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Slot Coordinator</span><span class="lane-steps">2.4</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>Network Strategy Manager</span><span class="lane-steps">2.5 3.2</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Network Analyst</span><span class="lane-steps">1.1 1.2 2.1 5.1 5.2 8.1 8.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Schedule Planner</span><span class="lane-steps">2.2 3.1 6.1</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Regulatory Compliance Officer</span><span class="lane-steps">3.2</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Fleet Planner</span><span class="lane-steps">4.1</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Financial Analyst</span><span class="lane-steps">4.2</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>Operations Control Duty Manager</span><span class="lane-steps">6.2 7.2</span></div><div class="lane"><span class="swatch" style="background:#8A5A1E"></span><span>Network Planning &amp; Scheduling Manager</span><span class="lane-steps">7.1</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag iata" data-tooltip="Transatlantic JV with United and Lufthansa Group. Coordinated schedules and revenue share. [A++ JV - evidence A]">A++ Atlantic Joint Venture<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">None<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Route case demand estimate within 10 percent of first-season actual</li><li>Revenue projection within 12 percent of first-season actual</li><li>Network committee decisions taken without deferral above 80 percent</li><li>Alliance and joint venture position obtained before commitment at 100 percent</li><li>New routes reaching contribution target by end of second season above 70 percent</li></ul>
+<ul class="bullets"><li>Completion within 2 weeks</li><li>At least 5 new routes identified</li><li>Outline completed within 1 week</li><li>Schedules assigned within 1 week</li><li>Capacity utilization increased by 5%</li><li>Cost savings of $1M</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Committing fleet and capacity two to three seasons ahead on a demand estimate that has no Air Canada booking history behind it</li><li>Joint venture partners blocking or diluting a transatlantic case after commercial work is complete</li><li>Slot unavailability at the required timing turning a viable route into an unviable one</li><li>Connecting contribution assumptions failing because the bank structure changes before launch</li><li>Crew base and line-station cost surfacing after approval and inverting a marginal case</li></ul>
+<ul class="bullets risk"><li>Inaccurate market data leading to flawed analysis</li><li>Regulatory changes affecting Sixth Freedom rights</li><li>Disagreements among stakeholders delaying decisions</li><li>Operational issues during pilot runs</li><li>Communication gaps between teams causing confusion</li><li>Unexpected schedule deviations impacting service quality</li></ul>
 
 <div class="pager">
   <span style="flex:1"></span>
@@ -341,7 +425,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources
 for IT Application Management and User Support pre-sales discovery.
-Built 2026-08-18. Every system carries an evidence tier: tier C is an industry pattern and tier U is an open
+Built 2026-08-20. Every system carries an evidence tier: tier C is an industry pattern and tier U is an open
 question, and neither should be asserted as fact about Air Canada without confirmation in discovery.
 Not affiliated with or endorsed by Air Canada. Air Canada, Aeroplan and Altitude are trademarks of Air Canada.
 </div>
