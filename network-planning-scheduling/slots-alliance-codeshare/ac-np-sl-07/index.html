@@ -135,7 +135,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-NP-SL-07" title="Click to copy the process ID">
     AC-NP-SL-07<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Bilateral and Regulatory Route Authority Filing</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -144,107 +144,241 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-NP-SL-07-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Interface certification</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Initial Request Review</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Certify the partner interface</b></td>
-<td>Integration Analyst</td>
-<td><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Partner system specification</td>
-<td>Certified interface connection</td>
-<td>Certification completed before construction testing at 100 percent</td>
+<td><b>Receive request for route authority filing</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Request from stakeholders or regulatory bodies</td>
+<td>Request logged in system</td>
+<td>Response time within 2 business days</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Partner system specifications vary in completeness and quality</td>
+<td>Delays in receiving requests can impact operational planning.</td>
 </tr><tr>
 <td class="c-step">1.2</td>
-<td><b>Configure designation and fare construction rules</b></td>
+<td><b>Verify request completeness</b></td>
 <td>Network Planning Analyst</td>
-<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Signed agreement terms</td>
-<td>Configured construction rules</td>
-<td>Configuration matches signed agreement terms at 100 percent</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Logged request details</td>
+<td>Verification report</td>
+<td>Completion within 1 business day</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Incomplete requests delay the process.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Flag for approval if incomplete</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Verification report</td>
+<td>Approval request</td>
+<td>Flagging time within 1 business day</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Configuration is a manual translation of contract language into system rules</td>
+<td>Manual flagging can introduce human error.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-NP-SL-07-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Construction and process testing</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Route Authority Preparation</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Test itinerary construction end to end</b></td>
+<td><b>Prepare route authority document</b></td>
 <td>Network Planning Analyst</td>
-<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Configured rules</td>
-<td>Construction test results</td>
-<td>All planned route pairs construct successfully before go-live</td>
-<td class="c-flag"><span class="yes">Y</span></td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Verified request details</td>
+<td>Drafted route authority document</td>
+<td>Preparation time within 3 business days</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Test coverage rarely spans every fare and cabin combination the agreement permits</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complexity in drafting documents due to regulatory requirements.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Test through-check and baggage handling</b></td>
-<td>Ground Operations Liaison</td>
-<td><span class="tag iata" data-tooltip="Legacy airline teletype messaging: PNL, ADL, BSM, LDM, MVT. Still load-bearing across the estate. [IATA - evidence C]">IATA Type-B Messaging<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Test itineraries</td>
-<td>Through-check test results</td>
-<td>Through-check tested at every station with the new partner before go-live</td>
+<td><b>Review for regulatory compliance</b></td>
+<td>Regulatory Compliance Officer</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Drafted document</td>
+<td>Compliance report</td>
+<td>Review time within 2 business days</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Non-compliance can lead to legal issues.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Update document based on compliance findings</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Compliance report</td>
+<td>Updated route authority document</td>
+<td>Update time within 1 business day</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Station-level testing requires coordination the commercial timeline does not always allow for</td>
+<td>Continuous updates may be needed.</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Escalate to legal for further review</b></td>
+<td>Legal Counsel</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Compliance report</td>
+<td>Review status update</td>
+<td>Escalation response time within 1 business day</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Legal delays can significantly impact timelines.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-NP-SL-07-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Go-live readiness</span>
+    <span class="ph-name">Phase 3 &mdash; Regulatory Compliance Check</span>
     <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Brief front-line and contact centre staff</b></td>
-<td>Training Coordinator</td>
-<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>New partner agreement summary</td>
-<td>Briefed and ready staff</td>
-<td>Briefing completed before go-live at 100 percent</td>
+<td><b>Submit filing to regulatory body</b></td>
+<td>Regulatory Compliance Officer</td>
+<td><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Compliant document</td>
+<td>Filing submission confirmation</td>
+<td>Submission time within 1 business day</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Front-line staff often learn about a new partner from a customer booking before formal briefing</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Network connectivity issues can delay submissions.</td>
 </tr><tr>
 <td class="c-step">3.2</td>
-<td><b>Confirm go-live and open for sale</b></td>
-<td>Alliance Manager</td>
-<td><span class="tag amadeus" data-tooltip="IATA NDC distribution via Amadeus Travel Platform, live 2023. Single-PNR NDC and EDIFACT. [Amadeus - evidence A]">Amadeus Altea NDC<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>All readiness confirmations</td>
-<td>Partner routes open for sale</td>
-<td>Go-live occurs on the committed date at 100 percent</td>
+<td><b>Attempt re-submission</b></td>
+<td>Regulatory Compliance Officer</td>
+<td><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Filing submission confirmation</td>
+<td>Re-submission confirmation</td>
+<td>Retry time within 1 business day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Multiple failures may occur due to system outages.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-SL-07-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Filing Submission</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Monitor filing status</b></td>
+<td>Regulatory Compliance Officer</td>
+<td><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Submission confirmation</td>
+<td>Status update</td>
+<td>Monitoring interval every 2 business days</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed responses from regulatory bodies.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-SL-07-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Post-Filing Monitoring</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Review approval document</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Approval notification</td>
+<td>Approval report</td>
+<td>Review time within 2 business days</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Misinterpretation of approval terms can lead to operational issues.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Update internal records</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Approval report</td>
+<td>Updated internal database</td>
+<td>Update time within 1 business day</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A single failed readiness item can force a go-live delay after the commercial launch was announced</td>
+<td>Manual updates can introduce errors.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-SL-07-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Approval Reconciliation</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Notify stakeholders of approval</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Updated internal database</td>
+<td>Notification sent to stakeholders</td>
+<td>Notification time within 1 business day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Stakeholder communication delays can impact operational planning.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Review for any outstanding issues</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Notification sent to stakeholders</td>
+<td>Issue resolution status update</td>
+<td>Review time within 1 business day</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Unresolved issues may cause delays in implementation.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Escalate to management for resolution</b></td>
+<td>Network Planning Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Issue resolution status update</td>
+<td>Resolution plan</td>
+<td>Escalation response time within 1 business day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Management intervention may be required to resolve complex issues.</td>
+</tr><tr>
+<td class="c-step">6.4</td>
+<td><b>Re-attempt issue resolution</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Resolution plan</td>
+<td>Issue resolved confirmation</td>
+<td>Retry time within 1 business day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Multiple attempts may be needed to resolve issues.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Integration Analyst</span><span class="lane-steps">1.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Network Planning Analyst</span><span class="lane-steps">1.2 2.1</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Ground Operations Liaison</span><span class="lane-steps">2.2</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Training Coordinator</span><span class="lane-steps">3.1</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Alliance Manager</span><span class="lane-steps">3.2</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Network Planning Analyst</span><span class="lane-steps">1.1 1.2 1.3 2.1 2.3 5.1 5.2 6.1 6.2 6.4</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Regulatory Compliance Officer</span><span class="lane-steps">2.2 3.1 3.2 4.1</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Legal Counsel</span><span class="lane-steps">2.4</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Network Planning Manager</span><span class="lane-steps">6.3</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag iata" data-tooltip="Legacy airline teletype messaging: PNL, ADL, BSM, LDM, MVT. Still load-bearing across the estate. [IATA - evidence C]">IATA Type-B Messaging<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag amadeus" data-tooltip="IATA NDC distribution via Amadeus Travel Platform, live 2023. Single-PNR NDC and EDIFACT. [Amadeus - evidence A]">Amadeus Altea NDC<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag gds" data-tooltip="Legacy GDS distribution channel. Agency bookings settle through IATA BSP. [Sabre - evidence C]">Sabre GDS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
+<div class="card"><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>All planned route pairs constructing successfully before go-live</li><li>Through-check tested at every relevant station before go-live</li><li>Configuration matching signed agreement terms at 100 percent</li><li>Go-live occurring on the committed date at 100 percent</li></ul>
+<ul class="bullets"><li>Response time within 2 business days</li><li>Completion within 1 business day</li><li>Preparation time within 3 business days</li><li>Review time within 2 business days</li><li>Submission time within 1 business day</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Commercial launch dates announced before system readiness is actually confirmed</li><li>Test coverage missing a fare or cabin combination the agreement technically permits</li><li>Front-line staff learning about a new partner from a customer booking rather than a briefing</li><li>Station-level through-check testing not completing in time for a committed go-live date</li></ul>
+<ul class="bullets risk"><li>Delays in receiving requests can impact operational planning.</li><li>Incomplete requests delay the process.</li><li>Non-compliance can lead to legal issues.</li><li>Network connectivity issues can delay submissions.</li><li>Misinterpretation of approval terms can lead to operational issues.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../network-planning-scheduling/slots-alliance-codeshare/ac-np-sl-06/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Codeshare Agreement Onboarding</span></a>
