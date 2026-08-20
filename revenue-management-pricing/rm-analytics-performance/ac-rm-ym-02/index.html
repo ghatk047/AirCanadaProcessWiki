@@ -135,7 +135,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-RM-YM-02" title="Click to copy the process ID">
     AC-RM-YM-02<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Forecast Accuracy and Model Drift Monitoring</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -144,85 +144,274 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-RM-YM-02-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Accuracy measurement</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Data Collection</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Measure forecast accuracy against actuals</b></td>
+<td><b>Extract historical sales data from CRM system.</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CRM System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Historical sales records</td>
+<td>Cleaned and aggregated sales data</td>
+<td>Data extraction time &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System downtime causing delays in data retrieval.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Load sales data into PROS Revenue Management for processing.</b></td>
 <td>Revenue Management Analyst</td>
 <td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Forecast history and actual bookings</td>
-<td>Accuracy measurement by market segment</td>
-<td>Measured for 100 percent of market segments each cycle</td>
+<td>Cleaned and aggregated sales data</td>
+<td>Processed sales data</td>
+<td>Data load time &lt; 30 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Accuracy at different booking horizons can move in opposite directions simultaneously</td>
+<td>Incompatible data formats causing processing delays.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Generate forecast models using PROS Revenue Management.</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Processed sales data</td>
+<td>Forecast models</td>
+<td>Model generation time &lt; 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Insufficient historical data leading to inaccurate models.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Request additional historical data from Finance department.</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Finance System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Data request form</td>
+<td>Additional historical data</td>
+<td>Response time &lt; 2 days</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed response from Finance.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-RM-YM-02-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Drift detection</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Model Validation</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Compare accuracy trend against normal variance range</b></td>
-<td>Revenue Management Analyst</td>
-<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Accuracy history</td>
-<td>Flagged segments outside normal variance</td>
-<td>Flagged within one monitoring cycle of drift beginning at 90 percent</td>
-<td class="c-flag"><span class="yes">Y</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>The normal variance range itself needs periodic recalibration as the network changes</td>
-</tr><tr>
-<td class="c-step">2.2</td>
-<td><b>Investigate flagged drift root cause</b></td>
+<td><b>Validate forecast models against actual sales data.</b></td>
 <td>Revenue Management Analyst</td>
 <td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Flagged segment</td>
-<td>Root cause hypothesis</td>
-<td>Investigated within 5 business days of flagging</td>
+<td>Forecast models, actual sales data</td>
+<td>Validation report</td>
+<td>Validation time &lt; 4 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex validation logic causing delays.</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Update forecast parameters based on validation results.</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Validation report, analyst input</td>
+<td>Updated forecast models</td>
+<td>Parameter update time &lt; 1 hour</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="yes">Y</span></td>
-<td>Drift root cause can be external market change rather than a genuine model defect</td>
+<td>Incorrect parameter adjustments leading to further inaccuracy.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Revalidate updated models against actual sales data.</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Updated forecast models, actual sales data</td>
+<td>Revalidation report</td>
+<td>Revalidation time &lt; 2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Time-consuming revalidation process.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-RM-YM-02-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Escalation to model owners</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Drift Detection</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Escalate confirmed drift to model owners</b></td>
+<td><b>Detect model drift using statistical analysis.</b></td>
 <td>Revenue Management Analyst</td>
 <td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Confirmed drift finding</td>
-<td>Escalated case for model retuning</td>
-<td>Escalated within 2 business days of confirmation at 100 percent</td>
+<td>Forecast models, actual sales data</td>
+<td>Drift detection report</td>
+<td>Drift detection time &lt; 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Resource-intensive drift analysis.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Review drift detection report with team.</b></td>
+<td>Revenue Management Team Lead</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Team Collaboration Tool<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Drift detection report</td>
+<td>Reviewed report</td>
+<td>Review time &lt; 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Retuning cadence is set by the model owner&#x27;s own release cycle, not by the urgency of the finding</td>
+<td>Disagreement among team members on drift interpretation.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Adjust model parameters to correct drift.</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Reviewed report, analyst input</td>
+<td>Adjusted forecast models</td>
+<td>Parameter adjustment time &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Incorrect parameter adjustments leading to further drift.</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Revalidate adjusted models against actual sales data.</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Adjusted forecast models, actual sales data</td>
+<td>Revalidation report</td>
+<td>Revalidation time &lt; 2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Time-consuming revalidation process.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-YM-02-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Analysis &amp; Reporting</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Generate analysis report for stakeholders.</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Reporting Tool<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Validation results, drift detection report</td>
+<td>Analysis report</td>
+<td>Report generation time &lt; 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complexity in generating comprehensive reports.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Review and finalize analysis report with stakeholders.</b></td>
+<td>Revenue Management Team Lead</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Team Collaboration Tool<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Analysis report, stakeholder feedback</td>
+<td>Finalized analysis report</td>
+<td>Stakeholder review time &lt; 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Stakeholder disagreements on report content.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Revise analysis report based on feedback.</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Reporting Tool<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Finalized analysis report, stakeholder input</td>
+<td>Revised analysis report</td>
+<td>Revision time &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complexity in revising detailed reports.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-YM-02-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Decision Making</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Make decision on corrective actions based on analysis report.</b></td>
+<td>Revenue Management Team Lead</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Team Collaboration Tool<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Finalized analysis report</td>
+<td>Decision document</td>
+<td>Decision time &lt; 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Difficulty in making timely decisions.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Document decision rationale and next steps.</b></td>
+<td>Revenue Management Team Lead</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Team Collaboration Tool<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Decision document, analyst input</td>
+<td>Rationale documentation</td>
+<td>Documentation time &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complexity in documenting rationale.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-YM-02-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Action Execution</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Implement corrective actions as per decision document.</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Decision document, analyst input</td>
+<td>Corrective actions executed</td>
+<td>Implementation time &lt; 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Execution errors leading to further issues.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Monitor implementation results and adjust if necessary.</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Implementation status, performance metrics</td>
+<td>Monitoring report</td>
+<td>Monitoring time &lt; 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Continuous monitoring requires significant effort.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Make necessary adjustments to corrective actions.</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Monitoring report, analyst input</td>
+<td>Adjusted corrective actions executed</td>
+<td>Adjustment time &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Multiple adjustments leading to prolonged resolution.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Revenue Management Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Revenue Management Analyst</span><span class="lane-steps">1.1 1.2 1.3 1.4 2.1 2.2 2.3 3.1 3.3 3.4 4.1 4.3 6.1 6.2 6.3</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Revenue Management Team Lead</span><span class="lane-steps">3.2 4.2 5.1 5.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CRM System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Finance System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Team Collaboration Tool<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Reporting Tool<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Measured for 100 percent of market segments each cycle</li><li>Flagged within one monitoring cycle of drift beginning at 90 percent</li><li>Escalated within 2 business days of confirmation at 100 percent</li><li>Confirmed drift cases resolved within one model release cycle</li></ul>
+<ul class="bullets"><li>Forecast model validation time &lt; 4 hours</li><li>Model drift detection accuracy &gt; 95%</li><li>Analysis report generation time &lt; 2 hours</li><li>Corrective action implementation time &lt; 2 hours</li><li>Continuous monitoring coverage &gt; 90%</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Accuracy at different booking horizons moving in opposite directions and masking each other in aggregate</li><li>The normal variance range itself going stale as the network changes around it</li><li>Drift root cause being an external market shift rather than an actual model defect</li><li>Model retuning cadence lagging the urgency of a confirmed drift finding</li></ul>
+<ul class="bullets risk"><li>Data extraction delays from CRM system</li><li>Inaccurate model generation due to insufficient data</li><li>Complex validation logic causing processing delays</li><li>Resource-intensive drift analysis leading to bottlenecks</li><li>Stakeholder disagreements on report content delaying decisions</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../revenue-management-pricing/rm-analytics-performance/ac-rm-ym-01/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Revenue Management Analyst Daily Review Cycle</span></a>

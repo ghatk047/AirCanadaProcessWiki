@@ -135,7 +135,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-RM-AN-07" title="Click to copy the process ID">
     AC-RM-AN-07<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Ancillary Revenue Performance Tracking</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -144,107 +144,241 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-RM-AN-07-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Concept validation</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Data Extraction</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Validate demand for the product concept</b></td>
-<td>Revenue Management Analyst</td>
-<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Adobe Analytics<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
-<td>Customer research and competitive benchmark</td>
-<td>Validated demand estimate</td>
-<td>Demand validated before build begins at 100 percent</td>
+<td><b>Extract flight data from PROS Real-Time Dynamic Pricing</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag pros" data-tooltip="Continuous willingness-to-pay pricing. Air Canada is a 30-year-plus PROS reference account. [PROS - evidence A]">PROS Real-Time Dynamic Pricing<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Flight schedule and ancillary revenue data</td>
+<td>Structured dataset for analysis</td>
+<td>Data extraction time &lt; 5 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Stated preference in research does not always predict actual willingness to pay</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System downtime can cause delays in data extraction.</td>
 </tr><tr>
 <td class="c-step">1.2</td>
-<td><b>Build the commercial and pricing case</b></td>
-<td>Revenue Management Analyst</td>
-<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Validated demand</td>
-<td>Approved commercial case</td>
-<td>Case approved before system build begins at 100 percent</td>
+<td><b>Validate extracted data for completeness and accuracy</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag pros" data-tooltip="Continuous willingness-to-pay pricing. Air Canada is a 30-year-plus PROS reference account. [PROS - evidence A]">PROS Real-Time Dynamic Pricing<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Structured dataset from 1.1</td>
+<td>Validated dataset</td>
+<td>Data validation time &lt; 10 minutes</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>The business case is built on a demand estimate that has not yet been tested against real bookings</td>
+<td>Inconsistent data formats can cause validation errors.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Correct invalid data entries manually</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag pros" data-tooltip="Continuous willingness-to-pay pricing. Air Canada is a 30-year-plus PROS reference account. [PROS - evidence A]">PROS Real-Time Dynamic Pricing<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Invalid dataset from 1.2</td>
+<td>Corrected dataset</td>
+<td>Manual correction time &lt; 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Time-consuming manual corrections can delay the process.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-RM-AN-07-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Build and configuration</span>
+    <span class="ph-name">Phase 2 &mdash; Pricing Analysis</span>
     <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Configure system support for the product</b></td>
-<td>Revenue Management Analyst</td>
-<td><span class="tag amadeus" data-tooltip="Ancillary offer construction and dynamic bundling at the shopping touchpoint. [Amadeus - evidence A]">Amadeus Anytime Merchandising<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Approved case</td>
-<td>Configured product across booking and servicing systems</td>
-<td>Configuration tested end to end before launch at 100 percent</td>
+<td><b>Run pricing analysis on validated data using PROS Revenue Management</b></td>
+<td>APPR Adjudicator</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Validated dataset from 1.2 or 1.3</td>
+<td>Pricing recommendations</td>
+<td>Analysis time &lt; 15 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>A genuinely new product type can require configuration in systems not originally designed for it</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System overload can slow down analysis.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Train front-line and contact centre staff</b></td>
-<td>Training Coordinator</td>
-<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Configured product</td>
-<td>Trained staff ready to service the product</td>
-<td>Training completed before launch at 100 percent</td>
+<td><b>Retry pricing analysis after 5 minutes</b></td>
+<td>APPR Adjudicator</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Validated dataset from 1.2 or 1.3</td>
+<td>Pricing recommendations</td>
+<td>Analysis time &lt; 10 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>A product launch without adequate staff training generates avoidable contact centre volume</td>
+<td>Retry process can cause delays.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-RM-AN-07-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Launch and review</span>
+    <span class="ph-name">Phase 3 &mdash; Revenue Comparison</span>
     <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Launch and monitor early performance</b></td>
-<td>Revenue Management Analyst</td>
-<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Live product</td>
-<td>Early performance report</td>
-<td>Reviewed within 30 days of launch at 100 percent</td>
+<td><b>Compare pricing recommendations with actual revenue data from Amadeus Altea Inventory</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Pricing recommendations from 2.1 or 2.2, actual revenue data</td>
+<td>Performance metrics report</td>
+<td>Comparison time &lt; 20 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Early performance can be distorted by launch-period promotional activity</td>
+<td>Discrepancies between expected and actual revenue can cause confusion.</td>
 </tr><tr>
 <td class="c-step">3.2</td>
-<td><b>Conduct structured post-launch review</b></td>
-<td>Revenue Management Analyst</td>
-<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Sustained performance data</td>
-<td>Post-launch review with scale or retire recommendation</td>
-<td>Review conducted within 90 days of launch at 100 percent</td>
+<td><b>Investigate significant discrepancies with stakeholders</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Performance metrics report from 3.1</td>
+<td>Root cause analysis and corrective actions</td>
+<td>Investigation time &lt; 60 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex investigations can delay process completion.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-AN-07-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Report Generation</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Generate comprehensive report based on performance metrics and analysis</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag pros" data-tooltip="Continuous willingness-to-pay pricing. Air Canada is a 30-year-plus PROS reference account. [PROS - evidence A]">PROS Real-Time Dynamic Pricing<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Performance metrics from 3.1, corrective actions from 3.2 (if any)</td>
+<td>Final report</td>
+<td>Report generation time &lt; 30 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Without a forced review point, an underperforming product can simply persist rather than being retired</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System crashes can disrupt report generation.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-AN-07-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Distribution</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Distribute final report via email to relevant stakeholders</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada Email System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Final report from 4.1</td>
+<td>Emails sent</td>
+<td>Distribution time &lt; 5 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delays in email delivery can cause delays in communication.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Retry report distribution after 10 minutes</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada Email System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Final report from 4.1</td>
+<td>Emails sent</td>
+<td>Distribution time &lt; 5 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System outages can cause delays in email distribution.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-AN-07-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Review and Adjustment</span>
+    <span class="ph-n">6 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Review distributed report for accuracy and completeness</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada Email System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Final report from 4.1</td>
+<td>Review notes</td>
+<td>Review time &lt; 20 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Miscommunication in reports can cause confusion.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Correct report errors and resubmit for distribution</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada Email System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Review notes from 6.1, final report from 4.1</td>
+<td>Corrected report</td>
+<td>Correction and resubmission time &lt; 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Time-consuming corrections can delay the process.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Adjust pricing strategies based on review findings and recommendations</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Corrected report from 4.1, review notes from 6.1</td>
+<td>Updated pricing strategies</td>
+<td>Adjustment time &lt; 20 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System limitations can hinder quick adjustments.</td>
+</tr><tr>
+<td class="c-step">6.4</td>
+<td><b>Monitor implementation of updated pricing strategies for effectiveness</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Updated pricing strategies from 6.3</td>
+<td>Effectiveness metrics</td>
+<td>Monitoring time &lt; 10 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inconsistent monitoring can lead to ineffective adjustments.</td>
+</tr><tr>
+<td class="c-step">6.5</td>
+<td><b>Re-evaluate pricing strategies and make further adjustments</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Effectiveness metrics from 6.4</td>
+<td>Revised pricing strategies</td>
+<td>Adjustment time &lt; 20 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Continuous adjustments require significant resources.</td>
+</tr><tr>
+<td class="c-step">6.6</td>
+<td><b>Document all changes and findings for future reference</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada Documentation System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Revised pricing strategies from 6.5, review notes from 6.1</td>
+<td>Change log</td>
+<td>Documentation time &lt; 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System downtime can affect documentation.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Revenue Management Analyst</span><span class="lane-steps">1.1 1.2 2.1 3.1 3.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Training Coordinator</span><span class="lane-steps">2.2</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">1.1 3.2 5.1 5.2 6.3 6.4 6.5</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Aeroplan Member Services Agent</span><span class="lane-steps">1.2 1.3 6.1 6.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>APPR Adjudicator</span><span class="lane-steps">2.1 2.2</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Cargo Compliance Agent</span><span class="lane-steps">3.1 4.1 6.6</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Adobe Analytics<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag amadeus" data-tooltip="Ancillary offer construction and dynamic bundling at the shopping touchpoint. [Amadeus - evidence A]">Amadeus Anytime Merchandising<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag pros" data-tooltip="Continuous willingness-to-pay pricing. Air Canada is a 30-year-plus PROS reference account. [PROS - evidence A]">PROS Real-Time Dynamic Pricing<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada Email System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada Documentation System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Demand validated before build begins at 100 percent</li><li>Configuration tested end to end before launch at 100 percent</li><li>Training completed before launch at 100 percent</li><li>Post-launch review conducted within 90 days of launch at 100 percent</li></ul>
+<ul class="bullets"><li>Data extraction time &lt; 5 minutes</li><li>Data validation time &lt; 10 minutes</li><li>Manual correction time &lt; 30 minutes</li><li>Analysis time &lt; 15 minutes</li><li>Report generation time &lt; 30 minutes</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Stated research preference not predicting actual willingness to pay once the product is live</li><li>A product launch without adequate staff training generating avoidable contact centre volume</li><li>Early performance distorted by launch-period promotional activity, masking the sustained result</li><li>An underperforming product persisting indefinitely without a forced scale-or-retire decision point</li></ul>
+<ul class="bullets risk"><li>System downtime affecting data extraction and validation.</li><li>Inconsistent data formats causing validation errors.</li><li>Time-consuming manual corrections delaying the process.</li><li>System overload slowing down pricing analysis.</li><li>Discrepancies between expected and actual revenue causing confusion.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../revenue-management-pricing/ancillary-merchandising/ac-rm-an-06/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Third Party Ancillary Partner Management</span></a>
