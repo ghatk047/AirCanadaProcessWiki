@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-AP-EN-06" title="Click to copy the process ID">
     AC-AP-EN-06<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Member Data Privacy Request Handling</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,96 +143,241 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-AP-EN-06-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Request intake and identity verification</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Request Reception</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Receive and log the privacy request</b></td>
-<td>Privacy Request Coordinator</td>
+<td><b>Receive member privacy request</b></td>
+<td>Aeroplan Member Services Agent</td>
 <td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Member submitted request</td>
-<td>Logged request with regulatory deadline</td>
-<td>Requests logged within 2 business days of receipt at 100 percent</td>
+<td>Member&#x27;s privacy request form</td>
+<td>Recorded privacy request in SAP Customer Data Cloud</td>
+<td>Request receipt time &lt; 2 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Requests can arrive through channels not designed for privacy request intake, such as a general complaint form</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System outages can delay request recording.</td>
 </tr><tr>
 <td class="c-step">1.2</td>
-<td><b>Verify requester identity</b></td>
-<td>Privacy Request Coordinator</td>
+<td><b>Validate member identity</b></td>
+<td>Aeroplan Member Services Agent</td>
 <td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Logged request</td>
-<td>Verified requester identity</td>
-<td>Identity verified before any data action at 100 percent</td>
+<td>Member&#x27;s identification details</td>
+<td>Identity validation status</td>
+<td>Validation completion time &lt; 15 minutes</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Verification has to be robust enough to prevent someone else accessing or deleting a member&#x27;s data</td>
+<td>Incorrect or outdated member information can lead to failed validations.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Identify privacy request type</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Validated member identity</td>
+<td>Privacy request category (e.g., access, deletion)</td>
+<td>Request categorization time &lt; 5 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex request types may require manual interpretation.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-AP-EN-06-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Data action</span>
+    <span class="ph-name">Phase 2 &mdash; Authentication Verification</span>
     <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Locate all personal data across systems</b></td>
-<td>Privacy Request Coordinator</td>
-<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Verified request scope</td>
-<td>Located data across all relevant systems</td>
-<td>Data location completed within the regulatory response window at 100 percent</td>
+<td><b>Access member data for review</b></td>
+<td>Data Privacy Officer</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Privacy request category</td>
+<td>Member&#x27;s relevant data</td>
+<td>Data access time &lt; 30 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Member data is distributed across loyalty, booking, contact centre and partner systems with no single index</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System performance issues can delay data retrieval.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Execute the requested action</b></td>
-<td>Privacy Request Coordinator</td>
+<td><b>Review and validate request content</b></td>
+<td>Data Privacy Officer</td>
 <td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Located data and requested action</td>
-<td>Data accessed, corrected or deleted as requested</td>
-<td>Action executed within the regulatory deadline at 100 percent</td>
+<td>Member&#x27;s data and request details</td>
+<td>Validation report</td>
+<td>Review completion time &lt; 45 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Deletion has to be reconciled against legitimate retention obligations, such as unresolved financial records</td>
+<td>Ambiguous requests may require extensive clarification.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-AP-EN-06-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Response and documentation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Data Privacy Request Validation</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Document and respond to the member</b></td>
-<td>Privacy Request Coordinator</td>
+<td><b>Prepare data for deletion or access</b></td>
+<td>Data Privacy Officer</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Validation report</td>
+<td>Prepared data package</td>
+<td>Data preparation time &lt; 20 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Interconnected data systems can complicate deletion processes.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Confirm deletion or access with member</b></td>
+<td>Aeroplan Member Services Agent</td>
 <td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Completed action</td>
-<td>Documented response to the member</td>
-<td>Response issued within the regulatory deadline at 100 percent</td>
+<td>Prepared data package</td>
+<td>Member&#x27;s confirmation</td>
+<td>Confirmation response time &lt; 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Members may take time to respond.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-EN-06-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Data Access and Deletion</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Execute data deletion or access</b></td>
+<td>Data Privacy Officer</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Member&#x27;s confirmation</td>
+<td>Deletion or access executed</td>
+<td>Execution time &lt; 30 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A missed regulatory deadline is a compliance failure independent of whether the underlying action was completed</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System errors can prevent successful execution.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Verify data deletion or access</b></td>
+<td>Data Privacy Officer</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Deletion or access executed</td>
+<td>Verification report</td>
+<td>Verification time &lt; 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual verification may be required for complex cases.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-EN-06-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Confirmation and Notification</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Notify member of request status</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Verification report</td>
+<td>Notification sent to member</td>
+<td>Notification time &lt; 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Failed notifications may require manual follow-up.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Review notification response</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Member&#x27;s notification response</td>
+<td>Response logged</td>
+<td>Response time &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Members may require additional clarification.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-EN-06-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Audit and Compliance</span>
+    <span class="ph-n">5 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Audit data privacy request handling</b></td>
+<td>Data Privacy Officer</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Processed request details</td>
+<td>Audit report</td>
+<td>Audit time &lt; 48 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Audit logs may be incomplete.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Review audit findings</b></td>
+<td>Data Privacy Officer</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Audit report</td>
+<td>Findings reviewed</td>
+<td>Review time &lt; 8 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex issues may require additional investigation.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Update policies based on findings</b></td>
+<td>Data Privacy Officer</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Findings reviewed</td>
+<td>Updated policies</td>
+<td>Policy update time &lt; 2 weeks</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Updating policies can be resource-intensive.</td>
+</tr><tr>
+<td class="c-step">6.4</td>
+<td><b>Notify senior management of audit results</b></td>
+<td>Data Privacy Officer</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Audit report</td>
+<td>Notification sent to senior management</td>
+<td>Notification time &lt; 2 days</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Senior management may require additional details.</td>
+</tr><tr>
+<td class="c-step">6.5</td>
+<td><b>Review senior management feedback</b></td>
+<td>Data Privacy Officer</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Senior management feedback</td>
+<td>Feedback logged</td>
+<td>Feedback time &lt; 24 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Feedback may require clarification.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Privacy Request Coordinator</span><span class="lane-steps">1.1 1.2 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Aeroplan Member Services Agent</span><span class="lane-steps">1.1 1.2 1.3 3.2 5.1 5.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Data Privacy Officer</span><span class="lane-steps">2.1 2.2 3.1 4.1 4.2 6.1 6.2 6.3 6.4 6.5</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Identity verified before any data action at 100 percent</li><li>Data location completed within the regulatory response window at 100 percent</li><li>Action executed within the regulatory deadline at 100 percent</li><li>Response issued within the regulatory deadline at 100 percent</li></ul>
+<ul class="bullets"><li>Request receipt time &lt; 2 hours</li><li>Validation completion time &lt; 15 minutes</li><li>Request categorization time &lt; 5 minutes</li><li>Data access time &lt; 30 minutes</li><li>Review completion time &lt; 45 minutes</li><li>Execution time &lt; 30 minutes</li><li>Verification time &lt; 10 minutes</li><li>Notification time &lt; 2 hours</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Member personal data being distributed across systems with no single index to locate it completely</li><li>A missed regulatory deadline constituting a compliance failure regardless of the underlying action</li><li>Deletion conflicting with a legitimate retention obligation such as an unresolved financial record</li><li>Insufficiently robust verification allowing someone other than the member to action the request</li></ul>
+<ul class="bullets risk"><li>System outages can delay request recording.</li><li>Incorrect or outdated member information can lead to failed validations.</li><li>Complex request types may require manual interpretation.</li><li>System performance issues can delay data retrieval.</li><li>Ambiguous requests may require extensive clarification.</li><li>Interconnected data systems can complicate deletion processes.</li><li>Members may take time to respond.</li><li>System errors can prevent successful execution.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../aeroplan-loyalty/enrolment-member-identity/ac-ap-en-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Member Authentication and Account Recovery</span></a>

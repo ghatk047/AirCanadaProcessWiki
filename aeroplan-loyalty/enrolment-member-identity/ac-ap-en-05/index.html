@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-AP-EN-05" title="Click to copy the process ID">
     AC-AP-EN-05<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Member Authentication and Account Recovery</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,354 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-AP-EN-05-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Recovery request intake</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Initial Request</span>
+    <span class="ph-n">6 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Receive account recovery request</b></td>
+<td><b>Initiate Account Recovery</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Member&#x27;s email or phone number</td>
+<td>Recovery request generated</td>
+<td>Response time within 2 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>High volume of requests can overwhelm the system during peak times.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Verify Member Identity</b></td>
+<td>Aeroplan Security Analyst</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Recovery request details</td>
+<td>Identity verification status</td>
+<td>Verification accuracy rate &gt; 95%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inaccurate data entries can lead to false positives/negatives.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Escalate to Security Team</b></td>
+<td>Aeroplan Security Analyst</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Verification details</td>
+<td>Security team notification</td>
+<td>Escalation response time within 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual intervention slows down the process.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Re-attempt Identity Verification</b></td>
+<td>Aeroplan Security Analyst</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Verification details</td>
+<td>Updated identity verification status</td>
+<td>Second attempt success rate &gt; 85%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System errors can delay re-verification.</td>
+</tr><tr>
+<td class="c-step">1.5</td>
+<td><b>Lock Account Temporarily</b></td>
+<td>Aeroplan Security Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Account details</td>
+<td>Locked account confirmation</td>
+<td>Account lock success rate 100%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual overrides can introduce security risks.</td>
+</tr><tr>
+<td class="c-step">1.6</td>
+<td><b>Notify Member of Account Lock</b></td>
 <td>Aeroplan Member Services Agent</td>
 <td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Member recovery request</td>
-<td>Registered recovery case</td>
-<td>Requests registered within 1 business day at 100 percent</td>
+<td>Account details</td>
+<td>Notification sent to member</td>
+<td>Notification delivery rate 98%</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Requests arrive through self-service and contact centre with different initial verification depth</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Email failures can prevent members from taking action.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-AP-EN-05-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Identity re-verification</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Authentication Check</span>
+    <span class="ph-n">6 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Re-verify member identity</b></td>
-<td>Aeroplan Member Services Agent</td>
+<td><b>Authenticate Member for Recovery</b></td>
+<td>Aeroplan Security Analyst</td>
 <td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Recovery request and member identity documents</td>
-<td>Verified identity or failed verification</td>
-<td>Identity re-verified before access is restored at 100 percent</td>
+<td>Member credentials</td>
+<td>Authentication status</td>
+<td>Authentication success rate &gt; 90%</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Verification depth for a self-service reset is inherently lighter than for a contact centre case</td>
+<td>Weak password policies can lead to successful brute-force attempts.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Screen for account takeover fraud indicators</b></td>
+<td><b>Request Security Questions</b></td>
 <td>Aeroplan Member Services Agent</td>
-<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CyberArk<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
-<td>Recovery request pattern</td>
-<td>Fraud risk assessment</td>
-<td>Screened for 100 percent of contact centre recovery cases</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Member&#x27;s account information</td>
+<td>Security questions sent</td>
+<td>Question response accuracy rate &gt; 80%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex security questions can deter members.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Escalate to Support Team</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Security question details</td>
+<td>Support team notification</td>
+<td>Escalation response time within 10 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="yes">Y</span></td>
-<td>Fraud indicators are probabilistic and can both miss genuine attacks and flag legitimate members</td>
+<td>Manual interventions slow down the process.</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Re-attempt Security Questions</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Security question details</td>
+<td>Updated authentication status</td>
+<td>Second attempt success rate &gt; 75%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System errors can delay re-authentication.</td>
+</tr><tr>
+<td class="c-step">2.5</td>
+<td><b>Lock Account Temporarily</b></td>
+<td>Aeroplan Security Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Account details</td>
+<td>Locked account confirmation</td>
+<td>Account lock success rate 100%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual overrides can introduce security risks.</td>
+</tr><tr>
+<td class="c-step">2.6</td>
+<td><b>Notify Member of Account Lock</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Account details</td>
+<td>Notification sent to member</td>
+<td>Notification delivery rate 98%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Email failures can prevent members from taking action.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-AP-EN-05-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Access restoration</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Account Recovery</span>
+    <span class="ph-n">5 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Restore account access</b></td>
+<td><b>Recover Member Account</b></td>
+<td>Aeroplan Security Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Verified credentials</td>
+<td>Account recovery confirmation</td>
+<td>Account recovery success rate &gt; 95%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System downtime can prevent account recovery.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Escalate to Technical Support</b></td>
+<td>Aeroplan IT Support Technician</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Recovery details</td>
+<td>Technical support notification</td>
+<td>Support resolution time within 15 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual interventions slow down the process.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Retry Account Recovery</b></td>
+<td>Aeroplan Security Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Recovery details</td>
+<td>Updated account recovery status</td>
+<td>Second attempt success rate &gt; 90%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System errors can delay re-recovery.</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Lock Account Permanently</b></td>
+<td>Aeroplan Security Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Account details</td>
+<td>Locked account confirmation</td>
+<td>Account lock success rate 100%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual overrides can introduce security risks.</td>
+</tr><tr>
+<td class="c-step">3.5</td>
+<td><b>Notify Member of Account Lock</b></td>
 <td>Aeroplan Member Services Agent</td>
 <td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Verified and screened request</td>
-<td>Restored account access</td>
-<td>Access restored within 24 hours of verification at 95 percent</td>
+<td>Account details</td>
+<td>Notification sent to member</td>
+<td>Notification delivery rate 98%</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Email failures can prevent members from taking action.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-EN-05-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Security Review</span>
+    <span class="ph-n">5 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Review Account Activity</b></td>
+<td>Aeroplan Security Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Account details</td>
+<td>Activity review report</td>
+<td>Review completion rate 90% within 2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Restoring access before fraud screening completes creates a window of exposure</td>
+<td>Large volumes of data can slow down the review process.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Notify Security Team</b></td>
+<td>Aeroplan Security Analyst</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Activity report</td>
+<td>Security team notification</td>
+<td>Notification response time within 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual interventions slow down the process.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Re-attempt Activity Review</b></td>
+<td>Aeroplan Security Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Activity report</td>
+<td>Updated review status</td>
+<td>Second attempt success rate &gt; 80%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System errors can delay re-review.</td>
+</tr><tr>
+<td class="c-step">4.4</td>
+<td><b>Lock Account Permanently</b></td>
+<td>Aeroplan Security Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Account details</td>
+<td>Locked account confirmation</td>
+<td>Account lock success rate 100%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual overrides can introduce security risks.</td>
+</tr><tr>
+<td class="c-step">4.5</td>
+<td><b>Notify Member of Account Lock</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Account details</td>
+<td>Notification sent to member</td>
+<td>Notification delivery rate 98%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Email failures can prevent members from taking action.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-EN-05-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Finalization</span>
+    <span class="ph-n">5 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Finalize Account Recovery</b></td>
+<td>Aeroplan Security Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Verified credentials and review report</td>
+<td>Final account recovery confirmation</td>
+<td>Finalization success rate 98%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System downtime can prevent finalization.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Escalate to Management</b></td>
+<td>Aeroplan Security Manager</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Finalization details</td>
+<td>Management notification</td>
+<td>Escalation response time within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual interventions slow down the process.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Retry Finalization</b></td>
+<td>Aeroplan Security Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Finalization details</td>
+<td>Updated finalization status</td>
+<td>Second attempt success rate &gt; 95%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System errors can delay re-finalization.</td>
+</tr><tr>
+<td class="c-step">5.4</td>
+<td><b>Notify Member of Account Lock</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Account details</td>
+<td>Notification sent to member</td>
+<td>Notification delivery rate 98%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Email failures can prevent members from taking action.</td>
+</tr><tr>
+<td class="c-step">5.5</td>
+<td><b>Complete Process</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Final account recovery details</td>
+<td>Process completion confirmation</td>
+<td>Completion rate 100%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System downtime can prevent process completion.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Aeroplan Member Services Agent</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Aeroplan Member Services Agent</span><span class="lane-steps">1.1 1.6 2.2 2.3 2.4 2.6 3.5 4.5 5.4 5.5</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Aeroplan Security Analyst</span><span class="lane-steps">1.2 1.3 1.4 1.5 2.1 2.5 3.1 3.3 3.4 4.1 4.2 4.3 4.4 5.1 5.3</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Aeroplan IT Support Technician</span><span class="lane-steps">3.2</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Aeroplan Security Manager</span><span class="lane-steps">5.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CyberArk<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
+<div class="card"><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Identity re-verified before access is restored at 100 percent</li><li>Access restored within 24 hours of verification at 95 percent</li><li>Screened for 100 percent of contact centre recovery cases</li><li>Confirmed account takeover incidents below target threshold</li></ul>
+<ul class="bullets"><li>Response time within 2 minutes</li><li>Verification accuracy rate &gt; 95%</li><li>Escalation response time within 5 minutes</li><li>Second attempt success rate &gt; 85%</li><li>Account lock success rate 100%</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Verification loose enough to become the easiest path for account takeover fraud</li><li>Verification strict enough to lock out a legitimate member from their own points balance</li><li>Restoring access before fraud screening completes, creating a window of exposure</li><li>Self-service and contact centre recovery paths carrying inconsistent verification depth</li></ul>
+<ul class="bullets risk"><li>High volume of requests overwhelming the system during peak times</li><li>Inaccurate data entries leading to false positives/negatives</li><li>Manual intervention slowing down the process</li><li>System errors delaying re-verification or re-authentication</li><li>Manual overrides introducing security risks</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../aeroplan-loyalty/enrolment-member-identity/ac-ap-en-04/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Duplicate Account Detection and Merge</span></a>

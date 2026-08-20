@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-AP-RE-01" title="Click to copy the process ID">
     AC-AP-RE-01<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Flight Award Redemption Booking</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,96 +143,274 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-AP-RE-01-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Award search and pricing</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Initial Request Validation</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Search award availability</b></td>
+<td><b>Receive redemption request</b></td>
 <td>Aeroplan Member Services Agent</td>
 <td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Member search criteria</td>
-<td>Available award options with points pricing</td>
-<td>Search results returned within 3 seconds at 95 percent</td>
+<td>Member&#x27;s selection of flight award and travel details</td>
+<td>Redemption request ticketed for processing</td>
+<td>Response time within 5 seconds</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Award availability changes in real time and a result can be stale by the time the member selects it</td>
+<td>High volume of requests during peak travel seasons can overwhelm the system</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Validate member&#x27;s identity</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Member&#x27;s login credentials and profile data</td>
+<td>Identity validation status</td>
+<td>98% accuracy in identity verification</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Incorrectly flagged identities may lead to customer frustration</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Log redemption request for audit</b></td>
+<td>Aeroplan Operations Control Duty Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Audit Logging System (Air Canada)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Redemption request details</td>
+<td>Audit log entry created</td>
+<td>100% logging accuracy</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Incomplete logs can compromise auditability</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Reschedule flight check</b></td>
+<td>Flight Operations Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada Flight Reservation System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Original flight details</td>
+<td>Updated availability status</td>
+<td>95% successful rescheduling rate</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Repeated checks can increase system load</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-AP-RE-01-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Booking confirmation</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Point Availability Check</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Confirm points price at booking</b></td>
-<td>Aeroplan Member Services Agent</td>
-<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Selected award option</td>
-<td>Confirmed current points price</td>
-<td>Price re-confirmed at the point of booking for 100 percent of redemptions</td>
+<td><b>Check available points balance</b></td>
+<td>Aeroplan Operations Control Duty Manager</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Member&#x27;s account details</td>
+<td>Points balance report</td>
+<td>Balance check within 3 seconds</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A price change between search and booking is the leading cause of redemption complaints</td>
+<td>System delays in point calculations can lead to booking failures</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Verify sufficient points balance</b></td>
-<td>Aeroplan Member Services Agent</td>
+<td><b>Verify flight availability</b></td>
+<td>Flight Operations Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada Flight Reservation System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Selected flight details</td>
+<td>Availability status</td>
+<td>95% accuracy in flight availability checks</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Real-time updates to flight schedules can cause discrepancies</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Adjust points balance manually</b></td>
+<td>Aeroplan Operations Control Duty Manager</td>
 <td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Member points balance and confirmed price</td>
-<td>Verified sufficient balance or insufficient-balance flag</td>
-<td>Balance verified before booking confirmation at 100 percent</td>
+<td>Manual adjustment request</td>
+<td>Adjusted points balance</td>
+<td>95% successful manual adjustments</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>A points-plus-cash option has to be offered correctly when the balance is insufficient</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual interventions can introduce errors</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-AP-RE-01-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Ledger settlement</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Redemption Eligibility Assessment</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Issue the award booking</b></td>
-<td>Aeroplan Member Services Agent</td>
-<td><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Verified balance and confirmed price</td>
-<td>Issued award ticket</td>
-<td>Booking issued within 5 minutes of confirmation at 100 percent</td>
+<td><b>Assess redemption eligibility</b></td>
+<td>Aeroplan Compliance Officer</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Member&#x27;s account history and program rules</td>
+<td>Eligibility status report</td>
+<td>90% accuracy in eligibility assessments</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Award ticket issuance failures leave points deducted without a valid booking if not handled atomically</td>
+<td>Complex rules can lead to manual overrides</td>
 </tr><tr>
 <td class="c-step">3.2</td>
-<td><b>Deduct points and settle the ledger</b></td>
-<td>Aeroplan Member Services Agent</td>
+<td><b>Initiate booking process</b></td>
+<td>Flight Operations Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada Flight Reservation System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Member&#x27;s details and flight selection</td>
+<td>Booking confirmation</td>
+<td>98% successful booking rate</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System integration issues can cause booking failures</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Override eligibility rules</b></td>
+<td>Aeroplan Compliance Officer</td>
 <td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Issued booking</td>
-<td>Points deducted from member ledger</td>
-<td>Ledger settled within the same transaction as booking issuance at 100 percent</td>
+<td>Manual override request</td>
+<td>Eligibility status updated</td>
+<td>90% successful overrides</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Overriding rules can lead to compliance risks</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-RE-01-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Booking Confirmation</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Confirm points deduction</b></td>
+<td>Aeroplan Operations Control Duty Manager</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Booking confirmation details</td>
+<td>Points deducted from account</td>
+<td>99% accuracy in point deductions</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A settlement failure after ticket issuance can leave the member&#x27;s ledger and booking out of sync</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Incorrect point deductions can lead to financial disputes</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Update member profile</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Booking details and updated points balance</td>
+<td>Member profile updated</td>
+<td>95% successful profile updates</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Profile synchronization issues can cause data inconsistencies</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Re-attempt booking process</b></td>
+<td>Flight Operations Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada Flight Reservation System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Previous booking details</td>
+<td>Booking confirmation</td>
+<td>85% successful re-attempts</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Re-attempts can increase system load</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-RE-01-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Post-Booking Actions</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Send booking confirmation email</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Email Marketing System (Air Canada)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Member&#x27;s contact details and booking information</td>
+<td>Confirmation email sent</td>
+<td>98% delivery rate of emails</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Email deliverability issues can lead to customer confusion</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Attempt email delivery retry</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Email Marketing System (Air Canada)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Member&#x27;s contact details and booking information</td>
+<td>Retried confirmation email sent</td>
+<td>90% successful retry rate</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Persistent delivery failures can cause customer dissatisfaction</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Send alternative communication method</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">SMS Marketing System (Air Canada)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Member&#x27;s contact details and booking information</td>
+<td>Alternative confirmation sent</td>
+<td>98% successful delivery rate</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Communication failures can lead to customer confusion</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-RE-01-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Notification and Finalization</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Finalize booking record</b></td>
+<td>Aeroplan Operations Control Duty Manager</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Booking confirmation and member details</td>
+<td>Finalized booking record</td>
+<td>98% successful finalization rate</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Finalization errors can lead to duplicate bookings</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Notify compliance team of successful redemption</b></td>
+<td>Aeroplan Compliance Officer</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Compliance Monitoring System (Air Canada)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Successful booking details</td>
+<td>Notification sent</td>
+<td>100% notification accuracy</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed notifications can lead to compliance oversights</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Update financial records</b></td>
+<td>Air Canada Finance Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Financial Reporting System (Air Canada)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Booking details and point deductions</td>
+<td>Updated financial record</td>
+<td>98% successful updates</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Incorrect financial records can lead to reconciliation issues</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Aeroplan Member Services Agent</span><span class="lane-steps">1.1 2.1 2.2 3.1 3.2</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Aeroplan Member Services Agent</span><span class="lane-steps">1.1 1.2 4.2 5.1 5.2 5.3</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Aeroplan Operations Control Duty Manager</span><span class="lane-steps">2.1 4.1 6.1 1.3 2.3</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Flight Operations Analyst</span><span class="lane-steps">2.2 3.2 1.4 4.3</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Aeroplan Compliance Officer</span><span class="lane-steps">3.1 6.2 3.3</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Air Canada Finance Analyst</span><span class="lane-steps">6.3</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+<div class="card"><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada Flight Reservation System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Email Marketing System (Air Canada)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Compliance Monitoring System (Air Canada)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Audit Logging System (Air Canada)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">SMS Marketing System (Air Canada)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Financial Reporting System (Air Canada)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Price re-confirmed at the point of booking for 100 percent of redemptions</li><li>Booking issued within 5 minutes of confirmation at 100 percent</li><li>Ledger settled within the same transaction as booking issuance at 100 percent</li><li>Redemption booking complaint rate below target threshold</li></ul>
+<ul class="bullets"><li>98% response time within 5 seconds for initial requests</li><li>99% accuracy in point deductions</li><li>98% successful booking rate</li><li>98% delivery rate of emails and SMS notifications</li><li>98% successful finalization rate</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A points price changing between search and booking, the leading cause of redemption complaints</li><li>A ticket issuance failure leaving points deducted without a corresponding valid booking</li><li>A settlement failure leaving the member&#x27;s ledger and booking record out of sync</li><li>Stale award availability shown in search results by the time the member attempts to book</li></ul>
+<ul class="bullets risk"><li>System delays in point calculations can lead to booking failures</li><li>Real-time updates to flight schedules can cause discrepancies</li><li>Complex rules can lead to manual overrides</li><li>Incorrect point deductions can lead to financial disputes</li><li>Email deliverability issues can lead to customer confusion</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../aeroplan-loyalty/enrolment-member-identity/ac-ap-en-06/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Member Data Privacy Request Handling</span></a>
