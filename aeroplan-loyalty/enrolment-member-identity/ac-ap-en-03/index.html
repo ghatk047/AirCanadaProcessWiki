@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-AP-EN-03" title="Click to copy the process ID">
     AC-AP-EN-03<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Member Profile Consolidation Across Channels</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,274 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-AP-EN-03-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Cross-channel data collection</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Data Ingestion</span>
+    <span class="ph-n">5 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Collect profile-relevant data across channels</b></td>
+<td><b>Receive member data from channel</b></td>
 <td>Aeroplan Member Services Agent</td>
 <td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Interaction data from web, app, contact centre and partners</td>
-<td>Collected multi-channel data points</td>
-<td>Collected within 24 hours of the interaction at 100 percent</td>
+<td>Member enrolment or update request</td>
+<td>Raw member data</td>
+<td>Data ingestion time &lt; 5 seconds</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Channels capture different subsets of profile data with inconsistent field structures</td>
+<td>System latency can cause delays in processing new enrolments.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Check for existing member profile</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Raw member data</td>
+<td>Profile existence status</td>
+<td>Profile check time &lt; 1 second</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Duplicate profiles can lead to data inconsistencies.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Create new member profile</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Raw member data</td>
+<td>New member profile ID</td>
+<td>Profile creation time &lt; 2 seconds</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Database constraints can cause profile creation failures.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Retry profile creation</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Raw member data</td>
+<td>New member profile ID</td>
+<td>Profile creation time &lt; 2 seconds</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Database constraints can cause profile creation failures.</td>
+</tr><tr>
+<td class="c-step">1.5</td>
+<td><b>Escalate to support for profile creation failure</b></td>
+<td>Aeroplan Technical Support Analyst</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Raw member data and error logs</td>
+<td>Support ticket ID</td>
+<td>Escalation response time &lt; 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Profile creation failures can disrupt new member onboarding.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-AP-EN-03-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Consolidation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Profile Validation</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Resolve conflicting data points</b></td>
+<td><b>Fetch existing profile data</b></td>
 <td>Aeroplan Member Services Agent</td>
 <td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Multiple data points for the same field</td>
-<td>Resolved single value with a source of truth</td>
-<td>Conflicts resolved automatically for 90 percent of cases</td>
-<td class="c-flag"><span class="yes">Y</span></td>
+<td>Existing member profile ID</td>
+<td>Existing profile details</td>
+<td>Data retrieval time &lt; 1 second</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Automated resolution rules can pick a stale value over a more recent but less-trusted channel</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Database connectivity issues can cause data fetch failures.</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Retry fetching existing profile data</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Existing member profile ID</td>
+<td>Existing profile details</td>
+<td>Data retrieval time &lt; 1 second</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Database connectivity issues can cause data fetch failures.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Escalate to support for profile fetch failure</b></td>
+<td>Aeroplan Technical Support Analyst</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Existing member profile ID and error logs</td>
+<td>Support ticket ID</td>
+<td>Escalation response time &lt; 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Profile fetch failures can disrupt data updates.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-AP-EN-03-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Profile currency validation</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Consolidation</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Validate consolidated profile currency</b></td>
+<td><b>Compare new data with existing profile</b></td>
 <td>Aeroplan Member Services Agent</td>
-<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Consolidated profile</td>
-<td>Validated current profile</td>
-<td>Validated on a recurring cycle for 100 percent of active members</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>New and existing profile details</td>
+<td>Comparison results</td>
+<td>Comparison time &lt; 0.5 seconds</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>A profile that is technically consolidated can still be stale if the member has simply stopped updating it</td>
+<td>Data discrepancies can lead to incorrect updates.</td>
 </tr><tr>
 <td class="c-step">3.2</td>
-<td><b>Prompt member self-verification where data is stale</b></td>
+<td><b>Resolve data discrepancies</b></td>
 <td>Aeroplan Member Services Agent</td>
-<td><span class="tag channel" data-tooltip="iOS and Android. Booking, check-in, boarding pass, in-app bag tracking and mobility-aid tracking. [Air Canada - evidence A]">Air Canada Mobile App<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Stale profile flag</td>
-<td>Member-confirmed or updated profile</td>
-<td>Prompt issued to 100 percent of members with a profile older than the staleness threshold</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Comparison results and new profile details</td>
+<td>Resolved profile details</td>
+<td>Resolution time &lt; 1 minute</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual resolution can be time-consuming.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Escalate unresolved discrepancies to supervisor</b></td>
+<td>Aeroplan Operations Control Duty Manager</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Comparison results and new profile details</td>
+<td>Supervisor approval or instructions</td>
+<td>Escalation response time &lt; 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Unresolved discrepancies can lead to data errors.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-EN-03-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Exception Handling</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Update existing profile with new data</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Resolved profile details</td>
+<td>Updated profile status</td>
+<td>Update time &lt; 2 seconds</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Profile update failures can cause data inconsistencies.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Retry profile update</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Resolved profile details</td>
+<td>Updated profile status</td>
+<td>Update time &lt; 2 seconds</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Profile update failures can cause data inconsistencies.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Escalate to support for profile update failure</b></td>
+<td>Aeroplan Technical Support Analyst</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Resolved profile details and error logs</td>
+<td>Support ticket ID</td>
+<td>Escalation response time &lt; 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Profile update failures can disrupt member experience.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-EN-03-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Update Notification</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Notify member of profile update</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Updated profile status and member contact information</td>
+<td>Notification sent</td>
+<td>Notification time &lt; 30 seconds</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Members have little incentive to respond to a profile currency prompt outside a transaction</td>
+<td>Delayed notifications can cause confusion.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Log update transaction</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Updated profile status and transaction details</td>
+<td>Transaction log entry</td>
+<td>Logging time &lt; 1 second</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Missing logs can complicate audits.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-EN-03-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Final Review</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Final review of updated profile</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Updated profile details and transaction log</td>
+<td>Review status</td>
+<td>Review time &lt; 2 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inaccurate reviews can lead to incorrect data.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Correct incorrect data in profile</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Review status and updated profile details</td>
+<td>Corrected profile details</td>
+<td>Correction time &lt; 1 minute</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual corrections can be time-consuming.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Escalate correction failure to supervisor</b></td>
+<td>Aeroplan Operations Control Duty Manager</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Review status and updated profile details</td>
+<td>Supervisor approval or instructions</td>
+<td>Escalation response time &lt; 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Uncorrected data can cause errors.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Aeroplan Member Services Agent</span><span class="lane-steps">1.1 2.1 3.1 3.2</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Aeroplan Member Services Agent</span><span class="lane-steps">1.1 1.2 1.3 1.4 2.1 2.2 3.1 3.2 4.1 4.2 5.1 5.2 6.1 6.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Aeroplan Technical Support Analyst</span><span class="lane-steps">1.5 2.3 4.3</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Aeroplan Operations Control Duty Manager</span><span class="lane-steps">3.3 6.3</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag channel" data-tooltip="iOS and Android. Booking, check-in, boarding pass, in-app bag tracking and mobility-aid tracking. [Air Canada - evidence A]">Air Canada Mobile App<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+<div class="card"><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Collected within 24 hours of the interaction at 100 percent</li><li>Conflicts resolved automatically for 90 percent of cases</li><li>Validated on a recurring cycle for 100 percent of active members</li><li>Member-reported profile inaccuracy rate below target</li></ul>
+<ul class="bullets"><li>Data ingestion time &lt; 5 seconds</li><li>Profile check time &lt; 1 second</li><li>Profile creation time &lt; 2 seconds</li><li>Comparison time &lt; 0.5 seconds</li><li>Resolution time &lt; 1 minute</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Automated conflict resolution rules picking a stale value over a more recent but less-trusted channel</li><li>Channels capturing inconsistent subsets of profile data that never fully reconcile</li><li>A profile that is technically consolidated but stale because the member has stopped interacting</li><li>Partner channel data arriving in a structure that does not map cleanly to the core profile schema</li></ul>
+<ul class="bullets risk"><li>System latency affecting data processing times</li><li>Database constraints causing profile creation failures</li><li>Data discrepancies leading to incorrect updates</li><li>Profile update failures disrupting member experience</li><li>Missing logs complicating audits</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../aeroplan-loyalty/enrolment-member-identity/ac-ap-en-02/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Consent Capture and Preference Management</span></a>
