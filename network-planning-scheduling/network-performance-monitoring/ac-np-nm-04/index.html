@@ -135,7 +135,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-NP-NM-04" title="Click to copy the process ID">
     AC-NP-NM-04<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>On Time Performance Root Cause Attribution</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -144,107 +144,233 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-NP-NM-04-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Delay data compilation</span>
-    <span class="ph-n">1 steps</span></div>
-  <div class="phase-body"><div class="tbl-wrap"><table>
-  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
-  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
-  <tbody><tr>
-<td class="c-step">1.1</td>
-<td><b>Compile delay data by cause code</b></td>
-<td>Network Planning Analyst</td>
-<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Operational delay records</td>
-<td>Compiled delay data by cause code</td>
-<td>Compiled within 3 business days of period close at 100 percent</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Cause codes are recorded under operational time pressure and are not always precise</td>
-</tr></tbody></table></div></div>
-</div><div class="phase-group" data-phase-id="AC-NP-NM-04-2">
-  <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Root cause attribution</span>
+    <span class="ph-name">Phase 1 &mdash; Incident Detection</span>
     <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
-<td class="c-step">2.1</td>
-<td><b>Attribute delay to network design</b></td>
+<td class="c-step">1.1</td>
+<td><b>Flight status update received</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Automatic alert from Lufthansa Systems NetLine</td>
+<td>Incident logged in the system</td>
+<td>Time to detect incident &lt; 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Alerts can be delayed due to system overload during peak travel periods.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Determine if delay exceeds threshold</b></td>
 <td>Network Planning Analyst</td>
-<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Compiled delay data and schedule structure</td>
-<td>Network-attributed delay</td>
-<td>Network attribution completed each reporting cycle</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Flight status update</td>
+<td>Decision on whether further analysis is required</td>
+<td>Threshold set at 15 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delays below the threshold may not trigger a full analysis, leading to missed opportunities for improvement.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Initiate data collection</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Incident log</td>
+<td>Data collection request sent</td>
+<td>Data collection initiated within 5 minutes of threshold exceedance</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Insufficient ground time built into the schedule reads as an airport delay unless traced back</td>
+<td>Manual intervention required to initiate data collection, increasing response time.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-NM-04-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Data Collection</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Retrieve flight data from NetLine/Plan</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Data collection request</td>
+<td>Flight data report</td>
+<td>Data retrieval completed within 10 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>NetLine/Plan may experience connectivity issues, delaying data retrieval.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Attribute delay to airport and ground process</b></td>
+<td><b>Retrieve crew and equipment status</b></td>
 <td>Network Planning Analyst</td>
-<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Compiled delay data and station performance</td>
-<td>Airport-attributed delay</td>
-<td>Airport attribution completed each reporting cycle</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Station-level process issues are masked when reported only at the network level</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Flight data report</td>
+<td>Crew and equipment status report</td>
+<td>Data retrieval completed within 10 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System downtime can affect the availability of crew and equipment status.</td>
 </tr><tr>
 <td class="c-step">2.3</td>
-<td><b>Attribute delay to crew and maintenance</b></td>
+<td><b>Skip further analysis</b></td>
 <td>Network Planning Analyst</td>
-<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Compiled delay data</td>
-<td>Crew and maintenance attributed delay</td>
-<td>Crew and maintenance attribution completed each reporting cycle</td>
+<td></td>
+<td>Incident log</td>
+<td>No action needed</td>
+<td>No action time &lt; 1 minute</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Crew-caused and maintenance-caused delay are sometimes coded interchangeably at source</td>
+<td>Automated skip may miss valuable insights.</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Retry data retrieval</b></td>
+<td>Network Planning Analyst</td>
+<td></td>
+<td>Error message</td>
+<td>Data collection request sent again</td>
+<td>Retry time &lt; 5 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Multiple retries can consume significant analyst time.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-NP-NM-04-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Recommendation and routing</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Root Cause Analysis</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Route structural findings to the responsible owner</b></td>
+<td><b>Analyze flight data for delays</b></td>
 <td>Network Planning Analyst</td>
-<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Attributed root causes</td>
-<td>Findings routed with an owner and target</td>
-<td>Findings routed within 10 business days of the reporting cycle</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Flight data report</td>
+<td>Analysis of delay causes</td>
+<td>Analysis completed within 20 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>A finding routed to the wrong owner sits unactioned until the next review surfaces it again</td>
+<td>Complex flight patterns can complicate the analysis process.</td>
 </tr><tr>
 <td class="c-step">3.2</td>
-<td><b>Track structural fix implementation</b></td>
+<td><b>Identify crew or equipment issues</b></td>
 <td>Network Planning Analyst</td>
-<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Routed finding</td>
-<td>Confirmed fix implementation or documented deferral</td>
-<td>Structural fixes implemented or explicitly deferred within one planning cycle at 90 percent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Crew and equipment status report</td>
+<td>List of identified issues</td>
+<td>Issue identification completed within 15 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed communication from ground support can lead to inaccurate issue identification.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Review external factors</b></td>
+<td>Network Planning Analyst</td>
+<td></td>
+<td>Analysis of delay causes</td>
+<td>List of external factors</td>
+<td>External factor review completed within 10 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Weather data may be delayed, impacting the accuracy of external factor analysis.</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Compile root cause report</b></td>
+<td>Network Planning Analyst</td>
+<td></td>
+<td>Analysis and issue identification results</td>
+<td>Root cause report</td>
+<td>Report compiled within 10 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Implementation tracking stops at the recommendation and is not closed against actual delivery</td>
+<td>Manual compilation can introduce errors.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-NM-04-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Impact Assessment</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Assess impact on network performance</b></td>
+<td>Network Planning Analyst</td>
+<td></td>
+<td>Root cause report</td>
+<td>Impact assessment</td>
+<td>Impact assessment completed within 5 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex network dependencies can make impact assessment challenging.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Evaluate potential mitigation strategies</b></td>
+<td>Network Planning Analyst</td>
+<td></td>
+<td>Impact assessment</td>
+<td>List of mitigation strategies</td>
+<td>Mitigation strategy evaluation completed within 10 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Resource constraints can limit the effectiveness of proposed mitigations.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Generate mitigation plan</b></td>
+<td>Network Planning Analyst</td>
+<td></td>
+<td>Mitigation strategies</td>
+<td>Mitigation plan</td>
+<td>Mitigation plan generated within 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual plan generation can be time-consuming.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-NM-04-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Mitigation Planning</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Implement mitigation measures</b></td>
+<td>Network Planning Analyst</td>
+<td></td>
+<td>Mitigation plan</td>
+<td>Mitigation measures implemented</td>
+<td>Measures implementation completed within 20 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Implementation delays can exacerbate network issues.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Review and adjust mitigation plan</b></td>
+<td>Network Planning Analyst</td>
+<td></td>
+<td>Implementation results</td>
+<td>Adjusted mitigation plan</td>
+<td>Plan adjustment completed within 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Adjustments may require additional time for coordination.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Network Planning Analyst</span><span class="lane-steps">1.1 2.1 2.2 2.3 3.1 3.2</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">1.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Network Planning Analyst</span><span class="lane-steps">1.2 1.3 2.1 2.2 2.3 2.4 3.1 3.2 3.3 3.4 4.1 4.2 4.3 5.1 5.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid."><span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Compiled within 3 business days of period close at 100 percent</li><li>Findings routed within 10 business days of the reporting cycle</li><li>Network attribution completed each reporting cycle</li><li>OTP root cause correctly attributed on 85 percent of material delay drivers</li></ul>
+<ul class="bullets"><li>Time to detect incident &lt; 5 minutes</li><li>Data collection initiated within 5 minutes of threshold exceedance</li><li>Data retrieval completed within 10 minutes</li><li>Analysis completed within 20 minutes</li><li>Impact assessment completed within 5 minutes</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Insufficient scheduled ground time reading as an airport delay unless explicitly traced back</li><li>Crew-caused and maintenance-caused delay coded interchangeably at the point of entry</li><li>A structural finding routed to the wrong owner going unactioned for a full reporting cycle</li><li>Station-level process issues masked by a network-level aggregate OTP figure</li></ul>
+<ul class="bullets risk"><li>System overload during peak travel periods</li><li>NetLine/Plan connectivity issues</li><li>System downtime affecting crew and equipment status</li><li>Complex flight patterns complicating analysis</li><li>Delayed communication from ground support</li><li>Weather data delays impacting external factor analysis</li><li>Manual compilation introducing errors</li><li>Complex network dependencies making impact assessment challenging</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../network-planning-scheduling/network-performance-monitoring/ac-np-nm-03/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Load Factor and RASK Variance Analysis</span></a>
