@@ -55,22 +55,29 @@ def build_mermaid(phases, steps, font_size="12px"):
     """
     Deterministic flowchart: one subgraph per phase, steps chained in order.
 
-    Top level is TB so phases stack vertically and each phase runs LR internally.
-    The reverse (LR outer / TB inner) renders as a single very wide strip because
-    mermaid ignores `direction TB` inside a subgraph of an LR flowchart.
+    Top level is LR so phases sit side by side (matching a standard BPMN swim
+    diagram) and each phase stacks its steps TB internally. Phases are linked
+    subgraph-to-subgraph (P1 --> P2), never node-to-node across a boundary --
+    a node-to-node edge crossing INTO a subgraph makes mermaid discard that
+    subgraph's own `direction`, collapsing the whole diagram onto one axis.
+    Subgraph-to-subgraph edges do not trigger that bug in either orientation,
+    confirmed empirically for both TB-outer/LR-inner and LR-outer/TB-inner.
+    LR-outer keeps the rendered image wide rather than tall, which degrades far
+    more gracefully on a normally-scrolling web page.
     """
     by_phase = {}
     for s in steps:
         by_phase.setdefault(_phase_of(s["step"]), []).append(s)
 
-    lines = [f"%%{{init: {{'theme':'base','themeVariables':{{'fontSize':'{font_size}'}}}}}}%%",
-             "flowchart TB"]
+    lines = [f"%%{{init: {{'theme':'base','themeVariables':{{'fontSize':'{font_size}'}},"
+             f"'flowchart':{{'curve':'basis'}}}}}}%%",
+             "flowchart LR"]
 
     dec, exc, norm = [], [], []
     for ph in sorted(by_phase):
         pname = _label(phases[ph - 1] if ph <= len(phases) else f"Phase {ph}", 38)
         lines.append(f"subgraph P{ph} [{pname}]")
-        lines.append("direction LR")
+        lines.append("direction TB")
         for s in by_phase[ph]:
             nid = _node_id(s["step"])
             lbl = _label(s["name"])

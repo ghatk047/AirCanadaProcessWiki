@@ -461,7 +461,6 @@ This process is defined in the taxonomy but its L4 step documentation has not be
 
     toc = """<aside class="toc">
   <div class="toc-t">On this page</div>
-  <a href="#overview">Overview</a>
   <a href="#bpmn">Process flow</a>
   <a href="#steps">Process steps</a>
   <a href="#lanes">Swim lanes</a>
@@ -470,23 +469,7 @@ This process is defined in the taxonomy but its L4 step documentation has not be
   <a href="#risks">Risks</a>
 </aside>"""
 
-    notes = ""
-    if c.get("ac_notes"):
-        notes = (f'<div class="callout"><span class="ct">Air Canada context</span>'
-                 f'{E(c["ac_notes"])}</div>')
-
     main = f"""{head}
-<p class="lede" id="overview">{E(c.get('description'))}</p>
-{notes}
-<div class="meta-grid">
-  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">{E(c.get('trigger'))}</div></div>
-  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">{E(c.get('outcome'))}</div></div>
-  <div class="meta-item"><div class="lbl">Domain</div><div class="val">{E(p['l1_name'])}<br>
-    <span style="color:var(--text-muted);font-size:12px">{E(p['l2_name'])}</span></div></div>
-  <div class="meta-item"><div class="lbl">Steps</div><div class="val">{len(steps)} across
-    {len(grouped)} phases</div></div>
-</div>
-
 <h2 id="bpmn">Process flow</h2>
 {diagram}
 

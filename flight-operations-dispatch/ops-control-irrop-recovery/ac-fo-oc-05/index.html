@@ -137,17 +137,6 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
   <span class="updated">Updated 2026-08-18</span>
 </div>
 <h1>Express Operator Disruption Reconciliation</h1>
-<p class="lede" id="overview">During irregular operations, disruption data for Air Canada Express flights operated by Jazz Aviation and PAL Airlines must be reconciled into the mainline operational picture at the Toronto operations centre. The operators run their own crew, ops-control and maintenance systems, so the reconciliation happens at a seam rather than inside a shared system of record.</p>
-<div class="callout"><span class="ct">Air Canada context</span>This is the highest-value integration seam in the Air Canada estate. Jazz and PAL fly Air Canada Express under capacity purchase agreements on their own systems, and disruption data crosses the boundary today by spreadsheet, email and phone. The seam matters twice over: it delays recovery, and because APPR entitlement depends on the disruption reason code, an inconsistent code at the seam becomes a regulatory exposure downstream in AC-CX-CR-02.</div>
-<div class="meta-grid">
-  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">An Express-operated flight is delayed, cancelled or diverted, or a mainline recovery plan requires capacity from an Express operator.</div></div>
-  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A single reconciled operational picture covering mainline and Express flights, with consistent delay reason codes, passenger disposition and a recovery plan the operator has accepted.</div></div>
-  <div class="meta-item"><div class="lbl">Domain</div><div class="val">Flight Operations &amp; Dispatch<br>
-    <span style="color:var(--text-muted);font-size:12px">Ops Control &amp; IRROP Recovery</span></div></div>
-  <div class="meta-item"><div class="lbl">Steps</div><div class="val">12 across
-    3 phases</div></div>
-</div>
-
 <h2 id="bpmn">Process flow</h2>
 <div class="diagram-wrap"><span class="dg-hint">Click to zoom</span><img src="../../../assets/img/ac-fo-oc-05.png" alt="Express Operator Disruption Reconciliation process flow" loading="lazy"></div>
 
@@ -327,7 +316,6 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
   <a class="next" href="../../../flight-operations-dispatch/ops-control-irrop-recovery/ac-fo-oc-06/"><span class="pg-l">Next  J &rarr;</span><span class="pg-n">Ground Stop and System Outage Fallback Operation</span></a>
 </div></div><aside class="toc">
   <div class="toc-t">On this page</div>
-  <a href="#overview">Overview</a>
   <a href="#bpmn">Process flow</a>
   <a href="#steps">Process steps</a>
   <a href="#lanes">Swim lanes</a>

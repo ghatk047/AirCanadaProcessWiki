@@ -15,7 +15,7 @@ DIA = os.path.join(ROOT, "diagrams")
 IMG = os.path.join(ROOT, "assets", "img")
 HASHES = os.path.join(ROOT, "data", ".diagram-hashes.json")
 
-PROC_ARGS = ["-w", "2600", "-H", "3400", "--scale", "2", "--backgroundColor", "white"]
+PROC_ARGS = ["-w", "3600", "-H", "1400", "--scale", "2", "--backgroundColor", "white"]
 EA_ARGS   = ["-w", "2400", "-H", "1400", "--scale", "2", "--backgroundColor", "white"]
 
 
