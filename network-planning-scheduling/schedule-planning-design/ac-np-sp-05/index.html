@@ -136,18 +136,18 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-NP-SP-05" title="Click to copy the process ID">
     AC-NP-SP-05<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Schedule Publication and SSIM Distribution</h1>
-<p class="lede" id="overview">The frozen schedule is published to the industry in IATA SSIM format and loaded into inventory so it becomes sellable. Publication reaches global distribution systems, alliance partners, airports and the direct channels.</p>
-<div class="callout"><span class="ct">Air Canada context</span>Publication is the point at which a planning decision becomes a public commitment. The mechanics are unglamorous and load-bearing: SSIM files and IATA Type-B messaging still carry schedule change across the industry, and a schedule that is inconsistent between inventory and the GDS estate produces bookings Air Canada cannot honour. Post-freeze changes are the main source of that inconsistency, because each one has to propagate through every channel in the same cycle.</div>
+<p class="lede" id="overview">The Schedule Publication and SSIM Distribution process involves creating, validating, and disseminating flight schedules to various stakeholders across Air Canada&#x27;s network operations, ensuring compliance with regulatory requirements and operational constraints.</p>
+<div class="callout"><span class="ct">Air Canada context</span>This process is critical for maintaining Toronto Pearson&#x27;s Sixth Freedom connectivity traffic between the US and Europe/Asia over Canada. The A++ Atlantic Joint Venture with United and Lufthansa Group adds complexity as transatlantic capacity decisions require coordination across multiple partners. Additionally, regulatory constraints such as EU-95 noise abatement rules must be strictly adhered to, impacting schedule design.</div>
 <div class="meta-grid">
-  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A schedule freeze completes, or a post-freeze schedule change requires republication to the market.</div></div>
-  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">A schedule visible and sellable in every distribution channel, consistent across inventory, the GDS estate, alliance partners and aircanada.com.</div></div>
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">Completion of the weekly long-range schedule design in NetLine/Plan by the Network Planning team.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">The final published schedule is distributed to all relevant systems and stakeholders, including Operations Control Duty Managers, SSIM, and Star Alliance partners, ensuring that all flight operations are accurately planned and executed.</div></div>
   <div class="meta-item"><div class="lbl">Domain</div><div class="val">Network Planning &amp; Scheduling<br>
     <span style="color:var(--text-muted);font-size:12px">Schedule Planning &amp; Design</span></div></div>
-  <div class="meta-item"><div class="lbl">Steps</div><div class="val">12 across
-    3 phases</div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">16 across
+    6 phases</div></div>
 </div>
 
 <h2 id="bpmn">Process flow</h2>
@@ -156,173 +156,241 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-NP-SP-05-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Publication preparation</span>
-    <span class="ph-n">4 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Schedule Design and Validation</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Extract the frozen schedule</b></td>
-<td>Schedule Publication Analyst</td>
-<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Frozen seasonal schedule</td>
-<td>SSIM-format schedule extract</td>
-<td>Extract produced within 1 business day of freeze</td>
+<td><b>Initiate schedule design in NetLine/Plan</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Weekly schedule planning inputs from stakeholders</td>
+<td>Initial draft of the weekly schedule</td>
+<td>100% accurate initial draft within 24 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Post-freeze changes mean the extract is often already stale when it is produced</td>
+<td>NetLine/Plan can be slow to load, causing delays in initial design.</td>
 </tr><tr>
 <td class="c-step">1.2</td>
-<td><b>Validate schedule data quality</b></td>
-<td>Schedule Publication Analyst</td>
-<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Schedule extract</td>
-<td>Validated extract with exception list</td>
-<td>Data quality exceptions below 0.5 percent of legs</td>
-<td class="c-flag"><span class="yes">Y</span></td>
+<td><b>Validate schedule against aircraft utilisation constraints</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag iata" data-tooltip="Transatlantic JV with United and Lufthansa Group. Coordinated schedules and revenue share. [A++ JV - evidence A]">A++ Atlantic Joint Venture<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Initial draft of the weekly schedule</td>
+<td>Validated schedule with noted conflicts</td>
+<td>95% conflict resolution within 48 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Validation catches format errors but not commercially wrong timings</td>
-</tr><tr>
-<td class="c-step">1.3</td>
-<td><b>Apply codeshare and operating carrier designations</b></td>
-<td>Alliance Manager</td>
-<td><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Validated extract and codeshare agreements</td>
-<td>Schedule with correct operating and marketing carriers</td>
-<td>Codeshare designations correct at publication at 100 percent</td>
 <td class="c-flag"><span class="yes">Y</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Operating carrier designation for Express-operated legs is a recurring source of error</td>
-</tr><tr>
-<td class="c-step">1.4</td>
-<td><b>Confirm slot alignment before publication</b></td>
-<td>Slot Coordinator</td>
-<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Schedule extract and held slots</td>
-<td>Slot-aligned schedule or exception list</td>
-<td>Published timings match held slots at 100 percent</td>
-<td class="c-flag"><span class="yes">Y</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Publishing a timing not backed by a slot creates an obligation that cannot be met</td>
+<td>A++ JV requires manual coordination, leading to potential delays in conflict resolution.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-NP-SP-05-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Distribution</span>
-    <span class="ph-n">4 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Conflict Resolution</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Load schedule to inventory</b></td>
-<td>Schedule Publication Analyst</td>
-<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Validated schedule</td>
-<td>Schedule loaded and sellable</td>
-<td>Inventory load completed within the publication window at 100 percent</td>
+<td><b>Identify and resolve schedule conflicts</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Validated schedule with noted conflicts</td>
+<td>Conflict-free schedule draft</td>
+<td>90% conflict resolution within 24 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Load failures are detected by exception report rather than at the point of load</td>
+<td>Manual conflict resolution in NetLine can be time-consuming and error-prone.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Distribute SSIM to the industry</b></td>
-<td>Schedule Publication Analyst</td>
-<td><span class="tag iata" data-tooltip="Legacy airline teletype messaging: PNL, ADL, BSM, LDM, MVT. Still load-bearing across the estate. [IATA - evidence C]">IATA Type-B Messaging<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>SSIM schedule file</td>
-<td>Schedule distributed to GDS and industry recipients</td>
-<td>SSIM distributed on the published schedule at 100 percent</td>
+<td><b>Revalidate schedule with updated conflicts</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Conflict-free schedule draft</td>
+<td>Final validated schedule</td>
+<td>100% accuracy within 24 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Recipients process on their own cycles, so market visibility lags publication unevenly</td>
-</tr><tr>
-<td class="c-step">2.3</td>
-<td><b>Notify alliance and joint venture partners</b></td>
-<td>Alliance Manager</td>
-<td><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Published schedule</td>
-<td>Partner schedule notification</td>
-<td>Partners notified within 2 business days of publication</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Partner notification is a separate manual step from industry distribution</td>
-</tr><tr>
-<td class="c-step">2.4</td>
-<td><b>Publish to direct channels</b></td>
-<td>Schedule Publication Analyst</td>
-<td><span class="tag channel" data-tooltip="Primary direct digital channel, cloud-native on AWS. Undergoing redevelopment under the CDO. [Air Canada - evidence A]">aircanada.com<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Loaded inventory</td>
-<td>Schedule visible on web and mobile</td>
-<td>Direct channels reflect published schedule within 4 hours</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Direct channels can show a schedule the GDS estate has not yet processed</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Revalidation in NetLine/Plan can introduce new conflicts that require additional resolution.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-NP-SP-05-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Consistency assurance</span>
-    <span class="ph-n">4 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Regulatory Compliance Check</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Reconcile inventory against published schedule</b></td>
-<td>Schedule Publication Analyst</td>
-<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Published schedule and loaded inventory</td>
-<td>Reconciliation with variance list</td>
-<td>Inventory to schedule variance below 0.1 percent of legs</td>
-<td class="c-flag"><span class="yes">Y</span></td>
+<td><b>Check schedule compliance with EU-95 noise abatement rules</b></td>
+<td>Regulatory Compliance Officer</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Final validated schedule</td>
+<td>Compliance report</td>
+<td>100% compliance check within 24 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Reconciliation is periodic, so a variance can be sellable for hours before detection</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>EU-95 rules require specific flight paths and times, often conflicting with operational needs.</td>
 </tr><tr>
 <td class="c-step">3.2</td>
-<td><b>Verify GDS and NDC channel consistency</b></td>
-<td>Schedule Publication Analyst</td>
-<td><span class="tag gds" data-tooltip="Legacy GDS distribution channel. Agency bookings settle through IATA BSP. [Sabre - evidence C]">Sabre GDS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Published schedule</td>
-<td>Channel consistency confirmation</td>
-<td>Channel consistency verified within 24 hours of publication</td>
+<td><b>Adjust schedule to meet compliance requirements</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Compliance report</td>
+<td>Compliant schedule draft</td>
+<td>90% adjustment within 24 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Each distribution channel has to be checked separately with no consolidated view</td>
+<td>Manual adjustments in NetLine can be time-consuming and require revalidation.</td>
 </tr><tr>
 <td class="c-step">3.3</td>
-<td><b>Handle post-publication schedule change</b></td>
-<td>Schedule Publication Analyst</td>
+<td><b>Review adjusted schedule for final validation</b></td>
+<td>Network Planning Analyst</td>
 <td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Approved schedule change</td>
-<td>Republished schedule across all channels</td>
-<td>Schedule changes republished to all channels within 24 hours</td>
+<td>Compliant schedule draft</td>
+<td>Final validated schedule</td>
+<td>100% accuracy within 24 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="yes">Y</span></td>
-<td>Each change re-triggers the full distribution chain and is the main source of channel divergence</td>
+<td>Final review can introduce additional conflicts requiring resolution.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-SP-05-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; SSIM Preparation</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Prepare SSIM data for distribution</b></td>
+<td>SSIM Data Coordinator</td>
+<td><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Compliant schedule draft</td>
+<td>Prepared SSIM data package</td>
+<td>95% preparation accuracy within 24 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Data formatting issues in Star Alliance Interline can cause distribution failures.</td>
 </tr><tr>
-<td class="c-step">3.4</td>
-<td><b>Trigger passenger re-protection where required</b></td>
-<td>Customer Re-protection Analyst</td>
-<td><span class="tag amadeus" data-tooltip="Automated IRROP re-accommodation. Replaced largely manual disruption handling pre-2020. [Amadeus - evidence A]">Amadeus Passenger Recovery<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Schedule change affecting booked passengers</td>
-<td>Re-protection instruction issued</td>
-<td>Affected passengers re-protected within 48 hours of the change</td>
+<td class="c-step">4.2</td>
+<td><b>Review SSIM data for consistency</b></td>
+<td>SSIM Data Coordinator</td>
+<td><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Prepared SSIM data package</td>
+<td>Consistent SSIM data package</td>
+<td>90% consistency within 24 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Manual review in Star Alliance Interline can be time-consuming.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Update SSIM with final schedule changes</b></td>
+<td>SSIM Data Coordinator</td>
+<td><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Consistent SSIM data package</td>
+<td>Updated SSIM system</td>
+<td>100% update accuracy within 24 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Identifying affected bookings depends on the change being coded correctly at source</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>SSIM updates can sometimes fail, requiring manual intervention.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-SP-05-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Distribution and Notification</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Notify relevant stakeholders of schedule changes</b></td>
+<td>Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Final validated schedule</td>
+<td>Stakeholder notification logs</td>
+<td>95% successful notifications within 24 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Email system downtime can delay notifications.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Confirm receipt of notifications by stakeholders</b></td>
+<td>Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Stakeholder notification logs</td>
+<td>Confirmation of receipt</td>
+<td>90% confirmation rate within 48 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual confirmation process can be slow and prone to errors.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Log any issues during distribution</b></td>
+<td>Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Confirmation of receipt</td>
+<td>Distribution issue logs</td>
+<td>100% logging within 24 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Logging system can sometimes fail, causing data loss.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-SP-05-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Post-Distribution Review</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Review distribution logs for any issues</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Distribution issue logs</td>
+<td>Issue resolution plan</td>
+<td>90% issue identification within 24 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual review can be time-consuming and error-prone.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Implement resolution plan for identified issues</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Issue resolution plan</td>
+<td>Resolved schedule</td>
+<td>95% issue resolution within 48 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Resolution can sometimes require additional coordination and revalidation.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Final review of resolved schedule</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Resolved schedule</td>
+<td>Approved final schedule</td>
+<td>100% approval within 24 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual review can introduce new conflicts requiring resolution.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Schedule Publication Analyst</span><span class="lane-steps">1.1 1.2 2.1 2.2 2.4 3.1 3.2 3.3</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Alliance Manager</span><span class="lane-steps">1.3 2.3</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Slot Coordinator</span><span class="lane-steps">1.4</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Customer Re-protection Analyst</span><span class="lane-steps">3.4</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Network Planning Analyst</span><span class="lane-steps">1.1 1.2 2.1 2.2 3.2 3.3 6.1 6.2 6.3</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Regulatory Compliance Officer</span><span class="lane-steps">3.1</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>SSIM Data Coordinator</span><span class="lane-steps">4.1 4.2 4.3</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Operations Control Duty Manager</span><span class="lane-steps">5.1 5.2 5.3</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag iata" data-tooltip="Legacy airline teletype messaging: PNL, ADL, BSM, LDM, MVT. Still load-bearing across the estate. [IATA - evidence C]">IATA Type-B Messaging<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag channel" data-tooltip="Primary direct digital channel, cloud-native on AWS. Undergoing redevelopment under the CDO. [Air Canada - evidence A]">aircanada.com<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag gds" data-tooltip="Legacy GDS distribution channel. Agency bookings settle through IATA BSP. [Sabre - evidence C]">Sabre GDS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag amadeus" data-tooltip="Automated IRROP re-accommodation. Replaced largely manual disruption handling pre-2020. [Amadeus - evidence A]">Amadeus Passenger Recovery<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag iata" data-tooltip="Transatlantic JV with United and Lufthansa Group. Coordinated schedules and revenue share. [A++ JV - evidence A]">A++ Atlantic Joint Venture<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+<div class="card"><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag iata" data-tooltip="Transatlantic JV with United and Lufthansa Group. Coordinated schedules and revenue share. [A++ JV - evidence A]">A++ Atlantic Joint Venture<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>SSIM distributed on the published schedule at 100 percent</li><li>Inventory to published schedule variance below 0.1 percent of legs</li><li>Codeshare and operating carrier designations correct at publication at 100 percent</li><li>Schedule changes republished to all channels within 24 hours</li><li>Published timings matching held slots at 100 percent</li></ul>
+<ul class="bullets"><li>95% accurate initial draft within 24 hours</li><li>95% conflict resolution within 48 hours</li><li>90% adjustment within 24 hours</li><li>95% preparation accuracy within 24 hours</li><li>90% consistency within 24 hours</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Schedule inconsistency between inventory and the GDS estate producing bookings that cannot be honoured</li><li>Publishing a timing not backed by a held slot, creating an unmeetable obligation</li><li>Operating carrier misdesignation on Express-operated legs, which also misdirects regulatory responsibility for the flight</li><li>Post-freeze changes propagating unevenly and leaving channels divergent</li><li>Re-protection missed because a schedule change was coded incorrectly at source</li></ul>
+<ul class="bullets risk"><li>NetLine/Plan system downtime affecting schedule design</li><li>A++ JV coordination delays impacting conflict resolution</li><li>Manual adjustments in NetLine leading to errors</li><li>Data formatting issues in Star Alliance Interline causing distribution failures</li><li>Email system downtime delaying notifications.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../network-planning-scheduling/schedule-planning-design/ac-np-sp-04/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Hub Bank Structure Design for YUL and YVR</span></a>
