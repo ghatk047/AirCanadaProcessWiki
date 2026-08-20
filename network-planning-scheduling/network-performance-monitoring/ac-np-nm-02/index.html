@@ -135,7 +135,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-NP-NM-02" title="Click to copy the process ID">
     AC-NP-NM-02<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Competitor Capacity and Schedule Benchmarking</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -144,107 +144,291 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-NP-NM-02-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Capacity tracking</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Data Collection</span>
+    <span class="ph-n">5 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Track competitor schedule filings</b></td>
+<td><b>Initiate data collection</b></td>
 <td>Network Planning Analyst</td>
-<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">OAG Schedule Analyser<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
-<td>Published competitor schedules</td>
-<td>Tracked competitor capacity position</td>
-<td>Tracking refreshed weekly for all overlapping markets</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Trigger event (monthly review)</td>
+<td>Data extraction from NetLine</td>
+<td>Data extracted within 24 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Filed schedules do not always operate as filed, so tracking can overstate real competitive capacity</td>
+<td>NetLine system slow during peak times</td>
 </tr><tr>
 <td class="c-step">1.2</td>
-<td><b>Flag material capacity changes</b></td>
+<td><b>Verify data integrity</b></td>
 <td>Network Planning Analyst</td>
-<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">OAG Schedule Analyser<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
-<td>Tracked capacity position</td>
-<td>Flagged material change list</td>
-<td>Material changes flagged within 3 business days of filing</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Extracted data</td>
+<td>Verified data set</td>
+<td>Data verification accuracy 99%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Data extraction errors due to NetLine system glitches</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Extract competitor schedules</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Verified data set</td>
+<td>Competitor schedule data</td>
+<td>Schedule data extracted within 3 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Slow internet connection affecting data extraction speed</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Manual data correction</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Failed verification</td>
+<td>Corrected data set</td>
+<td>Data corrected within 2 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Materiality thresholds are judgement based and applied inconsistently</td>
+<td>Resource-intensive manual corrections</td>
+</tr><tr>
+<td class="c-step">1.5</td>
+<td><b>Retry data extraction</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Initial extraction request</td>
+<td>Re-extracted competitor schedule data</td>
+<td>Data re-extraction success rate 80%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System downtime affecting retries</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-NP-NM-02-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Impact assessment</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Competitor Schedule Analysis</span>
+    <span class="ph-n">6 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Assess demand and share impact</b></td>
-<td>Revenue Management Analyst</td>
-<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Flagged competitor change</td>
-<td>Impact assessment by overlapping route</td>
-<td>Impact assessed within 5 business days of flagging</td>
+<td><b>Analyze competitor schedules</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Competitor schedule data</td>
+<td>Analysis report</td>
+<td>Schedule analysis completed within 5 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex schedule analysis due to overlapping routes</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Identify capacity gaps</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Analysis report</td>
+<td>Capacity gap report</td>
+<td>Capacity gaps identified within 3 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Share impact modelling assumes competitor capacity actually operates as filed</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Data interpretation challenges due to variable competitor strategies</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Review capacity gaps</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Capacity gap report</td>
+<td>Reviewed capacity data</td>
+<td>Data review accuracy 95%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Misinterpretation of capacity reports</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Adjust analysis parameters</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Initial analysis parameters</td>
+<td>Adjusted analysis parameters</td>
+<td>Parameter adjustment accuracy 90%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex parameter adjustments</td>
+</tr><tr>
+<td class="c-step">2.5</td>
+<td><b>Reanalyze competitor schedules</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Adjusted analysis parameters</td>
+<td>Reanalyzed schedule data</td>
+<td>Reanalysis completed within 4 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System overload during reanalysis</td>
+</tr><tr>
+<td class="c-step">2.6</td>
+<td><b>Generate preliminary report</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Reviewed capacity data</td>
+<td>Preliminary report</td>
+<td>Report generated within 3 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Data visualization challenges</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-NP-NM-02-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Response recommendation</span>
-    <span class="ph-n">3 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Capacity Comparison</span>
+    <span class="ph-n">5 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Recommend tactical or structural response</b></td>
+<td><b>Compare with own schedules</b></td>
 <td>Network Planning Analyst</td>
-<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Impact assessment</td>
-<td>Response recommendation</td>
-<td>Recommendation issued within 10 business days of a material change</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Preliminary report</td>
+<td>Comparison data</td>
+<td>Schedule comparison accuracy 98%</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A tactical pricing response and a structural capacity response draw on different planning cycles</td>
+<td>Manual schedule comparison errors</td>
 </tr><tr>
 <td class="c-step">3.2</td>
-<td><b>Feed findings into the next planning cycle</b></td>
+<td><b>Identify potential opportunities</b></td>
 <td>Network Planning Analyst</td>
-<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Cumulative competitive findings</td>
-<td>Input to route case and schedule build</td>
-<td>Findings incorporated into every relevant route case at 100 percent</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Comparison data</td>
+<td>Opportunity report</td>
+<td>Opportunities identified within 2 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Findings are captured per incident but not consolidated into a standing competitive picture</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Data mismatch issues</td>
 </tr><tr>
 <td class="c-step">3.3</td>
-<td><b>Maintain the standing competitive intelligence picture</b></td>
+<td><b>Review opportunity report</b></td>
 <td>Network Planning Analyst</td>
-<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Consolidated incident history</td>
-<td>Standing competitive position by market</td>
-<td>Standing picture refreshed each planning cycle at 100 percent</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Opportunity report</td>
+<td>Reviewed opportunities</td>
+<td>Review accuracy 90%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Complex opportunity review process</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Develop optimization strategies</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Reviewed capacity data</td>
+<td>Optimization strategies</td>
+<td>Strategies developed within 4 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Without a standing view, the same competitive pattern is re-analysed from scratch each time</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Resource constraints in strategy development</td>
+</tr><tr>
+<td class="c-step">3.5</td>
+<td><b>Validate optimization strategies</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Optimization strategies</td>
+<td>Validation results</td>
+<td>Validation accuracy 95%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Time-consuming validation process</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-NM-02-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Opportunity Identification</span>
+    <span class="ph-n">6 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Draft final report</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Validation results</td>
+<td>Draft report</td>
+<td>Report drafted within 3 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Formatting and layout issues</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Review draft report</b></td>
+<td>Network Planning Manager</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Draft report</td>
+<td>Reviewed draft report</td>
+<td>Review completed within 2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Managerial review time constraints</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Make final adjustments</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Draft report</td>
+<td>Final report</td>
+<td>Adjustments completed within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Resource allocation issues</td>
+</tr><tr>
+<td class="c-step">4.4</td>
+<td><b>Initiate approval process</b></td>
+<td>Network Planning Manager</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Final report</td>
+<td>Approval request submitted</td>
+<td>Approval request submitted within 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed approvals</td>
+</tr><tr>
+<td class="c-step">4.5</td>
+<td><b>Approve final report</b></td>
+<td>Network Planning Manager</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Reviewed draft report</td>
+<td>Approved final report</td>
+<td>Approval completed within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Managerial approval delays</td>
+</tr><tr>
+<td class="c-step">4.6</td>
+<td><b>Publish report</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Approved final report</td>
+<td>Published report</td>
+<td>Report published within 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System publishing issues</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Network Planning Analyst</span><span class="lane-steps">1.1 1.2 3.1 3.2 3.3</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Revenue Management Analyst</span><span class="lane-steps">2.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Network Planning Analyst</span><span class="lane-steps">1.1 1.2 1.3 1.4 1.5 2.1 2.2 2.3 2.4 2.5 2.6 3.1 3.2 3.3 3.4 3.5 4.1 4.3 4.6</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Network Planning Manager</span><span class="lane-steps">4.2 4.4 4.5</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">OAG Schedule Analyser<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Material changes flagged within 3 business days of filing</li><li>Impact assessed within 5 business days of flagging</li><li>Response recommendation issued within 10 business days of a material change</li><li>Tracking refreshed weekly for all overlapping markets</li></ul>
+<ul class="bullets"><li>Data extracted within 24 hours</li><li>Data verification accuracy 99%</li><li>Schedule data extracted within 3 hours</li><li>Capacity gaps identified within 3 hours</li><li>Parameter adjustment accuracy 90%</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Filed competitor schedules not operating as filed, overstating the real competitive threat</li><li>Materiality thresholds applied inconsistently, so a real threat goes unflagged</li><li>Findings captured per incident rather than consolidated into a standing competitive picture</li><li>Tactical and structural response recommendations competing for the same limited planning capacity</li></ul>
+<ul class="bullets risk"><li>NetLine system slow during peak times</li><li>Data extraction errors due to NetLine system glitches</li><li>Slow internet connection affecting data extraction speed</li><li>Manual schedule comparison errors</li><li>Data mismatch issues</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../network-planning-scheduling/network-performance-monitoring/ac-np-nm-01/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Route Profitability Review and Network Scorecard</span></a>
