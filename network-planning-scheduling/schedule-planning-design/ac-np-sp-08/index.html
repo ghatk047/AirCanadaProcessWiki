@@ -136,7 +136,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-NP-SP-08" title="Click to copy the process ID">
     AC-NP-SP-08<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Schedule Change Management and Passenger Re-protection</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -145,173 +145,252 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-NP-SP-08-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Change assessment</span>
-    <span class="ph-n">4 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Initial Detection</span>
+    <span class="ph-n">5 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Register the approved schedule change</b></td>
-<td>Schedule Planner</td>
+<td><b>Detect disruption in NetLine</b></td>
+<td>YYZ Operations Control Duty Manager</td>
 <td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Approved change request</td>
-<td>Registered change with effective date</td>
-<td>Changes registered within 1 business day of approval</td>
+<td>Disruption alert from NetLine</td>
+<td>Disruption report</td>
+<td>Time to detect disruption &lt; 5 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Changes arrive from several sources and are not always registered before being actioned</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>NetLine may not immediately identify all disruptions, causing delays in response.</td>
 </tr><tr>
 <td class="c-step">1.2</td>
-<td><b>Classify change type and notice period</b></td>
-<td>Network Planning Analyst</td>
+<td><b>Notify Operations Control Team</b></td>
+<td>YYZ Operations Control Duty Manager</td>
 <td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Change details and departure date</td>
-<td>Change classification with notice period</td>
-<td>Change classified before passenger action at 100 percent</td>
-<td class="c-flag"><span class="yes">Y</span></td>
+<td>Disruption report</td>
+<td>Notification to team members</td>
+<td>Time to notify team &lt; 1 minute</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Classification determines the regulatory position and is applied inconsistently</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual notifications can be prone to errors.</td>
 </tr><tr>
 <td class="c-step">1.3</td>
-<td><b>Identify affected bookings</b></td>
-<td>Customer Re-protection Analyst</td>
-<td><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Change scope and effective date</td>
-<td>Affected passenger and booking list</td>
-<td>Affected bookings identified within 24 hours of registration</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Connecting and interline itineraries are harder to identify than point to point bookings</td>
-</tr><tr>
-<td class="c-step">1.4</td>
-<td><b>Assess connecting and interline impact</b></td>
-<td>Network Planning Analyst</td>
-<td><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Affected booking list</td>
-<td>Broken connection assessment</td>
-<td>Broken connections identified for 100 percent of affected itineraries</td>
+<td><b>Acknowledge receipt of notification</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Notification from team members</td>
+<td>Acknowledgment log</td>
+<td>Time to acknowledge &lt; 1 minute</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Partner-operated onward legs are not visible in the same view as Air Canada legs</td>
+<td>Manual acknowledgment can introduce delays.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Resend notification</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Disruption report</td>
+<td>Re-notification to team members</td>
+<td>Time to resend &lt; 2 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Repeated notifications can cause confusion.</td>
+</tr><tr>
+<td class="c-step">1.5</td>
+<td><b>Confirm disruption impact on connections</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Disruption report, connection data</td>
+<td>Impact assessment report</td>
+<td>Impact assessment completed within 5 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex network design at Toronto Pearson can complicate impact assessments.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-NP-SP-08-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Passenger re-protection</span>
-    <span class="ph-n">4 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Impact Assessment</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Determine re-protection options</b></td>
-<td>Customer Re-protection Analyst</td>
-<td><span class="tag amadeus" data-tooltip="Automated IRROP re-accommodation. Replaced largely manual disruption handling pre-2020. [Amadeus - evidence A]">Amadeus Passenger Recovery<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Affected bookings and available capacity</td>
-<td>Re-protection option set by passenger</td>
-<td>Acceptable option available for 95 percent of affected passengers</td>
-<td class="c-flag"><span class="yes">Y</span></td>
+<td><b>Escalate to A++ JV for transatlantic disruptions</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag iata" data-tooltip="Transatlantic JV with United and Lufthansa Group. Coordinated schedules and revenue share. [A++ JV - evidence A]">A++ Atlantic Joint Venture<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Impact assessment report</td>
+<td>Joint action plan</td>
+<td>Response time from A++ JV &lt; 30 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Re-protection competes for the same seats that are still being sold</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Coordination with partners can slow down response times.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Apply re-protection rules and priority</b></td>
-<td>Customer Re-protection Analyst</td>
-<td><span class="tag amadeus" data-tooltip="Automated IRROP re-accommodation. Replaced largely manual disruption handling pre-2020. [Amadeus - evidence A]">Amadeus Passenger Recovery<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Option set and passenger status</td>
-<td>Prioritised re-protection assignment</td>
-<td>Re-protection applied within 48 hours of change registration</td>
+<td><b>Initiate internal review for non-transatlantic disruptions</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Impact assessment report</td>
+<td>Internal action plan</td>
+<td>Review completed within 10 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Priority rules balance status, fare paid and connection complexity with limited automation</td>
+<td>Internal reviews may take longer than expected.</td>
 </tr><tr>
 <td class="c-step">2.3</td>
-<td><b>Handle passengers with no acceptable option</b></td>
-<td>Customer Re-protection Analyst</td>
-<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Unresolved passenger list</td>
-<td>Refund, partner rebooking or negotiated alternative</td>
-<td>Unresolved passengers below 1 percent of those affected</td>
-<td class="c-flag"><span class="no">N</span></td>
+<td><b>Identify alternative flights for re-protection</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Impact assessment report, passenger data</td>
+<td>Alternative flight list</td>
+<td>Alternative flight identification within 10 minutes</td>
 <td class="c-flag"><span class="yes">Y</span></td>
-<td>These cases go to the contact centre and become the seed of later complaints</td>
-</tr><tr>
-<td class="c-step">2.4</td>
-<td><b>Notify affected passengers</b></td>
-<td>Customer Re-protection Analyst</td>
-<td><span class="tag channel" data-tooltip="iOS and Android. Booking, check-in, boarding pass, in-app bag tracking and mobility-aid tracking. [Air Canada - evidence A]">Air Canada Mobile App<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Re-protection assignment</td>
-<td>Bilingual notification of the change and new itinerary</td>
-<td>Passengers notified within 24 hours of re-protection</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Notification must be produced in English and French and is assembled per change type</td>
+<td>Limited capacity on alternative flights can lead to delays in re-protection.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-NP-SP-08-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Propagation and closure</span>
-    <span class="ph-n">4 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Passenger Notification</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Republish the schedule to all channels</b></td>
-<td>Schedule Publication Analyst</td>
-<td><span class="tag iata" data-tooltip="Legacy airline teletype messaging: PNL, ADL, BSM, LDM, MVT. Still load-bearing across the estate. [IATA - evidence C]">IATA Type-B Messaging<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Registered change</td>
-<td>Republished schedule across distribution</td>
-<td>All channels reflect the change within 24 hours</td>
+<td><b>Notify passengers of disruption and re-protection options</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Alternative flight list, passenger contact information</td>
+<td>Passenger notification messages</td>
+<td>95% passenger notifications sent within 1 hour</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Each change re-triggers the full distribution chain and channels update unevenly</td>
+<td>High volume of passengers can overwhelm notification systems.</td>
 </tr><tr>
 <td class="c-step">3.2</td>
-<td><b>Update inventory and reopen for sale</b></td>
-<td>Schedule Publication Analyst</td>
-<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Republished schedule</td>
-<td>Updated sellable inventory</td>
-<td>Inventory consistent with the change within 4 hours</td>
+<td><b>Confirm passenger selection of alternative flights</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Passenger responses</td>
+<td>Confirmed flight selections</td>
+<td>90% passengers confirm within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Selling the changed flight before re-protection completes creates a second conflict for the same seats</td>
+<td>Some passengers may reject re-protection options.</td>
 </tr><tr>
 <td class="c-step">3.3</td>
-<td><b>Record the change reason for regulatory use</b></td>
-<td>Network Planning Analyst</td>
-<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Change classification</td>
-<td>Reason recorded and available to customer relations</td>
-<td>Reason recorded for 100 percent of changes inside the regulated window</td>
+<td><b>Provide alternative notification options</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Passenger rejection data</td>
+<td>Alternative notification methods</td>
+<td>Alternative notifications sent within 1 hour</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A commercially framed reason can read very differently when tested against APPR</td>
+<td>Offering multiple notification channels can be complex.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-SP-08-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Alternative Flight Selection</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Update NetLine with new schedule</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Confirmed flight selections, disruption report</td>
+<td>Updated schedule in NetLine/Plan</td>
+<td>Schedule update completed within 20 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Updating multiple systems can be error-prone.</td>
 </tr><tr>
-<td class="c-step">3.4</td>
-<td><b>Close the change and report the impact</b></td>
-<td>Schedule Planner</td>
-<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Completed re-protection and republication</td>
-<td>Closed change record with impact summary</td>
-<td>Changes closed within 5 business days of effective date</td>
+<td class="c-step">4.2</td>
+<td><b>Retry schedule update</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Confirmed flight selections, disruption report</td>
+<td>Updated schedule in NetLine/Plan</td>
+<td>Schedule update completed within 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Retrying updates can cause further delays.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-SP-08-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Schedule Update</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Monitor passenger re-protection status</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Updated schedule, passenger data</td>
+<td>Re-protection status report</td>
+<td>90% passengers reprotected within 3 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Passengers may not board alternative flights as expected.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Escalate to customer service for unresolved issues</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Aeroplan Member Services Agent<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Re-protection status report, passenger data</td>
+<td>Customer service escalation</td>
+<td>Escalation completed within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual escalations can be slow and error-prone.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-SP-08-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Post-Event Review</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Review post-event impact on operations</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Re-protection status report, disruption data</td>
+<td>Post-event review report</td>
+<td>Review completed within 48 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Cumulative change volume across a season is not reported, so the pattern stays invisible</td>
+<td>Collecting comprehensive data for reviews can be time-consuming.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Adjust future schedules based on review findings</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Post-event review report</td>
+<td>Adjusted schedule plan</td>
+<td>Adjustments completed within 1 week</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Implementing changes can introduce new disruptions.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Schedule Planner</span><span class="lane-steps">1.1 3.4</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Network Planning Analyst</span><span class="lane-steps">1.2 1.4 3.3</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Customer Re-protection Analyst</span><span class="lane-steps">1.3 2.1 2.2 2.3 2.4</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Schedule Publication Analyst</span><span class="lane-steps">3.1 3.2</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">1.1 1.2 1.3 1.4 1.5 2.1 2.2 2.3 4.1 4.2 5.1 5.2 6.1 6.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Aeroplan Member Services Agent</span><span class="lane-steps">3.1 3.2 3.3</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag amadeus" data-tooltip="Automated IRROP re-accommodation. Replaced largely manual disruption handling pre-2020. [Amadeus - evidence A]">Amadeus Passenger Recovery<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag channel" data-tooltip="iOS and Android. Booking, check-in, boarding pass, in-app bag tracking and mobility-aid tracking. [Air Canada - evidence A]">Air Canada Mobile App<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag iata" data-tooltip="Legacy airline teletype messaging: PNL, ADL, BSM, LDM, MVT. Still load-bearing across the estate. [IATA - evidence C]">IATA Type-B Messaging<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag channel" data-tooltip="Primary direct digital channel, cloud-native on AWS. Undergoing redevelopment under the CDO. [Air Canada - evidence A]">aircanada.com<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+<div class="card"><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag iata" data-tooltip="Transatlantic JV with United and Lufthansa Group. Coordinated schedules and revenue share. [A++ JV - evidence A]">A++ Atlantic Joint Venture<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Aeroplan Member Services Agent<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Affected bookings identified within 24 hours of change registration</li><li>Acceptable re-protection option available for 95 percent of affected passengers</li><li>Passengers notified within 24 hours of re-protection</li><li>All distribution channels reflecting the change within 24 hours</li><li>Change reason recorded for 100 percent of changes inside the regulated window</li></ul>
+<ul class="bullets"><li>Time to detect disruption &lt; 5 minutes</li><li>95% passenger notifications sent within 1 hour</li><li>90% passengers confirm within 1 hour</li><li>Schedule update completed within 20 minutes</li><li>90% passengers reprotected within 3 hours</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Schedule change reasons recorded for commercial purposes proving indefensible when tested against the Air Passenger Protection Regulations</li><li>Re-protection competing for seats that are still being sold on the changed flight</li><li>Connecting and interline passengers missed because partner-operated legs are not visible in one view</li><li>Channels updating unevenly and leaving a withdrawn or retimed flight sellable</li><li>Cumulative in-season change volume going unreported, so a systemic planning problem stays invisible</li></ul>
+<ul class="bullets risk"><li>NetLine may not immediately identify all disruptions, causing delays in response.</li><li>Manual notifications can be prone to errors.</li><li>Complex network design at Toronto Pearson can complicate impact assessments.</li><li>Coordination with partners can slow down response times.</li><li>Updating multiple systems can be error-prone.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../network-planning-scheduling/schedule-planning-design/ac-np-sp-07/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Rouge Leisure Schedule Integration</span></a>
