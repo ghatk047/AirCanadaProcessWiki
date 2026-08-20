@@ -135,7 +135,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-RM-AN-01" title="Click to copy the process ID">
     AC-RM-AN-01<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Seat Selection Product Pricing</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -144,96 +144,241 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-RM-AN-01-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Zone and demand analysis</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Initial Request Handling</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Analyse seat selection demand by zone</b></td>
-<td>Revenue Management Analyst</td>
-<td><span class="tag amadeus" data-tooltip="Ancillary offer construction and dynamic bundling at the shopping touchpoint. [Amadeus - evidence A]">Amadeus Anytime Merchandising<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Historical seat selection purchase data</td>
-<td>Demand by zone and route</td>
-<td>Analysed each review cycle for 100 percent of route groups</td>
+<td><b>Receive seat selection request</b></td>
+<td>Online Booking Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada&#x27;s Online Booking System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Passenger&#x27;s seat selection request</td>
+<td>Seat selection parameters</td>
+<td>Response time &lt; 2 seconds</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Demand patterns differ by route length and cabin configuration in ways a single price grid cannot capture</td>
+<td>High load on booking system during peak times</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Retrieve passenger profile data</b></td>
+<td>Passenger Data Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Customer Relationship Management System (CRM)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Passenger ID</td>
+<td>Travel history, preferences, and loyalty status</td>
+<td>Data retrieval accuracy &gt; 95%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inaccurate or missing CRM data affecting pricing decisions</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Log error and notify support</b></td>
+<td>IT Support Specialist</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada&#x27;s IT Incident Management System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Error details</td>
+<td>Incident logged and escalated</td>
+<td>Resolution time &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed CRM response impacting passenger experience</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-RM-AN-01-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Price structure design</span>
+    <span class="ph-name">Phase 2 &mdash; Dynamic Pricing Calculation</span>
     <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Design zone pricing structure</b></td>
+<td><b>Query PROS Real-Time Dynamic Pricing for base fare</b></td>
 <td>Revenue Management Analyst</td>
-<td><span class="tag amadeus" data-tooltip="Ancillary offer construction and dynamic bundling at the shopping touchpoint. [Amadeus - evidence A]">Amadeus Anytime Merchandising<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Zone demand analysis</td>
-<td>Designed pricing structure by zone</td>
-<td>Structure designed within the review cycle at 100 percent</td>
+<td><span class="tag pros" data-tooltip="Continuous willingness-to-pay pricing. Air Canada is a 30-year-plus PROS reference account. [PROS - evidence A]">PROS Real-Time Dynamic Pricing<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Seat selection parameters, passenger profile</td>
+<td>Base fare estimate</td>
+<td>Pricing accuracy &gt; 98%</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>A price set too high on a popular zone can suppress purchase enough to reduce total revenue</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Stale data in PROS affecting pricing calculations</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Validate against Altitude tier entitlements</b></td>
+<td><b>Retry querying PROS Real-Time Dynamic Pricing</b></td>
 <td>Revenue Management Analyst</td>
-<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Designed structure and tier benefit rules</td>
-<td>Validated structure honouring tier entitlements</td>
-<td>Validated for 100 percent of Altitude tiers before filing</td>
-<td class="c-flag"><span class="yes">Y</span></td>
+<td><span class="tag pros" data-tooltip="Continuous willingness-to-pay pricing. Air Canada is a 30-year-plus PROS reference account. [PROS - evidence A]">PROS Real-Time Dynamic Pricing<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Seat selection parameters, passenger profile</td>
+<td>Base fare estimate</td>
+<td>Pricing accuracy &gt; 98%</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A pricing error that charges an entitled elite member breaks a core loyalty promise</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Network latency affecting PROS response time</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-RM-AN-01-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Filing and monitoring</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Inventory Availability Check</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>File pricing to Anytime Merchandising</b></td>
-<td>Revenue Management Analyst</td>
-<td><span class="tag amadeus" data-tooltip="Ancillary offer construction and dynamic bundling at the shopping touchpoint. [Amadeus - evidence A]">Amadeus Anytime Merchandising<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Validated structure</td>
-<td>Filed and live seat pricing</td>
-<td>Filed within the required lead time at 100 percent</td>
+<td><b>Check seat availability in Amadeus Altea Inventory</b></td>
+<td>Operations Control Duty Manager</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Seat selection parameters, base fare estimate</td>
+<td>Seat availability status</td>
+<td>Inventory check accuracy &gt; 99%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>A filing error can charge for a seat that should be included in the fare</td>
+<td>Real-time inventory discrepancies affecting seat booking</td>
 </tr><tr>
 <td class="c-step">3.2</td>
-<td><b>Monitor purchase rate and complaint volume</b></td>
+<td><b>Attempt alternative seat selection</b></td>
+<td>Online Booking Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada&#x27;s Online Booking System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Alternative seat parameters</td>
+<td>New seat availability status</td>
+<td>Alternative selection success rate &gt; 85%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Limited alternative seats affecting passenger satisfaction</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Notify passenger of unavailable seat options</b></td>
+<td>Customer Service Representative</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada&#x27;s Customer Interaction System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Passenger details, unavailable seat options</td>
+<td>Notification sent to passenger</td>
+<td>Notification accuracy &gt; 95%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed notifications impacting customer experience</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-AN-01-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Regulatory Compliance Validation</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Validate fare compliance with ATPCO rules</b></td>
+<td>Revenue Compliance Officer</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">ATPCO Fare Filing System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Base fare estimate, seat availability status</td>
+<td>Compliance report</td>
+<td>Compliance check accuracy &gt; 98%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>ATPCO latency affecting pricing decision timelines</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Adjust fare to comply with ATPCO rules</b></td>
 <td>Revenue Management Analyst</td>
-<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Post-launch purchase and complaint data</td>
-<td>Performance review against target</td>
-<td>Reviewed within 30 days of a pricing change at 100 percent</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Non-compliant fare details, ATPCO rules</td>
+<td>Adjusted fare estimate</td>
+<td>Adjustment success rate &gt; 90%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Complex rule adjustments impacting pricing flexibility</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Escalate to Pricing Compliance Team</b></td>
+<td>Pricing Compliance Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada&#x27;s IT Incident Management System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Non-feasible compliance details</td>
+<td>Compliance team notification</td>
+<td>Escalation response time &lt; 30 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Complaint volume is a lagging signal that a pricing structure feels unfair</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed escalations affecting pricing accuracy</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-AN-01-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Pricing Adjustment &amp; Decision</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Finalize pricing decision</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada&#x27;s Pricing Decision System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Adjusted fare estimate, compliance report</td>
+<td>Final price for seat selection</td>
+<td>Decision accuracy &gt; 97%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual overrides impacting automated pricing decisions</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Obtain approval for price override</b></td>
+<td>Pricing Approval Officer</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada&#x27;s Pricing Approval System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Override request details</td>
+<td>Approval status</td>
+<td>Override approval time &lt; 10 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delays in obtaining approvals affecting pricing agility</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Notify passenger of final price</b></td>
+<td>Online Booking Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada&#x27;s Online Booking System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Final price details</td>
+<td>Price confirmation sent to passenger</td>
+<td>Notification accuracy &gt; 95%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed notifications impacting customer experience</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-AN-01-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Final Pricing Confirmation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Update Amadeus Altea Inventory with final price</b></td>
+<td>Operations Control Duty Manager</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Final price, seat selection parameters</td>
+<td>Updated inventory record</td>
+<td>Inventory update accuracy &gt; 98%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Failed inventory updates affecting seat availability</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Log transaction details for auditing</b></td>
+<td>Finance Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada&#x27;s Financial Transaction System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Final price, passenger details</td>
+<td>Transaction log entry</td>
+<td>Audit accuracy &gt; 99%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Incomplete transaction logs impacting financial auditing</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Revenue Management Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1 3.2</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Online Booking Agent</span><span class="lane-steps">1.1 3.2 5.3</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Passenger Data Analyst</span><span class="lane-steps">1.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>IT Support Specialist</span><span class="lane-steps">1.3</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Revenue Management Analyst</span><span class="lane-steps">2.1 2.2 4.2 5.1</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Operations Control Duty Manager</span><span class="lane-steps">3.1 6.1</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>Customer Service Representative</span><span class="lane-steps">3.3</span></div><div class="lane"><span class="swatch" style="background:#8A5A1E"></span><span>Revenue Compliance Officer</span><span class="lane-steps">4.1</span></div><div class="lane"><span class="swatch" style="background:#4A4A4A"></span><span>Pricing Compliance Manager</span><span class="lane-steps">4.3</span></div><div class="lane"><span class="swatch" style="background:#E04A60"></span><span>Pricing Approval Officer</span><span class="lane-steps">5.2</span></div><div class="lane"><span class="swatch" style="background:#5A5A5A"></span><span>Finance Analyst</span><span class="lane-steps">6.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag amadeus" data-tooltip="Ancillary offer construction and dynamic bundling at the shopping touchpoint. [Amadeus - evidence A]">Amadeus Anytime Merchandising<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+<div class="card"><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada&#x27;s Online Booking System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Customer Relationship Management System (CRM)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada&#x27;s IT Incident Management System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag pros" data-tooltip="Continuous willingness-to-pay pricing. Air Canada is a 30-year-plus PROS reference account. [PROS - evidence A]">PROS Real-Time Dynamic Pricing<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada&#x27;s Customer Interaction System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">ATPCO Fare Filing System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada&#x27;s Pricing Decision System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada&#x27;s Pricing Approval System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada&#x27;s Financial Transaction System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Structure designed within the review cycle at 100 percent</li><li>Validated for 100 percent of Altitude tiers before filing</li><li>Filed within the required lead time at 100 percent</li><li>Complaint volume attributable to seat pricing below target threshold</li></ul>
+<ul class="bullets"><li>Response time &lt; 2 seconds</li><li>Pricing accuracy &gt; 98%</li><li>Inventory check accuracy &gt; 99%</li><li>Compliance check accuracy &gt; 98%</li><li>Decision accuracy &gt; 97%</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A pricing error charging an entitled Altitude member for a seat that should be included</li><li>A price set too high on a popular zone suppressing purchase enough to reduce total revenue</li><li>A filing error charging for a seat that the fare should have included at no cost</li><li>Complaint volume being a lagging rather than a leading indicator of a pricing structure problem</li></ul>
+<ul class="bullets risk"><li>High load on booking system during peak times</li><li>Stale data in PROS affecting pricing calculations</li><li>Real-time inventory discrepancies affecting seat booking</li><li>Limited alternative seats affecting passenger satisfaction</li><li>ATPCO latency affecting pricing decision timelines</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../revenue-management-pricing/pricing-fare-filing/ac-rm-pf-08/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Currency and Point of Sale Pricing Management</span></a>
