@@ -136,18 +136,18 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-NP-SP-04" title="Click to copy the process ID">
     AC-NP-SP-04<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Hub Bank Structure Design for YUL and YVR</h1>
-<p class="lede" id="overview">Montreal and Vancouver operate as hubs with different roles from Toronto: Montreal carries transatlantic and francophone-market traffic, Vancouver carries transpacific traffic. Bank design for each sets wave structure appropriate to its geography and traffic mix.</p>
-<div class="callout"><span class="ct">Air Canada context</span>Montreal and Vancouver are not smaller copies of Toronto. Vancouver&#x27;s transpacific departure wave is set by Asian arrival curfews and by the very long sectors involved, which compresses the feasible departure window. Montreal serves both transatlantic connecting traffic and a distinct francophone origin and destination market, which competes for the same peak timings. Treating either hub as a Toronto template produces a bank that fits neither the geography nor the traffic.</div>
+<p class="lede" id="overview">The process for designing the hub bank structure for YUL (Toronto Pearson) and YVR (Vancouver International) involves complex scheduling and network planning to optimize connectivity and aircraft utilization while adhering to regulatory constraints and joint venture agreements.</p>
+<div class="callout"><span class="ct">Air Canada context</span>Toronto Pearson&#x27;s Sixth Freedom connecting traffic between the US and Europe/Asia over Canada requires careful balance in connection reliability against aircraft utilisation on tight margins. The A++ Atlantic joint venture with United and Lufthansa Group necessitates coordinated schedules and revenue sharing, adding complexity to transatlantic capacity decisions.</div>
 <div class="meta-grid">
-  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">Seasonal schedule build reaches hub design for Montreal or Vancouver, or a change in transpacific or transatlantic capacity requires the bank to be restructured.</div></div>
-  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">Defined bank structures at Montreal and Vancouver with wave timings, connect time standards and validated connecting itineraries appropriate to each hub&#x27;s role.</div></div>
+  <div class="meta-item"><div class="lbl">Trigger</div><div class="val">A change in demand forecasts, regulatory updates, or operational changes at either YUL or YVR that require a reevaluation of the current hub bank structure.</div></div>
+  <div class="meta-item"><div class="lbl">Outcome</div><div class="val">The successful design and implementation of an optimized hub bank structure for both YUL and YVR, ensuring efficient connectivity and aircraft utilization while meeting regulatory requirements and joint venture agreements.</div></div>
   <div class="meta-item"><div class="lbl">Domain</div><div class="val">Network Planning &amp; Scheduling<br>
     <span style="color:var(--text-muted);font-size:12px">Schedule Planning &amp; Design</span></div></div>
-  <div class="meta-item"><div class="lbl">Steps</div><div class="val">12 across
-    3 phases</div></div>
+  <div class="meta-item"><div class="lbl">Steps</div><div class="val">19 across
+    6 phases</div></div>
 </div>
 
 <h2 id="bpmn">Process flow</h2>
@@ -156,173 +156,274 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-NP-SP-04-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Hub role definition</span>
-    <span class="ph-n">4 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Initial Assessment</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Define the role of each hub in the network</b></td>
-<td>Network Strategy Manager</td>
-<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Network strategy and traffic mix analysis</td>
-<td>Documented hub role and traffic priority</td>
-<td>Hub roles reviewed and confirmed each planning cycle</td>
+<td><b>Identify trigger for hub bank redesign</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Current schedule data, demand forecasts</td>
+<td>Trigger report</td>
+<td>Time to identify trigger (hours)</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Hub roles drift over time without an explicit review, so the bank stops matching the traffic</td>
+<td>Delays in identifying triggers due to manual data aggregation.</td>
 </tr><tr>
 <td class="c-step">1.2</td>
-<td><b>Analyse local versus connecting traffic mix</b></td>
-<td>Network Planning Analyst</td>
-<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>O and D traffic by hub</td>
-<td>Local and connecting split by time of day</td>
-<td>Traffic mix analysis completed before wave design</td>
+<td><b>Review current hub bank structure</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Current schedule data</td>
+<td>Hub bank review report</td>
+<td>Time to review (hours)</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Montreal local francophone demand and transatlantic connecting demand want the same departure slots</td>
-</tr><tr>
-<td class="c-step">1.3</td>
-<td><b>Identify geography-driven timing constraints</b></td>
-<td>Network Planning Analyst</td>
-<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Sector lengths and destination curfews</td>
-<td>Feasible departure window by region</td>
-<td>Timing constraints documented for 100 percent of long-haul regions</td>
-<td class="c-flag"><span class="yes">Y</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Transpacific departure windows from Vancouver are tightly bounded by arrival curfews in Asia</td>
-</tr><tr>
-<td class="c-step">1.4</td>
-<td><b>Set hub-specific minimum connect times</b></td>
-<td>Network Planning Analyst</td>
-<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Terminal configuration and border processing</td>
-<td>Minimum connect time matrix per hub</td>
-<td>Connect times validated against actual transfer performance annually</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Applying Toronto connect standards to a differently configured terminal produces unachievable connections</td>
+<td>Inconsistent data across systems causing delays.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-NP-SP-04-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Wave design and validation</span>
-    <span class="ph-n">5 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Data Collection &amp; Analysis</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Design arrival and departure waves</b></td>
-<td>Schedule Planner</td>
-<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Traffic mix and timing constraints</td>
-<td>Wave structure per hub</td>
-<td>Wave structure defined for both hubs before schedule freeze</td>
-<td class="c-flag"><span class="yes">Y</span></td>
+<td><b>Collect historical traffic data</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Historical schedule data, passenger data</td>
+<td>Traffic analysis report</td>
+<td>Data collection time (days)</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A single long-haul departure wave leaves the rest of the day poorly utilised at a smaller hub</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inaccurate historical data leading to flawed designs.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Balance local demand against connecting waves</b></td>
-<td>Network Planning Analyst</td>
-<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Local demand profile and wave structure</td>
-<td>Balanced timing proposal</td>
-<td>Local demand served within 30 minutes of preferred timing on 75 percent of routes</td>
-<td class="c-flag"><span class="yes">Y</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Serving connecting waves well can push local departures to commercially poor times</td>
-</tr><tr>
-<td class="c-step">2.3</td>
-<td><b>Validate stand and terminal capacity</b></td>
-<td>Schedule Planner</td>
-<td><span class="tag sita" data-tooltip="Gate, stand and check-in resource allocation at YYZ, YUL and YVR. [Multiple - evidence C]">Airport Resource Management<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Wave structure and available infrastructure</td>
-<td>Capacity-validated wave structure</td>
-<td>Peak wave within stand capacity at both hubs at 100 percent</td>
-<td class="c-flag"><span class="yes">Y</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Peak capacity at the secondary hubs is tighter than at Toronto relative to wave size</td>
-</tr><tr>
-<td class="c-step">2.4</td>
-<td><b>Generate and test connecting itineraries</b></td>
-<td>Network Planning Analyst</td>
-<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Wave structure and connect time matrix</td>
-<td>Validated connecting itinerary set per hub</td>
-<td>Connecting itineraries validated for 100 percent of target markets</td>
+<td><b>Analyze demand forecasts</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Demand forecast reports</td>
+<td>Forecast analysis report</td>
+<td>Analysis time (days)</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Cross-hub itineraries via two Air Canada hubs are generated but rarely tested for reliability</td>
-</tr><tr>
-<td class="c-step">2.5</td>
-<td><b>Assess Rouge and Express feed into the banks</b></td>
-<td>Schedule Planner</td>
-<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Regional feed schedule</td>
-<td>Feed assessment against wave windows</td>
-<td>Regional feed aligned to wave windows on 85 percent of connections</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Express operator feed reliability is materially different from mainline and is not modelled separately</td>
+<td>Outdated forecasting tools causing inaccurate predictions.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-NP-SP-04-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Commitment and review</span>
-    <span class="ph-n">3 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Bank Design Development</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Commit hub bank structures</b></td>
-<td>Network Strategy Manager</td>
-<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Validated wave structures</td>
-<td>Committed bank structures for both hubs</td>
-<td>Bank structures committed before schedule freeze at 100 percent</td>
-<td class="c-flag"><span class="yes">Y</span></td>
+<td><b>Propose initial bank design concepts</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Traffic and forecast analysis</td>
+<td>Conceptual designs</td>
+<td>Number of concepts generated</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Committing both secondary hubs late compresses the Toronto bank design that depends on them</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Limited tools for concept generation.</td>
 </tr><tr>
 <td class="c-step">3.2</td>
-<td><b>Release connections to inventory</b></td>
-<td>Schedule Planner</td>
-<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Validated itinerary set</td>
-<td>Sellable connections per hub</td>
-<td>Sellable connections match the validated set at 100 percent</td>
+<td><b>Evaluate connection reliability</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Conceptual designs</td>
+<td>Reliability evaluation report</td>
+<td>Evaluation time (hours)</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Connection construction rules are set once and not differentiated by hub reliability</td>
+<td>Balancing connection reliability with aircraft utilisation is challenging.</td>
 </tr><tr>
 <td class="c-step">3.3</td>
-<td><b>Review hub performance against role</b></td>
+<td><b>Optimize for aircraft utilization</b></td>
 <td>Network Planning Analyst</td>
-<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>In-service traffic and misconnect data</td>
-<td>Hub performance review with structural findings</td>
-<td>Hub review completed within 60 days of season end</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Conceptual designs, aircraft capacity data</td>
+<td>Utilization optimized designs</td>
+<td>Time to optimize (hours)</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Findings are produced after the next season is already frozen</td>
+<td>Complex calculations required for optimization.</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Review design against KPIs</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Optimized designs, KPI data</td>
+<td>KPI review report</td>
+<td>Number of KPI violations</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Meeting multiple KPIs simultaneously is difficult.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-SP-04-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Regulatory &amp; JV Compliance Review</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Review regulatory requirements</b></td>
+<td>Legal Counsel</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Conceptual designs, regulatory guidelines</td>
+<td>Regulatory compliance report</td>
+<td>Time to review (hours)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Changing regulations require frequent updates.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Consult with A++ JV partners</b></td>
+<td>A++ Atlantic Joint Venture Coordinator</td>
+<td><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Conceptual designs, partnership agreements</td>
+<td>JV compliance report</td>
+<td>Time to consult (hours)</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Coordinating schedules across multiple airlines is complex.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Review with A++ JV Legal</b></td>
+<td>Legal Counsel</td>
+<td><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>JV compliance report, legal guidelines</td>
+<td>Final JV compliance report</td>
+<td>Time to review (hours)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Legal constraints can delay decisions.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-SP-04-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Implementation Planning</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Develop implementation plan</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Approved designs, current schedule</td>
+<td>Implementation plan</td>
+<td>Time to develop (hours)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Integrating new plans with existing schedules is challenging.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Obtain stakeholder approvals</b></td>
+<td>Network Planning Manager</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Implementation plan, approval forms</td>
+<td>Approval documents</td>
+<td>Number of approvals received</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed or denied approvals can halt progress.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Schedule implementation rollout</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Implementation plan, schedule data</td>
+<td>Rollout schedule</td>
+<td>Time to schedule (hours)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Overlapping schedules can cause delays.</td>
+</tr><tr>
+<td class="c-step">5.4</td>
+<td><b>Monitor initial rollout</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Rollout schedule, monitoring tools</td>
+<td>Initial performance report</td>
+<td>Number of issues identified</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Detecting and resolving issues during rollout is crucial.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-SP-04-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Monitoring &amp; Adjustment</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Adjust based on initial feedback</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Initial performance report, stakeholder input</td>
+<td>Adjusted designs</td>
+<td>Number of adjustments made</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Continuous feedback loop is required for optimization.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Finalize implementation plan</b></td>
+<td>Network Planning Manager</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Adjusted designs, approval forms</td>
+<td>Final implementation plan</td>
+<td>Time to finalize (hours)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Final approvals can be time-consuming.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Execute final rollout</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Final implementation plan, schedule data</td>
+<td>Final rollout status</td>
+<td>Time to execute (hours)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Coordinating with multiple departments is complex.</td>
+</tr><tr>
+<td class="c-step">6.4</td>
+<td><b>Monitor long-term performance</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Final rollout status, monitoring tools</td>
+<td>Long-term performance report</td>
+<td>Number of ongoing issues</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Ongoing monitoring is essential for continuous improvement.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Network Strategy Manager</span><span class="lane-steps">1.1 3.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Network Planning Analyst</span><span class="lane-steps">1.2 1.3 1.4 2.2 2.4 3.3</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Schedule Planner</span><span class="lane-steps">2.1 2.3 2.5 3.2</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Network Planning Analyst</span><span class="lane-steps">1.1 3.1 3.3 3.4 5.1 5.4 6.1 6.4</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">1.2 3.2 5.3 6.3</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Cargo Compliance Agent</span><span class="lane-steps">2.1</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Aeroplan Member Services Agent</span><span class="lane-steps">2.2</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Legal Counsel</span><span class="lane-steps">4.1 4.3</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>A++ Atlantic Joint Venture Coordinator</span><span class="lane-steps">4.2</span></div><div class="lane"><span class="swatch" style="background:#8A5A1E"></span><span>Network Planning Manager</span><span class="lane-steps">5.2 6.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag sita" data-tooltip="Gate, stand and check-in resource allocation at YYZ, YUL and YVR. [Multiple - evidence C]">Airport Resource Management<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+<div class="card"><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Peak wave within stand capacity at both hubs at 100 percent</li><li>Regional feed aligned to wave windows on 85 percent of connections</li><li>Local demand served within 30 minutes of preferred timing on 75 percent of routes</li><li>Misconnect rate at secondary hubs below 4 percent</li><li>Hub performance review completed within 60 days of season end</li></ul>
+<ul class="bullets"><li>Time to identify trigger (hours)</li><li>Time to review hub bank structure (hours)</li><li>Data collection time (days)</li><li>Analysis time (days)</li><li>Number of concepts generated</li><li>Evaluation time (hours)</li><li>Time to optimize (hours)</li><li>Number of KPI violations</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Applying a Toronto bank template to hubs whose geography and traffic mix differ materially</li><li>Transpacific departure windows at Vancouver being over-constrained by destination curfews</li><li>Montreal local francophone demand and transatlantic connecting demand contending for the same peak</li><li>Express operator feed reliability degrading connections that were modelled on mainline performance</li><li>Hub performance findings arriving after the next season has already been frozen</li></ul>
+<ul class="bullets risk"><li>Inconsistent data across systems causing delays</li><li>Inaccurate historical data leading to flawed designs</li><li>Outdated forecasting tools causing inaccurate predictions</li><li>Complex calculations required for optimization</li><li>Meeting multiple KPIs simultaneously is difficult</li><li>Changing regulations require frequent updates</li><li>Coordinating schedules across multiple airlines is complex</li><li>Legal constraints can delay decisions</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../network-planning-scheduling/schedule-planning-design/ac-np-sp-03/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Sixth Freedom Connecting Bank Design at YYZ</span></a>
