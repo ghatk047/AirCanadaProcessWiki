@@ -135,7 +135,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-RM-YM-04" title="Click to copy the process ID">
     AC-RM-YM-04<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Revenue Integrity and Fare Abuse Detection</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -144,85 +144,241 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-RM-YM-04-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Pattern detection</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Data Collection</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Screen for hidden-city and point-of-sale abuse patterns</b></td>
-<td>Revenue Management Analyst</td>
-<td><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Booking pattern data</td>
-<td>Flagged suspicious booking pattern list</td>
-<td>Screened weekly for 100 percent of the network</td>
+<td><b>Collect flight data from PROS Real-Time Dynamic Pricing</b></td>
+<td>Revenue Analyst</td>
+<td><span class="tag pros" data-tooltip="Continuous willingness-to-pay pricing. Air Canada is a 30-year-plus PROS reference account. [PROS - evidence A]">PROS Real-Time Dynamic Pricing<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Daily batch file from PROS</td>
+<td>Flight data with pricing information</td>
+<td>Data collection time &lt; 2 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed data ingestion can disrupt anomaly detection timing.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Retrieve booking activity from Amadeus Altea Inventory</b></td>
+<td>Revenue Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Real-time booking feed</td>
+<td>Booking data with passenger details and fares</td>
+<td>Data retrieval time &lt; 30 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Screening rules generate false positives that consume investigation capacity</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System downtime affects booking data availability.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Retry data collection from PROS Real-Time Dynamic Pricing</b></td>
+<td>Revenue Analyst</td>
+<td><span class="tag pros" data-tooltip="Continuous willingness-to-pay pricing. Air Canada is a 30-year-plus PROS reference account. [PROS - evidence A]">PROS Real-Time Dynamic Pricing<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Daily batch file from PROS</td>
+<td>Flight data with pricing information</td>
+<td>Data collection time &lt; 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed data ingestion can disrupt anomaly detection timing.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Retry booking data retrieval from Amadeus Altea Inventory</b></td>
+<td>Revenue Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Real-time booking feed</td>
+<td>Booking data with passenger details and fares</td>
+<td>Data retrieval time &lt; 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System downtime affects booking data availability.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-RM-YM-04-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Case investigation</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Anomaly Detection</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Investigate flagged cases</b></td>
-<td>Revenue Management Analyst</td>
-<td><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Flagged pattern</td>
-<td>Confirmed or dismissed abuse case</td>
-<td>Investigated within 10 business days of flagging at 90 percent</td>
-<td class="c-flag"><span class="no">N</span></td>
+<td><b>Identify potential revenue integrity issues</b></td>
+<td>Revenue Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Flight and booking data</td>
+<td>List of anomalies detected</td>
+<td>Anomaly detection rate &gt; 95%</td>
 <td class="c-flag"><span class="yes">Y</span></td>
-<td>Distinguishing genuine abuse from an unusual but legitimate travel pattern requires judgement</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>False positives can lead to unnecessary investigations.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Apply policy action to confirmed cases</b></td>
-<td>Revenue Management Analyst</td>
-<td><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Confirmed abuse case</td>
-<td>Applied action per policy</td>
-<td>Action applied within 5 business days of confirmation at 100 percent</td>
-<td class="c-flag"><span class="yes">Y</span></td>
+<td><b>Flag high-risk anomalies for further investigation</b></td>
+<td>Revenue Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Anomaly list</td>
+<td>High-risk anomaly list</td>
+<td>High-risk flagging accuracy &gt; 80%</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Policy action has to be applied consistently or it becomes commercially and reputationally exposed</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Incorrect flagging can lead to missed opportunities or false alarms.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Review and correct high-risk anomaly flags</b></td>
+<td>Revenue Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>High-risk anomaly list</td>
+<td>Corrected high-risk anomaly list</td>
+<td>Correction accuracy &gt; 90%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual corrections are time-consuming.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-RM-YM-04-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Action and prevention</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Investigation</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Identify systemic patterns for fare rule prevention</b></td>
-<td>Revenue Management Analyst</td>
-<td><span class="tag iata" data-tooltip="Industry fare filing, rules, footnotes and tax data. The rate-limiting step on pricing agility. [ATPCO - evidence B]">ATPCO<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Case history across the review period</td>
-<td>Fare rule prevention recommendation</td>
-<td>Systemic patterns reviewed each quarter at 100 percent</td>
+<td><b>Investigate flagged anomalies</b></td>
+<td>Revenue Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Corrected high-risk anomaly list</td>
+<td>Investigation report</td>
+<td>Investigation completion time &lt; 24 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Complex investigations require significant analyst effort.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Gather additional data for complex anomalies</b></td>
+<td>Revenue Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Investigation report</td>
+<td>Enhanced investigation report</td>
+<td>Data gathering time &lt; 4 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Closing one loophole through fare rule design can shift abuse to a different pattern</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Missing or incomplete data can delay investigations.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Request additional data from relevant teams</b></td>
+<td>Revenue Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Enhanced investigation report</td>
+<td>Additional data</td>
+<td>Response time for additional data &lt; 24 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Coordination with multiple teams slows down the process.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-YM-04-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Validation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Validate investigation findings</b></td>
+<td>Revenue Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Investigation report</td>
+<td>Validation report</td>
+<td>Validation accuracy &gt; 95%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Validation errors can lead to incorrect actions.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Request re-investigation if findings are invalid</b></td>
+<td>Revenue Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Validation report</td>
+<td>Reinvestigation request</td>
+<td>Reinvestigation initiation time &lt; 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Reinvestigations consume additional resources.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-YM-04-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Reporting</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Prepare final report on detected issues</b></td>
+<td>Revenue Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Validation report</td>
+<td>Final report</td>
+<td>Report preparation time &lt; 24 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Detailed reporting requires meticulous documentation.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Summarize findings and recommendations</b></td>
+<td>Revenue Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Final report</td>
+<td>Summary report</td>
+<td>Report summarization time &lt; 4 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inaccurate summaries can lead to miscommunication.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-YM-04-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Action Planning</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Plan corrective actions based on report</b></td>
+<td>Revenue Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Summary report</td>
+<td>Action plan</td>
+<td>Action planning time &lt; 24 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Ineffective action plans can exacerbate issues.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Implement corrective actions</b></td>
+<td>Revenue Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Action plan</td>
+<td>Corrective actions executed</td>
+<td>Action execution time &lt; 48 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed action implementation can lead to prolonged issues.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Revenue Management Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Revenue Analyst</span><span class="lane-steps">1.1 1.2 1.3 1.4 2.1 2.2 2.3 3.1 3.2 3.3 4.1 4.2 5.1 5.2 6.1 6.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag iata" data-tooltip="Industry fare filing, rules, footnotes and tax data. The rate-limiting step on pricing agility. [ATPCO - evidence B]">ATPCO<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag pros" data-tooltip="Continuous willingness-to-pay pricing. Air Canada is a 30-year-plus PROS reference account. [PROS - evidence A]">PROS Real-Time Dynamic Pricing<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Screened weekly for 100 percent of the network</li><li>Investigated within 10 business days of flagging at 90 percent</li><li>Action applied within 5 business days of confirmation at 100 percent</li><li>Revenue recovered or protected through revenue integrity action tracked each quarter</li></ul>
+<ul class="bullets"><li>Data collection time &lt; 2 hours</li><li>Anomaly detection rate &gt; 95%</li><li>High-risk flagging accuracy &gt; 80%</li><li>Investigation completion time &lt; 24 hours</li><li>Validation accuracy &gt; 95%</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Screening rules generating enough false positives to consume genuine investigation capacity</li><li>Confirmed abuse action applied inconsistently, creating commercial and reputational exposure</li><li>Closing one abuse loophole through fare rule design simply shifting the pattern elsewhere</li><li>Distinguishing genuine abuse from an unusual but entirely legitimate travel pattern</li></ul>
+<ul class="bullets risk"><li>Delays in data collection from PROS Real-Time Dynamic Pricing due to system issues.</li><li>Inaccurate anomaly detection leading to false positives or negatives.</li><li>Complex investigations requiring significant analyst effort and time.</li><li>Errors in validation reports causing incorrect actions.</li><li>Ineffectively planned corrective actions exacerbating revenue integrity issues.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../revenue-management-pricing/rm-analytics-performance/ac-rm-ym-03/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Spill and Spoilage Analysis</span></a>
