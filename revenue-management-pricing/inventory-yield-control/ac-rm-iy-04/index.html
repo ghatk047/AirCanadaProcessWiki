@@ -136,7 +136,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-RM-IY-04" title="Click to copy the process ID">
     AC-RM-IY-04<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Group Booking Evaluation and Quote</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -145,107 +145,252 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-RM-IY-04-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Request intake and feasibility</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Initial Request Handling</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Receive and register group request</b></td>
-<td>Group Sales Coordinator</td>
-<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Group enquiry with size, dates and routing</td>
-<td>Registered group request</td>
-<td>Requests registered within 1 business day of receipt</td>
+<td><b>Receive group booking request</b></td>
+<td>Travel Agent</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Group booking details (number of passengers, travel dates, destination)</td>
+<td>Request logged in the system</td>
+<td>Response time within 5 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Enquiries arrive through multiple channels with inconsistent detail</td>
+<td>Delays in request processing can lead to lost business opportunities.</td>
 </tr><tr>
 <td class="c-step">1.2</td>
-<td><b>Assess seat availability for the block</b></td>
+<td><b>Validate booking parameters</b></td>
 <td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Logged group booking request</td>
+<td>Validation report</td>
+<td>95% accuracy in validation checks</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Incorrect parameters can lead to mispriced quotes.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Notify requesting party of invalid parameters</b></td>
+<td>Travel Agent</td>
 <td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Requested block size and dates</td>
-<td>Availability assessment</td>
-<td>Availability assessed within 2 business days at 100 percent</td>
+<td>Validation report</td>
+<td>Notification sent to customer</td>
+<td>Response time within 2 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Group holds compete directly with individual inventory optimisation for the same seats</td>
+<td>Delayed notifications can cause dissatisfaction among customers.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Resubmit corrected request</b></td>
+<td>Travel Agent</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Corrected group booking details</td>
+<td>Updated request logged in the system</td>
+<td>Response time within 3 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Re-submission delays can disrupt customer service flow.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-RM-IY-04-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Displacement evaluation</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Pricing Evaluation</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Calculate displacement cost</b></td>
+<td><b>Generate initial pricing estimate</b></td>
 <td>Revenue Management Analyst</td>
-<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Forecasted individual demand for the affected flights</td>
-<td>Displacement cost estimate</td>
-<td>Displacement calculated for 100 percent of viable requests</td>
+<td><span class="tag pros" data-tooltip="Continuous willingness-to-pay pricing. Air Canada is a 30-year-plus PROS reference account. [PROS - evidence A]">PROS Real-Time Dynamic Pricing<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Validated group booking request</td>
+<td>Initial pricing estimate</td>
+<td>Estimate accuracy within 5% of final quote</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Displacement estimation on a high-demand flight is highly sensitive to the underlying forecast</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inaccurate initial estimates can lead to negotiation delays.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Determine minimum acceptable group fare</b></td>
+<td><b>Log pricing error and retry</b></td>
 <td>Revenue Management Analyst</td>
-<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Displacement cost and group terms</td>
-<td>Minimum group fare</td>
-<td>Minimum fare set for 100 percent of quoted groups</td>
-<td class="c-flag"><span class="yes">Y</span></td>
+<td><span class="tag pros" data-tooltip="Continuous willingness-to-pay pricing. Air Canada is a 30-year-plus PROS reference account. [PROS - evidence A]">PROS Real-Time Dynamic Pricing<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Error log</td>
+<td>Corrected pricing estimate</td>
+<td>Retry success rate within 3 attempts</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Competitive pressure can push a quote below the calculated minimum without a clear override trail</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Multiple retries can consume significant analyst time.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Escalate to senior analyst for review</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Error log and retry attempts</td>
+<td>Escalation notification sent</td>
+<td>Response time within 15 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Escalations can delay the entire booking process.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-RM-IY-04-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Quotation and confirmation</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Inventory Check</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Issue quotation to the requester</b></td>
-<td>Group Sales Coordinator</td>
-<td><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Approved terms and fare</td>
-<td>Issued group quotation</td>
-<td>Quotations issued within 3 business days of request at 95 percent</td>
+<td><b>Check seat availability</b></td>
+<td>Inventory Control Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Validated group booking request and initial pricing estimate</td>
+<td>Availability report</td>
+<td>98% accuracy in availability checks</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Quote validity windows are not always enforced consistently against a firming deadline</td>
+<td>Incorrect availability can lead to overbooking issues.</td>
 </tr><tr>
 <td class="c-step">3.2</td>
-<td><b>Confirm and hold the group block</b></td>
-<td>Group Sales Coordinator</td>
+<td><b>Notify requesting party of insufficient capacity</b></td>
+<td>Travel Agent</td>
 <td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Accepted quotation</td>
-<td>Confirmed group block in inventory</td>
-<td>Blocks confirmed within 1 business day of acceptance at 100 percent</td>
+<td>Availability report</td>
+<td>Notification sent to customer</td>
+<td>Response time within 5 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>An unconfirmed hold beyond its deadline still blocks individual inventory unless actively released</td>
+<td>Delayed notifications can cause dissatisfaction among customers.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Reschedule or reduce group size</b></td>
+<td>Travel Agent</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Customer feedback on capacity issue</td>
+<td>Updated request logged in the system</td>
+<td>Response time within 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Rescheduling or reducing group size can disrupt travel plans.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-IY-04-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Quote Generation</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Generate final quote</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="Continuous willingness-to-pay pricing. Air Canada is a 30-year-plus PROS reference account. [PROS - evidence A]">PROS Real-Time Dynamic Pricing<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Validated group booking request, initial pricing estimate, and availability report</td>
+<td>Finalized quote</td>
+<td>Quote generation time within 2 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed quote generation can lead to missed sales opportunities.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Log quote error and retry</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="Continuous willingness-to-pay pricing. Air Canada is a 30-year-plus PROS reference account. [PROS - evidence A]">PROS Real-Time Dynamic Pricing<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Error log</td>
+<td>Corrected finalized quote</td>
+<td>Retry success rate within 2 attempts</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Multiple retries can consume significant analyst time.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Escalate to senior analyst for review</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Error log and retry attempts</td>
+<td>Escalation notification sent</td>
+<td>Response time within 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Escalations can delay the entire booking process.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-IY-04-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Approval Process</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Approve final quote</b></td>
+<td>Group Booking Manager</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Finalized quote</td>
+<td>Approval status</td>
+<td>Approval rate within 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed approvals can lead to missed sales opportunities.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Notify requesting party of rejection</b></td>
+<td>Travel Agent</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Approval status</td>
+<td>Notification sent to customer</td>
+<td>Response time within 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed notifications can cause dissatisfaction among customers.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Resubmit quote for approval</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Revised finalized quote</td>
+<td>Updated approval status</td>
+<td>Response time within 20 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Multiple resubmissions can delay the booking process.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-IY-04-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Finalization</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Finalize quote and send to requesting party</b></td>
+<td>Travel Agent</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Approved finalized quote</td>
+<td>Finalized quote sent to customer</td>
+<td>Response time within 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed finalization can lead to lost business opportunities.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Group Sales Coordinator</span><span class="lane-steps">1.1 3.1 3.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Revenue Management Analyst</span><span class="lane-steps">1.2 2.1 2.2</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Travel Agent</span><span class="lane-steps">1.1 1.3 1.4 3.2 3.3 5.2 6.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Revenue Management Analyst</span><span class="lane-steps">1.2 2.1 2.2 2.3 4.1 4.2 4.3 5.3</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Inventory Control Analyst</span><span class="lane-steps">3.1</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Group Booking Manager</span><span class="lane-steps">5.1</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+<div class="card"><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag pros" data-tooltip="Continuous willingness-to-pay pricing. Air Canada is a 30-year-plus PROS reference account. [PROS - evidence A]">PROS Real-Time Dynamic Pricing<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Availability assessed within 2 business days at 100 percent</li><li>Displacement calculated for 100 percent of viable requests</li><li>Quotations issued within 3 business days of request at 95 percent</li><li>Confirmed group revenue meeting or exceeding the displacement cost at 90 percent</li></ul>
+<ul class="bullets"><li>90% successful quote generation rate</li><li>98% availability check accuracy</li><li>30-minute approval process average time</li><li>20% reduction in resubmission attempts</li><li>5-minute response time for notifications</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Competitive pressure pushing a quote below the calculated minimum without a documented override</li><li>An unconfirmed hold blocking individual inventory well past its firming deadline</li><li>Displacement estimation on a high-demand flight being highly sensitive to forecast error</li><li>Group demand and individual optimisation competing for the same seats with no shared arbitration rule</li></ul>
+<ul class="bullets risk"><li>Latency in ATPCO fare filing affecting pricing agility</li><li>Incorrect initial pricing estimates leading to negotiation delays</li><li>Overbooking issues due to incorrect availability checks</li><li>Missed sales opportunities due to delayed quote generation</li><li>Customer dissatisfaction from prolonged notification delays</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../revenue-management-pricing/inventory-yield-control/ac-rm-iy-03/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Overbooking and No Show Forecasting</span></a>

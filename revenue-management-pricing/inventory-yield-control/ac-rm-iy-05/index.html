@@ -136,7 +136,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-RM-IY-05" title="Click to copy the process ID">
     AC-RM-IY-05<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Inventory Feed Reconciliation to Altea</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -145,107 +145,241 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-RM-IY-05-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Feed extraction</span>
-    <span class="ph-n">2 steps</span></div>
-  <div class="phase-body"><div class="tbl-wrap"><table>
-  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
-  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
-  <tbody><tr>
-<td class="c-step">1.1</td>
-<td><b>Extract optimisation output</b></td>
-<td>Revenue Management Analyst</td>
-<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Completed nightly optimisation run</td>
-<td>Optimisation output extract</td>
-<td>Extract produced immediately after each nightly run at 100 percent</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Extract timing depends on the optimisation run completing within its batch window</td>
-</tr><tr>
-<td class="c-step">1.2</td>
-<td><b>Extract live inventory position</b></td>
-<td>Revenue Management Analyst</td>
-<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Live inventory state</td>
-<td>Inventory extract</td>
-<td>Extract produced before the sales day opens at 100 percent</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Inventory can change between extraction and comparison if bookings are already occurring</td>
-</tr></tbody></table></div></div>
-</div><div class="phase-group" data-phase-id="AC-RM-IY-05-2">
-  <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Comparison</span>
-    <span class="ph-n">1 steps</span></div>
-  <div class="phase-body"><div class="tbl-wrap"><table>
-  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
-  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
-  <tbody><tr>
-<td class="c-step">2.1</td>
-<td><b>Compare optimisation output to live inventory</b></td>
-<td>Revenue Management Analyst</td>
-<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Both extracts</td>
-<td>Variance report</td>
-<td>Comparison completed before the sales day opens at 100 percent</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Comparison logic has to account for legitimate in-flight bookings occurring during the batch window</td>
-</tr></tbody></table></div></div>
-</div><div class="phase-group" data-phase-id="AC-RM-IY-05-3">
-  <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Discrepancy resolution</span>
+    <span class="ph-name">Phase 1 &mdash; Data Extraction</span>
     <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
-<td class="c-step">3.1</td>
-<td><b>Investigate and correct discrepancies</b></td>
-<td>Revenue Management Analyst</td>
-<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Variance report</td>
-<td>Corrected inventory or documented cause</td>
-<td>Discrepancies corrected within 4 hours of detection at 95 percent</td>
+<td class="c-step">1.1</td>
+<td><b>Extract flight schedule data from PROS Revenue Management</b></td>
+<td>PROS Data Extractor</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Daily batch process trigger</td>
+<td>Flight schedule and pricing data in XML format</td>
+<td>Data extraction time &lt; 15 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="yes">Y</span></td>
-<td>Root cause of a feed failure is not always attributable to a single step in the pipeline</td>
+<td>Network connectivity issues can delay data extraction.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Validate extracted flight schedule data</b></td>
+<td>Data Validator</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Flight schedule and pricing data in XML format</td>
+<td>Validated flight schedule data</td>
+<td>Validation accuracy &gt; 99%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Data validation rules need to be updated regularly.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Correct and re-validate invalid flight schedule data</b></td>
+<td>Data Corrector</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Invalid flight schedule data</td>
+<td>Corrected flight schedule data</td>
+<td>Correction accuracy &gt; 95%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual corrections can introduce human error.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-IY-05-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Validation and Transformation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Transform validated flight schedule data for Altea</b></td>
+<td>Data Transformer</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Validated flight schedule data</td>
+<td>Transformed flight schedule data in Altea format</td>
+<td>Transformation time &lt; 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Format transformation scripts may need frequent updates.</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Debug and retry failed data transformation</b></td>
+<td>Data Transformer</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Failed transformation logs</td>
+<td>Successful data transformation</td>
+<td>Retry success rate &gt; 80%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex data structures can cause repeated failures.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-IY-05-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Inventory Feed Preparation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Prepare inventory feed for Altea upload</b></td>
+<td>Inventory Feed Preparer</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Transformed flight schedule data in Altea format</td>
+<td>Prepared inventory feed file</td>
+<td>Feed preparation time &lt; 3 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>File size limitations can cause upload failures.</td>
 </tr><tr>
 <td class="c-step">3.2</td>
-<td><b>Report reconciliation status</b></td>
-<td>Revenue Management Analyst</td>
-<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Corrected position</td>
-<td>Daily reconciliation status report</td>
-<td>Report issued daily at 100 percent</td>
+<td><b>Compress inventory feed file for upload</b></td>
+<td>Inventory Feed Preparer</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Too large inventory feed file</td>
+<td>Compressed inventory feed file</td>
+<td>Compression rate &gt; 50%</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Compression algorithms can impact data integrity.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-IY-05-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Reconciliation with Altea</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Upload prepared inventory feed to Altea Inventory</b></td>
+<td>Altea Inventory Manager</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Prepared inventory feed file</td>
+<td>Inventory feed upload confirmation</td>
+<td>Upload success rate &gt; 98%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Recurring discrepancy patterns are not tracked as a trend across days</td>
+<td>Network bandwidth constraints can affect upload speed.</td>
 </tr><tr>
-<td class="c-step">3.3</td>
-<td><b>Trend discrepancy causes over time</b></td>
-<td>Revenue Management Analyst</td>
-<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Daily reconciliation history</td>
-<td>Trend report of discrepancy root causes</td>
-<td>Trend reviewed monthly at 100 percent</td>
+<td class="c-step">4.2</td>
+<td><b>Retry failed inventory feed upload</b></td>
+<td>Altea Inventory Manager</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Failed upload logs</td>
+<td>Successful inventory feed upload</td>
+<td>Retry success rate &gt; 85%</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Network issues can cause repeated upload failures.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-IY-05-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Monitoring and Exception Handling</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Monitor inventory feed reconciliation in Altea</b></td>
+<td>Altea Inventory Monitor</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Inventory feed upload confirmation</td>
+<td>Reconciliation status report</td>
+<td>Reconciliation accuracy &gt; 95%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Without a trend view a recurring pipeline defect is re-diagnosed from scratch each time it appears</td>
+<td>Reconciliation rules need to be updated regularly.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Investigate and resolve reconciliation discrepancies</b></td>
+<td>Inventory Feed Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Reconciliation status report</td>
+<td>Discrepancy resolution report</td>
+<td>Resolution time &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual investigation can be time-consuming.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-IY-05-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Finalization</span>
+    <span class="ph-n">5 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Finalize inventory feed reconciliation</b></td>
+<td>Altea Inventory Manager</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Resolved discrepancy report</td>
+<td>Finalized inventory feed status</td>
+<td>Finalization time &lt; 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System downtime can impact finalization.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Update inventory feed reconciliation logs</b></td>
+<td>Inventory Feed Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Finalized inventory feed status</td>
+<td>Updated reconciliation logs</td>
+<td>Log update accuracy &gt; 99%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Log management systems can become overloaded.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Notify stakeholders of successful reconciliation</b></td>
+<td>Inventory Feed Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Updated reconciliation logs</td>
+<td>Stakeholder notification email</td>
+<td>Notification time &lt; 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Email system failures can delay notifications.</td>
+</tr><tr>
+<td class="c-step">6.4</td>
+<td><b>Archive final inventory feed reconciliation data</b></td>
+<td>Inventory Feed Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Finalized inventory feed status and logs</td>
+<td>Archived reconciliation data</td>
+<td>Archive success rate &gt; 98%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Storage capacity limitations can cause archiving failures.</td>
+</tr><tr>
+<td class="c-step">6.5</td>
+<td><b>Review and update reconciliation process procedures</b></td>
+<td>Inventory Feed Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Archived reconciliation data</td>
+<td>Updated process documentation</td>
+<td>Documentation review time &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Process changes can disrupt existing workflows.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Revenue Management Analyst</span><span class="lane-steps">1.1 1.2 2.1 3.1 3.2 3.3</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>PROS Data Extractor</span><span class="lane-steps">1.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Data Validator</span><span class="lane-steps">1.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Data Corrector</span><span class="lane-steps">1.3</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Data Transformer</span><span class="lane-steps">2.1 2.2</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Inventory Feed Preparer</span><span class="lane-steps">3.1 3.2</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>Altea Inventory Manager</span><span class="lane-steps">4.1 4.2 6.1</span></div><div class="lane"><span class="swatch" style="background:#8A5A1E"></span><span>Altea Inventory Monitor</span><span class="lane-steps">5.1</span></div><div class="lane"><span class="swatch" style="background:#4A4A4A"></span><span>Inventory Feed Analyst</span><span class="lane-steps">5.2 6.2 6.3 6.4 6.5</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Comparison completed before the sales day opens at 100 percent</li><li>Discrepancies corrected within 4 hours of detection at 95 percent</li><li>Zero flights selling against a materially incorrect control for more than 4 hours</li><li>Report issued daily at 100 percent</li></ul>
+<ul class="bullets"><li>Data extraction time &lt; 15 minutes</li><li>Validation accuracy &gt; 99%</li><li>Transformation success rate &gt; 80%</li><li>Upload success rate &gt; 98%</li><li>Reconciliation accuracy &gt; 95%</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>An optimisation decision failing to reach live inventory with no automatic alert</li><li>Revenue impact from a missed sync only becoming visible after a booking outcome looks wrong</li><li>Recurring discrepancy patterns not tracked as a trend across days, hiding a systemic feed issue</li><li>Legitimate in-flight bookings during the batch window complicating discrepancy attribution</li></ul>
+<ul class="bullets risk"><li>Network connectivity issues during data extraction.</li><li>Data validation rules becoming outdated.</li><li>Format transformation scripts failing to handle complex data structures.</li><li>File size limitations causing upload failures.</li><li>Network bandwidth constraints affecting upload speed.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../revenue-management-pricing/inventory-yield-control/ac-rm-iy-04/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Group Booking Evaluation and Quote</span></a>
