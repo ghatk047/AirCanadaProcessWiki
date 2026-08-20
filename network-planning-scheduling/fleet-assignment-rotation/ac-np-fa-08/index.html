@@ -136,7 +136,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-NP-FA-08" title="Click to copy the process ID">
     AC-NP-FA-08<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Charter and Jetz Sub-Fleet Scheduling</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -145,107 +145,252 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-NP-FA-08-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Request and feasibility</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Initial Request Evaluation</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Receive and register charter request</b></td>
-<td>Charter Sales Coordinator</td>
-<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Charter enquiry with dates and routing</td>
-<td>Registered charter request</td>
-<td>Requests registered within 1 business day</td>
+<td><b>Receive charter request or identify Jetz slot</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Charter request form or internal notification of available Jetz slot</td>
+<td>Request logged and prioritized in NetLine</td>
+<td>Time to log request &lt; 1 hour</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Charter requests arrive with variable notice, from months to days ahead</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delays in receiving charter requests can impact overall fleet utilization.</td>
 </tr><tr>
 <td class="c-step">1.2</td>
-<td><b>Assess aircraft and crew availability</b></td>
-<td>Fleet Planner</td>
-<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Requested dates and sub-fleet position</td>
-<td>Availability assessment</td>
-<td>Availability assessed within 3 business days of request</td>
+<td><b>Evaluate request feasibility</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Logged charter request details</td>
+<td>Feasibility report with constraints and recommendations</td>
+<td>Feasibility evaluation completed within 2 hours</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Sub-fleet aircraft are also candidates for mainline recovery, creating a competing claim</td>
+<td>Complex route planning can lead to extended evaluation times.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Identify available aircraft</b></td>
+<td>Fleet Assignment Specialist</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Feasibility report</td>
+<td>List of available aircraft matching request criteria</td>
+<td>Aircraft identification completed within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inadequate aircraft availability can lead to charter cancellations.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-NP-FA-08-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Scheduling</span>
+    <span class="ph-name">Phase 2 &mdash; Fleet Availability Check</span>
     <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Build charter routing and timing</b></td>
-<td>Schedule Planner</td>
-<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Confirmed availability and customer requirements</td>
-<td>Charter schedule</td>
-<td>Charter schedule built within 5 business days of confirmed availability</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Charter routings can require airports outside the normal network with limited handling data</td>
-</tr><tr>
-<td class="c-step">2.2</td>
-<td><b>Validate against mainline rotation conflicts</b></td>
-<td>Schedule Planner</td>
-<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Charter schedule and mainline commitments</td>
-<td>Conflict-free charter schedule</td>
-<td>Zero conflicts with committed mainline rotations at confirmation</td>
+<td><b>Check regulatory compliance</b></td>
+<td>Regulatory Compliance Officer</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Selected aircraft and route details</td>
+<td>Compliance report with any required approvals</td>
+<td>Regulatory check completed within 2 hours</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A late charter confirmation can force a mainline rotation to be reworked</td>
+<td>Missing regulatory documents can delay charter operations.</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Initiate interline coordination</b></td>
+<td>Star Alliance Interline Coordinator</td>
+<td><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Compliance report and selected aircraft</td>
+<td>Interline agreement status</td>
+<td>Interline coordination completed within 3 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Communication delays with Star Alliance partners can impact schedule timing.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-NP-FA-08-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Confirmation</span>
+    <span class="ph-name">Phase 3 &mdash; Regulatory Compliance Review</span>
     <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Confirm and publish the charter schedule</b></td>
-<td>Charter Sales Coordinator</td>
-<td><span class="tag iata" data-tooltip="Legacy airline teletype messaging: PNL, ADL, BSM, LDM, MVT. Still load-bearing across the estate. [IATA - evidence C]">IATA Type-B Messaging<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Validated schedule</td>
-<td>Published and confirmed charter</td>
-<td>Charters confirmed to the customer within the agreed lead time at 100 percent</td>
+<td><b>Optimize final schedule</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Interline agreement status and compliance report</td>
+<td>Optimized schedule with assigned aircraft, crew, and resources</td>
+<td>Final schedule optimization completed within 4 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Confirmation timing expectations differ by customer and are not standardised</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Conflicting schedules can lead to resource allocation issues.</td>
 </tr><tr>
 <td class="c-step">3.2</td>
-<td><b>Close out and reconcile the charter operation</b></td>
-<td>Charter Sales Coordinator</td>
-<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Completed charter flight</td>
-<td>Reconciled billing and operational close</td>
-<td>Charter billing reconciled within 10 business days of operation</td>
+<td><b>Review optimized schedule for conflicts</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Optimized schedule</td>
+<td>Conflict report with resolutions</td>
+<td>Conflict review completed within 2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Resource conflicts can lead to delays in flight operations.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-FA-08-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Interline Coordination</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Implement final schedule</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Conflict-free optimized schedule</td>
+<td>Finalized schedule in NetLine</td>
+<td>Schedule implementation completed within 1 hour</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Charter-specific costs such as positioning legs are not always fully captured in billing</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System integration issues can delay schedule deployment.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Notify relevant stakeholders</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Finalized schedule</td>
+<td>Notifications sent to crew, ground operations, and other departments</td>
+<td>Stakeholder notifications completed within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inaccurate or delayed notifications can lead to operational disruptions.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-FA-08-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Final Schedule Optimization</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Monitor schedule adherence</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Finalized schedule and real-time data</td>
+<td>Adherence report with any deviations</td>
+<td>Schedule adherence monitoring completed every 2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Real-time data delays can affect monitoring accuracy.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Adjust schedule as needed</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Adherence report and deviations</td>
+<td>Adjusted schedule in NetLine</td>
+<td>Schedule adjustments completed within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex scheduling changes can lead to further delays.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Notify stakeholders of adjustments</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Adjusted schedule</td>
+<td>Notifications sent to relevant departments</td>
+<td>Adjustment notifications completed within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inconsistent communication can lead to confusion among operational teams.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-FA-08-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Implementation and Monitoring</span>
+    <span class="ph-n">5 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Review and document process outcomes</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Finalized schedule, adherence report, and adjustment logs</td>
+<td>Process review document</td>
+<td>Process review completed within 1 day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inadequate documentation can hinder future process improvements.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Identify areas for improvement</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Process review document</td>
+<td>Improvement recommendations</td>
+<td>Improvement identification completed within 1 day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Lack of clear improvement areas can lead to inefficiencies.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Implement process improvements</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Improvement recommendations</td>
+<td>Updated scheduling procedures and system configurations</td>
+<td>Improvements implemented within 2 weeks</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Resistance to change can slow down implementation.</td>
+</tr><tr>
+<td class="c-step">6.4</td>
+<td><b>Monitor the impact of improvements</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Updated procedures and system configurations</td>
+<td>Impact assessment report</td>
+<td>Impact monitoring completed every 2 weeks</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inaccurate impact assessments can lead to misinformed decisions.</td>
+</tr><tr>
+<td class="c-step">6.5</td>
+<td><b>Adjust improvements based on monitoring</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Impact assessment report</td>
+<td>Adjusted scheduling procedures and system configurations</td>
+<td>Adjustments completed within 1 week</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Continuous adjustments can lead to operational complexity.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Charter Sales Coordinator</span><span class="lane-steps">1.1 3.1 3.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Fleet Planner</span><span class="lane-steps">1.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Schedule Planner</span><span class="lane-steps">2.1 2.2</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Network Planning Analyst</span><span class="lane-steps">1.1 1.2 3.1 3.2 4.1 4.2 5.1 5.2 5.3 6.1 6.2 6.3 6.4 6.5</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Fleet Assignment Specialist</span><span class="lane-steps">1.3</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Regulatory Compliance Officer</span><span class="lane-steps">2.1</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Star Alliance Interline Coordinator</span><span class="lane-steps">2.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag iata" data-tooltip="Legacy airline teletype messaging: PNL, ADL, BSM, LDM, MVT. Still load-bearing across the estate. [IATA - evidence C]">IATA Type-B Messaging<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+<div class="card"><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Zero conflicts with committed mainline rotations at confirmation</li><li>Availability assessed within 3 business days of request</li><li>Charter schedule built within 5 business days of confirmed availability</li><li>Charters confirmed to the customer within the agreed lead time at 100 percent</li></ul>
+<ul class="bullets"><li>Time to log request &lt; 1 hour</li><li>Feasibility evaluation completed within 2 hours</li><li>Aircraft identification completed within 1 hour</li><li>Regulatory check completed within 2 hours</li><li>Interline coordination completed within 3 hours</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Sub-fleet aircraft claimed by charter demand at the same time mainline recovery needs them</li><li>Late charter confirmation forcing rework of an already-committed mainline rotation</li><li>Charter routings to airports outside the normal network with limited handling data on file</li><li>Variable request notice, from months to days, straining the standard feasibility process</li></ul>
+<ul class="bullets risk"><li>Delays in receiving charter requests impacting fleet utilization.</li><li>Complex route planning leading to extended evaluation times.</li><li>Inadequate aircraft availability causing charter cancellations.</li><li>Missing regulatory documents delaying charter operations.</li><li>Communication delays with Star Alliance partners impacting schedule timing.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../network-planning-scheduling/fleet-assignment-rotation/ac-np-fa-07/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Fleet Renewal Impact Modelling</span></a>

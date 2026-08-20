@@ -136,7 +136,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-NP-FA-07" title="Click to copy the process ID">
     AC-NP-FA-07<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Fleet Renewal Impact Modelling</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -145,107 +145,241 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-NP-FA-07-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Programme tracking</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Initial Impact Assessment</span>
+    <span class="ph-n">5 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Track delivery and retirement schedule</b></td>
-<td>Fleet Planner</td>
-<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Manufacturer delivery position and retirement plan</td>
-<td>Current delivery and retirement schedule</td>
-<td>Schedule refreshed monthly at 100 percent</td>
+<td><b>Identify New Fleet Parameters</b></td>
+<td>Aircraft Planner</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>New aircraft model specifications, fleet size</td>
+<td>Fleet parameter report</td>
+<td>Time to complete impact assessment &lt; 4 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Manufacturer delivery slippage is communicated on the manufacturer&#x27;s cycle, not Air Canada&#x27;s</td>
+<td>Inaccurate initial data can lead to flawed models.</td>
 </tr><tr>
 <td class="c-step">1.2</td>
-<td><b>Assess network capacity impact of timing changes</b></td>
-<td>Network Planning Analyst</td>
+<td><b>Determine Operational Impact</b></td>
+<td>Network Planner</td>
 <td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Updated delivery schedule</td>
-<td>Capacity impact assessment by season</td>
-<td>Impact assessed within 5 business days of a confirmed change</td>
+<td>Fleet parameter report</td>
+<td>Operational impact analysis</td>
+<td>Analysis completed within 2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complexity in integrating new aircraft types into existing schedules.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Proceed with Initial Schedule Build</b></td>
+<td>Scheduler</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Operational impact analysis</td>
+<td>Initial schedule draft</td>
+<td>Schedule built within 24 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A delivery slip cascades into every route case already assuming the new type</td>
+<td>Resource constraints in building schedules for multiple scenarios.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Review and Adjust Schedule</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Initial schedule draft</td>
+<td>Adjusted schedule with connection reliability improvements</td>
+<td>Schedule adjustments completed within 48 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Balancing connection reliability against aircraft utilisation is challenging.</td>
+</tr><tr>
+<td class="c-step">1.5</td>
+<td><b>Compile Crew Assignment Report</b></td>
+<td>Crew Scheduler</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Adjusted schedule with connection reliability improvements</td>
+<td>Crew assignment report</td>
+<td>Crew assignments completed within 36 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex scheduling of multi-crew routes.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-NP-FA-07-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Impact modelling</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Schedule Build &amp; Analysis</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Model transition period fleet mix</b></td>
-<td>Fleet Planner</td>
-<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Overlapping old and new type operations</td>
-<td>Transition fleet mix by season</td>
-<td>Transition mix modelled for every season with overlapping types</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Operating two types on one route during transition raises crew and spares cost not captured here</td>
-</tr><tr>
-<td class="c-step">2.2</td>
-<td><b>Assess crew training and certification runway</b></td>
-<td>Crew Planning Liaison</td>
-<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>New type introduction timeline</td>
-<td>Crew readiness assessment</td>
-<td>Crew readiness confirmed before entry into service at 100 percent</td>
+<td><b>Request Additional Aircraft or Capacity Adjustment</b></td>
+<td>Fleet Manager</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Insufficient capacity report</td>
+<td>Capacity adjustment plan or request for additional aircraft</td>
+<td>Response time &lt; 24 hours</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Type rating training capacity is a hard constraint on how fast a new type can scale</td>
+<td>Delay in securing additional capacity can impact schedules.</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Verify Regulatory Compliance</b></td>
+<td>Regulatory Compliance Officer</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Final schedule draft</td>
+<td>Compliance report</td>
+<td>Compliance check completed within 48 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Regulatory changes can require frequent updates to schedules.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Compile Final Report</b></td>
+<td>Network Planner</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>All reviewed data and adjustments</td>
+<td>Final fleet renewal impact report</td>
+<td>Report completed within 72 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Time-consuming to compile comprehensive reports.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-NP-FA-07-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Plan update</span>
+    <span class="ph-name">Phase 3 &mdash; Crew Assignment Review</span>
     <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Update the multi-year network plan</b></td>
-<td>Network Strategy Manager</td>
-<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Impact and readiness assessments</td>
-<td>Updated multi-year network plan</td>
-<td>Plan updated within 10 business days of a confirmed programme change</td>
+<td><b>Adjust Schedule for Regulatory Compliance</b></td>
+<td>Network Planner</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Non-compliance report</td>
+<td>Regulatory compliant schedule draft</td>
+<td>Schedule adjustments completed within 24 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>The multi-year plan is a living document but updates are not always propagated to route cases already committed</td>
+<td>Compliance adjustments can disrupt existing schedules.</td>
 </tr><tr>
 <td class="c-step">3.2</td>
-<td><b>Communicate impact to affected route cases</b></td>
-<td>Network Planning Analyst</td>
-<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Updated multi-year plan</td>
-<td>Notified route case owners with revised assumptions</td>
-<td>Affected route case owners notified within 5 business days of a plan update</td>
+<td><b>Review Crew Assignments for Regulatory Compliance</b></td>
+<td>Crew Scheduler</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Regulatory compliant schedule draft</td>
+<td>Compliant crew assignment report</td>
+<td>Assignment review completed within 36 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Notification is informal, so a route case can proceed on a superseded fleet assumption</td>
+<td>Ensuring all crew members meet regulatory requirements.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-FA-07-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Regulatory Compliance Check</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Finalize Implementation Plan</b></td>
+<td>Network Planner</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Final fleet renewal impact report</td>
+<td>Implementation plan with timelines and responsibilities</td>
+<td>Plan finalized within 48 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Coordinating multiple departments for implementation.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Communicate Implementation Plan to Stakeholders</b></td>
+<td>Network Planner</td>
+<td><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Implementation plan</td>
+<td>Stakeholder communication plan</td>
+<td>Communication completed within 72 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Ensuring all stakeholders are informed and aligned.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-FA-07-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Final Report Compilation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Monitor Implementation Progress</b></td>
+<td>Network Planner</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Implementation plan</td>
+<td>Progress report</td>
+<td>Weekly progress report</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delays in implementation can affect overall schedule.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Adjust Implementation Plan as Needed</b></td>
+<td>Network Planner</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Progress report</td>
+<td>Updated implementation plan</td>
+<td>Plan adjustments completed within 48 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Continuous monitoring and adjustment are required.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-FA-07-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Implementation Planning</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Conduct Post-Implementation Review</b></td>
+<td>Network Planner</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Final schedule and crew assignments</td>
+<td>Post-implementation review report</td>
+<td>Review completed within 30 days post-implementation</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Identifying areas for improvement after implementation.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Develop Improvement Plan</b></td>
+<td>Network Planner</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Post-implementation review report</td>
+<td>Improvement plan with actionable items</td>
+<td>Plan developed within 14 days post-review</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Creating a detailed plan to address identified issues.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Fleet Planner</span><span class="lane-steps">1.1 2.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Network Planning Analyst</span><span class="lane-steps">1.2 3.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Crew Planning Liaison</span><span class="lane-steps">2.2</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Network Strategy Manager</span><span class="lane-steps">3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Aircraft Planner</span><span class="lane-steps">1.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Network Planner</span><span class="lane-steps">1.2 2.3 3.1 4.1 4.2 5.1 5.2 6.1 6.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Scheduler</span><span class="lane-steps">1.3</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">1.4</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Crew Scheduler</span><span class="lane-steps">1.5 3.2</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>Fleet Manager</span><span class="lane-steps">2.1</span></div><div class="lane"><span class="swatch" style="background:#8A5A1E"></span><span>Regulatory Compliance Officer</span><span class="lane-steps">2.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Delivery and retirement schedule refreshed monthly at 100 percent</li><li>Impact assessed within 5 business days of a confirmed change</li><li>Crew readiness confirmed before entry into service at 100 percent</li><li>Multi-year plan updated within 10 business days of a confirmed programme change</li></ul>
+<ul class="bullets"><li>Time to complete impact assessment &lt; 4 hours</li><li>Analysis completed within 2 hours</li><li>Schedule built within 24 hours</li><li>Schedule adjustments completed within 48 hours</li><li>Crew assignments completed within 36 hours</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Delivery slippage cascading into route cases that already assumed the new type</li><li>Transition-period dual-type operation raising crew and spares cost not captured in the network model</li><li>Type rating training capacity constraining how fast a new type can scale into the network</li><li>Multi-year plan updates not propagating to route cases already committed on the old assumption</li></ul>
+<ul class="bullets risk"><li>Inaccurate initial data leading to flawed models</li><li>Complexity in integrating new aircraft types into existing schedules</li><li>Resource constraints in building schedules for multiple scenarios</li><li>Balancing connection reliability against aircraft utilisation is challenging</li><li>Delay in securing additional capacity can impact schedules</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../network-planning-scheduling/fleet-assignment-rotation/ac-np-fa-06/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Express Operator Capacity Purchase Allocation</span></a>
