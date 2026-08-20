@@ -54,11 +54,13 @@ def sanitise_mermaid(mmd: str, font_size: str = "13px") -> str:
         fixed.append(line)   # must stay outside the `if` -- dropping lines silently breaks diagrams
     mmd = '\n'.join(fixed)
 
-    # 7. Guarantee the %%{init}%% directive on line 1.
+    # 7. Guarantee an %%{init}%% directive on line 1 -- only inject the
+    # default if one is genuinely missing. An existing init line (e.g. one
+    # a deterministic builder already produced, with its own theme/curve
+    # settings) is left untouched rather than clobbered with this module's
+    # hardcoded default.
     if '%%{init' not in mmd:
         mmd = init + '\n' + mmd
-    else:
-        mmd = re.sub(r'^\s*%%\{init[^\n]*\}%%', init, mmd.lstrip(), count=1)
 
     # 8. No blank line between %%{init}%% and the flowchart directive.
     cleaned = []

@@ -30,6 +30,9 @@ MIN_PHASES, MAX_PHASES = 5, 8
 MIN_STEPS, MAX_STEPS = 16, 30
 MIN_GATES = 6                      # decision_point=Y or exception=Y, combined
 TARGET_PHASES, TARGET_STEPS, TARGET_GATES = 6, 20, 8
+# Every decision_point="Y" step must carry a branch -- not "most gates should" (too vague,
+# empirically the model treats a vague quota as optional and skips it almost entirely).
+# exception="Y" steps get a branch too when encouraged, but it isn't hard-required for those.
 
 REQUEST_TIMEOUT_S = 420
 MAX_ATTEMPTS = 4
@@ -95,8 +98,9 @@ FEWSHOT = """{
   "phases": ["Phase 1 name", "Phase 2 name", "Phase 3 name", "Phase 4 name", "Phase 5 name", "Phase 6 name"],
   "l4_steps": [
     {"step":"1.1","name":"First concrete action","role":"Air Canada-specific role title","system":"Exact system name from the provided list","input":"what feeds this step","output":"what this step produces","kpi":"a measurable target with a number","decision_point":"N","exception":"N","pain_point":"a specific, real operational friction, not a generic statement"},
-    {"step":"1.2","name":"Second action in phase 1","role":"...","system":"...","input":"...","output":"...","kpi":"...","decision_point":"N","exception":"N","pain_point":"..."},
-    {"step":"2.1","name":"First action in phase 2, a genuine decision","role":"...","system":"...","input":"...","output":"...","kpi":"...","decision_point":"Y","exception":"N","pain_point":"..."}
+    {"step":"1.2","name":"A genuine decision","role":"...","system":"...","input":"...","output":"...","kpi":"...","decision_point":"Y","exception":"N","pain_point":"...","branch":{"label":"No","to":"Escalated to supervisor"}},
+    {"step":"1.3","name":"Third action in phase 1 -- the path taken when the decision above is Yes","role":"...","system":"...","input":"...","output":"...","kpi":"...","decision_point":"N","exception":"N","pain_point":"..."},
+    {"step":"2.1","name":"An exception step that resolves and rejoins the main flow","role":"...","system":"...","input":"...","output":"...","kpi":"...","decision_point":"N","exception":"Y","pain_point":"...","branch":{"label":"resolved","to":"2.3"}}
   ],
   "kpis": ["KPI 1 with a number", "KPI 2 with a number", "KPI 3 with a number", "KPI 4 with a number", "KPI 5 with a number"],
   "risks": ["Risk 1, specific to this process", "Risk 2", "Risk 3", "Risk 4", "Risk 5"]
@@ -115,6 +119,30 @@ DEPTH IS THE PRIORITY. Every process you write must have:
     spread across different phases, not clustered in one
 A shallow process with 6-8 steps and one decision point is a FAILURE. Real airline processes branch,
 loop back on exception, escalate, and reconcile across systems. Show that.
+
+BRANCHING IS MANDATORY ON EVERY decision_point="Y" STEP. This is not optional and not a "most of them"
+guideline -- every single step you mark decision_point="Y" MUST carry a "branch" object naming its
+alternate outcome. A diamond with no branch is not a decision, it's decoration, and will be rejected.
+
+  "branch": {{"label": "No", "to": "1.4"}}
+
+"label" is short (1-3 words: "No", "Escalate", "Failed", "Timeout") -- this becomes the text on the
+diagram's edge. "to" is either:
+  (a) another step's exact "step" id already in this process (a forward skip past intervening steps, or
+      a loop BACK to an earlier step id for a genuine retry/rework cycle -- airline processes do this
+      constantly: re-attempt a check, re-submit after rejection, cycle until a threshold clears), or
+  (b) a short new phrase naming an early-exit outcome that doesn't otherwise exist as a step (e.g.
+      "No action needed", "Request declined", "Escalated to duty manager") -- use this when the gate's
+      failure path genuinely ends the process rather than rejoining it.
+The step's normal path (continuing to the next step in sequence) still happens automatically -- the
+branch only needs to describe the ALTERNATE outcome, never the expected one.
+
+Vary the branch labels -- don't reuse "Not approved" for every decision. Ground each one in this
+process's own subject matter (a threshold, a system result, a capacity check) rather than a generic
+review/escalate template.
+
+exception="Y" steps may also carry a branch (e.g. showing where the exception rejoins the main flow, or
+where it exits early) -- this is encouraged but not mandatory the way decision_point="Y" branches are.
 
 Every step needs a REAL, SPECIFIC pain point -- something a working analyst or agent would actually say
 about their job, not a generic statement like "process can be slow" or "requires coordination". Ground it
@@ -136,6 +164,8 @@ Field rules:
   - "step" values must follow "{{phase_number}}.{{step_number}}" format (e.g. "1.1", "1.2", "2.1", "3.4"),
     phase_number matching the 1-indexed position of the step's phase in the "phases" array.
   - "decision_point" and "exception" are always exactly "Y" or "N".
+  - "branch" is omitted entirely for a step with no alternate path -- do not write "branch": null or
+    "branch": {{}}, just leave the key out.
   - "kpis" and "risks" arrays each need exactly 5 entries.
   - Every string field is plain prose -- no markdown, no bullet characters, no parentheses-heavy asides.
 """
@@ -169,8 +199,9 @@ Domain systems available for this process (prefer these where the step's functio
 
 Write the complete process now as a single JSON object per the schema and depth requirements in the
 system prompt. Remember: at least {MIN_PHASES} phases, at least {MIN_STEPS} L4 steps, at least
-{MIN_GATES} decision or exception gates. This is the single most important instruction -- do not
-undershoot it."""
+{MIN_GATES} decision or exception gates, and EVERY decision_point="Y" step must carry a "branch" object
+to a genuinely different step or a new early-exit outcome -- not most of them, every single one. This is
+the single most important instruction -- do not undershoot it."""
 
 
 def _http_post_json(path, payload):
@@ -227,6 +258,25 @@ def _validate_depth(data):
                 or str(s.get("exception", "N")).upper().startswith("Y"))
     if gates < MIN_GATES:
         problems.append(f"decision/exception gates: expected >= {MIN_GATES}, got {gates}")
+    unbranched_decisions = [
+        s.get("step") for s in steps
+        if str(s.get("decision_point", "N")).upper().startswith("Y")
+        and not (isinstance(s.get("branch"), dict) and str(s["branch"].get("to", "")).strip())
+    ]
+    if unbranched_decisions:
+        problems.append(
+            f"these decision_point=\"Y\" steps are missing a required \"branch\" object: "
+            f"{', '.join(unbranched_decisions)} -- every decision needs one, no exceptions")
+    branch_labels = [str(s["branch"].get("label", "")).strip().lower()
+                     for s in steps if isinstance(s.get("branch"), dict) and s["branch"].get("label")]
+    if branch_labels:
+        from collections import Counter
+        label, count = Counter(branch_labels).most_common(1)[0]
+        if count >= 3 and count > len(branch_labels) // 2:
+            problems.append(
+                f"the branch label {label!r} is reused {count} times across different decisions -- this "
+                f"is the generic 'review / not approved / escalate' template, not real distinct decisions. "
+                f"Rewrite so each decision asks a specific, different question with its own label")
     for s in steps:
         if not re.match(r'^\d+\.\d+$', str(s.get("step", ""))):
             problems.append(f"step id {s.get('step')!r} does not match N.N format")
@@ -268,8 +318,9 @@ def generate_process(p, log=print):
             messages.append({"role": "user", "content":
                 "That response did not meet the requirements: " + "; ".join(problems) +
                 f". Regenerate the COMPLETE process from scratch as a single JSON object with at least "
-                f"{MIN_PHASES} phases, at least {MIN_STEPS} L4 steps, and at least {MIN_GATES} decision "
-                f"or exception gates. Do not explain -- output only the corrected JSON object."})
+                f"{MIN_PHASES} phases, at least {MIN_STEPS} L4 steps, at least {MIN_GATES} decision "
+                f"or exception gates, and a \"branch\" object on EVERY SINGLE decision_point=\"Y\" step "
+                f"listed above with no exceptions. Do not explain -- output only the corrected JSON object."})
         except urllib.error.URLError as e:
             log(f"  [{p['pid']}] attempt {attempt}: connection error: {e}")
             time.sleep(5)

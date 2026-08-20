@@ -73,7 +73,7 @@ def save_failures(fails):
 def check_ollama():
     try:
         req = urllib.request.Request(llm_content.OLLAMA_HOST + "/api/tags")
-        with urllib.request.urlopen(req, timeout=8) as resp:
+        with urllib.request.urlopen(req, timeout=25) as resp:
             tags = json.loads(resp.read())
         names = [m["name"] for m in tags.get("models", [])]
         if llm_content.MODEL not in names and not any(n.startswith(llm_content.MODEL.split(":")[0]) for n in names):

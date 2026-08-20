@@ -51,9 +51,14 @@ def _phase_of(step):
     return int(m.group(1)) if m else 1
 
 
+def _step_sort_key(s):
+    return [int(x) for x in re.findall(r"\d+", s["step"])]
+
+
 def build_mermaid(phases, steps, font_size="12px"):
     """
-    Deterministic flowchart: one subgraph per phase, steps chained in order.
+    Deterministic flowchart: one subgraph per phase, steps chained in order,
+    plus real branching where a step's data specifies one.
 
     Top level is LR so phases sit side by side (matching a standard BPMN swim
     diagram) and each phase stacks its steps TB internally. Phases are linked
@@ -62,54 +67,107 @@ def build_mermaid(phases, steps, font_size="12px"):
     subgraph's own `direction`, collapsing the whole diagram onto one axis.
     Subgraph-to-subgraph edges do not trigger that bug in either orientation,
     confirmed empirically for both TB-outer/LR-inner and LR-outer/TB-inner.
-    LR-outer keeps the rendered image wide rather than tall, which degrades far
-    more gracefully on a normally-scrolling web page.
-    """
-    by_phase = {}
-    for s in steps:
-        by_phase.setdefault(_phase_of(s["step"]), []).append(s)
 
-    lines = [f"%%{{init: {{'theme':'base','themeVariables':{{'fontSize':'{font_size}'}},"
+    A step may carry an optional `branch` dict: {"label": "No", "to": "1.2"}.
+    "to" is either another step's id (a loop-back or a forward skip -- a real
+    second outgoing edge, labelled) or free text naming a new early-exit
+    terminal that doesn't otherwise exist in the step list (e.g. "No action
+    needed"). The step's normal, unlabelled edge to the next step in sequence
+    is unaffected -- branch is additive, never a replacement.
+
+    Styling is selective, not blanket: only Start/End/terminal nodes and
+    decision/exception nodes get a colour override. Plain steps are left to
+    Mermaid's own default theme, which is what gives a diagram its visual
+    polish -- forcing every node into a custom classDef (the old approach)
+    fights the theme instead of using it.
+    """
+    ordered = sorted(steps, key=_step_sort_key)
+    by_phase = {}
+    for s in ordered:
+        by_phase.setdefault(_phase_of(s["step"]), []).append(s)
+    phs = sorted(by_phase)
+    first_ph, last_ph = phs[0], phs[-1]
+
+    step_node_id = {s["step"]: _node_id(s["step"]) for s in ordered}
+
+    # Pass 1: resolve every branch target, registering a new terminal node
+    # (owned by the branching step's own phase, matching how the reference
+    # convention declares an early-exit node inside the phase that exits to it)
+    # for any target that isn't an existing step id.
+    terminals_by_phase = {}   # phase -> [(node_id, label)]
+    branch_edges = []         # (from_id, to_id, label)
+    term_n = 0
+    for s in ordered:
+        br = s.get("branch")
+        if not br or not str(br.get("to", "")).strip():
+            continue
+        target = str(br["to"]).strip()
+        label = _label(str(br.get("label", "")) or "alt", 16)
+        from_id = step_node_id[s["step"]]
+        if target in step_node_id:
+            to_id = step_node_id[target]
+        else:
+            term_n += 1
+            to_id = f"T{term_n}"
+            terminals_by_phase.setdefault(_phase_of(s["step"]), []).append((to_id, _label(target, 30)))
+        branch_edges.append((from_id, to_id, label))
+
+    lines = [f"%%{{init: {{'theme':'default','themeVariables':{{'fontSize':'{font_size}'}},"
              f"'flowchart':{{'curve':'basis'}}}}}}%%",
              "flowchart LR"]
 
-    dec, exc, norm = [], [], []
-    for ph in sorted(by_phase):
+    dec, exc, endpoints = [], [], []
+    for ph in phs:
         pname = _label(phases[ph - 1] if ph <= len(phases) else f"Phase {ph}", 38)
         lines.append(f"subgraph P{ph} [{pname}]")
         lines.append("direction TB")
+        if ph == first_ph:
+            lines.append("START([Start])"); endpoints.append("START")
         for s in by_phase[ph]:
-            nid = _node_id(s["step"])
+            nid = step_node_id[s["step"]]
             lbl = _label(s["name"])
             if str(s.get("decision_point", "N")).upper().startswith("Y"):
                 lines.append(f"{nid}{{{lbl}}}"); dec.append(nid)
             elif str(s.get("exception", "N")).upper().startswith("Y"):
                 lines.append(f"{nid}([{lbl}])"); exc.append(nid)
             else:
-                lines.append(f"{nid}[{lbl}]"); norm.append(nid)
+                lines.append(f"{nid}[{lbl}]")
+        for tid, tlabel in terminals_by_phase.get(ph, []):
+            lines.append(f"{tid}([{tlabel}])"); endpoints.append(tid)
+        if ph == last_ph:
+            lines.append("END([Complete])"); endpoints.append("END")
         lines.append("end")
 
-    # Chain steps WITHIN a phase only, then link phase to phase by subgraph id.
-    # Node-to-node edges that cross a subgraph boundary make mermaid discard the
-    # subgraph's `direction`, which collapses the whole diagram onto one axis.
-    for ph in sorted(by_phase):
-        seq = sorted(by_phase[ph],
-                     key=lambda s: [int(x) for x in re.findall(r"\d+", s["step"])])
-        for a, b in zip(seq, seq[1:]):
-            lines.append(f'{_node_id(a["step"])} --> {_node_id(b["step"])}')
-    phs = sorted(by_phase)
+    # Primary chain: within-phase sequence only, plus Start into the very
+    # first step and the very last step into End. Node-to-node edges never
+    # cross a subgraph boundary -- see the direction-collapse note above.
+    for ph in phs:
+        seq = by_phase[ph]
+        chain_ids = [step_node_id[s["step"]] for s in seq]
+        if ph == first_ph:
+            lines.append(f"START --> {chain_ids[0]}")
+        for a, b in zip(chain_ids, chain_ids[1:]):
+            lines.append(f"{a} --> {b}")
+        if ph == last_ph:
+            lines.append(f"{chain_ids[-1]} --> END")
+
     for a, b in zip(phs, phs[1:]):
         lines.append(f"P{a} --> P{b}")
 
-    for ph in sorted(by_phase):
+    # Branch edges (labelled, additive) come after the primary chain and
+    # phase links so a reader's eye follows the happy path first.
+    for from_id, to_id, label in branch_edges:
+        lines.append(f"{from_id} -->|{label}| {to_id}")
+
+    for ph in phs:
         lines.append(f"style P{ph} fill:#FFF0F2,stroke:#D2001F,stroke-width:2px")
 
-    lines.append("classDef stepNode fill:#FFFFFF,stroke:#1A1A1A,stroke-width:1px,color:#1A1A1A")
-    lines.append("classDef decNode fill:#FFF8E6,stroke:#C9963E,stroke-width:2px,color:#1A1A1A")
+    lines.append("classDef endNode fill:#1A1A1A,stroke:#1A1A1A,color:#FFFFFF,stroke-width:1px")
+    lines.append("classDef decNode fill:#FFF3DA,stroke:#C9963E,stroke-width:2px,color:#1A1A1A")
     lines.append("classDef excNode fill:#FFE3E7,stroke:#D2001F,stroke-width:2px,color:#1A1A1A")
-    if norm: lines.append("class " + ",".join(norm) + " stepNode")
-    if dec:  lines.append("class " + ",".join(dec) + " decNode")
-    if exc:  lines.append("class " + ",".join(exc) + " excNode")
+    if endpoints: lines.append("class " + ",".join(endpoints) + " endNode")
+    if dec:       lines.append("class " + ",".join(dec) + " decNode")
+    if exc:       lines.append("class " + ",".join(exc) + " excNode")
 
     return "\n".join(lines)
 
