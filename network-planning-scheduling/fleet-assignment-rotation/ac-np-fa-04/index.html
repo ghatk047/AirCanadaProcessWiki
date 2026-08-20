@@ -136,7 +136,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-NP-FA-04" title="Click to copy the process ID">
     AC-NP-FA-04<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Narrowbody Widebody Gauge Swap Evaluation</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -145,107 +145,241 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-NP-FA-04-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Candidate identification</span>
-    <span class="ph-n">3 steps</span></div>
-  <div class="phase-body"><div class="tbl-wrap"><table>
-  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
-  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
-  <tbody><tr>
-<td class="c-step">1.1</td>
-<td><b>Identify routes near the gauge boundary</b></td>
-<td>Fleet Planner</td>
-<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Load factor and spill data by route</td>
-<td>Candidate swap route list</td>
-<td>Candidate list refreshed each planning cycle</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Boundary routes shift between seasons and the candidate list goes stale quickly</td>
-</tr><tr>
-<td class="c-step">1.2</td>
-<td><b>Quantify direct route economics for each gauge</b></td>
-<td>Revenue Management Analyst</td>
-<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Demand and cost by gauge option</td>
-<td>Direct economics comparison</td>
-<td>Direct comparison completed for 100 percent of candidates</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Direct economics alone understate the case for keeping a connecting-heavy route on larger gauge</td>
-</tr><tr>
-<td class="c-step">1.3</td>
-<td><b>Quantify connecting traffic contribution</b></td>
-<td>Network Planning Analyst</td>
-<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Connecting itineraries through the route</td>
-<td>Connecting contribution by gauge option</td>
-<td>Connecting contribution quantified for 100 percent of hub-touching candidates</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Connecting value is the input most often left out of a gauge decision</td>
-</tr></tbody></table></div></div>
-</div><div class="phase-group" data-phase-id="AC-NP-FA-04-2">
-  <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Impact quantification</span>
+    <span class="ph-name">Phase 1 &mdash; Request Initiation</span>
     <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
-<td class="c-step">2.1</td>
-<td><b>Assess fleet availability for the swap</b></td>
-<td>Fleet Planner</td>
-<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Candidate swap and fleet plan</td>
-<td>Feasibility of the swap within available fleet</td>
-<td>Feasibility confirmed before the decision is taken</td>
+<td class="c-step">1.1</td>
+<td><b>Receive gauge swap request</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Gauge swap request form</td>
+<td>Request logged and routed to Fleet Assignment &amp; Rotation team</td>
+<td>Response time within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delays in receiving requests can disrupt immediate operational needs.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Validate request format</b></td>
+<td>Fleet Assignment &amp; Rotation Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Gauge swap request form</td>
+<td>Validated request details</td>
+<td>Validation accuracy rate &gt; 98%</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A swap that is economically right can be infeasible simply for lack of an available tail</td>
+<td>Incorrectly formatted requests can cause delays in processing.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-FA-04-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Data Collection</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Collect aircraft data from NetLine</b></td>
+<td>Fleet Assignment &amp; Rotation Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Gauge swap request details</td>
+<td>Aircraft availability and maintenance status</td>
+<td>Data retrieval accuracy rate &gt; 98%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>NetLine system downtime can lead to incomplete data.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Model rotation and crew impact of the swap</b></td>
-<td>Schedule Planner</td>
-<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Candidate swap</td>
-<td>Rotation and crew feasibility assessment</td>
-<td>Feasibility assessed for 100 percent of candidates before decision</td>
+<td><b>Collect passenger demand data from Star Alliance Interline</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Route details</td>
+<td>Passenger demand and connection reliability metrics</td>
+<td>Data extraction success rate &gt; 95%</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Interline data connectivity issues can disrupt analysis.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Assess aircraft capacity and configuration</b></td>
+<td>Fleet Assignment &amp; Rotation Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Aircraft data, passenger demand data</td>
+<td>Capacity analysis report</td>
+<td>Analysis completion time within 2 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A swap decided on route economics can break a rotation or crew base elsewhere in the network</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inaccurate capacity modeling can lead to misinformed decisions.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-NP-FA-04-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Decision</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Feasibility Assessment</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Decide and commit the swap</b></td>
-<td>Fleet Planner</td>
-<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Full impact assessment</td>
-<td>Committed swap decision</td>
-<td>Decisions taken within the planning cycle at 100 percent</td>
+<td><b>Evaluate connection reliability impact</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Capacity analysis report</td>
+<td>Connection reliability assessment</td>
+<td>Reliability assessment accuracy rate &gt; 90%</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A deferred swap decision leaves the route on suboptimal gauge for another season</td>
+<td>Manual adjustments for connection reliability can be time-consuming.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Consider regulatory and contractual constraints</b></td>
+<td>A++ Atlantic Joint Venture Coordinator</td>
+<td><span class="tag iata" data-tooltip="Transatlantic JV with United and Lufthansa Group. Coordinated schedules and revenue share. [A++ JV - evidence A]">A++ Atlantic Joint Venture<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Connection reliability assessment, route details</td>
+<td>Regulatory compliance report</td>
+<td>Compliance check completion time within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>A++ JV requires coordinated capacity decisions, adding complexity.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-FA-04-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Impact Analysis</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Analyze operational impact on YYZ hub</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Regulatory compliance report</td>
+<td>Operational impact analysis</td>
+<td>Impact assessment time within 2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complexity of YYZ hub operations can slow down impact assessments.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Review financial implications</b></td>
+<td>Finance Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Financial Planning System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Operational impact analysis</td>
+<td>Financial impact report</td>
+<td>Financial review completion time within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Financial system integration issues can cause delays.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Assess network efficiency gains</b></td>
+<td>Network Planning Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Financial impact report</td>
+<td>Network efficiency assessment</td>
+<td>Efficiency gain analysis time within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual network analysis can be prone to errors.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-FA-04-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Decision Making</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Make final decision on feasibility</b></td>
+<td>Fleet Assignment &amp; Rotation Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Network efficiency assessment</td>
+<td>Feasibility decision</td>
+<td>Decision time within 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>High-level approval delays can cause further disruptions.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Prepare recommendation report</b></td>
+<td>Fleet Assignment &amp; Rotation Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Feasibility decision</td>
+<td>Recommendation report</td>
+<td>Report preparation time within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Errors in report preparation can lead to miscommunication.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Review and approve recommendation</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Recommendation report</td>
+<td>Approved recommendation</td>
+<td>Approval time within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual review can be slow and prone to errors.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-FA-04-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Report Generation</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Generate final report</b></td>
+<td>Fleet Assignment &amp; Rotation Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Approved recommendation</td>
+<td>Final gauge swap evaluation report</td>
+<td>Report generation time within 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System crashes can cause delays in generating reports.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Notify stakeholders</b></td>
+<td>Fleet Assignment &amp; Rotation Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada Communication System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Final gauge swap evaluation report</td>
+<td>Stakeholder notification sent</td>
+<td>Notification time within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Communication system failures can delay notifications.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Archive request and documentation</b></td>
+<td>Fleet Assignment &amp; Rotation Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Final gauge swap evaluation report</td>
+<td>Archived request and related documents</td>
+<td>Archiving time within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Archiving failures can lead to data loss.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Fleet Planner</span><span class="lane-steps">1.1 2.1 3.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Revenue Management Analyst</span><span class="lane-steps">1.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Network Planning Analyst</span><span class="lane-steps">1.3</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Schedule Planner</span><span class="lane-steps">2.2</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">1.1 3.1 4.1 5.3</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Fleet Assignment &amp; Rotation Analyst</span><span class="lane-steps">1.2 2.1 2.3 5.2 6.1 6.2 6.3</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Network Planning Analyst</span><span class="lane-steps">2.2 4.3</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>A++ Atlantic Joint Venture Coordinator</span><span class="lane-steps">3.2</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Finance Analyst</span><span class="lane-steps">4.2</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>Fleet Assignment &amp; Rotation Manager</span><span class="lane-steps">5.1</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lufthansa Systems NetLine/Plan<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag iata" data-tooltip="Transatlantic JV with United and Lufthansa Group. Coordinated schedules and revenue share. [A++ JV - evidence A]">A++ Atlantic Joint Venture<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Financial Planning System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada Communication System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Connecting contribution quantified for 100 percent of hub-touching candidates</li><li>Feasibility confirmed before the swap decision is taken</li><li>Rotation and crew feasibility assessed for 100 percent of candidates</li><li>Swap decisions taken within the planning cycle at 100 percent</li></ul>
+<ul class="bullets"><li>Response time within 1 hour</li><li>Validation accuracy rate &gt; 98%</li><li>Data retrieval accuracy rate &gt; 98%</li><li>Data extraction success rate &gt; 95%</li><li>Analysis completion time within 2 hours</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Direct route economics alone systematically undervaluing a connecting-heavy route</li><li>A swap decided on route economics breaking a rotation or crew base elsewhere in the network</li><li>Fleet unavailability blocking an economically justified swap</li><li>Deferred decisions leaving a route on suboptimal gauge for a full season</li></ul>
+<ul class="bullets risk"><li>Delays in receiving requests can disrupt immediate operational needs.</li><li>Incorrectly formatted requests can cause delays in processing.</li><li>NetLine system downtime can lead to incomplete data.</li><li>Interline data connectivity issues can disrupt analysis.</li><li>Inaccurate capacity modeling can lead to misinformed decisions.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../network-planning-scheduling/fleet-assignment-rotation/ac-np-fa-03/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Maintenance Opportunity Embedding in Rotations</span></a>

@@ -136,7 +136,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-NP-FA-03" title="Click to copy the process ID">
     AC-NP-FA-03<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Maintenance Opportunity Embedding in Rotations</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -145,107 +145,244 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-NP-FA-03-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Check forecast</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Data Collection</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Forecast check due dates by tail</b></td>
-<td>Technical Services Planner</td>
-<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Utilisation history and check intervals</td>
-<td>Forecast check due date by tail</td>
-<td>Check due dates forecast for the full rotation horizon</td>
+<td><b>Collect current fleet status</b></td>
+<td>Fleet Maintenance Analyst</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Maintenance Control System</td>
+<td>Current aircraft status report</td>
+<td>Data completeness (95%)</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Utilisation running ahead of plan pulls check dates forward unpredictably</td>
+<td>Delayed data from Maintenance Control causing delays in rotation planning.</td>
 </tr><tr>
 <td class="c-step">1.2</td>
-<td><b>Identify required ground time by check type</b></td>
-<td>Technical Services Planner</td>
-<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Check type and scope</td>
-<td>Required ground time by tail</td>
-<td>Ground time requirement documented for 100 percent of forecast checks</td>
+<td><b>Identify upcoming maintenance tasks</b></td>
+<td>Fleet Maintenance Analyst</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Current aircraft status report</td>
+<td>Maintenance task list</td>
+<td>Tasks identified (80%)</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Missing or incorrect data in the Maintenance Control System.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Cross-reference with NetLine/Plan schedule</b></td>
+<td>Fleet Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Maintenance task list</td>
+<td>Scheduled maintenance opportunities</td>
+<td>Opportunities identified (75%)</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Required ground time is a estimate until the actual work scope is known</td>
+<td>Inaccurate scheduling data leading to missed maintenance windows.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Adjust NetLine/Plan schedule for maintenance</b></td>
+<td>Fleet Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Scheduled maintenance opportunities</td>
+<td>Updated rotation schedule</td>
+<td>Schedule adjustments (60%)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Conflicting flight schedules preventing maintenance.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-NP-FA-03-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Ground time embedding</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Maintenance Opportunity Identification</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Embed ground time into the rotation</b></td>
-<td>Schedule Planner</td>
-<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Rotation draft and ground time requirement</td>
-<td>Rotation with embedded maintenance slot</td>
-<td>Ground time embedded for 100 percent of forecast checks</td>
+<td><b>Review and reconcile conflicting schedules</b></td>
+<td>Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Updated rotation schedule</td>
+<td>Reconciled schedule</td>
+<td>Conflict resolution time (30 minutes)</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Embedding a long check slot can force an otherwise efficient rotation to be rebuilt</td>
+<td>Manual reconciliation process is time-consuming.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Confirm maintenance base capacity for the period</b></td>
-<td>Technical Services Planner</td>
-<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Embedded maintenance slots across the fleet</td>
-<td>Base capacity confirmation or conflict</td>
-<td>Base capacity sufficient for all embedded slots at 100 percent</td>
+<td><b>Optimize rotation for aircraft utilisation</b></td>
+<td>Fleet Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Reconciled schedule</td>
+<td>Optimized rotation plan</td>
+<td>Utilization rate (85%)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>A++ JV constraints reduce flexibility.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Consult with A++ Atlantic Joint Venture partners</b></td>
+<td>Fleet Planning Analyst</td>
+<td><span class="tag iata" data-tooltip="Transatlantic JV with United and Lufthansa Group. Coordinated schedules and revenue share. [A++ JV - evidence A]">A++ Atlantic Joint Venture<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Optimized rotation plan</td>
+<td>Jointly agreed schedule</td>
+<td>Coordination time (45 minutes)</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Multiple tails can converge on the same base in the same window</td>
+<td>Communication delays between partners.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-NP-FA-03-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Validation and buffer</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Rotation Analysis</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Validate against unplanned removal risk</b></td>
-<td>Technical Services Planner</td>
-<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Embedded rotation and reliability data</td>
-<td>Risk-validated rotation</td>
-<td>Unplanned removal risk assessed for 100 percent of near-due tails</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Reliability trend data arrives after the rotation is already committed</td>
-</tr><tr>
-<td class="c-step">3.2</td>
-<td><b>Commit maintenance-protected rotation</b></td>
-<td>Technical Services Planner</td>
+<td><b>Prepare optimization proposal for review</b></td>
+<td>Fleet Planning Analyst</td>
 <td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Validated rotation</td>
-<td>Committed rotation with protected maintenance ground time</td>
-<td>Zero checks missed due to unavailable ground time</td>
+<td>Jointly agreed schedule</td>
+<td>Optimization proposal document</td>
+<td>Proposal readiness (90%)</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="yes">Y</span></td>
-<td>A missed check forces an unplanned aircraft removal mid-season</td>
+<td>Insufficient data for comprehensive optimization.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Gather additional data for proposal</b></td>
+<td>Fleet Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>None</td>
+<td>Additional data</td>
+<td>Data collection time (1 hour)</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual data gathering is slow.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Update proposal with additional data</b></td>
+<td>Fleet Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Additional data</td>
+<td>Updated optimization proposal document</td>
+<td>Proposal update time (30 minutes)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Data integration errors.</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Correct data integration errors</b></td>
+<td>Fleet Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>None</td>
+<td>Corrected proposal document</td>
+<td>Error correction time (15 minutes)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Repetitive error corrections.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-FA-03-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Optimization Proposal</span>
+    <span class="ph-n">5 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Submit optimization proposal for approval</b></td>
+<td>Fleet Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Updated optimization proposal document</td>
+<td>Approval request submitted</td>
+<td>Submission time (10 minutes)</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed approval process.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Monitor approval status</b></td>
+<td>Fleet Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>None</td>
+<td>Approval status update</td>
+<td>Approval monitoring time (15 minutes)</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual monitoring is error-prone.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Revise proposal based on feedback</b></td>
+<td>Fleet Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Feedback from approver</td>
+<td>Revised optimization proposal document</td>
+<td>Revision time (20 minutes)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex feedback requiring extensive revisions.</td>
+</tr><tr>
+<td class="c-step">4.4</td>
+<td><b>Escalate unresolved issues to higher management</b></td>
+<td>Fleet Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>None</td>
+<td>Escalation request submitted</td>
+<td>Escalation time (5 minutes)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>No resolution at lower levels.</td>
+</tr><tr>
+<td class="c-step">4.5</td>
+<td><b>Final approval by senior management</b></td>
+<td>Senior Management</td>
+<td><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Revised optimization proposal document</td>
+<td>Final approval granted</td>
+<td>Final approval time (30 minutes)</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Senior management may delay decisions.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-NP-FA-03-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Approval Process</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Implement approved rotation schedule</b></td>
+<td>Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Final approval granted</td>
+<td>Implemented schedule</td>
+<td>Implementation time (2 hours)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System issues during implementation.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Technical Services Planner</span><span class="lane-steps">1.1 1.2 2.2 3.1 3.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Schedule Planner</span><span class="lane-steps">2.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Fleet Maintenance Analyst</span><span class="lane-steps">1.1 1.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Fleet Planning Analyst</span><span class="lane-steps">1.3 1.4 2.2 2.3 3.1 3.2 3.3 3.4 4.1 4.2 4.3 4.4</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Operations Control Duty Manager</span><span class="lane-steps">2.1 5.1</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Senior Management</span><span class="lane-steps">4.5</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag netline" data-tooltip="Long-range schedule design, fleet assignment and rotation build. [Lufthansa Systems - evidence B]">NetLine/Plan<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag iata" data-tooltip="Transatlantic JV with United and Lufthansa Group. Coordinated schedules and revenue share. [A++ JV - evidence A]">A++ Atlantic Joint Venture<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Zero checks missed due to unavailable ground time</li><li>Ground time embedded for 100 percent of forecast checks</li><li>Base capacity sufficient for all embedded slots at 100 percent</li><li>Unplanned removal risk assessed for 100 percent of near-due tails</li></ul>
+<ul class="bullets"><li>Data completeness (95%)</li><li>Tasks identified (80%)</li><li>Opportunities identified (75%)</li><li>Schedule adjustments (60%)</li><li>Conflict resolution time (30 minutes)</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Maintenance ground time traded away under schedule pressure, producing an unplanned removal later</li><li>Multiple tails converging on the same base capacity in the same window</li><li>Utilisation running ahead of plan and pulling a check date forward unpredictably</li><li>Embedding a long check slot forcing rebuild of an otherwise efficient rotation</li></ul>
+<ul class="bullets risk"><li>Delayed data from Maintenance Control</li><li>Missing or incorrect data in the Maintenance Control System</li><li>Inaccurate scheduling data leading to missed maintenance windows</li><li>Conflicting flight schedules preventing maintenance</li><li>Manual reconciliation process is time-consuming</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../network-planning-scheduling/fleet-assignment-rotation/ac-np-fa-02/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Aircraft Rotation and Tail Assignment Build</span></a>
