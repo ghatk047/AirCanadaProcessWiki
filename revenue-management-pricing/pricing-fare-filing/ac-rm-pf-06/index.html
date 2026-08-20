@@ -136,7 +136,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-RM-PF-06" title="Click to copy the process ID">
     AC-RM-PF-06<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Tax Fee and Surcharge Maintenance</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -145,85 +145,384 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-RM-PF-06-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Rate change monitoring</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Initiation</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Monitor for tax and fee rate changes</b></td>
-<td>Pricing Analyst</td>
+<td><b>Receive tax fee update request</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag pros" data-tooltip="Continuous willingness-to-pay pricing. Air Canada is a 30-year-plus PROS reference account. [PROS - evidence A]">PROS Real-Time Dynamic Pricing<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Tax fee update request from Pricing &amp; Fare Filing team</td>
+<td>Acknowledgment of receipt</td>
+<td>Response time within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delays in receiving requests can disrupt pricing schedules.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Validate tax fee changes against regulatory requirements</b></td>
+<td>APPR Adjudicator</td>
 <td><span class="tag iata" data-tooltip="Industry fare filing, rules, footnotes and tax data. The rate-limiting step on pricing agility. [ATPCO - evidence B]">ATPCO<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Government and airport authority notifications</td>
-<td>Identified rate change</td>
-<td>Changes identified within 5 business days of the effective notice at 100 percent</td>
+<td>Tax fee update request</td>
+<td>Validation report</td>
+<td>Validation completed within 4 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Complex regulatory requirements can lead to validation delays.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Notify requester of invalid changes and request corrections</b></td>
+<td>Pricing &amp; Fare Filing team</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Email/Notification System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Validation report</td>
+<td>Corrected tax fee update request</td>
+<td>Response time within 24 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Notification channels vary by jurisdiction and are not centrally aggregated</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inaccurate data entry can lead to multiple iterations and delays.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-RM-PF-06-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Filing update</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Validation</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Update tax and fee filing</b></td>
-<td>Pricing Analyst</td>
-<td><span class="tag iata" data-tooltip="Industry fare filing, rules, footnotes and tax data. The rate-limiting step on pricing agility. [ATPCO - evidence B]">ATPCO<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Identified rate change</td>
-<td>Updated filed rate</td>
-<td>Updated before the change&#x27;s effective date at 95 percent</td>
+<td><b>Prepare tax fee update file for PROS</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="Continuous willingness-to-pay pricing. Air Canada is a 30-year-plus PROS reference account. [PROS - evidence A]">PROS Real-Time Dynamic Pricing<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Validated tax fee update request</td>
+<td>Tax fee update file</td>
+<td>File preparation completed within 1 hour</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Some jurisdictions provide very short notice before a rate change takes effect</td>
+<td>Manual data entry errors can lead to processing delays.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Verify correct application across fare types</b></td>
-<td>Pricing Analyst</td>
-<td><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Updated filing</td>
-<td>Verified correct application</td>
-<td>Verified for 100 percent of material rate changes</td>
+<td><b>Upload tax fee update file to PROS</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="Continuous willingness-to-pay pricing. Air Canada is a 30-year-plus PROS reference account. [PROS - evidence A]">PROS Real-Time Dynamic Pricing<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Tax fee update file</td>
+<td>Confirmation of upload</td>
+<td>Upload completed within 30 minutes</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A rate can apply differently across fare types and channels in ways that are easy to miss</td>
+<td>Network issues can disrupt file uploads.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Prepare tax fee update file for Amadeus</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Validated tax fee update request</td>
+<td>Tax fee update file</td>
+<td>File preparation completed within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual data entry errors can lead to processing delays.</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Retry uploading tax fee update file to PROS</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="Continuous willingness-to-pay pricing. Air Canada is a 30-year-plus PROS reference account. [PROS - evidence A]">PROS Real-Time Dynamic Pricing<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Tax fee update file</td>
+<td>Confirmation of upload</td>
+<td>Upload retry completed within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Network issues can disrupt file uploads.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-RM-PF-06-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Verification</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Data Preparation</span>
+    <span class="ph-n">6 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Reconcile collected amounts to remittance obligation</b></td>
-<td>Revenue Accounting Analyst</td>
-<td><span class="tag sap" data-tooltip="Passenger revenue accounting, proration, interline billing and BSP reconciliation. [Multiple - evidence C]">Revenue Accounting System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Collected tax and fee amounts</td>
-<td>Reconciled remittance position</td>
-<td>Reconciled monthly for 100 percent of applicable taxes</td>
+<td><b>Upload tax fee update file to Amadeus</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Tax fee update file</td>
+<td>Confirmation of upload</td>
+<td>Upload completed within 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Network issues can disrupt file uploads.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Verify tax fee updates in PROS</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="Continuous willingness-to-pay pricing. Air Canada is a 30-year-plus PROS reference account. [PROS - evidence A]">PROS Real-Time Dynamic Pricing<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Confirmation of upload</td>
+<td>Verification report</td>
+<td>Verification completed within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A filing error compounds across every booking made before it is caught</td>
+<td>Data mismatches can lead to incorrect pricing.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Notify requester of verification issues and request corrections</b></td>
+<td>Pricing &amp; Fare Filing team</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Email/Notification System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Verification report</td>
+<td>Corrected tax fee update file</td>
+<td>Response time within 24 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inaccurate data entry can lead to multiple iterations and delays.</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Retry uploading tax fee update file to Amadeus</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Tax fee update file</td>
+<td>Confirmation of upload</td>
+<td>Upload retry completed within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Network issues can disrupt file uploads.</td>
+</tr><tr>
+<td class="c-step">3.5</td>
+<td><b>Correct tax fee data in PROS</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="Continuous willingness-to-pay pricing. Air Canada is a 30-year-plus PROS reference account. [PROS - evidence A]">PROS Real-Time Dynamic Pricing<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Verification report</td>
+<td>Corrected tax fee update file</td>
+<td>Correction completed within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual corrections can lead to errors.</td>
+</tr><tr>
+<td class="c-step">3.6</td>
+<td><b>Retry correcting tax fee data in PROS</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag pros" data-tooltip="Continuous willingness-to-pay pricing. Air Canada is a 30-year-plus PROS reference account. [PROS - evidence A]">PROS Real-Time Dynamic Pricing<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Verification report</td>
+<td>Corrected tax fee update file</td>
+<td>Correction retry completed within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual corrections can lead to errors.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-PF-06-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; System Update</span>
+    <span class="ph-n">6 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Submit tax fee update file to ATPCO for fare filing</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag iata" data-tooltip="Industry fare filing, rules, footnotes and tax data. The rate-limiting step on pricing agility. [ATPCO - evidence B]">ATPCO<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Tax fee update file</td>
+<td>Confirmation of submission</td>
+<td>Submission completed within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>ATPCO&#x27;s fare filing process can be slow, causing delays.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Verify tax fee updates in Amadeus</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Confirmation of upload</td>
+<td>Verification report</td>
+<td>Verification completed within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Data mismatches can lead to incorrect pricing.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Retry submitting tax fee update file to ATPCO</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag iata" data-tooltip="Industry fare filing, rules, footnotes and tax data. The rate-limiting step on pricing agility. [ATPCO - evidence B]">ATPCO<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Tax fee update file</td>
+<td>Confirmation of submission</td>
+<td>Submission retry completed within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>ATPCO&#x27;s fare filing process can be slow, causing delays.</td>
+</tr><tr>
+<td class="c-step">4.4</td>
+<td><b>Notify requester of integration issues and request corrections</b></td>
+<td>Pricing &amp; Fare Filing team</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Email/Notification System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Verification report</td>
+<td>Corrected tax fee update file</td>
+<td>Response time within 24 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inaccurate data entry can lead to multiple iterations and delays.</td>
+</tr><tr>
+<td class="c-step">4.5</td>
+<td><b>Correct tax fee data in Amadeus</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Verification report</td>
+<td>Corrected tax fee update file</td>
+<td>Correction completed within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual corrections can lead to errors.</td>
+</tr><tr>
+<td class="c-step">4.6</td>
+<td><b>Retry correcting tax fee data in Amadeus</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Verification report</td>
+<td>Corrected tax fee update file</td>
+<td>Correction retry completed within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual corrections can lead to errors.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-PF-06-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Integration Testing</span>
+    <span class="ph-n">5 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Final verification of tax fee updates across systems</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">PROS Real-Time Dynamic Pricing, Amadeus Altea Inventory, ATPCO<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Corrected tax fee update files</td>
+<td>Final verification report</td>
+<td>Verification completed within 2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Data mismatches can lead to incorrect pricing.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Deploy tax fee updates to production systems</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">PROS Real-Time Dynamic Pricing, Amadeus Altea Inventory, ATPCO<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Corrected tax fee update files</td>
+<td>Deployment confirmation</td>
+<td>Deployment completed within 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System downtimes can disrupt deployments.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Correct final tax fee data across systems</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">PROS Real-Time Dynamic Pricing, Amadeus Altea Inventory, ATPCO<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Final verification report</td>
+<td>Corrected tax fee update files</td>
+<td>Correction completed within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual corrections can lead to errors.</td>
+</tr><tr>
+<td class="c-step">5.4</td>
+<td><b>Retry deploying tax fee updates to production systems</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">PROS Real-Time Dynamic Pricing, Amadeus Altea Inventory, ATPCO<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Corrected tax fee update files</td>
+<td>Deployment confirmation</td>
+<td>Retry deployment completed within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System downtimes can disrupt deployments.</td>
+</tr><tr>
+<td class="c-step">5.5</td>
+<td><b>Retry correcting final tax fee data across systems</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">PROS Real-Time Dynamic Pricing, Amadeus Altea Inventory, ATPCO<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Final verification report</td>
+<td>Corrected tax fee update files</td>
+<td>Retry correction completed within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual corrections can lead to errors.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-PF-06-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Deployment</span>
+    <span class="ph-n">5 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Monitor system performance post-deployment</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">PROS Real-Time Dynamic Pricing, Amadeus Altea Inventory, ATPCO<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Deployment confirmation</td>
+<td>Performance report</td>
+<td>Monitoring completed within 24 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System performance issues can arise post-deployment.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Notify requester of successful deployment</b></td>
+<td>Pricing &amp; Fare Filing team</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Email/Notification System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Deployment confirmation</td>
+<td>Acknowledgment of success</td>
+<td>Response time within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delays in notification can lead to confusion.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Address performance issues across systems</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">PROS Real-Time Dynamic Pricing, Amadeus Altea Inventory, ATPCO<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Performance report</td>
+<td>Resolution confirmation</td>
+<td>Issues resolved within 48 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex system interactions can lead to prolonged resolution times.</td>
+</tr><tr>
+<td class="c-step">6.4</td>
+<td><b>Retry monitoring system performance post-resolution</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">PROS Real-Time Dynamic Pricing, Amadeus Altea Inventory, ATPCO<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Resolution confirmation</td>
+<td>Performance report</td>
+<td>Monitoring completed within 24 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System performance issues can arise post-deployment.</td>
+</tr><tr>
+<td class="c-step">6.5</td>
+<td><b>Escalate unresolved performance issues to senior management</b></td>
+<td>Revenue Management Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Email/Notification System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Performance report</td>
+<td>Escalation confirmation</td>
+<td>Response time within 24 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Unresolved issues can impact revenue generation.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Pricing Analyst</span><span class="lane-steps">1.1 2.1 2.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Revenue Accounting Analyst</span><span class="lane-steps">3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">1.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>APPR Adjudicator</span><span class="lane-steps">1.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Pricing &amp; Fare Filing team</span><span class="lane-steps">1.3 3.3 4.4 6.2</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Revenue Management Analyst</span><span class="lane-steps">2.1 2.2 2.3 2.4 3.1 3.2 3.4 3.5 3.6 4.1 4.2 4.3 4.5 4.6 5.1 5.2 5.3 5.4 5.5 6.1 6.3 6.4 6.5</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag iata" data-tooltip="Industry fare filing, rules, footnotes and tax data. The rate-limiting step on pricing agility. [ATPCO - evidence B]">ATPCO<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sap" data-tooltip="Passenger revenue accounting, proration, interline billing and BSP reconciliation. [Multiple - evidence C]">Revenue Accounting System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
+<div class="card"><span class="tag pros" data-tooltip="Continuous willingness-to-pay pricing. Air Canada is a 30-year-plus PROS reference account. [PROS - evidence A]">PROS Real-Time Dynamic Pricing<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag iata" data-tooltip="Industry fare filing, rules, footnotes and tax data. The rate-limiting step on pricing agility. [ATPCO - evidence B]">ATPCO<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Email/Notification System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">PROS Real-Time Dynamic Pricing, Amadeus Altea Inventory, ATPCO<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Changes identified within 5 business days of the effective notice at 100 percent</li><li>Updated before the change&#x27;s effective date at 95 percent</li><li>Verified for 100 percent of material rate changes</li><li>Reconciled monthly for 100 percent of applicable taxes</li></ul>
+<ul class="bullets"><li>Response time within 1 hour for initial receipt and validation</li><li>Validation completed within 4 hours</li><li>File preparation and upload completed within 1 hour each</li><li>Verification completed within 2 hours across systems</li><li>Deployment completed within 30 minutes</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A short-notice jurisdiction rate change taking effect before the filing is updated</li><li>A filing error compounding across every booking made before it is caught</li><li>A rate applying inconsistently across fare types and channels in a way that is easy to miss</li><li>Notification channels varying by jurisdiction with no central aggregation point</li></ul>
+<ul class="bullets risk"><li>Delays in receiving tax fee update requests from the Pricing &amp; Fare Filing team</li><li>Complex regulatory requirements leading to validation delays</li><li>Network issues disrupting file uploads and submissions</li><li>Manual data entry errors causing processing delays and corrections</li><li>System downtimes impacting deployments and monitoring</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../revenue-management-pricing/pricing-fare-filing/ac-rm-pf-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Corporate and Negotiated Fare Administration</span></a>
