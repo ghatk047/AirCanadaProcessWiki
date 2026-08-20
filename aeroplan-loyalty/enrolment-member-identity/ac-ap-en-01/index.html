@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-AP-EN-01" title="Click to copy the process ID">
     AC-AP-EN-01<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Member Enrolment and Identity Creation</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,274 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-AP-EN-01-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Enrolment capture</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Initial Enrolment</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Capture enrolment details</b></td>
+<td><b>Receive enrolment request</b></td>
 <td>Aeroplan Member Services Agent</td>
-<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Customer-entered name, contact and preference data</td>
-<td>Captured enrolment record</td>
-<td>Enrolment captured in under 2 minutes for 90 percent of digital signups</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Member details from website/app</td>
+<td>Enrolment form data</td>
+<td>Time to receive request &lt; 2 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Partner-channel enrolment often arrives with less complete data than direct enrolment</td>
+<td>High volume of concurrent requests can overwhelm the initial intake system.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Validate enrolment data</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Enrolment form data</td>
+<td>Validated enrolment data</td>
+<td>Data validation accuracy &gt; 98%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Invalid data entries require manual correction, extending the enrolment cycle.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Prompt for corrections</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Validation errors</td>
+<td>Corrected enrolment data</td>
+<td>Correction rate &lt; 5%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual corrections are error-prone and time-consuming.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Resubmit validated data</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Corrected enrolment data</td>
+<td>Validated enrolment data</td>
+<td>Time to resubmission &lt; 1 minute</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System limitations in handling multiple resubmissions can cause delays.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-AP-EN-01-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Identity verification</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Identity Verification</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Screen for existing member profile</b></td>
-<td>Aeroplan Member Services Agent</td>
+<td><b>Initiate identity verification</b></td>
+<td>Aeroplan Security Analyst</td>
 <td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>New enrolment details</td>
-<td>Match or no-match result</td>
-<td>Duplicate screening applied to 100 percent of enrolments</td>
-<td class="c-flag"><span class="yes">Y</span></td>
+<td>Validated enrolment data</td>
+<td>Identity verification request sent</td>
+<td>Verification initiation rate &gt; 95%</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Name variation and shared contact details make automated duplicate matching imperfect</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>External API limitations can cause verification delays.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Verify identity for account security</b></td>
-<td>Aeroplan Member Services Agent</td>
+<td><b>Retry identity verification</b></td>
+<td>Aeroplan Security Analyst</td>
 <td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Enrolment record</td>
-<td>Verified identity</td>
-<td>Verification completed before first accrual is posted at 100 percent</td>
+<td>Verification request</td>
+<td>Identity verification result</td>
+<td>Retry success rate &gt; 80%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Network issues can lead to failed retries.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Store verified identity data</b></td>
+<td>Aeroplan Security Analyst</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Verification result</td>
+<td>Verified identity data stored</td>
+<td>Data storage accuracy &gt; 99%</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Verification friction that is too heavy discourages completion of enrolment at all</td>
+<td>Storage system capacity can be a bottleneck.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-AP-EN-01-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Profile activation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Data Integration</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Issue member number and activate profile</b></td>
+<td><b>Integrate with Aeroplan Platform</b></td>
+<td>Aeroplan Integration Specialist</td>
+<td><span class="tag aeroplan" data-tooltip="Co-brand and partner accrual feeds: TD, CIBC, Amex, retail and hotel partners. [Air Canada - evidence A]">Aeroplan Partner Interfaces<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Verified identity data</td>
+<td>Integrated identity data in Aeroplan Platform</td>
+<td>Integration success rate &gt; 98%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Data mapping issues can cause delays.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Adjust data mappings</b></td>
+<td>Aeroplan Integration Specialist</td>
+<td><span class="tag aeroplan" data-tooltip="Co-brand and partner accrual feeds: TD, CIBC, Amex, retail and hotel partners. [Air Canada - evidence A]">Aeroplan Partner Interfaces<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Mapping errors</td>
+<td>Adjusted data mappings</td>
+<td>Mapping correction rate &lt; 10%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual adjustments are time-consuming and can introduce new errors.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Retry integration with Aeroplan Platform</b></td>
+<td>Aeroplan Integration Specialist</td>
+<td><span class="tag aeroplan" data-tooltip="Co-brand and partner accrual feeds: TD, CIBC, Amex, retail and hotel partners. [Air Canada - evidence A]">Aeroplan Partner Interfaces<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Adjusted data mappings</td>
+<td>Integrated identity data in Aeroplan Platform</td>
+<td>Integration retry success rate &gt; 85%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System downtime can prevent successful retries.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-EN-01-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Consent Management</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Request Law 25 consent</b></td>
+<td>Aeroplan Compliance Officer</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Verified identity data</td>
+<td>Consent request sent</td>
+<td>Consent request rate &gt; 90%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Non-response rates can delay enrolment.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Escalate to member for consent</b></td>
+<td>Aeroplan Compliance Officer</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Member contact details</td>
+<td>Consent received</td>
+<td>Consent response rate &gt; 70%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual follow-ups are resource-intensive.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Store consent data</b></td>
+<td>Aeroplan Compliance Officer</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Consent response</td>
+<td>Stored consent data</td>
+<td>Consent storage accuracy &gt; 95%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Storage system downtime can cause data loss.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-EN-01-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Final Validation</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Final validation check</b></td>
+<td>Aeroplan Quality Assurance Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>All integrated and consented data</td>
+<td>Validation results</td>
+<td>Final validation accuracy &gt; 97%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex rules can cause validation errors.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Correct validation issues</b></td>
+<td>Aeroplan Quality Assurance Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Validation errors</td>
+<td>Corrected data</td>
+<td>Correction rate &lt; 8%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual corrections are prone to human error.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Re-run final validation check</b></td>
+<td>Aeroplan Quality Assurance Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Corrected data</td>
+<td>Validation results</td>
+<td>Re-validation success rate &gt; 80%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System limitations can slow down re-validations.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-EN-01-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Post-Enrolment Actions</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Activate member account</b></td>
 <td>Aeroplan Member Services Agent</td>
 <td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Verified identity</td>
-<td>Active member profile with member number</td>
-<td>Profile activated within 1 hour of verification at 100 percent</td>
+<td>Validation results</td>
+<td>Activated member account</td>
+<td>Activation rate &gt; 99%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System downtime can prevent activations.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Send welcome email</b></td>
+<td>Aeroplan Marketing Specialist</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada Email System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Activated member account details</td>
+<td>Welcome email sent</td>
+<td>Email delivery rate &gt; 95%</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A delay between verification and activation creates a window where accrual cannot be posted</td>
+<td>Network issues can cause email delivery failures.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Notify member of activation</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada SMS System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Activated member account details</td>
+<td>Activation notification sent</td>
+<td>Notification rate &gt; 90%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>SMS gateway limitations can cause delivery failures.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Aeroplan Member Services Agent</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Aeroplan Member Services Agent</span><span class="lane-steps">1.1 1.2 1.3 1.4 6.1 6.3</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Aeroplan Security Analyst</span><span class="lane-steps">2.1 2.2 2.3</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Aeroplan Integration Specialist</span><span class="lane-steps">3.1 3.2 3.3</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Aeroplan Compliance Officer</span><span class="lane-steps">4.1 4.2 4.3</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Aeroplan Quality Assurance Analyst</span><span class="lane-steps">5.1 5.2 5.3</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>Aeroplan Marketing Specialist</span><span class="lane-steps">6.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+<div class="card"><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag aeroplan" data-tooltip="Co-brand and partner accrual feeds: TD, CIBC, Amex, retail and hotel partners. [Air Canada - evidence A]">Aeroplan Partner Interfaces<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada Email System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada SMS System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Enrolment captured in under 2 minutes for 90 percent of digital signups</li><li>Duplicate screening applied to 100 percent of enrolments</li><li>Profile activated within 1 hour of verification at 100 percent</li><li>Enrolment abandonment rate below target threshold</li></ul>
+<ul class="bullets"><li>Time to receive request &lt; 2 minutes</li><li>Data validation accuracy &gt; 98%</li><li>Verification initiation rate &gt; 95%</li><li>Integration success rate &gt; 98%</li><li>Final validation accuracy &gt; 97%</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A duplicate profile created undetected, splitting one member&#x27;s accrual history across two accounts</li><li>Verification friction heavy enough to discourage completion of enrolment</li><li>A delay between verification and activation creating a window where legitimate accrual cannot post</li><li>Partner-channel enrolment data quality being lower than direct-channel enrolment</li></ul>
+<ul class="bullets risk"><li>High volume of concurrent requests overwhelming the initial intake system.</li><li>External API limitations causing verification delays.</li><li>Data mapping issues delaying integration.</li><li>Non-response rates delaying Law 25 consent.</li><li>System downtime preventing successful retries and activations.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../revenue-management-pricing/rm-analytics-performance/ac-rm-ym-07/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Revenue Uplift Attribution and Benefit Tracking</span></a>

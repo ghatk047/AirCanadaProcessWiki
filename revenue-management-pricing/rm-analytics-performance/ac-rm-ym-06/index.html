@@ -135,7 +135,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-RM-YM-06" title="Click to copy the process ID">
     AC-RM-YM-06<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Pricing and RM Data Feed to the Lakehouse</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -144,85 +144,266 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-RM-YM-06-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Pipeline execution</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Data Extraction</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Execute scheduled data pipeline runs</b></td>
-<td>Data Engineer</td>
-<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Source system data from PROS and Altea Inventory</td>
-<td>Ingested raw data in the lakehouse</td>
-<td>Pipelines complete within the scheduled window at 99 percent</td>
+<td><b>Extract pricing data from PROS Real-Time Dynamic Pricing</b></td>
+<td>PROS Data Extractor</td>
+<td><span class="tag pros" data-tooltip="Continuous willingness-to-pay pricing. Air Canada is a 30-year-plus PROS reference account. [PROS - evidence A]">PROS Real-Time Dynamic Pricing<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Scheduled batch job</td>
+<td>Pricing data file</td>
+<td>Data extraction time &lt; 30 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Network latency between PROS and Data Integration server.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Extract RM data from PROS Revenue Management</b></td>
+<td>PROS Data Extractor</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Scheduled batch job</td>
+<td>RM data file</td>
+<td>Data extraction time &lt; 30 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A source system schema change can silently break a downstream pipeline transformation</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inconsistent data formats from PROS.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Extract inventory data from Amadeus Altea Inventory</b></td>
+<td>Amadeus Data Extractor</td>
+<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Scheduled batch job</td>
+<td>Inventory data file</td>
+<td>Data extraction time &lt; 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>API rate limits on Amadeus.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Log extraction failure and notify Data Integration Manager</b></td>
+<td>Data Integration Team Lead</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Data Integration System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Failure details</td>
+<td>Notification to Data Integration Manager</td>
+<td>Response time &lt; 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual intervention required for recovery.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-RM-YM-06-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Quality validation</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Validation and Transformation</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Validate data quality against defined rules</b></td>
-<td>Data Engineer</td>
-<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Ingested data</td>
-<td>Quality validation report</td>
-<td>Validated for 100 percent of scheduled runs</td>
+<td><b>Validate pricing data file format and completeness</b></td>
+<td>Data Validator</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Validation System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Pricing data file</td>
+<td>Validation report</td>
+<td>Validation time &lt; 5 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Quality rules cover known failure modes but cannot anticipate every new data issue</td>
+<td>Incorrect schema leading to validation failures.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Investigate and remediate quality failures</b></td>
-<td>Data Engineer</td>
-<td><span class="tag databricks" data-tooltip="Lakehouse governance, lineage and access control. Foundation for governed AI grounding. [Databricks - evidence C]">Unity Catalog<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Quality validation failure</td>
-<td>Remediated data or documented known issue</td>
-<td>Remediated within 1 business day of detection at 90 percent</td>
-<td class="c-flag"><span class="no">N</span></td>
+<td><b>Validate RM data file format and completeness</b></td>
+<td>Data Validator</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Validation System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>RM data file</td>
+<td>Validation report</td>
+<td>Validation time &lt; 5 minutes</td>
 <td class="c-flag"><span class="yes">Y</span></td>
-<td>Remediation sometimes requires a source system fix outside the data team&#x27;s direct control</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Missing fields causing validation failures.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Log validation failure and notify Data Integration Manager</b></td>
+<td>Data Integration Team Lead</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Data Integration System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Failure details</td>
+<td>Notification to Data Integration Manager</td>
+<td>Response time &lt; 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual intervention required for data correction.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-RM-YM-06-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Availability confirmation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Data Loading into Lakehouse</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Confirm data availability to downstream consumers</b></td>
-<td>Data Engineer</td>
-<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Validated data</td>
-<td>Confirmed availability for analytics and model use</td>
-<td>Confirmed within the scheduled window at 100 percent</td>
+<td><b>Transform pricing data for Lakehouse compatibility</b></td>
+<td>Data Transformer</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Transformation System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Validated pricing data file</td>
+<td>Transformed pricing data</td>
+<td>Transformation time &lt; 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Data transformation rules are complex.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Transform RM data for Lakehouse compatibility</b></td>
+<td>Data Transformer</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Transformation System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Validated RM data file</td>
+<td>Transformed RM data</td>
+<td>Transformation time &lt; 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex transformation logic.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Transform inventory data for Lakehouse compatibility</b></td>
+<td>Data Transformer</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Transformation System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Validated inventory data file</td>
+<td>Transformed inventory data</td>
+<td>Transformation time &lt; 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inconsistent inventory data formats.</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Log transformation failure and notify Data Integration Manager</b></td>
+<td>Data Integration Team Lead</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Data Integration System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Failure details</td>
+<td>Notification to Data Integration Manager</td>
+<td>Response time &lt; 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual intervention required for correction.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-YM-06-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Error Handling and Retries</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Load transformed pricing data into Lakehouse</b></td>
+<td>Data Loader</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lakehouse System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Transformed pricing data</td>
+<td>Pricing data loaded into Lakehouse</td>
+<td>Loading time &lt; 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Lakehouse connection issues.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Load transformed RM data into Lakehouse</b></td>
+<td>Data Loader</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lakehouse System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Transformed RM data</td>
+<td>RM data loaded into Lakehouse</td>
+<td>Loading time &lt; 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Data conflicts during loading.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Load transformed inventory data into Lakehouse</b></td>
+<td>Data Loader</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lakehouse System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Transformed inventory data</td>
+<td>Inventory data loaded into Lakehouse</td>
+<td>Loading time &lt; 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Volume of data exceeds system capacity.</td>
+</tr><tr>
+<td class="c-step">4.4</td>
+<td><b>Log loading failure and notify Data Integration Manager</b></td>
+<td>Data Integration Team Lead</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Data Integration System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Failure details</td>
+<td>Notification to Data Integration Manager</td>
+<td>Response time &lt; 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual intervention required for resolution.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-YM-06-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Audit and Reporting</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Audit data load completeness and accuracy</b></td>
+<td>Data Auditor</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lakehouse System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Loaded data</td>
+<td>Audit report</td>
+<td>Audit time &lt; 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inaccuracies in loaded data.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Generate reporting dashboard from Lakehouse data</b></td>
+<td>Data Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Reporting System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Lakehouse data</td>
+<td>Reporting dashboard</td>
+<td>Dashboard generation time &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Slow query performance on large datasets.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Notify stakeholders of successful process completion</b></td>
+<td>Data Integration Team Lead</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Notification System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Audit report and dashboard</td>
+<td>Stakeholder notification</td>
+<td>Notification time &lt; 1 hour</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Downstream consumers are not always notified when an upstream quality issue delays availability</td>
+<td>Email delivery failures.</td>
+</tr><tr>
+<td class="c-step">5.4</td>
+<td><b>Log audit failure and notify Data Integration Manager</b></td>
+<td>Data Integration Team Lead</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Data Integration System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Failure details</td>
+<td>Notification to Data Integration Manager</td>
+<td>Response time &lt; 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual intervention required for correction.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Data Engineer</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>PROS Data Extractor</span><span class="lane-steps">1.1 1.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Amadeus Data Extractor</span><span class="lane-steps">1.3</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Data Integration Team Lead</span><span class="lane-steps">1.4 2.3 3.4 4.4 5.3 5.4</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Data Validator</span><span class="lane-steps">2.1 2.2</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Data Transformer</span><span class="lane-steps">3.1 3.2 3.3</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>Data Loader</span><span class="lane-steps">4.1 4.2 4.3</span></div><div class="lane"><span class="swatch" style="background:#8A5A1E"></span><span>Data Auditor</span><span class="lane-steps">5.1</span></div><div class="lane"><span class="swatch" style="background:#4A4A4A"></span><span>Data Analyst</span><span class="lane-steps">5.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag databricks" data-tooltip="Lakehouse governance, lineage and access control. Foundation for governed AI grounding. [Databricks - evidence C]">Unity Catalog<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
+<div class="card"><span class="tag pros" data-tooltip="Continuous willingness-to-pay pricing. Air Canada is a 30-year-plus PROS reference account. [PROS - evidence A]">PROS Real-Time Dynamic Pricing<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Data Integration System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Validation System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Transformation System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Lakehouse System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Reporting System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Notification System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Pipelines complete within the scheduled window at 99 percent</li><li>Validated for 100 percent of scheduled runs</li><li>Remediated within 1 business day of detection at 90 percent</li><li>Confirmed within the scheduled window at 100 percent</li></ul>
+<ul class="bullets"><li>Data extraction time &lt; 30 minutes</li><li>Validation time &lt; 5 minutes</li><li>Transformation time &lt; 10 minutes</li><li>Loading time &lt; 5 minutes</li><li>Audit time &lt; 30 minutes</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A source system schema change silently breaking a downstream pipeline transformation</li><li>Quality rules covering known failure modes but missing an entirely new class of data issue</li><li>Remediation depending on a source system fix outside the data team&#x27;s direct control</li><li>Downstream model and dashboard consumers not being notified when data availability is delayed</li></ul>
+<ul class="bullets risk"><li>Network connectivity issues between systems.</li><li>Inconsistent data formats from external sources.</li><li>Complexity in data transformation rules.</li><li>Capacity limitations of the Lakehouse system.</li><li>Slow performance of reporting queries on large datasets.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../revenue-management-pricing/rm-analytics-performance/ac-rm-ym-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">RM System Exception and Alert Handling</span></a>

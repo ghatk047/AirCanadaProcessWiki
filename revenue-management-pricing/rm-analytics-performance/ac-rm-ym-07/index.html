@@ -135,7 +135,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-RM-YM-07" title="Click to copy the process ID">
     AC-RM-YM-07<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Revenue Uplift Attribution and Benefit Tracking</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -144,85 +144,252 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-RM-YM-07-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Baseline and actual comparison</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Data Collection</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Establish a counterfactual baseline</b></td>
-<td>Revenue Management Analyst</td>
+<td><b>Retrieve itinerary details</b></td>
+<td>RM Analyst</td>
 <td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Historical performance absent RM intervention</td>
-<td>Constructed counterfactual baseline</td>
-<td>Baseline constructed each reporting cycle at 100 percent</td>
+<td>Flight itinerary data</td>
+<td>Pricing parameters and historical data</td>
+<td>Response time &lt; 5 seconds</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System downtime can disrupt real-time data retrieval.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Identify price changes</b></td>
+<td>RM Analyst</td>
+<td><span class="tag pros" data-tooltip="Continuous willingness-to-pay pricing. Air Canada is a 30-year-plus PROS reference account. [PROS - evidence A]">PROS Real-Time Dynamic Pricing<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Pricing parameters and historical data</td>
+<td>List of price changes</td>
+<td>Accuracy rate &gt; 95%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A counterfactual is inherently a modelling assumption, not an observed fact</td>
+<td>Manual overrides can introduce errors.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Calculate revenue uplift</b></td>
+<td>RM Analyst</td>
+<td><span class="tag pros" data-tooltip="Continuous willingness-to-pay pricing. Air Canada is a 30-year-plus PROS reference account. [PROS - evidence A]">PROS Real-Time Dynamic Pricing<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>List of price changes</td>
+<td>Revenue uplift values</td>
+<td>Uplift calculation accuracy &gt; 90%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex calculations can lead to errors.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Re-evaluate pricing parameters</b></td>
+<td>RM Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Pricing parameters and historical data</td>
+<td>Updated pricing parameters</td>
+<td>Parameter update accuracy &gt; 85%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inconsistent parameter updates can affect results.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-RM-YM-07-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Attribution modelling</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Initial Analysis</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Compare actual to counterfactual performance</b></td>
-<td>Revenue Management Analyst</td>
-<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Actual and counterfactual revenue</td>
-<td>Gross uplift estimate</td>
-<td>Compared for 100 percent of the network each cycle</td>
+<td><b>Track benefit impact</b></td>
+<td>RM Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Revenue uplift values</td>
+<td>Benefit tracking report</td>
+<td>Tracking accuracy &gt; 80%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Gross uplift before attribution overstates the RM function&#x27;s true contribution</td>
+<td>Inconsistent data entry can affect tracking.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Separate market-driven from decision-driven uplift</b></td>
-<td>Revenue Management Analyst</td>
-<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Gross uplift and market demand data</td>
-<td>Attributed uplift by driver</td>
-<td>Attribution completed for 100 percent of material uplift each cycle</td>
+<td><b>Analyze benefit trends</b></td>
+<td>RM Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Benefit tracking report</td>
+<td>Trend analysis report</td>
+<td>Analysis accuracy &gt; 75%</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Large data sets can slow down analysis.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Re-run trend analysis</b></td>
+<td>RM Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Benefit tracking report</td>
+<td>Corrected trend analysis report</td>
+<td>Analysis accuracy &gt; 75%</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Market demand movement and RM decisions are correlated in ways that resist clean separation</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Persistent errors can delay decision-making.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-RM-YM-07-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Reporting</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Revenue Uplift Calculation</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Report attributed uplift to leadership</b></td>
-<td>Revenue Management Analyst</td>
-<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Attributed uplift</td>
-<td>Distributed leadership report</td>
-<td>Reported within the standard reporting cycle at 100 percent</td>
+<td><b>Generate revenue uplift report</b></td>
+<td>RM Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Revenue uplift values and benefit tracking report</td>
+<td>Final revenue uplift report</td>
+<td>Report accuracy &gt; 90%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Missing data can lead to incomplete reports.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Review revenue uplift report</b></td>
+<td>RM Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Final revenue uplift report</td>
+<td>Approved revenue uplift report</td>
+<td>Review accuracy &gt; 95%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A report that overstates RM&#x27;s contribution undermines the credibility of future investment cases</td>
+<td>Complex reports can be difficult to review.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Revise revenue uplift report</b></td>
+<td>RM Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Final revenue uplift report</td>
+<td>Revised revenue uplift report</td>
+<td>Revision accuracy &gt; 90%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Multiple revisions can delay the process.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-YM-07-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Benefit Tracking</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Submit revenue uplift report</b></td>
+<td>RM Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Approved revenue uplift report</td>
+<td>Submission confirmation</td>
+<td>Submission accuracy &gt; 95%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Submission errors can cause delays.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Verify submission status</b></td>
+<td>RM Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Submission confirmation</td>
+<td>Verification report</td>
+<td>Verification accuracy &gt; 90%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual verification can introduce errors.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-YM-07-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Reporting &amp; Review</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Generate benefit tracking dashboard</b></td>
+<td>RM Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Benefit tracking report</td>
+<td>Benefit tracking dashboard</td>
+<td>Dashboard accuracy &gt; 85%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inconsistent data can affect dashboard display.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Review benefit tracking dashboard</b></td>
+<td>RM Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Benefit tracking dashboard</td>
+<td>Approved benefit tracking dashboard</td>
+<td>Review accuracy &gt; 90%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex dashboards can be difficult to review.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Revise benefit tracking dashboard</b></td>
+<td>RM Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Benefit tracking dashboard</td>
+<td>Revised benefit tracking dashboard</td>
+<td>Revision accuracy &gt; 85%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Multiple revisions can delay the process.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-RM-YM-07-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Adjustment &amp; Optimization</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Submit benefit tracking dashboard</b></td>
+<td>RM Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Approved benefit tracking dashboard</td>
+<td>Submission confirmation</td>
+<td>Submission accuracy &gt; 95%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Submission errors can cause delays.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Verify submission status</b></td>
+<td>RM Analyst</td>
+<td><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Submission confirmation</td>
+<td>Verification report</td>
+<td>Verification accuracy &gt; 90%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual verification can introduce errors.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Revenue Management Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>RM Analyst</span><span class="lane-steps">1.1 1.2 1.3 1.4 2.1 2.2 2.3 3.1 3.2 3.3 4.1 4.2 5.1 5.2 5.3 6.1 6.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag pros" data-tooltip="O&amp;D revenue management and bid-price optimisation feeding Altea Inventory. [PROS - evidence B]">PROS Revenue Management<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag pros" data-tooltip="Continuous willingness-to-pay pricing. Air Canada is a 30-year-plus PROS reference account. [PROS - evidence A]">PROS Real-Time Dynamic Pricing<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Baseline constructed each reporting cycle at 100 percent</li><li>Attribution completed for 100 percent of material uplift each cycle</li><li>Reported within the standard reporting cycle at 100 percent</li><li>Attribution methodology reviewed and validated at least annually</li></ul>
+<ul class="bullets"><li>Revenue uplift calculation accuracy &gt; 90%</li><li>Benefit tracking accuracy &gt; 85%</li><li>Report submission accuracy &gt; 95%</li><li>Dashboard display accuracy &gt; 85%</li><li>Process completion time &lt; 30 minutes</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A counterfactual baseline being a modelling assumption rather than an observed fact</li><li>Gross uplift overstating the RM function&#x27;s true contribution before proper attribution</li><li>Market demand movement and RM decisions being correlated in ways that resist clean separation</li><li>An inflated attribution report undermining the credibility of future RM investment cases</li></ul>
+<ul class="bullets risk"><li>ATPCO fare filing latency affecting real-time pricing</li><li>Manual overrides introducing errors in data entry</li><li>Inconsistent parameter updates impacting results</li><li>Large data sets slowing down analysis</li><li>Multiple revisions delaying decision-making</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../revenue-management-pricing/rm-analytics-performance/ac-rm-ym-06/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Pricing and RM Data Feed to the Lakehouse</span></a>
