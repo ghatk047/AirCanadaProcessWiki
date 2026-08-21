@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-GO-VH-04" title="Click to copy the process ID">
     AC-GO-VH-04<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Star Alliance Gold Recognition at Airport</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,307 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-GO-VH-04-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Gold status verification</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Initial Recognition</span>
+    <span class="ph-n">5 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Verify Star Alliance Gold status</b></td>
-<td>Ground Services Agent</td>
-<td><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Presented alliance membership</td>
-<td>Verified Gold status</td>
-<td>Verified for 100 percent of presented alliance memberships at 100 percent</td>
+<td><b>Scan Star Alliance Gold membership card</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Star Alliance Gold membership card</td>
+<td>Passenger details and membership status</td>
+<td>Recognition accuracy rate &gt; 98%</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Amadeus Altea DCS downtime can lead to manual verification delays.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Verify lounge access eligibility</b></td>
+<td>Premium, Lounge &amp; VIP Handling Agent</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Passenger details from Amadeus Altea DCS</td>
+<td>Lounge access status</td>
+<td>Eligibility verification time &lt; 30 seconds</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Partner carrier status verification depends on a system link Air Canada does not fully control</td>
+<td>Inconsistent data between Amadeus and CUPPS can cause delays.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Grant lounge access</b></td>
+<td>Premium, Lounge &amp; VIP Handling Agent</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Lounge access status</td>
+<td>Access granted confirmation</td>
+<td>Access grant time &lt; 10 seconds</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System integration issues can cause delays in granting access.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Request priority boarding</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Passenger details and lounge access confirmation</td>
+<td>Priority boarding request status</td>
+<td>Boarding request time &lt; 60 seconds</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual intervention required during system failures.</td>
+</tr><tr>
+<td class="c-step">1.5</td>
+<td><b>Confirm boarding priority</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Priority boarding request status</td>
+<td>Boarding priority confirmation</td>
+<td>Confirmation time &lt; 30 seconds</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System delays can cause last-minute disruptions.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-GO-VH-04-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Reciprocal service delivery</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Lounge Access Verification</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Deliver reciprocal priority services</b></td>
-<td>Ground Services Agent</td>
-<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Verified Gold status</td>
-<td>Delivered priority services</td>
-<td>Delivered matching the Altitude-equivalent standard at 95 percent</td>
+<td><b>Manual verification of Star Alliance Gold status</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">None (manual process)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Star Alliance Gold membership card</td>
+<td>Passenger details and membership status</td>
+<td>Manual verification time &gt; 2 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Front-line staff need to correctly know what the reciprocal standard actually entitles a Gold member to</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual processes are prone to errors.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Provide lounge access per alliance agreement</b></td>
-<td>Lounge Agent</td>
-<td><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Verified Gold status</td>
-<td>Lounge access granted</td>
-<td>Access granted correctly for 100 percent of eligible Gold members</td>
-<td class="c-flag"><span class="yes">Y</span></td>
+<td><b>Retry granting lounge access manually</b></td>
+<td>Premium, Lounge &amp; VIP Handling Agent</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Passenger details and lounge access status</td>
+<td>Access granted confirmation</td>
+<td>Manual retry time &gt; 1 minute</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Lounge eligibility by cabin and status combination has specific alliance rules that differ from Air Canada&#x27;s own tier rules</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual retries can cause delays.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Retry confirming boarding priority manually</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">None (manual process)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Priority boarding request status</td>
+<td>Boarding priority confirmation</td>
+<td>Manual retry time &gt; 1 minute</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual retries can cause delays.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-GO-VH-04-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Alliance standard compliance</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Priority Boarding Request</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Monitor reciprocal service compliance</b></td>
-<td>Ground Services Agent</td>
-<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Delivered service</td>
-<td>Compliance assessment against alliance standard</td>
-<td>Assessed each reporting cycle for 100 percent of stations</td>
+<td><b>Check baggage handling status</b></td>
+<td>Baggage Compliance Agent</td>
+<td><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Passenger details and boarding priority confirmation</td>
+<td>Baggage handling status</td>
+<td>Baggage check time &lt; 45 seconds</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>System downtime can lead to delayed baggage updates.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Update bag-to-passenger tracking</b></td>
+<td>Baggage Compliance Agent</td>
+<td><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Baggage handling status</td>
+<td>Updated tracking information</td>
+<td>Tracking update time &lt; 30 seconds</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Under-delivery on reciprocal recognition reflects on Air Canada&#x27;s standing within Star Alliance, not just the member&#x27;s experience</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual updates are error-prone.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Verify final boarding eligibility</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Updated tracking information and boarding priority confirmation</td>
+<td>Final boarding eligibility status</td>
+<td>Eligibility verification time &lt; 30 seconds</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System failures can lead to last-minute changes.</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Grant final boarding priority</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Final boarding eligibility status</td>
+<td>Boarding priority confirmation</td>
+<td>Confirmation time &lt; 30 seconds</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System downtime can cause delays.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-VH-04-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Baggage Handling Confirmation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Final validation of boarding status</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Boarding priority confirmation</td>
+<td>Final boarding validation</td>
+<td>Validation time &lt; 10 seconds</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual interventions can cause delays.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Boarding confirmation</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Final boarding validation</td>
+<td>Boarding confirmation</td>
+<td>Confirmation time &lt; 10 seconds</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System failures can cause last-minute disruptions.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-VH-04-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Final Validation and Boarding</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Post-boarding follow-up</b></td>
+<td>Premium, Lounge &amp; VIP Handling Agent</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Boarding confirmation</td>
+<td>Follow-up status</td>
+<td>Follow-up time &lt; 5 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual follow-ups are prone to errors.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Update system with post-boarding details</b></td>
+<td>Premium, Lounge &amp; VIP Handling Agent</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Follow-up status</td>
+<td>Updated system record</td>
+<td>Update time &lt; 30 seconds</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual updates can cause delays.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Notify passenger of post-boarding experience</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">None (manual process)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Updated system record</td>
+<td>Passenger notification</td>
+<td>Notification time &lt; 1 minute</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual notifications can cause delays.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-VH-04-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Post-Boarding Follow-up</span>
+    <span class="ph-n">5 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Review and reconcile system data</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>All process steps</td>
+<td>Data reconciliation report</td>
+<td>Reconciliation time &lt; 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual reconciliations can be time-consuming.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Final review of Star Alliance Gold status</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Data reconciliation report</td>
+<td>Final status confirmation</td>
+<td>Review time &lt; 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System failures can lead to last-minute changes.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Close process and update logs</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Final status confirmation</td>
+<td>Closed process record</td>
+<td>Log update time &lt; 10 seconds</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual log updates can cause delays.</td>
+</tr><tr>
+<td class="c-step">6.4</td>
+<td><b>Notify relevant stakeholders of process outcome</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">None (manual process)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Closed process record</td>
+<td>Stakeholder notification</td>
+<td>Notification time &lt; 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual notifications can cause delays.</td>
+</tr><tr>
+<td class="c-step">6.5</td>
+<td><b>Final review and closure of process</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Stakeholder notification</td>
+<td>Process closed</td>
+<td>Closure time &lt; 1 minute</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual closures can cause delays.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Ground Services Agent</span><span class="lane-steps">1.1 2.1 3.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Lounge Agent</span><span class="lane-steps">2.2</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">1.1 1.4 1.5 2.1 2.3 3.3 3.4 4.1 4.2 6.1 6.2 6.3 6.4 6.5</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Premium, Lounge &amp; VIP Handling Agent</span><span class="lane-steps">1.2 1.3 2.2 5.1 5.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Baggage Compliance Agent</span><span class="lane-steps">3.1 3.2</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Aeroplan Member Services Agent</span><span class="lane-steps">5.3</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+<div class="card"><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">None (manual process)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Verified for 100 percent of presented alliance memberships at 100 percent</li><li>Delivered matching the Altitude-equivalent standard at 95 percent</li><li>Access granted correctly for 100 percent of eligible Gold members</li><li>Reciprocal service compliance assessed each cycle for 100 percent of stations</li></ul>
+<ul class="bullets"><li>Recognition accuracy rate &gt; 98%</li><li>Eligibility verification time &lt; 30 seconds</li><li>Access grant time &lt; 10 seconds</li><li>Boarding request time &lt; 60 seconds</li><li>Confirmation time &lt; 30 seconds</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Partner carrier status verification depending on a system link Air Canada does not fully control</li><li>Front-line staff not correctly knowing what the reciprocal standard actually entitles a Gold member to</li><li>Under-delivery on reciprocal recognition affecting Air Canada&#x27;s standing within Star Alliance</li><li>Lounge eligibility rules by cabin and status combination differing from Air Canada&#x27;s own tier rules</li></ul>
+<ul class="bullets risk"><li>Amadeus Altea DCS downtime leading to manual delays</li><li>System integration issues causing data inconsistencies</li><li>Manual processes prone to errors and delays</li><li>IATA Resolution 753 compliance requiring strict tracking</li><li>Last-minute changes due to system failures</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../ground-operations-airports/premium-lounge-vip-handling/ac-go-vh-03/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Super Elite and VIP Handling</span></a>
