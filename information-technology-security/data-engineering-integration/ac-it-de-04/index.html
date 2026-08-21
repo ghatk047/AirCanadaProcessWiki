@@ -133,7 +133,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-IT-DE-04" title="Click to copy the process ID">
     AC-IT-DE-04<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Data Quality Monitoring and Remediation</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -142,85 +142,321 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-IT-DE-04-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Cross-system quality screening</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Data Identification</span>
+    <span class="ph-n">6 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Screen for cross-system data inconsistency</b></td>
+<td><b>Trigger anomaly detection report</b></td>
+<td>Data Engineer</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Data Quality Monitoring tool<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Automated daily reports from Data Quality Monitoring tool</td>
+<td>Anomalies identified in datasets</td>
+<td>95% accuracy of anomaly detection</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>False positives can lead to unnecessary investigations.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Review anomalies</b></td>
 <td>Data Engineer</td>
 <td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Data from multiple ingested source systems</td>
-<td>Screened inconsistency findings</td>
-<td>Screened for 100 percent of defined cross-system checks each cycle</td>
+<td>Anomalies identified in step 1.1</td>
+<td>List of prioritized anomalies</td>
+<td>90% relevance of reviewed anomalies</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Manual review is time-consuming.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Identify root cause</b></td>
+<td>Data Engineer</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Prioritized anomalies from step 1.2</td>
+<td>Root cause analysis report</td>
+<td>85% accuracy of root cause identification</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A cross-system check depends on both source systems&#x27; data being genuinely comparable in the first place</td>
+<td>Complex datasets can complicate root cause determination.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Create remediation plan</b></td>
+<td>Data Engineer</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Root cause analysis report from step 1.3</td>
+<td>Remediation plan document</td>
+<td>75% completeness of remediation plans</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Resource constraints can limit available solutions.</td>
+</tr><tr>
+<td class="c-step">1.5</td>
+<td><b>Review remediation plan</b></td>
+<td>Data Engineer</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Remediation plan document from step 1.4</td>
+<td>Approved or revised remediation plan</td>
+<td>80% approval rate of plans</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Technical limitations can delay plan creation.</td>
+</tr><tr>
+<td class="c-step">1.6</td>
+<td><b>Monitor ongoing data quality</b></td>
+<td>Data Engineer</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Continuous data monitoring</td>
+<td>No new anomalies detected</td>
+<td>98% detection of new anomalies</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>High volume of data can overwhelm systems.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-IT-DE-04-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Issue investigation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Anomaly Detection</span>
+    <span class="ph-n">5 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Investigate flagged inconsistencies</b></td>
+<td><b>Initiate ITSM ticket</b></td>
 <td>Data Engineer</td>
-<td><span class="tag databricks" data-tooltip="Lakehouse governance, lineage and access control. Foundation for governed AI grounding. [Databricks - evidence C]">Unity Catalog<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Screening findings</td>
-<td>Investigated root cause</td>
-<td>Investigated within 5 business days of flagging at 90 percent</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Remediation plan document from step 1.4</td>
+<td>ITSM ticket created for remediation</td>
+<td>90% successful ticket creation</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System downtime can affect ITSM operations.</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Assign ticket to relevant team</b></td>
+<td>ITSM Platform Operator</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>ITSM ticket from step 2.1</td>
+<td>Assigned ticket with SLA details</td>
+<td>80% tickets assigned within SLA</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Resource allocation can be uneven.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Monitor remediation progress</b></td>
+<td>Data Engineer</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Assigned ticket with SLA details from step 2.2</td>
+<td>Remediation status updates</td>
+<td>85% timely status updates</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Root cause can sit in either source system or in the transformation logic joining them, complicating diagnosis</td>
+<td>Manual monitoring is error-prone.</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Resolve remediation issues</b></td>
+<td>Data Engineer</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Remediation status updates from step 2.3</td>
+<td>Resolved issues and updated ticket</td>
+<td>90% successful issue resolution</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex remediation tasks can be challenging.</td>
+</tr><tr>
+<td class="c-step">2.5</td>
+<td><b>Close ITSM ticket</b></td>
+<td>ITSM Platform Operator</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Resolved issues and updated ticket from step 2.4</td>
+<td>Closed ITSM ticket</td>
+<td>95% timely closure of tickets</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System errors can prevent ticket closure.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-IT-DE-04-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Remediation routing</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Analysis and Prioritization</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Route remediation to the responsible data owner</b></td>
+<td><b>Verify data quality post-remediation</b></td>
 <td>Data Engineer</td>
-<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Investigated finding</td>
-<td>Routed remediation with an owner</td>
-<td>Routed within 2 business days of investigation at 100 percent</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Closed ITSM ticket from step 2.5</td>
+<td>Verification report of data quality</td>
+<td>98% accuracy of verification</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>A finding routed without a clear owner defaults to being unresolved across data quality review cycles</td>
+<td>Data inconsistencies can persist.</td>
 </tr><tr>
 <td class="c-step">3.2</td>
-<td><b>Track remediation to closure</b></td>
+<td><b>Update data quality monitoring rules</b></td>
+<td>Data Engineer</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Data Quality Monitoring tool<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Verification report from step 3.1</td>
+<td>Updated monitoring rules</td>
+<td>90% effectiveness of updated rules</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Rule updates can be complex.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Document findings and lessons learned</b></td>
+<td>Data Engineer</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Verification report from step 3.1</td>
+<td>Documentation of findings and lessons learned</td>
+<td>85% completeness of documentation</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Insufficient documentation can lead to recurrence.</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Notify stakeholders of resolution</b></td>
 <td>Data Engineer</td>
 <td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Routed remediation</td>
-<td>Closed remediation record</td>
-<td>Closed within the defined timeframe for 90 percent of routed findings</td>
+<td>Closed ITSM ticket from step 2.5</td>
+<td>Stakeholder notification</td>
+<td>90% timely notifications</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed notifications can impact business operations.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-DE-04-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Remediation Initiation</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Review ITSM ticket closure</b></td>
+<td>ITSM Platform Operator</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Closed ITSM ticket from step 2.5</td>
+<td>Review of closure process</td>
+<td>80% compliance with closure procedures</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A remediation not tracked to closure can recur in the next standing screening cycle unresolved</td>
+<td>Procedural non-compliance can lead to issues.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Update incident response plan</b></td>
+<td>Data Engineer</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Review of closure process from step 4.1</td>
+<td>Updated incident response plan</td>
+<td>90% effectiveness of updated plans</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Plan updates can be resource-intensive.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Conduct post-remediation review meeting</b></td>
+<td>Data Engineer</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Verification report from step 3.1 and updated incident response plan from step 4.2</td>
+<td>Meeting minutes summarizing findings and actions</td>
+<td>85% attendance of key stakeholders</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Low stakeholder engagement can hinder improvements.</td>
+</tr><tr>
+<td class="c-step">4.4</td>
+<td><b>Plan for continuous improvement</b></td>
+<td>Data Engineer</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Meeting minutes from step 4.3</td>
+<td>Continuous improvement plan</td>
+<td>90% inclusion of actionable items</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Actionable items may not be fully addressed.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-DE-04-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Follow-Up and Closure</span>
+    <span class="ph-n">5 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Implement continuous improvement actions</b></td>
+<td>Data Engineer</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Continuous improvement plan from step 4.4</td>
+<td>Implemented actions and monitoring results</td>
+<td>90% successful implementation of actions</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Implementation can be delayed due to dependencies.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Monitor continuous improvement outcomes</b></td>
+<td>Data Engineer</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Implemented actions and monitoring results from step 5.1</td>
+<td>Continuous improvement outcomes report</td>
+<td>80% positive outcomes of implemented actions</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Monitoring can reveal unexpected issues.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Update continuous improvement plan based on outcomes</b></td>
+<td>Data Engineer</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Continuous improvement outcomes report from step 5.2</td>
+<td>Updated continuous improvement plan</td>
+<td>90% relevance of updated plan to outcomes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Plan updates can be complex.</td>
+</tr><tr>
+<td class="c-step">5.4</td>
+<td><b>Document continuous improvement activities</b></td>
+<td>Data Engineer</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Updated continuous improvement plan from step 5.3</td>
+<td>Documentation of continuous improvement activities</td>
+<td>85% completeness of documentation</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Insufficient documentation can hinder future improvements.</td>
+</tr><tr>
+<td class="c-step">5.5</td>
+<td><b>Notify stakeholders of continuous improvement updates</b></td>
+<td>Data Engineer</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Updated continuous improvement plan from step 5.3</td>
+<td>Stakeholder notification</td>
+<td>90% timely notifications</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed notifications can impact business operations.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Data Engineer</span><span class="lane-steps">1.1 2.1 3.1 3.2</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Data Engineer</span><span class="lane-steps">1.1 1.2 1.3 1.4 1.5 1.6 2.1 2.3 2.4 3.1 3.2 3.3 3.4 4.2 4.3 4.4 5.1 5.2 5.3 5.4 5.5</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>ITSM Platform Operator</span><span class="lane-steps">2.2 2.5 4.1</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag databricks" data-tooltip="Lakehouse governance, lineage and access control. Foundation for governed AI grounding. [Databricks - evidence C]">Unity Catalog<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
+<div class="card"><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Data Quality Monitoring tool<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Screened for 100 percent of defined cross-system checks each cycle</li><li>Investigated within 5 business days of flagging at 90 percent</li><li>Routed within 2 business days of investigation at 100 percent</li><li>Cross-system data quality issues resolved within one review cycle at target rate</li></ul>
+<ul class="bullets"><li>Anomaly detection accuracy: 95%</li><li>Relevance of reviewed anomalies: 90%</li><li>Remediation plan completeness: 75%</li><li>Approval rate of plans: 80%</li><li>Detection of new anomalies: 98%</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A finding routed without a clear owner defaulting to being unresolved across data quality review cycles</li><li>Root cause sitting in either source system or the transformation logic joining them, complicating diagnosis</li><li>A cross-system check depending on both source systems&#x27; data being genuinely comparable in the first place</li><li>An inconsistency only becoming visible when compared across systems, invisible to any single pipeline check</li></ul>
+<ul class="bullets risk"><li>False positives leading to unnecessary investigations</li><li>Manual review time-consuming and error-prone</li><li>Complex root cause determination</li><li>Resource constraints affecting remediation solutions</li><li>Technical limitations delaying plan creation</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../information-technology-security/data-engineering-integration/ac-it-de-03/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Type B and EDIFACT Message Gateway Operations</span></a>
