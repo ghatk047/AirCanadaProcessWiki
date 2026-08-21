@@ -133,7 +133,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-FN-TR-05" title="Click to copy the process ID">
     AC-FN-TR-05<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Card Acquiring and Payment Settlement</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -142,85 +142,241 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-FN-TR-05-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Transaction authorisation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Transaction Processing</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Process card authorisation across channels</b></td>
-<td>Treasury Analyst</td>
+<td><b>Receive payment transaction</b></td>
+<td>Payment Processor</td>
 <td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Customer card transaction</td>
-<td>Authorised transaction</td>
-<td>Authorised within the standard processing time at 98 percent</td>
+<td>Card details, transaction amount</td>
+<td>Transaction ID, authorization status</td>
+<td>95% success rate within 3 seconds</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>High volume spikes can cause processing delays</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Check transaction against fraud rules</b></td>
+<td>Fraud Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Transaction ID, card details</td>
+<td>Fraud assessment report</td>
+<td>98% accuracy in detecting fraudulent transactions</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Authorisation decline rates and reasons differ by channel and acquiring relationship</td>
+<td>False positives can lead to declined legitimate transactions</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Flag and escalate suspicious transaction</b></td>
+<td>Fraud Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Transaction ID, fraud report</td>
+<td>Escalation ticket</td>
+<td>90% resolution within 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual intervention is time-consuming</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Authorize transaction</b></td>
+<td>Payment Processor</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Transaction ID, authorization status</td>
+<td>Authorized transaction record</td>
+<td>99% success rate within 5 seconds</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Network issues can cause authorization failures</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-FN-TR-05-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Acquirer settlement</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Authorization</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Settle with acquiring bank</b></td>
-<td>Treasury Analyst</td>
+<td><b>Prepare settlement batch</b></td>
+<td>Finance Analyst</td>
 <td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Authorised transactions</td>
-<td>Settled batch</td>
-<td>Settled within the acquirer&#x27;s settlement cycle at 100 percent</td>
+<td>Authorized transactions</td>
+<td>Settlement batch file</td>
+<td>90% batches processed within 30 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Multiple acquiring relationships across different card schemes and markets each carry their own settlement timing</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Incorrect data entries can cause processing errors</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Reconcile settlement against transaction records</b></td>
-<td>Treasury Analyst</td>
-<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Settled batch and transaction records</td>
-<td>Reconciled position with variance report</td>
-<td>Reconciled within 5 business days of settlement at 100 percent</td>
+<td><b>Submit settlement batch to card processor</b></td>
+<td>Payment Processor</td>
+<td><span class="tag iata" data-tooltip="Billing and Settlement Plan. Agency sales settlement and revenue accounting reconciliation. [IATA - evidence B]">IATA BSP<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Settlement batch file</td>
+<td>Batch submission confirmation</td>
+<td>95% successful submissions within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Card processor downtime can delay settlements</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Confirm receipt of settlement batch by card processor</b></td>
+<td>Payment Processor</td>
+<td><span class="tag iata" data-tooltip="Billing and Settlement Plan. Agency sales settlement and revenue accounting reconciliation. [IATA - evidence B]">IATA BSP<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Batch submission confirmation</td>
+<td>Settlement status report</td>
+<td>98% confirmations received within 4 hours</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A reconciliation variance can indicate a fee miscalculation or a genuine settlement discrepancy requiring investigation</td>
+<td>Missing confirmations can lead to delayed payments</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-FN-TR-05-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Reconciliation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Settlement Preparation</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Resolve variances and post to the ledger</b></td>
-<td>Treasury Analyst</td>
+<td><b>Match transactions to flight operations</b></td>
+<td>Revenue Accounting Agent</td>
+<td><span class="tag sap" data-tooltip="Passenger revenue accounting, proration, interline billing and BSP reconciliation. [Multiple - evidence C]">Revenue Accounting System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Authorized transactions, flight data</td>
+<td>Revenue recognition file</td>
+<td>95% matches within 24 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Incorrect matching can lead to revenue misrecognition</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Manual review and correction of mismatched transactions</b></td>
+<td>Revenue Accounting Agent</td>
+<td><span class="tag sap" data-tooltip="Passenger revenue accounting, proration, interline billing and BSP reconciliation. [Multiple - evidence C]">Revenue Accounting System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Mismatch report, flight data</td>
+<td>Corrected revenue recognition file</td>
+<td>85% corrections completed within 48 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual correction is resource-intensive</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FN-TR-05-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Revenue Recognition</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Record revenue in SAP S/4HANA</b></td>
+<td>Accounting Officer</td>
 <td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Reconciliation variance</td>
-<td>Resolved and posted settlement</td>
-<td>Posted within the financial close timetable at 100 percent</td>
+<td>Revenue recognition file</td>
+<td>Revenue recorded status</td>
+<td>97% successful recordings within 1 hour</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System integration issues can cause recording failures</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Generate revenue report for auditing</b></td>
+<td>Audit Analyst</td>
+<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Recorded revenue data</td>
+<td>Revenue audit report</td>
+<td>90% reports generated within 2 days</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>An unresolved variance affects the accuracy of both cash positioning and revenue accounting</td>
+<td>Complex queries can slow down report generation</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Review and adjust inaccurate revenue report</b></td>
+<td>Audit Analyst</td>
+<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Revenue audit report</td>
+<td>Adjusted revenue report</td>
+<td>80% adjustments made within 1 week</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual adjustments are error-prone</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FN-TR-05-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Audit &amp; Reconciliation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Submit final audit report to regulatory body</b></td>
+<td>Compliance Officer</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Adjusted revenue report</td>
+<td>Submission confirmation</td>
+<td>95% submissions made within 5 days</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Regulatory submission deadlines are strict</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Monitor regulatory feedback and address issues</b></td>
+<td>Compliance Officer</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Submission confirmation, feedback from regulatory body</td>
+<td>Feedback resolution status</td>
+<td>85% issues resolved within 30 days</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Regulatory changes can require rapid adjustments</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FN-TR-05-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Phase 6</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Close the settlement cycle in SAP S/4HANA</b></td>
+<td>Finance Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Final revenue data, feedback resolution status</td>
+<td>Cycle closure confirmation</td>
+<td>90% cycles closed within 7 days</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex cycle closures can cause delays</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Review and archive settlement documents</b></td>
+<td>Finance Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Cycle closure confirmation, all relevant documents</td>
+<td>Archived documents</td>
+<td>95% documents archived within 1 week</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Document management can be cumbersome</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Treasury Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Payment Processor</span><span class="lane-steps">1.1 1.4 2.2 2.3</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Fraud Analyst</span><span class="lane-steps">1.2 1.3</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Finance Analyst</span><span class="lane-steps">2.1 6.1 6.2</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Revenue Accounting Agent</span><span class="lane-steps">3.1 3.2</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Accounting Officer</span><span class="lane-steps">4.1</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>Audit Analyst</span><span class="lane-steps">4.2 4.3</span></div><div class="lane"><span class="swatch" style="background:#8A5A1E"></span><span>Compliance Officer</span><span class="lane-steps">5.1 5.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+<div class="card"><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag iata" data-tooltip="Billing and Settlement Plan. Agency sales settlement and revenue accounting reconciliation. [IATA - evidence B]">IATA BSP<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag sap" data-tooltip="Passenger revenue accounting, proration, interline billing and BSP reconciliation. [Multiple - evidence C]">Revenue Accounting System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Authorised within the standard processing time at 98 percent</li><li>Settled within the acquirer&#x27;s settlement cycle at 100 percent</li><li>Reconciled within 5 business days of settlement at 100 percent</li><li>Posted within the financial close timetable at 100 percent</li></ul>
+<ul class="bullets"><li>95% transaction success rate</li><li>98% fraud detection accuracy</li><li>90% batch processing time</li><li>95% settlement submission success</li><li>98% confirmation receipt</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Multiple acquiring relationships across card schemes and markets carrying their own settlement timing</li><li>A reconciliation variance indicating either a fee miscalculation or a genuine settlement discrepancy</li><li>An unresolved variance affecting the accuracy of both cash positioning and revenue accounting</li><li>Authorisation decline rates and reasons differing by channel and acquiring relationship</li></ul>
+<ul class="bullets risk"><li>PCI-DSS compliance breaches due to high transaction volumes</li><li>Revenue misrecognition from incorrect matching</li><li>System integration issues causing recording failures</li><li>Regulatory submission delays leading to fines</li><li>Complex cycle closures causing operational disruptions</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../finance-procurement-treasury/treasury-risk/ac-fn-tr-04/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Aircraft Financing and Lease Accounting</span></a>

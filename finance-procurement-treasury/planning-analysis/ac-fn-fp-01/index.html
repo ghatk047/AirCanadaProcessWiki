@@ -133,7 +133,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-FN-FP-01" title="Click to copy the process ID">
     AC-FN-FP-01<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Annual Budget and Operating Plan Build</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -142,85 +142,252 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-FN-FP-01-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Functional input collection</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Data Collection</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Issue budget guidance to functions</b></td>
-<td>Financial Planning Analyst</td>
-<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Corporate financial targets and assumptions</td>
-<td>Issued budget guidance</td>
-<td>Issued before the functional input window opens at 100 percent</td>
+<td><b>Initiate data collection</b></td>
+<td>Finance Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>System triggers for fiscal year start</td>
+<td>Data extraction from SAP S/4HANA</td>
+<td>80% data integrity rate</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Potential delays due to system maintenance windows</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Collect revenue data</b></td>
+<td>Revenue Accounting System Operator</td>
+<td><span class="tag sap" data-tooltip="Passenger revenue accounting, proration, interline billing and BSP reconciliation. [Multiple - evidence C]">Revenue Accounting System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Trigger from Finance Analyst</td>
+<td>Revenue data file</td>
+<td>95% accuracy in revenue recognition</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inconsistent data formats causing manual corrections</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Manual correction of revenue data errors</b></td>
+<td>Revenue Accounting System Operator</td>
+<td><span class="tag sap" data-tooltip="Passenger revenue accounting, proration, interline billing and BSP reconciliation. [Multiple - evidence C]">Revenue Accounting System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Identified errors from 1.2</td>
+<td>Corrected revenue data file</td>
+<td>100% corrected within 48 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Guidance that arrives late compresses the time functions have to build a considered budget submission</td>
+<td>High volume of manual corrections needed</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-FN-FP-01-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Consolidation and review</span>
+    <span class="ph-name">Phase 2 &mdash; Data Integration</span>
     <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Collect budget input from each function</b></td>
-<td>Financial Planning Analyst</td>
+<td><b>Integrate SAP S/4HANA financial data</b></td>
+<td>SAP Data Integrator</td>
 <td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Function-level operating plans</td>
-<td>Collected budget input</td>
-<td>Collected within the defined submission window at 90 percent</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Functional budget assumptions are not always internally consistent with each other before consolidation</td>
-</tr><tr>
-<td class="c-step">2.2</td>
-<td><b>Consolidate and reconcile across functions</b></td>
-<td>Financial Planning Analyst</td>
-<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Collected input</td>
-<td>Consolidated budget with reconciled assumptions</td>
-<td>Consolidated within the planning timeline at 100 percent</td>
+<td>Extracted data from SAP S/4HANA</td>
+<td>Integrated financial dataset in SAP Analytics Cloud</td>
+<td>90% successful integration rate</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Reconciling inconsistent functional assumptions is the genuinely difficult part of consolidation</td>
+<td>Complex data mapping between systems</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Re-attempt data integration</b></td>
+<td>SAP Data Integrator</td>
+<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Original SAP S/4HANA data</td>
+<td>Integrated financial dataset in SAP Analytics Cloud</td>
+<td>90% successful integration rate</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System connectivity issues causing re-attempts</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-FN-FP-01-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Approval</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Budget Preparation</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Obtain executive and board approval</b></td>
-<td>Financial Planning Analyst</td>
+<td><b>Prepare initial budget draft</b></td>
+<td>Budget Analyst</td>
 <td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Consolidated budget</td>
-<td>Approved annual budget</td>
-<td>Approved before the fiscal year begins at 100 percent</td>
+<td>Integrated financial dataset</td>
+<td>Initial budget draft document</td>
+<td>90% completion within 2 weeks</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Resource allocation constraints based on historical data</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Adjust resource allocation</b></td>
+<td>Budget Analyst</td>
+<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Initial budget draft document</td>
+<td>Adjusted budget draft document</td>
+<td>100% adjusted within 1 week</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A budget not approved before the fiscal year begins leaves functions operating without an approved baseline</td>
+<td>Time-consuming manual adjustments</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FN-FP-01-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Plan Validation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Validate budget against regulatory requirements</b></td>
+<td>Compliance Officer</td>
+<td><span class="tag iata" data-tooltip="Billing and Settlement Plan. Agency sales settlement and revenue accounting reconciliation. [IATA - evidence B]">IATA BSP<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Adjusted budget draft document</td>
+<td>Regulatory compliance report</td>
+<td>95% compliance rate</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex regulatory changes impacting budget validation</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Revise budget to meet regulatory standards</b></td>
+<td>Budget Analyst</td>
+<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Regulatory compliance report</td>
+<td>Revised budget document</td>
+<td>95% compliance rate within 10 days</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Time pressure to align with new regulations</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FN-FP-01-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Approval Process</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Submit budget for review</b></td>
+<td>Budget Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Internal Email System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Revised budget document</td>
+<td>Review request sent to senior management</td>
+<td>80% response rate within 2 days</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Senior management availability during peak travel season</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Follow-up review request</b></td>
+<td>Budget Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Internal Email System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Original review request</td>
+<td>Follow-up email sent to senior management</td>
+<td>100% response rate within 4 days</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed communication during busy periods</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FN-FP-01-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Finalization</span>
+    <span class="ph-n">6 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Finalize budget document</b></td>
+<td>Budget Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Document Management System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Approved budget document</td>
+<td>Finalized budget plan document</td>
+<td>90% finalization within 5 days</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Technical issues with document management system</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Archive finalized budget document</b></td>
+<td>Document Management System Administrator</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Document Management System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Finalized budget plan document</td>
+<td>Archived budget document in secure location</td>
+<td>100% archive rate within 3 days</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Data security concerns during archiving</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Notify stakeholders of finalized budget</b></td>
+<td>Budget Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Internal Communication System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Finalized budget plan document</td>
+<td>Notification sent to all relevant stakeholders</td>
+<td>95% notification rate within 24 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System downtime affecting communication channels</td>
+</tr><tr>
+<td class="c-step">6.4</td>
+<td><b>Update revenue recognition parameters</b></td>
+<td>Revenue Accounting System Operator</td>
+<td><span class="tag sap" data-tooltip="Passenger revenue accounting, proration, interline billing and BSP reconciliation. [Multiple - evidence C]">Revenue Accounting System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Finalized budget plan document</td>
+<td>Updated revenue recognition rules</td>
+<td>95% update accuracy rate</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complexity in updating multiple systems simultaneously</td>
+</tr><tr>
+<td class="c-step">6.5</td>
+<td><b>Review and reconcile with IATA BSP</b></td>
+<td>Revenue Accounting System Operator</td>
+<td><span class="tag sap" data-tooltip="Passenger revenue accounting, proration, interline billing and BSP reconciliation. [Multiple - evidence C]">Revenue Accounting System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Updated revenue recognition rules</td>
+<td>Reconciliation report with IATA BSP</td>
+<td>100% reconciliation rate within 1 week</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Data discrepancies between systems</td>
+</tr><tr>
+<td class="c-step">6.6</td>
+<td><b>Manual reconciliation of discrepancies</b></td>
+<td>Revenue Accounting System Operator</td>
+<td><span class="tag sap" data-tooltip="Passenger revenue accounting, proration, interline billing and BSP reconciliation. [Multiple - evidence C]">Revenue Accounting System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Reconciliation report with IATA BSP</td>
+<td>Finalized reconciliation document</td>
+<td>95% reconciliation accuracy rate within 3 days</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>High volume of manual reconciliations needed</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Financial Planning Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Finance Analyst</span><span class="lane-steps">1.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Revenue Accounting System Operator</span><span class="lane-steps">1.2 1.3 6.4 6.5 6.6</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>SAP Data Integrator</span><span class="lane-steps">2.1 2.2</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Budget Analyst</span><span class="lane-steps">3.1 3.2 4.2 5.1 5.2 6.1 6.3</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Compliance Officer</span><span class="lane-steps">4.1</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>Document Management System Administrator</span><span class="lane-steps">6.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sap" data-tooltip="Passenger revenue accounting, proration, interline billing and BSP reconciliation. [Multiple - evidence C]">Revenue Accounting System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag iata" data-tooltip="Billing and Settlement Plan. Agency sales settlement and revenue accounting reconciliation. [IATA - evidence B]">IATA BSP<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Internal Email System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Document Management System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Internal Communication System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Issued before the functional input window opens at 100 percent</li><li>Collected within the defined submission window at 90 percent</li><li>Consolidated within the planning timeline at 100 percent</li><li>Approved before the fiscal year begins at 100 percent</li></ul>
+<ul class="bullets"><li>80% data integrity rate</li><li>95% accuracy in revenue recognition</li><li>90% successful integration rate</li><li>95% compliance rate</li><li>90% finalization within 5 days</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Functional budget assumptions not being internally consistent with each other before consolidation</li><li>A budget not approved before the fiscal year begins leaving functions without an approved baseline</li><li>Guidance arriving late compressing the time available to build a considered budget submission</li><li>Reconciling inconsistent functional assumptions being the genuinely difficult part of consolidation</li></ul>
+<ul class="bullets risk"><li>System maintenance windows affecting data collection</li><li>Inconsistent data formats causing manual corrections</li><li>Complex regulatory changes impacting budget validation</li><li>Senior management unavailability during peak travel season</li><li>Technical issues with document management system</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../finance-procurement-treasury/treasury-risk/ac-fn-tr-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Card Acquiring and Payment Settlement</span></a>
