@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-MR-EN-04" title="Click to copy the process ID">
     AC-MR-EN-04<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Reliability Monitoring and Trend Analysis</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,362 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-MR-EN-04-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Data compilation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Data Collection</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Compile defect and removal data by ATA chapter</b></td>
-<td>Reliability Engineer</td>
+<td><b>Extract data from TRAX work orders and task cards</b></td>
+<td>Maintenance Data Analyst</td>
 <td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Technical log and component removal history</td>
-<td>Compiled data by ATA chapter</td>
-<td>Compiled for 100 percent of ATA chapters each reporting cycle</td>
+<td>Work orders, task cards</td>
+<td>Raw data file</td>
+<td>Data extraction time &lt; 2 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Data completeness depends on consistent ATA chapter coding at the original technical log entry</td>
+<td>Inconsistent data quality across different entries.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Fetch additional aircraft performance data from eMobility</b></td>
+<td>Aircraft Performance Specialist</td>
+<td><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Aircraft ID, flight logs</td>
+<td>Performance metrics</td>
+<td>Data retrieval time &lt; 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Mobile connectivity issues at remote bases.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Integrate performance data with TRAX data</b></td>
+<td>Maintenance Data Analyst</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Raw data file, Performance metrics</td>
+<td>Integrated dataset</td>
+<td>Data integration time &lt; 0.5 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complexity in aligning datasets from different sources.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Manual entry of missing performance data</b></td>
+<td>Maintenance Data Analyst</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Integrated dataset, Missing data</td>
+<td>Updated integrated dataset</td>
+<td>Data entry time &lt; 0.5 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Time-consuming manual data entry process.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-MR-EN-04-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Trend analysis</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Trend Analysis</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Analyse trend against alert thresholds</b></td>
+<td><b>Run reliability trend analysis on integrated dataset</b></td>
 <td>Reliability Engineer</td>
-<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Compiled data</td>
-<td>Trend analysis with threshold comparison</td>
-<td>Analysed for 100 percent of ATA chapters each cycle</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Updated integrated dataset</td>
+<td>Trend report</td>
+<td>Analysis time &lt; 3 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Alert thresholds require periodic recalibration as the fleet ages and utilisation patterns change</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>High computational load during peak usage.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Screen for early degradation signal</b></td>
+<td><b>Review trend analysis results for anomalies</b></td>
 <td>Reliability Engineer</td>
-<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Trend analysis</td>
-<td>Identified early-stage degradation candidates</td>
-<td>Screened before a trend crosses the alert threshold for 70 percent of eventual material issues</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Trend report</td>
+<td>Anomaly list</td>
+<td>Review time &lt; 1 hour</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>The entire value of this step is in catching a signal before it becomes an obvious problem</td>
+<td>Identifying false positives in anomaly detection.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Re-run analysis with optimized parameters</b></td>
+<td>Reliability Engineer</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Integrated dataset, Optimized parameters</td>
+<td>Optimized trend report</td>
+<td>Analysis time &lt; 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Parameter tuning requires domain expertise.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-MR-EN-04-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Investigation triggering</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Compliance Check</span>
+    <span class="ph-n">6 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Trigger engineering investigation on confirmed trend</b></td>
+<td><b>Check compliance with Transport Canada CAWIS directives</b></td>
+<td>Compliance Officer</td>
+<td><span class="tag regulator" data-tooltip="Airworthiness directive and continuing-airworthiness compliance against CARs. [Transport Canada - evidence C]">Transport Canada CAWIS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Trend report, CAWIS directives</td>
+<td>Compliance status</td>
+<td>Compliance check time &lt; 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complexity in mapping trends to regulatory requirements.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Generate compliance report with recommendations</b></td>
+<td>Compliance Officer</td>
+<td><span class="tag regulator" data-tooltip="Airworthiness directive and continuing-airworthiness compliance against CARs. [Transport Canada - evidence C]">Transport Canada CAWIS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Compliance status, Trend report</td>
+<td>Compliance report</td>
+<td>Report generation time &lt; 0.5 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inaccurate directive interpretation.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Review compliance report with Engineering team</b></td>
+<td>Engineering Manager</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Compliance report</td>
+<td>Reviewed compliance report</td>
+<td>Review time &lt; 0.5 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Lack of cross-functional communication.</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Identify corrective actions for non-compliance</b></td>
+<td>Compliance Officer</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Non-Compliant trends, CAWIS directives</td>
+<td>Corrective action plan</td>
+<td>Action plan development time &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Resource allocation constraints.</td>
+</tr><tr>
+<td class="c-step">3.5</td>
+<td><b>Clarify directive interpretation with Transport Canada</b></td>
+<td>Compliance Officer</td>
+<td><span class="tag regulator" data-tooltip="Airworthiness directive and continuing-airworthiness compliance against CARs. [Transport Canada - evidence C]">Transport Canada CAWIS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Non-Compliant trends, Directive questions</td>
+<td>Clarified directives</td>
+<td>Clarification time &lt; 1 day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed responses from regulatory bodies.</td>
+</tr><tr>
+<td class="c-step">3.6</td>
+<td><b>Re-generate compliance report with corrections</b></td>
+<td>Compliance Officer</td>
+<td><span class="tag regulator" data-tooltip="Airworthiness directive and continuing-airworthiness compliance against CARs. [Transport Canada - evidence C]">Transport Canada CAWIS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Clarified directives, Trend report</td>
+<td>Corrected compliance report</td>
+<td>Report generation time &lt; 0.5 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Data entry errors.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-EN-04-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Report Generation</span>
+    <span class="ph-n">6 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Draft final reliability report with trends and recommendations</b></td>
 <td>Reliability Engineer</td>
 <td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Confirmed trend</td>
-<td>Triggered investigation with an assigned engineer</td>
-<td>Triggered within 5 business days of confirmation at 100 percent</td>
+<td>Trend report, Corrective action plan</td>
+<td>Final report draft</td>
+<td>Report drafting time &lt; 2 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Formatting issues.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Review final report with stakeholders</b></td>
+<td>Engineering Manager</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Final report draft</td>
+<td>Reviewed report</td>
+<td>Stakeholder review time &lt; 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A trend confirmed but not promptly triggered into investigation loses the early-warning value of catching it</td>
+<td>Lack of consensus on recommendations.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Format final report to meet standards</b></td>
+<td>Reliability Engineer</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Final report draft, Formatting guidelines</td>
+<td>Formatted report</td>
+<td>Formatting time &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Dynamic content issues.</td>
+</tr><tr>
+<td class="c-step">4.4</td>
+<td><b>Approve final report for distribution</b></td>
+<td>Engineering Manager</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Reviewed report</td>
+<td>Approved report</td>
+<td>Approval time &lt; 0.5 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed approvals due to busy schedules.</td>
+</tr><tr>
+<td class="c-step">4.5</td>
+<td><b>Revise final report based on feedback</b></td>
+<td>Reliability Engineer</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Reviewed report, Feedback</td>
+<td>Revised report draft</td>
+<td>Revision time &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inconsistent feedback from stakeholders.</td>
+</tr><tr>
+<td class="c-step">4.6</td>
+<td><b>Escalate approval request to higher management</b></td>
+<td>Engineering Manager</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Approved report</td>
+<td>Escalation notification</td>
+<td>Escalation time &lt; 1 day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Resource unavailability.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-EN-04-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Stakeholder Review</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Distribute final report to relevant stakeholders</b></td>
+<td>Reliability Engineer</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Approved report, Stakeholder list</td>
+<td>Distribution confirmation</td>
+<td>Distribution time &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Email delivery failures.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Resend distribution to failed recipients</b></td>
+<td>Reliability Engineer</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Approved report, Failed recipients</td>
+<td>Distribution confirmation</td>
+<td>Re-distribution time &lt; 0.5 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Recipient unavailability.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-EN-04-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Action Plan Development</span>
+    <span class="ph-n">6 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Develop action plan based on final report recommendations</b></td>
+<td>Engineering Manager</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Approved report, Recommendations</td>
+<td>Action plan draft</td>
+<td>Action plan development time &lt; 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Resource allocation constraints.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Review action plan with stakeholders</b></td>
+<td>Engineering Manager</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Action plan draft</td>
+<td>Reviewed action plan</td>
+<td>Stakeholder review time &lt; 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Lack of consensus on actions.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Finalize action plan based on feedback</b></td>
+<td>Engineering Manager</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Reviewed action plan, Feedback</td>
+<td>Finalized action plan</td>
+<td>Finalization time &lt; 0.5 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inconsistent feedback from stakeholders.</td>
+</tr><tr>
+<td class="c-step">6.4</td>
+<td><b>Approve final action plan for implementation</b></td>
+<td>Engineering Manager</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Reviewed action plan</td>
+<td>Approved action plan</td>
+<td>Approval time &lt; 0.5 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed approvals due to busy schedules.</td>
+</tr><tr>
+<td class="c-step">6.5</td>
+<td><b>Escalate approval request to higher management</b></td>
+<td>Engineering Manager</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Approved action plan</td>
+<td>Escalation notification</td>
+<td>Escalation time &lt; 1 day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Resource unavailability.</td>
+</tr><tr>
+<td class="c-step">6.6</td>
+<td><b>Implement approved action plan</b></td>
+<td>Maintenance Team Leader</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Approved action plan, Resources</td>
+<td>Implementation confirmation</td>
+<td>Implementation time &lt; 1 week</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Resource allocation constraints.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Reliability Engineer</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Maintenance Data Analyst</span><span class="lane-steps">1.1 1.3 1.4</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Aircraft Performance Specialist</span><span class="lane-steps">1.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Reliability Engineer</span><span class="lane-steps">2.1 2.2 2.3 4.1 4.3 4.5 5.1 5.2</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Compliance Officer</span><span class="lane-steps">3.1 3.2 3.4 3.5 3.6</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Engineering Manager</span><span class="lane-steps">3.3 4.2 4.4 4.6 6.1 6.2 6.3 6.4 6.5</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>Maintenance Team Leader</span><span class="lane-steps">6.6</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag regulator" data-tooltip="Airworthiness directive and continuing-airworthiness compliance against CARs. [Transport Canada - evidence C]">Transport Canada CAWIS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Compiled for 100 percent of ATA chapters each reporting cycle</li><li>Analysed for 100 percent of ATA chapters each cycle</li><li>Screened before a trend crosses the alert threshold for 70 percent of eventual material issues</li><li>Triggered within 5 business days of confirmation at 100 percent</li></ul>
+<ul class="bullets"><li>Data extraction time &lt; 2 hours</li><li>Data retrieval time &lt; 1 hour</li><li>Data integration time &lt; 0.5 hours</li><li>Analysis time &lt; 3 hours</li><li>Compliance check time &lt; 1 hour</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Alert thresholds going stale as the fleet ages and utilisation patterns change without recalibration</li><li>A trend confirmed but not promptly triggered into investigation losing its early-warning value</li><li>Data completeness depending on consistent ATA chapter coding at the original technical log entry</li><li>The entire value of trending being lost if a signal is only caught after it becomes an obvious problem</li></ul>
+<ul class="bullets risk"><li>Inconsistent data quality across TRAX entries</li><li>Mobile connectivity issues at remote bases</li><li>Complexity in aligning datasets from different systems</li><li>High computational load during peak usage</li><li>Parameter tuning requires domain expertise</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../maintenance-engineering/engineering-reliability/ac-mr-en-03/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Service Bulletin Evaluation</span></a>
