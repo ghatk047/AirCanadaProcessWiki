@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CM-CC-02" title="Click to copy the process ID">
     AC-CM-CC-02<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Recurrent Training Scheduling and Compliance</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,296 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-CM-CC-02-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Training due date identification</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Initial Assessment</span>
+    <span class="ph-n">6 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Identify crew members due for recurrent training</b></td>
-<td>Crew Compliance Coordinator</td>
+<td><b>Identify Training Requirements</b></td>
+<td>YYZ Operations Control Duty Manager</td>
 <td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Training currency records</td>
-<td>Identified due list</td>
-<td>Identified for 100 percent of crew each cycle at the correct lead time</td>
+<td>Employee records and union agreements</td>
+<td>List of employees requiring training</td>
+<td>90% accuracy in identifying training needs within 24 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Due dates are individually staggered and require continuous monitoring rather than a single annual sweep</td>
+<td>Inaccurate identification can lead to missed compliance deadlines.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Check Availability of Training Slots</b></td>
+<td>Training Coordinator</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Employee availability and training schedule</td>
+<td>Available training slots</td>
+<td>85% slot utilization rate within 48 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Limited availability can cause delays in training sessions.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Assign Training Slots</b></td>
+<td>Training Coordinator</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Employee list and available slots</td>
+<td>Assigned training schedule</td>
+<td>95% successful assignments within 72 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Overbooking can lead to scheduling conflicts.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Notify Employees of Training Assignment</b></td>
+<td>Training Coordinator</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Assigned training schedule</td>
+<td>Notification sent to employees</td>
+<td>98% notification success rate within 24 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Failed notifications can result in missed training sessions.</td>
+</tr><tr>
+<td class="c-step">1.5</td>
+<td><b>Retry Notification</b></td>
+<td>Training Coordinator</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Employee list and failed notifications</td>
+<td>Retried notification status</td>
+<td>90% successful retries within 48 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Multiple failures can delay training sessions.</td>
+</tr><tr>
+<td class="c-step">1.6</td>
+<td><b>Escalate Notification Failure</b></td>
+<td>Training Coordinator</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Employee list and failed notifications</td>
+<td>Escalation to IT support</td>
+<td>100% escalation rate within 72 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Unresolved notification issues can lead to legal repercussions.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CM-CC-02-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Scheduling and completion tracking</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Training Request Generation</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Schedule training against available slots</b></td>
-<td>Crew Compliance Coordinator</td>
+<td><b>Detect Training Conflict with Rostering</b></td>
+<td>YYZ Operations Control Duty Manager</td>
 <td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Due list and embedded training slots</td>
-<td>Scheduled training for each crew member</td>
-<td>Scheduled before the currency deadline for 100 percent of due crew</td>
+<td>Assigned training schedule and rostering data</td>
+<td>List of conflicts</td>
+<td>80% conflict detection rate within 24 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Available slot capacity has to be coordinated with the embedding done in AC-CM-CP-06</td>
+<td>Conflicts can disrupt flight operations.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Track training completion</b></td>
-<td>Crew Compliance Coordinator</td>
+<td><b>Adjust Roster to Resolve Conflict</b></td>
+<td>YYZ Operations Control Duty Manager</td>
 <td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Scheduled training</td>
-<td>Confirmed completion or non-completion</td>
-<td>Tracked within 24 hours of the scheduled training date at 100 percent</td>
+<td>Conflict list and rostering data</td>
+<td>Adjusted roster</td>
+<td>90% successful adjustments within 48 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Adjustments can lead to further conflicts or resource shortages.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Escalate Rostering Conflict</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Conflict list and adjusted roster</td>
+<td>Escalation to HR and union representatives</td>
+<td>100% escalation rate within 72 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A crew member who misses a scheduled training slot needs immediate rescheduling before their deadline</td>
+<td>Unresolved conflicts can lead to operational disruptions.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CM-CC-02-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Compliance confirmation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Conflict Detection</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Confirm compliance record update</b></td>
-<td>Crew Compliance Coordinator</td>
-<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Confirmed completion</td>
-<td>Updated compliance record</td>
-<td>Updated within 24 hours of completion confirmation at 100 percent</td>
+<td><b>Verify Training Attendance</b></td>
+<td>Training Coordinator</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Assigned training schedule and attendance records</td>
+<td>Attendance verification report</td>
+<td>95% accurate verification rate within 48 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inaccurate verifications can lead to compliance issues.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Initiate Reverification Process</b></td>
+<td>Training Coordinator</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Verification report and attendance records</td>
+<td>Revised verification status</td>
+<td>90% successful revisions within 72 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Multiple verifications can delay training completion.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Escalate Verification Failure</b></td>
+<td>Training Coordinator</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Verification report and attendance records</td>
+<td>Escalation to HR and union representatives</td>
+<td>100% escalation rate within 96 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A completion not promptly reflected in the compliance record risks an incorrect rostering restriction</td>
+<td>Unresolved verifications can lead to legal repercussions.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CC-02-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Schedule Adjustment</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Generate Training Completion Certificates</b></td>
+<td>Training Coordinator</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Verified attendance records</td>
+<td>Training completion certificates</td>
+<td>98% certificate generation rate within 24 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Certificate failures can delay requalification.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Retry Certificate Generation</b></td>
+<td>Training Coordinator</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Verified attendance records and failed certificates</td>
+<td>Retried certificate status</td>
+<td>90% successful retries within 48 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Multiple failures can delay requalification.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Escalate Certificate Generation Failure</b></td>
+<td>Training Coordinator</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Verified attendance records and failed certificates</td>
+<td>Escalation to IT support</td>
+<td>100% escalation rate within 72 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Unresolved certificate issues can lead to legal repercussions.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CC-02-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Notification</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Notify Training Completion</b></td>
+<td>Training Coordinator</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Completed training certificates</td>
+<td>Notification sent to relevant parties</td>
+<td>98% notification success rate within 24 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Failed notifications can lead to missed requalification deadlines.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Retry Notification</b></td>
+<td>Training Coordinator</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Completed training certificates and failed notifications</td>
+<td>Retried notification status</td>
+<td>90% successful retries within 48 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Multiple failures can delay requalification.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Escalate Notification Failure</b></td>
+<td>Training Coordinator</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Completed training certificates and failed notifications</td>
+<td>Escalation to IT support</td>
+<td>100% escalation rate within 72 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Unresolved notification issues can lead to legal repercussions.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CC-02-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Compliance Verification</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Verify Training Compliance with Union Rules</b></td>
+<td>APPR Adjudicator</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Completed training certificates and union rules</td>
+<td>Compliance verification report</td>
+<td>95% accurate compliance rate within 48 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Non-compliance can lead to legal repercussions.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Initiate Compliance Review Process</b></td>
+<td>APPR Adjudicator</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Compliance verification report and union rules</td>
+<td>Revised compliance status</td>
+<td>90% successful reviews within 72 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Multiple reviews can delay requalification.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Escalate Compliance Issue</b></td>
+<td>APPR Adjudicator</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Compliance verification report and union rules</td>
+<td>Escalation to HR and union representatives</td>
+<td>100% escalation rate within 96 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Unresolved compliance issues can lead to legal repercussions.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Crew Compliance Coordinator</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">1.1 2.1 2.2 2.3</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Training Coordinator</span><span class="lane-steps">1.2 1.3 1.4 1.5 1.6 3.1 3.2 3.3 4.1 4.2 4.3 5.1 5.2 5.3</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>APPR Adjudicator</span><span class="lane-steps">6.1 6.2 6.3</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Identified for 100 percent of crew each cycle at the correct lead time</li><li>Scheduled before the currency deadline for 100 percent of due crew</li><li>Tracked within 24 hours of the scheduled training date at 100 percent</li><li>Zero crew members lapsing recurrent training currency</li></ul>
+<ul class="bullets"><li>90% accuracy in identifying training needs within 24 hours</li><li>85% slot utilization rate within 48 hours</li><li>95% successful assignments within 72 hours</li><li>98% notification success rate within 24 hours</li><li>100% escalation rate within 96 hours</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Due dates being individually staggered, requiring continuous monitoring rather than a single sweep</li><li>A missed scheduled training slot needing immediate rescheduling before the currency deadline</li><li>A completion not promptly reflected in the compliance record risking an incorrect rostering restriction</li><li>Available slot capacity not being properly coordinated with the pairing-build embedding process</li></ul>
+<ul class="bullets risk"><li>Inaccurate identification of training needs leading to missed compliance deadlines.</li><li>Limited availability of training slots causing delays in sessions.</li><li>Overbooking of training slots leading to scheduling conflicts.</li><li>Failed notifications resulting in missed training sessions and legal repercussions.</li><li>Unresolved rostering conflicts disrupting flight operations.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../crew-management/crew-compliance-training-pay/ac-cm-cc-01/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Licence Medical and Qualification Currency Tracking</span></a>

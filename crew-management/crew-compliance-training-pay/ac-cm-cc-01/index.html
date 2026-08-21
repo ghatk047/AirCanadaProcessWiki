@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CM-CC-01" title="Click to copy the process ID">
     AC-CM-CC-01<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Licence Medical and Qualification Currency Tracking</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,266 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-CM-CC-01-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Currency data compilation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Medical Assessment</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Compile current licence and medical status</b></td>
-<td>Crew Compliance Coordinator</td>
+<td><b>Receive medical certificate</b></td>
+<td>Crew Medical Officer</td>
 <td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Individual crew member certification records</td>
-<td>Compiled current status by crew member</td>
-<td>Compiled and current for 100 percent of active crew at all times</td>
+<td>Crew member&#x27;s medical certificate</td>
+<td>Medical assessment report</td>
+<td>Assessment completed within 3 working days</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Late submission of medical certificates from overseas clinics can delay the process.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Review medical certificate validity</b></td>
+<td>Crew Medical Officer</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Medical assessment report</td>
+<td>Validity status</td>
+<td>Validity check completed within 2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual validation errors can occur due to outdated templates.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Update medical record in Jeppesen Crew</b></td>
+<td>Crew Medical Officer</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Validity status</td>
+<td>Updated medical record</td>
+<td>Record update completed within 1 hour</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Medical certificate renewal happens outside the airline&#x27;s own systems and depends on timely crew reporting</td>
+<td>System downtime can cause delays in updating records.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CM-CC-01-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Expiry monitoring</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Qualification Review</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Monitor for approaching expiry</b></td>
-<td>Crew Compliance Coordinator</td>
-<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Compiled currency status</td>
-<td>Flagged approaching expiry list</td>
-<td>Flagged at least 30 days before expiry at 100 percent</td>
+<td><b>Identify crew member&#x27;s qualification requirements</b></td>
+<td>Crew Training Coordinator</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Crew member&#x27;s position and experience</td>
+<td>Qualification checklist</td>
+<td>Checklist generated within 30 minutes</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A crew member who does not proactively report a renewal in progress can appear to be lapsing when they are not</td>
+<td>Complex union rules can lead to errors in identifying qualifications.</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Verify qualification completion</b></td>
+<td>Crew Training Coordinator</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Qualification checklist</td>
+<td>Verification report</td>
+<td>Verification completed within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual verification can be time-consuming due to large volumes of records.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Update qualification record in Dayforce</b></td>
+<td>Crew Training Coordinator</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Verification report</td>
+<td>Updated qualification record</td>
+<td>Record update completed within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System performance issues can cause delays in updating records.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CM-CC-01-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Rostering restriction</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Union Compliance Check</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Restrict rostering beyond expiry</b></td>
-<td>Crew Compliance Coordinator</td>
-<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Expired or expiring currency</td>
-<td>System-enforced rostering restriction</td>
-<td>Zero crew members rostered beyond a valid currency date</td>
-<td class="c-flag"><span class="no">N</span></td>
+<td><b>Determine union compliance requirements</b></td>
+<td>Union Compliance Officer</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Crew member&#x27;s union affiliation and position</td>
+<td>Compliance checklist</td>
+<td>Checklist generated within 45 minutes</td>
 <td class="c-flag"><span class="yes">Y</span></td>
-<td>A restriction that is not enforced at the system level depends entirely on manual vigilance</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Distinct union rules for each bargaining unit can complicate compliance checks.</td>
 </tr><tr>
 <td class="c-step">3.2</td>
-<td><b>Confirm restoration of eligibility upon renewal</b></td>
-<td>Crew Compliance Coordinator</td>
-<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Renewed licence or medical certificate</td>
-<td>Restored rostering eligibility</td>
-<td>Restored within 24 hours of confirmed renewal at 100 percent</td>
+<td><b>Review union compliance</b></td>
+<td>Union Compliance Officer</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Compliance checklist</td>
+<td>Compliance status</td>
+<td>Review completed within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual review can introduce errors due to complex rules.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Notify union representative of non-compliance</b></td>
+<td>Union Compliance Officer</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Compliance status</td>
+<td>Notification sent</td>
+<td>Notification sent within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Poor communication channels can delay notifications.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CC-01-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; System Update</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Update medical and qualification status in Air Canada&#x27;s central system</b></td>
+<td>Crew Compliance Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada Central Compliance System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Updated medical and qualification records</td>
+<td>Central system update</td>
+<td>Update completed within 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Integration issues between systems can cause data discrepancies.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Generate compliance report for management review</b></td>
+<td>Crew Compliance Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada Central Compliance System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Central system update</td>
+<td>Compliance report</td>
+<td>Report generated within 1 hour</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A delay in restoring eligibility after a genuine renewal unnecessarily removes a crew member from availability</td>
+<td>Manual generation of reports can be error-prone.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Retry central system update</b></td>
+<td>Crew Compliance Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada Central Compliance System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Central system update</td>
+<td>Updated medical and qualification records</td>
+<td>Update retried within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System downtime can cause failed updates.</td>
+</tr><tr>
+<td class="c-step">4.4</td>
+<td><b>Escalate update issue to IT support</b></td>
+<td>Crew Compliance Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada Central Compliance System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Update failure details</td>
+<td>IT ticket raised</td>
+<td>Ticket raised within 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Lack of IT support availability can delay resolution.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CC-01-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Notification Dispatch</span>
+    <span class="ph-n">6 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Send notification to crew member</b></td>
+<td>Crew Compliance Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada Notification System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Compliance report</td>
+<td>Notification sent</td>
+<td>Notification sent within 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Incorrect email addresses can cause notifications to fail.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Send notification to union representative</b></td>
+<td>Crew Compliance Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada Notification System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Compliance report</td>
+<td>Notification sent</td>
+<td>Notification sent within 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Incorrect email addresses can cause notifications to fail.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Send notification to management</b></td>
+<td>Crew Compliance Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada Notification System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Compliance report</td>
+<td>Notification sent</td>
+<td>Notification sent within 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Incorrect email addresses can cause notifications to fail.</td>
+</tr><tr>
+<td class="c-step">5.4</td>
+<td><b>Retry sending notification</b></td>
+<td>Crew Compliance Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada Notification System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Notification details</td>
+<td>Notification sent</td>
+<td>Retry completed within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Email server issues can cause notifications to fail.</td>
+</tr><tr>
+<td class="c-step">5.5</td>
+<td><b>Escalate notification issue to IT support</b></td>
+<td>Crew Compliance Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada Notification System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Notification failure details</td>
+<td>IT ticket raised</td>
+<td>Ticket raised within 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Lack of IT support availability can delay resolution.</td>
+</tr><tr>
+<td class="c-step">5.6</td>
+<td><b>Log final status in the compliance system</b></td>
+<td>Crew Compliance Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada Central Compliance System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Final notification status</td>
+<td>Updated record</td>
+<td>Record updated within 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual updates can introduce errors due to large volumes of records.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Crew Compliance Coordinator</span><span class="lane-steps">1.1 2.1 3.1 3.2</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Crew Medical Officer</span><span class="lane-steps">1.1 1.2 1.3</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Crew Training Coordinator</span><span class="lane-steps">2.1 2.2 2.3</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Union Compliance Officer</span><span class="lane-steps">3.1 3.2 3.3</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Crew Compliance Agent</span><span class="lane-steps">4.1 4.2 4.3 4.4 5.1 5.2 5.3 5.4 5.5 5.6</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada Central Compliance System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada Notification System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Compiled and current for 100 percent of active crew at all times</li><li>Flagged at least 30 days before expiry at 100 percent</li><li>Zero crew members rostered beyond a valid currency date</li><li>Currency lapses caught before rostering versus after tracked as a leading indicator</li></ul>
+<ul class="bullets"><li>Medical assessment completed within 3 working days</li><li>Validity check completed within 2 hours</li><li>Qualification checklist generated within 30 minutes</li><li>Union compliance review completed within 1 hour</li><li>Notifications sent within 30 minutes</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A crew member operating without valid certification if this tracking control fails</li><li>Medical certificate renewal happening outside the airline&#x27;s own systems, depending on timely crew reporting</li><li>A restriction not enforced at the system level depending entirely on manual vigilance</li><li>A crew member appearing to lapse when a renewal is actually already in progress but not yet reported</li></ul>
+<ul class="bullets risk"><li>Late submission of medical certificates from overseas clinics</li><li>Manual validation errors due to outdated templates</li><li>System downtime causing delays in updating records</li><li>Complex union rules leading to errors in identifying qualifications</li><li>Integration issues between systems causing data discrepancies</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../crew-management/day-of-operations-crew-tracking/ac-cm-do-06/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Crew Positioning and Deadhead Booking</span></a>
