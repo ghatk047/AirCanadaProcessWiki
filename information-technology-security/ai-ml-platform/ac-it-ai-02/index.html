@@ -133,7 +133,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-IT-AI-02" title="Click to copy the process ID">
     AC-IT-AI-02<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Model Development and Feature Engineering</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -142,85 +142,329 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-IT-AI-02-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Feature engineering</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Initiation</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Engineer features from lakehouse data</b></td>
-<td>ML Engineer</td>
-<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Approved use case and available data</td>
-<td>Engineered feature set</td>
-<td>Engineered within the project timeline at 90 percent</td>
+<td><b>Project Initiation</b></td>
+<td>AI &amp; ML Platform Manager</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Project request from business unit</td>
+<td>Project ticket in ITSM Platform</td>
+<td>Time to create project ticket (in hours)</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Feature engineering quality is directly dependent on the underlying data quality established in AC-IT-DE-01</td>
+<td>Delays in creating project tickets can slow down the entire process.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Define Scope and Objectives</b></td>
+<td>Data Scientist</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">UNKNOWN, evidence tier U (Integration Platform)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Project ticket from ITSM Platform</td>
+<td>Scope document and objectives</td>
+<td>Number of iterations in scope definition</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Misalignment between business objectives and technical feasibility can lead to project delays.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Assign Resources</b></td>
+<td>AI &amp; ML Platform Manager</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Scope document and objectives</td>
+<td>Resource allocation plan</td>
+<td>Time to assign resources (in days)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Lack of available resources can cause delays.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-IT-AI-02-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Model training</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Data Collection and Preparation</span>
+    <span class="ph-n">5 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Train the model against the feature set</b></td>
-<td>ML Engineer</td>
+<td><b>Data Collection</b></td>
+<td>Data Engineer</td>
 <td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Engineered features</td>
-<td>Trained model</td>
-<td>Trained within the project timeline at 90 percent</td>
+<td>Scope document and objectives</td>
+<td>Raw data in Databricks Lakehouse</td>
+<td>Time to collect data (in hours)</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Training data representativeness determines whether the model generalises to real production conditions</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Data collection can fail due to connectivity issues or data availability problems.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Validate model performance against target</b></td>
-<td>ML Engineer</td>
+<td><b>Initial Data Cleaning</b></td>
+<td>Data Scientist</td>
 <td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Trained model</td>
-<td>Validated performance</td>
-<td>Validated against the defined target before handoff at 100 percent</td>
+<td>Raw data in Databricks Lakehouse</td>
+<td>Cleaned data in Databricks Lakehouse</td>
+<td>Time to clean data (in hours)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Data cleaning can be time-consuming and resource-intensive.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Exploratory Data Analysis (EDA)</b></td>
+<td>Data Scientist</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Cleaned data in Databricks Lakehouse</td>
+<td>EDA report</td>
+<td>Time to complete EDA (in hours)</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A model meeting an aggregate performance target can still underperform badly on a specific important subgroup</td>
+<td>Unexpected data patterns can require additional analysis time.</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Re-collect Data</b></td>
+<td>Data Engineer</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>EDA report</td>
+<td>Updated raw data in Databricks Lakehouse</td>
+<td>Time to re-collect data (in hours)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Data collection may fail again, causing further delays.</td>
+</tr><tr>
+<td class="c-step">2.5</td>
+<td><b>Retry Data Collection</b></td>
+<td>Data Engineer</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Failure report from 2.1</td>
+<td>Raw data in Databricks Lakehouse</td>
+<td>Time to retry data collection (in hours)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Multiple retries can consume significant time and resources.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-IT-AI-02-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Performance validation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Feature Engineering</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Hand off to governance for control design</b></td>
-<td>ML Engineer</td>
-<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Validated model</td>
-<td>Handed off model with performance documentation</td>
-<td>Handed off within 5 business days of validation at 100 percent</td>
+<td><b>Feature Identification</b></td>
+<td>Data Scientist</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>EDA report</td>
+<td>List of candidate features</td>
+<td>Number of identified features</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Insufficient feature identification can lead to suboptimal models.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Feature Selection</b></td>
+<td>Data Scientist</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>List of candidate features</td>
+<td>Selected features list</td>
+<td>Time to select features (in hours)</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A model handed off without complete performance documentation slows the governance process in AC-IT-AI-03</td>
+<td>Feature selection can be time-consuming and iterative.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Feature Engineering</b></td>
+<td>Data Scientist</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Selected features list</td>
+<td>Engineered features in Databricks Lakehouse</td>
+<td>Time to engineer features (in hours)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Feature engineering can fail due to technical issues.</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Retry Feature Engineering</b></td>
+<td>Data Scientist</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Failure report from 3.3</td>
+<td>Engineered features in Databricks Lakehouse</td>
+<td>Time to retry feature engineering (in hours)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Multiple retries can consume significant time and resources.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-AI-02-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Model Development</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Model Selection</b></td>
+<td>Data Scientist</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">UNKNOWN, evidence tier U (Integration Platform)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Engineered features in Databricks Lakehouse</td>
+<td>Selected model algorithm</td>
+<td>Time to select model (in hours)</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Choosing the wrong model can lead to poor performance.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Re-select Model</b></td>
+<td>Data Scientist</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">UNKNOWN, evidence tier U (Integration Platform)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Failure report from 4.1</td>
+<td>New selected model algorithm</td>
+<td>Time to re-select model (in hours)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Multiple iterations in model selection can delay the process.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Model Training</b></td>
+<td>Data Scientist</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Selected model algorithm and engineered features</td>
+<td>Trained model in Databricks Lakehouse</td>
+<td>Time to train model (in hours)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Training can fail due to resource constraints or data issues.</td>
+</tr><tr>
+<td class="c-step">4.4</td>
+<td><b>Retry Model Training</b></td>
+<td>Data Scientist</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Failure report from 4.3</td>
+<td>Trained model in Databricks Lakehouse</td>
+<td>Time to retry training (in hours)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Multiple retries can consume significant time and resources.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-AI-02-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Testing and Validation</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Model Evaluation</b></td>
+<td>Data Scientist</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Trained model in Databricks Lakehouse</td>
+<td>Evaluation report</td>
+<td>Time to evaluate model (in hours)</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Poor evaluation results can lead to further development cycles.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Model Tuning</b></td>
+<td>Data Scientist</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Evaluation report and trained model</td>
+<td>Tuned model in Databricks Lakehouse</td>
+<td>Time to tune model (in hours)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Tuning can fail due to technical issues or resource constraints.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Retry Model Tuning</b></td>
+<td>Data Scientist</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Failure report from 5.2</td>
+<td>Tuned model in Databricks Lakehouse</td>
+<td>Time to retry tuning (in hours)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Multiple retries can consume significant time and resources.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-AI-02-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Deployment</span>
+    <span class="ph-n">5 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Prepare for Deployment</b></td>
+<td>AI &amp; ML Platform Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">UNKNOWN, evidence tier U (Integration Platform)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Tuned model in Databricks Lakehouse and evaluation report</td>
+<td>Deployment plan</td>
+<td>Time to prepare deployment (in days)</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex integration with existing systems can cause delays.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Deploy Model</b></td>
+<td>AI &amp; ML Platform Manager</td>
+<td><span class="tag aws" data-tooltip="Primary hyperscaler. Loyalty platform, contact centre and digital channels run cloud-native on AWS. [AWS - evidence A]">AWS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Deployment plan and tuned model</td>
+<td>Model deployed in AWS environment</td>
+<td>Time to deploy model (in hours)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Deployment can fail due to technical issues or integration problems.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Retry Deployment</b></td>
+<td>AI &amp; ML Platform Manager</td>
+<td><span class="tag aws" data-tooltip="Primary hyperscaler. Loyalty platform, contact centre and digital channels run cloud-native on AWS. [AWS - evidence A]">AWS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Failure report from 6.2</td>
+<td>Model deployed in AWS environment</td>
+<td>Time to retry deployment (in hours)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Multiple retries can consume significant time and resources.</td>
+</tr><tr>
+<td class="c-step">6.4</td>
+<td><b>Post-Deployment Monitoring</b></td>
+<td>Data Scientist</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">UNKNOWN, evidence tier U (SIEM and SOC)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Deployed model in AWS environment</td>
+<td>Monitoring report</td>
+<td>Time to complete monitoring (in hours)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Monitoring can fail due to system issues or data availability problems.</td>
+</tr><tr>
+<td class="c-step">6.5</td>
+<td><b>Escalate Monitoring Issue</b></td>
+<td>Data Scientist</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">UNKNOWN, evidence tier U (SIEM and SOC)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Failure report from 6.4</td>
+<td>Escalation to IT team</td>
+<td>Time to escalate issue (in hours)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Escalations can delay the resolution of monitoring issues.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>ML Engineer</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>AI &amp; ML Platform Manager</span><span class="lane-steps">1.1 1.3 6.1 6.2 6.3</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Data Scientist</span><span class="lane-steps">1.2 2.2 2.3 3.1 3.2 3.3 3.4 4.1 4.2 4.3 4.4 5.1 5.2 5.3 6.4 6.5</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Data Engineer</span><span class="lane-steps">2.1 2.4 2.5</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
+<div class="card"><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">UNKNOWN, evidence tier U (Integration Platform)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag aws" data-tooltip="Primary hyperscaler. Loyalty platform, contact centre and digital channels run cloud-native on AWS. [AWS - evidence A]">AWS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">UNKNOWN, evidence tier U (SIEM and SOC)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Engineered within the project timeline at 90 percent</li><li>Trained within the project timeline at 90 percent</li><li>Validated against the defined target before handoff at 100 percent</li><li>Handed off within 5 business days of validation at 100 percent</li></ul>
+<ul class="bullets"><li>Time to complete model development (in weeks)</li><li>Number of iterations in scope definition</li><li>Time to assign resources (in days)</li><li>Time to train model (in hours)</li><li>Time to deploy model (in hours)</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Feature engineering quality being directly dependent on the underlying data engineering discipline</li><li>A model meeting an aggregate performance target while still underperforming badly on an important subgroup</li><li>Training data representativeness determining whether the model generalises to real production conditions</li><li>A model handed off without complete performance documentation slowing the governance process</li></ul>
+<ul class="bullets risk"><li>Data collection failures due to connectivity issues</li><li>Feature identification and selection challenges</li><li>Model training and tuning failures</li><li>Complex integration with existing systems</li><li>Post-deployment monitoring issues</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../information-technology-security/ai-ml-platform/ac-it-ai-01/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">AI Use Case Intake and Value Assessment</span></a>

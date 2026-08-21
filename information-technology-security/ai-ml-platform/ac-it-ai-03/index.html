@@ -133,7 +133,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-IT-AI-03" title="Click to copy the process ID">
     AC-IT-AI-03<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>AI Governance and Human In Loop Control Design</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -142,173 +142,362 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-IT-AI-03-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Control design</span>
+    <span class="ph-name">Phase 1 &mdash; Project Initiation</span>
     <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Classify use case exposure</b></td>
-<td>AI Governance Lead</td>
+<td><b>Project Proposal Submission</b></td>
+<td>ITSM Platform Analyst</td>
 <td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Approved use case definition</td>
-<td>Exposure classification covering customer, regulatory and safety impact</td>
-<td>100 percent of use cases classified before build</td>
-<td class="c-flag"><span class="yes">Y</span></td>
+<td>Business unit project proposal</td>
+<td>Project record in ITSM system</td>
+<td>Time to create project record (hours)</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Classification depends on a self-declared scope that tends to understate customer exposure</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delays in creating a project record can lead to missed deadlines.</td>
 </tr><tr>
 <td class="c-step">1.2</td>
-<td><b>Define the human decision point</b></td>
-<td>AI Governance Lead</td>
+<td><b>Initial Assessment by ITSM Analyst</b></td>
+<td>ITSM Platform Analyst</td>
 <td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Exposure classification and process map</td>
-<td>Named human-in-loop control with an accountable role</td>
-<td>Every customer-facing model has a named human decision point</td>
+<td>Project proposal details</td>
+<td>Assessment report with feasibility and risk analysis</td>
+<td>Time to complete initial assessment (days)</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Teams propose review-after-the-fact controls, which do not prevent the Moffatt failure mode</td>
+<td>Inconsistent assessment criteria can lead to misaligned project expectations.</td>
 </tr><tr>
 <td class="c-step">1.3</td>
-<td><b>Restrict grounding to authoritative sources</b></td>
-<td>Data Platform Engineer</td>
-<td><span class="tag databricks" data-tooltip="Lakehouse governance, lineage and access control. Foundation for governed AI grounding. [Databricks - evidence C]">Unity Catalog<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Candidate content and policy corpora</td>
-<td>Allow-listed grounding sources with lineage</td>
-<td>Zero customer-facing responses grounded on unapproved sources</td>
+<td><b>Project Approval by ITSM Manager</b></td>
+<td>ITSM Platform Manager</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Assessment report</td>
+<td>Approved project record with governance plan</td>
+<td>Time to approve project (days)</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Policy content is scattered across the web estate with no single authoritative version</td>
+<td>Delays in obtaining approval can cause delays in project initiation.</td>
 </tr><tr>
 <td class="c-step">1.4</td>
-<td><b>Design the failure and escalation path</b></td>
-<td>AI Governance Lead</td>
+<td><b>Escalation of Non-Feasible Project</b></td>
+<td>ITSM Platform Manager</td>
 <td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Control design draft</td>
-<td>Defined failure modes with a no-auto-send default and escalation route</td>
-<td>Every model has a tested escalation path before release</td>
+<td>Assessment report</td>
+<td>Project record with escalation notes</td>
+<td>Time to escalate project (days)</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Failure modes are specified in prose and are not testable as written</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Non-feasible projects may require additional resources or alternative solutions.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-IT-AI-03-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Assurance and approval</span>
+    <span class="ph-name">Phase 2 &mdash; Requirement Gathering</span>
     <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Review bilingual and accessibility obligations</b></td>
-<td>Official Languages Advisor</td>
-<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Draft control design</td>
-<td>Confirmation of English and French parity in model output</td>
-<td>Full parity confirmed on 100 percent of customer-facing models</td>
-<td class="c-flag"><span class="yes">Y</span></td>
+<td><b>Requirement Gathering with Stakeholders</b></td>
+<td>Project Manager</td>
+<td><span class="tag unknown" data-tooltip="API gateway, ESB and event streaming. Product UNCONFIRMED - a top-three discovery question.">Integration Platform<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Approved project record</td>
+<td>Gathered requirements document</td>
+<td>Time to complete requirement gathering (days)</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Parity is treated as a translation step rather than as an architectural constraint</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Incomplete or unclear requirements can lead to scope creep and delays.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Assess privacy and consent position</b></td>
-<td>Privacy Counsel</td>
-<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Data inventory for the model</td>
-<td>Privacy assessment covering PIPEDA and Quebec Law 25</td>
-<td>Privacy assessment completed before any production data access</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Consent state lives with customer identity and is not natively visible to model pipelines</td>
-</tr><tr>
-<td class="c-step">2.3</td>
-<td><b>Conduct adversarial and refusal testing</b></td>
-<td>ML Engineer</td>
-<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Candidate model and control design</td>
-<td>Test evidence covering misstatement and refusal behaviour</td>
-<td>Zero unescalated misstatements in the adversarial test set</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>There is no standing adversarial suite, so each team writes its own tests</td>
-</tr><tr>
-<td class="c-step">2.4</td>
-<td><b>Approve or refuse deployment</b></td>
-<td>AI Governance Board</td>
-<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Complete assurance pack</td>
-<td>Deployment decision with named accountable owner</td>
-<td>No customer-facing model deployed without board approval</td>
+<td><b>Review of Requirements by Business Unit Lead</b></td>
+<td>Business Unit Lead</td>
+<td><span class="tag unknown" data-tooltip="API gateway, ESB and event streaming. Product UNCONFIRMED - a top-three discovery question.">Integration Platform<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Gathered requirements document</td>
+<td>Reviewed requirements document with feedback</td>
+<td>Time to review requirements (days)</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Board cadence can become the critical path on delivery timelines</td>
+<td>Misalignment between business and technical requirements can lead to project failure.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Requirement Adjustment by Project Manager</b></td>
+<td>Project Manager</td>
+<td><span class="tag unknown" data-tooltip="API gateway, ESB and event streaming. Product UNCONFIRMED - a top-three discovery question.">Integration Platform<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Feedback from Business Unit Lead</td>
+<td>Adjusted requirements document</td>
+<td>Time to adjust requirements (days)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Adjusting requirements can delay project timelines and increase costs.</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Escalation of Unapproved Requirements</b></td>
+<td>Business Unit Lead</td>
+<td><span class="tag unknown" data-tooltip="API gateway, ESB and event streaming. Product UNCONFIRMED - a top-three discovery question.">Integration Platform<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Feedback from Business Unit Lead</td>
+<td>Requirements document with escalation notes</td>
+<td>Time to escalate requirements (days)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Unapproved requirements may require higher-level approvals or alternative solutions.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-IT-AI-03-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Production monitoring and review</span>
+    <span class="ph-name">Phase 3 &mdash; Design and Architecture</span>
     <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Deploy with logging and traceability</b></td>
-<td>ML Engineer</td>
-<td><span class="tag aws" data-tooltip="Primary hyperscaler. Loyalty platform, contact centre and digital channels run cloud-native on AWS. [AWS - evidence A]">AWS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Approved model and control design</td>
-<td>Model in production with full response logging</td>
-<td>100 percent of customer-facing responses logged and retrievable</td>
+<td><b>Design of AI Architecture</b></td>
+<td>AI Architect</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Adjusted requirements document</td>
+<td>Architecture design document</td>
+<td>Time to complete architecture design (weeks)</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Response logs and case records are not joined, so a complaint cannot be traced to a response</td>
+<td>Complex AI architectures can be time-consuming and resource-intensive.</td>
 </tr><tr>
 <td class="c-step">3.2</td>
-<td><b>Monitor drift and escalation volume</b></td>
-<td>ML Engineer</td>
+<td><b>Review of Architecture by ITSM Analyst</b></td>
+<td>ITSM Platform Analyst</td>
 <td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Production telemetry</td>
-<td>Drift and escalation report against control thresholds</td>
-<td>Drift breach detected within 24 hours</td>
+<td>Architecture design document</td>
+<td>Reviewed architecture document with feedback</td>
+<td>Time to review architecture (days)</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Thresholds are set at launch and rarely revisited as behaviour changes</td>
+<td>Inconsistent architecture reviews can lead to misaligned project expectations.</td>
 </tr><tr>
 <td class="c-step">3.3</td>
-<td><b>Withdraw or constrain on control breach</b></td>
-<td>AI Governance Lead</td>
-<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Breach notification</td>
-<td>Model withdrawn, constrained or re-approved</td>
-<td>Control breach acted on within one business day</td>
+<td><b>Architecture Adjustment by AI Architect</b></td>
+<td>AI Architect</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Feedback from ITSM Analyst</td>
+<td>Adjusted architecture design document</td>
+<td>Time to adjust architecture (weeks)</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="yes">Y</span></td>
-<td>There is no rehearsed withdrawal runbook, which is what made the 2024 removal disruptive</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Adjusting architecture can delay project timelines and increase costs.</td>
 </tr><tr>
 <td class="c-step">3.4</td>
-<td><b>Re-certify on retrain or scope change</b></td>
-<td>AI Governance Lead</td>
+<td><b>Escalation of Unapproved Architecture</b></td>
+<td>ITSM Platform Analyst</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Feedback from ITSM Analyst</td>
+<td>Architecture document with escalation notes</td>
+<td>Time to escalate architecture (days)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Unapproved architecture may require higher-level approvals or alternative solutions.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-AI-03-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Governance Review</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Governance Plan Development</b></td>
+<td>ITSM Platform Analyst</td>
 <td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Retrained model or extended scope</td>
-<td>Re-certified control design</td>
-<td>No model serves customers on an expired certification</td>
+<td>Approved architecture design document</td>
+<td>Governance plan document</td>
+<td>Time to develop governance plan (weeks)</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Retraining is treated as a technical change and can bypass governance</td>
+<td>Developing a comprehensive governance plan can be resource-intensive.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Review of Governance Plan by ITSM Manager</b></td>
+<td>ITSM Platform Manager</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Governance plan document</td>
+<td>Reviewed governance plan with feedback</td>
+<td>Time to review governance plan (days)</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inconsistent governance reviews can lead to misaligned project expectations.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Governance Plan Adjustment by ITSM Analyst</b></td>
+<td>ITSM Platform Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Feedback from ITSM Manager</td>
+<td>Adjusted governance plan document</td>
+<td>Time to adjust governance plan (weeks)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Adjusting the governance plan can delay project timelines and increase costs.</td>
+</tr><tr>
+<td class="c-step">4.4</td>
+<td><b>Escalation of Unapproved Governance Plan</b></td>
+<td>ITSM Platform Manager</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Feedback from ITSM Manager</td>
+<td>Governance plan document with escalation notes</td>
+<td>Time to escalate governance plan (days)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Unapproved governance plans may require higher-level approvals or alternative solutions.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-AI-03-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Implementation Planning</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Implementation Plan Development</b></td>
+<td>Project Manager</td>
+<td><span class="tag aws" data-tooltip="Primary hyperscaler. Loyalty platform, contact centre and digital channels run cloud-native on AWS. [AWS - evidence A]">AWS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Approved governance plan document</td>
+<td>Implementation plan document</td>
+<td>Time to develop implementation plan (weeks)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Developing a detailed implementation plan can be time-consuming and resource-intensive.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Review of Implementation Plan by ITSM Manager</b></td>
+<td>ITSM Platform Manager</td>
+<td><span class="tag aws" data-tooltip="Primary hyperscaler. Loyalty platform, contact centre and digital channels run cloud-native on AWS. [AWS - evidence A]">AWS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Implementation plan document</td>
+<td>Reviewed implementation plan with feedback</td>
+<td>Time to review implementation plan (days)</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inconsistent implementation reviews can lead to misaligned project expectations.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Implementation Plan Adjustment by Project Manager</b></td>
+<td>Project Manager</td>
+<td><span class="tag aws" data-tooltip="Primary hyperscaler. Loyalty platform, contact centre and digital channels run cloud-native on AWS. [AWS - evidence A]">AWS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Feedback from ITSM Manager</td>
+<td>Adjusted implementation plan document</td>
+<td>Time to adjust implementation plan (weeks)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Adjusting the implementation plan can delay project timelines and increase costs.</td>
+</tr><tr>
+<td class="c-step">5.4</td>
+<td><b>Escalation of Unapproved Implementation Plan</b></td>
+<td>ITSM Platform Manager</td>
+<td><span class="tag aws" data-tooltip="Primary hyperscaler. Loyalty platform, contact centre and digital channels run cloud-native on AWS. [AWS - evidence A]">AWS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Feedback from ITSM Manager</td>
+<td>Implementation plan document with escalation notes</td>
+<td>Time to escalate implementation plan (days)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Unapproved implementation plans may require higher-level approvals or alternative solutions.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-AI-03-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Deployment and Monitoring</span>
+    <span class="ph-n">7 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Deployment of AI Solution</b></td>
+<td>DevOps Engineer</td>
+<td><span class="tag aws" data-tooltip="Primary hyperscaler. Loyalty platform, contact centre and digital channels run cloud-native on AWS. [AWS - evidence A]">AWS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Finalized implementation plan document</td>
+<td>Deployed AI solution on AWS</td>
+<td>Time to deploy AI solution (days)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Deployment failures can lead to extended downtime and increased costs.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Initial Monitoring of AI Solution</b></td>
+<td>DevOps Engineer</td>
+<td><span class="tag aws" data-tooltip="Primary hyperscaler. Loyalty platform, contact centre and digital channels run cloud-native on AWS. [AWS - evidence A]">AWS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Deployed AI solution</td>
+<td>Monitoring report with initial performance metrics</td>
+<td>Time to complete initial monitoring (hours)</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Poor initial performance can lead to customer dissatisfaction and reputational damage.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Optimization of AI Solution by DevOps Engineer</b></td>
+<td>DevOps Engineer</td>
+<td><span class="tag aws" data-tooltip="Primary hyperscaler. Loyalty platform, contact centre and digital channels run cloud-native on AWS. [AWS - evidence A]">AWS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Monitoring report with performance metrics</td>
+<td>Optimized AI solution with improved performance metrics</td>
+<td>Time to optimize solution (days)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Optimization efforts can be time-consuming and resource-intensive.</td>
+</tr><tr>
+<td class="c-step">6.4</td>
+<td><b>Escalation of Performance Issues</b></td>
+<td>DevOps Engineer</td>
+<td><span class="tag aws" data-tooltip="Primary hyperscaler. Loyalty platform, contact centre and digital channels run cloud-native on AWS. [AWS - evidence A]">AWS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Monitoring report with performance metrics</td>
+<td>Performance issue escalation to ITSM Platform Manager</td>
+<td>Time to escalate performance issues (days)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Performance issues may require immediate attention and resolution.</td>
+</tr><tr>
+<td class="c-step">6.5</td>
+<td><b>Final Review of AI Solution by ITSM Manager</b></td>
+<td>ITSM Platform Manager</td>
+<td><span class="tag aws" data-tooltip="Primary hyperscaler. Loyalty platform, contact centre and digital channels run cloud-native on AWS. [AWS - evidence A]">AWS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Optimized AI solution with improved performance metrics</td>
+<td>Reviewed AI solution with final feedback</td>
+<td>Time to complete final review (days)</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inconsistent final reviews can lead to misaligned project expectations.</td>
+</tr><tr>
+<td class="c-step">6.6</td>
+<td><b>Approval of AI Solution by ITSM Manager</b></td>
+<td>ITSM Platform Manager</td>
+<td><span class="tag aws" data-tooltip="Primary hyperscaler. Loyalty platform, contact centre and digital channels run cloud-native on AWS. [AWS - evidence A]">AWS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Final feedback from ITSM Manager</td>
+<td>Approved AI solution for production use</td>
+<td>Time to approve AI solution (days)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delays in obtaining final approval can cause delays in project completion.</td>
+</tr><tr>
+<td class="c-step">6.7</td>
+<td><b>Escalation of Unapproved AI Solution</b></td>
+<td>ITSM Platform Manager</td>
+<td><span class="tag aws" data-tooltip="Primary hyperscaler. Loyalty platform, contact centre and digital channels run cloud-native on AWS. [AWS - evidence A]">AWS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Final feedback from ITSM Manager</td>
+<td>AI solution with escalation notes</td>
+<td>Time to escalate AI solution (days)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Unapproved solutions may require higher-level approvals or alternative solutions.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>AI Governance Lead</span><span class="lane-steps">1.1 1.2 1.4 3.3 3.4</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Data Platform Engineer</span><span class="lane-steps">1.3</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Official Languages Advisor</span><span class="lane-steps">2.1</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Privacy Counsel</span><span class="lane-steps">2.2</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>ML Engineer</span><span class="lane-steps">2.3 3.1 3.2</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>AI Governance Board</span><span class="lane-steps">2.4</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>ITSM Platform Analyst</span><span class="lane-steps">1.1 1.2 3.2 3.4 4.1 4.3</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>ITSM Platform Manager</span><span class="lane-steps">1.3 1.4 4.2 4.4 5.2 5.4 6.5 6.6 6.7</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Project Manager</span><span class="lane-steps">2.1 2.3 5.1 5.3</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Business Unit Lead</span><span class="lane-steps">2.2 2.4</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>AI Architect</span><span class="lane-steps">3.1 3.3</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>DevOps Engineer</span><span class="lane-steps">6.1 6.2 6.3 6.4</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag databricks" data-tooltip="Lakehouse governance, lineage and access control. Foundation for governed AI grounding. [Databricks - evidence C]">Unity Catalog<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag aws" data-tooltip="Primary hyperscaler. Loyalty platform, contact centre and digital channels run cloud-native on AWS. [AWS - evidence A]">AWS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag aiml" data-tooltip="Bilingual customer-facing assistant. Predecessor bot was withdrawn c. April 2024 after the Moffatt ruling. [Air Canada - evidence B]">Air Canada Virtual Assistant<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+<div class="card"><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag unknown" data-tooltip="API gateway, ESB and event streaming. Product UNCONFIRMED - a top-three discovery question.">Integration Platform<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag aws" data-tooltip="Primary hyperscaler. Loyalty platform, contact centre and digital channels run cloud-native on AWS. [AWS - evidence A]">AWS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Every customer-facing model carries a named human decision point at 100 percent</li><li>Zero customer-facing responses grounded on sources outside the allow list</li><li>Control breach acted on within one business day</li><li>Full English and French parity confirmed on all customer-facing models</li><li>Complaint-to-response traceability achievable for 100 percent of logged interactions</li></ul>
+<ul class="bullets"><li>Time to complete initial assessment (days)</li><li>Time to approve project (days)</li><li>Time to complete requirement gathering (days)</li><li>Time to adjust requirements (days)</li><li>Time to complete architecture design (weeks)</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Repeating the Moffatt liability where automation states a policy position the airline must then honour</li><li>Grounding drift as policy content changes on the web estate without the allow list being updated</li><li>Retraining bypassing governance and silently changing customer-facing behaviour</li><li>Bilingual parity treated as translation rather than as a design constraint, creating an Official Languages exposure alongside the accuracy exposure</li><li>Absent response-to-case traceability preventing defence of a specific interaction under challenge</li></ul>
+<ul class="bullets risk"><li>Inconsistent assessment criteria leading to misaligned project expectations</li><li>Delays in obtaining approval causing delays in project initiation</li><li>Incomplete or unclear requirements leading to scope creep and delays</li><li>Complex AI architectures being time-consuming and resource-intensive</li><li>Developing a comprehensive governance plan being resource-intensive</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../information-technology-security/ai-ml-platform/ac-it-ai-02/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Model Development and Feature Engineering</span></a>

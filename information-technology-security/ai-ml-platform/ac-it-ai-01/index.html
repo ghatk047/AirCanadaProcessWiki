@@ -133,7 +133,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-IT-AI-01" title="Click to copy the process ID">
     AC-IT-AI-01<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>AI Use Case Intake and Value Assessment</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -142,85 +142,274 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-IT-AI-01-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Use case intake</span>
-    <span class="ph-n">1 steps</span></div>
-  <div class="phase-body"><div class="tbl-wrap"><table>
-  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
-  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
-  <tbody><tr>
-<td class="c-step">1.1</td>
-<td><b>Receive and register the proposed use case</b></td>
-<td>AI Product Manager</td>
-<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Business function proposal</td>
-<td>Registered use case</td>
-<td>Registered within 5 business days of proposal at 100 percent</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Proposals arrive with varying levels of business case detail depending on the proposing function&#x27;s own maturity</td>
-</tr></tbody></table></div></div>
-</div><div class="phase-group" data-phase-id="AC-IT-AI-01-2">
-  <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Value and feasibility assessment</span>
+    <span class="ph-name">Phase 1 &mdash; Initiation</span>
     <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
-<td class="c-step">2.1</td>
-<td><b>Assess business value and feasibility</b></td>
-<td>AI Product Manager</td>
-<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Registered proposal</td>
-<td>Value and feasibility assessment</td>
-<td>Assessed within the standard intake cycle at 100 percent</td>
+<td class="c-step">1.1</td>
+<td><b>Log AI use case request in ITSM Platform</b></td>
+<td>ITSM Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>AI use case proposal</td>
+<td>Logged request with unique ID</td>
+<td>Request logged within 24 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Value estimation for a novel AI use case is inherently more speculative than for a conventional IT project</td>
+<td>Delays in logging can slow down the entire process.</td>
 </tr><tr>
-<td class="c-step">2.2</td>
-<td><b>Screen against available data and technical feasibility</b></td>
-<td>AI Product Manager</td>
+<td class="c-step">1.2</td>
+<td><b>Assign request to AI &amp; ML Platform Team</b></td>
+<td>ITSM Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Logged request ID</td>
+<td>Assigned task to AI &amp; ML Platform Team</td>
+<td>Task assigned within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Misassignment can lead to delays and confusion.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-AI-01-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Assessment</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Conduct initial feasibility study</b></td>
+<td>Data Scientist</td>
 <td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Value assessment</td>
-<td>Technical feasibility screening</td>
-<td>Screened for 100 percent of value-approved use cases at 100 percent</td>
+<td>AI use case proposal</td>
+<td>Feasibility report</td>
+<td>Study completed within 3 days</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A use case that is commercially attractive can still be technically infeasible given actual data availability</td>
+<td>Resource constraints can limit the depth of analysis.</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Evaluate regulatory compliance</b></td>
+<td>Legal Counsel</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">UNKNOWN<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Feasibility report</td>
+<td>Regulatory compliance assessment</td>
+<td>Assessment completed within 5 days</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex regulatory requirements can be challenging to navigate.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Identify data sources and dependencies</b></td>
+<td>Data Engineer</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Feasibility report</td>
+<td>Data source and dependency list</td>
+<td>Dependencies identified within 2 days</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inconsistent data sources can cause delays.</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Reject AI use case proposal</b></td>
+<td>AI &amp; ML Platform Team Lead</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Assessment results</td>
+<td>Rejection letter to stakeholder</td>
+<td>Rejection communicated within 1 day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Rejected proposals can cause frustration among stakeholders.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-IT-AI-01-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Development decision</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Validation</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Approve or decline entry to development</b></td>
-<td>AI Product Manager</td>
+<td><b>Conduct detailed business impact analysis</b></td>
+<td>Business Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">UNKNOWN<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Feasibility report and regulatory compliance assessment</td>
+<td>Business impact analysis report</td>
+<td>Analysis completed within 4 days</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Data availability can hinder business analysis.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Evaluate technical feasibility</b></td>
+<td>Solution Architect</td>
+<td><span class="tag unknown" data-tooltip="API gateway, ESB and event streaming. Product UNCONFIRMED - a top-three discovery question.">Integration Platform<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Business impact analysis report</td>
+<td>Technical feasibility assessment</td>
+<td>Assessment completed within 3 days</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Integration challenges can delay implementation.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Identify potential risks and mitigation strategies</b></td>
+<td>Risk Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">UNKNOWN<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Technical feasibility assessment</td>
+<td>Risk assessment report with mitigation plans</td>
+<td>Report completed within 2 days</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Unclear risk identification can lead to unforeseen issues.</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Reject AI use case proposal with detailed reasons</b></td>
+<td>AI &amp; ML Platform Team Lead</td>
 <td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Feasibility screening</td>
-<td>Development decision with documented rationale</td>
-<td>Decided within the standard intake cycle at 100 percent</td>
+<td>Risk assessment report</td>
+<td>Rejection letter with detailed reasons to stakeholder</td>
+<td>Rejection communicated within 1 day</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Detailed rejections can be resource-intensive.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-AI-01-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Approval</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Approve AI use case proposal</b></td>
+<td>CIO Office</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Final assessment reports</td>
+<td>Approval letter to stakeholder</td>
+<td>Approval communicated within 2 days</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A declined use case without documented rationale can be re-proposed repeatedly without addressing the original reason</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed approvals can stall project timelines.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-AI-01-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Implementation Planning</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Develop implementation plan</b></td>
+<td>Project Manager</td>
+<td><span class="tag aws" data-tooltip="Primary hyperscaler. Loyalty platform, contact centre and digital channels run cloud-native on AWS. [AWS - evidence A]">AWS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Approved AI use case proposal</td>
+<td>Implementation plan with milestones and timelines</td>
+<td>Plan completed within 3 days</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Resource allocation can impact implementation speed.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Allocate necessary resources</b></td>
+<td>ITSM Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Implementation plan</td>
+<td>Resource allocation confirmation</td>
+<td>Resources allocated within 1 day</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Over-allocation can strain existing resources.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Establish human-in-loop governance framework</b></td>
+<td>Legal Counsel</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">UNKNOWN<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Implementation plan</td>
+<td>Governance framework document</td>
+<td>Framework established within 2 days</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex governance rules can complicate implementation.</td>
+</tr><tr>
+<td class="c-step">5.4</td>
+<td><b>Reject AI use case proposal for implementation issues</b></td>
+<td>AI &amp; ML Platform Team Lead</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Implementation issues identified</td>
+<td>Rejection letter to stakeholder</td>
+<td>Rejection communicated within 1 day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Implementation rejections can be costly.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-AI-01-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Monitoring and Review</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Monitor AI use case implementation progress</b></td>
+<td>Project Manager</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Implementation plan</td>
+<td>Progress report to stakeholders</td>
+<td>Report generated weekly</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Lack of visibility can lead to mismanagement.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Review AI use case performance</b></td>
+<td>Data Scientist</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Implementation progress report</td>
+<td>Performance review report</td>
+<td>Review completed within 1 week</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Data quality can impact performance reviews.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Adjust implementation plan to catch up with schedule</b></td>
+<td>Project Manager</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Progress report and milestones</td>
+<td>Updated implementation plan</td>
+<td>Plan adjusted within 2 days</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Rapid adjustments can introduce new risks.</td>
+</tr><tr>
+<td class="c-step">6.4</td>
+<td><b>Implement corrective measures for underperformance</b></td>
+<td>Data Engineer</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Performance review report</td>
+<td>Corrective action plan and implementation status</td>
+<td>Actions implemented within 1 week</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Ineffective corrective measures can lead to prolonged issues.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>AI Product Manager</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>ITSM Analyst</span><span class="lane-steps">1.1 1.2 5.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Data Scientist</span><span class="lane-steps">2.1 6.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Legal Counsel</span><span class="lane-steps">2.2 5.3</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Data Engineer</span><span class="lane-steps">2.3 6.4</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>AI &amp; ML Platform Team Lead</span><span class="lane-steps">2.4 3.4 5.4</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>Business Analyst</span><span class="lane-steps">3.1</span></div><div class="lane"><span class="swatch" style="background:#8A5A1E"></span><span>Solution Architect</span><span class="lane-steps">3.2</span></div><div class="lane"><span class="swatch" style="background:#4A4A4A"></span><span>Risk Analyst</span><span class="lane-steps">3.3</span></div><div class="lane"><span class="swatch" style="background:#E04A60"></span><span>CIO Office</span><span class="lane-steps">4.1</span></div><div class="lane"><span class="swatch" style="background:#5A5A5A"></span><span>Project Manager</span><span class="lane-steps">5.1 6.1 6.3</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">UNKNOWN<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag unknown" data-tooltip="API gateway, ESB and event streaming. Product UNCONFIRMED - a top-three discovery question.">Integration Platform<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag aws" data-tooltip="Primary hyperscaler. Loyalty platform, contact centre and digital channels run cloud-native on AWS. [AWS - evidence A]">AWS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Registered within 5 business days of proposal at 100 percent</li><li>Assessed within the standard intake cycle at 100 percent</li><li>Screened for 100 percent of value-approved use cases at 100 percent</li><li>Decided within the standard intake cycle at 100 percent</li></ul>
+<ul class="bullets"><li>95% of requests logged within 24 hours</li><li>80% of tasks assigned correctly on first attempt</li><li>70% of feasibility studies completed within 3 days</li><li>60% of regulatory assessments passed on first review</li><li>50% of AI use cases approved for implementation</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Value estimation for a novel AI use case being inherently more speculative than a conventional IT project</li><li>A use case that is commercially attractive still being technically infeasible given actual data availability</li><li>A declined use case without documented rationale being re-proposed repeatedly without resolution</li><li>Proposals arriving with varying business case detail depending on the proposing function&#x27;s own maturity</li></ul>
+<ul class="bullets risk"><li>Resource constraints leading to delays in the process</li><li>Inconsistent data sources causing technical issues</li><li>Complex regulatory requirements complicating approvals</li><li>Integration challenges delaying project timelines</li><li>Performance underperformance impacting business outcomes</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../information-technology-security/data-engineering-integration/ac-it-de-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Cloudera to Databricks Migration Execution</span></a>
