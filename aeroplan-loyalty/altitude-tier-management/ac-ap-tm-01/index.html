@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-AP-TM-01" title="Click to copy the process ID">
     AC-AP-TM-01<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Altitude Status Qualification Tracking</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,236 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-AP-TM-01-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Qualifying activity capture</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Data Ingestion</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Capture qualifying flight activity</b></td>
-<td>Loyalty Operations Analyst</td>
-<td><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Flown qualifying segment</td>
-<td>Captured qualifying miles and segment count</td>
-<td>Captured within 72 hours of flight completion at 98 percent</td>
+<td><b>Receive transaction data from Aeroplan Platform</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Transaction details</td>
+<td>Updated point balance</td>
+<td>Data ingestion time &lt; 5 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Not every flown segment qualifies, and eligibility rules are easy to misapply at the edge</td>
+<td>Late transaction data can delay tier status updates.</td>
 </tr><tr>
 <td class="c-step">1.2</td>
-<td><b>Capture qualifying spend activity</b></td>
-<td>Loyalty Operations Analyst</td>
+<td><b>Check for compliance with Qualification Rules</b></td>
+<td>Aeroplan Compliance Officer</td>
 <td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Eligible spend transaction</td>
-<td>Captured qualifying spend</td>
-<td>Captured within the standard accrual posting window at 98 percent</td>
+<td>Updated point balance and member details</td>
+<td>Compliance status</td>
+<td>Rule check accuracy &gt; 99%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Incorrect rule application can lead to inaccurate tier statuses.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Calculate Altitude tier based on points balance</b></td>
+<td>Aeroplan Analytics Specialist</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Compliant point balance</td>
+<td>Proposed Altitude tier</td>
+<td>Tier calculation accuracy &gt; 98%</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Qualifying spend rules differ from earning-rate rules and are a separate configuration to maintain</td>
+<td>Inaccurate calculations can result in missed opportunities for tier upgrades.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Verify proposed tier against existing status</b></td>
+<td>Aeroplan Tier Management Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Proposed Altitude tier and current status</td>
+<td>Status change required?</td>
+<td>Verification accuracy &gt; 95%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual verification is time-consuming and prone to errors.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-AP-TM-01-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Progress calculation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Qualification Check</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Calculate cumulative qualification position</b></td>
-<td>Loyalty Operations Analyst</td>
+<td><b>Initiate exception handling for non-compliant transaction</b></td>
+<td>Aeroplan Compliance Officer</td>
 <td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Captured miles, segments and spend</td>
-<td>Updated qualification position</td>
-<td>Position updated within 24 hours of new qualifying activity at 100 percent</td>
+<td>Non-compliant transaction details</td>
+<td>Exception record</td>
+<td>Exception resolution time &lt; 24 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed exception handling can affect member satisfaction.</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Review exception record and determine resolution path</b></td>
+<td>Aeroplan Compliance Officer</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Exception record</td>
+<td>Resolution path</td>
+<td>Resolution accuracy &gt; 90%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Combining three different measures into one qualification standard creates edge cases in the calculation logic</td>
+<td>Misinterpretation of rules can lead to incorrect resolutions.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Escalate exception to supervisor for review</b></td>
+<td>Aeroplan Compliance Officer</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Exception record and resolution path</td>
+<td>Supervisor&#x27;s decision</td>
+<td>Supervisor review time &lt; 4 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed supervisor review can further delay exception handling.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-AP-TM-01-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Threshold monitoring</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Tier Determination</span>
+    <span class="ph-n">7 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Monitor position against tier thresholds</b></td>
-<td>Loyalty Operations Analyst</td>
+<td><b>Update member&#x27;s Altitude tier status in Aeroplan Platform</b></td>
+<td>Aeroplan Tier Management Analyst</td>
 <td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Qualification position</td>
-<td>Threshold proximity flag</td>
-<td>Flagged to the member when within a defined range of the next threshold at 100 percent</td>
+<td>Proposed Altitude tier and verification results</td>
+<td>Updated tier status</td>
+<td>Status update accuracy &gt; 97%</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A member close to a threshold has a strong incentive to dispute any miscalculation</td>
+<td>Incorrect status updates can lead to member confusion.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Sync updated tier status with SAP Customer Data Cloud</b></td>
+<td>Aeroplan Integration Specialist</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Updated tier status</td>
+<td>Synced profile data</td>
+<td>Data sync accuracy &gt; 99%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Failed syncs can result in inconsistent member profiles.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Retry data sync with SAP Customer Data Cloud</b></td>
+<td>Aeroplan Integration Specialist</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Updated tier status</td>
+<td>Synced profile data</td>
+<td>Retry success rate &gt; 80%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Multiple sync failures can disrupt member experience.</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Escalate data sync failure to IT support</b></td>
+<td>Aeroplan Integration Specialist</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Sync failure details</td>
+<td>IT resolution</td>
+<td>Escalation response time &lt; 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed IT support can prolong member profile inconsistencies.</td>
+</tr><tr>
+<td class="c-step">3.5</td>
+<td><b>Notify member of tier change via email</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Updated tier status and member details</td>
+<td>Email notification sent</td>
+<td>Notification accuracy &gt; 98%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Failed email notifications can lead to member confusion.</td>
+</tr><tr>
+<td class="c-step">3.6</td>
+<td><b>Retry sending email notification</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Updated tier status and member details</td>
+<td>Email notification sent</td>
+<td>Retry success rate &gt; 85%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Multiple failed notifications can impact member trust.</td>
+</tr><tr>
+<td class="c-step">3.7</td>
+<td><b>Escalate email notification failure to IT support</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Notification failure details</td>
+<td>IT resolution</td>
+<td>Escalation response time &lt; 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed IT support can affect member satisfaction.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-TM-01-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Status Update</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Log final tier status update in Aeroplan Platform</b></td>
+<td>Aeroplan Tier Management Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Updated tier status and all related data</td>
+<td>Final log entry</td>
+<td>Log accuracy &gt; 95%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Incomplete logging can complicate audit trails.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Review and reconcile any remaining exceptions</b></td>
+<td>Aeroplan Compliance Officer</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Exception records</td>
+<td>Reconciled status</td>
+<td>Exception reconciliation rate &gt; 98%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Unreconciled exceptions can lead to ongoing member issues.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Finalize reconciliation process</b></td>
+<td>Aeroplan Compliance Officer</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Reconciled status and exception records</td>
+<td>Finalized reconciliation log</td>
+<td>Finalization accuracy &gt; 97%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inaccurate finalizations can compromise program integrity.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Loyalty Operations Analyst</span><span class="lane-steps">1.1 1.2 2.1 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Aeroplan Member Services Agent</span><span class="lane-steps">1.1 3.5 3.6 3.7</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Aeroplan Compliance Officer</span><span class="lane-steps">1.2 2.1 2.2 2.3 4.2 4.3</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Aeroplan Analytics Specialist</span><span class="lane-steps">1.3</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Aeroplan Tier Management Analyst</span><span class="lane-steps">1.4 3.1 4.1</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Aeroplan Integration Specialist</span><span class="lane-steps">3.2 3.3 3.4</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+<div class="card"><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Captured within 72 hours of flight completion at 98 percent</li><li>Position updated within 24 hours of new qualifying activity at 100 percent</li><li>Flagged to the member when within range of the next threshold at 100 percent</li><li>Qualification tracking dispute rate below target threshold</li></ul>
+<ul class="bullets"><li>Data ingestion time &lt; 5 minutes</li><li>Rule check accuracy &gt; 99%</li><li>Tier calculation accuracy &gt; 98%</li><li>Verification accuracy &gt; 95%</li><li>Exception resolution time &lt; 24 hours</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A qualification calculation error being disproportionately visible to members close to a threshold</li><li>Flight and spend qualification rules being separately configured and prone to drifting out of sync</li><li>Edge cases in combining three different qualification measures into one standard</li><li>Not every flown segment qualifying, with eligibility rules easy to misapply</li></ul>
+<ul class="bullets risk"><li>Inaccurate transaction data leading to incorrect tier statuses.</li><li>Delayed exception handling affecting member satisfaction.</li><li>Failed syncs between Aeroplan Platform and SAP Customer Data Cloud causing inconsistent member profiles.</li><li>Multiple failed email notifications impacting member trust.</li><li>Unreconciled exceptions leading to ongoing member issues.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../aeroplan-loyalty/partner-co-brand-accrual/ac-ap-pa-06/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Accrual Dispute Investigation</span></a>

@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-AP-PA-06" title="Click to copy the process ID">
     AC-AP-PA-06<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Accrual Dispute Investigation</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,252 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-AP-PA-06-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Dispute intake</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Initial Dispute Detection</span>
+    <span class="ph-n">5 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Receive and register the accrual dispute</b></td>
+<td><b>Receive dispute notification from Aeroplan Platform</b></td>
 <td>Aeroplan Member Services Agent</td>
-<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Member dispute with transaction detail</td>
-<td>Registered dispute case</td>
-<td>Registered within 1 business day of receipt at 100 percent</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Dispute report with member ID and transaction details</td>
+<td>Internal ticket created in Aeroplan Platform</td>
+<td>Time to initial notification acknowledgment &lt; 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delays in dispute notifications can lead to member dissatisfaction.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Review initial ticket details</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Internal ticket with dispute report</td>
+<td>Ticket updated with preliminary findings</td>
+<td>Time to review and update ticket &lt; 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inaccurate initial reviews can lead to prolonged investigations.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Collect additional member information</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Member ID from internal ticket</td>
+<td>Updated member profile with contact details and transaction history</td>
+<td>Time to collect and update information &lt; 2 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Member-provided transaction detail is not always sufficient to locate the record without follow-up</td>
+<td>Missing or incomplete member information can delay the investigation.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Request additional transaction details from partner</b></td>
+<td>Aeroplan Partner Interfaces (TD, CIBC, Amex)</td>
+<td><span class="tag aeroplan" data-tooltip="Co-brand and partner accrual feeds: TD, CIBC, Amex, retail and hotel partners. [Air Canada - evidence A]">Aeroplan Partner Interfaces<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Transaction ID and member ID</td>
+<td>Detailed transaction report from partner</td>
+<td>Time to receive response from partner &lt; 48 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Partners may not always provide timely or accurate information.</td>
+</tr><tr>
+<td class="c-step">1.5</td>
+<td><b>Follow up with partner for missing details</b></td>
+<td>Aeroplan Partner Interfaces (TD, CIBC, Amex)</td>
+<td><span class="tag aeroplan" data-tooltip="Co-brand and partner accrual feeds: TD, CIBC, Amex, retail and hotel partners. [Air Canada - evidence A]">Aeroplan Partner Interfaces<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Transaction ID and member ID</td>
+<td>Detailed transaction report from partner</td>
+<td>Time to receive second response from partner &lt; 48 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Further follow-ups may be required, increasing the investigation time.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-AP-PA-06-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Partner record investigation</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Data Collection and Analysis</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Request the transaction record from the partner</b></td>
-<td>Aeroplan Member Services Agent</td>
-<td><span class="tag aeroplan" data-tooltip="Co-brand and partner accrual feeds: TD, CIBC, Amex, retail and hotel partners. [Air Canada - evidence A]">Aeroplan Partner Interfaces<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Registered dispute</td>
-<td>Partner transaction record</td>
-<td>Requested within 2 business days of registration at 100 percent</td>
+<td><b>Analyze transaction data from Aeroplan Platform and partner report</b></td>
+<td>APPR Adjudicator</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Transaction details from both systems</td>
+<td>Analysis report identifying discrepancies</td>
+<td>Time to complete analysis &lt; 24 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Partner response time to a record request is outside Air Canada&#x27;s direct control</td>
+<td>Complex cases may require extensive manual review.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Compare partner record to posted accrual</b></td>
-<td>Aeroplan Member Services Agent</td>
+<td><b>Verify discrepancy with partner&#x27;s internal records</b></td>
+<td>Aeroplan Partner Interfaces (TD, CIBC, Amex)</td>
+<td><span class="tag aeroplan" data-tooltip="Co-brand and partner accrual feeds: TD, CIBC, Amex, retail and hotel partners. [Air Canada - evidence A]">Aeroplan Partner Interfaces<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Discrepancy report and transaction ID</td>
+<td>Partner&#x27;s confirmation of the issue</td>
+<td>Time to receive partner&#x27;s verification &lt; 24 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Partners may not always agree with Aeroplan&#x27;s findings.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Identify root cause of discrepancy</b></td>
+<td>APPR Adjudicator</td>
 <td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Partner record and posted accrual</td>
-<td>Comparison finding</td>
-<td>Comparison completed within 3 business days of receiving the partner record at 95 percent</td>
+<td>Analysis report and partner&#x27;s confirmation</td>
+<td>Root cause identified and documented</td>
+<td>Time to identify root cause &lt; 12 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>A genuine partner-side posting failure and a member-side misunderstanding can look identical from the member&#x27;s evidence</td>
+<td>Determining the root cause can be challenging and time-consuming.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-AP-PA-06-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Resolution</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Partner Verification</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Resolve with correction or explanation</b></td>
+<td><b>Prepare resolution notification for member</b></td>
 <td>Aeroplan Member Services Agent</td>
 <td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Comparison finding</td>
-<td>Corrected accrual or documented resolution</td>
-<td>Resolved within 15 business days of dispute registration at 90 percent</td>
+<td>Root cause identification and analysis report</td>
+<td>Resolution notification drafted</td>
+<td>Time to draft notification &lt; 1 hour</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A correction requires the same partner settlement adjustment as the original posting</td>
+<td>Drafting clear and accurate notifications is crucial for maintaining member trust.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Review resolution notification with duty manager</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Drafted resolution notification</td>
+<td>Approved or revised resolution notification</td>
+<td>Time to review and approve &lt; 2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Managerial approval can sometimes delay the process.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-PA-06-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Investigation and Root Cause Analysis</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Notify member of resolution</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Approved resolution notification</td>
+<td>Notification sent to member</td>
+<td>Time to send notification &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Technical issues with email or SMS systems can delay notifications.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Update Aeroplan Platform with resolution details</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Resolution notification and member ID</td>
+<td>Updated dispute ticket in Aeroplan Platform</td>
+<td>Time to update platform &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Platform updates may fail, requiring manual intervention.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-PA-06-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Resolution and Documentation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Close dispute ticket in Aeroplan Platform</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Updated dispute ticket</td>
+<td>Closed dispute ticket</td>
+<td>Time to close ticket &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual closure steps can be error-prone.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Review and document lessons learned</b></td>
+<td>APPR Adjudicator</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Closed dispute ticket and analysis report</td>
+<td>Lessons learned document</td>
+<td>Time to complete review &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Detailed documentation can be time-consuming.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-PA-06-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Closure and Review</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Report final resolution status to finance</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Closed dispute ticket and lessons learned document</td>
+<td>Resolution status report</td>
+<td>Time to send report &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Timely reporting is crucial for financial reconciliation.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Review resolution status with finance team</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Resolution status report</td>
+<td>Approved or revised resolution status</td>
+<td>Time to review and approve &lt; 2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Financial oversight can sometimes delay the process.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Update financial records based on resolution</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Approved resolution status report</td>
+<td>Updated financial records</td>
+<td>Time to update records &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Financial updates may require multiple approvals.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Aeroplan Member Services Agent</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Aeroplan Member Services Agent</span><span class="lane-steps">1.1 1.2 1.3 3.1 4.1 4.2 5.1 6.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Aeroplan Partner Interfaces (TD, CIBC, Amex)</span><span class="lane-steps">1.4 1.5 2.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>APPR Adjudicator</span><span class="lane-steps">2.1 2.3 5.2</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">3.2 6.2 6.3</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag aeroplan" data-tooltip="Co-brand and partner accrual feeds: TD, CIBC, Amex, retail and hotel partners. [Air Canada - evidence A]">Aeroplan Partner Interfaces<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+<div class="card"><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag aeroplan" data-tooltip="Co-brand and partner accrual feeds: TD, CIBC, Amex, retail and hotel partners. [Air Canada - evidence A]">Aeroplan Partner Interfaces<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Registered within 1 business day of receipt at 100 percent</li><li>Resolved within 15 business days of dispute registration at 90 percent</li><li>Requested within 2 business days of registration at 100 percent</li><li>Dispute resolution rate in the member&#x27;s favour tracked to detect systemic partner issues</li></ul>
+<ul class="bullets"><li>Average time to resolve a dispute &lt; 48 hours</li><li>Dispute resolution accuracy rate &gt; 95%</li><li>Member satisfaction with dispute resolution process &gt; 80%</li><li>Number of disputes escalated to duty manager per month &lt; 10</li><li>System uptime for Aeroplan Platform and SAP Customer Data Cloud &gt; 99.9%</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Partner response time to a record request being outside Air Canada&#x27;s direct control</li><li>A genuine partner posting failure being indistinguishable from a member misunderstanding at first review</li><li>A correction requiring the same settlement adjustment burden as the original disputed posting</li><li>Dispute resolution rate not being tracked in aggregate to detect a systemic partner-side issue</li></ul>
+<ul class="bullets risk"><li>Delays in receiving dispute notifications from partners</li><li>Inaccurate data entry or analysis leading to incorrect root cause identification</li><li>Technical failures in email/SMS systems causing notification delays</li><li>Manual closure errors in Aeroplan Platform</li><li>Financial discrepancies due to delayed resolution reporting</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../aeroplan-loyalty/partner-co-brand-accrual/ac-ap-pa-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Partner Onboarding and Interface Certification</span></a>
