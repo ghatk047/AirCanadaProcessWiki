@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-MR-HM-04" title="Click to copy the process ID">
     AC-MR-HM-04<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Component Removal and Shop Visit Routing</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,241 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-MR-HM-04-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Removal and routing decision</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Work Order Generation</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Remove component and confirm routing destination</b></td>
-<td>Materials Planner</td>
+<td><b>Create work order in TRAX</b></td>
+<td>Maintenance Planner</td>
 <td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Removed component and repair capability data</td>
-<td>Confirmed routing destination</td>
-<td>Routing confirmed before shipment for 100 percent of removed components</td>
+<td>Maintenance request details</td>
+<td>Work order number</td>
+<td>Time to create work order &lt; 2 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Routing to the wrong facility, one lacking the specific capability, loses time in redirection</td>
+<td>Complexity in generating detailed work orders.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Review work order for compliance</b></td>
+<td>Aeroplan Compliance Agent</td>
+<td><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Work order number</td>
+<td>Compliance status</td>
+<td>First review within 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual checks can be time-consuming.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Update work order with compliance notes</b></td>
+<td>Aeroplan Compliance Agent</td>
+<td><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Work order number, compliance issues</td>
+<td>Updated work order</td>
+<td>Notes added within 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Capturing detailed notes can be error-prone.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-MR-HM-04-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Repair tracking</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Component Removal Preparation</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Ship component with correct documentation</b></td>
-<td>Materials Planner</td>
-<td><span class="tag trax" data-tooltip="Aviation parts B2B marketplace and ATA Spec 2000 supplier messaging. [Aeroxchange - evidence C]">Aeroxchange<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Confirmed routing</td>
-<td>Shipped component with documentation</td>
-<td>Documentation complete for 100 percent of shipments at 100 percent</td>
+<td><b>Prepare component removal tools and documents</b></td>
+<td>Heavy Maintenance Technician</td>
+<td><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Work order number</td>
+<td>Prepared tools list</td>
+<td>Tools ready within 1 hour</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Incomplete documentation can delay a shop&#x27;s ability to even begin work on receipt</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Tool availability can be inconsistent.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Track repair progress against expected turnaround</b></td>
-<td>Materials Planner</td>
-<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Shipped component</td>
-<td>Tracked repair status</td>
-<td>Tracked continuously against expected turnaround for 100 percent of open shop visits</td>
+<td><b>Request additional tools from inventory</b></td>
+<td>Heavy Maintenance Technician</td>
+<td><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Work order number, tool list</td>
+<td>Updated tool status</td>
+<td>Tools requested within 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Tool requests can take time to fulfill.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Verify component removal checklist</b></td>
+<td>Heavy Maintenance Technician</td>
+<td><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Work order number, checklist</td>
+<td>Checklist status</td>
+<td>Verification completed within 10 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex checklists can be hard to verify.</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Update checklist with missing items</b></td>
+<td>Heavy Maintenance Technician</td>
+<td><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Work order number, missing items</td>
+<td>Updated checklist</td>
+<td>Updates made within 5 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Turnaround time overruns are not always proactively flagged by the repair facility itself</td>
+<td>Tracking missing items can be challenging.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-MR-HM-04-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Return to serviceable stock</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Component Removal Execution</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Receive and return component to serviceable stock</b></td>
-<td>Materials Planner</td>
+<td><b>Execute component removal</b></td>
+<td>Heavy Maintenance Technician</td>
+<td><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Work order number, checklist</td>
+<td>Removed component</td>
+<td>Removal completed within 2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Physical work in tight spaces can be dangerous.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Document failure reason and rework plan</b></td>
+<td>Heavy Maintenance Technician</td>
+<td><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Work order number, failure details</td>
+<td>Rework plan</td>
+<td>Plan documented within 15 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Identifying root causes can be complex.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-HM-04-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Shop Visit Routing</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Route shop visit based on maintenance schedule</b></td>
+<td>Maintenance Planner</td>
 <td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Returned component with certification</td>
-<td>Confirmed serviceable stock entry</td>
-<td>Confirmed serviceable within 48 hours of receipt at 100 percent</td>
+<td>Work order number, component removal status</td>
+<td>Shop visit route</td>
+<td>Routing completed within 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Scheduling conflicts can lead to delays.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Negotiate shop visit slot with maintenance team</b></td>
+<td>Maintenance Planner</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Work order number, schedule details</td>
+<td>Agreed shop visit slot</td>
+<td>Negotiation completed within 1 hour</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A component received without complete certification documentation cannot legally be returned to serviceable stock</td>
+<td>Coordination between teams can be complex.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-HM-04-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Post-Removal Checks</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Conduct post-removal inspection</b></td>
+<td>Heavy Maintenance Technician</td>
+<td><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Work order number, removed component</td>
+<td>Inspection report</td>
+<td>Inspection completed within 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inspecting hidden areas can be difficult.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Update inspection report with non-conformities</b></td>
+<td>Heavy Maintenance Technician</td>
+<td><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Work order number, inspection findings</td>
+<td>Updated inspection report</td>
+<td>Updates made within 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Recording detailed findings can be error-prone.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-HM-04-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Documentation Update</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Update TRAX with component removal and inspection details</b></td>
+<td>Maintenance Planner</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Work order number, removal and inspection reports</td>
+<td>Updated work order</td>
+<td>Updates completed within 20 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Ensuring all data is accurately recorded can be challenging.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Generate final documentation for regulatory compliance</b></td>
+<td>Aeroplan Compliance Agent</td>
+<td><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Work order number, updated work order</td>
+<td>Final documentation</td>
+<td>Documentation generated within 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Meeting regulatory standards can be complex.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Revise final documentation for compliance</b></td>
+<td>Aeroplan Compliance Agent</td>
+<td><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Work order number, non-conformities</td>
+<td>Revised documentation</td>
+<td>Revisions completed within 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Identifying necessary revisions can be time-consuming.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Materials Planner</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Maintenance Planner</span><span class="lane-steps">1.1 4.1 4.2 6.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Aeroplan Compliance Agent</span><span class="lane-steps">1.2 1.3 6.2 6.3</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Heavy Maintenance Technician</span><span class="lane-steps">2.1 2.2 2.3 2.4 3.1 3.2 5.1 5.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag trax" data-tooltip="Aviation parts B2B marketplace and ATA Spec 2000 supplier messaging. [Aeroxchange - evidence C]">Aeroxchange<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
+<div class="card"><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Routing confirmed before shipment for 100 percent of removed components</li><li>Documentation complete for 100 percent of shipments at 100 percent</li><li>Tracked continuously against expected turnaround for 100 percent of open shop visits</li><li>Confirmed serviceable within 48 hours of receipt at 100 percent</li></ul>
+<ul class="bullets"><li>Work order creation time &lt; 2 hours</li><li>First review completion within 30 minutes</li><li>Tools ready within 1 hour</li><li>Verification completed within 10 minutes</li><li>Removal completion within 2 hours</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Routing to a facility lacking the specific capability required, losing time in redirection</li><li>Incomplete documentation delaying a shop&#x27;s ability to even begin work on receipt</li><li>A component received without complete certification documentation being unable to legally return to stock</li><li>Turnaround time overruns not being proactively flagged by the repair facility itself</li></ul>
+<ul class="bullets risk"><li>Inconsistent tool availability</li><li>Complexity in verifying checklists</li><li>Physical risks during component removal</li><li>Scheduling conflicts leading to delays</li><li>Difficulty in identifying root causes for failed removals</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../maintenance-engineering/heavy-base-maintenance/ac-mr-hm-03/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Third Party MRO Vendor Management</span></a>
