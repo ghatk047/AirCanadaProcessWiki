@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-FO-WX-01" title="Click to copy the process ID">
     AC-FO-WX-01<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Weather Briefing Package Assembly</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,233 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-FO-WX-01-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Data compilation</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Data Collection</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Compile departure, en route and destination weather</b></td>
-<td>Flight Dispatcher</td>
+<td><b>Retrieve current weather data from NAV CANADA system</b></td>
+<td>Weather Analyst</td>
 <td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Current weather observations and forecasts</td>
-<td>Compiled weather data by phase of flight</td>
-<td>Compiled within the standard pre-dispatch window at 100 percent</td>
+<td>Flight route, departure time, destination</td>
+<td>Current and forecasted weather conditions</td>
+<td>Data retrieval time &lt; 5 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Weather forecast confidence decreases the further out the observation window extends</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>NAV CANADA API response times can be slow during peak traffic hours.</td>
 </tr><tr>
 <td class="c-step">1.2</td>
-<td><b>Assess significant weather along the route</b></td>
-<td>Flight Dispatcher</td>
-<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Route and compiled weather data</td>
-<td>Assessed significant weather phenomena</td>
-<td>Assessed for 100 percent of flights before dispatch</td>
+<td><b>Check for NOTAMs from Jeppesen OCC system</b></td>
+<td>Weather Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Flight route, departure time, destination</td>
+<td>List of relevant NOTAMs</td>
+<td>NOTAM retrieval accuracy &gt; 98%</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Convective weather along a route can develop faster than the standard briefing refresh cycle</td>
+<td>Manual verification required for ambiguous NOTAMs.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Assemble initial weather briefing package</b></td>
+<td>Weather Analyst</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Current weather data, NOTAMs (if any)</td>
+<td>Initial weather briefing document</td>
+<td>Package assembly time &lt; 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Data integration issues between systems can cause delays.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-FO-WX-01-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Significant weather assessment</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Validation and Review</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Incorporate weather into the flight plan</b></td>
-<td>Flight Dispatcher</td>
+<td><b>Retry data retrieval from NAV CANADA system</b></td>
+<td>Weather Analyst</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Flight route, departure time, destination</td>
+<td>Current and forecasted weather conditions</td>
+<td>Data retrieval time &lt; 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>API connectivity issues may persist.</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Escalate data retrieval issue to IT support</b></td>
+<td>Weather Analyst</td>
+<td><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Error details, flight information</td>
+<td>Acknowledgment of issue by IT</td>
+<td>Response time from IT &lt; 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual intervention required for persistent issues.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Validate and review weather data</b></td>
+<td>Weather Analyst</td>
 <td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Assessed weather</td>
-<td>Weather-adjusted flight plan</td>
-<td>Incorporated before dispatch release at 100 percent</td>
+<td>Initial weather briefing package</td>
+<td>Validated weather briefing document</td>
+<td>Validation accuracy &gt; 95%</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Data discrepancies may require manual adjustments.</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Retry NOTAM retrieval from Jeppesen OCC system</b></td>
+<td>Weather Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Flight route, departure time, destination</td>
+<td>List of relevant NOTAMs</td>
+<td>NOTAM retrieval accuracy &gt; 98%</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A weather-driven route change can cascade into a fuel and performance recalculation</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>API connectivity issues may persist.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-FO-WX-01-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Package delivery</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Packaging</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Deliver briefing package to the crew</b></td>
-<td>Flight Dispatcher</td>
-<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Jeppesen FliteDeck Pro<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
-<td>Finalised weather-adjusted plan</td>
-<td>Delivered briefing package</td>
-<td>Delivered before crew briefing at 100 percent</td>
+<td><b>Adjust weather data manually</b></td>
+<td>Weather Analyst</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Initial weather briefing package, validation feedback</td>
+<td>Adjusted weather briefing document</td>
+<td>Manual adjustment time &lt; 15 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual adjustments are prone to human error.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Package final weather briefing</b></td>
+<td>Weather Analyst</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Validated or adjusted weather data</td>
+<td>Final weather briefing package</td>
+<td>Packaging time &lt; 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System crashes during packaging may lead to loss of data.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Restore system from backup and retry packaging</b></td>
+<td>Weather Analyst</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Backup data, validated weather data</td>
+<td>Final weather briefing package</td>
+<td>Restoration time &lt; 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Backup systems may not be up-to-date.</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Send final weather briefing to flight crew via ACARS Datalink</b></td>
+<td>Weather Analyst</td>
+<td><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Final weather briefing package, flight crew contact information</td>
+<td>Acknowledgment of receipt by flight crew</td>
+<td>Delivery time &lt; 2 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Communication issues may prevent delivery.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-WX-01-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Distribution</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Notify duty manager of distribution failure</b></td>
+<td>Weather Analyst</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Failure details, flight information</td>
+<td>Acknowledgment from duty manager</td>
+<td>Notification time &lt; 5 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Duty managers may be overwhelmed with other tasks.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Escalate to IT support for further assistance</b></td>
+<td>Weather Analyst</td>
+<td><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Failure details, flight information</td>
+<td>Acknowledgment of escalation by IT</td>
+<td>Response time from IT &lt; 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>IT support may be resource-constrained.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Attempt manual delivery to flight crew</b></td>
+<td>Weather Analyst</td>
+<td><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Final weather briefing package, flight crew contact information</td>
+<td>Acknowledgment of receipt by flight crew</td>
+<td>Manual delivery time &lt; 10 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual delivery may be prone to errors.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-WX-01-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Feedback Loop</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Log the distribution failure for future review</b></td>
+<td>Weather Analyst</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Failure details, flight information</td>
+<td>Logged entry in system</td>
+<td>Logging time &lt; 2 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System logging may be slow or fail.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Notify senior management of persistent distribution issues</b></td>
+<td>Weather Analyst</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Failure details, flight information</td>
+<td>Acknowledgment from senior management</td>
+<td>Notification time &lt; 10 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A package delivered too early can already be superseded by an update at the actual briefing time</td>
+<td>Senior management may be busy with other priorities.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Flight Dispatcher</span><span class="lane-steps">1.1 1.2 2.1 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Weather Analyst</span><span class="lane-steps">1.1 1.2 1.3 2.1 2.2 2.3 2.4 3.1 3.2 3.3 3.4 4.1 4.2 4.3 5.1 5.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Jeppesen FliteDeck Pro<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
+<div class="card"><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Compiled within the standard pre-dispatch window at 100 percent</li><li>Assessed for 100 percent of flights before dispatch</li><li>Incorporated before dispatch release at 100 percent</li><li>Weather-related flight plan revision rate tracked against target</li></ul>
+<ul class="bullets"><li>Data retrieval time &lt; 5 minutes</li><li>NOTAM retrieval accuracy &gt; 98%</li><li>Package assembly time &lt; 10 minutes</li><li>Validation accuracy &gt; 95%</li><li>Delivery time &lt; 2 minutes</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A briefing package assembled early in planning already being stale by actual departure</li><li>Convective weather developing along the route faster than the standard briefing refresh cycle</li><li>A weather-driven route change cascading into a fuel and performance recalculation under time pressure</li><li>Forecast confidence decreasing materially the further out the observation window extends</li></ul>
+<ul class="bullets risk"><li>NAV CANADA API response times can be slow during peak traffic hours.</li><li>Manual verification required for ambiguous NOTAMs.</li><li>Data integration issues between systems can cause delays.</li><li>API connectivity issues may persist.</li><li>Backup systems may not be up-to-date.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../flight-operations-dispatch/flight-planning-dispatch/ac-fo-fd-06/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Flight Plan Filing to NAV CANADA</span></a>

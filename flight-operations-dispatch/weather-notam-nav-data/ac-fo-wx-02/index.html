@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-FO-WX-02" title="Click to copy the process ID">
     AC-FO-WX-02<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>NOTAM Review and Applicability Screening</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,307 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-FO-WX-02-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; NOTAM retrieval</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; NOTAM Reception and Classification</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Retrieve NOTAMs for route and destinations</b></td>
-<td>Flight Dispatcher</td>
+<td><b>Receive NOTAM from NAV CANADA</b></td>
+<td>YYZ Operations Control Duty Manager</td>
 <td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Filed route and destination airports</td>
-<td>Retrieved NOTAM set</td>
-<td>Retrieved for 100 percent of flights before briefing</td>
+<td>NOTAM data</td>
+<td>NOTAM record in NetLine/Ops</td>
+<td>Time to receive and log NOTAM within 5 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delays in receiving NOTAMs due to NAV CANADA system outages.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Classify NOTAM urgency level</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>NOTAM record</td>
+<td>Urgency classification (High, Medium, Low)</td>
+<td>100% accurate urgency classification within 2 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>NOTAM volume for a busy international route can run into dozens of individual notices</td>
+<td>Inconsistent classification leading to delayed responses.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-FO-WX-02-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Applicability screening</span>
+    <span class="ph-name">Phase 2 &mdash; Initial Screening</span>
     <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Screen for operational applicability</b></td>
-<td>Flight Dispatcher</td>
-<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Retrieved NOTAM set</td>
-<td>Screened operationally relevant NOTAMs</td>
-<td>Screening completed within the planning window at 100 percent</td>
+<td><b>Initial screening for applicability</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Urgency classification</td>
+<td>Applicability assessment (Yes/No)</td>
+<td>95% accuracy in initial screening within 1 minute</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A genuinely significant NOTAM can be missed within a high volume of routine administrative notices</td>
+<td>False positives increasing operational overhead.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Assess runway and approach restriction impact</b></td>
-<td>Flight Dispatcher</td>
+<td><b>Identify affected routes and flights</b></td>
+<td>YYZ Operations Control Duty Manager</td>
 <td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Screened NOTAMs affecting destination</td>
-<td>Assessed operational impact</td>
-<td>Assessed for 100 percent of destination-affecting NOTAMs</td>
+<td>Applicability assessment</td>
+<td>List of affected routes and flight numbers</td>
+<td>100% accurate route identification within 2 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>A runway or approach restriction can materially affect the performance and alternate planning already completed</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inaccurate route identification leading to missed disruptions.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-FO-WX-02-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Incorporation into planning</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Detailed Review</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Incorporate into flight plan and crew briefing</b></td>
-<td>Flight Dispatcher</td>
-<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Jeppesen FliteDeck Pro<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
-<td>Assessed NOTAMs</td>
-<td>Incorporated briefing content</td>
-<td>Incorporated before dispatch release at 100 percent</td>
+<td><b>Detailed review of NOTAM content</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Affected routes and flight numbers</td>
+<td>Detailed analysis report</td>
+<td>90% complete detailed review within 5 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Complex NOTAMs requiring manual interpretation.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Manual review and clarification</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Detailed analysis report</td>
+<td>Clarified NOTAM interpretation</td>
+<td>100% accurate manual review within 10 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A NOTAM that changes after incorporation requires an active update to the crew, not a passive republish</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual reviews are time-consuming and error-prone.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-WX-02-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Applicability Assessment</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Assess NOTAM impact on flight schedules</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Clarified NOTAM interpretation</td>
+<td>Impact assessment (Minor, Major)</td>
+<td>98% accurate impact assessment within 3 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Overlooking significant impacts due to incomplete assessments.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Adjust flight schedules if necessary</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Impact assessment</td>
+<td>Updated flight schedule</td>
+<td>100% accurate schedule adjustments within 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inconsistent schedule adjustments leading to operational chaos.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-WX-02-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Action Planning</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Develop action plan for major impact</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Updated flight schedule</td>
+<td>Action plan with contingencies</td>
+<td>90% complete action plan within 10 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Incomplete action plans leading to prolonged disruptions.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Identify and allocate contingency resources</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Action plan with contingencies</td>
+<td>Allocated contingency resources (crew, aircraft)</td>
+<td>100% accurate resource allocation within 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Resource allocation delays causing further disruptions.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-WX-02-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Notification and Escalation</span>
+    <span class="ph-n">12 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Notify relevant operational teams</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Action plan with contingencies</td>
+<td>Notifications sent to operational teams</td>
+<td>95% successful notifications within 2 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Notification failures leading to operational confusion.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Monitor NOTAM impact and adjust plans if necessary</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Operational feedback</td>
+<td>Adjusted action plan</td>
+<td>100% accurate plan adjustments within 5 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inflexible plans leading to prolonged disruptions.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Close NOTAM review case</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Final action plan</td>
+<td>Closed NOTAM review case</td>
+<td>100% closed cases within 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed closure due to incomplete documentation.</td>
+</tr><tr>
+<td class="c-step">6.4</td>
+<td><b>Update NOTAM status in NAV CANADA</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Final action plan</td>
+<td>Updated NOTAM status</td>
+<td>95% successful updates within 2 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Failed updates causing discrepancies in external systems.</td>
+</tr><tr>
+<td class="c-step">6.5</td>
+<td><b>Final review and approval</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Updated NOTAM status</td>
+<td>Approved final NOTAM review case</td>
+<td>100% approved cases within 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Approval delays leading to prolonged disruptions.</td>
+</tr><tr>
+<td class="c-step">6.6</td>
+<td><b>Log NOTAM review completion</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Approved final NOTAM review case</td>
+<td>Logged completion record</td>
+<td>100% logged completions within 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Logging errors causing incomplete records.</td>
+</tr><tr>
+<td class="c-step">6.7</td>
+<td><b>Notify Air Canada Express of relevant NOTAMs</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Relevant NOTAMs</td>
+<td>Notifications sent to Air Canada Express</td>
+<td>100% successful notifications within 2 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Notification failures leading to operational confusion for Air Canada Express.</td>
+</tr><tr>
+<td class="c-step">6.8</td>
+<td><b>Monitor and report NOTAM effectiveness</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Operational feedback</td>
+<td>Effectiveness report</td>
+<td>100% accurate reports within 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inaccurate reports leading to misinformed decision-making.</td>
+</tr><tr>
+<td class="c-step">6.9</td>
+<td><b>Finalize NOTAM review process</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Effectiveness report</td>
+<td>Finalized NOTAM review case</td>
+<td>100% finalized cases within 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Finalization delays causing prolonged disruptions.</td>
+</tr><tr>
+<td class="c-step">6.10</td>
+<td><b>Archive NOTAM review case</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Finalized NOTAM review case</td>
+<td>Archived NOTAM review case</td>
+<td>100% archived cases within 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Archiving errors causing data loss.</td>
+</tr><tr>
+<td class="c-step">6.11</td>
+<td><b>Notify stakeholders of NOTAM review completion</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Archived NOTAM review case</td>
+<td>Notifications sent to stakeholders</td>
+<td>100% successful notifications within 2 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Notification failures leading to operational confusion among stakeholders.</td>
+</tr><tr>
+<td class="c-step">6.12</td>
+<td><b>Review and improve NOTAM review process</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Operational feedback</td>
+<td>Process improvement plan</td>
+<td>90% completed improvements within 1 week</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inflexible processes leading to prolonged disruptions.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Flight Dispatcher</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">1.1 1.2 2.1 2.2 3.1 3.2 4.1 4.2 5.1 5.2 6.1 6.2 6.3 6.4 6.5 6.6 6.7 6.8 6.9 6.10 6.11 6.12</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Jeppesen FliteDeck Pro<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
+<div class="card"><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Retrieved for 100 percent of flights before briefing</li><li>Screening completed within the planning window at 100 percent</li><li>Assessed for 100 percent of destination-affecting NOTAMs</li><li>Incorporated before dispatch release at 100 percent</li></ul>
+<ul class="bullets"><li>95% successful NOTAM reception and logging within 5 minutes</li><li>100% accurate urgency classification within 2 minutes</li><li>95% accurate initial screening within 1 minute</li><li>90% complete detailed review within 5 minutes</li><li>100% accurate schedule adjustments within 5 minutes</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A genuinely significant NOTAM being missed within a high volume of routine administrative notices</li><li>A runway or approach restriction materially affecting performance and alternate planning already completed</li><li>A NOTAM changing after incorporation requiring an active crew update rather than a passive republish</li><li>NOTAM volume for a busy international route straining the time available for genuine screening</li></ul>
+<ul class="bullets risk"><li>Delays in receiving NOTAMs due to NAV CANADA system outages.</li><li>Inconsistent classification leading to delayed responses.</li><li>Complex NOTAMs requiring manual interpretation.</li><li>Manual reviews are time-consuming and error-prone.</li><li>Overlooking significant impacts due to incomplete assessments.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../flight-operations-dispatch/weather-notam-nav-data/ac-fo-wx-01/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Weather Briefing Package Assembly</span></a>

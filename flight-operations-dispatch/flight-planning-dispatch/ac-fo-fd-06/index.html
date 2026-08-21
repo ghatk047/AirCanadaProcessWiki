@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-FO-FD-06" title="Click to copy the process ID">
     AC-FO-FD-06<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Flight Plan Filing to NAV CANADA</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,285 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-FO-FD-06-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Loadsheet generation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Preparation</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Generate the loadsheet</b></td>
-<td>Weight and Balance Coordinator</td>
-<td><span class="tag datalink" data-tooltip="Load planning, trim sheet and final loadsheet issue to the flight deck. [Multiple - evidence C]">Weight and Balance System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Finalised load plan</td>
-<td>Generated loadsheet</td>
-<td>Generated within the required lead time before off-block at 100 percent</td>
+<td><b>Generate Flight Plan</b></td>
+<td>Flight Dispatcher</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Booking details, schedule changes</td>
+<td>Initial flight plan draft</td>
+<td>95% of plans generated within 30 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Loadsheet generation timing has to fit within the remaining window before scheduled departure</td>
+<td>Manual adjustments required for complex schedules</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Check Regulatory Compliance</b></td>
+<td>Operations Control Duty Manager</td>
+<td><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Flight plan draft, regulatory guidelines</td>
+<td>Compliance report</td>
+<td>98% of plans compliant on first review</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Ambiguity in regulatory interpretations</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Adjust Flight Plan</b></td>
+<td>Flight Dispatcher</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Compliance report, regulatory guidelines</td>
+<td>Adjusted flight plan</td>
+<td>85% of adjustments resolved within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Time-consuming manual adjustments</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Resubmit Flight Plan</b></td>
+<td>Flight Dispatcher</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Adjusted flight plan, regulatory guidelines</td>
+<td>Revised flight plan draft</td>
+<td>90% of resubmissions successful on first attempt</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Frequent resubmissions due to system errors</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-FO-FD-06-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Crew delivery and acknowledgement</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Review and Validation</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Deliver loadsheet to the flight crew</b></td>
-<td>Weight and Balance Coordinator</td>
+<td><b>Validate Flight Data</b></td>
+<td>Flight Dispatcher</td>
 <td><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Generated loadsheet</td>
-<td>Delivered loadsheet</td>
-<td>Delivered before off-block for 100 percent of flights</td>
+<td>Revised flight plan draft, OOOI times, load messages</td>
+<td>Validated flight data</td>
+<td>95% of data validated within 10 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Datalink delivery depends on connectivity that can be degraded at some stations</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inaccurate data entries causing delays</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Obtain crew acknowledgement</b></td>
-<td>Weight and Balance Coordinator</td>
+<td><b>Correct Data Errors</b></td>
+<td>Flight Dispatcher</td>
 <td><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Delivered loadsheet</td>
-<td>Crew acknowledgement</td>
-<td>Acknowledged before pushback clearance at 100 percent</td>
-<td class="c-flag"><span class="yes">Y</span></td>
+<td>Validation report, OOOI times, load messages</td>
+<td>Corrected flight data</td>
+<td>80% of corrections made within 5 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>An unacknowledged loadsheet has to be actively followed up rather than assumed received</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System timeouts during data correction</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Revalidate Flight Data</b></td>
+<td>Flight Dispatcher</td>
+<td><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Corrected flight data, OOOI times, load messages</td>
+<td>Final validated flight data</td>
+<td>90% of revalidations successful on first attempt</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Persistent validation failures due to system glitches</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-FO-FD-06-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Last-minute change handling</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Filing to NAV CANADA</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Process last-minute weight changes</b></td>
-<td>Weight and Balance Coordinator</td>
-<td><span class="tag datalink" data-tooltip="Load planning, trim sheet and final loadsheet issue to the flight deck. [Multiple - evidence C]">Weight and Balance System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Change after loadsheet issuance</td>
-<td>Revised loadsheet</td>
-<td>Revised loadsheet issued within 5 minutes of a material change at 90 percent</td>
+<td><b>File Flight Plan to NAV CANADA</b></td>
+<td>Flight Dispatcher</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Final validated flight data</td>
+<td>Confirmation of filing</td>
+<td>98% of filings successful within 5 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Filing errors causing delays in takeoff</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Resolve Filing Errors</b></td>
+<td>Flight Dispatcher</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Filing error report, flight plan data</td>
+<td>Corrected filing data</td>
+<td>85% of errors resolved within 10 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="yes">Y</span></td>
-<td>A last-minute change after the crew has already begun departure preparation requires urgent recalculation</td>
+<td>Complex filing requirements causing confusion</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Resubmit Corrected Filing</b></td>
+<td>Flight Dispatcher</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Corrected filing data</td>
+<td>Confirmation of resubmission</td>
+<td>90% of resubmissions successful on first attempt</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Frequent system downtimes affecting filings</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Notify Operations Control</b></td>
+<td>Flight Dispatcher</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Filing error report, flight plan data</td>
+<td>Notification of filing issue</td>
+<td>100% of notifications sent within 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed notifications causing operational disruptions</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-FD-06-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Post-Filing Checks</span>
+    <span class="ph-n">5 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Verify Filing Status with NAV CANADA</b></td>
+<td>Operations Control Duty Manager</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Flight plan data, filing confirmation</td>
+<td>Filing status report</td>
+<td>95% of verifications completed within 10 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inconsistent filing statuses from NAV CANADA</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Update Internal Systems</b></td>
+<td>Flight Dispatcher</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Filing status report, flight plan data</td>
+<td>Updated internal systems</td>
+<td>90% of updates completed within 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System integration issues causing delays</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Monitor Filing Status</b></td>
+<td>Operations Control Duty Manager</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Filing status report, flight plan data</td>
+<td>Final filing status report</td>
+<td>98% of final statuses reported within 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delays in receiving final filing statuses</td>
+</tr><tr>
+<td class="c-step">4.4</td>
+<td><b>Resolve Rejection Issues</b></td>
+<td>Flight Dispatcher</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Rejection report, flight plan data</td>
+<td>Corrected flight plan data</td>
+<td>80% of issues resolved within 15 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Ambiguous rejection criteria causing confusion</td>
+</tr><tr>
+<td class="c-step">4.5</td>
+<td><b>Resubmit Corrected Filing</b></td>
+<td>Flight Dispatcher</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Corrected flight plan data</td>
+<td>Confirmation of resubmission</td>
+<td>90% of resubmissions successful on first attempt</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Frequent system downtimes affecting filings</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-FD-06-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; System Updates</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Update Internal Systems</b></td>
+<td>Flight Dispatcher</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Final filing status report, flight plan data</td>
+<td>Updated internal systems</td>
+<td>90% of updates completed within 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System integration issues causing delays</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Notify Stakeholders</b></td>
+<td>Flight Dispatcher</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Final filing status report, flight plan data</td>
+<td>Stakeholder notifications</td>
+<td>100% of notifications sent within 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed notifications causing operational disruptions</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-FD-06-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Monitoring and Reporting</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Monitor Flight Operations</b></td>
+<td>Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Flight plan data, real-time flight status</td>
+<td>Operational monitoring report</td>
+<td>95% of flights monitored within 10 minutes post-takeoff</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed updates from remote operations centers</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Report Incidents</b></td>
+<td>Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Operational monitoring report, incident details</td>
+<td>Incident reports</td>
+<td>85% of incidents reported within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual reporting process causing delays</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Weight and Balance Coordinator</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Flight Dispatcher</span><span class="lane-steps">1.1 1.3 1.4 2.1 2.2 2.3 3.1 3.2 3.3 3.4 4.2 4.4 4.5 5.1 5.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Operations Control Duty Manager</span><span class="lane-steps">1.2 4.1 4.3 6.1 6.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag datalink" data-tooltip="Load planning, trim sheet and final loadsheet issue to the flight deck. [Multiple - evidence C]">Weight and Balance System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
+<div class="card"><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Delivered before off-block for 100 percent of flights</li><li>Acknowledged before pushback clearance at 100 percent</li><li>Revised loadsheet issued within 5 minutes of a material change at 90 percent</li><li>Zero departures with an unacknowledged final loadsheet</li></ul>
+<ul class="bullets"><li>95% of plans generated within 30 minutes</li><li>98% of plans compliant on first review</li><li>95% of data validated within 10 minutes</li><li>98% of filings successful within 5 minutes</li><li>95% of verifications completed within 10 minutes</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Datalink delivery being degraded at some stations, delaying loadsheet receipt</li><li>An unacknowledged loadsheet being assumed received rather than actively followed up</li><li>A last-minute weight change after departure preparation has begun requiring urgent recalculation</li><li>Every upstream planning error, if any survived this far, becoming visible only at this final step</li></ul>
+<ul class="bullets risk"><li>System errors causing frequent resubmissions</li><li>Complex regulatory interpretations leading to non-compliance</li><li>Inaccurate data entries causing delays</li><li>Frequent system downtimes affecting filings</li><li>Delayed notifications causing operational disruptions</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../flight-operations-dispatch/flight-planning-dispatch/ac-fo-fd-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Payload and Weight Balance Load Planning</span></a>
