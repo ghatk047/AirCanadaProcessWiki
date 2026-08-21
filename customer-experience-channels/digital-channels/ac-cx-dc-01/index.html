@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CX-DC-01" title="Click to copy the process ID">
     AC-CX-DC-01<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Online Booking Flow and Shopping Session</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,107 +143,252 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-CX-DC-01-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Search and selection</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Session Initialization</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Process flight search request</b></td>
-<td>Digital Platform Engineer</td>
-<td><span class="tag amadeus" data-tooltip="IATA NDC distribution via Amadeus Travel Platform, live 2023. Single-PNR NDC and EDIFACT. [Amadeus - evidence A]">Amadeus Altea NDC<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Search criteria from the customer</td>
-<td>Returned fare and availability options</td>
-<td>Search results returned within 3 seconds at 95 percent</td>
+<td><b>User lands on aircanada.com or opens the mobile app</b></td>
+<td>Web Developer / Mobile App Developer</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">aircanada.com / Air Canada Mobile App<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>User&#x27;s device and browser information, session cookies</td>
+<td>Landing page or home screen with search options</td>
+<td>Session load time &lt; 2 seconds</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Peak search volume periods can push response time beyond the target</td>
+<td>High traffic spikes can slow down the landing page</td>
 </tr><tr>
 <td class="c-step">1.2</td>
-<td><b>Present ancillary offers during selection</b></td>
-<td>Digital Platform Engineer</td>
-<td><span class="tag amadeus" data-tooltip="Ancillary offer construction and dynamic bundling at the shopping touchpoint. [Amadeus - evidence A]">Amadeus Anytime Merchandising<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Selected fare</td>
-<td>Presented ancillary bundle options</td>
-<td>Offers presented without materially slowing the selection flow at 100 percent</td>
+<td><b>User enters travel dates and destination</b></td>
+<td>Customer Experience Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">aircanada.com / Air Canada Mobile App<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Travel dates, origin and destination</td>
+<td>Search results with available flights</td>
+<td>Flight search results returned within 3 seconds</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inconsistent availability data across systems</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>User selects a flight and reviews details</b></td>
+<td>Customer Experience Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">aircanada.com / Air Canada Mobile App<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Selected flight information</td>
+<td>Detailed flight itinerary with pricing options</td>
+<td>Itinerary review page load time &lt; 5 seconds</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Too many ancillary prompts in sequence measurably reduces booking completion</td>
+<td>Complex pricing logic can cause delays</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>User is informed that no flights are available and given options</b></td>
+<td>Customer Experience Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">aircanada.com / Air Canada Mobile App<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>User&#x27;s search criteria</td>
+<td>Alternative travel options or suggestions</td>
+<td>Alternative options presented within 10 seconds</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Limited alternative suggestion algorithms</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CX-DC-01-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Booking and payment</span>
+    <span class="ph-name">Phase 2 &mdash; Flight Search and Selection</span>
     <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Capture passenger and contact details</b></td>
-<td>Digital Platform Engineer</td>
-<td><span class="tag channel" data-tooltip="Primary direct digital channel, cloud-native on AWS. Undergoing redevelopment under the CDO. [Air Canada - evidence A]">aircanada.com<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Customer-entered details</td>
-<td>Captured booking details</td>
-<td>Form completion rate above target for 90 percent of sessions</td>
+<td><b>User inputs passenger details</b></td>
+<td>Customer Experience Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">aircanada.com / Air Canada Mobile App<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Passenger information (name, date of birth, etc.)</td>
+<td>Confirmation of entered details</td>
+<td>Passenger info entry completed within 30 seconds</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Required field validation that is too strict abandons otherwise valid bookings</td>
+<td>Manual validation process for incomplete data</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Process payment securely</b></td>
-<td>Digital Platform Engineer</td>
-<td><span class="tag channel" data-tooltip="Primary direct digital channel, cloud-native on AWS. Undergoing redevelopment under the CDO. [Air Canada - evidence A]">aircanada.com<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Payment details</td>
-<td>Processed payment authorisation</td>
-<td>Payment processed within 5 seconds at 98 percent</td>
+<td><b>User is prompted to correct incomplete passenger details</b></td>
+<td>Customer Experience Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">aircanada.com / Air Canada Mobile App<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Missing or incorrect fields</td>
+<td>Corrected passenger information</td>
+<td>Correction process completed within 60 seconds</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="yes">Y</span></td>
-<td>Payment gateway timeouts during peak periods are the leading cause of abandoned bookings at this step</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>User frustration with error messages</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CX-DC-01-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Confirmation</span>
+    <span class="ph-name">Phase 3 &mdash; Passenger Information Input</span>
     <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Issue booking confirmation</b></td>
-<td>Digital Platform Engineer</td>
-<td><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Authorised payment</td>
-<td>Issued PNR with confirmation</td>
-<td>Confirmation issued within 10 seconds of payment at 99 percent</td>
+<td><b>Payment processing initiation</b></td>
+<td>Financial Analyst</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Card details and booking information</td>
+<td>Payment confirmation or rejection</td>
+<td>95% successful payment rate within 10 seconds</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>A confirmation delay after payment has already been captured creates real customer anxiety</td>
+<td>High PCI compliance standards increase processing time</td>
 </tr><tr>
 <td class="c-step">3.2</td>
-<td><b>Deliver confirmation across channels</b></td>
-<td>Digital Platform Engineer</td>
-<td><span class="tag channel" data-tooltip="iOS and Android. Booking, check-in, boarding pass, in-app bag tracking and mobility-aid tracking. [Air Canada - evidence A]">Air Canada Mobile App<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Issued booking</td>
-<td>Delivered confirmation email and app notification</td>
-<td>Delivered within 2 minutes of issuance at 98 percent</td>
+<td><b>User is prompted to retry payment or choose an alternative method</b></td>
+<td>Financial Analyst</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Payment gateway response</td>
+<td>Retry attempt or alternative payment method selected</td>
+<td>Payment retry success rate within 3 attempts</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Multiple retries can frustrate users</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-DC-01-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Payment Processing</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Booking confirmation email sent to user</b></td>
+<td>Customer Experience Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">aircanada.com / Air Canada Mobile App<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>User&#x27;s booking details and contact information</td>
+<td>Confirmation email with booking reference</td>
+<td>Email delivery rate &gt; 98%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed or failed email delivery due to spam filters</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>User is notified of the failed email and given an alternative method</b></td>
+<td>Customer Experience Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">aircanada.com / Air Canada Mobile App<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Failed email delivery notification</td>
+<td>SMS or in-app notification with booking reference</td>
+<td>Alternative notification success rate &gt; 90%</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Email delivery depends on infrastructure outside Air Canada&#x27;s direct control</td>
+<td>SMS and app push notifications have lower deliverability rates</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-DC-01-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Confirmation and Notifications</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>User reviews booking details and confirms final purchase</b></td>
+<td>Customer Experience Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">aircanada.com / Air Canada Mobile App<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Booking confirmation email or in-app notification</td>
+<td>Final booking confirmation</td>
+<td>Confirmation rate within 5 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Users may cancel at the last minute due to second thoughts</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-DC-01-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Post-Booking Support</span>
+    <span class="ph-n">6 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Post-booking support initiation via chatbot or live agent</b></td>
+<td>Customer Experience Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Salesforce Service Cloud / Amazon Connect<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>User&#x27;s booking reference and any queries</td>
+<td>Support response or escalation to a human agent</td>
+<td>90% satisfaction rate with post-booking support</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Chatbot responses must be reviewed for accuracy</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Escalation of chatbot response to a human agent</b></td>
+<td>Customer Experience Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Salesforce Service Cloud / Amazon Connect<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Bot response and user&#x27;s booking reference</td>
+<td>Manual response from a human agent</td>
+<td>Response time within 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Escalations increase operational costs</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>User is placed on hold until a human agent is available</b></td>
+<td>Customer Experience Agent</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Escalated query and user&#x27;s booking reference</td>
+<td>Hold time notification</td>
+<td>Average hold time &lt; 2 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Long hold times can frustrate users</td>
+</tr><tr>
+<td class="c-step">6.4</td>
+<td><b>Human agent resolves the user&#x27;s query or issue</b></td>
+<td>Customer Experience Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Salesforce Service Cloud / Amazon Connect<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>User&#x27;s booking reference and detailed query</td>
+<td>Resolution or further escalation to management</td>
+<td>85% resolution rate within 1 call</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex issues require multiple escalations</td>
+</tr><tr>
+<td class="c-step">6.5</td>
+<td><b>Escalation of unresolved issue to duty manager</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Salesforce Service Cloud / Amazon Connect<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Agent&#x27;s resolution attempt and user&#x27;s booking reference</td>
+<td>Managerial response or final action plan</td>
+<td>95% issue resolution within 24 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Duty managers are often overwhelmed with cases</td>
+</tr><tr>
+<td class="c-step">6.6</td>
+<td><b>User is notified of the escalated issue and given an estimated resolution time</b></td>
+<td>Customer Experience Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">aircanada.com / Air Canada Mobile App<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Manager&#x27;s response and booking reference</td>
+<td>Notification with estimated resolution time</td>
+<td>User satisfaction with escalation process &gt; 70%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Users may lose trust in the system if escalations are prolonged</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Digital Platform Engineer</span><span class="lane-steps">1.1 1.2 2.1 2.2 3.1 3.2</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Web Developer / Mobile App Developer</span><span class="lane-steps">1.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Customer Experience Analyst</span><span class="lane-steps">1.2 1.3 1.4 2.1 2.2 4.1 4.2 5.1 6.6</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Financial Analyst</span><span class="lane-steps">3.1 3.2</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Customer Experience Agent</span><span class="lane-steps">6.1 6.2 6.3 6.4</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">6.5</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag amadeus" data-tooltip="IATA NDC distribution via Amadeus Travel Platform, live 2023. Single-PNR NDC and EDIFACT. [Amadeus - evidence A]">Amadeus Altea NDC<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag amadeus" data-tooltip="Ancillary offer construction and dynamic bundling at the shopping touchpoint. [Amadeus - evidence A]">Amadeus Anytime Merchandising<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag channel" data-tooltip="Primary direct digital channel, cloud-native on AWS. Undergoing redevelopment under the CDO. [Air Canada - evidence A]">aircanada.com<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag channel" data-tooltip="iOS and Android. Booking, check-in, boarding pass, in-app bag tracking and mobility-aid tracking. [Air Canada - evidence A]">Air Canada Mobile App<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+<div class="card"><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">aircanada.com / Air Canada Mobile App<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Salesforce Service Cloud / Amazon Connect<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Search results returned within 3 seconds at 95 percent</li><li>Payment processed within 5 seconds at 98 percent</li><li>Booking completion rate from search to confirmation meeting target</li><li>Confirmation delivered within 2 minutes of issuance at 98 percent</li></ul>
+<ul class="bullets"><li>95% successful payment rate within 10 seconds</li><li>Email delivery rate &gt; 98%</li><li>Confirmation rate within 5 minutes</li><li>90% satisfaction rate with post-booking support</li><li>Average hold time &lt; 2 minutes</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Payment gateway timeouts during peak periods being the leading cause of abandoned bookings</li><li>Too many sequential ancillary prompts measurably reducing overall booking completion</li><li>A confirmation delay after payment capture creating real customer anxiety and contact volume</li><li>Strict field validation abandoning otherwise valid bookings at the details capture step</li></ul>
+<ul class="bullets risk"><li>High traffic spikes can slow down the landing page</li><li>Inconsistent availability data across systems</li><li>Complex pricing logic can cause delays</li><li>Delayed or failed email delivery due to spam filters</li><li>Users may cancel at the last minute due to second thoughts</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../aeroplan-loyalty/altitude-tier-management/ac-ap-tm-06/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Points Liability Actuarial Valuation</span></a>

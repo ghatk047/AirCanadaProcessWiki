@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-AP-TM-06" title="Click to copy the process ID">
     AC-AP-TM-06<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Points Liability Actuarial Valuation</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,252 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-AP-TM-06-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Balance and behaviour compilation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Data Collection</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Compile outstanding points balance by tier</b></td>
-<td>Loyalty Finance Analyst</td>
+<td><b>Extract member transaction data from Aeroplan Platform</b></td>
+<td>Aeroplan Member Services Agent</td>
 <td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Member ledger balances</td>
-<td>Outstanding balance compiled by tier</td>
-<td>Compiled at each period close at 100 percent</td>
+<td>Member transaction logs</td>
+<td>Raw transaction dataset</td>
+<td>Data extraction time &lt; 2 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System downtime can delay data extraction.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Verify transaction data against SAP Customer Data Cloud</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Raw transaction dataset</td>
+<td>Verified transaction dataset</td>
+<td>Verification accuracy &gt; 99%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Balance compilation has to reconcile against every accrual and redemption process feeding the ledger</td>
+<td>Data inconsistencies between Aeroplan Platform and SAP Customer Data Cloud.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Adjust transaction data in Aeroplan Platform</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Mismatched transaction dataset</td>
+<td>Adjusted transaction dataset</td>
+<td>Number of adjustments &lt; 10%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual adjustments can introduce errors.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Retry data extraction from Aeroplan Platform</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>None</td>
+<td>Raw transaction dataset</td>
+<td>Data extraction time &lt; 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System downtime can delay data extraction.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-AP-TM-06-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Valuation calculation</span>
-    <span class="ph-n">2 steps</span></div>
-  <div class="phase-body"><div class="tbl-wrap"><table>
-  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
-  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
-  <tbody><tr>
-<td class="c-step">2.1</td>
-<td><b>Apply the approved breakage assumption</b></td>
-<td>Loyalty Finance Analyst</td>
-<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Outstanding balance and approved breakage rate</td>
-<td>Breakage-adjusted liability base</td>
-<td>Applied consistently with the rate approved in AC-AP-RE-06 at 100 percent</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Using an outdated breakage rate here would misstate the liability independent of the rate itself being correct</td>
-</tr><tr>
-<td class="c-step">2.2</td>
-<td><b>Calculate final liability valuation</b></td>
-<td>Loyalty Finance Analyst</td>
-<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Breakage-adjusted base</td>
-<td>Final points liability valuation</td>
-<td>Calculated within the period close timetable at 100 percent</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>The calculation is sensitive to tier mix shifts that change average redemption cost per point</td>
-</tr></tbody></table></div></div>
-</div><div class="phase-group" data-phase-id="AC-AP-TM-06-3">
-  <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Reporting</span>
+    <span class="ph-name">Phase 2 &mdash; Validation and Adjustment</span>
     <span class="ph-n">1 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Run actuarial valuation model on adjusted data</b></td>
+<td>APPR Adjudicator</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Adjusted transaction dataset</td>
+<td>Actuarial valuation report</td>
+<td>Model run time &lt; 8 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Model execution can fail due to data anomalies.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-TM-06-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Actuarial Analysis</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Report the valuation for financial statements</b></td>
-<td>Loyalty Finance Analyst</td>
-<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Final valuation</td>
-<td>Reported liability for financial statement inclusion</td>
-<td>Reported within the financial close timetable at 100 percent</td>
+<td><b>Reconcile actuarial valuation with financial records</b></td>
+<td>Finance Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Actuarial valuation report, Financial ledger data</td>
+<td>Reconciliation report</td>
+<td>Reconciliation accuracy &gt; 95%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Discrepancies between actuarial and financial records.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Investigate discrepancy and adjust if necessary</b></td>
+<td>Finance Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Reconciliation report, Financial ledger data</td>
+<td>Adjusted reconciliation report</td>
+<td>Adjustment time &lt; 4 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>The reported figure is material enough that an error requires prompt correction rather than deferral</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Investigation can uncover hidden errors.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Retry reconciliation with financial records</b></td>
+<td>Finance Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Actuarial valuation report, Financial ledger data</td>
+<td>Reconciliation report</td>
+<td>Reconciliation accuracy &gt; 95%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Discrepancies between actuarial and financial records.</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Reinvestigate discrepancy and adjust if necessary</b></td>
+<td>Finance Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Reconciliation report, Financial ledger data</td>
+<td>Adjusted reconciliation report</td>
+<td>Adjustment time &lt; 4 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Investigation can uncover hidden errors.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-TM-06-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Reconciliation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Generate final actuarial valuation report</b></td>
+<td>APPR Adjudicator</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Adjusted reconciliation report</td>
+<td>Final actuarial valuation report</td>
+<td>Report generation time &lt; 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System issues can delay report generation.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Retry report generation</b></td>
+<td>APPR Adjudicator</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Adjusted reconciliation report</td>
+<td>Final actuarial valuation report</td>
+<td>Report generation time &lt; 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System issues can delay report generation.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-TM-06-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Reporting</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Distribute final actuarial valuation report to stakeholders</b></td>
+<td>Finance Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Final actuarial valuation report</td>
+<td>Stakeholder notifications</td>
+<td>Notification time &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Distribution can fail due to system outages.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Retry distribution of final actuarial valuation report</b></td>
+<td>Finance Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Final actuarial valuation report</td>
+<td>Stakeholder notifications</td>
+<td>Notification time &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Distribution can fail due to system outages.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-TM-06-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Review and Approval</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Review final actuarial valuation report</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Final actuarial valuation report</td>
+<td>Approval status</td>
+<td>Review time &lt; 2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex calculations can lead to errors.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Escalate report for further review</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Final actuarial valuation report</td>
+<td>Escalation notification</td>
+<td>Escalation time &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Escalation can delay process completion.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Retry review of final actuarial valuation report</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Final actuarial valuation report</td>
+<td>Approval status</td>
+<td>Review time &lt; 2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex calculations can lead to errors.</td>
+</tr><tr>
+<td class="c-step">6.4</td>
+<td><b>Escalate report for further review (retry)</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Final actuarial valuation report</td>
+<td>Escalation notification</td>
+<td>Escalation time &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Escalation can delay process completion.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Loyalty Finance Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Aeroplan Member Services Agent</span><span class="lane-steps">1.1 1.3 6.1 1.4 6.3</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">1.2 6.2 6.4</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>APPR Adjudicator</span><span class="lane-steps">2.1 4.1 4.2</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Finance Analyst</span><span class="lane-steps">3.1 3.2 5.1 3.3 3.4 5.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Compiled at each period close at 100 percent</li><li>Applied consistently with the approved breakage rate at 100 percent</li><li>Calculated within the period close timetable at 100 percent</li><li>Reported within the financial close timetable at 100 percent</li></ul>
+<ul class="bullets"><li>Data extraction time &lt; 2 hours</li><li>Verification accuracy &gt; 99%</li><li>Number of adjustments &lt; 10%</li><li>Model run time &lt; 8 hours</li><li>Reconciliation accuracy &gt; 95%</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Using an outdated breakage rate and misstating the liability independent of the rate&#x27;s own correctness</li><li>Tier mix shifts changing the average redemption cost per point in ways the model does not immediately capture</li><li>Balance compilation failing to reconcile against every accrual and redemption process feeding the ledger</li><li>An error material enough to require prompt correction rather than deferral to the next cycle</li></ul>
+<ul class="bullets risk"><li>System downtime affecting data extraction</li><li>Data inconsistencies between Aeroplan Platform and SAP Customer Data Cloud</li><li>Manual adjustments introducing errors</li><li>Model execution failure due to data anomalies</li><li>Discrepancies between actuarial and financial records</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../aeroplan-loyalty/altitude-tier-management/ac-ap-tm-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Member Segmentation and Campaign Targeting</span></a>

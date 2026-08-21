@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-AP-TM-05" title="Click to copy the process ID">
     AC-AP-TM-05<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Member Segmentation and Campaign Targeting</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,257 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-AP-TM-05-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Segment definition</span>
+    <span class="ph-name">Phase 1 &mdash; Data Extraction</span>
     <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Define segment criteria</b></td>
-<td>Loyalty Marketing Analyst</td>
-<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Campaign objective and target profile</td>
-<td>Defined segment criteria</td>
-<td>Criteria defined before segment build begins at 100 percent</td>
+<td><b>Extract member data from Aeroplan Platform</b></td>
+<td>Aeroplan Data Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>All active member records</td>
+<td>CSV file of member data</td>
+<td>Data extraction time &lt; 30 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Segment criteria can unintentionally overlap with a protected characteristic if not carefully reviewed</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Network latency can cause delays in data retrieval.</td>
 </tr><tr>
 <td class="c-step">1.2</td>
-<td><b>Build the member segment</b></td>
-<td>Loyalty Marketing Analyst</td>
-<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Defined criteria and member data</td>
-<td>Built segment population</td>
-<td>Segment built within the campaign planning lead time at 100 percent</td>
+<td><b>Extract consent status from SAP Customer Data Cloud</b></td>
+<td>Aeroplan Privacy Officer</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Member IDs from 1.1</td>
+<td>Consent status file</td>
+<td>Data extraction time &lt; 15 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Segment build quality depends on the same profile currency issues tracked in AC-AP-EN-03</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Law 25 compliance requires real-time consent checks.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-AP-TM-05-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Consent filtering</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Segmentation Logic</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Filter segment against marketing consent</b></td>
-<td>Loyalty Marketing Analyst</td>
-<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Built segment and consent records</td>
-<td>Consent-filtered segment</td>
-<td>Zero members without consent included in a delivered campaign at 100 percent</td>
+<td><b>Apply segmentation logic based on member activity and points</b></td>
+<td>Altitude Tier Manager</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Data from 1.1 and 1.2</td>
+<td>Segmented member list</td>
+<td>95% accuracy in segment assignment</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A consent state that is not current can either wrongly include or wrongly exclude a member</td>
+<td>Complex segmentation rules require manual adjustments.</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Log discrepancies for manual review</b></td>
+<td>Altitude Tier Manager</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Segmentation logic errors</td>
+<td>Error log file</td>
+<td>Discrepancies logged within 24 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual intervention slows down the process.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-AP-TM-05-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Campaign delivery</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Profile Enrichment</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Deliver campaign to the filtered segment</b></td>
-<td>Loyalty Marketing Analyst</td>
-<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Salesforce Marketing Cloud<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
-<td>Consent-filtered segment</td>
-<td>Delivered campaign</td>
-<td>Delivered on the planned campaign schedule at 100 percent</td>
+<td><b>Enrich profiles with additional data from Aeroplan Partner Interfaces</b></td>
+<td>Altitude Tier Manager</td>
+<td><span class="tag aeroplan" data-tooltip="Co-brand and partner accrual feeds: TD, CIBC, Amex, retail and hotel partners. [Air Canada - evidence A]">Aeroplan Partner Interfaces<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Segmented member list</td>
+<td>Enhanced profile data</td>
+<td>Data enrichment time &lt; 2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Partner interfaces can be unreliable.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Log partner interface errors</b></td>
+<td>Altitude Tier Manager</td>
+<td><span class="tag aeroplan" data-tooltip="Co-brand and partner accrual feeds: TD, CIBC, Amex, retail and hotel partners. [Air Canada - evidence A]">Aeroplan Partner Interfaces<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Interface error messages</td>
+<td>Error log file</td>
+<td>Errors logged within 1 hour</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A delivery to a stale segment list can include a member who has since left the filtered population</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Partner data is critical for accurate targeting.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-TM-05-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Campaign Targeting</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Define campaign targets based on enriched profiles</b></td>
+<td>Aeroplan Marketing Specialist</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Enhanced profile data</td>
+<td>Campaign target list</td>
+<td>90% relevant campaign targets</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Marketing strategy must align with business goals.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Log marketing strategy deviations</b></td>
+<td>Aeroplan Marketing Specialist</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Campaign target errors</td>
+<td>Error log file</td>
+<td>Deviations logged within 3 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Marketing strategy adjustments require coordination with finance.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-TM-05-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Validation and Reconciliation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Validate campaign targets against business rules</b></td>
+<td>Aeroplan Business Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Campaign target list</td>
+<td>Validation report</td>
+<td>98% adherence to business rules</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Business rule updates can disrupt targeting.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Log validation errors for manual review</b></td>
+<td>Aeroplan Business Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Validation report errors</td>
+<td>Error log file</td>
+<td>Errors logged within 4 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual validation is time-consuming.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-TM-05-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Distribution Preparation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Prepare campaign distribution list</b></td>
+<td>Aeroplan Marketing Specialist</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Validated campaign target list</td>
+<td>Distribution list file</td>
+<td>List preparation time &lt; 2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Email marketing system limitations can cause delays.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Log distribution errors for manual correction</b></td>
+<td>Aeroplan Marketing Specialist</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Distribution list errors</td>
+<td>Error log file</td>
+<td>Errors logged within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Email marketing system limitations can cause delays.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-TM-05-7">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 7 &mdash; Phase 7</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">7.1</td>
+<td><b>Schedule campaign distribution</b></td>
+<td>Aeroplan Marketing Specialist</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Distribution list file</td>
+<td>Campaign schedule confirmation</td>
+<td>Campaign scheduled within 24 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Email marketing system limitations can cause delays.</td>
+</tr><tr>
+<td class="c-step">7.2</td>
+<td><b>Log scheduling errors for manual correction</b></td>
+<td>Aeroplan Marketing Specialist</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Scheduling errors</td>
+<td>Error log file</td>
+<td>Errors logged within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Email marketing system limitations can cause delays.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-TM-05-8">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 8 &mdash; Phase 8</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">8.1</td>
+<td><b>Monitor campaign performance</b></td>
+<td>Aeroplan Marketing Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Campaign schedule confirmation</td>
+<td>Performance report</td>
+<td>95% data accuracy in performance monitoring</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Real-time monitoring requires system capacity.</td>
+</tr><tr>
+<td class="c-step">8.2</td>
+<td><b>Log monitoring errors for manual review</b></td>
+<td>Aeroplan Marketing Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Monitoring errors</td>
+<td>Error log file</td>
+<td>Errors logged within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Real-time monitoring requires system capacity.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Loyalty Marketing Analyst</span><span class="lane-steps">1.1 1.2 2.1 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Aeroplan Data Analyst</span><span class="lane-steps">1.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Aeroplan Privacy Officer</span><span class="lane-steps">1.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Altitude Tier Manager</span><span class="lane-steps">2.1 2.2 3.1 3.2</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Aeroplan Marketing Specialist</span><span class="lane-steps">4.1 4.2 6.1 6.2 7.1 7.2</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Aeroplan Business Analyst</span><span class="lane-steps">5.1 5.2</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>Aeroplan Marketing Analyst</span><span class="lane-steps">8.1 8.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Salesforce Marketing Cloud<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
+<div class="card"><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag aeroplan" data-tooltip="Co-brand and partner accrual feeds: TD, CIBC, Amex, retail and hotel partners. [Air Canada - evidence A]">Aeroplan Partner Interfaces<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Zero members without consent included in a delivered campaign at 100 percent</li><li>Segment built within the campaign planning lead time at 100 percent</li><li>Delivered on the planned campaign schedule at 100 percent</li><li>Campaign engagement rate by segment tracked against target</li></ul>
+<ul class="bullets"><li>Data extraction time &lt; 30 minutes</li><li>Data enrichment time &lt; 2 hours</li><li>95% accuracy in segment assignment</li><li>90% relevant campaign targets</li><li>98% adherence to business rules</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A member without marketing consent receiving a campaign due to a consent filtering error</li><li>Segment criteria unintentionally overlapping with a protected characteristic</li><li>A stale segment list including a member who has since left the filtered population</li><li>Segment build quality inheriting profile currency issues from the underlying member data</li></ul>
+<ul class="bullets risk"><li>Network latency affecting data retrieval</li><li>Law 25 compliance issues with consent checks</li><li>Unreliable partner interfaces for profile enrichment</li><li>Manual adjustments required for complex segmentation</li><li>Email marketing system limitations causing delays</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../aeroplan-loyalty/altitude-tier-management/ac-ap-tm-04/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Status Match and Challenge Administration</span></a>
