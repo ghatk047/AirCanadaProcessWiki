@@ -133,7 +133,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CG-CP-01" title="Click to copy the process ID">
     AC-CG-CP-01<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Cargo Revenue Accounting and CASS Settlement</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -142,85 +142,302 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-CG-CP-01-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Flown shipment compilation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Data Entry</span>
+    <span class="ph-n">8 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Compile flown air waybills</b></td>
-<td>Cargo Revenue Analyst</td>
-<td><span class="tag champ" data-tooltip="Cargo revenue accounting and IATA CASS settlement. [CHAMP - evidence A]">Cargospot neo Revenue Accounting<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Completed flight and loaded shipments</td>
-<td>Compiled flown air waybill list</td>
-<td>Compiled within 2 business days of flight completion at 100 percent</td>
+<td><b>Receive flight manifest data from Cargospot neo Handling</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CHAMP Cargospot neo Handling<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Flight manifest data</td>
+<td>Manifest validated for accuracy and completeness</td>
+<td>95% validation success rate</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inaccurate manifest data leading to delays in accounting.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Review revenue data from CHAMP Cargospot neo Revenue Accounting</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CHAMP Cargospot neo Revenue Accounting<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Revenue data from flight manifest</td>
+<td>Reviewed and corrected revenue data</td>
+<td>90% data correction rate</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A shipment loaded but not correctly matched to its air waybill record creates a revenue recognition gap</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Missing or incorrect revenue data can cause discrepancies in accounting.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Escalate manifest validation issue to YYZ Operations Control Duty Manager</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">N/A<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Invalid manifest details</td>
+<td>Escalation ticket raised</td>
+<td>Average escalation response time within 2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed escalations can lead to significant delays in accounting.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Request missing revenue data from CHAMP Cargospot neo Revenue Accounting</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CHAMP Cargospot neo Revenue Accounting<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Manifest details</td>
+<td>Missing revenue data provided</td>
+<td>80% response rate for missing data requests</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inability to retrieve missing data can delay accounting processes.</td>
+</tr><tr>
+<td class="c-step">1.5</td>
+<td><b>Correct and revalidate flight manifest data</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CHAMP Cargospot neo Handling<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Manifest details with corrections</td>
+<td>Revalidated manifest data</td>
+<td>98% post-correction validation success rate</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Repeated inaccuracies can lead to ongoing delays.</td>
+</tr><tr>
+<td class="c-step">1.6</td>
+<td><b>Escalate missing revenue data issue to APPR Adjudicator</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">N/A<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Missing revenue details</td>
+<td>Escalation ticket raised</td>
+<td>Average escalation response time within 4 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed escalations can lead to significant accounting delays.</td>
+</tr><tr>
+<td class="c-step">1.7</td>
+<td><b>Notify duty manager of persistent validation issues</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">N/A<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Validation error details</td>
+<td>Notification sent</td>
+<td>100% notification rate for persistent issues</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Ongoing issues can impact overall accounting accuracy.</td>
+</tr><tr>
+<td class="c-step">1.8</td>
+<td><b>Retrieve corrected revenue data from CHAMP Cargospot neo Revenue Accounting</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CHAMP Cargospot neo Revenue Accounting<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Manifest details with corrections</td>
+<td>Corrected revenue data</td>
+<td>95% successful retrieval rate</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inability to retrieve corrected data can delay accounting.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CG-CP-01-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Revenue recognition</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Validation</span>
+    <span class="ph-n">6 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Recognise revenue on flown carriage</b></td>
-<td>Cargo Revenue Analyst</td>
-<td><span class="tag champ" data-tooltip="Cargo revenue accounting and IATA CASS settlement. [CHAMP - evidence A]">Cargospot neo Revenue Accounting<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Compiled air waybills</td>
-<td>Recognised revenue</td>
-<td>Recognised within the standard accounting period close timetable at 100 percent</td>
+<td><b>Initiate CBSA pre-load filing through Canada PACT</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag regulator" data-tooltip="CBSA pre-load air cargo targeting. Mandatory pre-load data filing in force since 1 April 2025. [CBSA - evidence B]">Canada PACT<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Flight manifest and revenue data</td>
+<td>CBSA pre-load file submitted</td>
+<td>98% successful submission rate</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Revenue recognition timing has to correctly reflect actual carriage, not the original booking date</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>CBSA downtime can halt all accounting processes.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Reconcile against IATA CASS settlement</b></td>
-<td>Cargo Revenue Analyst</td>
-<td><span class="tag iata" data-tooltip="Billing and Settlement Plan. Agency sales settlement and revenue accounting reconciliation. [IATA - evidence B]">IATA BSP<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Recognised revenue and CASS statement</td>
-<td>Reconciled settlement position</td>
-<td>Reconciled within the CASS settlement cycle at 100 percent</td>
+<td><b>Generate revenue summary report from CHAMP Cargospot neo Revenue Accounting</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CHAMP Cargospot neo Revenue Accounting<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Validated manifest and corrected revenue data</td>
+<td>Revenue summary report</td>
+<td>95% accuracy in reports</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inaccurate reports can lead to settlement errors.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Retry CBSA pre-load filing after 10 minutes</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag regulator" data-tooltip="CBSA pre-load air cargo targeting. Mandatory pre-load data filing in force since 1 April 2025. [CBSA - evidence B]">Canada PACT<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Flight manifest and revenue data</td>
+<td>CBSA pre-load file submitted</td>
+<td>95% successful retry rate</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A reconciliation variance between recognised revenue and the CASS statement needs prompt investigation</td>
+<td>Multiple retries can delay the entire process.</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Escalate revenue report error to APPR Adjudicator</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">N/A<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Revenue summary report details</td>
+<td>Escalation ticket raised</td>
+<td>Average escalation response time within 3 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed escalations can impact settlement accuracy.</td>
+</tr><tr>
+<td class="c-step">2.5</td>
+<td><b>Notify duty manager of persistent CBSA filing issues</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">N/A<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>CBSA filing error details</td>
+<td>Notification sent</td>
+<td>100% notification rate for persistent issues</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Ongoing issues can halt accounting processes.</td>
+</tr><tr>
+<td class="c-step">2.6</td>
+<td><b>Correct revenue summary report from CHAMP Cargospot neo Revenue Accounting</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CHAMP Cargospot neo Revenue Accounting<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Revenue report details with corrections</td>
+<td>Corrected revenue summary report</td>
+<td>95% successful correction rate</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Repeated errors can impact overall accounting accuracy.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CG-CP-01-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; CASS settlement</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Revenue Calculation</span>
+    <span class="ph-n">5 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Settle and post to the general ledger</b></td>
-<td>Cargo Revenue Analyst</td>
-<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Reconciled position</td>
-<td>Posted settlement</td>
-<td>Posted within the financial close timetable at 100 percent</td>
+<td><b>Prepare CASS settlement data from corrected revenue summary report</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CHAMP Cargospot neo Revenue Accounting<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Corrected revenue summary report</td>
+<td>CASS settlement file</td>
+<td>98% accurate settlement files</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inaccurate settlement data can lead to financial discrepancies.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Review CASS settlement file for compliance with IATA regulations</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CHAMP Cargospot neo Revenue Accounting<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>CASS settlement file</td>
+<td>Compliance check report</td>
+<td>95% compliance rate</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A settlement not posted within the close timetable delays the broader finance close it feeds into</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Non-compliant data can result in penalties.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Escalate CASS settlement error to APPR Adjudicator</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">N/A<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>CASS settlement file details</td>
+<td>Escalation ticket raised</td>
+<td>Average escalation response time within 2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed escalations can lead to financial penalties.</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Notify duty manager of persistent CASS settlement issues</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">N/A<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>CASS settlement error details</td>
+<td>Notification sent</td>
+<td>100% notification rate for persistent issues</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Ongoing issues can impact financial accuracy.</td>
+</tr><tr>
+<td class="c-step">3.5</td>
+<td><b>Correct CASS settlement file from CHAMP Cargospot neo Revenue Accounting</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CHAMP Cargospot neo Revenue Accounting<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>CASS settlement file details with corrections</td>
+<td>Corrected CASS settlement file</td>
+<td>95% successful correction rate</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Repeated errors can impact financial accuracy.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CG-CP-01-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; CBSA Pre-Load Filing</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Submit corrected CASS settlement file to IATA through CHAMP Cargospot neo Revenue Accounting</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CHAMP Cargospot neo Revenue Accounting<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Corrected CASS settlement file</td>
+<td>Settlement submission confirmation</td>
+<td>98% successful submission rate</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Submission failures can delay financial reconciliation.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Monitor IATA settlement status through CHAMP Cargospot neo Revenue Accounting</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CHAMP Cargospot neo Revenue Accounting<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Settlement submission confirmation</td>
+<td>Settlement status update</td>
+<td>95% accurate status updates</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed status updates can impact financial reconciliation.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Retry settlement submission after 15 minutes</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CHAMP Cargospot neo Revenue Accounting<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Corrected CASS settlement file</td>
+<td>Settlement submission confirmation</td>
+<td>95% successful retry rate</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Multiple retries can delay financial reconciliation.</td>
+</tr><tr>
+<td class="c-step">4.4</td>
+<td><b>Notify duty manager of persistent settlement submission issues</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">N/A<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Settlement submission error details</td>
+<td>Notification sent</td>
+<td>100% notification rate for persistent issues</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Ongoing issues can impact financial reconciliation.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Cargo Revenue Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Cargo Compliance Agent</span><span class="lane-steps">1.1 1.2 1.3 1.4 1.5 1.6 1.7 1.8 2.1 2.2 2.3 2.4 2.5 2.6 3.1 3.2 3.3 3.4 3.5 4.1 4.2 4.3 4.4</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag champ" data-tooltip="Cargo revenue accounting and IATA CASS settlement. [CHAMP - evidence A]">Cargospot neo Revenue Accounting<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag iata" data-tooltip="Billing and Settlement Plan. Agency sales settlement and revenue accounting reconciliation. [IATA - evidence B]">IATA BSP<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+<div class="card"><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CHAMP Cargospot neo Handling<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CHAMP Cargospot neo Revenue Accounting<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">N/A<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag regulator" data-tooltip="CBSA pre-load air cargo targeting. Mandatory pre-load data filing in force since 1 April 2025. [CBSA - evidence B]">Canada PACT<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Compiled within 2 business days of flight completion at 100 percent</li><li>Recognised within the standard accounting period close timetable at 100 percent</li><li>Reconciled within the CASS settlement cycle at 100 percent</li><li>Posted within the financial close timetable at 100 percent</li></ul>
+<ul class="bullets"><li>95% validation success rate</li><li>98% successful submission rate</li><li>95% accuracy in reports</li><li>98% accurate settlement files</li><li>98% successful retry rate</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A shipment loaded but not correctly matched to its air waybill record creating a revenue recognition gap</li><li>A reconciliation variance between recognised revenue and the CASS statement needing prompt investigation</li><li>Revenue recognition timing needing to correctly reflect actual carriage rather than the original booking date</li><li>A settlement not posted within the close timetable delaying the broader finance close</li></ul>
+<ul class="bullets risk"><li>Inaccurate manifest data leading to delays in accounting.</li><li>CBSA downtime can halt all accounting processes.</li><li>Non-compliant data can result in penalties.</li><li>Submission failures can delay financial reconciliation.</li><li>Ongoing issues can impact overall accounting accuracy.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../air-canada-cargo/customs-pact-dangerous-goods/ac-cg-cs-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Cargo Security Screening Compliance</span></a>
