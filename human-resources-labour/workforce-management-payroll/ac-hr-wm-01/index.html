@@ -133,7 +133,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-HR-WM-01" title="Click to copy the process ID">
     AC-HR-WM-01<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Shift Rostering for Airport and Contact Centre Staff</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -142,85 +142,277 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-HR-WM-01-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Demand forecasting</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Initial Setup</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Forecast demand by shift interval</b></td>
-<td>Workforce Planning Analyst</td>
+<td><b>Trigger rostering cycle</b></td>
+<td>YYZ Operations Control Duty Manager</td>
 <td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Historical demand and known operational drivers</td>
-<td>Forecast demand by interval</td>
-<td>Forecast for 100 percent of scheduling intervals each cycle at 100 percent</td>
+<td>Weekly trigger</td>
+<td>Rostering cycle initiated</td>
+<td>Cycle start time</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Airport demand forecasting has to account for the flight schedule&#x27;s own peaks and troughs, distinct from contact centre call volume</td>
+<td>Manual intervention required to handle unexpected changes.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Collect current employee data</b></td>
+<td>HR Data Analyst</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Employee database</td>
+<td>Updated employee data</td>
+<td>Data retrieval time</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System downtime can disrupt data collection.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Check for system updates</b></td>
+<td>IT System Administrator</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Current system status</td>
+<td>System update status</td>
+<td>Update check time</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System maintenance can cause delays.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Apply updates to Dayforce</b></td>
+<td>IT System Administrator</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>System update package</td>
+<td>Updated system</td>
+<td>Update application time</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Update failures can disrupt operations.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-HR-WM-01-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Shift build</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Data Collection</span>
+    <span class="ph-n">6 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Build shift roster against forecast</b></td>
-<td>Workforce Planning Analyst</td>
+<td><b>Apply union rules for Bargaining Unit 1</b></td>
+<td>Bargaining Unit 1 Representative</td>
 <td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Forecast demand and available staff</td>
-<td>Built shift roster</td>
-<td>Built to meet forecast demand within labour budget at 90 percent</td>
+<td>Updated employee data</td>
+<td>Roster with Bargaining Unit 1 rules applied</td>
+<td>Rule application time</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Balancing labour cost against service coverage has no single objectively correct answer</td>
+<td>Complex rules can lead to overstaffing or understaffing.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Apply employee preference and fairness rules</b></td>
-<td>Workforce Planning Analyst</td>
+<td><b>Apply union rules for Bargaining Unit 2</b></td>
+<td>Bargaining Unit 2 Representative</td>
 <td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Built roster and preference data</td>
-<td>Preference-adjusted roster</td>
-<td>Preferences accommodated where operationally feasible for 80 percent of requests</td>
+<td>Updated employee data</td>
+<td>Roster with Bargaining Unit 2 rules applied</td>
+<td>Rule application time</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Rules may conflict, requiring manual adjustments.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Apply union rules for Bargaining Unit 3</b></td>
+<td>Bargaining Unit 3 Representative</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Updated employee data</td>
+<td>Roster with Bargaining Unit 3 rules applied</td>
+<td>Rule application time</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Rules may conflict, requiring manual adjustments.</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Apply union rules for Bargaining Unit 4</b></td>
+<td>Bargaining Unit 4 Representative</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Updated employee data</td>
+<td>Roster with Bargaining Unit 4 rules applied</td>
+<td>Rule application time</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Rules may conflict, requiring manual adjustments.</td>
+</tr><tr>
+<td class="c-step">2.5</td>
+<td><b>Review for rule compliance</b></td>
+<td>HR Compliance Officer</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Rosters with union rules applied</td>
+<td>Compliance report</td>
+<td>Compliance review time</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Non-compliance can lead to legal issues.</td>
+</tr><tr>
+<td class="c-step">2.6</td>
+<td><b>Adjust rosters for compliance</b></td>
+<td>HR Compliance Officer</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Compliance report</td>
+<td>Adjusted rosters</td>
+<td>Adjustment time</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Preference accommodation competes directly with meeting minimum coverage at every shift interval</td>
+<td>Manual adjustments can be time-consuming.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-HR-WM-01-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Roster publication</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Rule Application</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Publish shift roster</b></td>
-<td>Workforce Planning Analyst</td>
+<td><b>Validate bilingual communication requirements</b></td>
+<td>Bilingual Coordinator</td>
+<td><span class="tag m365" data-tooltip="Email, collaboration and document management for approximately 35,000 employees. [Microsoft - evidence C]">Microsoft 365<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Roster with union rules applied</td>
+<td>Validated roster</td>
+<td>Validation time</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Language proficiency checks may delay validation.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Review for operational needs</b></td>
+<td>YYZ Operations Control Duty Manager</td>
 <td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Finalised roster</td>
-<td>Published roster</td>
-<td>Published within the required lead time before the operating period at 100 percent</td>
+<td>Validated roster</td>
+<td>Operational review report</td>
+<td>Review time</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Changing operational demands can require immediate adjustments.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Check for staffing shortages</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Operational review report</td>
+<td>Staffing shortage status</td>
+<td>Shortage check time</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Shortages can affect service quality.</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Check for staffing surpluses</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Operational review report</td>
+<td>Staffing surplus status</td>
+<td>Surplus check time</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Surpluses can lead to understaffing in other areas.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-HR-WM-01-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Validation &amp; Review</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Submit for approval to HR Manager</b></td>
+<td>HR Manager</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Operational review report</td>
+<td>Approval status</td>
+<td>Approval time</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delays in approval can cause scheduling disruptions.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Review HR Manager comments</b></td>
+<td>HR Data Analyst</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Approval status</td>
+<td>Updated roster</td>
+<td>Comment review time</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A late-published roster reduces staff ability to plan personal commitments around their shifts</td>
+<td>Manual adjustments can be time-consuming.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Escalate to HR Director for re-approval</b></td>
+<td>HR Director</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Operational review report with comments</td>
+<td>Re-approved status</td>
+<td>Director approval time</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delays in senior approvals can cause scheduling disruptions.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-HR-WM-01-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Approval</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Deploy the finalized roster to Dayforce</b></td>
+<td>HR Data Analyst</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Approved roster</td>
+<td>Roster deployed</td>
+<td>Deployment time</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System connectivity issues can prevent deployment.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Monitor deployment status</b></td>
+<td>IT System Administrator</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Roster deployment request</td>
+<td>Deployment success confirmation</td>
+<td>Deployment monitoring time</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System issues can cause deployment failures.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Retry deployment</b></td>
+<td>IT System Administrator</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Roster deployment request</td>
+<td>Roster deployed</td>
+<td>Retry deployment time</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Multiple failures can delay the process.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Workforce Planning Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">1.1 3.2 3.3 3.4</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>HR Data Analyst</span><span class="lane-steps">1.2 4.2 5.1</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>IT System Administrator</span><span class="lane-steps">1.3 1.4 5.2 5.3</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Bargaining Unit 1 Representative</span><span class="lane-steps">2.1</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Bargaining Unit 2 Representative</span><span class="lane-steps">2.2</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>Bargaining Unit 3 Representative</span><span class="lane-steps">2.3</span></div><div class="lane"><span class="swatch" style="background:#8A5A1E"></span><span>Bargaining Unit 4 Representative</span><span class="lane-steps">2.4</span></div><div class="lane"><span class="swatch" style="background:#4A4A4A"></span><span>HR Compliance Officer</span><span class="lane-steps">2.5 2.6</span></div><div class="lane"><span class="swatch" style="background:#E04A60"></span><span>Bilingual Coordinator</span><span class="lane-steps">3.1</span></div><div class="lane"><span class="swatch" style="background:#5A5A5A"></span><span>HR Manager</span><span class="lane-steps">4.1</span></div><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>HR Director</span><span class="lane-steps">4.3</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag m365" data-tooltip="Email, collaboration and document management for approximately 35,000 employees. [Microsoft - evidence C]">Microsoft 365<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Forecast for 100 percent of scheduling intervals each cycle at 100 percent</li><li>Built to meet forecast demand within labour budget at 90 percent</li><li>Preferences accommodated where operationally feasible for 80 percent of requests</li><li>Published within the required lead time before the operating period at 100 percent</li></ul>
+<ul class="bullets"><li>Cycle start time</li><li>Data retrieval time</li><li>Rule application time</li><li>Compliance review time</li><li>Adjustment time</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Balancing labour cost against service coverage having no single objectively correct answer</li><li>Preference accommodation competing directly with meeting minimum coverage at every shift interval</li><li>Airport demand forecasting needing to account for flight schedule peaks distinct from contact centre patterns</li><li>A late-published roster reducing staff ability to plan personal commitments around their shifts</li></ul>
+<ul class="bullets risk"><li>System downtime affecting data collection</li><li>Complex union rules leading to overstaffing or understaffing</li><li>Non-compliance with union contracts</li><li>Manual adjustments due to system limitations</li><li>System connectivity issues causing deployment failures</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../human-resources-labour/talent-acquisition/ac-hr-ta-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Onboarding and First Day Enablement</span></a>
