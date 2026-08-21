@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-GO-CI-04" title="Click to copy the process ID">
     AC-GO-CI-04<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Boarding Gate Control and Sequencing</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,241 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-GO-CI-04-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Boarding preparation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Passenger Arrival</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Prepare gate for boarding</b></td>
-<td>Gate Agent</td>
+<td><b>Gate attendant scans passenger boarding pass.</b></td>
+<td>YYZ Operations Control Duty Manager</td>
 <td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Flight ready for boarding</td>
-<td>Prepared gate with boarding sequence loaded</td>
-<td>Prepared before the scheduled boarding time at 100 percent</td>
+<td>Passenger boarding pass</td>
+<td>Check-in status update</td>
+<td>95% check-in accuracy within 2 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual fallback required due to system outage.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Check if passenger has checked baggage.</b></td>
+<td>Baggage Compliance Agent</td>
+<td><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Passenger details</td>
+<td>Baggage status update</td>
+<td>98% correct bag-to-passenger matches</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Incorrect bag-to-passenger match causing delays.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Mark passenger as no checked bags.</b></td>
+<td>Baggage Compliance Agent</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Passenger details</td>
+<td>Updated passenger record</td>
+<td>100% accurate records within 30 seconds</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A gate change close to boarding time compresses preparation time</td>
+<td>Manual data entry errors.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-GO-CI-04-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Sequenced boarding</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Check-in</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Board priority groups by tier and fare class</b></td>
-<td>Gate Agent</td>
+<td><b>Verify passenger boarding status.</b></td>
+<td>Aeroplan Member Services Agent</td>
 <td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Loaded boarding sequence</td>
-<td>Boarded priority groups</td>
-<td>Priority sequence correctly applied at 100 percent</td>
+<td>Passenger details</td>
+<td>Boarding status confirmation</td>
+<td>99% accurate status checks within 1 minute</td>
 <td class="c-flag"><span class="yes">Y</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Priority boarding recognition has to correctly reflect both Altitude tier and Star Alliance Gold status simultaneously</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed system response causing boarding delays.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Board general boarding groups</b></td>
-<td>Gate Agent</td>
+<td><b>Confirm baggage at gate.</b></td>
+<td>Baggage Compliance Agent</td>
+<td><span class="tag sita" data-tooltip="Global mishandled-baggage tracing and PIR file management. [SITA - evidence B]">SITA WorldTracer<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Passenger details</td>
+<td>Baggage location update</td>
+<td>95% accurate bag locations within 30 seconds</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inaccurate baggage data leading to passenger relocations.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Update boarding list with confirmed status.</b></td>
+<td>YYZ Operations Control Duty Manager</td>
 <td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Completed priority boarding</td>
-<td>Boarded general groups</td>
-<td>General boarding completed within the target window at 90 percent</td>
+<td>Passenger and bag statuses</td>
+<td>Updated boarding list</td>
+<td>98% accurate boarding lists within 5 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>General boarding pace directly determines whether the flight can achieve an on-time departure</td>
+<td>Data synchronization issues between systems.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-GO-CI-04-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Door closure readiness</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Baggage Handling</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Confirm boarding complete and close the door</b></td>
-<td>Gate Agent</td>
+<td><b>Load passenger data into gate system.</b></td>
+<td>Baggage Compliance Agent</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Boarding list</td>
+<td>Gate system update</td>
+<td>95% successful loads within 2 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System overload during peak hours causing delays.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Manual data entry for failed load.</b></td>
+<td>Baggage Compliance Agent</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Passenger details</td>
+<td>Manually updated gate system</td>
+<td>100% successful manual entries within 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Data entry errors leading to boarding disruptions.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-CI-04-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Boarding Sequencing</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Sequence passengers for boarding.</b></td>
+<td>YYZ Operations Control Duty Manager</td>
 <td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Boarded passenger count</td>
-<td>Confirmed complete boarding and door closure readiness</td>
-<td>Confirmed boarding count matches the manifest at 100 percent</td>
+<td>Updated boarding list</td>
+<td>Sequenced passenger list</td>
+<td>97% optimal sequencing within 3 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inefficient sequencing causing bottlenecks.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Adjust sequence based on priority criteria.</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Sequenced passenger list and priority criteria</td>
+<td>Adjusted boarding sequence</td>
+<td>95% successful adjustments within 1 minute</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A count discrepancy at door closure requires resolution before the flight can depart</td>
+<td>Manual intervention required for complex scenarios.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Inform passengers of their boarding group.</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Sequenced passenger list</td>
+<td>Passenger notification updates</td>
+<td>98% successful notifications within 2 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Notification system failure causing confusion.</td>
+</tr><tr>
+<td class="c-step">4.4</td>
+<td><b>Manual notification for missed passengers.</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Passenger details</td>
+<td>Manually notified passengers</td>
+<td>95% successful manual notifications within 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed communication leading to passenger dissatisfaction.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-CI-04-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Final Boarding Checks</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Final check of passenger and baggage data.</b></td>
+<td>Baggage Compliance Agent</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Sequenced passenger list and bag statuses</td>
+<td>Final boarding confirmation</td>
+<td>99% accurate final checks within 3 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Data discrepancies causing last-minute delays.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Resolve data discrepancies manually.</b></td>
+<td>Baggage Compliance Agent</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Passenger and bag details</td>
+<td>Resolved boarding records</td>
+<td>98% successful resolutions within 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual corrections leading to operational delays.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-CI-04-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Departure Preparation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Prepare flight for departure.</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Final boarding confirmation</td>
+<td>Departure readiness status</td>
+<td>95% flights ready within 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System failure causing delays in departure preparation.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Manual intervention for departure readiness.</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Flight details</td>
+<td>Manually prepared flight status</td>
+<td>95% successful manual preparations within 15 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual preparation leading to increased operational costs.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Gate Agent</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">1.1 2.3 4.1 4.2 6.1 6.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Baggage Compliance Agent</span><span class="lane-steps">1.2 1.3 2.2 3.1 3.2 5.1 5.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Aeroplan Member Services Agent</span><span class="lane-steps">2.1 4.3 4.4</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+<div class="card"><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag sita" data-tooltip="Global mishandled-baggage tracing and PIR file management. [SITA - evidence B]">SITA WorldTracer<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Priority sequence correctly applied at 100 percent</li><li>General boarding completed within the target window at 90 percent</li><li>Confirmed boarding count matches the manifest at 100 percent</li><li>On-time door closure rate meeting target</li></ul>
+<ul class="bullets"><li>95% check-in accuracy</li><li>98% correct bag-to-passenger matches</li><li>99% accurate status checks</li><li>98% accurate boarding lists</li><li>95% successful loads</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Priority boarding recognition failing to correctly reflect both Altitude tier and Star Alliance Gold status</li><li>A gate change close to boarding time compressing preparation time and risking a late departure</li><li>A boarding count discrepancy at door closure requiring resolution before the flight can depart</li><li>General boarding pace being the direct determinant of whether the flight achieves on-time departure</li></ul>
+<ul class="bullets risk"><li>System outage affecting manual processes</li><li>Data synchronization issues between systems</li><li>Inefficient sequencing causing bottlenecks</li><li>Notification system failure causing confusion</li><li>Manual corrections leading to operational delays</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../ground-operations-airports/check-in-dcs-boarding/ac-go-ci-03/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Advance Passenger Information Transmission</span></a>

@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-GO-CI-05" title="Click to copy the process ID">
     AC-GO-CI-05<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Denied Boarding and Oversale Management</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,241 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-GO-CI-05-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Oversale identification</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Initial Assessment</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Identify the oversale at boarding</b></td>
-<td>Gate Agent</td>
+<td><b>Receive Oversale Alert from DCS</b></td>
+<td>YYZ Operations Control Duty Manager</td>
 <td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Confirmed passenger count against seat capacity</td>
-<td>Identified oversale quantity</td>
-<td>Identified before boarding begins at 100 percent</td>
+<td>Oversale alert from the Departure Control System</td>
+<td>Acknowledgment of oversale situation</td>
+<td>Time to acknowledge oversale &lt; 5 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Late no-shows can sometimes resolve an apparent oversale before it requires action</td>
+<td>Delayed alerts can cause operational delays.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Determine Denial Criteria</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Passenger details and flight status</td>
+<td>Criteria for denial or accommodation</td>
+<td>Criteria determination within 10 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Incorrect criteria can lead to passenger dissatisfaction.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Proceed with Accommodation</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Passenger details and available flights</td>
+<td>Accommodation plan</td>
+<td>Accommodation plan within 15 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inadequate rebooking options can lead to passenger complaints.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-GO-CI-05-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Volunteer solicitation</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Oversale Notification</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Solicit volunteers with compensation offer</b></td>
-<td>Gate Agent</td>
-<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Identified oversale</td>
-<td>Volunteer response</td>
-<td>Volunteers solicited before any involuntary denial at 100 percent</td>
-<td class="c-flag"><span class="yes">Y</span></td>
+<td><b>Notify Denied Passenger</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Passenger details and denial reason</td>
+<td>Denial notification sent</td>
+<td>Notification sent within 5 minutes of decision</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>APPR requires volunteer solicitation before involuntary denial can even be considered</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Failed notifications can result in passenger confusion.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Rebook volunteering passengers</b></td>
-<td>Gate Agent</td>
-<td><span class="tag amadeus" data-tooltip="Automated IRROP re-accommodation. Replaced largely manual disruption handling pre-2020. [Amadeus - evidence A]">Amadeus Passenger Recovery<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Accepted volunteers</td>
-<td>Rebooked volunteer itineraries</td>
-<td>Rebooked with confirmed alternative travel at 100 percent</td>
+<td><b>Handle Denial Exception</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Denial exception details</td>
+<td>Exception resolution plan</td>
+<td>Exception resolved within 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Unresolved exceptions can escalate to higher management.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Resend Notification</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Passenger details and denial reason</td>
+<td>Retransmitted notification</td>
+<td>Retransmission within 10 minutes of failure</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Volunteer rebooking has to provide a genuinely viable alternative, not just a nominal one</td>
+<td>Multiple failed attempts can frustrate passengers.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-GO-CI-05-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Involuntary denial handling</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Passenger Communication</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Handle involuntary denial per APPR requirements</b></td>
-<td>Gate Agent</td>
-<td><span class="tag amadeus" data-tooltip="Automated IRROP re-accommodation. Replaced largely manual disruption handling pre-2020. [Amadeus - evidence A]">Amadeus Passenger Recovery<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Insufficient volunteers</td>
-<td>APPR-compliant involuntary denial with compensation</td>
-<td>100 percent compliant with APPR compensation and process requirements</td>
+<td><b>Initiate Compensation Process</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Passenger details and compensation policy</td>
+<td>Compensation offer sent</td>
+<td>Compensation offer within 1 hour of denial</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="yes">Y</span></td>
-<td>An involuntary denial handled outside the required process creates immediate regulatory exposure</td>
+<td>Inconsistent compensation offers can lead to disputes.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Negotiate Compensation with Passenger</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Passenger details and compensation offer</td>
+<td>Compensation agreement</td>
+<td>Agreement within 1 hour of rejection</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Difficult negotiations can prolong the process.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Escalate to Higher Management</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Passenger details and negotiation history</td>
+<td>Escalation request sent</td>
+<td>Escalation within 30 minutes of no agreement</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Escalation delays can further frustrate passengers.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-CI-05-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Rebooking and Compensation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Handle Baggage Reconciliation</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Passenger details and flight itinerary</td>
+<td>Bag-to-passenger match completed</td>
+<td>Reconciliation within 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Missing bag reports can delay departure.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Resolve Baggage Mismatch</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag sita" data-tooltip="Global mishandled-baggage tracing and PIR file management. [SITA - evidence B]">SITA WorldTracer<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Mismatch details and passenger history</td>
+<td>Resolution plan</td>
+<td>Resolution within 1 hour of mismatch</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex mismatches can require extensive investigation.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-CI-05-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Baggage Handling</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Update Final Documentation</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Passenger details and final status</td>
+<td>Updated records in DCS</td>
+<td>Documentation updated within 30 minutes of final decision</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Late documentation updates can lead to tracking issues.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Confirm Passenger Status</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Passenger details and final status</td>
+<td>Confirmation sent to passenger</td>
+<td>Confirmation within 10 minutes of documentation update</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Failed confirmations can cause further confusion.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Resend Confirmation</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Passenger details and final status</td>
+<td>Retransmitted confirmation</td>
+<td>Retransmission within 5 minutes of failure</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Multiple failed confirmations can frustrate passengers.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-CI-05-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Final Documentation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Review for Audit</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Final records and passenger feedback</td>
+<td>Audit readiness</td>
+<td>Ready for audit within 24 hours of final decision</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Incomplete or inaccurate records can lead to compliance issues.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Correct Audit Issues</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Audit findings and corrective actions</td>
+<td>Updated records for audit</td>
+<td>Issues corrected within 48 hours of finding</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed corrections can affect future audits.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Gate Agent</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">1.1 1.2 1.3 2.2 3.3 5.1 6.1 6.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Aeroplan Member Services Agent</span><span class="lane-steps">2.1 2.3 3.1 3.2 5.2 5.3</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Cargo Compliance Agent</span><span class="lane-steps">4.1 4.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag amadeus" data-tooltip="Automated IRROP re-accommodation. Replaced largely manual disruption handling pre-2020. [Amadeus - evidence A]">Amadeus Passenger Recovery<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+<div class="card"><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag sita" data-tooltip="Global mishandled-baggage tracing and PIR file management. [SITA - evidence B]">SITA WorldTracer<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Volunteers solicited before any involuntary denial at 100 percent</li><li>Rebooked with confirmed alternative travel at 100 percent</li><li>100 percent compliant with APPR compensation and process requirements</li><li>Involuntary denial rate as a share of total oversales tracked and minimised</li></ul>
+<ul class="bullets"><li>Time to acknowledge oversale &lt; 5 minutes</li><li>Criteria determination within 10 minutes</li><li>Accommodation plan within 15 minutes</li><li>Notification sent within 5 minutes of decision</li><li>Exception resolved within 30 minutes</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>An involuntary denial handled outside the required APPR process creating immediate regulatory exposure</li><li>Volunteer rebooking failing to provide a genuinely viable alternative itinerary</li><li>The volunteer solicitation step being skipped or rushed under gate time pressure</li><li>Late no-show resolution not being properly accounted for before committing to a denial decision</li></ul>
+<ul class="bullets risk"><li>Delayed alerts can cause operational delays</li><li>Incorrect criteria can lead to passenger dissatisfaction</li><li>Inadequate rebooking options can lead to passenger complaints</li><li>Failed notifications can result in passenger confusion</li><li>Unresolved exceptions can escalate to higher management</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../ground-operations-airports/check-in-dcs-boarding/ac-go-ci-04/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Boarding Gate Control and Sequencing</span></a>

@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-GO-CI-03" title="Click to copy the process ID">
     AC-GO-CI-03<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Advance Passenger Information Transmission</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,241 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-GO-CI-03-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Data compilation</span>
-    <span class="ph-n">1 steps</span></div>
-  <div class="phase-body"><div class="tbl-wrap"><table>
-  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
-  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
-  <tbody><tr>
-<td class="c-step">1.1</td>
-<td><b>Compile passenger information for transmission</b></td>
-<td>Airport Check-In Agent</td>
-<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Check-in data and passenger document</td>
-<td>Compiled API and PNR data</td>
-<td>Compiled for 100 percent of applicable flights at check-in completion</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Data completeness depends on the accuracy of the document scan or manual entry at check-in</td>
-</tr></tbody></table></div></div>
-</div><div class="phase-group" data-phase-id="AC-GO-CI-03-2">
-  <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Regulatory transmission</span>
+    <span class="ph-name">Phase 1 &mdash; Pre-Check-in Setup</span>
     <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Initiate Pre-Checkin</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Airport operations schedule, passenger manifest</td>
+<td>Pre-checkin readiness status</td>
+<td>90% readiness within 15 minutes of scheduled gate opening</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System downtime can disrupt pre-checkin processes.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Verify Regulatory Compliance</b></td>
+<td>APPR Adjudicator</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Regulatory guidelines, passenger details</td>
+<td>Compliance status report</td>
+<td>100% compliance rate within 5 minutes of check-in initiation</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Misconfigured system settings can lead to non-compliance.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-CI-03-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Passenger Check-in</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Transmit to CBSA and US CBP Secure Flight</b></td>
-<td>Airport Check-In Agent</td>
-<td><span class="tag regulator" data-tooltip="Advance passenger information and PNR transmission to CBSA, CATSA, US CBP Secure Flight. [CBSA / CBP - evidence A]">CBSA API and PNR<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Compiled information</td>
-<td>Transmitted regulatory data</td>
-<td>Transmitted within each regulator&#x27;s required window at 100 percent</td>
+<td><b>Collect Passenger Information</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Passenger identification, flight details</td>
+<td>Collected passenger data</td>
+<td>95% accuracy in data collection within 2 minutes of check-in initiation</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Different destination regulators have different transmission timing requirements for the same flight</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual entry errors can occur due to system lag.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Transmit to CATSA where applicable</b></td>
-<td>Airport Check-In Agent</td>
-<td><span class="tag regulator" data-tooltip="Advance passenger information and PNR transmission to CBSA, CATSA, US CBP Secure Flight. [CBSA / CBP - evidence A]">CBSA API and PNR<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Compiled information</td>
-<td>Transmitted CATSA data</td>
-<td>Transmitted within the required window at 100 percent</td>
+<td><b>Generate API Packet</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Collected passenger data</td>
+<td>API packet for transmission</td>
+<td>100% packet generation within 3 minutes of data collection</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System timeouts can delay API packet creation.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Validate Generated Packet</b></td>
+<td>IT Security Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>API packet</td>
+<td>Validation report</td>
+<td>98% validation accuracy within 1 minute of generation</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>CATSA requirements are distinct from CBSA and US requirements despite overlapping data</td>
+<td>Data integrity issues can cause invalid packets.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-GO-CI-03-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Clearance confirmation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; API Data Generation</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Confirm passenger clearance before boarding</b></td>
-<td>Airport Check-In Agent</td>
-<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Transmitted data</td>
-<td>Confirmed clearance or flagged hold</td>
-<td>Confirmed before boarding for 100 percent of applicable passengers</td>
+<td><b>Initiate Transmission to Regulatory Bodies</b></td>
+<td>IT Security Analyst</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>API packet</td>
+<td>Transmission status report</td>
+<td>95% successful transmissions within 4 minutes of generation</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A clearance hold received close to boarding time compresses the resolution window before departure</td>
+<td>Network issues can cause transmission failures.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Monitor Transmission Status</b></td>
+<td>IT Security Analyst</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Transmission status report</td>
+<td>Final transmission outcome</td>
+<td>100% successful transmissions confirmed within 5 minutes of initiation</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed network responses can cause prolonged monitoring.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-CI-03-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Transmission Validation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Validate Received Data</b></td>
+<td>Regulatory Compliance Officer</td>
+<td><span class="tag sita" data-tooltip="Global mishandled-baggage tracing and PIR file management. [SITA - evidence B]">SITA WorldTracer<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Received API packet</td>
+<td>Validation report</td>
+<td>98% validation accuracy within 2 minutes of receipt</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Corrupted data can lead to failed validations.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Log Validation Results</b></td>
+<td>IT Security Analyst</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Validation report</td>
+<td>Logged validation results</td>
+<td>100% logs within 3 minutes of validation</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Logging failures can disrupt audit trails.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-CI-03-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Post-Transmission Review</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Review Transmission Logs</b></td>
+<td>IT Security Analyst</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Transmission logs</td>
+<td>Review report</td>
+<td>90% review accuracy within 4 minutes of logging</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Misinterpretation of logs can lead to false conclusions.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Generate Compliance Report</b></td>
+<td>Regulatory Compliance Officer</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Review report</td>
+<td>Compliance report</td>
+<td>100% reports within 5 minutes of review</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Reporting delays can cause regulatory scrutiny.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Notify Stakeholders</b></td>
+<td>IT Security Analyst</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Compliance report</td>
+<td>Notification status</td>
+<td>95% notifications within 2 minutes of report generation</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Failed notifications can lead to missed updates.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-CI-03-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Phase 6</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Review Exception Logs</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Exception logs</td>
+<td>Exception report</td>
+<td>90% exception review accuracy within 3 minutes of logging</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex exceptions can require deep analysis.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Implement Exception Resolution</b></td>
+<td>IT Security Analyst</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Exception report</td>
+<td>Resolution status</td>
+<td>95% resolutions within 4 minutes of review</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Resource constraints can delay exception resolution.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Update System Configuration</b></td>
+<td>IT Security Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Exception report</td>
+<td>Updated configuration</td>
+<td>90% configuration updates within 2 minutes of resolution</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Misconfigured settings can cause further issues.</td>
+</tr><tr>
+<td class="c-step">6.4</td>
+<td><b>Final System Check</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Updated configuration</td>
+<td>System check status</td>
+<td>100% successful checks within 3 minutes of update</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System instability can cause false positives.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Airport Check-In Agent</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">1.1 6.1 6.4</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>APPR Adjudicator</span><span class="lane-steps">1.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Aeroplan Member Services Agent</span><span class="lane-steps">2.1</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Cargo Compliance Agent</span><span class="lane-steps">2.2</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>IT Security Analyst</span><span class="lane-steps">2.3 3.1 3.2 4.2 5.1 5.3 6.2 6.3</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>Regulatory Compliance Officer</span><span class="lane-steps">4.1 5.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag regulator" data-tooltip="Advance passenger information and PNR transmission to CBSA, CATSA, US CBP Secure Flight. [CBSA / CBP - evidence A]">CBSA API and PNR<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+<div class="card"><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag sita" data-tooltip="Global mishandled-baggage tracing and PIR file management. [SITA - evidence B]">SITA WorldTracer<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Compiled for 100 percent of applicable flights at check-in completion</li><li>Transmitted within each regulator&#x27;s required window at 100 percent</li><li>Confirmed before boarding for 100 percent of applicable passengers</li><li>Zero flights delayed due to a missed regulatory transmission deadline</li></ul>
+<ul class="bullets"><li>90% readiness within 15 minutes</li><li>100% compliance rate within 5 minutes</li><li>95% accuracy in data collection within 2 minutes</li><li>100% packet generation within 3 minutes</li><li>95% successful transmissions within 4 minutes</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Different destination regulators having different transmission timing requirements for the same flight</li><li>Data completeness depending on the accuracy of a document scan or manual entry at check-in</li><li>A clearance hold received close to boarding time compressing the resolution window before departure</li><li>CATSA and CBSA requirements being distinct despite substantially overlapping underlying data</li></ul>
+<ul class="bullets risk"><li>System downtime affecting pre-checkin processes</li><li>Misconfigured system settings leading to non-compliance</li><li>Manual entry errors due to system lag</li><li>Network issues causing transmission failures</li><li>Corrupted data leading to failed validations</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../ground-operations-airports/check-in-dcs-boarding/ac-go-ci-02/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Kiosk and Mobile Self Service Check In</span></a>
