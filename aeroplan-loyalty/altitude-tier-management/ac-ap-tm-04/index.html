@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-AP-TM-04" title="Click to copy the process ID">
     AC-AP-TM-04<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Status Match and Challenge Administration</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,241 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-AP-TM-04-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Evidence evaluation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Initial Request Handling</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Receive and evaluate competitor status evidence</b></td>
-<td>Loyalty Operations Analyst</td>
+<td><b>Receive status change request</b></td>
+<td>Aeroplan Member Services Agent</td>
 <td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Submitted competitor status documentation</td>
-<td>Evaluated evidence</td>
-<td>Evaluated within 5 business days of submission at 100 percent</td>
+<td>Member request or automated alert</td>
+<td>Status change ticket in Aeroplan Platform</td>
+<td>Response time within 2 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Verifying competitor status evidence depends on documentation Air Canada cannot independently confirm</td>
+<td>Delays in response can lead to member dissatisfaction.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Validate member identity</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Member ID and validation criteria</td>
+<td>Validation result</td>
+<td>Validation accuracy rate &gt; 98%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Incorrect identity validation can lead to false status changes.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Check tier eligibility</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Member details and tier rules</td>
+<td>Eligibility status</td>
+<td>Eligibility check accuracy rate &gt; 95%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inaccurate eligibility checks can result in incorrect tier assignments.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Notify member of invalid request</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Validation or eligibility result</td>
+<td>Notification sent to member</td>
+<td>Notification accuracy rate &gt; 99%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Failed notifications can lead to unresolved queries and dissatisfaction.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-AP-TM-04-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Match determination</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Data Validation</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Determine equivalent Altitude tier</b></td>
-<td>Loyalty Operations Analyst</td>
+<td><b>Gather supporting documents</b></td>
+<td>Aeroplan Adjudicator</td>
 <td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Evaluated evidence</td>
-<td>Determined equivalent tier</td>
-<td>Determination made consistently against the published matching policy at 100 percent</td>
-<td class="c-flag"><span class="yes">Y</span></td>
+<td>Member request and system data</td>
+<td>Supporting document list</td>
+<td>Document gathering time &lt; 4 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Mapping a competitor&#x27;s tier structure onto Altitude&#x27;s is a judgement call without a perfect equivalence</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Missing documents can delay the challenge review process.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Set challenge qualification terms where applicable</b></td>
-<td>Loyalty Operations Analyst</td>
+<td><b>Review supporting documents</b></td>
+<td>Aeroplan Adjudicator</td>
 <td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Determined tier and challenge type</td>
-<td>Defined challenge terms and window</td>
-<td>Terms communicated to the member within 5 business days at 100 percent</td>
+<td>Supporting documents</td>
+<td>Review outcome</td>
+<td>Document review accuracy rate &gt; 90%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Inconsistent document reviews can lead to incorrect decisions.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Request additional information</b></td>
+<td>Aeroplan Adjudicator</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Review outcome</td>
+<td>Additional request sent to member</td>
+<td>Response time within 1 business day</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Challenge terms have to be specific enough to be enforceable but understandable to the member</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Long delays in additional information requests can escalate issues.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-AP-TM-04-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Conditional status provisioning</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Challenge Review</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Provision conditional status</b></td>
-<td>Loyalty Operations Analyst</td>
+<td><b>Update tier status based on review</b></td>
+<td>Aeroplan Adjudicator</td>
 <td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Determined terms</td>
-<td>Conditional status provisioned</td>
-<td>Provisioned within 5 business days of determination at 100 percent</td>
+<td>Review outcome and member details</td>
+<td>Updated tier status in Aeroplan Platform</td>
+<td>Tier update accuracy rate &gt; 98%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Incorrect tier updates can cause financial discrepancies.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Log update failure</b></td>
+<td>Aeroplan Adjudicator</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Failure details</td>
+<td>Error log entry</td>
+<td>Error logging accuracy rate &gt; 95%</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Conditional status has to correctly expire or convert automatically at the end of the match or challenge window</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Failed updates can lead to prolonged member queries.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-TM-04-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Status Update</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Finalize status update</b></td>
+<td>Aeroplan Adjudicator</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Updated tier status and system checks</td>
+<td>Finalized status update</td>
+<td>Finalization accuracy rate &gt; 99%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inaccurate finalizations can cause compliance issues.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Escalate to supervisor for review</b></td>
+<td>Aeroplan Adjudicator</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Finalization failure details</td>
+<td>Escalation ticket</td>
+<td>Escalation response time within 1 business day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Supervisor review delays can lead to unresolved issues.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Approve final status update</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Escalated ticket and review details</td>
+<td>Approval or rejection</td>
+<td>Approval accuracy rate &gt; 90%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Incorrect approvals can cause member dissatisfaction.</td>
+</tr><tr>
+<td class="c-step">4.4</td>
+<td><b>Notify member of rejection</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Approval result and rejection details</td>
+<td>Notification sent to member</td>
+<td>Notification accuracy rate &gt; 99%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Failed notifications can lead to unresolved queries.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-TM-04-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Final Verification</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Verify final status update</b></td>
+<td>Aeroplan Adjudicator</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Finalized status and system checks</td>
+<td>Verification result</td>
+<td>Verification accuracy rate &gt; 98%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inaccurate verifications can cause compliance issues.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Log verification failure</b></td>
+<td>Aeroplan Adjudicator</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Verification failure details</td>
+<td>Error log entry</td>
+<td>Error logging accuracy rate &gt; 95%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Failed verifications can lead to prolonged member queries.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-TM-04-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Communication</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Notify member of status update</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Finalized status and verification result</td>
+<td>Notification sent to member</td>
+<td>Notification accuracy rate &gt; 99%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Failed notifications can lead to unresolved queries.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Loyalty Operations Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Aeroplan Member Services Agent</span><span class="lane-steps">1.1 1.2 1.3 1.4 4.4 6.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Aeroplan Adjudicator</span><span class="lane-steps">2.1 2.2 2.3 3.1 3.2 4.1 4.2 5.1 5.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">4.3</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+<div class="card"><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Evaluated within 5 business days of submission at 100 percent</li><li>Determination made consistently against the published matching policy at 100 percent</li><li>Provisioned within 5 business days of determination at 100 percent</li><li>Match-to-qualification conversion rate tracked as a commercial performance measure</li></ul>
+<ul class="bullets"><li>Response time within 2 hours</li><li>Validation accuracy rate &gt; 98%</li><li>Eligibility check accuracy rate &gt; 95%</li><li>Notification accuracy rate &gt; 99%</li><li>Document review accuracy rate &gt; 90%</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Competitor status evidence being unverifiable independently by Air Canada</li><li>Mapping a competitor&#x27;s tier structure onto Altitude&#x27;s requiring an inherently imperfect equivalence judgement</li><li>Conditional status not correctly expiring or converting automatically at the end of the window</li><li>Match terms generous enough to attract share while still protecting the value of standard-earned status</li></ul>
+<ul class="bullets risk"><li>Delays in response can lead to member dissatisfaction.</li><li>Incorrect identity validation can lead to false status changes.</li><li>Inaccurate eligibility checks can result in incorrect tier assignments.</li><li>Failed notifications can lead to unresolved queries and dissatisfaction.</li><li>Missing documents can delay the challenge review process.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../aeroplan-loyalty/altitude-tier-management/ac-ap-tm-03/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Elite Benefit Entitlement Provisioning</span></a>
