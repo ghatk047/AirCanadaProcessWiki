@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CM-DO-04" title="Click to copy the process ID">
     AC-CM-DO-04<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Reserve Call Out and Assignment</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,233 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-CM-DO-04-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Call-out order determination</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Initial Request</span>
+    <span class="ph-n">5 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Determine call-out order</b></td>
-<td>Crew Tracking Coordinator</td>
+<td><b>Receive call out request</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Call out request from flight operations</td>
+<td>Request logged in system</td>
+<td>Response time within 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delays in receiving requests can lead to missed opportunities for crew assignment.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Validate call out reason</b></td>
+<td>Crew Management Analyst</td>
 <td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Reserve pool and collective agreement call-out rules</td>
-<td>Determined call-out order</td>
-<td>Determined correctly against the applicable agreement at 100 percent</td>
+<td>Logged request details</td>
+<td>Validation result</td>
+<td>Validation accuracy 98%</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Call-out order rules differ across the four collective agreements and are easy to apply inconsistently</td>
+<td>Incorrect validation can lead to unnecessary reservations.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Review crew availability</b></td>
+<td>APPR Adjudicator</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Validation result</td>
+<td>Availability report</td>
+<td>Response time within 10 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed availability checks can cause scheduling delays.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Escalate invalid request</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Invalid validation result</td>
+<td>Escalation ticket</td>
+<td>Escalation response time within 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Unprocessed requests can lead to operational bottlenecks.</td>
+</tr><tr>
+<td class="c-step">1.5</td>
+<td><b>Notify flight operations of unavailability</b></td>
+<td>APPR Adjudicator</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Not Available result</td>
+<td>Notification sent</td>
+<td>Notification success rate 85%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Uncommunicated unavailability can lead to schedule gaps.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CM-DO-04-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Reserve contact</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Validation and Review</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Contact reserve crew in order</b></td>
-<td>Crew Tracking Coordinator</td>
+<td><b>Identify potential crew members</b></td>
+<td>Crew Management Analyst</td>
 <td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Determined order</td>
-<td>Contacted reserve crew member</td>
-<td>First contact attempted within the agreement&#x27;s required notice period at 100 percent</td>
+<td>Availability report</td>
+<td>List of potential crew members</td>
+<td>Number of candidates identified</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>A missed contact attempt has to move to the next crew member in the defined order, not an arbitrary one</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Insufficient candidate pool can lead to operational gaps.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Confirm reserve crew availability</b></td>
-<td>Crew Tracking Coordinator</td>
+<td><b>Select most suitable crew member</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>List of potential crew members</td>
+<td>Selected crew member</td>
+<td>Selection accuracy 95%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Incorrect selection can lead to fatigue issues.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Notify flight operations of insufficient candidates</b></td>
+<td>Crew Management Analyst</td>
 <td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Contacted crew member</td>
-<td>Confirmed availability</td>
-<td>Confirmed within the agreement&#x27;s response window at 90 percent</td>
+<td>No candidates result</td>
+<td>Notification sent</td>
+<td>Notification success rate 80%</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A reserve crew member declining or not responding requires moving down the call-out order without delay</td>
+<td>Insufficient communication can lead to operational disruptions.</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Re-evaluate crew selection criteria</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Not Suitable result</td>
+<td>Updated selection criteria</td>
+<td>Criteria update accuracy 90%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Incorrect criteria can lead to continued operational issues.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CM-DO-04-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Assignment confirmation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Crew Identification</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Assign and update the roster</b></td>
-<td>Crew Tracking Coordinator</td>
+<td><b>Reserve selected crew member</b></td>
+<td>Crew Management Analyst</td>
 <td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Confirmed reserve crew</td>
-<td>Updated roster with assignment</td>
-<td>Updated within 10 minutes of confirmation at 100 percent</td>
+<td>Selected crew member</td>
+<td>Reservation confirmation</td>
+<td>Response time within 5 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A pay and credit calculation dependent on this assignment has to reflect the actual call-out time, not the roster time</td>
+<td>Failed reservations can disrupt operations.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Confirm assignment with crew member</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Reservation confirmation</td>
+<td>Confirmation receipt</td>
+<td>Confirmation rate 90%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Crew refusal can lead to reassignment delays.</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Reassign crew member</b></td>
+<td>Crew Management Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Refusal result</td>
+<td>New assignment confirmation</td>
+<td>Reassignment success rate 85%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Failed reassignments can lead to prolonged disruptions.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-DO-04-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Assignment Confirmation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Update flight operations with assignment</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Confirmation receipt</td>
+<td>Updated flight schedule</td>
+<td>Update accuracy 98%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Incorrect updates can lead to operational errors.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Correct flight schedule update</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Error result</td>
+<td>Corrected flight schedule</td>
+<td>Correction accuracy 95%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Incorrect corrections can lead to ongoing errors.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-DO-04-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Finalization and Communication</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Notify crew member of assignment</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Updated flight schedule</td>
+<td>Notification sent</td>
+<td>Notification success rate 90%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Failed notifications can lead to confusion.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Notify crew member of reassignment</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>New assignment confirmation</td>
+<td>Re-notification sent</td>
+<td>Re-notification success rate 80%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Failed re-notifications can lead to ongoing confusion.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Crew Tracking Coordinator</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">1.1 2.2 4.1 1.4 2.4 4.3</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Crew Management Analyst</span><span class="lane-steps">1.2 2.1 3.1 2.3 3.4</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>APPR Adjudicator</span><span class="lane-steps">1.3 1.5</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Aeroplan Member Services Agent</span><span class="lane-steps">3.2 5.1 5.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Determined correctly against the applicable agreement at 100 percent</li><li>First contact attempted within the agreement&#x27;s required notice period at 100 percent</li><li>Confirmed within the agreement&#x27;s response window at 90 percent</li><li>Zero call-outs made out of the contractually defined order</li></ul>
+<ul class="bullets"><li>Response time within 5 minutes</li><li>Validation accuracy 98%</li><li>Selection accuracy 95%</li><li>Update accuracy 98%</li><li>Notification success rate 90%</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Call-out order rules differing across four collective agreements, risking inconsistent application</li><li>A missed contact attempt moving to an arbitrary next crew member rather than the defined order</li><li>A pay and credit calculation not correctly reflecting the actual call-out time versus the roster time</li><li>A reserve crew member declining or not responding requiring the process to move down the order without delay</li></ul>
+<ul class="bullets risk"><li>Incorrect validation leading to unnecessary reservations</li><li>Delayed availability checks causing scheduling delays</li><li>Insufficient candidate pool leading to operational gaps</li><li>Crew refusal leading to reassignment delays</li><li>Incorrect updates leading to operational errors</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../crew-management/day-of-operations-crew-tracking/ac-cm-do-03/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Crew Reassignment During Disruption</span></a>

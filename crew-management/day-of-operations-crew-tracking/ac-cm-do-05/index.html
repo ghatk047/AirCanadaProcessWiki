@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CM-DO-05" title="Click to copy the process ID">
     AC-CM-DO-05<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Crew Hotel and Transport Coordination</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,233 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-CM-DO-05-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Layover requirement identification</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Hotel Assignment</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Identify layover or unplanned overnight requirement</b></td>
-<td>Crew Tracking Coordinator</td>
+<td><b>Retrieve flight schedule from NetLine</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Scheduled flights for the day</td>
+<td>Flight schedule data</td>
+<td>Schedule retrieval time &lt; 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delays in NetLine system updates can affect initial schedule accuracy.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Identify crew members for each flight</b></td>
+<td>Aeroplan Member Services Agent</td>
 <td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Pairing schedule or disruption event</td>
-<td>Identified requirement with location and duration</td>
-<td>Identified within 15 minutes of a disruption-driven requirement at 100 percent</td>
+<td>Flight schedule data</td>
+<td>Crew pairing information</td>
+<td>Crew identification within 10 minutes of schedule retrieval</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Incorrect crew pairings can lead to union grievances and operational disruptions.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Assign hotels based on crew preferences and agreements</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Crew pairing information, hotel availability data</td>
+<td>Hotel assignments</td>
+<td>Hotel assignments completed within 15 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>An unplanned overnight from a disruption has none of the lead time a scheduled layover has</td>
+<td>Overbooking or limited hotel options can cause crew dissatisfaction.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CM-DO-05-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Accommodation and transport arrangement</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Transportation Coordination</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Arrange hotel accommodation</b></td>
-<td>Crew Tracking Coordinator</td>
-<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Identified requirement</td>
-<td>Confirmed hotel booking</td>
-<td>Confirmed before crew arrival at the layover station at 95 percent</td>
+<td><b>Contact alternative accommodation providers</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Hotel Booking System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Crew pairing information, hotel availability data</td>
+<td>Alternative hotel options</td>
+<td>Alternative hotels identified within 30 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Hotel availability at short notice during a widespread disruption can be genuinely constrained</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Limited alternative options may cause delays in crew deployment.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Arrange ground transport to and from the hotel</b></td>
-<td>Crew Tracking Coordinator</td>
-<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Confirmed hotel</td>
-<td>Confirmed ground transport</td>
-<td>Confirmed before crew arrival at 90 percent</td>
+<td><b>Select preferred transportation mode for each crew member</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Crew pairing information, travel time data</td>
+<td>Transportation assignments</td>
+<td>Transportation assignments completed within 10 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Incorrect transportation choices can lead to delays or missed flights.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Reschedule alternative transportation options</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Crew pairing information, travel time data</td>
+<td>Revised transportation assignments</td>
+<td>Transportation rescheduling within 20 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Transport coordination at an unfamiliar station during a disruption is harder than at a regular layover point</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Continuous rescheduling can disrupt crew schedules and increase operational costs.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CM-DO-05-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Rest confirmation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Confirmation and Communication</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Confirm rest opportunity meets fatigue standards</b></td>
-<td>Crew Tracking Coordinator</td>
+<td><b>Confirm hotel bookings through the hotel system</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Hotel Booking System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Hotel assignments</td>
+<td>Confirmed hotel reservations</td>
+<td>Hotel bookings confirmed within 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Booking failures can cause crew delays and dissatisfaction.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Confirm transportation bookings through the transport system</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Transport Booking System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Transportation assignments</td>
+<td>Confirmed transportation reservations</td>
+<td>Transport bookings confirmed within 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Booking failures can disrupt crew travel schedules.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Update Jeppesen Crew with hotel and transport information</b></td>
+<td>Aeroplan Member Services Agent</td>
 <td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Confirmed arrangements and next duty period</td>
-<td>Confirmed compliant rest opportunity</td>
-<td>100 percent of layovers confirmed compliant before the next duty period</td>
+<td>Confirmed hotel and transportation reservations</td>
+<td>Updated crew records</td>
+<td>Updates completed within 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed updates can lead to confusion among crew members.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-DO-05-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Exception Handling</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Review hotel and transport assignments for compliance with union agreements</b></td>
+<td>APPR Adjudicator</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Updated crew records, union agreement rules</td>
+<td>Compliance status report</td>
+<td>Review completed within 10 minutes</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A rest opportunity that is technically sufficient in hours can still be inadequate given travel time to and from the hotel</td>
+<td>Non-compliant assignments can lead to legal action and operational disruptions.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Adjust hotel and transport assignments to meet union compliance</b></td>
+<td>APPR Adjudicator</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Updated crew records, union agreement rules</td>
+<td>Adjusted crew assignments</td>
+<td>Adjustments completed within 15 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Continuous adjustments can disrupt the final schedule.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-DO-05-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Final Review</span>
+    <span class="ph-n">5 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Notify crew members of their hotel and transport arrangements</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Crew Communication System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Finalized crew assignments</td>
+<td>Notification sent to crew members</td>
+<td>Notifications sent within 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Failed notifications can lead to missed flights and operational delays.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Confirm receipt of hotel and transport information by crew members</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Crew Communication System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Notification sent to crew members</td>
+<td>Confirmation of receipt</td>
+<td>Confirmations received within 10 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Unconfirmed notifications can lead to unresolved issues and operational disruptions.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Resend notification to non-receiving crew members</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Crew Communication System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Finalized crew assignments</td>
+<td>Notification resent to crew members</td>
+<td>Notifications resent within 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Continuous resending can disrupt the final schedule.</td>
+</tr><tr>
+<td class="c-step">5.4</td>
+<td><b>Final review and approval of hotel and transport assignments</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Finalized crew assignments, compliance report</td>
+<td>Approval status</td>
+<td>Review completed within 10 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Non-approved assignments can lead to operational delays and dissatisfaction.</td>
+</tr><tr>
+<td class="c-step">5.5</td>
+<td><b>Update Dayforce with final hotel and transport information</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Finalized crew assignments</td>
+<td>Updated schedule in Dayforce</td>
+<td>Updates completed within 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed updates can lead to confusion among operational teams.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Crew Tracking Coordinator</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">1.1 2.2 2.3 3.2 5.4 5.5</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Aeroplan Member Services Agent</span><span class="lane-steps">1.2 1.3 2.1 3.1 3.3 5.1 5.2 5.3</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>APPR Adjudicator</span><span class="lane-steps">4.1 4.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Hotel Booking System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Transport Booking System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Crew Communication System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Confirmed before crew arrival at the layover station at 95 percent</li><li>Confirmed before crew arrival for ground transport at 90 percent</li><li>100 percent of layovers confirmed compliant before the next duty period</li><li>Hotel and transport arrangement time for unplanned overnights tracked against target</li></ul>
+<ul class="bullets"><li>Hotel assignments completed within 15 minutes</li><li>Transportation assignments completed within 10 minutes</li><li>Hotel bookings confirmed within 5 minutes</li><li>Transport bookings confirmed within 10 minutes</li><li>Updates completed within 5 minutes</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Hotel availability at short notice during a widespread disruption being genuinely constrained</li><li>A rest opportunity technically sufficient in hours being inadequate given travel time to and from the hotel</li><li>Transport coordination at an unfamiliar station during a disruption being harder than at a regular layover point</li><li>An unplanned overnight from a disruption having none of the lead time a scheduled layover has</li></ul>
+<ul class="bullets risk"><li>Incorrect crew pairings leading to union grievances</li><li>Limited hotel options causing crew dissatisfaction</li><li>Continuous rescheduling of transportation disrupting schedules</li><li>Non-compliant assignments leading to legal action</li><li>Failed notifications causing missed flights and operational delays</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../crew-management/day-of-operations-crew-tracking/ac-cm-do-04/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Reserve Call Out and Assignment</span></a>
