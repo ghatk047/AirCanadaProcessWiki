@@ -133,7 +133,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-FN-AP-01" title="Click to copy the process ID">
     AC-FN-AP-01<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Purchase Requisition and Approval</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -142,85 +142,263 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-FN-AP-01-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Requisition creation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Initiation</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Create purchase requisition</b></td>
-<td>Procurement Coordinator</td>
-<td><span class="tag sap" data-tooltip="Source-to-pay, supplier management and contract compliance. [SAP - evidence A]">SAP Ariba<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Business need for goods or services</td>
-<td>Created requisition with spend category</td>
-<td>Created with correct spend categorisation at 95 percent</td>
+<td><b>Create Requisition</b></td>
+<td>Procurement Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>User input, budget constraints</td>
+<td>Purchase requisition draft</td>
+<td>Time to create requisition &lt; 2 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Spend categorisation quality directly affects downstream spend analytics and supplier consolidation opportunities</td>
+<td>Budget constraint checks may delay submission</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Review Requisition for Compliance</b></td>
+<td>Procurement Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Requisition draft</td>
+<td>Compliance check results</td>
+<td>Compliance review accuracy &gt; 95%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Misinterpretation of procurement policies can lead to delays</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Update Requisition Based on Feedback</b></td>
+<td>Procurement Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Compliance feedback</td>
+<td>Updated requisition draft</td>
+<td>Number of updates &lt; 3</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Multiple iterations can consume significant time</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Submit for Approval</b></td>
+<td>Procurement Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Updated requisition draft</td>
+<td>Approval request sent</td>
+<td>Time to submit &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System downtime can cause delays in submission</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-FN-AP-01-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Approval routing</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Approval Workflow</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Route requisition for approval</b></td>
-<td>Procurement Coordinator</td>
-<td><span class="tag sap" data-tooltip="Source-to-pay, supplier management and contract compliance. [SAP - evidence A]">SAP Ariba<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Created requisition</td>
-<td>Routed for approval per delegation of authority</td>
-<td>Routed correctly against delegation of authority at 100 percent</td>
+<td><b>First Level Approval</b></td>
+<td>Procurement Manager</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Approval request</td>
+<td>Approval or rejection</td>
+<td>First level approval time &lt; 8 hours</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Delegation of authority thresholds have to be correctly configured and kept current as roles change</td>
+<td>Managers may be overwhelmed with requests, causing delays</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Approve or reject requisition</b></td>
-<td>Approving Manager</td>
-<td><span class="tag sap" data-tooltip="Source-to-pay, supplier management and contract compliance. [SAP - evidence A]">SAP Ariba<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Routed requisition</td>
-<td>Approved or rejected requisition</td>
-<td>Decided within the standard approval service level at 90 percent</td>
+<td><b>Escalate to Second Level Approval</b></td>
+<td>Procurement Manager</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Requisition and rejection reason</td>
+<td>Second level approval request</td>
+<td>Escalation time &lt; 2 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Approval delay for a time-sensitive purchase can create operational pressure to bypass the process</td>
+<td>Escalation paths may be unclear</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Second Level Approval</b></td>
+<td>Senior Procurement Manager</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Approval request</td>
+<td>Final approval or rejection</td>
+<td>Second level approval time &lt; 16 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Senior managers may require additional information, causing delays</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Request Further Justification</b></td>
+<td>Senior Procurement Manager</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Requisition and rejection reason</td>
+<td>Justified requisition</td>
+<td>Time to justify &lt; 1 day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Justifications may need multiple rounds of review</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-FN-AP-01-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Requisition confirmation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Contract Management</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Confirm requisition ready for sourcing</b></td>
-<td>Procurement Coordinator</td>
+<td><b>Initiate Contract Creation</b></td>
+<td>Contracts Officer</td>
 <td><span class="tag sap" data-tooltip="Source-to-pay, supplier management and contract compliance. [SAP - evidence A]">SAP Ariba<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
 <td>Approved requisition</td>
-<td>Confirmed requisition</td>
-<td>Confirmed within 1 business day of approval at 100 percent</td>
+<td>Contract draft</td>
+<td>Time to create contract &lt; 4 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Supplier data discrepancies can cause delays</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Handle Contract Creation Failure</b></td>
+<td>Contracts Officer</td>
+<td><span class="tag sap" data-tooltip="Source-to-pay, supplier management and contract compliance. [SAP - evidence A]">SAP Ariba<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Error message</td>
+<td>Corrected requisition or contract draft</td>
+<td>Time to resolve failure &lt; 1 day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System bugs can disrupt contract creation</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FN-AP-01-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Order Generation</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Generate Purchase Order</b></td>
+<td>Procurement Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Approved contract</td>
+<td>Purchase order</td>
+<td>Time to generate order &lt; 2 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A requisition confirmed without complete specification detail generates rework at the sourcing stage</td>
+<td>Order generation errors can cause delays</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Route Purchase Order for Review</b></td>
+<td>Procurement Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Purchase order</td>
+<td>Reviewed purchase order</td>
+<td>Review time &lt; 8 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Order discrepancies may require manual corrections</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Correct Purchase Order Errors</b></td>
+<td>Procurement Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Purchase order and error details</td>
+<td>Corrected purchase order</td>
+<td>Correction time &lt; 1 day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual corrections can be time-consuming</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FN-AP-01-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Payment Processing</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Initiate Payment Process</b></td>
+<td>Accounts Payable Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Purchase order and invoice</td>
+<td>Payment instruction</td>
+<td>Time to initiate payment &lt; 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Payment processing errors can cause delays</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Handle Payment Processing Error</b></td>
+<td>Accounts Payable Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Error message</td>
+<td>Corrected payment instruction</td>
+<td>Time to resolve error &lt; 1 day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System integrations can fail, disrupting payments</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FN-AP-01-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Post-Purchase Review</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Post-Purchase Review</b></td>
+<td>Procurement Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Completed purchase transaction</td>
+<td>Review report</td>
+<td>Review time &lt; 1 day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Large volumes of transactions can overwhelm analysts</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Update Procurement Database</b></td>
+<td>Procurement Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Review report</td>
+<td>Updated procurement database</td>
+<td>Time to update &lt; 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Database update errors can cause data loss</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Close Purchase Requisition</b></td>
+<td>Procurement Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Updated database</td>
+<td>Closed requisition record</td>
+<td>Time to close &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual closing can be prone to errors</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Procurement Coordinator</span><span class="lane-steps">1.1 2.1 3.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Approving Manager</span><span class="lane-steps">2.2</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Procurement Analyst</span><span class="lane-steps">1.1 1.2 1.3 1.4 4.1 4.2 4.3 6.1 6.2 6.3</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Procurement Manager</span><span class="lane-steps">2.1 2.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Senior Procurement Manager</span><span class="lane-steps">2.3 2.4</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Contracts Officer</span><span class="lane-steps">3.1 3.2</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Accounts Payable Analyst</span><span class="lane-steps">5.1 5.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag sap" data-tooltip="Source-to-pay, supplier management and contract compliance. [SAP - evidence A]">SAP Ariba<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+<div class="card"><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sap" data-tooltip="Source-to-pay, supplier management and contract compliance. [SAP - evidence A]">SAP Ariba<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Created with correct spend categorisation at 95 percent</li><li>Routed correctly against delegation of authority at 100 percent</li><li>Decided within the standard approval service level at 90 percent</li><li>Confirmed within 1 business day of approval at 100 percent</li></ul>
+<ul class="bullets"><li>Average time for purchase requisition creation and approval: &lt; 48 hours</li><li>First level approval accuracy: &gt; 90%</li><li>Second level approval accuracy: &gt; 85%</li><li>Contract creation success rate: &gt; 95%</li><li>Purchase order generation error rate: &lt; 2%</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Delegation of authority thresholds not being kept current as roles and responsibilities change</li><li>Approval delay for a time-sensitive purchase creating operational pressure to bypass the process</li><li>Spend categorisation quality directly affecting downstream spend analytics and consolidation opportunities</li><li>A requisition confirmed without complete specification generating rework at the sourcing stage</li></ul>
+<ul class="bullets risk"><li>Inaccurate compliance checks leading to rejected requisitions</li><li>Overwhelmed managers causing delays in approvals</li><li>Supplier data discrepancies disrupting contract creation</li><li>Order generation errors delaying payment processing</li><li>Database update errors causing data loss</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../finance-procurement-treasury/revenue-accounting/ac-fn-ra-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Revenue Audit and Leakage Recovery</span></a>
