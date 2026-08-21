@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CX-SS-01" title="Click to copy the process ID">
     AC-CX-SS-01<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Mobility Aid Handling and Tracking</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,96 +143,288 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-CX-SS-01-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Booking and requirement capture</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Initial Request Handling</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Capture mobility aid details at booking</b></td>
-<td>Special Services Agent</td>
-<td><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Customer-provided device details</td>
-<td>Captured device profile in the booking</td>
-<td>Captured for 100 percent of declared mobility aid bookings</td>
+<td><b>Receive booking request with mobility aid requirement</b></td>
+<td>Customer Service Agent</td>
+<td><span class="tag channel" data-tooltip="Primary direct digital channel, cloud-native on AWS. Undergoing redevelopment under the CDO. [Air Canada - evidence A]">aircanada.com<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Customer booking details</td>
+<td>Booking confirmation with mobility aid included</td>
+<td>95% booking accuracy within 2 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Device dimensions and battery type details are not always fully provided at initial booking</td>
+<td>System latency can cause delays in processing bookings.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Check availability of requested mobility aid type</b></td>
+<td>Special Services Coordinator</td>
+<td><span class="tag channel" data-tooltip="iOS and Android. Booking, check-in, boarding pass, in-app bag tracking and mobility-aid tracking. [Air Canada - evidence A]">Air Canada Mobile App<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Mobility aid request details</td>
+<td>Availability status of the mobility aid</td>
+<td>90% accuracy in stock check within 1 minute</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inventory discrepancies due to manual data entry errors.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Confirm booking with mobility aid included</b></td>
+<td>Customer Service Agent</td>
+<td><span class="tag channel" data-tooltip="Primary direct digital channel, cloud-native on AWS. Undergoing redevelopment under the CDO. [Air Canada - evidence A]">aircanada.com<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Booking confirmation with mobility aid details</td>
+<td>Confirmed booking details sent to customer</td>
+<td>85% satisfaction rate in communication</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Customer service agents may lack training on detailed mobility aid descriptions.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CX-SS-01-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Handling and tracking</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Mobility Aid Availability Check</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Accept and tag the mobility aid at check-in</b></td>
-<td>Special Services Agent</td>
-<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Physical device at check-in</td>
-<td>Tagged and accepted device</td>
-<td>Accepted and tagged within the standard check-in window at 100 percent</td>
+<td><b>Notify airport operations of upcoming mobility aid pickup</b></td>
+<td>Special Services Coordinator</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Airport code and pickup details</td>
+<td>Confirmation from airport operations</td>
+<td>98% successful notifications within 5 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Battery-powered devices require specific handling documentation under dangerous goods rules</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Network issues can disrupt communication with airport systems.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Track device through handling milestones</b></td>
-<td>Special Services Agent</td>
+<td><b>Coordinate pickup time and location with airport staff</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Airport operations confirmation</td>
+<td>Pickup schedule details</td>
+<td>95% coordination accuracy within 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Scheduling conflicts with other airport operations.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Confirm pickup time and location to customer</b></td>
+<td>Customer Service Agent</td>
 <td><span class="tag channel" data-tooltip="iOS and Android. Booking, check-in, boarding pass, in-app bag tracking and mobility-aid tracking. [Air Canada - evidence A]">Air Canada Mobile App<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Handling scan events</td>
-<td>Real-time device status visible to the customer</td>
-<td>Status updated within 10 minutes of each handling milestone at 90 percent</td>
+<td>Pickup schedule details</td>
+<td>Confirmation sent to customer</td>
+<td>90% satisfaction rate in communication</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Device handling scan discipline needs to match the same rigour as checked baggage</td>
+<td>Customers may misinterpret pickup times due to timezone differences.</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Attempt re-notification after 1 minute</b></td>
+<td>Special Services Coordinator</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Airport code and pickup details</td>
+<td>Confirmation from airport operations</td>
+<td>98% successful notifications within 5 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Network issues can disrupt communication with airport systems.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CX-SS-01-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Arrival delivery</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Booking Confirmation and Communication</span>
+    <span class="ph-n">7 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Deliver device at arrival gate or carousel</b></td>
-<td>Special Services Agent</td>
-<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Arrived device</td>
-<td>Delivered device to the customer</td>
-<td>Delivered within 20 minutes of aircraft arrival at 95 percent</td>
+<td><b>Monitor mobility aid pickup status in real-time</b></td>
+<td>Special Services Coordinator</td>
+<td><span class="tag channel" data-tooltip="iOS and Android. Booking, check-in, boarding pass, in-app bag tracking and mobility-aid tracking. [Air Canada - evidence A]">Air Canada Mobile App<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Live tracking data</td>
+<td>Pickup status updates</td>
+<td>95% accuracy in real-time tracking within 1 minute</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>A customer without their mobility aid at arrival faces immediate and serious personal impact</td>
+<td>GPS signal loss can cause tracking inaccuracies.</td>
 </tr><tr>
 <td class="c-step">3.2</td>
-<td><b>Report and remediate any damage</b></td>
-<td>Special Services Agent</td>
-<td><span class="tag sita" data-tooltip="Global mishandled-baggage tracing and PIR file management. [SITA - evidence B]">SITA WorldTracer<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Damaged device on delivery</td>
-<td>Damage report and remediation plan</td>
-<td>Damage reported and remediation initiated within 1 hour of identification at 100 percent</td>
+<td><b>Notify customer of pickup status update</b></td>
+<td>Customer Service Agent</td>
+<td><span class="tag channel" data-tooltip="iOS and Android. Booking, check-in, boarding pass, in-app bag tracking and mobility-aid tracking. [Air Canada - evidence A]">Air Canada Mobile App<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Pickup status updates</td>
+<td>Status update sent to customer</td>
+<td>90% satisfaction rate in communication</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Customers may misinterpret pickup times due to timezone differences.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Monitor mobility aid delivery status in real-time</b></td>
+<td>Special Services Coordinator</td>
+<td><span class="tag channel" data-tooltip="iOS and Android. Booking, check-in, boarding pass, in-app bag tracking and mobility-aid tracking. [Air Canada - evidence A]">Air Canada Mobile App<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Live tracking data</td>
+<td>Delivery status updates</td>
+<td>95% accuracy in real-time tracking within 1 minute</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>GPS signal loss can cause tracking inaccuracies.</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Attempt re-notification after 1 minute</b></td>
+<td>Special Services Coordinator</td>
+<td><span class="tag channel" data-tooltip="iOS and Android. Booking, check-in, boarding pass, in-app bag tracking and mobility-aid tracking. [Air Canada - evidence A]">Air Canada Mobile App<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Pickup status updates</td>
+<td>Status update sent to customer</td>
+<td>90% satisfaction rate in communication</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Customers may misinterpret pickup times due to timezone differences.</td>
+</tr><tr>
+<td class="c-step">3.5</td>
+<td><b>Notify airport operations of lost signal issue</b></td>
+<td>Special Services Coordinator</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Airport code and pickup details</td>
+<td>Confirmation from airport operations</td>
+<td>98% successful notifications within 5 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="yes">Y</span></td>
-<td>Device damage is a higher-severity incident than baggage damage and requires faster remediation</td>
+<td>Network issues can disrupt communication with airport systems.</td>
+</tr><tr>
+<td class="c-step">3.6</td>
+<td><b>Attempt re-notification after 1 minute</b></td>
+<td>Special Services Coordinator</td>
+<td><span class="tag channel" data-tooltip="iOS and Android. Booking, check-in, boarding pass, in-app bag tracking and mobility-aid tracking. [Air Canada - evidence A]">Air Canada Mobile App<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Delivery status updates</td>
+<td>Status update sent to customer</td>
+<td>90% satisfaction rate in communication</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Customers may misinterpret pickup times due to timezone differences.</td>
+</tr><tr>
+<td class="c-step">3.7</td>
+<td><b>Notify airport operations of lost signal issue</b></td>
+<td>Special Services Coordinator</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Airport code and pickup details</td>
+<td>Confirmation from airport operations</td>
+<td>98% successful notifications within 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Network issues can disrupt communication with airport systems.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-SS-01-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Airport Pickup Coordination</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Verify delivery of mobility aid at terminal</b></td>
+<td>Special Services Coordinator</td>
+<td><span class="tag channel" data-tooltip="iOS and Android. Booking, check-in, boarding pass, in-app bag tracking and mobility-aid tracking. [Air Canada - evidence A]">Air Canada Mobile App<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Customer confirmation</td>
+<td>Delivery verification status</td>
+<td>95% accuracy in verification within 2 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Customers may not be aware of the verification process.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Log delivery confirmation in system</b></td>
+<td>Special Services Coordinator</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Delivery verification status</td>
+<td>Updated case record</td>
+<td>90% accuracy in logging within 1 minute</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Data entry errors can lead to inaccurate records.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Notify airport operations of delivery issue</b></td>
+<td>Special Services Coordinator</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Airport code and pickup details</td>
+<td>Confirmation from airport operations</td>
+<td>98% successful notifications within 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Network issues can disrupt communication with airport systems.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-SS-01-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Delivery and Verification</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Collect customer feedback on mobility aid experience</b></td>
+<td>Customer Service Agent</td>
+<td><span class="tag channel" data-tooltip="Primary direct digital channel, cloud-native on AWS. Undergoing redevelopment under the CDO. [Air Canada - evidence A]">aircanada.com<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Post-travel survey</td>
+<td>Feedback data</td>
+<td>90% response rate within 24 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Low customer engagement with post-travel surveys.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Analyze feedback data for improvement opportunities</b></td>
+<td>Special Services Analyst</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Feedback data</td>
+<td>Improvement recommendations</td>
+<td>85% actionable insights within 48 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex analysis can lead to delayed improvements.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Implement feedback-driven process improvements</b></td>
+<td>Special Services Manager</td>
+<td><span class="tag channel" data-tooltip="iOS and Android. Booking, check-in, boarding pass, in-app bag tracking and mobility-aid tracking. [Air Canada - evidence A]">Air Canada Mobile App<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Improvement recommendations</td>
+<td>Updated process guidelines</td>
+<td>90% implementation rate within 1 week</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Resistance to change from operational staff.</td>
+</tr><tr>
+<td class="c-step">5.4</td>
+<td><b>Monitor impact of process improvements</b></td>
+<td>Special Services Analyst</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Process performance data</td>
+<td>Impact analysis report</td>
+<td>80% improvement in customer satisfaction within 2 weeks</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Lack of clear metrics for impact assessment.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Special Services Agent</span><span class="lane-steps">1.1 2.1 2.2 3.1 3.2</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Customer Service Agent</span><span class="lane-steps">1.1 1.3 2.3 3.2 5.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Special Services Coordinator</span><span class="lane-steps">1.2 2.1 2.4 3.1 3.3 3.4 3.5 3.6 3.7 4.1 4.2 4.3</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">2.2</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Special Services Analyst</span><span class="lane-steps">5.2 5.4</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Special Services Manager</span><span class="lane-steps">5.3</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag channel" data-tooltip="iOS and Android. Booking, check-in, boarding pass, in-app bag tracking and mobility-aid tracking. [Air Canada - evidence A]">Air Canada Mobile App<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sita" data-tooltip="Global mishandled-baggage tracing and PIR file management. [SITA - evidence B]">SITA WorldTracer<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag channel" data-tooltip="Primary direct digital channel, cloud-native on AWS. Undergoing redevelopment under the CDO. [Air Canada - evidence A]">aircanada.com<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag channel" data-tooltip="iOS and Android. Booking, check-in, boarding pass, in-app bag tracking and mobility-aid tracking. [Air Canada - evidence A]">Air Canada Mobile App<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Accepted and tagged within the standard check-in window at 100 percent</li><li>Delivered within 20 minutes of aircraft arrival at 95 percent</li><li>Status updated within 10 minutes of each handling milestone at 90 percent</li><li>Zero mobility aid damage incidents unreported beyond 1 hour</li></ul>
+<ul class="bullets"><li>95% booking accuracy within 2 minutes</li><li>90% accuracy in stock check within 1 minute</li><li>85% satisfaction rate in communication</li><li>98% successful notifications within 5 minutes</li><li>95% coordination accuracy within 10 minutes</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A customer without their mobility aid at arrival facing immediate and serious personal impact</li><li>Battery-powered device handling documentation being incomplete under dangerous goods rules</li><li>Device damage being a higher-severity incident than baggage damage but not always handled with matching urgency</li><li>Device dimensions and battery details not being fully captured at the original booking</li></ul>
+<ul class="bullets risk"><li>Network disruptions affecting real-time tracking and communication.</li><li>Data entry errors leading to inventory discrepancies or inaccurate records.</li><li>Customer misinterpretation of pickup times due to timezone differences.</li><li>Low customer engagement with post-travel surveys.</li><li>Resistance to change from operational staff impacting process improvements.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../customer-experience-channels/contact-centre/ac-cx-cc-06/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Secure Payment Capture in the Contact Centre</span></a>

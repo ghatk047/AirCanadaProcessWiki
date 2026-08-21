@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CX-SS-02" title="Click to copy the process ID">
     AC-CX-SS-02<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Accessible Travel Request under ATPDR</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,96 +143,241 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-CX-SS-02-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Request capture</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Request Submission</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Capture the accessibility request</b></td>
+<td><b>Customer submits request</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag channel" data-tooltip="Primary direct digital channel, cloud-native on AWS. Undergoing redevelopment under the CDO. [Air Canada - evidence A]">aircanada.com<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Customer details and travel needs</td>
+<td>Request ticketed in Salesforce Service Cloud</td>
+<td>95% request submission success rate within 2 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>High volume of requests during peak travel seasons can cause delays in processing.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Request routed for initial review</b></td>
 <td>Special Services Agent</td>
-<td><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Customer-stated accessibility need</td>
-<td>Captured request in the booking record</td>
-<td>Captured for 100 percent of submitted requests at booking or pre-travel</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Submitted request details</td>
+<td>Initial review notes and classification</td>
+<td>80% accuracy in initial review within 5 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Misclassification of requests can lead to delays in accommodations.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Request reclassified and reviewed</b></td>
+<td>Special Services Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Reclassified request details</td>
+<td>Updated review notes</td>
+<td>90% accuracy in reclassification within 10 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Request categories do not always map precisely to what the customer actually needs</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex cases require multiple reviews to ensure compliance.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CX-SS-02-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Cross-touchpoint communication</span>
+    <span class="ph-name">Phase 2 &mdash; Initial Review</span>
     <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Communicate request to departure station</b></td>
+<td><b>Documentation required for verification</b></td>
 <td>Special Services Agent</td>
-<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Captured request</td>
-<td>Station-level assistance instruction</td>
-<td>Communicated at least 24 hours before departure for 95 percent of requests</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Customer details and travel needs</td>
+<td>Verification documentation</td>
+<td>98% documentation completion rate within 30 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Late-submitted requests compress the notice window available to the station</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Customers may not provide complete documentation, causing delays.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Communicate request to the flight crew</b></td>
+<td><b>Request for additional documentation</b></td>
 <td>Special Services Agent</td>
-<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Captured request</td>
-<td>Crew briefing on the accessibility need</td>
-<td>Crew briefed before boarding for 100 percent of flagged requests</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Crew briefing has to reach the specific crew assigned to that flight, not a general notice</td>
-</tr><tr>
-<td class="c-step">2.3</td>
-<td><b>Communicate request to connecting stations</b></td>
-<td>Special Services Agent</td>
-<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Captured request and connecting itinerary</td>
-<td>Connecting station assistance instruction</td>
-<td>Communicated to 100 percent of connecting stations before the connection</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Customer contact details</td>
+<td>Additional documentation request sent</td>
+<td>90% customer response rate within 1 hour</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A gap at a connecting station is a common single point of failure for the whole journey</td>
+<td>Customers may ignore requests for additional documentation.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Customer provides additional documentation</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag channel" data-tooltip="Primary direct digital channel, cloud-native on AWS. Undergoing redevelopment under the CDO. [Air Canada - evidence A]">aircanada.com<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Additional documentation</td>
+<td>Updated request ticket in Salesforce Service Cloud</td>
+<td>95% timely receipt of additional documentation</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Late or incomplete additional documentation can delay processing.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CX-SS-02-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Assistance delivery</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Documentation &amp; Verification</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Deliver assistance at each touchpoint</b></td>
+<td><b>Approval by APPR Adjudicator</b></td>
+<td>APPR Adjudicator</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Verified request details</td>
+<td>Approvals and rejections</td>
+<td>95% approval rate within 2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Adjudicators may need clarification on complex cases.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Request for clarification</b></td>
+<td>APPR Adjudicator</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Approval request details</td>
+<td>Clarification questions</td>
+<td>85% response rate within 4 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inadequate responses can delay the approval process.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Customer responds to clarification questions</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag channel" data-tooltip="Primary direct digital channel, cloud-native on AWS. Undergoing redevelopment under the CDO. [Air Canada - evidence A]">aircanada.com<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Clarification response</td>
+<td>Updated request ticket in Salesforce Service Cloud</td>
+<td>90% timely and accurate responses to clarifications</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Misunderstandings or delays in responding to clarifications can cause further delays.</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Re-request clarification</b></td>
+<td>APPR Adjudicator</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Updated request details</td>
+<td>Revised clarification questions</td>
+<td>75% resolution rate within 2 additional attempts</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex cases may require multiple rounds of clarification.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-SS-02-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Approval Process</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Accommodation arrangements initiated</b></td>
 <td>Special Services Agent</td>
-<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Station and crew instructions</td>
-<td>Delivered assistance</td>
-<td>Delivered as requested for 95 percent of flagged interactions</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Approved request details</td>
+<td>Accommodation itinerary and notifications</td>
+<td>90% successful accommodation arrangements within 24 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inability to secure necessary accommodations can lead to customer dissatisfaction.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Customer notification of accommodations</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag channel" data-tooltip="Primary direct digital channel, cloud-native on AWS. Undergoing redevelopment under the CDO. [Air Canada - evidence A]">aircanada.com<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Accommodation details</td>
+<td>Customer confirmation receipt</td>
+<td>95% customer acknowledgment rate within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Assistance delivery quality depends on staffing levels the accessibility process itself does not control</td>
+<td>Customers may not receive or understand the notification.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-SS-02-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Implementation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Pre-flight check-in</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag channel" data-tooltip="iOS and Android. Booking, check-in, boarding pass, in-app bag tracking and mobility-aid tracking. [Air Canada - evidence A]">Air Canada Mobile App<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Customer check-in details</td>
+<td>Check-in confirmation and boarding pass</td>
+<td>98% successful check-ins within 2 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Technical issues with the mobile app can prevent check-ins.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Boarding pass presentation</b></td>
+<td>Flight Attendant</td>
+<td><span class="tag channel" data-tooltip="iOS and Android. Booking, check-in, boarding pass, in-app bag tracking and mobility-aid tracking. [Air Canada - evidence A]">Air Canada Mobile App<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Boarding pass</td>
+<td>Passenger allowed on board</td>
+<td>99% successful boarding pass presentations</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Misread or misplaced boarding passes can cause delays.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-SS-02-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Post-Flight Review</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Post-flight review of accommodations</b></td>
+<td>Special Services Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Flight details and passenger feedback</td>
+<td>Review notes and updates</td>
+<td>85% thoroughness of reviews within 48 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inadequate reviews can lead to recurring issues.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Update request status in Salesforce Service Cloud</b></td>
+<td>Special Services Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Review notes</td>
+<td>Updated case file</td>
+<td>90% timely updates of case files</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed updates can affect future requests.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Special Services Agent</span><span class="lane-steps">1.1 2.1 2.2 2.3 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Aeroplan Member Services Agent</span><span class="lane-steps">1.1 2.3 3.3 4.2 5.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Special Services Agent</span><span class="lane-steps">1.2 1.3 2.1 2.2 4.1 6.1 6.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>APPR Adjudicator</span><span class="lane-steps">3.1 3.2 3.4</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Flight Attendant</span><span class="lane-steps">5.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag channel" data-tooltip="Primary direct digital channel, cloud-native on AWS. Undergoing redevelopment under the CDO. [Air Canada - evidence A]">aircanada.com<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag channel" data-tooltip="iOS and Android. Booking, check-in, boarding pass, in-app bag tracking and mobility-aid tracking. [Air Canada - evidence A]">Air Canada Mobile App<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Captured for 100 percent of submitted requests at booking or pre-travel</li><li>Communicated at least 24 hours before departure for 95 percent of requests</li><li>Communicated to 100 percent of connecting stations before the connection</li><li>Delivered as requested for 95 percent of flagged interactions</li></ul>
+<ul class="bullets"><li>95% request submission success rate within 2 minutes</li><li>80% accuracy in initial review within 5 minutes</li><li>98% documentation completion rate within 30 minutes</li><li>90% customer response rate within 1 hour</li><li>95% approval rate within 2 hours</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A gap at any single touchpoint, booking, station, crew or connection, meaning the accommodation does not happen</li><li>A connecting station being a common single point of failure for an otherwise well-communicated request</li><li>Late-submitted requests compressing the notice window available to the departure station</li><li>Assistance delivery quality depending on station staffing levels outside the process&#x27;s own control</li></ul>
+<ul class="bullets risk"><li>High volume of requests during peak travel seasons causing delays</li><li>Misclassification of requests leading to delays in accommodations</li><li>Customers not providing complete documentation or ignoring requests for additional information</li><li>Adjudicators needing clarification on complex cases</li><li>Inability to secure necessary accommodations causing customer dissatisfaction</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../customer-experience-channels/special-services-accessibility/ac-cx-ss-01/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Mobility Aid Handling and Tracking</span></a>

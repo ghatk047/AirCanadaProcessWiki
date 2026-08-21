@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CX-CC-06" title="Click to copy the process ID">
     AC-CX-CC-06<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Secure Payment Capture in the Contact Centre</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,252 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-CX-CC-06-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Secure capture initiation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Initial Payment Request</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Initiate secure payment capture</b></td>
-<td>Contact Centre Agent</td>
+<td><b>Customer initiates payment</b></td>
+<td>Aeroplan Member Services Agent</td>
 <td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Customer readiness to pay</td>
-<td>Initiated secure capture session</td>
-<td>Initiated within the interaction without material delay at 100 percent</td>
+<td>Customer interaction initiating a booking or service payment</td>
+<td>Payment request received in Amazon Connect</td>
+<td>98% successful capture rate within 2 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A customer unfamiliar with the secure capture flow can be confused by the handoff from voice to keypad entry</td>
+<td>High call volume during peak travel seasons can cause delays</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Validate payment details</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Payment request from customer</td>
+<td>Validated payment details</td>
+<td>99% accuracy in payment validation</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Incorrect card information can lead to multiple retries and increased call duration</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Capture payment securely</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Validated payment details</td>
+<td>Securely captured payment</td>
+<td>100% secure payment capture rate</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Payment gateway issues can cause temporary failures</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Request customer to re-enter payment details</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Invalid payment details</td>
+<td>Re-entered valid payment details</td>
+<td>95% successful re-entry rate within 3 attempts</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Customer frustration with multiple input requests</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CX-CC-06-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Isolated payment processing</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Payment Capture</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Capture card data outside agent access</b></td>
-<td>Contact Centre Agent</td>
-<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Customer keypad input</td>
-<td>Captured card data in the isolated payment channel</td>
-<td>100 percent of card data captured outside agent audio and screen access</td>
-<td class="c-flag"><span class="yes">Y</span></td>
+<td><b>Update Salesforce Service Cloud</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Securely captured payment</td>
+<td>Updated case in Salesforce Service Cloud</td>
+<td>97% case update accuracy</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Any leakage of card data into the agent&#x27;s audio or screen path is a direct PCI-DSS violation</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Database connectivity issues can delay updates</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Process payment authorisation</b></td>
-<td>Contact Centre Agent</td>
-<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Captured card data</td>
-<td>Payment authorisation result</td>
-<td>Authorisation processed within 10 seconds at 97 percent</td>
+<td><b>Check APPR compliance</b></td>
+<td>APPR Adjudicator</td>
+<td><span class="tag regulator" data-tooltip="Canadian Transportation Agency complaint and Air Passenger Protection Regulations adjudication channel. [CTA - evidence A]">CTA Complaint Interface<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Updated case in Salesforce Service Cloud</td>
+<td>APPR compliance check result</td>
+<td>100% compliance checks within 5 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Complexity of APPR regulations can lead to misinterpretation</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Log non-compliance issue</b></td>
+<td>APPR Adjudicator</td>
+<td><span class="tag regulator" data-tooltip="Canadian Transportation Agency complaint and Air Passenger Protection Regulations adjudication channel. [CTA - evidence A]">CTA Complaint Interface<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Non-compliance result</td>
+<td>Logged non-compliance case in CTA Complaint Interface</td>
+<td>98% accurate logging rate</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A failed authorisation requires the customer to re-enter card data through the same secure flow</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual logging errors can cause delays</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Escalate to duty manager</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag channel" data-tooltip="iOS and Android. Booking, check-in, boarding pass, in-app bag tracking and mobility-aid tracking. [Air Canada - evidence A]">Air Canada Mobile App<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Logged non-compliance case</td>
+<td>Escalation notification sent</td>
+<td>99% escalation accuracy</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed escalations can lead to compliance issues</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CX-CC-06-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Confirmation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Compliance Check</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Confirm payment to the customer and agent</b></td>
-<td>Contact Centre Agent</td>
+<td><b>Review payment transaction</b></td>
+<td>Cargo Compliance Agent</td>
 <td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Authorisation result</td>
-<td>Confirmed payment status visible to the agent</td>
-<td>Confirmation visible to the agent within 5 seconds of authorisation at 100 percent</td>
+<td>Escalated case</td>
+<td>Transaction review result</td>
+<td>95% accurate review rate</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex transactions can lead to lengthy reviews</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Update payment status in Salesforce</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Transaction review result</td>
+<td>Updated payment status</td>
+<td>98% update accuracy</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Database connectivity issues can delay updates</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-CC-06-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Exception Handling</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Notify customer of compliance action</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag channel" data-tooltip="iOS and Android. Booking, check-in, boarding pass, in-app bag tracking and mobility-aid tracking. [Air Canada - evidence A]">Air Canada Mobile App<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Updated payment status</td>
+<td>Customer notification sent</td>
+<td>97% successful notification rate</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Failed notifications can lead to customer dissatisfaction</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Update case in Salesforce Service Cloud</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Customer notification sent</td>
+<td>Updated case status</td>
+<td>95% update accuracy</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Database connectivity issues can delay updates</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-CC-06-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Post-Payment Actions</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Generate payment receipt</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Final payment confirmation</td>
+<td>Generated payment receipt</td>
+<td>98% successful generation rate</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>The agent needs confirmation of success without ever seeing the underlying card data</td>
+<td>Generation errors can cause customer confusion</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Send payment receipt to customer</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag channel" data-tooltip="iOS and Android. Booking, check-in, boarding pass, in-app bag tracking and mobility-aid tracking. [Air Canada - evidence A]">Air Canada Mobile App<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Generated payment receipt</td>
+<td>Payment receipt sent to customer</td>
+<td>97% successful delivery rate</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Failed deliveries can lead to customer dissatisfaction</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Update case in Salesforce Service Cloud</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Payment receipt sent</td>
+<td>Updated case status</td>
+<td>95% update accuracy</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Database connectivity issues can delay updates</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-CC-06-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Final Verification</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Final verification of payment capture</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>All previous steps completed</td>
+<td>Verification result</td>
+<td>98% successful verification rate</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Errors in verification can lead to compliance issues</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Close case in Salesforce Service Cloud</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Verification result</td>
+<td>Case closed</td>
+<td>97% successful closure rate</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Failed closures can cause process delays</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Contact Centre Agent</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Aeroplan Member Services Agent</span><span class="lane-steps">1.1 1.2 1.3 1.4 2.1 4.1 4.2 5.1 5.2 5.3</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>APPR Adjudicator</span><span class="lane-steps">2.2 2.3</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">2.4</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Cargo Compliance Agent</span><span class="lane-steps">3.1 3.2 6.1 6.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+<div class="card"><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag regulator" data-tooltip="Canadian Transportation Agency complaint and Air Passenger Protection Regulations adjudication channel. [CTA - evidence A]">CTA Complaint Interface<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag channel" data-tooltip="iOS and Android. Booking, check-in, boarding pass, in-app bag tracking and mobility-aid tracking. [Air Canada - evidence A]">Air Canada Mobile App<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>100 percent of card data captured outside agent audio and screen access</li><li>Authorisation processed within 10 seconds at 97 percent</li><li>Zero confirmed PCI-DSS scope violations from contact centre payment capture</li><li>Payment capture completion rate above target</li></ul>
+<ul class="bullets"><li>98% successful capture rate within 2 minutes</li><li>99% accuracy in payment validation</li><li>100% secure payment capture rate</li><li>97% case update accuracy</li><li>95% accurate review rate</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Any leakage of card data into the agent&#x27;s audio or screen path constituting a direct PCI-DSS violation</li><li>A customer unfamiliar with the secure capture handoff abandoning the payment mid-flow</li><li>A failed authorisation requiring a full re-entry through the same secure flow, frustrating the customer</li><li>The agent needing payment status confirmation without ever gaining visibility into the card data itself</li></ul>
+<ul class="bullets risk"><li>High call volume during peak travel seasons can cause delays</li><li>Incorrect card information can lead to multiple retries and increased call duration</li><li>Payment gateway issues can cause temporary failures</li><li>Database connectivity issues can delay updates</li><li>Complexity of APPR regulations can lead to misinterpretation</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../customer-experience-channels/contact-centre/ac-cx-cc-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Contact Centre Capacity and Workforce Planning</span></a>
