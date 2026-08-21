@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-FO-FD-03" title="Click to copy the process ID">
     AC-FO-FD-03<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>ETOPS and Oceanic Route Planning</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,96 +143,241 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-FO-FD-03-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Diversion planning</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Initial Planning</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Identify eligible diversion airports along the route</b></td>
+<td><b>Receive flight plan request</b></td>
 <td>Flight Dispatcher</td>
 <td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Planned oceanic or extended-range route</td>
-<td>Identified diversion airport set</td>
-<td>Diversion airports identified for 100 percent of ETOPS sectors</td>
+<td>New flight details from the airline network</td>
+<td>Flight plan template</td>
+<td>Time to receive and acknowledge request (mins)</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Diversion airport availability and suitability can change with local weather or operational status</td>
+<td>Delays in receiving requests can cause scheduling conflicts.</td>
 </tr><tr>
 <td class="c-step">1.2</td>
-<td><b>Calculate ETOPS entry point and time to alternate</b></td>
-<td>Flight Dispatcher</td>
+<td><b>Assign route planning team</b></td>
+<td>Flight Planning Manager</td>
 <td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Route and diversion airports</td>
-<td>Calculated ETOPS entry point and diversion time</td>
-<td>Calculated within the aircraft&#x27;s certified ETOPS rating at 100 percent</td>
+<td>Flight plan template</td>
+<td>Assigned team members</td>
+<td>Time to assign team (mins)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Resource allocation issues can delay initial planning.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Review flight itinerary</b></td>
+<td>Route Planner</td>
+<td><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Flight plan template</td>
+<td>Initial route proposal</td>
+<td>Time to review itinerary (mins)</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>The calculation depends on aircraft-specific certification limits that must not be exceeded</td>
+<td>Incorrect initial routes can lead to regulatory violations.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-FO-FD-03-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Communication and oceanic clearance</span>
+    <span class="ph-name">Phase 2 &mdash; Route Analysis</span>
     <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Obtain oceanic clearance</b></td>
-<td>Flight Dispatcher</td>
+<td><b>Conduct ETOPS compliance check</b></td>
+<td>ETOPS Compliance Officer</td>
 <td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Filed oceanic route</td>
-<td>Confirmed oceanic clearance</td>
-<td>Clearance obtained before entering oceanic airspace at 100 percent</td>
+<td>Initial route proposal</td>
+<td>Compliance report</td>
+<td>Time to complete ETOPS check (mins)</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Oceanic clearance timing is coordinated with multiple air traffic control authorities across the route</td>
+<td>Non-compliant routes can cause delays and cancellations.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Confirm communication and datalink procedures</b></td>
-<td>Flight Dispatcher</td>
-<td><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Route and clearance</td>
-<td>Confirmed communication procedure for the sector</td>
-<td>Confirmed for 100 percent of oceanic sectors before departure</td>
+<td><b>Submit compliance report to OCC</b></td>
+<td>ETOPS Compliance Officer</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Compliance report</td>
+<td>Report logged in system</td>
+<td>Time to submit report (mins)</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Communication procedure requirements vary by oceanic region and are not uniform across the route</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System failures can delay report submission.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-FO-FD-03-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; ETOPS compliance validation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; ETOPS Compliance Check</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Validate complete ETOPS compliance</b></td>
+<td><b>Request oceanic route clearance</b></td>
+<td>Oceanic Route Planner</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Compliance report</td>
+<td>Oceanic clearance request</td>
+<td>Time to request clearance (mins)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delays in receiving oceanic clearances can cause flight delays.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Review oceanic clearance response</b></td>
+<td>Oceanic Route Planner</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Oceanic clearance request</td>
+<td>Clearance status</td>
+<td>Time to review response (mins)</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Non-approval can lead to flight rescheduling.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-FD-03-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Oceanic Route Approval</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Finalize flight plan with ETOPS and oceanic details</b></td>
 <td>Flight Dispatcher</td>
 <td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Assembled plan components</td>
-<td>Validated ETOPS-compliant flight plan</td>
-<td>Validated before dispatch release for 100 percent of ETOPS flights</td>
+<td>Clearance status</td>
+<td>Finalized flight plan</td>
+<td>Time to finalize flight plan (mins)</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Errors in finalization can lead to operational disruptions.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Review finalized flight plan for compliance</b></td>
+<td>Flight Compliance Officer</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Finalized flight plan</td>
+<td>Compliance review report</td>
+<td>Time to complete compliance review (mins)</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A late change to diversion airport status has to trigger a full ETOPS re-validation</td>
+<td>Non-compliant plans can cause regulatory penalties.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Submit finalized flight plan to OCC</b></td>
+<td>Flight Dispatcher</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Compliance review report</td>
+<td>Plan submitted to OCC</td>
+<td>Time to submit plan (mins)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Submission failures can delay flight operations.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-FD-03-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Final Review</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Review OCC approval status</b></td>
+<td>Flight Dispatcher</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Plan submitted to OCC</td>
+<td>Approval status</td>
+<td>Time to receive OCC approval (mins)</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Rejection can cause significant delays.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Prepare dispatch documents</b></td>
+<td>Flight Dispatcher</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Approval status</td>
+<td>Dispatch documents</td>
+<td>Time to prepare dispatch documents (mins)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Document preparation errors can lead to operational issues.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Final review of dispatch documents</b></td>
+<td>Flight Dispatcher</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Dispatch documents</td>
+<td>Final reviewed documents</td>
+<td>Time to complete final review (mins)</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Omissions in final review can cause operational failures.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-FD-03-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Dispatch Preparation</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Dispatch flight</b></td>
+<td>Flight Dispatcher</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Final reviewed documents</td>
+<td>Flight dispatched</td>
+<td>Time to dispatch flight (mins)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Dispatch failures can lead to operational disruptions.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Monitor flight status</b></td>
+<td>Flight Dispatcher</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Flight dispatched</td>
+<td>Flight status report</td>
+<td>Time to monitor flight (mins)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Monitoring failures can lead to undetected issues.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Update OCC on flight status</b></td>
+<td>Flight Dispatcher</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Flight status report</td>
+<td>Updated status in system</td>
+<td>Time to update OCC (mins)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Update failures can lead to communication gaps.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Flight Dispatcher</span><span class="lane-steps">1.1 1.2 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Flight Dispatcher</span><span class="lane-steps">1.1 4.1 4.3 5.1 5.2 5.3 6.1 6.2 6.3</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Flight Planning Manager</span><span class="lane-steps">1.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Route Planner</span><span class="lane-steps">1.3</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>ETOPS Compliance Officer</span><span class="lane-steps">2.1 2.2</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Oceanic Route Planner</span><span class="lane-steps">3.1 3.2</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>Flight Compliance Officer</span><span class="lane-steps">4.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
+<div class="card"><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Diversion airports identified for 100 percent of ETOPS sectors</li><li>Calculated within the aircraft&#x27;s certified ETOPS rating at 100 percent</li><li>Validated before dispatch release for 100 percent of ETOPS flights</li><li>Clearance obtained before entering oceanic airspace at 100 percent</li></ul>
+<ul class="bullets"><li>Time to receive and acknowledge request (mins)</li><li>Time to assign team (mins)</li><li>Time to complete ETOPS check (mins)</li><li>Time to submit report (mins)</li><li>Time to finalize flight plan (mins)</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A diversion airport becoming unsuitable due to weather or operational status after planning completes</li><li>A late change to diversion airport status not triggering a full ETOPS re-validation</li><li>Communication procedure requirements varying by oceanic region in ways easy to miss</li><li>Oceanic clearance timing depending on coordination across multiple air traffic control authorities</li></ul>
+<ul class="bullets risk"><li>Resource allocation issues</li><li>Regulatory violations</li><li>System failures</li><li>Non-approval of oceanic routes</li><li>Operational disruptions</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../flight-operations-dispatch/flight-planning-dispatch/ac-fo-fd-02/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Fuel Policy Application and Tankering Decision</span></a>
