@@ -133,7 +133,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-HR-WM-05" title="Click to copy the process ID">
     AC-HR-WM-05<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Overtime and Premium Pay Control</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -142,85 +142,395 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-HR-WM-05-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Overtime need identification</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Request Submission</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Identify overtime or premium coverage need</b></td>
-<td>Workforce Planning Analyst</td>
+<td><b>Employee submits overtime request</b></td>
+<td>Crew Member</td>
 <td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Coverage gap beyond standard roster</td>
-<td>Identified need with justification</td>
-<td>Identified before the shift requiring coverage at 90 percent</td>
+<td>Overtime hours worked</td>
+<td>Request record in Dayforce</td>
+<td>95% submission accuracy within 24 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual data entry errors can lead to delays.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Validate request input</b></td>
+<td>HR Analyst</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Request record</td>
+<td>Validation report</td>
+<td>98% validation accuracy within 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex union rules require meticulous verification.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Notify employee of input error</b></td>
+<td>HR Analyst</td>
+<td><span class="tag m365" data-tooltip="Email, collaboration and document management for approximately 35,000 employees. [Microsoft - evidence C]">Microsoft 365<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Validation report</td>
+<td>Error notification email</td>
+<td>90% response rate within 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Employee communication delays can lead to frustration.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Resend validation error notification</b></td>
+<td>HR Analyst</td>
+<td><span class="tag m365" data-tooltip="Email, collaboration and document management for approximately 35,000 employees. [Microsoft - evidence C]">Microsoft 365<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Error report</td>
+<td>Re-sent email</td>
+<td>80% successful resend rate within 2 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Overtime is often the fastest way to fill an urgent gap, creating pressure to bypass careful authorisation</td>
+<td>Email system downtime can affect communication.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-HR-WM-05-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Authorisation</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Rule Application</span>
+    <span class="ph-n">5 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Authorise against budget and policy</b></td>
-<td>Workforce Planning Analyst</td>
+<td><b>Apply union-specific rules</b></td>
+<td>HR Analyst</td>
 <td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Identified need</td>
-<td>Authorised or declined overtime</td>
-<td>Authorised within delegated budget authority at 95 percent</td>
+<td>Valid request record</td>
+<td>Rule application report</td>
+<td>95% rule accuracy within 30 minutes</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Authorisation under time pressure to fill an urgent gap can favour approval over cost discipline</td>
+<td>Union rules vary significantly, increasing complexity.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Assign overtime to eligible staff</b></td>
-<td>Workforce Planning Analyst</td>
+<td><b>Escalate to union representative</b></td>
+<td>HR Analyst</td>
+<td><span class="tag m365" data-tooltip="Email, collaboration and document management for approximately 35,000 employees. [Microsoft - evidence C]">Microsoft 365<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Rule application report</td>
+<td>Escalation email</td>
+<td>85% response rate within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Union delays can stall processing.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Resend escalation notification</b></td>
+<td>HR Analyst</td>
+<td><span class="tag m365" data-tooltip="Email, collaboration and document management for approximately 35,000 employees. [Microsoft - evidence C]">Microsoft 365<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Escalation email</td>
+<td>Re-sent email</td>
+<td>70% successful resend rate within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Email system downtime can affect communication.</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Union representative confirms compliance</b></td>
+<td>Union Representative</td>
 <td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Authorised overtime</td>
-<td>Assigned staff</td>
-<td>Assigned per the defined fairness and eligibility rules at 100 percent</td>
+<td>Escalation email</td>
+<td>Compliance confirmation</td>
+<td>90% response rate within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Union delays can stall processing.</td>
+</tr><tr>
+<td class="c-step">2.5</td>
+<td><b>Notify employee of non-compliance</b></td>
+<td>HR Analyst</td>
+<td><span class="tag m365" data-tooltip="Email, collaboration and document management for approximately 35,000 employees. [Microsoft - evidence C]">Microsoft 365<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Compliance confirmation</td>
+<td>Notification email</td>
+<td>80% response rate within 1 hour</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Overtime distribution has to be fair across eligible staff or it becomes a source of workplace grievance</td>
+<td>Employee communication delays can lead to frustration.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-HR-WM-05-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Usage tracking</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Approval Process</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Track overtime usage against budget</b></td>
-<td>Workforce Planning Analyst</td>
-<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Assigned and worked overtime</td>
-<td>Usage tracking report</td>
-<td>Tracked each period against budget at 100 percent</td>
+<td><b>Submit request for approval</b></td>
+<td>HR Analyst</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Rule application report</td>
+<td>Approval request in Dayforce</td>
+<td>95% submission accuracy within 2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual data entry errors can lead to delays.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Notify employee of rejection</b></td>
+<td>HR Analyst</td>
+<td><span class="tag m365" data-tooltip="Email, collaboration and document management for approximately 35,000 employees. [Microsoft - evidence C]">Microsoft 365<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Approval request</td>
+<td>Rejection email</td>
+<td>90% response rate within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Employee communication delays can lead to frustration.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Resend rejection notification</b></td>
+<td>HR Analyst</td>
+<td><span class="tag m365" data-tooltip="Email, collaboration and document management for approximately 35,000 employees. [Microsoft - evidence C]">Microsoft 365<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Rejection email</td>
+<td>Re-sent email</td>
+<td>80% successful resend rate within 1 hour</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Persistent overtime usage above budget can indicate an underlying structural roster gap, not just isolated incidents</td>
+<td>Email system downtime can affect communication.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-HR-WM-05-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Financial Processing</span>
+    <span class="ph-n">6 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Initiate financial processing</b></td>
+<td>Payroll Analyst</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Approved request</td>
+<td>Financial transaction record</td>
+<td>98% accuracy within 2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Data transfer errors between Dayforce and SAP S/4HANA can cause delays.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Identify and correct data error</b></td>
+<td>Payroll Analyst</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Error report</td>
+<td>Corrected financial transaction record</td>
+<td>85% correction rate within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual corrections can be time-consuming.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Escalate to finance team</b></td>
+<td>Payroll Analyst</td>
+<td><span class="tag m365" data-tooltip="Email, collaboration and document management for approximately 35,000 employees. [Microsoft - evidence C]">Microsoft 365<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Error report</td>
+<td>Escalation email</td>
+<td>80% response rate within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Finance team delays can stall processing.</td>
+</tr><tr>
+<td class="c-step">4.4</td>
+<td><b>Resend escalation notification</b></td>
+<td>Payroll Analyst</td>
+<td><span class="tag m365" data-tooltip="Email, collaboration and document management for approximately 35,000 employees. [Microsoft - evidence C]">Microsoft 365<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Escalation email</td>
+<td>Re-sent email</td>
+<td>70% successful resend rate within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Email system downtime can affect communication.</td>
+</tr><tr>
+<td class="c-step">4.5</td>
+<td><b>Finance team approves correction</b></td>
+<td>Finance Team Lead</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Escalation email</td>
+<td>Approval response</td>
+<td>90% approval rate within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Finance delays can stall processing.</td>
+</tr><tr>
+<td class="c-step">4.6</td>
+<td><b>Notify payroll analyst of rejection</b></td>
+<td>Payroll Analyst</td>
+<td><span class="tag m365" data-tooltip="Email, collaboration and document management for approximately 35,000 employees. [Microsoft - evidence C]">Microsoft 365<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Approval response</td>
+<td>Rejection email</td>
+<td>80% response rate within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Communication delays can lead to frustration.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-HR-WM-05-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Payment Execution</span>
+    <span class="ph-n">6 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Execute payment</b></td>
+<td>Payroll Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Corrected financial transaction record</td>
+<td>Payment processed</td>
+<td>98% success rate within 2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Payment system downtime can cause delays.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Identify and correct payment error</b></td>
+<td>Payroll Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Error report</td>
+<td>Corrected payment record</td>
+<td>85% correction rate within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual corrections can be time-consuming.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Escalate to finance team</b></td>
+<td>Payroll Analyst</td>
+<td><span class="tag m365" data-tooltip="Email, collaboration and document management for approximately 35,000 employees. [Microsoft - evidence C]">Microsoft 365<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Error report</td>
+<td>Escalation email</td>
+<td>80% response rate within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Finance team delays can stall processing.</td>
+</tr><tr>
+<td class="c-step">5.4</td>
+<td><b>Resend escalation notification</b></td>
+<td>Payroll Analyst</td>
+<td><span class="tag m365" data-tooltip="Email, collaboration and document management for approximately 35,000 employees. [Microsoft - evidence C]">Microsoft 365<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Escalation email</td>
+<td>Re-sent email</td>
+<td>70% successful resend rate within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Email system downtime can affect communication.</td>
+</tr><tr>
+<td class="c-step">5.5</td>
+<td><b>Finance team approves correction</b></td>
+<td>Finance Team Lead</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Escalation email</td>
+<td>Approval response</td>
+<td>90% approval rate within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Finance delays can stall processing.</td>
+</tr><tr>
+<td class="c-step">5.6</td>
+<td><b>Notify payroll analyst of rejection</b></td>
+<td>Payroll Analyst</td>
+<td><span class="tag m365" data-tooltip="Email, collaboration and document management for approximately 35,000 employees. [Microsoft - evidence C]">Microsoft 365<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Approval response</td>
+<td>Rejection email</td>
+<td>80% response rate within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Communication delays can lead to frustration.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-HR-WM-05-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Post-Payment Review</span>
+    <span class="ph-n">6 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Review payment status</b></td>
+<td>Payroll Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Payment processed record</td>
+<td>Payment review report</td>
+<td>95% accuracy within 2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual data verification can lead to delays.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Initiate correction process</b></td>
+<td>Payroll Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Payment review report</td>
+<td>Correction request</td>
+<td>85% accuracy within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual corrections can be time-consuming.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Escalate to finance team</b></td>
+<td>Payroll Analyst</td>
+<td><span class="tag m365" data-tooltip="Email, collaboration and document management for approximately 35,000 employees. [Microsoft - evidence C]">Microsoft 365<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Correction request</td>
+<td>Escalation email</td>
+<td>80% response rate within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Finance team delays can stall processing.</td>
+</tr><tr>
+<td class="c-step">6.4</td>
+<td><b>Resend escalation notification</b></td>
+<td>Payroll Analyst</td>
+<td><span class="tag m365" data-tooltip="Email, collaboration and document management for approximately 35,000 employees. [Microsoft - evidence C]">Microsoft 365<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Escalation email</td>
+<td>Re-sent email</td>
+<td>70% successful resend rate within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Email system downtime can affect communication.</td>
+</tr><tr>
+<td class="c-step">6.5</td>
+<td><b>Finance team approves correction</b></td>
+<td>Finance Team Lead</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Escalation email</td>
+<td>Approval response</td>
+<td>90% approval rate within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Finance delays can stall processing.</td>
+</tr><tr>
+<td class="c-step">6.6</td>
+<td><b>Notify payroll analyst of rejection</b></td>
+<td>Payroll Analyst</td>
+<td><span class="tag m365" data-tooltip="Email, collaboration and document management for approximately 35,000 employees. [Microsoft - evidence C]">Microsoft 365<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Approval response</td>
+<td>Rejection email</td>
+<td>80% response rate within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Communication delays can lead to frustration.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Workforce Planning Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Crew Member</span><span class="lane-steps">1.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>HR Analyst</span><span class="lane-steps">1.2 1.3 1.4 2.1 2.2 2.3 2.5 3.1 3.2 3.3</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Union Representative</span><span class="lane-steps">2.4</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Payroll Analyst</span><span class="lane-steps">4.1 4.2 4.3 4.4 4.6 5.1 5.2 5.3 5.4 5.6 6.1 6.2 6.3 6.4 6.6</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Finance Team Lead</span><span class="lane-steps">4.5 5.5 6.5</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag m365" data-tooltip="Email, collaboration and document management for approximately 35,000 employees. [Microsoft - evidence C]">Microsoft 365<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Identified before the shift requiring coverage at 90 percent</li><li>Authorised within delegated budget authority at 95 percent</li><li>Assigned per the defined fairness and eligibility rules at 100 percent</li><li>Overtime usage against budget tracked and trending within target</li></ul>
+<ul class="bullets"><li>95% request submission accuracy within 24 hours</li><li>98% rule application accuracy within 30 minutes</li><li>95% approval submission accuracy within 2 hours</li><li>98% financial processing success rate within 2 hours</li><li>98% payment execution success rate within 2 hours</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Overtime being often the fastest way to fill an urgent gap, creating pressure to bypass careful authorisation</li><li>Unfair overtime distribution across eligible staff becoming a source of workplace grievance</li><li>Persistent overtime usage above budget indicating an underlying structural roster gap</li><li>Authorisation under time pressure favouring approval over genuine cost discipline</li></ul>
+<ul class="bullets risk"><li>Data entry errors leading to request delays</li><li>Complex union rules causing misapplication</li><li>Email system downtime affecting communication</li><li>Data transfer errors between systems</li><li>Finance team delays impacting critical processing steps</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../human-resources-labour/workforce-management-payroll/ac-hr-wm-04/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Absence Leave and Return to Work Management</span></a>

@@ -133,7 +133,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-HR-WM-03" title="Click to copy the process ID">
     AC-HR-WM-03<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Payroll Processing and Union Rule Application</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -142,85 +142,241 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-HR-WM-03-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Time and attendance compilation</span>
-    <span class="ph-n">1 steps</span></div>
-  <div class="phase-body"><div class="tbl-wrap"><table>
-  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
-  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
-  <tbody><tr>
-<td class="c-step">1.1</td>
-<td><b>Compile validated time and attendance</b></td>
-<td>Payroll Analyst</td>
-<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Validated attendance records</td>
-<td>Compiled payroll input</td>
-<td>Compiled for 100 percent of employees at period close at 100 percent</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Compilation has to correctly aggregate across employees who may work across multiple stations in one pay period</td>
-</tr></tbody></table></div></div>
-</div><div class="phase-group" data-phase-id="AC-HR-WM-03-2">
-  <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Union rule application</span>
+    <span class="ph-name">Phase 1 &mdash; Data Collection</span>
     <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
-<td class="c-step">2.1</td>
-<td><b>Apply applicable union or corporate pay rules</b></td>
-<td>Payroll Analyst</td>
+<td class="c-step">1.1</td>
+<td><b>Collect time data from Dayforce Time</b></td>
+<td>HR Payroll Analyst</td>
 <td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Compiled input and employee bargaining unit</td>
-<td>Calculated pay by employee</td>
-<td>Calculated correctly against the applicable rule set at 100 percent</td>
+<td>Employee attendance and time records</td>
+<td>Time data for payroll calculation</td>
+<td>Data collection accuracy rate &gt;98%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Late or incomplete data entries can delay payroll processing.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Verify union membership status</b></td>
+<td>HR Payroll Analyst</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Employee records</td>
+<td>Union membership confirmation</td>
+<td>Membership verification accuracy &gt;99%</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Multiple bargaining units with distinct rule sets have to be correctly applied alongside non-union corporate rules</td>
+<td>Incorrect membership status can lead to wrong rule application.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-HR-WM-03-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Rule Application</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Apply union rules for bargaining unit A</b></td>
+<td>HR Payroll Analyst</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Time data and union rules for Unit A</td>
+<td>Payroll adjustments for Unit A</td>
+<td>Rule application accuracy &gt;98%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex union rules can lead to calculation errors.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Reconcile payroll calculation exceptions</b></td>
-<td>Payroll Analyst</td>
+<td><b>Apply union rules for bargaining unit B</b></td>
+<td>HR Payroll Analyst</td>
 <td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Calculated pay with flagged anomalies</td>
-<td>Resolved exceptions</td>
-<td>Resolved before the pay run deadline for 95 percent of exceptions at 100 percent</td>
+<td>Time data and union rules for Unit B</td>
+<td>Payroll adjustments for Unit B</td>
+<td>Rule application accuracy &gt;98%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex union rules can lead to calculation errors.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Correct rule application error</b></td>
+<td>HR Payroll Analyst</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Error details and correct rule logic</td>
+<td>Corrected payroll data</td>
+<td>Correction time &lt;1 hour</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="yes">Y</span></td>
-<td>An exception unresolved before the pay run deadline delays that employee&#x27;s payment</td>
+<td>Errors can cause delays in payroll processing.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-HR-WM-03-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Payroll posting</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Payroll Calculation</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Post payroll and disburse payment</b></td>
-<td>Payroll Analyst</td>
+<td><b>Calculate non-union payroll</b></td>
+<td>HR Payroll Analyst</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Time data for non-members</td>
+<td>Non-union payroll data</td>
+<td>Payroll calculation accuracy &gt;98%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Errors in calculations can lead to disputes.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Adjust non-union payroll</b></td>
+<td>HR Payroll Analyst</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Corrected calculation logic and data</td>
+<td>Adjusted payroll data</td>
+<td>Correction time &lt;1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Errors can cause delays in payroll processing.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-HR-WM-03-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Language Compliance Check</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Translate payroll documents to French</b></td>
+<td>HR Payroll Analyst</td>
+<td><span class="tag m365" data-tooltip="Email, collaboration and document management for approximately 35,000 employees. [Microsoft - evidence C]">Microsoft 365<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>English payroll documents</td>
+<td>French translations</td>
+<td>Translation accuracy &gt;98%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual translation can introduce errors.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Review bilingual compliance</b></td>
+<td>HR Payroll Analyst</td>
+<td><span class="tag m365" data-tooltip="Email, collaboration and document management for approximately 35,000 employees. [Microsoft - evidence C]">Microsoft 365<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Translated documents</td>
+<td>Compliance check results</td>
+<td>Compliance review accuracy &gt;98%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Non-compliant translations can lead to legal issues.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Correct translation errors</b></td>
+<td>HR Payroll Analyst</td>
+<td><span class="tag m365" data-tooltip="Email, collaboration and document management for approximately 35,000 employees. [Microsoft - evidence C]">Microsoft 365<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Translation errors and correct phrasing</td>
+<td>Corrected French documents</td>
+<td>Correction time &lt;1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Errors can cause delays in payroll distribution.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-HR-WM-03-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Distribution</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Generate final payroll reports</b></td>
+<td>HR Payroll Analyst</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Payroll data and translations</td>
+<td>Final payroll reports</td>
+<td>Report generation time &lt;2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed report generation can impact audit timelines.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Re-generate payroll reports</b></td>
+<td>HR Payroll Analyst</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Corrected data and translations</td>
+<td>Final payroll reports</td>
+<td>Report generation time &lt;1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed report generation can impact audit timelines.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-HR-WM-03-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Audit</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Submit payroll to SAP S/4HANA for processing</b></td>
+<td>HR Payroll Analyst</td>
 <td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Reconciled calculation</td>
-<td>Posted and disbursed payroll</td>
-<td>Disbursed on the scheduled pay date at 100 percent</td>
+<td>Final payroll reports</td>
+<td>Processed payroll data</td>
+<td>Submission accuracy &gt;98%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Incorrect submissions can lead to financial discrepancies.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Resubmit corrected payroll data</b></td>
+<td>HR Payroll Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Corrected payroll reports</td>
+<td>Processed payroll data</td>
+<td>Submission accuracy &gt;98%</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A posting error discovered after disbursement requires a correction cycle that delays resolution for the employee</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Incorrect submissions can lead to financial discrepancies.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Audit processed payroll data</b></td>
+<td>HR Audit Manager</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Processed payroll data</td>
+<td>Audit report</td>
+<td>Audit completion time &lt;2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Audit failures can lead to legal action.</td>
+</tr><tr>
+<td class="c-step">6.4</td>
+<td><b>Correct audit issues and resubmit</b></td>
+<td>HR Audit Manager</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Audit findings and corrections</td>
+<td>Processed payroll data</td>
+<td>Correction time &lt;1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Audit failures can lead to legal action.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Payroll Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>HR Payroll Analyst</span><span class="lane-steps">1.1 1.2 2.1 2.2 2.3 3.1 3.2 4.1 4.2 4.3 5.1 5.2 6.1 6.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>HR Audit Manager</span><span class="lane-steps">6.3 6.4</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+<div class="card"><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag m365" data-tooltip="Email, collaboration and document management for approximately 35,000 employees. [Microsoft - evidence C]">Microsoft 365<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Compiled for 100 percent of employees at period close at 100 percent</li><li>Calculated correctly against the applicable rule set at 100 percent</li><li>Resolved before the pay run deadline for 95 percent of exceptions at 100 percent</li><li>Disbursed on the scheduled pay date at 100 percent</li></ul>
+<ul class="bullets"><li>Data collection accuracy rate &gt;98%</li><li>Membership verification accuracy &gt;99%</li><li>Rule application accuracy &gt;98%</li><li>Translation accuracy &gt;98%</li><li>Compliance review accuracy &gt;98%</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Multiple bargaining units with distinct rule sets needing correct application alongside non-union rules</li><li>An exception unresolved before the pay run deadline delaying that employee&#x27;s payment</li><li>A posting error discovered after disbursement requiring a correction cycle that delays employee resolution</li><li>Compilation needing to correctly aggregate across employees working multiple stations in one pay period</li></ul>
+<ul class="bullets risk"><li>Incorrect data entries delaying payroll processing</li><li>Non-compliant translations leading to legal issues</li><li>Delayed report generation impacting audit timelines</li><li>Financial discrepancies from incorrect submissions</li><li>Audit failures resulting in legal action</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../human-resources-labour/workforce-management-payroll/ac-hr-wm-02/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Time and Attendance Capture</span></a>

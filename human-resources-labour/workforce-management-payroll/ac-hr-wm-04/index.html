@@ -133,7 +133,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-HR-WM-04" title="Click to copy the process ID">
     AC-HR-WM-04<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Absence Leave and Return to Work Management</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -142,85 +142,318 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-HR-WM-04-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Absence reporting and entitlement determination</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Request Submission</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Report and register absence</b></td>
-<td>Workforce Planning Analyst</td>
+<td><b>Employee submits absence request</b></td>
+<td>Aeroplan Member Services Agent</td>
 <td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Employee-reported absence</td>
-<td>Registered absence with type</td>
-<td>Registered within the required notification window at 95 percent</td>
+<td>Leave type, start and end dates, reason for leave</td>
+<td>Request ID generated</td>
+<td>90% of requests processed within 24 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Short-notice absence for an operational shift creates an immediate coverage gap</td>
+<td>Manual data entry errors leading to delays</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>HR Manager reviews request</b></td>
+<td>Senior HR Analyst</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Request ID, employee details, leave type, dates</td>
+<td>Review notes and approval status</td>
+<td>85% of requests reviewed within 4 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex union rules causing delays in decision-making</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Notify employee of denial</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag m365" data-tooltip="Email, collaboration and document management for approximately 35,000 employees. [Microsoft - evidence C]">Microsoft 365<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Employee details, denial reason</td>
+<td>Notification email sent</td>
+<td>98% of notifications sent within 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Email delivery failures causing notification delays</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Resend denial notification</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag m365" data-tooltip="Email, collaboration and document management for approximately 35,000 employees. [Microsoft - evidence C]">Microsoft 365<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Employee details, denial reason</td>
+<td>Resent notification email sent</td>
+<td>98% of notifications sent within 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Email delivery failures causing notification delays</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-HR-WM-04-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Coverage arrangement</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Approval Process</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Determine leave entitlement</b></td>
-<td>Workforce Planning Analyst</td>
+<td><b>Submit request for medical validation</b></td>
+<td>HR Medical Coordinator</td>
 <td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Registered absence and employee record</td>
-<td>Determined entitlement</td>
-<td>Determined correctly against policy for 100 percent of registered absences at 100 percent</td>
+<td>Request ID, employee details, leave type, dates</td>
+<td>Medical validation status</td>
+<td>95% of validations completed within 7 days</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Entitlement rules differ by absence type and employee tenure, and misapplication creates a pay accuracy issue downstream</td>
+<td>Delayed medical reports causing delays</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Arrange coverage for the absence</b></td>
-<td>Workforce Planning Analyst</td>
+<td><b>Approve request based on medical validation</b></td>
+<td>Senior HR Analyst</td>
 <td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Determined absence</td>
-<td>Arranged coverage or accepted gap</td>
-<td>Coverage arranged for 90 percent of operationally critical absences</td>
+<td>Validation status, employee details, leave type, dates</td>
+<td>Updated request status</td>
+<td>90% of requests approved within 24 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Incorrect interpretation of union rules leading to denials</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Notify employee of denial based on medical validation</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag m365" data-tooltip="Email, collaboration and document management for approximately 35,000 employees. [Microsoft - evidence C]">Microsoft 365<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Employee details, denial reason</td>
+<td>Notification email sent</td>
+<td>98% of notifications sent within 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Email delivery failures causing notification delays</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Resend denial notification based on medical validation</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag m365" data-tooltip="Email, collaboration and document management for approximately 35,000 employees. [Microsoft - evidence C]">Microsoft 365<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Employee details, denial reason</td>
+<td>Resent notification email sent</td>
+<td>98% of notifications sent within 2 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Coverage has to be filled from the same limited staff pool the roster already scheduled against forecast demand</td>
+<td>Email delivery failures causing notification delays</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-HR-WM-04-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Return to work</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Medical Validation</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Coordinate return to work</b></td>
-<td>Workforce Planning Analyst</td>
+<td><b>Plan return-to-work activities</b></td>
+<td>Workforce Scheduler</td>
 <td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Employee returning from leave</td>
-<td>Coordinated return with updated roster</td>
-<td>Coordinated within 2 business days of the confirmed return date at 95 percent</td>
+<td>Employee details, leave type, end date</td>
+<td>Return-to-work plan</td>
+<td>80% of plans completed within 5 days</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Resource constraints affecting scheduling</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Escalate to HR Manager for resource allocation</b></td>
+<td>Workforce Scheduler</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Employee details, leave type, end date, current resources</td>
+<td>Resource allocation decision</td>
+<td>75% of escalations resolved within 1 week</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Lack of flexibility in resource management</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Notify employee of delayed return-to-work planning</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag m365" data-tooltip="Email, collaboration and document management for approximately 35,000 employees. [Microsoft - evidence C]">Microsoft 365<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Employee details, delay reason</td>
+<td>Notification email sent</td>
+<td>98% of notifications sent within 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Email delivery failures causing notification delays</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Resend delayed planning notification</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag m365" data-tooltip="Email, collaboration and document management for approximately 35,000 employees. [Microsoft - evidence C]">Microsoft 365<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Employee details, delay reason</td>
+<td>Resent notification email sent</td>
+<td>98% of notifications sent within 2 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A return not coordinated with the roster leaves the employee&#x27;s schedule inconsistent with actual availability</td>
+<td>Email delivery failures causing notification delays</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-HR-WM-04-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Return-to-Work Planning</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Document return-to-work plan</b></td>
+<td>HR Document Manager</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Employee details, return-to-work plan</td>
+<td>Documented plan</td>
+<td>90% of documents completed within 2 days</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Incorrect documentation leading to errors</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Correct and re-document the return-to-work plan</b></td>
+<td>HR Document Manager</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Employee details, corrected plan</td>
+<td>Revised document</td>
+<td>95% of corrections made within 1 day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Persistent documentation errors causing delays</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Notify employee of correction needed</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag m365" data-tooltip="Email, collaboration and document management for approximately 35,000 employees. [Microsoft - evidence C]">Microsoft 365<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Employee details, correction reason</td>
+<td>Notification email sent</td>
+<td>98% of notifications sent within 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Email delivery failures causing notification delays</td>
+</tr><tr>
+<td class="c-step">4.4</td>
+<td><b>Resend correction needed notification</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag m365" data-tooltip="Email, collaboration and document management for approximately 35,000 employees. [Microsoft - evidence C]">Microsoft 365<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Employee details, correction reason</td>
+<td>Resent notification email sent</td>
+<td>98% of notifications sent within 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Email delivery failures causing notification delays</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-HR-WM-04-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Communication &amp; Documentation</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Communicate return-to-work plan to employee</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag m365" data-tooltip="Email, collaboration and document management for approximately 35,000 employees. [Microsoft - evidence C]">Microsoft 365<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Employee details, documented plan</td>
+<td>Communication sent</td>
+<td>95% of communications sent within 24 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Language barriers affecting communication</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Translate and resend communication</b></td>
+<td>Bilingual Translator</td>
+<td><span class="tag m365" data-tooltip="Email, collaboration and document management for approximately 35,000 employees. [Microsoft - evidence C]">Microsoft 365<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Employee details, plan in original language</td>
+<td>Translated communication</td>
+<td>90% of translations completed within 1 day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Translation errors causing miscommunication</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Notify employee of translation error</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag m365" data-tooltip="Email, collaboration and document management for approximately 35,000 employees. [Microsoft - evidence C]">Microsoft 365<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Employee details, error reason</td>
+<td>Notification email sent</td>
+<td>98% of notifications sent within 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Email delivery failures causing notification delays</td>
+</tr><tr>
+<td class="c-step">5.4</td>
+<td><b>Resend translation error notification</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag m365" data-tooltip="Email, collaboration and document management for approximately 35,000 employees. [Microsoft - evidence C]">Microsoft 365<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Employee details, error reason</td>
+<td>Resent notification email sent</td>
+<td>98% of notifications sent within 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Email delivery failures causing notification delays</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-HR-WM-04-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Final Review</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Final review by HR Manager</b></td>
+<td>Senior HR Analyst</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Employee details, documented plan, communication status</td>
+<td>Review notes and final approval</td>
+<td>80% of reviews completed within 2 days</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Misinterpretation of union rules leading to denials</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Notify employee of final denial</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag m365" data-tooltip="Email, collaboration and document management for approximately 35,000 employees. [Microsoft - evidence C]">Microsoft 365<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Employee details, denial reason</td>
+<td>Notification email sent</td>
+<td>98% of notifications sent within 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Email delivery failures causing notification delays</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Resend final denial notification</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag m365" data-tooltip="Email, collaboration and document management for approximately 35,000 employees. [Microsoft - evidence C]">Microsoft 365<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Employee details, denial reason</td>
+<td>Resent notification email sent</td>
+<td>98% of notifications sent within 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Email delivery failures causing notification delays</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Workforce Planning Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Aeroplan Member Services Agent</span><span class="lane-steps">1.1 1.3 1.4 2.3 2.4 3.3 3.4 4.3 4.4 5.1 5.3 5.4 6.2 6.3</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Senior HR Analyst</span><span class="lane-steps">1.2 2.2 6.1</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>HR Medical Coordinator</span><span class="lane-steps">2.1</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Workforce Scheduler</span><span class="lane-steps">3.1 3.2</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>HR Document Manager</span><span class="lane-steps">4.1 4.2</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>Bilingual Translator</span><span class="lane-steps">5.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag m365" data-tooltip="Email, collaboration and document management for approximately 35,000 employees. [Microsoft - evidence C]">Microsoft 365<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Registered within the required notification window at 95 percent</li><li>Determined correctly against policy for 100 percent of registered absences at 100 percent</li><li>Coverage arranged for 90 percent of operationally critical absences</li><li>Coordinated within 2 business days of the confirmed return date at 95 percent</li></ul>
+<ul class="bullets"><li>90% of requests processed within 24 hours</li><li>85% of requests reviewed within 4 hours</li><li>95% of validations completed within 7 days</li><li>80% of plans completed within 5 days</li><li>90% of documents completed within 2 days</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Coverage having to be filled from the same limited staff pool already scheduled against forecast demand</li><li>Entitlement rules differing by absence type and tenure, with misapplication creating a pay accuracy issue</li><li>A return not coordinated with the roster leaving the schedule inconsistent with actual availability</li><li>Short-notice absence for an operational shift creating an immediate coverage gap</li></ul>
+<ul class="bullets risk"><li>Complex union rules causing delays in decision-making</li><li>Delayed medical reports causing delays</li><li>Incorrect interpretation of union rules leading to denials</li><li>Resource constraints affecting scheduling</li><li>Lack of flexibility in resource management</li><li>Incorrect documentation leading to errors</li><li>Persistent documentation errors causing delays</li><li>Language barriers affecting communication</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../human-resources-labour/workforce-management-payroll/ac-hr-wm-03/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Payroll Processing and Union Rule Application</span></a>
