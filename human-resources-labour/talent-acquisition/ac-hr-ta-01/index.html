@@ -133,7 +133,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-HR-TA-01" title="Click to copy the process ID">
     AC-HR-TA-01<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Workforce Demand and Requisition Approval</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -142,85 +142,241 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-HR-TA-01-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Demand identification</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Demand Assessment</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Identify workforce demand</b></td>
-<td>Talent Acquisition Coordinator</td>
-<td><span class="tag hcm" data-tooltip="Talent acquisition and candidate relationship management. [Phenom - evidence B]">Phenom<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Operational need or establishment gap</td>
-<td>Identified demand with role requirements</td>
-<td>Identified within the standard planning cycle at 100 percent</td>
+<td><b>Identify staffing shortfall</b></td>
+<td>HR Analyst</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Departmental performance data, workload projections</td>
+<td>Staffing gap report</td>
+<td>24-hour turnaround time for demand assessment</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A crew-related requisition arrives with a longer lead time requirement given downstream training capacity limits</td>
+<td>Delays in identifying gaps can lead to operational disruptions.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Determine job requirements</b></td>
+<td>HR Analyst</td>
+<td><span class="tag m365" data-tooltip="Email, collaboration and document management for approximately 35,000 employees. [Microsoft - evidence C]">Microsoft 365<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Staffing gap report, job description templates</td>
+<td>Detailed job requisition</td>
+<td>48-hour turnaround time for job requirement documentation</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inconsistent job descriptions can lead to misalignment with union contracts.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-HR-TA-01-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Requisition creation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Requisition Creation</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Create requisition with role specification</b></td>
-<td>Talent Acquisition Coordinator</td>
+<td><b>Create requisition in Phenom</b></td>
+<td>Talent Acquisition Specialist</td>
 <td><span class="tag hcm" data-tooltip="Talent acquisition and candidate relationship management. [Phenom - evidence B]">Phenom<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Identified demand</td>
-<td>Created requisition</td>
-<td>Created within 5 business days of demand identification at 95 percent</td>
+<td>Detailed job requisition</td>
+<td>Requisition created in Phenom</td>
+<td>4-hour turnaround time for requisition creation</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System downtime can delay requisition creation.</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Review requisition for union compliance</b></td>
+<td>Union Relations Officer</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Requisition created in Phenom</td>
+<td>Compliance report</td>
+<td>2-hour turnaround time for union review</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Role specification quality directly determines candidate sourcing effectiveness later in the process</td>
+<td>Complex union rules can lead to lengthy reviews.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-HR-TA-01-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Approval</span>
+    <span class="ph-name">Phase 3 &mdash; Union Rule Compliance Check</span>
     <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Approve requisition against headcount authority</b></td>
-<td>Hiring Manager</td>
-<td><span class="tag hcm" data-tooltip="Talent acquisition and candidate relationship management. [Phenom - evidence B]">Phenom<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Created requisition</td>
-<td>Approved requisition</td>
-<td>Approved within the standard approval service level at 90 percent</td>
-<td class="c-flag"><span class="yes">Y</span></td>
+<td><b>Initiate approval workflow in SAP S/4HANA</b></td>
+<td>HR Manager</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Compliance report</td>
+<td>Approval request sent</td>
+<td>8-hour turnaround time for approval initiation</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Approval delay for a time-sensitive operational role compounds into the same downstream capacity risk identified in AC-CM-CP-01</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System integration issues can delay approvals.</td>
 </tr><tr>
 <td class="c-step">3.2</td>
-<td><b>Release requisition to sourcing</b></td>
-<td>Talent Acquisition Coordinator</td>
+<td><b>Approve requisition in SAP S/4HANA</b></td>
+<td>HR Manager</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Approval request</td>
+<td>Approved requisition</td>
+<td>1-hour turnaround time for approval</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual intervention required for complex approvals.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-HR-TA-01-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Approval Workflow</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Post requisition on Phenom</b></td>
+<td>Talent Acquisition Specialist</td>
 <td><span class="tag hcm" data-tooltip="Talent acquisition and candidate relationship management. [Phenom - evidence B]">Phenom<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
 <td>Approved requisition</td>
-<td>Released requisition for sourcing</td>
-<td>Released within 1 business day of approval at 100 percent</td>
+<td>Requisition posted</td>
+<td>2-hour turnaround time for posting</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Network issues can prevent posting.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Monitor candidate applications</b></td>
+<td>Talent Acquisition Specialist</td>
+<td><span class="tag hcm" data-tooltip="Talent acquisition and candidate relationship management. [Phenom - evidence B]">Phenom<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Posted requisition</td>
+<td>Candidate applications</td>
+<td>Continuous monitoring</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A requisition approved but not promptly released loses time from the same long lead window it was raised to protect</td>
+<td>High volume of applications can overwhelm the system.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-HR-TA-01-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Candidate Evaluation</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Screen candidate applications</b></td>
+<td>Talent Acquisition Specialist</td>
+<td><span class="tag hcm" data-tooltip="Talent acquisition and candidate relationship management. [Phenom - evidence B]">Phenom<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Candidate applications</td>
+<td>Shortlisted candidates</td>
+<td>48-hour turnaround time for screening</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Incomplete application data can delay the process.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Conduct initial interviews</b></td>
+<td>Interviewer</td>
+<td><span class="tag m365" data-tooltip="Email, collaboration and document management for approximately 35,000 employees. [Microsoft - evidence C]">Microsoft 365<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Shortlisted candidates</td>
+<td>Interview notes</td>
+<td>1-week turnaround time for interviews</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Limited interview slots can delay the process.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Conduct final interviews</b></td>
+<td>Final Interviewer</td>
+<td><span class="tag m365" data-tooltip="Email, collaboration and document management for approximately 35,000 employees. [Microsoft - evidence C]">Microsoft 365<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Interview notes</td>
+<td>Final selection report</td>
+<td>2-day turnaround time for final interviews</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Conflict resolution during interviews can delay the process.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-HR-TA-01-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Finalization</span>
+    <span class="ph-n">5 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Offer job to selected candidate</b></td>
+<td>Talent Acquisition Specialist</td>
+<td><span class="tag hcm" data-tooltip="Talent acquisition and candidate relationship management. [Phenom - evidence B]">Phenom<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Final selection report</td>
+<td>Job offer</td>
+<td>24-hour turnaround time for offering</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Candidate unavailability can delay the process.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Confirm job offer acceptance</b></td>
+<td>Talent Acquisition Specialist</td>
+<td><span class="tag hcm" data-tooltip="Talent acquisition and candidate relationship management. [Phenom - evidence B]">Phenom<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Job offer acceptance</td>
+<td>Confirmed job offer</td>
+<td>24-hour turnaround time for confirmation</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Communication delays can affect offer acceptance timelines.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Onboard new employee in Dayforce</b></td>
+<td>HR Onboarding Specialist</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Confirmed job offer</td>
+<td>Employee record created</td>
+<td>48-hour turnaround time for onboarding</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Data entry errors can delay the process.</td>
+</tr><tr>
+<td class="c-step">6.4</td>
+<td><b>Complete bilingual training</b></td>
+<td>Bilingual Training Coordinator</td>
+<td><span class="tag m365" data-tooltip="Email, collaboration and document management for approximately 35,000 employees. [Microsoft - evidence C]">Microsoft 365<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Employee record</td>
+<td>Training completion certificate</td>
+<td>2-week turnaround time for training</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Language proficiency issues can delay the process.</td>
+</tr><tr>
+<td class="c-step">6.5</td>
+<td><b>Notify department of new hire</b></td>
+<td>HR Analyst</td>
+<td><span class="tag m365" data-tooltip="Email, collaboration and document management for approximately 35,000 employees. [Microsoft - evidence C]">Microsoft 365<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Training completion certificate</td>
+<td>Notification sent to department</td>
+<td>24-hour turnaround time for notification</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Email system outages can delay notifications.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Talent Acquisition Coordinator</span><span class="lane-steps">1.1 2.1 3.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Hiring Manager</span><span class="lane-steps">3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>HR Analyst</span><span class="lane-steps">1.1 1.2 6.5</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Talent Acquisition Specialist</span><span class="lane-steps">2.1 4.1 4.2 5.1 6.1 6.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Union Relations Officer</span><span class="lane-steps">2.2</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>HR Manager</span><span class="lane-steps">3.1 3.2</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Interviewer</span><span class="lane-steps">5.2</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>Final Interviewer</span><span class="lane-steps">5.3</span></div><div class="lane"><span class="swatch" style="background:#8A5A1E"></span><span>HR Onboarding Specialist</span><span class="lane-steps">6.3</span></div><div class="lane"><span class="swatch" style="background:#4A4A4A"></span><span>Bilingual Training Coordinator</span><span class="lane-steps">6.4</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag hcm" data-tooltip="Talent acquisition and candidate relationship management. [Phenom - evidence B]">Phenom<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag m365" data-tooltip="Email, collaboration and document management for approximately 35,000 employees. [Microsoft - evidence C]">Microsoft 365<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag hcm" data-tooltip="Talent acquisition and candidate relationship management. [Phenom - evidence B]">Phenom<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Identified within the standard planning cycle at 100 percent</li><li>Created within 5 business days of demand identification at 95 percent</li><li>Approved within the standard approval service level at 90 percent</li><li>Requisition-to-approval cycle time meeting target</li></ul>
+<ul class="bullets"><li>24-hour turnaround time for demand assessment</li><li>8-hour turnaround time for approval initiation</li><li>1-week turnaround time for interviews</li><li>2-week turnaround time for training</li><li>24-hour turnaround time for notification</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A crew-related requisition arriving with a longer lead time given downstream training capacity limits</li><li>Role specification quality directly determining candidate sourcing effectiveness later in the process</li><li>Approval delay for a time-sensitive operational role compounding into a downstream capacity risk</li><li>A requisition raised without clear headcount authority creating an approval bottleneck</li></ul>
+<ul class="bullets risk"><li>System downtime affecting requisition creation and posting</li><li>Complex union rules leading to lengthy reviews</li><li>High volume of applications overwhelming the system</li><li>Data entry errors during onboarding</li><li>Language proficiency issues delaying bilingual training</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../finance-procurement-treasury/planning-analysis/ac-fn-fp-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Cost Transformation Benefit Tracking</span></a>
