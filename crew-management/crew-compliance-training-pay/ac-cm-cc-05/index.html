@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CM-CC-05" title="Click to copy the process ID">
     AC-CM-CC-05<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Fatigue Report Intake and Disposition</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,288 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-CM-CC-05-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Issue identification and documentation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Report Intake</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Identify and document the performance issue</b></td>
-<td>Labour Relations Coordinator</td>
+<td><b>Receive fatigue report</b></td>
+<td>Crew Compliance Agent</td>
 <td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Observed or reported issue</td>
-<td>Documented issue with factual basis</td>
-<td>Documented within the required timeframe at 100 percent</td>
+<td>Fatigue report submitted by crew member</td>
+<td>Report received in system</td>
+<td>24-hour response time</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Documentation quality at this stage determines whether the process can withstand later scrutiny</td>
+<td>Delays in reporting can lead to safety concerns.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Initial validation</b></td>
+<td>Crew Compliance Agent</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Report received</td>
+<td>Validated report details</td>
+<td>30-minute validation time</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Incomplete or inaccurate reports can delay investigations.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Log valid report</b></td>
+<td>Crew Compliance Agent</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Validated report details</td>
+<td>Report logged in system</td>
+<td>5-minute logging time</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed logging can affect subsequent compliance checks.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Check for duplicates</b></td>
+<td>Crew Compliance Agent</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Logged report</td>
+<td>Duplicate check result</td>
+<td>5-minute duplicate check time</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Duplicate reports can clutter the system.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CM-CC-05-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Process application</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Validation Check</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Apply progressive discipline framework</b></td>
-<td>Labour Relations Coordinator</td>
+<td><b>Check for regulatory compliance</b></td>
+<td>Crew Compliance Agent</td>
 <td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Documented issue and prior record</td>
-<td>Determined discipline level</td>
-<td>Applied consistently against the framework at 100 percent</td>
+<td>Logged report</td>
+<td>Compliance status</td>
+<td>10-minute compliance check time</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Discipline consistency across similar cases and different crew members is essential to withstand a grievance challenge</td>
+<td>Regulatory non-compliance can lead to penalties.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Ensure collective agreement due process</b></td>
-<td>Labour Relations Coordinator</td>
+<td><b>Verify union agreement adherence</b></td>
+<td>Crew Compliance Agent</td>
 <td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Determined discipline</td>
-<td>Confirmed due process compliance</td>
-<td>100 percent compliant with the applicable agreement&#x27;s due process requirements</td>
+<td>Logged report</td>
+<td>Union agreement status</td>
+<td>15-minute verification time</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Due process requirements, such as union representation rights, differ across the four agreements</td>
+<td>Union non-compliance can lead to grievances.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Escalate for regulatory review</b></td>
+<td>Crew Compliance Agent</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Logged report</td>
+<td>Regulatory review initiated</td>
+<td>1-hour escalation time</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Regulatory issues require timely resolution.</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Escalate for union review</b></td>
+<td>Crew Compliance Agent</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Logged report</td>
+<td>Union review initiated</td>
+<td>1-hour escalation time</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Union issues require timely resolution.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CM-CC-05-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Resolution</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Compliance Review</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Communicate and implement the outcome</b></td>
-<td>Labour Relations Coordinator</td>
+<td><b>Notify crew member of validation results</b></td>
+<td>Crew Compliance Agent</td>
 <td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Confirmed process</td>
-<td>Implemented discipline outcome</td>
-<td>Implemented within the required timeframe at 100 percent</td>
+<td>Compliance status, union agreement status</td>
+<td>Notification sent</td>
+<td>5-minute notification time</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>An outcome implemented outside due process requirements is vulnerable to grievance and reversal</td>
+<td>Delayed notifications can cause confusion.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Update crew member record</b></td>
+<td>Crew Compliance Agent</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Compliance status, union agreement status</td>
+<td>Updated crew member record</td>
+<td>10-minute update time</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Failed updates can lead to data discrepancies.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Check for further actions required</b></td>
+<td>Crew Compliance Agent</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Compliance status, union agreement status</td>
+<td>Action determination</td>
+<td>5-minute check time</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Incorrect determinations can lead to improper handling.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CC-05-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Action Determination</span>
+    <span class="ph-n">5 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Determine action based on compliance and adherence</b></td>
+<td>Crew Compliance Agent</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Compliance status, union agreement status</td>
+<td>Action determination</td>
+<td>5-minute determination time</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Incorrect determinations can lead to improper handling.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Escalate to supervisor for further review</b></td>
+<td>Crew Compliance Agent</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Compliance status, union agreement status</td>
+<td>Escalation initiated</td>
+<td>1-hour escalation time</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Supervisor review is required for complex cases.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Close case</b></td>
+<td>Crew Compliance Agent</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Action determination</td>
+<td>Case closed</td>
+<td>10-minute closure time</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Open cases can clutter the system.</td>
+</tr><tr>
+<td class="c-step">4.4</td>
+<td><b>Update supervisor&#x27;s review status</b></td>
+<td>Crew Compliance Agent</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Supervisor&#x27;s review</td>
+<td>Review status updated</td>
+<td>5-minute update time</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Failed updates can lead to data discrepancies.</td>
+</tr><tr>
+<td class="c-step">4.5</td>
+<td><b>Finalize action based on supervisor&#x27;s review</b></td>
+<td>Crew Compliance Agent</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Supervisor&#x27;s review</td>
+<td>Final action determined</td>
+<td>10-minute determination time</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Incorrect determinations can lead to improper handling.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CC-05-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Disposition</span>
+    <span class="ph-n">5 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Implement final action</b></td>
+<td>Crew Compliance Agent</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Final action determined</td>
+<td>Action implemented</td>
+<td>2-hour implementation time</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Failed implementations can lead to unresolved issues.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Notify crew member of final action</b></td>
+<td>Crew Compliance Agent</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Final action determined</td>
+<td>Notification sent</td>
+<td>10-minute notification time</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed notifications can cause confusion.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Escalate to higher management for resolution</b></td>
+<td>Crew Compliance Agent</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Implementation failure</td>
+<td>Escalation initiated</td>
+<td>2-hour escalation time</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Higher management intervention is required for unresolved issues.</td>
+</tr><tr>
+<td class="c-step">5.4</td>
+<td><b>Update higher management&#x27;s resolution status</b></td>
+<td>Crew Compliance Agent</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Higher management&#x27;s resolution</td>
+<td>Resolution status updated</td>
+<td>10-minute update time</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Failed updates can lead to data discrepancies.</td>
+</tr><tr>
+<td class="c-step">5.5</td>
+<td><b>Finalize case closure based on higher management&#x27;s resolution</b></td>
+<td>Crew Compliance Agent</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Higher management&#x27;s resolution</td>
+<td>Case closed</td>
+<td>10-minute closure time</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Open cases can clutter the system.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Labour Relations Coordinator</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Crew Compliance Agent</span><span class="lane-steps">1.1 1.2 1.3 1.4 2.1 2.2 2.3 2.4 3.1 3.2 3.3 4.1 4.2 4.3 4.4 4.5 5.1 5.2 5.3 5.4 5.5</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
 <div class="card"><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Documented within the required timeframe at 100 percent</li><li>Applied consistently against the framework at 100 percent</li><li>100 percent compliant with the applicable agreement&#x27;s due process requirements</li><li>Discipline decisions upheld on grievance challenge above target</li></ul>
+<ul class="bullets"><li>24-hour response time</li><li>30-minute validation time</li><li>5-minute logging time</li><li>10-minute compliance check time</li><li>15-minute verification time</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Discipline consistency across similar cases and different crew members being essential to withstand challenge</li><li>Due process requirements, such as union representation rights, differing across four agreements</li><li>An outcome implemented outside due process requirements being vulnerable to grievance and reversal</li><li>Documentation quality at the identification stage determining whether the process can withstand scrutiny</li></ul>
+<ul class="bullets risk"><li>Delays in reporting can lead to safety concerns.</li><li>Incomplete or inaccurate reports can delay investigations.</li><li>Delayed logging can affect subsequent compliance checks.</li><li>Regulatory non-compliance can lead to penalties.</li><li>Union non-compliance can lead to grievances.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../crew-management/crew-compliance-training-pay/ac-cm-cc-04/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Collective Agreement Grievance Handling</span></a>
