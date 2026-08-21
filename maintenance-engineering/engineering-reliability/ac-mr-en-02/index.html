@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-MR-EN-02" title="Click to copy the process ID">
     AC-MR-EN-02<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Airworthiness Directive Assessment and Embodiment</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,241 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-MR-EN-02-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Applicability assessment</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Directive Evaluation</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Assess directive applicability to the fleet</b></td>
-<td>Engineering Planner</td>
+<td><b>Receive airworthiness directive from CAWIS</b></td>
+<td>Maintenance Control Duty Manager</td>
 <td><span class="tag regulator" data-tooltip="Airworthiness directive and continuing-airworthiness compliance against CARs. [Transport Canada - evidence C]">Transport Canada CAWIS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Issued directive and fleet configuration</td>
-<td>Applicability assessment by tail</td>
-<td>Assessed within the directive&#x27;s initial review period at 100 percent</td>
+<td>Airworthiness directive document</td>
+<td>Recorded in TRAX</td>
+<td>Time to initial record: 4 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System connectivity issues with CAWIS can delay the receipt of directives.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Evaluate directive&#x27;s applicability to Air Canada fleet</b></td>
+<td>Aeromechanical Engineer</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Directive document and fleet database</td>
+<td>Applicability assessment report</td>
+<td>Assessment completion time: 2 days</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Applicability depends on precise configuration matching that can be ambiguous for a modified fleet</td>
+<td>Complexity in assessing applicability due to varying aircraft types.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Initiate impact assessment</b></td>
+<td>Aeromechanical Engineer</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Applicability report and directive details</td>
+<td>Impact assessment document</td>
+<td>Impact assessment time: 3 days</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Resource constraints in conducting a thorough impact assessment.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-MR-EN-02-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Fleet-wide embodiment planning</span>
+    <span class="ph-name">Phase 2 &mdash; Impact Assessment</span>
     <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Plan fleet-wide embodiment against compliance deadline</b></td>
-<td>Engineering Planner</td>
+<td><b>Allocate necessary resources for implementation</b></td>
+<td>Maintenance Control Duty Manager</td>
 <td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Applicability assessment and compliance deadline</td>
-<td>Embodiment plan by tail</td>
-<td>Planned to meet the mandated deadline for 100 percent of applicable tails</td>
+<td>Impact assessment document and resource availability</td>
+<td>Resource allocation plan</td>
+<td>Time to allocate resources: 2 days</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Embodiment planning has to compete for the same maintenance slots as every other scheduled work</td>
+<td>Limited availability of specialized tools or parts.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Embody the directive at scheduled maintenance opportunity</b></td>
-<td>Base Maintenance Technician</td>
+<td><b>Develop implementation plan</b></td>
+<td>Aeromechanical Engineer</td>
 <td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Embodiment plan and induced aircraft</td>
-<td>Embodied directive</td>
-<td>Embodied within the planned window for 95 percent of applicable tails</td>
+<td>Resource allocation plan and directive details</td>
+<td>Implementation plan with timelines</td>
+<td>Plan development time: 3 days</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>A directive with a very short compliance window can require an unscheduled maintenance visit</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inconsistent communication between engineering teams can lead to delays.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-MR-EN-02-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Compliance closure</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Resource Allocation</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Close compliance and report to the regulator where required</b></td>
-<td>Engineering Planner</td>
+<td><b>Execute implementation plan</b></td>
+<td>Maintenance Technician</td>
+<td><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Implementation plan and aircraft details</td>
+<td>Work orders and task cards</td>
+<td>Execution time: 5 days</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Technical issues during execution can cause delays.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Monitor implementation progress</b></td>
+<td>Maintenance Control Duty Manager</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Work orders and task cards</td>
+<td>Progress report</td>
+<td>Monitoring frequency: daily</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inconsistent updates from field technicians can disrupt monitoring.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-EN-02-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Implementation Plan Development</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Conduct post-implementation review</b></td>
+<td>Aeromechanical Engineer</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Implementation progress report and directive details</td>
+<td>Post-implementation review report</td>
+<td>Review time: 2 days</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Discrepancies between planned and actual outcomes can arise.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Prepare final documentation</b></td>
+<td>Aeromechanical Engineer</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Post-implementation review report and implementation details</td>
+<td>Final documentation package</td>
+<td>Documentation time: 1 day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Data entry errors can lead to incomplete documentation.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-EN-02-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Execution and Monitoring</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Submit final documentation to CAWIS</b></td>
+<td>Maintenance Control Duty Manager</td>
 <td><span class="tag regulator" data-tooltip="Airworthiness directive and continuing-airworthiness compliance against CARs. [Transport Canada - evidence C]">Transport Canada CAWIS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Embodied directive across the fleet</td>
-<td>Closed compliance with regulatory reporting</td>
-<td>Compliance closed within the mandated deadline at 100 percent</td>
+<td>Final documentation package</td>
+<td>Submission confirmation</td>
+<td>Submission time: 4 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Network issues can delay submission.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Archive all related documents in TRAX</b></td>
+<td>Maintenance Control Duty Manager</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Final documentation package and implementation details</td>
+<td>Archived records</td>
+<td>Archiving time: 1 day</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A directive not closed within its deadline is a direct regulatory compliance failure</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System errors during archiving can cause data loss.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-EN-02-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Post-Implementation Review</span>
+    <span class="ph-n">5 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Notify stakeholders of completion</b></td>
+<td>Maintenance Control Duty Manager</td>
+<td><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Submission confirmation and archived records</td>
+<td>Notification to stakeholders</td>
+<td>Notification time: 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Communication failures can delay stakeholder notification.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Close directive in TRAX</b></td>
+<td>Maintenance Control Duty Manager</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Notification confirmation and archived records</td>
+<td>Closed directive record</td>
+<td>Closure time: 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System errors during closure can cause incomplete records.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Update internal compliance database</b></td>
+<td>Maintenance Control Duty Manager</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Closed directive record</td>
+<td>Updated compliance database</td>
+<td>Update time: 1 day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Data synchronization issues between TRAX and internal systems.</td>
+</tr><tr>
+<td class="c-step">6.4</td>
+<td><b>Review compliance with CAWIS</b></td>
+<td>Maintenance Control Duty Manager</td>
+<td><span class="tag regulator" data-tooltip="Airworthiness directive and continuing-airworthiness compliance against CARs. [Transport Canada - evidence C]">Transport Canada CAWIS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Updated compliance database and submission confirmation</td>
+<td>Compliance status report</td>
+<td>Review time: 2 days</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Regulatory changes can affect compliance status.</td>
+</tr><tr>
+<td class="c-step">6.5</td>
+<td><b>Finalize process completion</b></td>
+<td>Maintenance Control Duty Manager</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Compliance status report and archived records</td>
+<td>Process completion confirmation</td>
+<td>Completion time: 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Final documentation errors can cause rework.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Engineering Planner</span><span class="lane-steps">1.1 2.1 3.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Base Maintenance Technician</span><span class="lane-steps">2.2</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Maintenance Control Duty Manager</span><span class="lane-steps">1.1 2.1 3.2 5.1 5.2 6.1 6.2 6.3 6.4 6.5</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Aeromechanical Engineer</span><span class="lane-steps">1.2 1.3 2.2 4.1 4.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Maintenance Technician</span><span class="lane-steps">3.1</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag regulator" data-tooltip="Airworthiness directive and continuing-airworthiness compliance against CARs. [Transport Canada - evidence C]">Transport Canada CAWIS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag regulator" data-tooltip="Airworthiness directive and continuing-airworthiness compliance against CARs. [Transport Canada - evidence C]">Transport Canada CAWIS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Assessed within the directive&#x27;s initial review period at 100 percent</li><li>Planned to meet the mandated deadline for 100 percent of applicable tails</li><li>Embodied within the planned window for 95 percent of applicable tails</li><li>Compliance closed within the mandated deadline at 100 percent</li></ul>
+<ul class="bullets"><li>Time to initial record: 4 hours</li><li>Assessment completion time: 2 days</li><li>Impact assessment time: 3 days</li><li>Time to allocate resources: 2 days</li><li>Plan development time: 3 days</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A directive not closed within its mandated deadline constituting a direct regulatory compliance failure</li><li>A very short compliance window requiring an unscheduled maintenance visit outside the normal cycle</li><li>Applicability assessment being ambiguous for a fleet with varying modification configurations</li><li>Embodiment planning competing for the same maintenance slots as every other scheduled work</li></ul>
+<ul class="bullets risk"><li>System connectivity issues with CAWIS can delay the receipt of directives.</li><li>Complexity in assessing applicability due to varying aircraft types.</li><li>Resource constraints in conducting a thorough impact assessment.</li><li>Limited availability of specialized tools or parts.</li><li>Inconsistent communication between engineering teams can lead to delays.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../maintenance-engineering/engineering-reliability/ac-mr-en-01/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Engineering Order and Modification Design</span></a>

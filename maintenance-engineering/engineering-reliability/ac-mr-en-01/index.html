@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-MR-EN-01" title="Click to copy the process ID">
     AC-MR-EN-01<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Engineering Order and Modification Design</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,296 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-MR-EN-01-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Requirement definition</span>
-    <span class="ph-n">1 steps</span></div>
-  <div class="phase-body"><div class="tbl-wrap"><table>
-  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
-  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
-  <tbody><tr>
-<td class="c-step">1.1</td>
-<td><b>Define the modification requirement</b></td>
-<td>Engineering Planner</td>
-<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Source requirement, reliability finding or service bulletin</td>
-<td>Defined requirement</td>
-<td>Defined with a clear technical basis for 100 percent of engineering orders</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>A requirement defined without a clear technical basis produces an order that is hard to design against</td>
-</tr></tbody></table></div></div>
-</div><div class="phase-group" data-phase-id="AC-MR-EN-01-2">
-  <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Design and approval</span>
+    <span class="ph-name">Phase 1 &mdash; Initiation</span>
     <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
-<td class="c-step">2.1</td>
-<td><b>Design the technical solution</b></td>
-<td>Engineering Planner</td>
+<td class="c-step">1.1</td>
+<td><b>Capture Modification Request</b></td>
+<td>Engineering Manager</td>
 <td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Defined requirement</td>
-<td>Designed technical solution</td>
-<td>Designed within the project&#x27;s planning timeline at 90 percent</td>
+<td>Modification request details</td>
+<td>New work order created in TRAX</td>
+<td>Time to capture request &lt; 2 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Design has to account for the specific aircraft configuration across the fleet, which is not always uniform</td>
+<td>Manual input errors can delay the process.</td>
 </tr><tr>
-<td class="c-step">2.2</td>
-<td><b>Obtain regulatory design approval where required</b></td>
-<td>Engineering Planner</td>
-<td><span class="tag regulator" data-tooltip="Airworthiness directive and continuing-airworthiness compliance against CARs. [Transport Canada - evidence C]">Transport Canada CAWIS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Designed solution</td>
-<td>Approved design</td>
-<td>Approved before embodiment planning begins for 100 percent of major modifications</td>
+<td class="c-step">1.2</td>
+<td><b>Assign Design Team</b></td>
+<td>Engineering Manager</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Work order details</td>
+<td>Team assigned in TRAX</td>
+<td>Time to assign team &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Resource allocation and availability issues.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-EN-01-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Design Review</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Initial Design Draft</b></td>
+<td>Designer</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Work order and requirements</td>
+<td>Design draft document</td>
+<td>Draft completed within 3 days</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Regulatory approval timelines are outside Air Canada&#x27;s own control and can extend the project</td>
+<td>Complex designs may require additional time.</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Review Design Draft</b></td>
+<td>Engineering Manager</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Design draft document</td>
+<td>Feedback on design draft</td>
+<td>Review completed within 1 day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Miscommunication between designers and managers.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Modify Design Based on Feedback</b></td>
+<td>Designer</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Design draft document and feedback</td>
+<td>Revised design document</td>
+<td>Time to revise &lt; 2 days</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Feedback loop can be lengthy.</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Escalate to Chief Engineer</b></td>
+<td>Engineering Manager</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Design draft document and feedback</td>
+<td>Chief Engineer&#x27;s review request sent</td>
+<td>Time to escalate &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>High-level approval delays.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-MR-EN-01-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Documentation finalisation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Approval Process</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Finalise embodiment documentation</b></td>
-<td>Engineering Planner</td>
+<td><b>Chief Engineer Review</b></td>
+<td>Chief Engineer</td>
 <td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Approved design</td>
-<td>Finalised embodiment instructions</td>
-<td>Finalised before handoff to maintenance planning at 100 percent</td>
+<td>Revised design document</td>
+<td>Chief Engineer&#x27;s feedback</td>
+<td>Review completed within 2 days</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Technical scrutiny can be rigorous.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Final Design Approval</b></td>
+<td>Engineering Manager</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Chief Engineer&#x27;s feedback</td>
+<td>Approved design document in TRAX</td>
+<td>Time to approve &lt; 1 day</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Approval bottlenecks due to backlog.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Escalate to Compliance Agent</b></td>
+<td>Engineering Manager</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Approved design document</td>
+<td>Compliance check request sent</td>
+<td>Time to escalate &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Compliance checks can be time-consuming.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-EN-01-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Modification Documentation</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Compliance Check</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Approved design document</td>
+<td>Compliance check report</td>
+<td>Check completed within 3 days</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex compliance requirements can delay the process.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Identify Non-compliance Issues</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Compliance check report</td>
+<td>List of non-compliance issues</td>
+<td>Time to identify issues &lt; 1 day</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Documentation quality here directly determines how smoothly embodiment goes on the hangar floor</td>
+<td>Detailed review can be time-consuming.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Modify Design for Compliance</b></td>
+<td>Designer</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Approved design document and non-compliance issues</td>
+<td>Revised design document</td>
+<td>Time to revise &lt; 2 days</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Feedback loop can be lengthy.</td>
+</tr><tr>
+<td class="c-step">4.4</td>
+<td><b>Escalate for Final Approval</b></td>
+<td>Engineering Manager</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Revised design document</td>
+<td>Final approval request sent</td>
+<td>Time to escalate &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Final approval can be delayed.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-EN-01-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Implementation Planning</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Final Compliance Review</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Revised design document</td>
+<td>Compliance check report</td>
+<td>Review completed within 2 days</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Technical scrutiny can be rigorous.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Final Design Review</b></td>
+<td>Engineering Manager</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Revised design document and compliance check report</td>
+<td>Final review feedback</td>
+<td>Review completed within 1 day</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Feedback loop can be lengthy.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Escalate to Senior Management</b></td>
+<td>Engineering Manager</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Revised design document and final review feedback</td>
+<td>Senior management approval request sent</td>
+<td>Time to escalate &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Senior management approval can be delayed.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-EN-01-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Final Review</span>
+    <span class="ph-n">5 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Final Approval</b></td>
+<td>Senior Management</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Revised design document and final review feedback</td>
+<td>Approved design document in TRAX</td>
+<td>Time to approve &lt; 1 day</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Approval bottlenecks due to backlog.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Escalate to Regulatory Compliance Officer</b></td>
+<td>Engineering Manager</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Revised design document and final review feedback</td>
+<td>Regulatory compliance officer&#x27;s approval request sent</td>
+<td>Time to escalate &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Regulatory compliance can be time-consuming.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Final Regulatory Review</b></td>
+<td>Regulatory Compliance Officer</td>
+<td><span class="tag regulator" data-tooltip="Airworthiness directive and continuing-airworthiness compliance against CARs. [Transport Canada - evidence C]">Transport Canada CAWIS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Revised design document and final review feedback</td>
+<td>Regulatory compliance check report</td>
+<td>Review completed within 2 days</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Technical scrutiny can be rigorous.</td>
+</tr><tr>
+<td class="c-step">6.4</td>
+<td><b>Final Implementation Planning</b></td>
+<td>Engineering Manager</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Approved design document and regulatory compliance check report</td>
+<td>Implementation plan in TRAX</td>
+<td>Time to complete &lt; 1 day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Detailed planning can be time-consuming.</td>
+</tr><tr>
+<td class="c-step">6.5</td>
+<td><b>Final Review and Sign-off</b></td>
+<td>Engineering Manager</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Implementation plan</td>
+<td>Signed-off implementation plan in TRAX</td>
+<td>Time to complete &lt; 1 day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Coordination issues can delay the process.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Engineering Planner</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Engineering Manager</span><span class="lane-steps">1.1 1.2 2.2 2.4 3.2 3.3 4.4 5.2 5.3 6.2 6.4 6.5</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Designer</span><span class="lane-steps">2.1 2.3 4.3</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Chief Engineer</span><span class="lane-steps">3.1</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Cargo Compliance Agent</span><span class="lane-steps">4.1 4.2 5.1</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Senior Management</span><span class="lane-steps">6.1</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>Regulatory Compliance Officer</span><span class="lane-steps">6.3</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag regulator" data-tooltip="Airworthiness directive and continuing-airworthiness compliance against CARs. [Transport Canada - evidence C]">Transport Canada CAWIS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
+<div class="card"><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag regulator" data-tooltip="Airworthiness directive and continuing-airworthiness compliance against CARs. [Transport Canada - evidence C]">Transport Canada CAWIS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Defined with a clear technical basis for 100 percent of engineering orders</li><li>Approved before embodiment planning begins for 100 percent of major modifications</li><li>Finalised before handoff to maintenance planning at 100 percent</li><li>Embodiment issues attributable to documentation quality below target</li></ul>
+<ul class="bullets"><li>Design draft completion within 3 days</li><li>Feedback review within 1 day</li><li>Revised design document completion within 2 days</li><li>Chief Engineer&#x27;s review completion within 2 days</li><li>Final approval within 1 day</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A requirement defined without a clear technical basis producing a hard-to-design order</li><li>Regulatory approval timelines outside Air Canada&#x27;s control extending the project</li><li>Design not accounting for fleet configuration variation that is not always uniform</li><li>Documentation quality at finalisation directly determining embodiment difficulty on the hangar floor</li></ul>
+<ul class="bullets risk"><li>Complex designs may exceed time estimates</li><li>High-level approvals can be delayed</li><li>Technical scrutiny by compliance agents can be rigorous</li><li>Senior management approval delays</li><li>Regulatory compliance checks can be lengthy</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../maintenance-engineering/heavy-base-maintenance/ac-mr-hm-06/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Return to Service and Check Closure</span></a>
