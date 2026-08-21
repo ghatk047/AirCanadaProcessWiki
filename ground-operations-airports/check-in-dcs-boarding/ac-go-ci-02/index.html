@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-GO-CI-02" title="Click to copy the process ID">
     AC-GO-CI-02<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Kiosk and Mobile Self Service Check In</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,340 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-GO-CI-02-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Kiosk session initiation</span>
-    <span class="ph-n">1 steps</span></div>
-  <div class="phase-body"><div class="tbl-wrap"><table>
-  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
-  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
-  <tbody><tr>
-<td class="c-step">1.1</td>
-<td><b>Initiate kiosk session</b></td>
-<td>Airport Check-In Agent</td>
-<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Passenger booking reference or document scan</td>
-<td>Initiated kiosk session</td>
-<td>Session initiated within 10 seconds at 95 percent</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Common-use kiosk performance depends partly on infrastructure Air Canada does not directly control</td>
-</tr></tbody></table></div></div>
-</div><div class="phase-group" data-phase-id="AC-GO-CI-02-2">
-  <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Self-service check-in</span>
+    <span class="ph-name">Phase 1 &mdash; Initial Setup</span>
     <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Kiosk/Mobile app launches and displays available options.</b></td>
+<td>Passenger</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>None</td>
+<td>User interface with check-in options</td>
+<td>98% of users access the kiosk/moblie app within 5 seconds</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Slow network connection can delay app launch.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Passenger selects self-service check-in option.</b></td>
+<td>Passenger</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>User selection</td>
+<td>Check-in flow begins</td>
+<td>95% of users select self-service within 30 seconds</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>App crashes due to system overload.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-CI-02-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Passenger Identification</span>
+    <span class="ph-n">6 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Process self-service check-in</b></td>
-<td>Airport Check-In Agent</td>
-<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Initiated session</td>
-<td>Completed check-in or identified exception</td>
-<td>Completed without agent assistance for 80 percent of eligible passengers</td>
+<td><b>Passenger enters booking reference and personal details.</b></td>
+<td>Passenger</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Booking reference, name, date of birth</td>
+<td>Validation results</td>
+<td>90% of data entries are correct on first attempt</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>International document verification at a kiosk is inherently less thorough than an agent review</td>
+<td>Incorrect booking reference can lead to validation errors.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Print baggage tags for self-tagging</b></td>
-<td>Airport Check-In Agent</td>
+<td><b>System validates passenger details and retrieves booking information.</b></td>
+<td>CUPPS Agent</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Passenger details</td>
+<td>Booking confirmation</td>
+<td>85% of validations complete within 10 seconds</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Slow response from Amadeus Altea DCS can delay validation.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Handles invalid booking reference by prompting passenger to try again.</b></td>
+<td>CUPPS Agent</td>
 <td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Completed check-in with checked baggage</td>
-<td>Printed self-service baggage tags</td>
-<td>Tags printed within 15 seconds of check-in completion at 95 percent</td>
+<td>User input</td>
+<td>Corrected booking information</td>
+<td>90% of passengers correct their booking references within 2 attempts</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Self-service tagging accuracy depends on the passenger correctly applying the tag</td>
+<td>Passengers may become frustrated with multiple entry attempts.</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Attempts to revalidate passenger details after timeout.</b></td>
+<td>CUPPS Agent</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Passenger details</td>
+<td>Booking confirmation</td>
+<td>80% of retries succeed within 1 minute</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Multiple timeouts can cause delays for passengers.</td>
+</tr><tr>
+<td class="c-step">2.5</td>
+<td><b>Escalates to manual check-in if validation fails repeatedly.</b></td>
+<td>CUPPS Agent</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Passenger details</td>
+<td>Manual check-in initiated</td>
+<td>95% of escalations are handled within 3 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual check-in can be slow and requires additional staff.</td>
+</tr><tr>
+<td class="c-step">2.6</td>
+<td><b>Handles successful validation by proceeding to baggage check.</b></td>
+<td>CUPPS Agent</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Booking confirmation</td>
+<td>Baggage details</td>
+<td>98% of passengers proceed without issues</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>No specific pain point.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-GO-CI-02-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Completion or handoff</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Baggage Check</span>
+    <span class="ph-n">5 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Route exceptions to a staffed counter</b></td>
-<td>Airport Check-In Agent</td>
-<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Exception at self-service</td>
-<td>Routed passenger with preserved check-in progress</td>
-<td>Exceptions routed with context preserved for 100 percent of handoffs</td>
+<td><b>Passenger selects bag from list or enters manual details.</b></td>
+<td>Passenger</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Bag details</td>
+<td>Bag information updated</td>
+<td>90% of bags are correctly identified on first attempt</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Incorrect bag details can lead to mismatches.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>System checks for baggage mismatch and updates record.</b></td>
+<td>CUPPS Agent</td>
+<td><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Bag details, passenger information</td>
+<td>Updated record</td>
+<td>95% of mismatches resolved within 10 seconds</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="yes">Y</span></td>
-<td>A handoff that loses check-in progress forces the passenger to restart at the counter</td>
+<td>Slow response from Baggage Reconciliation System can delay resolution.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Handles bag mismatch by prompting passenger to select correct bag.</b></td>
+<td>CUPPS Agent</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>User input</td>
+<td>Corrected bag information</td>
+<td>85% of mismatches corrected within 2 attempts</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Passengers may become frustrated with multiple selection attempts.</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Attempts to recheck bag details after timeout.</b></td>
+<td>CUPPS Agent</td>
+<td><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Bag details, passenger information</td>
+<td>Updated record</td>
+<td>80% of retries succeed within 1 minute</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Multiple timeouts can cause delays for passengers.</td>
+</tr><tr>
+<td class="c-step">3.5</td>
+<td><b>Escalates to manual check-in if bag details fail repeatedly.</b></td>
+<td>CUPPS Agent</td>
+<td><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Bag details, passenger information</td>
+<td>Manual check-in initiated</td>
+<td>95% of escalations are handled within 3 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual check-in can be slow and requires additional staff.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-CI-02-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Payment Processing</span>
+    <span class="ph-n">5 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Passenger selects payment method.</b></td>
+<td>Passenger</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Payment method selection</td>
+<td>Payment confirmation</td>
+<td>90% of payments are completed within 30 seconds</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Incorrect payment information can lead to payment failure.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>System processes the payment and confirms transaction.</b></td>
+<td>CUPPS Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Payment Gateway<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Payment details</td>
+<td>Transaction confirmation</td>
+<td>95% of payments are processed within 10 seconds</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Slow response from Payment Gateway can delay transaction processing.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Handles payment failure by prompting passenger to try again or select another method.</b></td>
+<td>CUPPS Agent</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>User input</td>
+<td>Corrected payment details</td>
+<td>85% of failed payments are corrected within 2 attempts</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Passengers may become frustrated with multiple payment attempts.</td>
+</tr><tr>
+<td class="c-step">4.4</td>
+<td><b>Attempts to reprocess payment after timeout.</b></td>
+<td>CUPPS Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Payment Gateway<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Payment details</td>
+<td>Transaction confirmation</td>
+<td>80% of retries succeed within 1 minute</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Multiple timeouts can cause delays for passengers.</td>
+</tr><tr>
+<td class="c-step">4.5</td>
+<td><b>Escalates to manual check-in if payment fails repeatedly.</b></td>
+<td>CUPPS Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Payment Gateway<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Payment details</td>
+<td>Manual check-in initiated</td>
+<td>95% of escalations are handled within 3 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual check-in can be slow and requires additional staff.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-CI-02-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Boarding Pass Generation</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>System generates boarding pass based on confirmed booking and payment.</b></td>
+<td>CUPPS Agent</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Booking confirmation, payment details</td>
+<td>Boarding pass</td>
+<td>98% of boarding passes are generated within 5 seconds</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Slow response from Amadeus Altea DCS can delay boarding pass generation.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Attempts to regenerate boarding pass after timeout.</b></td>
+<td>CUPPS Agent</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Booking confirmation, payment details</td>
+<td>Boarding pass</td>
+<td>80% of retries succeed within 1 minute</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Multiple timeouts can cause delays for passengers.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Escalates to manual check-in if boarding pass generation fails repeatedly.</b></td>
+<td>CUPPS Agent</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Booking confirmation, payment details</td>
+<td>Manual check-in initiated</td>
+<td>95% of escalations are handled within 3 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual check-in can be slow and requires additional staff.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-CI-02-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Completion</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Passenger receives boarding pass and confirms completion.</b></td>
+<td>Passenger</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Boarding pass confirmation</td>
+<td>Check-in complete</td>
+<td>95% of passengers confirm within 30 seconds</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>No specific pain point.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>System updates Amadeus Altea DCS with check-in status.</b></td>
+<td>CUPPS Agent</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Booking confirmation, check-in status</td>
+<td>Updated record</td>
+<td>98% of updates are completed within 5 seconds</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Slow response from Amadeus Altea DCS can delay system updates.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Attempts to update record after timeout.</b></td>
+<td>CUPPS Agent</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Booking confirmation, check-in status</td>
+<td>Updated record</td>
+<td>80% of retries succeed within 1 minute</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Multiple timeouts can cause delays for passengers.</td>
+</tr><tr>
+<td class="c-step">6.4</td>
+<td><b>Escalates to manual check-in if record update fails repeatedly.</b></td>
+<td>CUPPS Agent</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Booking confirmation, check-in status</td>
+<td>Manual check-in initiated</td>
+<td>95% of escalations are handled within 3 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual check-in can be slow and requires additional staff.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Airport Check-In Agent</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Passenger</span><span class="lane-steps">1.1 1.2 2.1 3.1 4.1 6.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>CUPPS Agent</span><span class="lane-steps">2.2 2.3 2.4 2.5 2.6 3.2 3.3 3.4 3.5 4.2 4.3 4.4 4.5 5.1 5.2 5.3 6.2 6.3 6.4</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+<div class="card"><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Payment Gateway<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Session initiated within 10 seconds at 95 percent</li><li>Completed without agent assistance for 80 percent of eligible passengers</li><li>Exceptions routed with context preserved for 100 percent of handoffs</li><li>Kiosk availability across the network meeting target uptime</li></ul>
+<ul class="bullets"><li>98% of users access the kiosk/moblie app within 5 seconds</li><li>95% of users select self-service within 30 seconds</li><li>90% of data entries are correct on first attempt</li><li>85% of validations complete within 10 seconds</li><li>90% of passengers proceed without issues</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Kiosk availability and performance depending partly on shared common-use infrastructure Air Canada does not control</li><li>International document verification at a kiosk being inherently less thorough than an agent review</li><li>A handoff to the counter losing check-in progress and forcing the passenger to restart</li><li>Self-service baggage tagging accuracy depending on the passenger applying the tag correctly</li></ul>
+<ul class="bullets risk"><li>System outages affecting Amadeus Altea DCS and CUPPS systems, leading to manual check-in fallback.</li><li>Slow response times from integrated systems causing delays for passengers.</li><li>Incorrect data entries leading to validation errors or bag mismatches.</li><li>Payment failures requiring multiple attempts, increasing passenger frustration.</li><li>Delays in boarding pass generation due to system timeouts.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../ground-operations-airports/check-in-dcs-boarding/ac-go-ci-01/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Airport Check In and Bag Acceptance</span></a>
