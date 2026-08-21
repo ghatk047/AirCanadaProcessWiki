@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CX-DC-06" title="Click to copy the process ID">
     AC-CX-DC-06<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Digital Channel Incident and Degraded Mode</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,107 +143,255 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-CX-DC-06-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Detection and triage</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Incident Detection</span>
+    <span class="ph-n">5 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Detect and triage the incident</b></td>
-<td>Digital Platform Engineer</td>
-<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Dynatrace<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
-<td>Monitoring alert</td>
-<td>Triaged incident with severity classification</td>
-<td>Triaged within 5 minutes of detection at 100 percent</td>
+<td><b>Monitor Digital Channels for Incidents</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag channel" data-tooltip="Primary direct digital channel, cloud-native on AWS. Undergoing redevelopment under the CDO. [Air Canada - evidence A]">aircanada.com<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Real-time monitoring data</td>
+<td>Incident detection report</td>
+<td>0 incidents detected in the first 5 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Distinguishing a genuine customer-impacting outage from a monitoring false positive under pressure is difficult</td>
+<td>Delayed incident detection can lead to increased customer dissatisfaction.</td>
 </tr><tr>
 <td class="c-step">1.2</td>
-<td><b>Activate the incident response</b></td>
-<td>Digital Platform Engineer</td>
-<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Triaged incident</td>
-<td>Activated incident response with an incident commander</td>
-<td>Activated within 10 minutes of triage for severity 1 incidents at 100 percent</td>
+<td><b>Classify Incident Type</b></td>
+<td>Digital Channels Analyst</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Incident detection report</td>
+<td>Incident classification report</td>
+<td>90% accurate incident classification within 15 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Misclassification can lead to incorrect resolution steps.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Log Incident in Salesforce Service Cloud</b></td>
+<td>Digital Channels Analyst</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Incident classification report</td>
+<td>Case created in Salesforce</td>
+<td>95% of incidents logged within 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Weekend and overnight incident response depends on on-call coverage that can be thinner than business hours</td>
+<td>Failed logging can delay incident response.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Re-attempt Logging in Salesforce Service Cloud</b></td>
+<td>Digital Channels Analyst</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Incident classification report</td>
+<td>Case created in Salesforce</td>
+<td>95% of incidents logged within 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Repeated failures can escalate the incident.</td>
+</tr><tr>
+<td class="c-step">1.5</td>
+<td><b>Notify Affected Customers</b></td>
+<td>Digital Channels Analyst</td>
+<td><span class="tag channel" data-tooltip="Primary direct digital channel, cloud-native on AWS. Undergoing redevelopment under the CDO. [Air Canada - evidence A]">aircanada.com<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Incident classification report</td>
+<td>Customer notification sent</td>
+<td>90% of affected customers notified within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Notification failure can lead to further customer dissatisfaction.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CX-DC-06-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Customer communication and fallback</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Initial Assessment</span>
+    <span class="ph-n">5 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Communicate status to affected customers</b></td>
-<td>Digital Platform Engineer</td>
-<td><span class="tag channel" data-tooltip="Primary direct digital channel, cloud-native on AWS. Undergoing redevelopment under the CDO. [Air Canada - evidence A]">aircanada.com<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Active incident</td>
-<td>Published status update</td>
-<td>First status update published within 15 minutes of activation at 90 percent</td>
+<td><b>Assign Incident to Specialist</b></td>
+<td>Digital Channels Analyst</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Case created in Salesforce</td>
+<td>Incident assigned to specialist</td>
+<td>90% of incidents assigned within 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>A status page hosted on the same infrastructure as the outage may itself be unavailable</td>
+<td>Failed assignment can delay incident resolution.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Redirect customers to a fallback channel</b></td>
-<td>Digital Platform Engineer</td>
+<td><b>Investigate Incident</b></td>
+<td>Digital Channels Specialist</td>
 <td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Active incident</td>
-<td>Customers directed to contact centre or airport counter</td>
-<td>Fallback guidance published within 20 minutes of activation at 90 percent</td>
+<td>Incident details from Salesforce</td>
+<td>Investigation report</td>
+<td>90% of investigations completed within 4 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Delayed investigation can prolong customer dissatisfaction.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Escalate to IT Security Team</b></td>
+<td>Digital Channels Analyst</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Incident details from Salesforce</td>
+<td>Security team notification sent</td>
+<td>100% of security issues escalated within 1 hour</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Fallback redirection increases contact centre and airport volume that those channels may not be staffed to absorb</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Failed escalation can lead to prolonged incident resolution.</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Re-attempt Notification to Customers</b></td>
+<td>Digital Channels Analyst</td>
+<td><span class="tag channel" data-tooltip="Primary direct digital channel, cloud-native on AWS. Undergoing redevelopment under the CDO. [Air Canada - evidence A]">aircanada.com<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Incident classification report</td>
+<td>Customer notification sent</td>
+<td>90% of affected customers notified within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Repeated failures can escalate the incident.</td>
+</tr><tr>
+<td class="c-step">2.5</td>
+<td><b>Re-attempt Assignment in Salesforce Service Cloud</b></td>
+<td>Digital Channels Analyst</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Case created in Salesforce</td>
+<td>Incident assigned to specialist</td>
+<td>90% of incidents assigned within 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Repeated failures can escalate the incident.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CX-DC-06-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Restoration and review</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Notification to Customers</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Restore service and confirm resolution</b></td>
-<td>Digital Platform Engineer</td>
-<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Dynatrace<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
-<td>Applied fix</td>
-<td>Confirmed restored service</td>
-<td>Restoration confirmed with monitoring evidence at 100 percent</td>
+<td><b>Notify Customer Service Agents</b></td>
+<td>Digital Channels Analyst</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Investigation report</td>
+<td>Notification sent to agents</td>
+<td>90% of customer service agents notified within 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>A fix that resolves the symptom without addressing the root cause risks recurrence</td>
+<td>Failed notification can delay incident resolution.</td>
 </tr><tr>
 <td class="c-step">3.2</td>
-<td><b>Conduct post-incident review</b></td>
-<td>Digital Platform Engineer</td>
-<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Resolved incident</td>
-<td>Documented review with root cause and follow-up actions</td>
-<td>Review conducted within 5 business days of resolution for severity 1 incidents at 100 percent</td>
+<td><b>Monitor Incident Progress</b></td>
+<td>Digital Channels Analyst</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Investigation report</td>
+<td>Incident status update</td>
+<td>90% of incidents updated within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Delayed updates can prolong customer dissatisfaction.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Escalate to Senior Management</b></td>
+<td>Digital Channels Analyst</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Incident status update</td>
+<td>Senior management notification sent</td>
+<td>100% of escalated incidents notified within 30 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Follow-up actions from a review are not always tracked through to actual completion</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Failed escalation can lead to prolonged incident resolution.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-DC-06-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Investigation and Resolution</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Implement Incident Resolution Plan</b></td>
+<td>Digital Channels Specialist</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Incident status update</td>
+<td>Resolution plan implemented</td>
+<td>90% of resolution plans completed within 2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed implementation can prolong incident resolution.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Re-attempt Resolution Plan Implementation</b></td>
+<td>Digital Channels Specialist</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Incident status update</td>
+<td>Resolution plan implemented</td>
+<td>90% of resolution plans completed within 2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Repeated failures can escalate the incident.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-DC-06-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Degraded Mode Management</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Monitor Degraded Mode Impact</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag channel" data-tooltip="Primary direct digital channel, cloud-native on AWS. Undergoing redevelopment under the CDO. [Air Canada - evidence A]">aircanada.com<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>System monitoring data</td>
+<td>Degraded mode impact assessment</td>
+<td>90% of degraded modes assessed within 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed assessment can lead to prolonged service disruption.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Restore Degraded Mode Functionality</b></td>
+<td>Digital Channels Specialist</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Degraded mode impact assessment</td>
+<td>System restored to full functionality</td>
+<td>90% of systems restored within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Failed restoration can prolong service disruption.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Re-attempt Restoration</b></td>
+<td>Digital Channels Specialist</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Degraded mode impact assessment</td>
+<td>System restored to full functionality</td>
+<td>90% of systems restored within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Repeated failures can prolong service disruption.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Digital Platform Engineer</span><span class="lane-steps">1.1 1.2 2.1 2.2 3.1 3.2</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">1.1 5.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Digital Channels Analyst</span><span class="lane-steps">1.2 1.3 1.4 1.5 2.1 2.3 2.4 2.5 3.1 3.2 3.3</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Digital Channels Specialist</span><span class="lane-steps">2.2 4.1 4.2 5.2 5.3</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Dynatrace<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag channel" data-tooltip="Primary direct digital channel, cloud-native on AWS. Undergoing redevelopment under the CDO. [Air Canada - evidence A]">aircanada.com<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+<div class="card"><span class="tag channel" data-tooltip="Primary direct digital channel, cloud-native on AWS. Undergoing redevelopment under the CDO. [Air Canada - evidence A]">aircanada.com<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Triaged within 5 minutes of detection at 100 percent</li><li>First status update published within 15 minutes of activation at 90 percent</li><li>Restoration confirmed with monitoring evidence at 100 percent</li><li>Review conducted within 5 business days of resolution for severity 1 incidents at 100 percent</li></ul>
+<ul class="bullets"><li>0 incidents detected in the first 5 minutes</li><li>90% accurate incident classification within 15 minutes</li><li>95% of incidents logged within 30 minutes</li><li>90% of incidents assigned within 30 minutes</li><li>90% of investigations completed within 4 hours</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A digital outage displacing demand onto a contact centre and airport counters not staffed to absorb it</li><li>A status page hosted on the same infrastructure as the outage becoming unavailable at the worst moment</li><li>A fix resolving the symptom without addressing root cause, risking recurrence</li><li>Follow-up actions from a post-incident review not being tracked through to actual completion</li></ul>
+<ul class="bullets risk"><li>Delayed incident detection can lead to increased customer dissatisfaction.</li><li>Misclassification can lead to incorrect resolution steps.</li><li>Failed logging can delay incident response.</li><li>Repeated failures can escalate the incident.</li><li>Notification failure can lead to further customer dissatisfaction.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../customer-experience-channels/digital-channels/ac-cx-dc-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Digital Personalisation and Offer Targeting</span></a>

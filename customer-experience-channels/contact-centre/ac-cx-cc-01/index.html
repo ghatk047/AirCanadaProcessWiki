@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CX-CC-01" title="Click to copy the process ID">
     AC-CX-CC-01<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Inbound Service Call Handling</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,96 +143,351 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-CX-CC-01-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Call routing</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Initial Call Reception</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Route call through IVR</b></td>
-<td>Contact Centre Agent</td>
+<td><b>Call is received by Amazon Connect.</b></td>
+<td>Customer Service Agent</td>
 <td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Inbound call and customer input</td>
-<td>Routed call to the appropriate queue</td>
-<td>Correctly routed on first pass at 90 percent</td>
+<td>Inbound call from customer</td>
+<td>Customer identification and initial greeting</td>
+<td>Average call wait time &lt; 30 seconds</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>IVR menu depth that is too deep frustrates customers before they ever reach an agent</td>
+<td>High call volume can lead to delays in agent availability.</td>
 </tr><tr>
 <td class="c-step">1.2</td>
-<td><b>Authenticate customer identity</b></td>
-<td>Contact Centre Agent</td>
-<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Booking reference or member number</td>
-<td>Authenticated customer context</td>
-<td>Authenticated within 30 seconds of connection at 95 percent</td>
+<td><b>Customer identifies the issue.</b></td>
+<td>Customer Service Agent</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Customer&#x27;s verbal description of the issue</td>
+<td>Issue summary and classification</td>
+<td>Correct issue identification rate &gt; 95%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Customers may provide vague or ambiguous descriptions.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Agent clarifies the issue with customer.</b></td>
+<td>Customer Service Agent</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Customer&#x27;s clarification</td>
+<td>Detailed issue description</td>
+<td>Clarification success rate &gt; 80%</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Authentication has to balance security against not making a distressed customer repeat information</td>
+<td>Time-consuming to clarify complex issues.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CX-CC-01-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Servicing</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Issue Identification and Classification</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Retrieve booking and loyalty context</b></td>
-<td>Contact Centre Agent</td>
-<td><span class="tag amadeus" data-tooltip="Customer profile and PNR servicing layer. Feeds case context to Salesforce. [Amadeus - evidence A]">Amadeus Altea Customer Management<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Authenticated identity</td>
-<td>Retrieved booking and member context</td>
-<td>Context retrieved within 15 seconds at 95 percent</td>
+<td><b>Agent checks for existing cases in Salesforce Service Cloud.</b></td>
+<td>Customer Service Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Customer&#x27;s contact information and issue details</td>
+<td>Search results from Salesforce</td>
+<td>Case lookup accuracy &gt; 90%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Context spans several systems and does not always assemble into one agent-facing view</td>
+<td>Large volume of cases can slow down search times.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Resolve the customer&#x27;s request</b></td>
-<td>Contact Centre Agent</td>
+<td><b>Agent logs a new case in Salesforce Service Cloud.</b></td>
+<td>Customer Service Agent</td>
 <td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Retrieved context and customer request</td>
-<td>Resolved request or identified escalation need</td>
-<td>First contact resolution above target for 75 percent of calls</td>
+<td>Issue details and customer information</td>
+<td>New case record</td>
+<td>Case creation time &lt; 2 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Complex multi-system requests, such as an Express-operator itinerary change, exceed a single agent&#x27;s system access</td>
+<td>Manual data entry can lead to errors.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Agent reviews existing case for relevance.</b></td>
+<td>Customer Service Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Existing case details</td>
+<td>Relevance assessment</td>
+<td>Case relevance rate &gt; 85%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Similar cases may not provide accurate solutions.</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Agent updates existing case with new information.</b></td>
+<td>Customer Service Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>New issue details and customer feedback</td>
+<td>Updated case record</td>
+<td>Case update time &lt; 1 minute</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Conflicts in case history can complicate resolution.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CX-CC-01-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Case documentation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Customer Service Interaction</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Document the case record</b></td>
-<td>Contact Centre Agent</td>
+<td><b>Agent resolves the issue with the customer.</b></td>
+<td>Customer Service Agent</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Issue details and available solutions</td>
+<td>Resolution outcome</td>
+<td>Customer satisfaction rate &gt; 80%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Customers may reject the proposed solution.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Agent escalates the issue to a supervisor.</b></td>
+<td>Customer Service Supervisor</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Issue details and customer feedback</td>
+<td>Supervisor&#x27;s decision</td>
+<td>Escalation resolution time &lt; 15 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Supervisors may not always be available for immediate escalation.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Agent logs the escalation in Salesforce Service Cloud.</b></td>
+<td>Customer Service Agent</td>
 <td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Resolved or escalated interaction</td>
-<td>Complete case record</td>
-<td>Documented within 2 minutes of call end at 90 percent</td>
+<td>Escalation details and supervisor&#x27;s feedback</td>
+<td>Updated case record with escalation notes</td>
+<td>Escalation logging time &lt; 2 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Documentation completeness under call-volume pressure is the first thing to suffer</td>
+<td>Manual updates can lead to inconsistencies.</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Agent informs the customer of the escalation.</b></td>
+<td>Customer Service Agent</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Escalation details and expected resolution time</td>
+<td>Customer acknowledgment</td>
+<td>Customer acknowledgment rate &gt; 90%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Customers may become frustrated with the delay.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-CC-01-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Compliance Review and Escalation</span>
+    <span class="ph-n">6 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Agent checks for compliance with APPR regulations.</b></td>
+<td>Customer Service Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Issue details and relevant APPR sections</td>
+<td>Compliance assessment</td>
+<td>Compliance check accuracy &gt; 95%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex regulations can be difficult to interpret.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Agent logs the non-compliance in Salesforce Service Cloud.</b></td>
+<td>Customer Service Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Non-compliance details and relevant APPR sections</td>
+<td>Updated case record with compliance notes</td>
+<td>Compliance logging time &lt; 2 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual updates can lead to inconsistencies.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Agent informs the customer of compliance issues.</b></td>
+<td>Customer Service Agent</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Compliance details and next steps</td>
+<td>Customer acknowledgment</td>
+<td>Customer acknowledgment rate &gt; 90%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Customers may become frustrated with compliance issues.</td>
+</tr><tr>
+<td class="c-step">4.4</td>
+<td><b>Agent escalates the compliance issue to a supervisor.</b></td>
+<td>Customer Service Supervisor</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Compliance details and customer feedback</td>
+<td>Supervisor&#x27;s decision</td>
+<td>Escalation resolution time &lt; 15 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Supervisors may not always be available for immediate escalation.</td>
+</tr><tr>
+<td class="c-step">4.5</td>
+<td><b>Agent logs the compliance escalation in Salesforce Service Cloud.</b></td>
+<td>Customer Service Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Escalation details and supervisor&#x27;s feedback</td>
+<td>Updated case record with escalation notes</td>
+<td>Escalation logging time &lt; 2 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual updates can lead to inconsistencies.</td>
+</tr><tr>
+<td class="c-step">4.6</td>
+<td><b>Agent informs the customer of the compliance escalation.</b></td>
+<td>Customer Service Agent</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Escalation details and expected resolution time</td>
+<td>Customer acknowledgment</td>
+<td>Customer acknowledgment rate &gt; 90%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Customers may become frustrated with the delay.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-CC-01-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Case Logging and Documentation</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Agent completes case documentation in Salesforce Service Cloud.</b></td>
+<td>Customer Service Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Case details, resolution outcome, and customer feedback</td>
+<td>Finalized case record</td>
+<td>Documentation completion time &lt; 3 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual documentation can lead to errors.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Agent reviews the case for accuracy.</b></td>
+<td>Customer Service Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Finalized case record</td>
+<td>Review outcome</td>
+<td>Case review accuracy &gt; 95%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Errors in documentation can lead to unresolved issues.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Agent corrects the inaccurate documentation.</b></td>
+<td>Customer Service Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Correction details and new information</td>
+<td>Updated case record</td>
+<td>Correction time &lt; 2 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual corrections can be time-consuming.</td>
+</tr><tr>
+<td class="c-step">5.4</td>
+<td><b>Agent finalizes the case in Salesforce Service Cloud.</b></td>
+<td>Customer Service Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Finalized case record</td>
+<td>Case closure</td>
+<td>Case closure time &lt; 1 minute</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual finalization can lead to delays.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-CC-01-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Resolution and Follow-Up</span>
+    <span class="ph-n">5 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Agent informs the customer of case resolution.</b></td>
+<td>Customer Service Agent</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Final resolution details and closure status</td>
+<td>Customer acknowledgment</td>
+<td>Customer acknowledgment rate &gt; 90%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Customers may become frustrated with delays or misunderstand the outcome.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Agent logs any customer feedback in Salesforce Service Cloud.</b></td>
+<td>Customer Service Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Customer feedback and satisfaction rating</td>
+<td>Updated case record with feedback notes</td>
+<td>Feedback logging time &lt; 2 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual feedback entry can lead to inconsistencies.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Agent reviews the case for closure.</b></td>
+<td>Customer Service Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Finalized case record and customer feedback</td>
+<td>Closure review outcome</td>
+<td>Closure review accuracy &gt; 95%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Errors in closure can lead to unresolved issues.</td>
+</tr><tr>
+<td class="c-step">6.4</td>
+<td><b>Agent completes any missing documentation.</b></td>
+<td>Customer Service Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Missing information and new details</td>
+<td>Updated case record</td>
+<td>Completion time &lt; 2 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual completion can be time-consuming.</td>
+</tr><tr>
+<td class="c-step">6.5</td>
+<td><b>Agent finalizes the case closure in Salesforce Service Cloud.</b></td>
+<td>Customer Service Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Finalized case record</td>
+<td>Case closure confirmation</td>
+<td>Closure confirmation time &lt; 1 minute</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual finalization can lead to delays.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Contact Centre Agent</span><span class="lane-steps">1.1 1.2 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Customer Service Agent</span><span class="lane-steps">1.1 1.2 1.3 2.1 2.2 2.3 2.4 3.1 3.3 3.4 4.1 4.2 4.3 4.5 4.6 5.1 5.2 5.3 5.4 6.1 6.2 6.3 6.4 6.5</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Customer Service Supervisor</span><span class="lane-steps">3.2 4.4</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag amadeus" data-tooltip="Customer profile and PNR servicing layer. Feeds case context to Salesforce. [Amadeus - evidence A]">Amadeus Altea Customer Management<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+<div class="card"><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Correctly routed on first pass at 90 percent</li><li>First contact resolution above target for 75 percent of calls</li><li>Documented within 2 minutes of call end at 90 percent</li><li>Average handle time within target while maintaining resolution quality</li></ul>
+<ul class="bullets"><li>Average call wait time &lt; 30 seconds</li><li>Correct issue identification rate &gt; 95%</li><li>Case lookup accuracy &gt; 90%</li><li>Customer satisfaction rate &gt; 80%</li><li>Compliance check accuracy &gt; 95%</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Case documentation quality degrading under call-volume pressure, weakening later APPR evidence</li><li>A multi-system request such as an Express-operator change exceeding a single agent&#x27;s access</li><li>An IVR menu too deep for the situation, frustrating the customer before reaching an agent</li><li>Context assembled from several systems failing to present as one coherent agent view</li></ul>
+<ul class="bullets risk"><li>High call volume leading to agent burnout and reduced service quality.</li><li>Errors in case documentation causing unresolved issues.</li><li>Delays in escalation processes affecting customer satisfaction.</li><li>Non-compliance with APPR regulations leading to further penalties.</li><li>Manual data entry errors increasing operational costs.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../customer-experience-channels/digital-channels/ac-cx-dc-06/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Digital Channel Incident and Degraded Mode</span></a>
