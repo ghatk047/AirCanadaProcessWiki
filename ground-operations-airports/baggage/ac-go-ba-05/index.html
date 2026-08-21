@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-GO-BA-05" title="Click to copy the process ID">
     AC-GO-BA-05<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Baggage Delivery and Repatriation</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,307 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-GO-BA-05-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Delivery location confirmation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Bag Acceptance</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Confirm passenger&#x27;s current delivery location</b></td>
-<td>Baggage Services Agent</td>
-<td><span class="tag sita" data-tooltip="Global mishandled-baggage tracing and PIR file management. [SITA - evidence B]">SITA WorldTracer<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Located bag and passenger contact</td>
-<td>Confirmed delivery address</td>
-<td>Confirmed within 4 hours of bag location at 95 percent</td>
+<td><b>Receive passenger luggage at baggage counter</b></td>
+<td>Baggage Agent</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Passenger details, luggage items</td>
+<td>Bag tag with unique identifier</td>
+<td>95% accuracy in bag tagging</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A passenger continuing onward travel may have a delivery location that changes again before the bag arrives</td>
+<td>Manual handling increases risk of mis-tagging</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Verify passenger information for baggage acceptance</b></td>
+<td>Baggage Agent</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Passenger identification, flight details</td>
+<td>Verification status</td>
+<td>98% successful verifications</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System delays can cause queue backups</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Manual baggage acceptance if system fails</b></td>
+<td>Baggage Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">None<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Passenger details, luggage items</td>
+<td>Bag tag with unique identifier</td>
+<td>90% accuracy in manual tagging</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>High error rate due to human factors</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-GO-BA-05-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Courier coordination</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Bag Tagging and Check-in</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Arrange courier delivery</b></td>
-<td>Baggage Services Agent</td>
-<td><span class="tag sita" data-tooltip="Global mishandled-baggage tracing and PIR file management. [SITA - evidence B]">SITA WorldTracer<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Confirmed delivery address</td>
-<td>Arranged courier delivery</td>
-<td>Arranged within 24 hours of location for 90 percent of cases</td>
+<td><b>Assign bags to specific flights and seats</b></td>
+<td>Baggage Agent</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Flight itinerary, passenger seating</td>
+<td>Bag-to-flight mapping</td>
+<td>99% accurate bag loading instructions</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Courier availability and delivery timeframes vary significantly by geography</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Incorrect flight assignment can lead to delays</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Track delivery progress</b></td>
-<td>Baggage Services Agent</td>
-<td><span class="tag sita" data-tooltip="Global mishandled-baggage tracing and PIR file management. [SITA - evidence B]">SITA WorldTracer<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Arranged delivery</td>
-<td>Tracked delivery status</td>
-<td>Tracked continuously until confirmed delivery at 100 percent</td>
+<td><b>Tag bags with seat information</b></td>
+<td>Baggage Agent</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Seat numbers, bag tags</td>
+<td>Updated bag tags</td>
+<td>100% accurate seat tagging</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A delivery that fails at the first attempt requires prompt rescheduling to avoid extending the delay further</td>
+<td>Manual errors can cause misrouting</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Correct flight assignment manually</b></td>
+<td>Baggage Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">None<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Flight itinerary, passenger seating</td>
+<td>Corrected bag-to-flight mapping</td>
+<td>95% successful corrections</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Time-consuming manual adjustments</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-GO-BA-05-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Delivery confirmation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Boarding Preparation</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Confirm delivery and close repatriation</b></td>
-<td>Baggage Services Agent</td>
+<td><b>Prepare for boarding by verifying seat assignments</b></td>
+<td>Boarding Agent</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Flight details, passenger list</td>
+<td>Seat verification status</td>
+<td>98% accurate seat assignments</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System downtime affects boarding efficiency</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Board passengers and collect bags</b></td>
+<td>Boarding Agent</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Passenger list, bag tags</td>
+<td>Boarded passengers with correct bags</td>
+<td>95% accurate boarding process</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Incorrect bag-to-passenger matching can cause delays</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Manual seat assignment correction</b></td>
+<td>Boarding Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">None<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Flight details, passenger list</td>
+<td>Corrected seat assignments</td>
+<td>90% successful corrections</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>High risk of errors during manual adjustments</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Manual bag-to-passenger matching correction</b></td>
+<td>Boarding Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">None<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Passenger list, bag tags</td>
+<td>Corrected bag-to-passenger mapping</td>
+<td>85% successful corrections</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Time-consuming manual corrections</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-BA-05-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Baggage Tracking</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Start real-time baggage tracking</b></td>
+<td>Baggage Tracking Agent</td>
 <td><span class="tag sita" data-tooltip="Global mishandled-baggage tracing and PIR file management. [SITA - evidence B]">SITA WorldTracer<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Delivery confirmation</td>
-<td>Closed repatriation record</td>
-<td>Closed within 24 hours of confirmed delivery at 100 percent</td>
+<td>Flight details, bag tags</td>
+<td>Live tracking data</td>
+<td>98% successful tracking events</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System failures can cause tracking gaps</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Monitor for mishandled bags</b></td>
+<td>Baggage Tracking Agent</td>
+<td><span class="tag sita" data-tooltip="Global mishandled-baggage tracing and PIR file management. [SITA - evidence B]">SITA WorldTracer<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Live tracking data</td>
+<td>Mishandled bag alerts</td>
+<td>95% detection rate of mishandled bags</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed detection can cause passenger dissatisfaction</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Switch to manual tracking if system fails</b></td>
+<td>Baggage Tracking Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">None<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Flight details, bag tags</td>
+<td>Manual tracking records</td>
+<td>80% successful manual tracking</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A repatriation not properly closed leaves ambiguity about whether the bag actually reached the passenger</td>
+<td>High risk of errors in manual tracking</td>
+</tr><tr>
+<td class="c-step">4.4</td>
+<td><b>Report mishandled bags to duty manager</b></td>
+<td>Baggage Tracking Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">None<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Mishandled bag details</td>
+<td>Incident report</td>
+<td>90% timely reporting</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Late reporting can escalate issues</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-BA-05-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Final Bag-to-Passenger Matching</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Final bag-to-passenger matching at destination</b></td>
+<td>Baggage Reconciliation Agent</td>
+<td><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Flight details, passenger list</td>
+<td>Matching status</td>
+<td>99% accurate final matches</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System outages can cause mismatches</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Notify passengers of correct bags</b></td>
+<td>Baggage Reconciliation Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">None<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Passenger details, bag status</td>
+<td>Notification sent</td>
+<td>98% successful notifications</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed notifications can cause passenger frustration</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Manually correct final bag-to-passenger matching</b></td>
+<td>Baggage Reconciliation Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">None<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Flight details, passenger list</td>
+<td>Corrected matching status</td>
+<td>90% successful corrections</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>High risk of errors during manual adjustments</td>
+</tr><tr>
+<td class="c-step">5.4</td>
+<td><b>Update passenger records with correct bag information</b></td>
+<td>Baggage Reconciliation Agent</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Passenger details, corrected bag status</td>
+<td>Updated passenger records</td>
+<td>98% successful updates</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System downtime affects record accuracy</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-BA-05-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Repatriation Handling</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Identify repatriation requests</b></td>
+<td>Baggage Repatriation Agent</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Passenger details, bag status</td>
+<td>Repatriation list</td>
+<td>95% accurate identification of repatriations</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Missed requests can lead to passenger dissatisfaction</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Process repatriation requests through SITA WorldTracer</b></td>
+<td>Baggage Repatriation Agent</td>
+<td><span class="tag sita" data-tooltip="Global mishandled-baggage tracing and PIR file management. [SITA - evidence B]">SITA WorldTracer<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Repatriation list, tracking data</td>
+<td>Repatriation status updates</td>
+<td>90% successful repatriations</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed processing can cause delays</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Notify passengers of no repatriation needed</b></td>
+<td>Baggage Repatriation Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">None<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Passenger details</td>
+<td>Notification sent</td>
+<td>98% successful notifications</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed notifications can cause confusion</td>
+</tr><tr>
+<td class="c-step">6.4</td>
+<td><b>Escalate repatriation issues to duty manager</b></td>
+<td>Baggage Repatriation Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">None<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Repatriation details, issue description</td>
+<td>Escalation report</td>
+<td>90% timely escalations</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Late escalation can cause passenger dissatisfaction</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Baggage Services Agent</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Baggage Agent</span><span class="lane-steps">1.1 1.2 1.3 2.1 2.2 2.3</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Boarding Agent</span><span class="lane-steps">3.1 3.2 3.3 3.4</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Baggage Tracking Agent</span><span class="lane-steps">4.1 4.2 4.3 4.4</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Baggage Reconciliation Agent</span><span class="lane-steps">5.1 5.2 5.3 5.4</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Baggage Repatriation Agent</span><span class="lane-steps">6.1 6.2 6.3 6.4</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag sita" data-tooltip="Global mishandled-baggage tracing and PIR file management. [SITA - evidence B]">SITA WorldTracer<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">None<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag sita" data-tooltip="Global mishandled-baggage tracing and PIR file management. [SITA - evidence B]">SITA WorldTracer<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Confirmed within 4 hours of bag location at 95 percent</li><li>Arranged within 24 hours of location for 90 percent of cases</li><li>Tracked continuously until confirmed delivery at 100 percent</li><li>Average time from bag location to confirmed delivery meeting target</li></ul>
+<ul class="bullets"><li>95% accuracy in bag tagging</li><li>98% successful verifications</li><li>99% accurate bag loading instructions</li><li>98% successful tracking events</li><li>90% timely reporting</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A passenger continuing onward travel changing their delivery location again before the bag arrives</li><li>Courier availability and delivery timeframes varying significantly by geography</li><li>A failed first delivery attempt requiring prompt rescheduling to avoid extending the delay further</li><li>A repatriation not properly closed leaving ambiguity about whether the bag actually reached the passenger</li></ul>
+<ul class="bullets risk"><li>System outages affecting critical operations</li><li>Manual errors leading to misrouting or mismatches</li><li>Delays in mishandled bag detection and resolution</li><li>High risk of errors during manual corrections</li><li>Late notifications causing passenger frustration</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../ground-operations-airports/baggage/ac-go-ba-04/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Mishandled Baggage Tracing and PIR Creation</span></a>

@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-GO-BA-06" title="Click to copy the process ID">
     AC-GO-BA-06<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Baggage Performance and Resolution 753 Reporting</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,233 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-GO-BA-06-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Data compilation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Initial Check-in</span>
+    <span class="ph-n">5 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Compile mishandling and delivery time data</b></td>
-<td>Baggage Performance Analyst</td>
-<td><span class="tag sita" data-tooltip="Global mishandled-baggage tracing and PIR file management. [SITA - evidence B]">SITA WorldTracer<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>PIR and delivery records across the period</td>
-<td>Compiled performance data</td>
-<td>Compiled within 5 business days of period close at 100 percent</td>
+<td><b>Manual check-in begins</b></td>
+<td>Ground Operations Agent</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Passenger details and baggage information</td>
+<td>Confirmed passenger and bag data</td>
+<td>Time to manual check-in &lt; 5 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Data spans multiple systems, WorldTracer and the reconciliation system, that need consistent joining</td>
+<td>Manual entry is time-consuming.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Verify passenger details</b></td>
+<td>Ground Operations Agent</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Passenger information from manual check-in</td>
+<td>Validated passenger data</td>
+<td>95% accuracy in data validation</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Data entry errors can occur due to human error.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Correct and revalidate details</b></td>
+<td>Ground Operations Agent</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Corrected passenger information</td>
+<td>Revalidated passenger data</td>
+<td>Time to correction &lt; 2 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Multiple corrections can delay the process.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Proceed with bag acceptance</b></td>
+<td>Ground Operations Agent</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Validated passenger data and baggage information</td>
+<td>Accepted bag details</td>
+<td>98% success rate in accepting bags</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System limitations can cause delays in accepting bags.</td>
+</tr><tr>
+<td class="c-step">1.5</td>
+<td><b>Manual override for bag acceptance</b></td>
+<td>Ground Operations Agent</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Bag details from step 1.4</td>
+<td>Manually accepted bag details</td>
+<td>Time to manual override &lt; 3 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual overrides are time-consuming.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-GO-BA-06-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Performance analysis</span>
+    <span class="ph-name">Phase 2 &mdash; Bag Acceptance and Load Control</span>
     <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Analyse performance by station and route</b></td>
-<td>Baggage Performance Analyst</td>
-<td><span class="tag sita" data-tooltip="Global mishandled-baggage tracing and PIR file management. [SITA - evidence B]">SITA WorldTracer<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Compiled data</td>
-<td>Performance analysis by station and route</td>
-<td>Analysed for 100 percent of material stations each cycle</td>
+<td><b>Load bags onto aircraft</b></td>
+<td>Loading Agent</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Accepted bag details and load plan</td>
+<td>Loaded bag data</td>
+<td>90% adherence to load plan</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>A network-wide average can mask a specific station&#x27;s persistent underperformance</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System failures can cause delays in loading.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Compare against Resolution 753 tracking obligations</b></td>
-<td>Baggage Performance Analyst</td>
-<td><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Performance data</td>
-<td>Resolution 753 compliance assessment</td>
-<td>Assessed for 100 percent of tracking touchpoints each cycle</td>
-<td class="c-flag"><span class="yes">Y</span></td>
+<td><b>Manual re-load of bags</b></td>
+<td>Loading Agent</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Bag details from step 2.1</td>
+<td>Re-loaded bag data</td>
+<td>Time to manual reload &lt; 5 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Tracking touchpoint compliance is distinct from mishandling rate and needs its own separate assessment</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual reloading is time-consuming.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-GO-BA-06-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Reporting and action routing</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Mishandled Baggage Detection</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Route findings for operational action</b></td>
-<td>Baggage Performance Analyst</td>
-<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Analysis and compliance assessment</td>
-<td>Routed findings with an owner</td>
-<td>Routed within 10 business days of period close at 100 percent</td>
+<td><b>Detect mishandled baggage</b></td>
+<td>Baggage Handler</td>
+<td><span class="tag sita" data-tooltip="Global mishandled-baggage tracing and PIR file management. [SITA - evidence B]">SITA WorldTracer<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Loaded bag data and handling logs</td>
+<td>Mishandled bag report</td>
+<td>95% detection accuracy</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual detection can miss subtle issues.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Report mishandled baggage to SITA WorldTracer</b></td>
+<td>Baggage Handler</td>
+<td><span class="tag sita" data-tooltip="Global mishandled-baggage tracing and PIR file management. [SITA - evidence B]">SITA WorldTracer<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Mishandled bag details</td>
+<td>PIR file generated</td>
+<td>Time to report &lt; 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System failures can delay reporting.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Manual creation of PIR file</b></td>
+<td>Baggage Handler</td>
+<td><span class="tag sita" data-tooltip="Global mishandled-baggage tracing and PIR file management. [SITA - evidence B]">SITA WorldTracer<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Mishandled bag details</td>
+<td>Manually created PIR file</td>
+<td>Time to manual report &lt; 15 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Findings without a clear operational owner risk being reported repeatedly without ever being acted on</td>
+<td>Manual report creation is time-consuming.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-BA-06-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Resolution Tracking</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Track resolution status in Baggage Reconciliation System</b></td>
+<td>Baggage Compliance Agent</td>
+<td><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>PIR file and handling logs</td>
+<td>Resolution status update</td>
+<td>98% accuracy in resolution tracking</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System failures can cause delays in updating resolution status.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Manual update of resolution status</b></td>
+<td>Baggage Compliance Agent</td>
+<td><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>PIR file and handling logs</td>
+<td>Manually updated resolution status</td>
+<td>Time to manual update &lt; 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual updates are time-consuming.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-BA-06-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Final Reporting</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Generate final reporting for IATA Resolution 753</b></td>
+<td>Baggage Compliance Agent</td>
+<td><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Resolution status data</td>
+<td>Final IATA 753 report</td>
+<td>90% completeness of reports</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System failures can cause incomplete reports.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Manual completion of final report</b></td>
+<td>Baggage Compliance Agent</td>
+<td><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Resolution status data</td>
+<td>Manually completed IATA 753 report</td>
+<td>Time to manual completion &lt; 15 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual completion is time-consuming.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Review and approve final report</b></td>
+<td>Baggage Compliance Agent</td>
+<td><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Final IATA 753 report</td>
+<td>Approved report</td>
+<td>100% approval rate</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual reviews can introduce errors.</td>
+</tr><tr>
+<td class="c-step">5.4</td>
+<td><b>Correct and reapprove final report</b></td>
+<td>Baggage Compliance Agent</td>
+<td><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Corrected report data</td>
+<td>Reapproved report</td>
+<td>Time to correction &lt; 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual corrections are time-consuming.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Baggage Performance Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Ground Operations Agent</span><span class="lane-steps">1.1 1.2 1.3 1.4 1.5</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Loading Agent</span><span class="lane-steps">2.1 2.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Baggage Handler</span><span class="lane-steps">3.1 3.2 3.3</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Baggage Compliance Agent</span><span class="lane-steps">4.1 4.2 5.1 5.2 5.3 5.4</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag sita" data-tooltip="Global mishandled-baggage tracing and PIR file management. [SITA - evidence B]">SITA WorldTracer<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
+<div class="card"><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sita" data-tooltip="Global mishandled-baggage tracing and PIR file management. [SITA - evidence B]">SITA WorldTracer<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Compiled within 5 business days of period close at 100 percent</li><li>Assessed for 100 percent of tracking touchpoints each cycle</li><li>Routed within 10 business days of period close at 100 percent</li><li>Mishandled bags per 1,000 passengers trending against target</li></ul>
+<ul class="bullets"><li>Time to manual check-in &lt; 5 minutes</li><li>95% accuracy in data validation</li><li>Time to correction &lt; 2 minutes</li><li>98% success rate in accepting bags</li><li>Time to manual override &lt; 3 minutes</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A network-wide average masking a specific station&#x27;s persistent underperformance</li><li>Findings without a clear operational owner being reported repeatedly without ever being acted on</li><li>Data spanning multiple systems that need consistent joining before analysis can be trusted</li><li>Resolution 753 tracking touchpoint compliance needing separate assessment from the mishandling rate</li></ul>
+<ul class="bullets risk"><li>System failures during manual operations can lead to delays.</li><li>Manual entry errors and corrections can slow down the process.</li><li>Inaccurate detection of mishandled baggage can lead to non-compliance.</li><li>Delays in updating resolution status can affect customer satisfaction.</li><li>Incomplete or incorrect reports can result in regulatory penalties.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../ground-operations-airports/baggage/ac-go-ba-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Baggage Delivery and Repatriation</span></a>
