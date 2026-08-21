@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CM-CP-02" title="Click to copy the process ID">
     AC-CM-CP-02<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Pairing Optimisation Build in Jeppesen</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,257 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-CM-CP-02-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Pairing generation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Data Initialization</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Generate candidate pairings from the schedule</b></td>
-<td>Crew Planning Analyst</td>
+<td><b>Load Historical Data</b></td>
+<td>Jeppesen Crew Scheduler</td>
 <td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Committed schedule</td>
-<td>Candidate pairing set</td>
-<td>Candidates generated covering 100 percent of flying requirement</td>
+<td>Historical flight schedules, crew availability, and past pairing data.</td>
+<td>Initialized database with historical information.</td>
+<td>Data load time &lt; 10 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inconsistent or missing data can lead to inaccurate pairings.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Retrieve Current Operational Data</b></td>
+<td>Jeppesen Crew Scheduler</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Current crew availability, leave requests, and sick days.</td>
+<td>Operational data imported into Jeppesen Crew.</td>
+<td>Data retrieval time &lt; 5 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Pairing generation for a complex hub schedule produces a very large candidate solution space</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Network issues can delay or disrupt data retrieval.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CM-CP-02-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Constraint validation</span>
+    <span class="ph-name">Phase 2 &mdash; Rule Application</span>
     <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Validate flight and duty time compliance</b></td>
-<td>Crew Planning Analyst</td>
+<td><b>Apply ACPA Rules</b></td>
+<td>Jeppesen Crew Scheduler</td>
 <td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Candidate pairings</td>
-<td>Compliance-validated pairings</td>
-<td>100 percent of pairings compliant with Canadian Aviation Regulations duty limits</td>
+<td>Pairing data with ACPA union rules.</td>
+<td>ACPA rule-applied pairings.</td>
+<td>Rule application time per rule &lt; 2 minutes</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Duty time rules interact with time zone crossing in ways that are easy to miscalculate manually</td>
+<td>Complex ACPA rules can lead to extensive manual overrides.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Validate collective agreement compliance</b></td>
-<td>Crew Planning Analyst</td>
+<td><b>Apply CUPE Rules</b></td>
+<td>Jeppesen Crew Scheduler</td>
 <td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Candidate pairings</td>
-<td>Agreement-compliant pairings</td>
-<td>100 percent of pairings compliant with the applicable collective agreement</td>
+<td>Pairing data with CUPE union rules.</td>
+<td>CUPE rule-applied pairings.</td>
+<td>Rule application time per rule &lt; 2 minutes</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Four different collective agreements apply to different crew groups on overlapping pairings</td>
+<td>Conflicting CUPE rules require manual adjustments.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CM-CP-02-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Cost optimisation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Optimization</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Optimise pairings for cost efficiency</b></td>
-<td>Crew Planning Analyst</td>
+<td><b>Optimize Pairings for ACPA</b></td>
+<td>Jeppesen Crew Scheduler</td>
 <td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Compliant pairing set</td>
-<td>Cost-optimised pairing set</td>
-<td>Optimisation completed within the planning cycle at 100 percent</td>
+<td>ACPA rule-applied pairings.</td>
+<td>Optimized ACPA pairings.</td>
+<td>Optimization time &lt; 15 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Optimization algorithms can fail to converge on solutions.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Optimize Pairings for CUPE</b></td>
+<td>Jeppesen Crew Scheduler</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>CUPE rule-applied pairings.</td>
+<td>Optimized CUPE pairings.</td>
+<td>Optimization time &lt; 15 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Optimization algorithms can fail to converge on solutions.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CP-02-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Validation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Validate Pairings for ACPA</b></td>
+<td>Jeppesen Crew Scheduler</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Optimized ACPA pairings.</td>
+<td>Validated ACPA pairings.</td>
+<td>Validation time &lt; 10 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual validation can be error-prone and time-consuming.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Validate Pairings for CUPE</b></td>
+<td>Jeppesen Crew Scheduler</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Optimized CUPE pairings.</td>
+<td>Validated CUPE pairings.</td>
+<td>Validation time &lt; 10 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual validation can be error-prone and time-consuming.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CP-02-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Execution</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Publish Pairings for ACPA</b></td>
+<td>Jeppesen Crew Scheduler</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Validated ACPA pairings.</td>
+<td>Published ACPA pairings to crew members.</td>
+<td>Publication time &lt; 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System downtime can disrupt pairing publication.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Publish Pairings for CUPE</b></td>
+<td>Jeppesen Crew Scheduler</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Validated CUPE pairings.</td>
+<td>Published CUPE pairings to crew members.</td>
+<td>Publication time &lt; 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System downtime can disrupt pairing publication.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CP-02-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Monitoring</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Monitor ACPA Pairing Adherence</b></td>
+<td>Jeppesen Crew Scheduler</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Published ACPA pairings.</td>
+<td>Monitoring of adherence to published pairings.</td>
+<td>Adherence rate &gt; 95%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Crew members may change plans, affecting adherence.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Monitor CUPE Pairing Adherence</b></td>
+<td>Jeppesen Crew Scheduler</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Published CUPE pairings.</td>
+<td>Monitoring of adherence to published pairings.</td>
+<td>Adherence rate &gt; 95%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Crew members may change plans, affecting adherence.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CP-02-7">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 7 &mdash; Phase 7</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">7.1</td>
+<td><b>Adjust Constraints for Re-optimization</b></td>
+<td>Jeppesen Crew Scheduler</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Pairing data with constraints adjustments.</td>
+<td>Adjusted pairing constraints.</td>
+<td>Adjustment time &lt; 5 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Cost optimisation can produce pairings that are technically compliant but operationally fragile to disruption</td>
+<td>Manual constraint adjustment can be time-consuming.</td>
+</tr><tr>
+<td class="c-step">7.2</td>
+<td><b>Re-optimize Pairings for ACPA</b></td>
+<td>Jeppesen Crew Scheduler</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Adjusted pairing constraints.</td>
+<td>Re-optimized ACPA pairings.</td>
+<td>Optimization time &lt; 15 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Optimization algorithms can fail to converge on solutions.</td>
+</tr><tr>
+<td class="c-step">7.3</td>
+<td><b>Re-optimize Pairings for CUPE</b></td>
+<td>Jeppesen Crew Scheduler</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Adjusted pairing constraints.</td>
+<td>Re-optimized CUPE pairings.</td>
+<td>Optimization time &lt; 15 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Optimization algorithms can fail to converge on solutions.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CP-02-8">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 8 &mdash; Phase 8</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">8.1</td>
+<td><b>Final Validation of Re-optimized Pairings</b></td>
+<td>Jeppesen Crew Scheduler</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Re-optimized pairings.</td>
+<td>Validated re-optimized pairings.</td>
+<td>Validation time &lt; 10 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual validation can be error-prone and time-consuming.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Crew Planning Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Jeppesen Crew Scheduler</span><span class="lane-steps">1.1 1.2 2.1 2.2 3.1 3.2 4.1 4.2 5.1 5.2 6.1 6.2 7.1 7.2 7.3 8.1</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Candidates generated covering 100 percent of flying requirement</li><li>100 percent of pairings compliant with Canadian Aviation Regulations duty limits</li><li>100 percent of pairings compliant with the applicable collective agreement</li><li>Pairing cost efficiency against the planning target tracked each cycle</li></ul>
+<ul class="bullets"><li>Data load time &lt; 10 minutes</li><li>Rule application time per rule &lt; 2 minutes</li><li>Optimization time &lt; 15 minutes</li><li>Validation time &lt; 10 minutes</li><li>Publication time &lt; 5 minutes</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Duty time rules interacting with time zone crossing in ways that are easy to miscalculate manually</li><li>Four different collective agreements applying to different crew groups on overlapping pairings</li><li>Cost-optimised pairings being technically compliant but operationally fragile to routine disruption</li><li>Pairing generation producing a solution space too large to fully explore within the planning window</li></ul>
+<ul class="bullets risk"><li>Inconsistent or missing data can lead to inaccurate pairings.</li><li>Network issues can delay or disrupt data retrieval.</li><li>Complex ACPA rules can lead to extensive manual overrides.</li><li>Conflicting CUPE rules require manual adjustments.</li><li>System downtime can disrupt pairing publication.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../crew-management/crew-planning-pairing/ac-cm-cp-01/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Crew Demand Forecasting and Establishment Planning</span></a>

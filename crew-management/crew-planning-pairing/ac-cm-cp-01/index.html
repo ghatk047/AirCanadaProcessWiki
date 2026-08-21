@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CM-CP-01" title="Click to copy the process ID">
     AC-CM-CP-01<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Crew Demand Forecasting and Establishment Planning</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,340 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-CM-CP-01-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Demand translation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Demand Analysis</span>
+    <span class="ph-n">6 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Translate committed schedule into crew flying hours</b></td>
-<td>Crew Planning Analyst</td>
-<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Committed seasonal schedule</td>
-<td>Required flying hours by fleet type and base</td>
-<td>Translated within 10 business days of schedule commitment at 100 percent</td>
+<td><b>Collect passenger demand data from Revenue Management</b></td>
+<td>Revenue Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Monthly forecast data</td>
+<td>Demand matrix by route and time period</td>
+<td>Accuracy of demand data within ±5%</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Flying hour requirements do not translate linearly into headcount because of duty and rest limits</td>
+<td>Inaccurate forecasts lead to over or under-staffing.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Validate historical passenger data for seasonal trends</b></td>
+<td>Data Analyst</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Historical passenger data</td>
+<td>Seasonal adjustment factors</td>
+<td>Consistency of seasonal adjustments over 3 months</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Incorrect seasonal adjustments can cause significant planning errors.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Adjust forecast based on validated trends</b></td>
+<td>Revenue Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Demand matrix and seasonal adjustment factors</td>
+<td>Adjusted demand matrix</td>
+<td>Accuracy of adjusted forecasts within ±5%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual adjustments can introduce errors if not carefully done.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Generate initial pairing proposal</b></td>
+<td>Crew Planning Specialist</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Adjusted demand matrix</td>
+<td>Pairing proposal with tentative schedules</td>
+<td>Number of pairings generated per hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex union rules can complicate the pairing process.</td>
+</tr><tr>
+<td class="c-step">1.5</td>
+<td><b>Review initial pairing for compliance with ACPA and CUPE agreements</b></td>
+<td>ACPA/CUPE Compliance Officer</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Pairing proposal</td>
+<td>Compliance report</td>
+<td>Time to review compliance per proposal</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Non-compliant pairings can lead to labor disputes.</td>
+</tr><tr>
+<td class="c-step">1.6</td>
+<td><b>Adjust pairing proposal based on non-compliance findings</b></td>
+<td>Crew Planning Specialist</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Compliance report</td>
+<td>Revised pairing proposal</td>
+<td>Number of adjustments per proposal</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Multiple iterations can delay the planning process.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CM-CP-01-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Establishment calculation</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Forecast Validation</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Calculate required establishment by rank</b></td>
-<td>Crew Planning Analyst</td>
-<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Required flying hours and duty rules</td>
-<td>Calculated establishment by base and rank</td>
-<td>Calculated for 100 percent of bases each planning cycle</td>
+<td><b>Generate initial roster based on pairing proposal</b></td>
+<td>Crew Planning Specialist</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Revised pairing proposal</td>
+<td>Roster with tentative assignments</td>
+<td>Time to generate initial roster</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Establishment calculation has to reserve capacity for training, leave and sick absence, not just flying</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Incorrect rostering can lead to understaffed flights.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Identify gap against current establishment</b></td>
-<td>Crew Planning Analyst</td>
-<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Calculated requirement and current headcount</td>
-<td>Identified gap by base and rank</td>
-<td>Gap identified within 5 business days of calculation at 100 percent</td>
+<td><b>Review roster for compliance with union rules and operational constraints</b></td>
+<td>Union Compliance Officer</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Roster</td>
+<td>Compliance report</td>
+<td>Time to review compliance per roster</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Non-compliant rosters can result in legal action.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Adjust roster based on non-compliance findings</b></td>
+<td>Crew Planning Specialist</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Compliance report</td>
+<td>Revised roster</td>
+<td>Number of adjustments per roster</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A gap identified late compresses the lead time available for recruitment or training response</td>
+<td>Multiple iterations can delay the planning process.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CM-CP-01-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Gap identification</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Pairing Proposal Generation</span>
+    <span class="ph-n">6 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Feed gap into recruitment and training planning</b></td>
-<td>Crew Planning Analyst</td>
-<td><span class="tag hcm" data-tooltip="Talent acquisition and candidate relationship management. [Phenom - evidence B]">Phenom<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Identified gap</td>
-<td>Recruitment and training demand signal</td>
-<td>Signal delivered within 5 business days of gap identification at 100 percent</td>
+<td><b>Generate final pairing proposal for review</b></td>
+<td>Crew Planning Specialist</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Revised roster</td>
+<td>Final pairing proposal</td>
+<td>Time to finalize pairings</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex union rules can complicate the finalization process.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Review final pairing for compliance with ACPA and CUPE agreements</b></td>
+<td>ACPA/CUPE Compliance Officer</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Final pairing proposal</td>
+<td>Compliance report</td>
+<td>Time to review compliance per proposal</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Non-compliant pairings can lead to labor disputes.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Adjust final pairing based on non-compliance findings</b></td>
+<td>Crew Planning Specialist</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Compliance report</td>
+<td>Finalized pairing proposal</td>
+<td>Number of adjustments per proposal</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Recruitment and type-rating training lead times are measured in months and cannot absorb a late signal</td>
+<td>Multiple iterations can delay the planning process.</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Generate final roster for review</b></td>
+<td>Crew Planning Specialist</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Finalized pairing proposal</td>
+<td>Final roster with assignments</td>
+<td>Time to finalize rosters</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex union rules can complicate the finalization process.</td>
+</tr><tr>
+<td class="c-step">3.5</td>
+<td><b>Review final roster for compliance with union rules and operational constraints</b></td>
+<td>Union Compliance Officer</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Final roster</td>
+<td>Compliance report</td>
+<td>Time to review compliance per roster</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Non-compliant rosters can result in legal action.</td>
+</tr><tr>
+<td class="c-step">3.6</td>
+<td><b>Adjust final roster based on non-compliance findings</b></td>
+<td>Crew Planning Specialist</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Compliance report</td>
+<td>Finalized roster</td>
+<td>Number of adjustments per roster</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Multiple iterations can delay the planning process.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CP-01-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Rostering and Compliance Check</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Submit final pairing proposal for senior review</b></td>
+<td>Crew Planning Manager</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Finalized pairing proposal</td>
+<td>Senior review report</td>
+<td>Time to submit proposal for review</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delays in senior review can cause last-minute changes.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Submit final roster for senior review</b></td>
+<td>Crew Planning Manager</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Finalized roster</td>
+<td>Senior review report</td>
+<td>Time to submit roster for review</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delays in senior review can cause last-minute changes.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Revise pairing proposal based on senior feedback</b></td>
+<td>Crew Planning Specialist</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Senior review report</td>
+<td>Revised final pairing proposal</td>
+<td>Number of revisions per proposal</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Multiple iterations can delay the planning process.</td>
+</tr><tr>
+<td class="c-step">4.4</td>
+<td><b>Revise roster based on senior feedback</b></td>
+<td>Crew Planning Specialist</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Senior review report</td>
+<td>Revised final roster</td>
+<td>Number of revisions per roster</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Multiple iterations can delay the planning process.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CP-01-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Final Review and Adjustment</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Finalize crew demand forecast and establish planning</b></td>
+<td>Crew Planning Director</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Jeppesen Crew &amp; Dayforce<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Revised final pairing proposal and roster</td>
+<td>Finalized crew plan</td>
+<td>Time to finalize crew plan</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Implementation delays can cause operational disruptions.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Communicate final plan to relevant stakeholders</b></td>
+<td>Crew Planning Director</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Finalized crew plan</td>
+<td>Communication report</td>
+<td>Time to communicate plan</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Miscommunication can lead to confusion and errors.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Adjust final plan based on rejection feedback</b></td>
+<td>Crew Planning Director</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Jeppesen Crew &amp; Dayforce<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Rejection feedback</td>
+<td>Adjusted final crew plan</td>
+<td>Number of adjustments per rejected plan</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Multiple iterations can delay the planning process.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CP-01-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Implementation</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Implement finalized crew plan in operations</b></td>
+<td>Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Adjusted final crew plan</td>
+<td>Implemented crew plan</td>
+<td>Time to implement plan</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Implementation errors can cause operational disruptions.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Monitor implementation for compliance and efficiency</b></td>
+<td>Operations Control Analyst</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Implemented crew plan</td>
+<td>Monitoring report</td>
+<td>Number of compliance checks per day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Non-compliance can lead to labor disputes.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Correct implementation errors</b></td>
+<td>Operations Control Analyst</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Monitoring report</td>
+<td>Corrected crew plan</td>
+<td>Time to correct errors</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Errors can cause operational delays and disruptions.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Crew Planning Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Revenue Analyst</span><span class="lane-steps">1.1 1.3</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Data Analyst</span><span class="lane-steps">1.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Crew Planning Specialist</span><span class="lane-steps">1.4 1.6 2.1 2.3 3.1 3.3 3.4 3.6 4.3 4.4</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>ACPA/CUPE Compliance Officer</span><span class="lane-steps">1.5 3.2</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Union Compliance Officer</span><span class="lane-steps">2.2 3.5</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>Crew Planning Manager</span><span class="lane-steps">4.1 4.2</span></div><div class="lane"><span class="swatch" style="background:#8A5A1E"></span><span>Crew Planning Director</span><span class="lane-steps">5.1 5.2 5.3</span></div><div class="lane"><span class="swatch" style="background:#4A4A4A"></span><span>Operations Control Duty Manager</span><span class="lane-steps">6.1</span></div><div class="lane"><span class="swatch" style="background:#E04A60"></span><span>Operations Control Analyst</span><span class="lane-steps">6.2 6.3</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag hcm" data-tooltip="Talent acquisition and candidate relationship management. [Phenom - evidence B]">Phenom<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Jeppesen Crew &amp; Dayforce<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Translated within 10 business days of schedule commitment at 100 percent</li><li>Gap identified within 5 business days of calculation at 100 percent</li><li>Signal delivered to recruitment within 5 business days of gap identification at 100 percent</li><li>Establishment gap closure rate against the planning horizon tracked</li></ul>
+<ul class="bullets"><li>Accuracy of demand data within ±5%</li><li>Consistency of seasonal adjustments over 3 months</li><li>Number of pairings generated per hour</li><li>Time to generate initial roster</li><li>Time to finalize crew plan</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Recruitment and type-rating training lead times being unable to absorb a late-identified gap</li><li>Establishment calculation understating the reserve needed for training, leave and sick absence</li><li>Flying hour requirements not translating linearly into headcount due to duty and rest limits</li><li>A gap identified late compressing the lead time available for any response</li></ul>
+<ul class="bullets risk"><li>Inaccurate forecasts leading to over or under-staffing</li><li>Complex union rules complicating the pairing process</li><li>Non-compliant pairings and rosters resulting in legal action</li><li>Multiple iterations delaying the planning process</li><li>Implementation errors causing operational disruptions</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../flight-operations-dispatch/safety-occurrence-reporting/ac-fo-sr-06/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">IOSA Audit Preparation and Evidence</span></a>
