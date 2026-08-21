@@ -133,7 +133,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-FN-TR-03" title="Click to copy the process ID">
     AC-FN-TR-03<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Fuel Hedging Programme Administration</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -142,85 +142,241 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-FN-TR-03-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Consumption forecast</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Market Analysis</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Forecast fuel consumption</b></td>
-<td>Treasury Analyst</td>
+<td><b>Collect Market Data</b></td>
+<td>Fuel Analyst</td>
 <td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Network schedule and fleet fuel burn data</td>
-<td>Forecast consumption by period</td>
-<td>Forecast for 100 percent of the hedging horizon each cycle</td>
+<td>Historical fuel price data, market forecasts</td>
+<td>Market trends report</td>
+<td>Data accuracy rate &gt;95%</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inconsistent data quality from external sources.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Analyze Market Trends</b></td>
+<td>Fuel Analyst</td>
+<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Market trends report</td>
+<td>Trend analysis report</td>
+<td>Analysis completion within 48 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Consumption forecast depends on the network schedule, which itself changes between hedge planning and actual flying</td>
+<td>Delays in data ingestion from SAP S/4HANA.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Identify Risk Tolerance</b></td>
+<td>Treasury Officer</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Trend analysis report</td>
+<td>Risk tolerance level</td>
+<td>Consistency in risk assessment &gt;90%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Subjective judgment in setting tolerance levels.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Adjust Risk Tolerance</b></td>
+<td>Treasury Officer</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Risk tolerance level</td>
+<td>Adjusted risk tolerance level</td>
+<td>Tolerance adjustment rate &gt;80%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex calculations and model assumptions.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-FN-TR-03-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Hedge position determination</span>
+    <span class="ph-name">Phase 2 &mdash; Strategy Formulation</span>
     <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Determine hedge coverage against the programme framework</b></td>
-<td>Treasury Analyst</td>
+<td><b>Formulate Hedging Strategy</b></td>
+<td>Treasury Officer</td>
 <td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Forecast consumption and risk framework</td>
-<td>Determined hedge coverage percentage</td>
-<td>Determined within the programme&#x27;s defined risk parameters at 100 percent</td>
-<td class="c-flag"><span class="yes">Y</span></td>
+<td>Risk tolerance level, market trends report</td>
+<td>Hedging strategy proposal</td>
+<td>Proposal completion within 7 days</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A hedge coverage decision trades cost certainty against the possibility of paying above the eventual market price</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex calculations and model assumptions.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Execute fuel hedge instruments</b></td>
-<td>Treasury Analyst</td>
+<td><b>Review Hedging Strategy</b></td>
+<td>Finance Director</td>
 <td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Determined coverage</td>
-<td>Executed hedge position</td>
-<td>Executed within the planning cycle at 100 percent</td>
+<td>Hedging strategy proposal</td>
+<td>Approved strategy document</td>
+<td>Approval rate within 3 days</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Fuel hedge instruments carry counterparty and market timing risk in their own right</td>
+<td>Budget constraints and strategic alignment.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-FN-TR-03-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Programme monitoring</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Contract Negotiation</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Monitor programme performance against market price</b></td>
-<td>Treasury Analyst</td>
-<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Executed position and market fuel price</td>
-<td>Performance assessment</td>
-<td>Assessed each reporting cycle for 100 percent of the active programme</td>
+<td><b>Identify Potential Suppliers</b></td>
+<td>Procurement Manager</td>
+<td><span class="tag sap" data-tooltip="Source-to-pay, supplier management and contract compliance. [SAP - evidence A]">SAP Ariba<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Approved strategy document</td>
+<td>Supplier list</td>
+<td>Supplier identification rate &gt;85%</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Limited supplier pool due to regulatory restrictions.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Negotiate Contract Terms</b></td>
+<td>Procurement Manager</td>
+<td><span class="tag sap" data-tooltip="Source-to-pay, supplier management and contract compliance. [SAP - evidence A]">SAP Ariba<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Supplier list, approved strategy document</td>
+<td>Contract terms proposal</td>
+<td>Negotiation success rate &gt;70%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Programme performance judged only against realised market price ignores the risk reduction value the hedge actually provided</td>
+<td>High supplier bargaining power.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FN-TR-03-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Approval Process</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Submit Contract for Legal Review</b></td>
+<td>Legal Counsel</td>
+<td><span class="tag sap" data-tooltip="Passenger revenue accounting, proration, interline billing and BSP reconciliation. [Multiple - evidence C]">Revenue Accounting System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Contract terms proposal</td>
+<td>Approved contract document</td>
+<td>Review time &lt;5 days</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex legal clauses and compliance issues.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Approve Contract with Treasury</b></td>
+<td>Treasury Officer</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Approved contract document</td>
+<td>Final approved contract</td>
+<td>Approval time &lt;3 days</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Budget approval delays.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FN-TR-03-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Implementation</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Activate Hedging Contract</b></td>
+<td>Procurement Manager</td>
+<td><span class="tag sap" data-tooltip="Source-to-pay, supplier management and contract compliance. [SAP - evidence A]">SAP Ariba<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Final approved contract</td>
+<td>Active hedging contract</td>
+<td>Activation rate &gt;90%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Technical issues with SAP Ariba.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Monitor Hedging Contract Performance</b></td>
+<td>Fuel Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Active hedging contract</td>
+<td>Performance report</td>
+<td>Monitoring frequency &gt;monthly</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Data lag in SAP S/4HANA.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Adjust Hedging Strategy</b></td>
+<td>Treasury Officer</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Performance report</td>
+<td>Adjusted hedging strategy</td>
+<td>Strategy adjustment rate &gt;80%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex calculations and model assumptions.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FN-TR-03-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Monitoring &amp; Adjustment</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Review Underperformance</b></td>
+<td>Finance Director</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Performance report</td>
+<td>Underperformance analysis</td>
+<td>Analysis completion within 7 days</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Budget constraints and strategic alignment.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Adjust Hedging Strategy Based on Review</b></td>
+<td>Treasury Officer</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Underperformance analysis</td>
+<td>Adjusted hedging strategy</td>
+<td>Strategy adjustment rate &gt;80%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex calculations and model assumptions.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Re-negotiate Contract Terms</b></td>
+<td>Procurement Manager</td>
+<td><span class="tag sap" data-tooltip="Source-to-pay, supplier management and contract compliance. [SAP - evidence A]">SAP Ariba<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Adjusted hedging strategy, active hedging contract</td>
+<td>Updated contract terms proposal</td>
+<td>Negotiation success rate &gt;70%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>High supplier bargaining power.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Treasury Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Fuel Analyst</span><span class="lane-steps">1.1 1.2 5.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Treasury Officer</span><span class="lane-steps">1.3 1.4 2.1 4.2 5.3 6.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Finance Director</span><span class="lane-steps">2.2 6.1</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Procurement Manager</span><span class="lane-steps">3.1 3.2 5.1 6.3</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Legal Counsel</span><span class="lane-steps">4.1</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag sap" data-tooltip="Source-to-pay, supplier management and contract compliance. [SAP - evidence A]">SAP Ariba<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sap" data-tooltip="Passenger revenue accounting, proration, interline billing and BSP reconciliation. [Multiple - evidence C]">Revenue Accounting System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Forecast for 100 percent of the hedging horizon each cycle</li><li>Determined within the programme&#x27;s defined risk parameters at 100 percent</li><li>Executed within the planning cycle at 100 percent</li><li>Programme performance assessed each reporting cycle for 100 percent of the active programme</li></ul>
+<ul class="bullets"><li>Data accuracy rate &gt;95%</li><li>Analysis completion within 48 hours</li><li>Consistency in risk assessment &gt;90%</li><li>Tolerance adjustment rate &gt;80%</li><li>Proposal completion within 7 days</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A hedge coverage decision trading cost certainty against paying above the eventual market price</li><li>Consumption forecast depending on a network schedule that itself changes between planning and actual flying</li><li>Fuel hedge instruments carrying counterparty and market timing risk in their own right</li><li>Programme performance judged only against realised price ignoring the risk reduction value actually provided</li></ul>
+<ul class="bullets risk"><li>Inconsistent data quality from external sources</li><li>Delays in data ingestion from SAP S/4HANA</li><li>Complex calculations and model assumptions</li><li>Budget constraints and strategic alignment</li><li>Limited supplier pool due to regulatory restrictions</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../finance-procurement-treasury/treasury-risk/ac-fn-tr-02/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Foreign Exchange Exposure Management</span></a>

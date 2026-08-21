@@ -133,7 +133,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-FN-TR-04" title="Click to copy the process ID">
     AC-FN-TR-04<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Aircraft Financing and Lease Accounting</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -142,85 +142,252 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-FN-TR-04-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Financing arrangement administration</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Initial Review</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Administer financing arrangement terms</b></td>
+<td><b>Receive lease agreement document</b></td>
 <td>Treasury Analyst</td>
 <td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Executed lease or debt agreement</td>
-<td>Administered arrangement in the system</td>
-<td>Administered within 10 business days of execution at 100 percent</td>
+<td>Lease agreement from Treasury &amp; Risk team</td>
+<td>Recorded in SAP S/4HANA</td>
+<td>Documents received within 2 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Financing terms for a large aircraft transaction are genuinely complex and easy to mis-capture</td>
+<td>Late submission of lease documents can delay financial planning.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Review lease terms for compliance</b></td>
+<td>Treasury Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Recorded lease agreement</td>
+<td>Compliance report</td>
+<td>Compliance checks completed within 1 day</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Non-compliant terms may require renegotiation.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Approve lease agreement</b></td>
+<td>Treasury Control Officer</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Compliance report</td>
+<td>Approved lease document</td>
+<td>Approval process completed within 2 days</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual approval delays can cause financial bottlenecks.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-FN-TR-04-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Lease accounting treatment</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Document Processing</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Determine lease accounting classification</b></td>
-<td>Treasury Analyst</td>
+<td><b>Extract key financial data from agreement</b></td>
+<td>Financial Analyst</td>
 <td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Arrangement terms</td>
-<td>Determined accounting classification</td>
-<td>Determined correctly against accounting standards for 100 percent of arrangements at 100 percent</td>
-<td class="c-flag"><span class="yes">Y</span></td>
+<td>Approved lease document</td>
+<td>Key financial data extract</td>
+<td>Data extraction completed within 1 hour</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Lease classification judgement calls have material balance sheet presentation consequences</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual data entry errors can lead to inaccuracies.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Maintain ongoing accounting treatment</b></td>
-<td>Treasury Analyst</td>
+<td><b>Enter financial data into SAP S/4HANA</b></td>
+<td>Financial Analyst</td>
 <td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Classified arrangement</td>
-<td>Maintained treatment through the arrangement&#x27;s life</td>
-<td>Maintained accurately each reporting period for 100 percent of active arrangements at 100 percent</td>
+<td>Key financial data extract</td>
+<td>Data entered in SAP S/4HANA</td>
+<td>Data entry completed within 1 day</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Incorrect data entry can disrupt financial reporting.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Correct errors and re-enter data</b></td>
+<td>Financial Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Error report</td>
+<td>Corrected data entered in SAP S/4HANA</td>
+<td>Re-entry completed within 1 day</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A modification to an existing arrangement can require reassessing the original classification</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Multiple re-entries can waste time and resources.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-FN-TR-04-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Reporting</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Data Entry</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Report financing position for financial statements</b></td>
-<td>Treasury Analyst</td>
+<td><b>Validate financial data against budget</b></td>
+<td>Budget Analyst</td>
 <td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Maintained treatment</td>
-<td>Reported financing position</td>
-<td>Reported within the financial close timetable at 100 percent</td>
+<td>Entered financial data</td>
+<td>Validation report</td>
+<td>Validation completed within 1 day</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Discrepancies can lead to misallocated funds.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Adjust budget and re-validate</b></td>
+<td>Budget Analyst</td>
+<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Validation report</td>
+<td>Adjusted budget</td>
+<td>Re-validation completed within 1 day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Multiple adjustments can complicate financial planning.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FN-TR-04-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Validation &amp; Compliance</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Review lease agreement with IATA BSP for revenue accounting</b></td>
+<td>Revenue Accounting Agent</td>
+<td><span class="tag iata" data-tooltip="Billing and Settlement Plan. Agency sales settlement and revenue accounting reconciliation. [IATA - evidence B]">IATA BSP<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Approved lease document</td>
+<td>Reconciliation report</td>
+<td>Reconciliation completed within 2 days</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inaccurate reconciliations can affect financial statements.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Resolve reconciliation discrepancies</b></td>
+<td>Revenue Accounting Agent</td>
+<td><span class="tag iata" data-tooltip="Billing and Settlement Plan. Agency sales settlement and revenue accounting reconciliation. [IATA - evidence B]">IATA BSP<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Reconciliation report</td>
+<td>Discrepancy resolved report</td>
+<td>Resolution completed within 1 day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Persistent discrepancies can lead to regulatory issues.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FN-TR-04-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Budgeting</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Prepare budget for lease agreement</b></td>
+<td>Budget Analyst</td>
+<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Adjusted budget</td>
+<td>Prepared budget document</td>
+<td>Budget preparation completed within 3 days</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>An incorrect classification carried forward compounds across every subsequent reporting period</td>
+<td>Inadequate budgeting can lead to financial overruns.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Review and approve budget by Finance Manager</b></td>
+<td>Finance Manager</td>
+<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Prepared budget document</td>
+<td>Approved budget document</td>
+<td>Approval completed within 1 day</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Budget approval delays can affect financial planning.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Revise and re-submit budget for approval</b></td>
+<td>Budget Analyst</td>
+<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Approval feedback</td>
+<td>Revised budget document</td>
+<td>Revision completed within 1 day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Multiple revisions can complicate financial processes.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FN-TR-04-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Reporting</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Generate financial report for lease agreement</b></td>
+<td>Financial Analyst</td>
+<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Approved budget document</td>
+<td>Financial report</td>
+<td>Report generation completed within 1 day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Late reports can impact decision-making.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Review and approve financial report by Finance Director</b></td>
+<td>Finance Director</td>
+<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Financial report</td>
+<td>Approved financial report</td>
+<td>Approval completed within 1 day</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Report approval delays can cause operational issues.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Revise and re-submit financial report for approval</b></td>
+<td>Financial Analyst</td>
+<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Approval feedback</td>
+<td>Revised financial report</td>
+<td>Revision completed within 1 day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Multiple revisions can waste time and resources.</td>
+</tr><tr>
+<td class="c-step">6.4</td>
+<td><b>Publish final financial report to stakeholders</b></td>
+<td>Finance Director</td>
+<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Approved financial report</td>
+<td>Published report</td>
+<td>Report published within 1 day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed publication can affect stakeholder trust.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Treasury Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Treasury Analyst</span><span class="lane-steps">1.1 1.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Treasury Control Officer</span><span class="lane-steps">1.3</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Financial Analyst</span><span class="lane-steps">2.1 2.2 2.3 6.1 6.3</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Budget Analyst</span><span class="lane-steps">3.1 3.2 5.1 5.3</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Revenue Accounting Agent</span><span class="lane-steps">4.1 4.2</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>Finance Manager</span><span class="lane-steps">5.2</span></div><div class="lane"><span class="swatch" style="background:#8A5A1E"></span><span>Finance Director</span><span class="lane-steps">6.2 6.4</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag iata" data-tooltip="Billing and Settlement Plan. Agency sales settlement and revenue accounting reconciliation. [IATA - evidence B]">IATA BSP<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Administered within 10 business days of execution at 100 percent</li><li>Determined correctly against accounting standards for 100 percent of arrangements at 100 percent</li><li>Maintained accurately each reporting period for 100 percent of active arrangements at 100 percent</li><li>Reported within the financial close timetable at 100 percent</li></ul>
+<ul class="bullets"><li>Documents received within 2 hours</li><li>Compliance checks completed within 1 day</li><li>Approval process completed within 2 days</li><li>Data entry completed within 1 day</li><li>Validation completed within 1 day</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Lease classification judgement calls having material balance sheet presentation consequences</li><li>An incorrect classification carried forward compounding across every subsequent reporting period</li><li>A modification to an existing arrangement requiring reassessment of the original classification</li><li>Financing terms for a large aircraft transaction being genuinely complex and easy to mis-capture</li></ul>
+<ul class="bullets risk"><li>Non-compliant lease terms</li><li>Manual approval delays</li><li>Incorrect data entry</li><li>Discrepancies in financial data</li><li>Inaccurate reconciliations with IATA BSP</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../finance-procurement-treasury/treasury-risk/ac-fn-tr-03/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Fuel Hedging Programme Administration</span></a>

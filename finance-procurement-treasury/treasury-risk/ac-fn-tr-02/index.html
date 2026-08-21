@@ -133,7 +133,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-FN-TR-02" title="Click to copy the process ID">
     AC-FN-TR-02<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Foreign Exchange Exposure Management</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -142,85 +142,252 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-FN-TR-02-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Exposure measurement</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Risk Identification</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Measure FX exposure by currency</b></td>
+<td><b>Monitor exchange rates</b></td>
 <td>Treasury Analyst</td>
 <td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Forecast revenue and cost flows by currency</td>
-<td>Measured exposure by currency pair</td>
-<td>Measured for 100 percent of material currency exposures each cycle</td>
+<td>Current and historical exchange rate data</td>
+<td>Exchange rate trends report</td>
+<td>Daily monitoring coverage</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Exposure forecasting depends on revenue and cost projections that carry their own uncertainty</td>
+<td>Inconsistent data quality from external sources.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Identify high-risk currencies</b></td>
+<td>Treasury Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Exchange rate trends report</td>
+<td>High-risk currency list</td>
+<td>Number of identified high-risk currencies</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual identification prone to errors.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Review exposure report</b></td>
+<td>Treasury Analyst</td>
+<td><span class="tag sap" data-tooltip="Passenger revenue accounting, proration, interline billing and BSP reconciliation. [Multiple - evidence C]">Revenue Accounting System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>High-risk currency list</td>
+<td>Exposure details by currency</td>
+<td>Time taken to generate report</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System downtime affecting report generation.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-FN-TR-02-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Hedge strategy determination</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Data Collection</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Determine hedge ratio against risk tolerance</b></td>
-<td>Treasury Analyst</td>
+<td><b>Gather financial data</b></td>
+<td>Financial Analyst</td>
 <td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Measured exposure and risk policy</td>
-<td>Determined hedge ratio</td>
-<td>Determined within the defined risk tolerance for 100 percent of material exposures</td>
-<td class="c-flag"><span class="yes">Y</span></td>
+<td>Exposure details by currency</td>
+<td>Detailed financial data</td>
+<td>Data retrieval time</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Hedging trades away potential upside from favourable currency movement in exchange for protection against adverse movement</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Large volume of data slowing down processing.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Execute hedging instruments</b></td>
-<td>Treasury Analyst</td>
-<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Determined hedge ratio</td>
-<td>Executed hedge position</td>
-<td>Executed within the planning cycle at 100 percent</td>
+<td><b>Calculate potential losses</b></td>
+<td>Financial Analyst</td>
+<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Detailed financial data</td>
+<td>Potential loss calculation</td>
+<td>Accuracy of loss calculation</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Complex calculations leading to errors.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Review historical trends</b></td>
+<td>Financial Analyst</td>
+<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Potential loss calculation</td>
+<td>Historical trend analysis</td>
+<td>Trend analysis speed</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Hedge execution timing itself carries market risk if delayed relative to the exposure measurement</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System crashes during analysis.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-FN-TR-02-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Position execution</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Analysis</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Monitor hedge effectiveness</b></td>
+<td><b>Consult with risk management team</b></td>
+<td>Risk Manager</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Historical trend analysis</td>
+<td>Risk assessment</td>
+<td>Time to consultation</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Discrepancies in data interpretation.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Identify hedging strategies</b></td>
+<td>Risk Manager</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Risk assessment</td>
+<td>Hedging strategy options</td>
+<td>Number of identified strategies</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Lack of standardized hedging models.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FN-TR-02-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Decision Making</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Evaluate cost-benefit ratio</b></td>
 <td>Treasury Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Hedging strategy options</td>
+<td>Cost-benefit analysis report</td>
+<td>Analysis accuracy</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Overlooking hidden costs.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Review financial impact</b></td>
+<td>Financial Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Cost-benefit analysis report</td>
+<td>Impact assessment</td>
+<td>Assessment time</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Neglecting long-term implications.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Approve hedging strategy</b></td>
+<td>Finance Director</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Impact assessment</td>
+<td>Approval status</td>
+<td>Approval turnaround time</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delays in decision-making.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FN-TR-02-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Execution</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Implement hedging strategy</b></td>
+<td>Treasury Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Approved hedging strategy</td>
+<td>Strategy implementation plan</td>
+<td>Implementation time</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Technical issues during deployment.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Monitor market conditions</b></td>
+<td>Financial Analyst</td>
 <td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Executed position and actual currency movement</td>
-<td>Effectiveness assessment</td>
-<td>Assessed each reporting cycle for 100 percent of active hedges</td>
+<td>Strategy implementation plan</td>
+<td>Market condition updates</td>
+<td>Monitoring frequency</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Data lag affecting decision-making.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Adjust hedging strategy</b></td>
+<td>Risk Manager</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Market condition updates</td>
+<td>Adjusted strategy</td>
+<td>Adjustment time</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual adjustments are error-prone.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FN-TR-02-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Monitoring</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Final review and reporting</b></td>
+<td>Treasury Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Adjusted strategy</td>
+<td>Final report</td>
+<td>Report accuracy</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A hedge that no longer matches the underlying exposure, because the forecast changed, needs active rebalancing</td>
+<td>Reporting delays causing confusion.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Close process</b></td>
+<td>Risk Manager</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Final report</td>
+<td>Process closure status</td>
+<td>Closure time</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Lack of clear documentation.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Update risk register</b></td>
+<td>Risk Manager</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Final report</td>
+<td>Updated risk register</td>
+<td>Register update frequency</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inaccurate data entry.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Treasury Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Treasury Analyst</span><span class="lane-steps">1.1 1.2 1.3 4.1 5.1 6.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Financial Analyst</span><span class="lane-steps">2.1 2.2 2.3 4.2 5.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Risk Manager</span><span class="lane-steps">3.1 3.2 5.3 6.2 6.3</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Finance Director</span><span class="lane-steps">4.3</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sap" data-tooltip="Passenger revenue accounting, proration, interline billing and BSP reconciliation. [Multiple - evidence C]">Revenue Accounting System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Measured for 100 percent of material currency exposures each cycle</li><li>Determined within the defined risk tolerance for 100 percent of material exposures</li><li>Executed within the planning cycle at 100 percent</li><li>Hedge effectiveness meeting target each reporting cycle</li></ul>
+<ul class="bullets"><li>Daily monitoring coverage</li><li>Number of identified high-risk currencies</li><li>Time taken to generate report</li><li>Data retrieval time</li><li>Accuracy of loss calculation</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Hedging trading away potential upside from favourable currency movement in exchange for downside protection</li><li>A hedge no longer matching the underlying exposure once the original forecast changes</li><li>Exposure forecasting depending on revenue and cost projections that carry their own uncertainty</li><li>Hedge execution timing itself carrying market risk if delayed relative to the exposure measurement</li></ul>
+<ul class="bullets risk"><li>Inconsistent data quality from external sources</li><li>Manual identification prone to errors</li><li>System downtime affecting report generation</li><li>Large volume of data slowing down processing</li><li>Complex calculations leading to errors</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../finance-procurement-treasury/treasury-risk/ac-fn-tr-01/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Cash Positioning and Liquidity Management</span></a>
