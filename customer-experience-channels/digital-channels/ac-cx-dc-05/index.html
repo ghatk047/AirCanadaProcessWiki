@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CX-DC-05" title="Click to copy the process ID">
     AC-CX-DC-05<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Digital Personalisation and Offer Targeting</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,277 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-CX-DC-05-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Test design</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Customer Data Collection</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Design the test hypothesis and variants</b></td>
-<td>Digital Product Manager</td>
-<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Adobe Target<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
-<td>Personalisation or conversion opportunity</td>
-<td>Designed test with control and variant</td>
-<td>Test design reviewed and approved before launch at 100 percent</td>
+<td><b>Collect customer profile data from aircanada.com</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag channel" data-tooltip="Primary direct digital channel, cloud-native on AWS. Undergoing redevelopment under the CDO. [Air Canada - evidence A]">aircanada.com<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Customer login and interaction history</td>
+<td>Customer profile with loyalty status, booking preferences</td>
+<td>95% accuracy in data collection within 2 seconds</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A poorly isolated variant can be affected by an unrelated concurrent change on the same page</td>
+<td>Inaccurate data can lead to irrelevant offers.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Retrieve booking history from Air Canada Mobile App</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag channel" data-tooltip="iOS and Android. Booking, check-in, boarding pass, in-app bag tracking and mobility-aid tracking. [Air Canada - evidence A]">Air Canada Mobile App<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Customer ID</td>
+<td>Booking history and travel preferences</td>
+<td>85% successful data retrieval within 1 second</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Mobile app downtime affects offer personalization.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Analyze customer data for offer relevance</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag channel" data-tooltip="Primary direct digital channel, cloud-native on AWS. Undergoing redevelopment under the CDO. [Air Canada - evidence A]">aircanada.com<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Customer profile and booking history</td>
+<td>Relevant offer suggestions</td>
+<td>70% of offers meet customer preferences within 3 seconds</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex algorithms can slow down response times.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CX-DC-05-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Execution and measurement</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Offer Personalization</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Launch and run the test</b></td>
-<td>Digital Product Manager</td>
-<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Adobe Target<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
-<td>Approved test design</td>
-<td>Live test collecting data</td>
-<td>Statistically significant sample reached within the planned test window at 85 percent</td>
+<td><b>Check offer compliance with APPR regulations</b></td>
+<td>APPR Adjudicator</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Offer suggestions</td>
+<td>Compliance status and necessary adjustments</td>
+<td>90% compliance check accuracy within 5 seconds</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Traffic allocation has to balance statistical power against limiting exposure to an underperforming variant</td>
+<td>Regulatory updates can lead to frequent changes.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Monitor for early negative signal</b></td>
-<td>Digital Product Manager</td>
-<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Adobe Analytics<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
-<td>Live test performance</td>
-<td>Early stop decision or continuation</td>
-<td>Reviewed daily during the test window at 100 percent</td>
+<td><b>Adjust offers for compliance</b></td>
+<td>APPR Adjudicator</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Non-compliant offer details</td>
+<td>Compliant offer adjustments</td>
+<td>80% of adjustments made within 1 minute</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="yes">Y</span></td>
-<td>Stopping too early on noisy early data risks a wrong rollout decision</td>
+<td>Manual adjustments can introduce errors.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Fallback to default offer set</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag channel" data-tooltip="Primary direct digital channel, cloud-native on AWS. Undergoing redevelopment under the CDO. [Air Canada - evidence A]">aircanada.com<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>No booking history data</td>
+<td>Default offers based on general preferences</td>
+<td>60% customer satisfaction with default offers</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Default offers may not meet individual needs.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CX-DC-05-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Rollout decision</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Regulatory Compliance Check</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Analyse results and decide rollout</b></td>
-<td>Digital Product Manager</td>
-<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Adobe Analytics<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
-<td>Completed test data</td>
-<td>Rollout, iteration or discard decision</td>
-<td>Decision made within 5 business days of test conclusion at 100 percent</td>
+<td><b>Deliver personalized offers to aircanada.com</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag channel" data-tooltip="Primary direct digital channel, cloud-native on AWS. Undergoing redevelopment under the CDO. [Air Canada - evidence A]">aircanada.com<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Compliant offer suggestions</td>
+<td>Personalized offers displayed on customer page</td>
+<td>90% successful delivery rate within 2 seconds</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Technical issues can prevent offer display.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Escalate non-compliant offers to CTA Complaint Interface</b></td>
+<td>APPR Adjudicator</td>
+<td><span class="tag regulator" data-tooltip="Canadian Transportation Agency complaint and Air Passenger Protection Regulations adjudication channel. [CTA - evidence A]">CTA Complaint Interface<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Non-compliant offer details</td>
+<td>Compliance review and feedback</td>
+<td>85% response rate from CTA within 1 hour</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A result that is statistically significant is not always commercially meaningful at the observed magnitude</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed responses can impact customer satisfaction.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Deliver personalized offers to Air Canada Mobile App</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag channel" data-tooltip="iOS and Android. Booking, check-in, boarding pass, in-app bag tracking and mobility-aid tracking. [Air Canada - evidence A]">Air Canada Mobile App<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Compliant offer suggestions</td>
+<td>Personalized offers pushed to app notifications</td>
+<td>85% successful delivery rate within 3 seconds</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>App push notifications can be missed.</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Log failed offer delivery or adjustment in Salesforce Service Cloud</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Error details</td>
+<td>Case logged for investigation</td>
+<td>95% of errors logged within 1 minute</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Logged cases can delay resolution.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-DC-05-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Offer Delivery</span>
+    <span class="ph-n">5 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Monitor customer feedback on offers via aircanada.com</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag channel" data-tooltip="Primary direct digital channel, cloud-native on AWS. Undergoing redevelopment under the CDO. [Air Canada - evidence A]">aircanada.com<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Customer feedback</td>
+<td>Feedback analysis and trends</td>
+<td>70% successful feedback capture rate within 1 minute</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Low feedback rates can hinder improvements.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Initiate manual review of low engagement offers</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Low engagement offer details</td>
+<td>Review and potential adjustments</td>
+<td>80% of reviews completed within 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual reviews can be time-consuming.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Retry offer delivery to aircanada.com</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag channel" data-tooltip="Primary direct digital channel, cloud-native on AWS. Undergoing redevelopment under the CDO. [Air Canada - evidence A]">aircanada.com<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Original offer details</td>
+<td>Successful delivery confirmation</td>
+<td>90% successful retry rate within 5 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Technical issues may persist.</td>
+</tr><tr>
+<td class="c-step">4.4</td>
+<td><b>Send reminder push notification in Air Canada Mobile App</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag channel" data-tooltip="iOS and Android. Booking, check-in, boarding pass, in-app bag tracking and mobility-aid tracking. [Air Canada - evidence A]">Air Canada Mobile App<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Original offer details</td>
+<td>Reminder notification sent</td>
+<td>75% successful reminder rate within 1 minute</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>User may ignore reminders.</td>
+</tr><tr>
+<td class="c-step">4.5</td>
+<td><b>Escalate failed delivery or adjustment to duty manager</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Error details and case logs</td>
+<td>Action plan from duty manager</td>
+<td>90% response rate from duty manager within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Escalation can delay issue resolution.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-DC-05-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Feedback Loop and Adjustment</span>
+    <span class="ph-n">5 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Update offer targeting algorithms based on feedback and trends</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag channel" data-tooltip="Primary direct digital channel, cloud-native on AWS. Undergoing redevelopment under the CDO. [Air Canada - evidence A]">aircanada.com<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Feedback analysis and trends</td>
+<td>Improved offer targeting models</td>
+<td>80% improvement in offer relevance within 1 week</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Algorithm updates can introduce new issues.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Log failed algorithm update in Salesforce Service Cloud</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Update error details</td>
+<td>Case logged for investigation</td>
+<td>95% of errors logged within 1 minute</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Logged cases can delay resolution.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Initiate manual review of failed algorithm update</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Update error details and case logs</td>
+<td>Review and potential fixes</td>
+<td>80% of reviews completed within 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual reviews can be time-consuming.</td>
+</tr><tr>
+<td class="c-step">5.4</td>
+<td><b>Escalate failed algorithm update to CDO</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Update error details and case logs</td>
+<td>Action plan from CDO</td>
+<td>90% response rate from CDO within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Escalation can delay issue resolution.</td>
+</tr><tr>
+<td class="c-step">5.5</td>
+<td><b>Log final action plan in Salesforce Service Cloud</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Action plan details</td>
+<td>Final case resolution</td>
+<td>95% of cases resolved within 1 day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Resolution may not address root cause.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Digital Product Manager</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Aeroplan Member Services Agent</span><span class="lane-steps">1.1 1.2 1.3 2.3 3.1 3.3 3.4 4.1 4.2 4.3 4.4 4.5 5.1 5.2 5.3 5.4 5.5</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>APPR Adjudicator</span><span class="lane-steps">2.1 2.2 3.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Adobe Target<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Adobe Analytics<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
+<div class="card"><span class="tag channel" data-tooltip="Primary direct digital channel, cloud-native on AWS. Undergoing redevelopment under the CDO. [Air Canada - evidence A]">aircanada.com<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag channel" data-tooltip="iOS and Android. Booking, check-in, boarding pass, in-app bag tracking and mobility-aid tracking. [Air Canada - evidence A]">Air Canada Mobile App<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag regulator" data-tooltip="Canadian Transportation Agency complaint and Air Passenger Protection Regulations adjudication channel. [CTA - evidence A]">CTA Complaint Interface<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Test design reviewed and approved before launch at 100 percent</li><li>Statistically significant sample reached within the planned test window at 85 percent</li><li>Reviewed daily during the test window at 100 percent</li><li>Decision made within 5 business days of test conclusion at 100 percent</li></ul>
+<ul class="bullets"><li>95% accuracy in data collection within 2 seconds</li><li>85% successful data retrieval within 1 second</li><li>70% of offers meet customer preferences within 3 seconds</li><li>90% compliance check accuracy within 5 seconds</li><li>90% successful delivery rate within 2 seconds</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A poorly isolated test variant being affected by an unrelated concurrent page change</li><li>Stopping a test too early on noisy data and making the wrong rollout decision</li><li>A statistically significant result that is not commercially meaningful at the observed magnitude</li><li>Traffic allocation exposing too many customers to an underperforming variant before detection</li></ul>
+<ul class="bullets risk"><li>Inaccurate data leading to irrelevant offers</li><li>Mobile app downtime affecting offer personalization</li><li>Complex algorithms slowing down response times</li><li>Regulatory updates requiring frequent changes</li><li>Technical issues preventing offer display</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../customer-experience-channels/digital-channels/ac-cx-dc-04/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Digital Content Publication with English and French Parity</span></a>
