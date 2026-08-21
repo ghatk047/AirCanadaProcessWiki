@@ -133,7 +133,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CG-CP-04" title="Click to copy the process ID">
     AC-CG-CP-04<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Cargospot neo Migration Cutover Control</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -142,173 +142,266 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-CG-CP-04-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Wave readiness</span>
-    <span class="ph-n">4 steps</span></div>
-  <div class="phase-body"><div class="tbl-wrap"><table>
-  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
-  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
-  <tbody><tr>
-<td class="c-step">1.1</td>
-<td><b>Define wave scope and station sequence</b></td>
-<td>Cargo Migration Lead</td>
-<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Migration plan and station profile</td>
-<td>Approved wave scope with entry and exit criteria</td>
-<td>Wave scope frozen 4 weeks before cutover</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Station-level process variance is discovered late because it is not documented centrally</td>
-</tr><tr>
-<td class="c-step">1.2</td>
-<td><b>Validate master and reference data</b></td>
-<td>Cargo Data Analyst</td>
-<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Legacy rates, routes, agents and ULD registers</td>
-<td>Migrated reference data with reconciliation report</td>
-<td>Reference data reconciliation variance below 0.5 percent</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Legacy rate and agent data carries years of uncontrolled local edits</td>
-</tr><tr>
-<td class="c-step">1.3</td>
-<td><b>Certify interfaces to customs and revenue accounting</b></td>
-<td>Integration Analyst</td>
-<td><span class="tag regulator" data-tooltip="CBSA pre-load air cargo targeting. Mandatory pre-load data filing in force since 1 April 2025. [CBSA - evidence B]">Canada PACT<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Interface specifications</td>
-<td>Certified interfaces for pre-load filing and settlement</td>
-<td>All regulated interfaces certified before go-live</td>
-<td class="c-flag"><span class="yes">Y</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Pre-load filing has no tolerance for interface downtime once the wave is live</td>
-</tr><tr>
-<td class="c-step">1.4</td>
-<td><b>Train station staff and confirm readiness</b></td>
-<td>Cargo Operations Manager</td>
-<td><span class="tag champ" data-tooltip="Mobile cargo warehouse and ramp execution. [CHAMP - evidence A]">Cargospot Mobile<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Training curriculum and station roster</td>
-<td>Signed station readiness confirmation</td>
-<td>95 percent of station staff certified before cutover</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Warehouse shift patterns make it hard to train a full station inside the wave window</td>
-</tr></tbody></table></div></div>
-</div><div class="phase-group" data-phase-id="AC-CG-CP-04-2">
-  <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Cutover execution</span>
-    <span class="ph-n">5 steps</span></div>
-  <div class="phase-body"><div class="tbl-wrap"><table>
-  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
-  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
-  <tbody><tr>
-<td class="c-step">2.1</td>
-<td><b>Execute go or no-go decision</b></td>
-<td>Cargo Migration Lead</td>
-<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Readiness evidence pack</td>
-<td>Go or no-go decision with recorded rationale</td>
-<td>Decision taken at least 48 hours before the cutover window</td>
-<td class="c-flag"><span class="yes">Y</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Readiness evidence arrives too close to the gate for genuine scrutiny</td>
-</tr><tr>
-<td class="c-step">2.2</td>
-<td><b>Freeze legacy bookings and drain in-flight consignments</b></td>
-<td>Cargo Operations Manager</td>
-<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Open consignment list</td>
-<td>Legacy platform frozen with in-flight shipments identified</td>
-<td>Zero consignments stranded across the freeze boundary</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Consignments already in transit span both systems for the duration of the freeze</td>
-</tr><tr>
-<td class="c-step">2.3</td>
-<td><b>Operate interim double entry</b></td>
-<td>Cargo Agent</td>
-<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Consignment details at acceptance</td>
-<td>Shipment recorded in both legacy and Cargospot</td>
-<td>Double-entry variance below 1 percent of consignments</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>This is the migration&#x27;s live manual re-key risk and the main source of revenue-accounting variance</td>
-</tr><tr>
-<td class="c-step">2.4</td>
-<td><b>Reconcile shipment and revenue records daily</b></td>
-<td>Cargo Revenue Analyst</td>
-<td><span class="tag champ" data-tooltip="Cargo revenue accounting and IATA CASS settlement. [CHAMP - evidence A]">Cargospot neo Revenue Accounting<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Legacy and Cargospot shipment extracts</td>
-<td>Daily reconciliation with exception list</td>
-<td>Reconciliation completed within 24 hours of each operating day</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Reconciliation is performed in spreadsheets against two extracts with different keys</td>
-</tr><tr>
-<td class="c-step">2.5</td>
-<td><b>Invoke rollback on wave failure</b></td>
-<td>Cargo Migration Lead</td>
-<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Defect severity assessment</td>
-<td>Controlled rollback with consignment integrity confirmed</td>
-<td>Rollback completed within the agreed 4-hour window</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="yes">Y</span></td>
-<td>Rollback has not been rehearsed end to end with live consignment data</td>
-</tr></tbody></table></div></div>
-</div><div class="phase-group" data-phase-id="AC-CG-CP-04-3">
-  <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Stabilisation and legacy decommission</span>
+    <span class="ph-name">Phase 1 &mdash; Pre-Cutover Planning</span>
     <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
-<td class="c-step">3.1</td>
-<td><b>Monitor post-cutover defects and service levels</b></td>
-<td>Cargo Operations Manager</td>
-<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Incident and defect queue</td>
-<td>Stabilisation report against exit criteria</td>
-<td>Priority 1 defects closed within 24 hours</td>
+<td class="c-step">1.1</td>
+<td><b>Review Cutover Plan</b></td>
+<td>Cargo Systems Analyst</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Cutover plan document</td>
+<td>Approved cutover plan</td>
+<td>Plan review completed within 2 days</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Defects raised at a station are hard to distinguish from training gaps</td>
+<td>Complexity in aligning legacy systems with CHAMP requirements</td>
 </tr><tr>
-<td class="c-step">3.2</td>
-<td><b>Close double entry and confirm single source</b></td>
-<td>Cargo Revenue Analyst</td>
-<td><span class="tag champ" data-tooltip="Cargo revenue accounting and IATA CASS settlement. [CHAMP - evidence A]">Cargospot neo Revenue Accounting<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Clean reconciliation across the stabilisation period</td>
-<td>Double entry stopped for the wave</td>
-<td>Double entry closed within 14 days of cutover</td>
+<td class="c-step">1.2</td>
+<td><b>Validate Canada PACT Integration</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag regulator" data-tooltip="CBSA pre-load air cargo targeting. Mandatory pre-load data filing in force since 1 April 2025. [CBSA - evidence B]">Canada PACT<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Integration test results</td>
+<td>Validation report</td>
+<td>Integration tested within 30 minutes</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Stations retain the legacy entry informally as a safety net, extending the risk window</td>
+<td>Interface downtime risks</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Escalate Integration Issues</b></td>
+<td>Cargo Systems Analyst</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Validation report</td>
+<td>Escalation report</td>
+<td>Escalation logged within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed integration causing pre-load delays</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CG-CP-04-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Cutover Initiation</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Initiate Parallel Run</b></td>
+<td>Cargo Operations Control Duty Manager</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Cutover plan</td>
+<td>Parallel run initiated</td>
+<td>Parallel run started within 1 hour of cutover</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Double-entry risk due to system discrepancies</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Monitor System Performance</b></td>
+<td>Cargo Systems Analyst</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>System logs and performance metrics</td>
+<td>Performance report</td>
+<td>Performance monitored every 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Real-time monitoring challenges</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Adjust Parallel Run Parameters</b></td>
+<td>Cargo Systems Analyst</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Performance report</td>
+<td>Adjusted parameters</td>
+<td>Parameters adjusted within 15 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual parameter tuning required</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Retry Parallel Run</b></td>
+<td>Cargo Operations Control Duty Manager</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Performance report</td>
+<td>Parallel run re-initiated</td>
+<td>Re-run initiated within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System performance degradation</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CG-CP-04-3">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 3 &mdash; Parallel Run Monitoring</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">3.1</td>
+<td><b>Conduct Post-Cutover Audit</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag champ" data-tooltip="Cargo revenue accounting and IATA CASS settlement. [CHAMP - evidence A]">Cargospot neo Revenue Accounting<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Audit checklist</td>
+<td>Audit report</td>
+<td>Audit completed within 24 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex audit criteria</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Review Audit Findings</b></td>
+<td>Cargo Systems Analyst</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Audit report</td>
+<td>Findings reviewed</td>
+<td>Findings reviewed within 4 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Detailed review process</td>
 </tr><tr>
 <td class="c-step">3.3</td>
-<td><b>Decommission legacy capability and archive records</b></td>
-<td>Cargo Migration Lead</td>
-<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Migration completion evidence</td>
-<td>Legacy capability retired with records archived for retention</td>
-<td>Legacy decommissioned within 90 days of final wave</td>
+<td><b>Implement Corrective Actions</b></td>
+<td>Cargo Systems Analyst</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Audit findings</td>
+<td>Corrective actions implemented</td>
+<td>Actions completed within 1 day</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Retention obligations on historic air waybills are not fully mapped to the legacy archive</td>
+<td>Manual intervention required</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Escalate Critical Issues</b></td>
+<td>Cargo Systems Analyst</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Audit findings</td>
+<td>Escalation report</td>
+<td>Escalation logged within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Severe system issues</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CG-CP-04-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Post-Cutover Validation</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Validate Revenue Accounting</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag champ" data-tooltip="Cargo revenue accounting and IATA CASS settlement. [CHAMP - evidence A]">Cargospot neo Revenue Accounting<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Revenue data</td>
+<td>Validation report</td>
+<td>Validation completed within 2 days</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Data accuracy concerns</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Review Revenue Validation Results</b></td>
+<td>Cargo Systems Analyst</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Validation report</td>
+<td>Validation results reviewed</td>
+<td>Results reviewed within 1 day</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex validation process</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Adjust Revenue Accounting Parameters</b></td>
+<td>Cargo Systems Analyst</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Validation report</td>
+<td>Adjusted parameters</td>
+<td>Parameters adjusted within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual parameter tuning required</td>
+</tr><tr>
+<td class="c-step">4.4</td>
+<td><b>Escalate Revenue Issues</b></td>
+<td>Cargo Systems Analyst</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Validation report</td>
+<td>Escalation report</td>
+<td>Escalation logged within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Severe revenue discrepancies</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CG-CP-04-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Continuous Improvement</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Conduct Final Compliance Check</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag regulator" data-tooltip="CBSA pre-load air cargo targeting. Mandatory pre-load data filing in force since 1 April 2025. [CBSA - evidence B]">Canada PACT<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Compliance checklist</td>
+<td>Compliance report</td>
+<td>Check completed within 24 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex compliance criteria</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Review Compliance Findings</b></td>
+<td>Cargo Systems Analyst</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Compliance report</td>
+<td>Findings reviewed</td>
+<td>Findings reviewed within 4 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Detailed review process</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Implement Corrective Actions</b></td>
+<td>Cargo Systems Analyst</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Compliance findings</td>
+<td>Corrective actions implemented</td>
+<td>Actions completed within 1 day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual intervention required</td>
+</tr><tr>
+<td class="c-step">5.4</td>
+<td><b>Escalate Compliance Issues</b></td>
+<td>Cargo Systems Analyst</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Compliance findings</td>
+<td>Escalation report</td>
+<td>Escalation logged within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Severe compliance issues</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Cargo Migration Lead</span><span class="lane-steps">1.1 2.1 2.5 3.3</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Cargo Data Analyst</span><span class="lane-steps">1.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Integration Analyst</span><span class="lane-steps">1.3</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Cargo Operations Manager</span><span class="lane-steps">1.4 2.2 3.1</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Cargo Agent</span><span class="lane-steps">2.3</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>Cargo Revenue Analyst</span><span class="lane-steps">2.4 3.2</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Cargo Systems Analyst</span><span class="lane-steps">1.1 1.3 2.2 2.3 3.2 3.3 3.4 4.2 4.3 4.4 5.2 5.3 5.4</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Cargo Compliance Agent</span><span class="lane-steps">1.2 3.1 4.1 5.1</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Cargo Operations Control Duty Manager</span><span class="lane-steps">2.1 2.4</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag regulator" data-tooltip="CBSA pre-load air cargo targeting. Mandatory pre-load data filing in force since 1 April 2025. [CBSA - evidence B]">Canada PACT<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag champ" data-tooltip="Mobile cargo warehouse and ramp execution. [CHAMP - evidence A]">Cargospot Mobile<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag champ" data-tooltip="Cargo revenue accounting and IATA CASS settlement. [CHAMP - evidence A]">Cargospot neo Revenue Accounting<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag champ" data-tooltip="Cargo warehouse and ground handling execution, ULD build-up and breakdown. [CHAMP - evidence A]">Cargospot neo Handling<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag champ" data-tooltip="IoT sensor tracking for cargo condition, location and cold-chain compliance. [OnAsset - evidence B]">OnAsset Vision<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag regulator" data-tooltip="CBSA pre-load air cargo targeting. Mandatory pre-load data filing in force since 1 April 2025. [CBSA - evidence B]">Canada PACT<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag champ" data-tooltip="Cargo revenue accounting and IATA CASS settlement. [CHAMP - evidence A]">Cargospot neo Revenue Accounting<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Double-entry variance below 1 percent of consignments during the interim period</li><li>Zero consignments stranded across a cutover freeze boundary</li><li>Pre-load customs filings unaffected by cutover at 100 percent</li><li>Double entry closed within 14 days of each wave cutover</li><li>Priority 1 post-cutover defects closed within 24 hours</li></ul>
+<ul class="bullets"><li>Plan review completed within 2 days</li><li>Integration tested within 30 minutes</li><li>Parallel run started within 1 hour of cutover</li><li>Performance monitored every 30 minutes</li><li>Parameters adjusted within 15 minutes</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Interim double entry producing divergent shipment records with direct revenue-accounting consequences</li><li>Pre-load customs filing interrupted during a cutover window, exposing shipments to CBSA holds</li><li>Unrehearsed rollback leaving consignments recorded in neither platform</li><li>Legacy reference data carrying uncontrolled local edits into the new platform</li><li>Stations retaining legacy entry informally after the wave, extending the double-entry risk window</li></ul>
+<ul class="bullets risk"><li>Double-entry risk due to system discrepancies</li><li>Real-time monitoring challenges</li><li>System performance degradation</li><li>Complex audit criteria</li><li>Severe system issues</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../air-canada-cargo/cargo-revenue-performance/ac-cg-cp-03/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Cargo Claims and Damage Settlement</span></a>

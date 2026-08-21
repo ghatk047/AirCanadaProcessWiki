@@ -133,7 +133,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-IT-SM-01" title="Click to copy the process ID">
     AC-IT-SM-01<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Incident Management and Major Incident Command</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -142,96 +142,252 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-IT-SM-01-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Detection and triage</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Incident Detection and Logging</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Detect and log the incident</b></td>
-<td>IT Service Desk Analyst</td>
+<td><b>Log incident details in ITSM Platform</b></td>
+<td>ITSM Analyst</td>
 <td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Monitoring alert or user report</td>
-<td>Logged incident with initial severity</td>
-<td>Logged within 5 minutes of detection at 100 percent</td>
+<td>Incident report from users or monitoring tools</td>
+<td>Incident record in ITSM system</td>
+<td>Incident logged within 5 minutes of detection</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Initial severity classification under uncertainty tends toward caution, which can over-trigger major incident process</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delays in logging can lead to missed SLA targets.</td>
 </tr><tr>
 <td class="c-step">1.2</td>
-<td><b>Triage and assign the incident</b></td>
-<td>IT Service Desk Analyst</td>
+<td><b>Determine incident impact and urgency</b></td>
+<td>ITSM Analyst</td>
 <td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Logged incident</td>
-<td>Triaged incident with assigned owner</td>
-<td>Triaged within 15 minutes of logging at 95 percent</td>
+<td>Incident record from ITSM system</td>
+<td>Impact assessment report</td>
+<td>Impact assessment completed within 10 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Inaccurate impact assessment can lead to improper resource allocation.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Update incident status in ITSM Platform</b></td>
+<td>ITSM Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Impact assessment report</td>
+<td>Updated incident record with priority level</td>
+<td>Incident status updated within 5 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>An incident affecting a shared platform can be misassigned to a single team when it is actually cross-functional</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed status updates can cause confusion among stakeholders.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-IT-SM-01-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Major incident mobilisation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Initial Assessment and Prioritization</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Mobilise major incident command for severity 1</b></td>
-<td>Incident Commander</td>
-<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Severity 1 classification</td>
-<td>Mobilised incident command</td>
-<td>Mobilised within 10 minutes of severity 1 classification at 100 percent</td>
+<td><b>Notify relevant teams and stakeholders</b></td>
+<td>ITSM Analyst</td>
+<td><span class="tag unknown" data-tooltip="API gateway, ESB and event streaming. Product UNCONFIRMED - a top-three discovery question.">Integration Platform<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Priority level from ITSM system</td>
+<td>Notification sent to affected teams and stakeholders</td>
+<td>Notifications sent within 10 minutes of impact assessment</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed notifications can lead to prolonged disruption.</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Identify root cause of the incident</b></td>
+<td>ITSM Analyst</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Incident details and logs</td>
+<td>Root cause analysis report</td>
+<td>Root cause identified within 30 minutes</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Effective incident command depends on rehearsed procedure, not just a role being assigned in the moment</td>
+<td>Inaccurate root cause identification can delay resolution.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Develop and approve incident response plan</b></td>
+<td>ITSM Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Root cause analysis report</td>
+<td>Approved incident response plan</td>
+<td>Plan approved within 15 minutes of root cause identification</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Approval delays can extend the resolution time.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-IT-SM-01-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Resolution and review</span>
+    <span class="ph-name">Phase 3 &mdash; Incident Escalation</span>
     <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Resolve the incident</b></td>
-<td>IT Service Desk Analyst</td>
-<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Diagnosed cause</td>
-<td>Applied fix with confirmed resolution</td>
-<td>Resolved within the defined service level for the severity at 90 percent</td>
+<td><b>Execute incident response plan</b></td>
+<td>IT Operations Engineer</td>
+<td><span class="tag unknown" data-tooltip="API gateway, ESB and event streaming. Product UNCONFIRMED - a top-three discovery question.">Integration Platform<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Approved incident response plan</td>
+<td>Incident resolution steps initiated</td>
+<td>Resolution steps executed within 5 minutes of plan approval</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>A fix that resolves the symptom without addressing root cause risks recurrence</td>
+<td>Delays in executing the plan can prolong the incident.</td>
 </tr><tr>
 <td class="c-step">3.2</td>
-<td><b>Conduct post-incident review for major incidents</b></td>
-<td>Incident Commander</td>
+<td><b>Monitor resolution progress</b></td>
+<td>IT Operations Engineer</td>
+<td><span class="tag unknown" data-tooltip="API gateway, ESB and event streaming. Product UNCONFIRMED - a top-three discovery question.">Integration Platform<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Incident resolution steps initiated</td>
+<td>Progress report</td>
+<td>Resolution progress monitored every 10 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Lack of monitoring can lead to unresolved issues.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-SM-01-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Resolution Planning</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Restore affected services</b></td>
+<td>IT Operations Engineer</td>
+<td><span class="tag unknown" data-tooltip="API gateway, ESB and event streaming. Product UNCONFIRMED - a top-three discovery question.">Integration Platform<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Progress report</td>
+<td>Services restored to normal operation</td>
+<td>Services restored within 30 minutes of resolution initiation</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delays in restoring services can impact customer experience.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Verify service restoration</b></td>
+<td>IT Operations Engineer</td>
+<td><span class="tag unknown" data-tooltip="API gateway, ESB and event streaming. Product UNCONFIRMED - a top-three discovery question.">Integration Platform<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Restored services</td>
+<td>Verification report</td>
+<td>Verification completed within 5 minutes of service restoration</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inaccurate verification can lead to false positives or negatives.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Notify stakeholders of resolution</b></td>
+<td>ITSM Analyst</td>
+<td><span class="tag unknown" data-tooltip="API gateway, ESB and event streaming. Product UNCONFIRMED - a top-three discovery question.">Integration Platform<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Verification report</td>
+<td>Resolution notification sent to stakeholders</td>
+<td>Notifications sent within 10 minutes of verification completion</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed notifications can cause confusion among stakeholders.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-SM-01-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Execution and Monitoring</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Document incident resolution</b></td>
+<td>ITSM Analyst</td>
 <td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Resolved severity 1 incident</td>
-<td>Documented review with root cause and actions</td>
-<td>Conducted within 5 business days of resolution at 100 percent</td>
+<td>Verification report and stakeholder feedback</td>
+<td>Incident resolution document</td>
+<td>Document completed within 10 minutes of notification sent</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delays in documenting can impact future prevention.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Update incident record with resolution details</b></td>
+<td>ITSM Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Incident resolution document</td>
+<td>Updated incident record in ITSM system</td>
+<td>Record updated within 5 minutes of document completion</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Follow-up actions from a review are not always tracked through to actual completion</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed updates can cause confusion among stakeholders.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Close incident in ITSM Platform</b></td>
+<td>ITSM Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Updated incident record</td>
+<td>Closed incident record</td>
+<td>Incident closed within 5 minutes of record update</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delays in closing can impact incident management efficiency.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-SM-01-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Post-Incident Review</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Conduct post-incident review meeting</b></td>
+<td>ITSM Analyst</td>
+<td><span class="tag unknown" data-tooltip="API gateway, ESB and event streaming. Product UNCONFIRMED - a top-three discovery question.">Integration Platform<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Incident resolution document and record</td>
+<td>Review minutes</td>
+<td>Meeting held within 24 hours of incident closure</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Lack of review can lead to recurring incidents.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Identify lessons learned and improvements</b></td>
+<td>ITSM Analyst</td>
+<td><span class="tag unknown" data-tooltip="API gateway, ESB and event streaming. Product UNCONFIRMED - a top-three discovery question.">Integration Platform<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Review minutes</td>
+<td>Lessons learned document</td>
+<td>Document completed within 5 days of review meeting</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delays in identifying lessons can impact future prevention.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Implement improvements and update procedures</b></td>
+<td>ITSM Analyst</td>
+<td><span class="tag unknown" data-tooltip="API gateway, ESB and event streaming. Product UNCONFIRMED - a top-three discovery question.">Integration Platform<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Lessons learned document</td>
+<td>Updated procedures</td>
+<td>Improvements implemented within 2 weeks of lessons identified</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delays in implementing improvements can lead to recurring incidents.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>IT Service Desk Analyst</span><span class="lane-steps">1.1 1.2 3.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Incident Commander</span><span class="lane-steps">2.1 3.2</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>ITSM Analyst</span><span class="lane-steps">1.1 1.2 1.3 2.1 2.2 2.3 4.3 5.1 5.2 5.3 6.1 6.2 6.3</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>IT Operations Engineer</span><span class="lane-steps">3.1 3.2 4.1 4.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
+<div class="card"><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag unknown" data-tooltip="API gateway, ESB and event streaming. Product UNCONFIRMED - a top-three discovery question.">Integration Platform<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Logged within 5 minutes of detection at 100 percent</li><li>Mobilised within 10 minutes of severity 1 classification at 100 percent</li><li>Resolved within the defined service level for the severity at 90 percent</li><li>Conducted within 5 business days of resolution at 100 percent</li></ul>
+<ul class="bullets"><li>Incident logged within 5 minutes</li><li>Impact assessment completed within 10 minutes</li><li>Incident status updated within 5 minutes</li><li>Notifications sent within 10 minutes</li><li>Root cause identified within 30 minutes</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Effective incident command depending on rehearsed procedure, not just a role assigned in the moment</li><li>A fix that resolves the symptom without addressing root cause risking recurrence</li><li>An incident affecting a shared platform being misassigned to a single team when it is cross-functional</li><li>Follow-up actions from a post-incident review not being tracked through to actual completion</li></ul>
+<ul class="bullets risk"><li>Delayed incident logging leading to missed SLA targets</li><li>Inaccurate impact assessment causing improper resource allocation</li><li>Approval delays extending the resolution time</li><li>Lack of monitoring leading to unresolved issues</li><li>Delays in restoring services impacting customer experience</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../air-canada-cargo/cargo-revenue-performance/ac-cg-cp-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Cargo Partner and GSA Performance Review</span></a>
