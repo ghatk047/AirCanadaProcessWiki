@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CX-CR-06" title="Click to copy the process ID">
     AC-CX-CR-06<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Goodwill Gesture and Customer Recovery</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,252 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-CX-CR-06-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Recovery opportunity assessment</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Initial Complaint Handling</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Assess the service recovery opportunity</b></td>
-<td>Customer Relations Agent</td>
+<td><b>Customer submits complaint</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag channel" data-tooltip="Primary direct digital channel, cloud-native on AWS. Undergoing redevelopment under the CDO. [Air Canada - evidence A]">aircanada.com<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Customer&#x27;s complaint details</td>
+<td>Complaint logged in Salesforce Service Cloud</td>
+<td>Response time within 24 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>High volume of complaints can lead to delayed response times.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Determine complaint category</b></td>
+<td>APPR Adjudicator</td>
 <td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Customer interaction and experience gap</td>
-<td>Assessed recovery opportunity</td>
-<td>Assessed within the same interaction for 90 percent of eligible cases</td>
+<td>Logged complaint details</td>
+<td>Complaint categorized (e.g., flight delay, baggage claim)</td>
+<td>100% accurate categorization rate</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex complaints may require additional clarification from the customer.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Assign complaint to appropriate team</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Categorized complaint</td>
+<td>Complaint assigned to relevant team (e.g., Flight Operations, Baggage)</td>
+<td>95% successful assignment rate</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Recognising a genuine recovery opportunity depends on agent judgement that varies in consistency</td>
+<td>Inaccurate assignments can lead to delayed resolutions.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Initiate internal review</b></td>
+<td>APPR Adjudicator</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Assigned complaint</td>
+<td>Internal review report</td>
+<td>Average review time of 2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Insufficient evidence can delay the internal review process.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CX-CR-06-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Gesture determination</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Complaint Classification</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Determine proportionate gesture within delegation</b></td>
-<td>Customer Relations Agent</td>
-<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Assessed opportunity and delegation limits</td>
-<td>Determined gesture</td>
-<td>Determined within delegated authority at 95 percent</td>
-<td class="c-flag"><span class="yes">Y</span></td>
+<td><b>Clarify unclear complaint</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Unclear complaint details</td>
+<td>Clarified complaint details</td>
+<td>90% successful clarification rate</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A gesture disproportionate to the actual service gap undermines consistency across similar cases</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Customer may become frustrated by multiple contacts.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Distinguish gesture from any regulated entitlement</b></td>
-<td>Customer Relations Agent</td>
+<td><b>Escalate complaint to senior manager</b></td>
+<td>YYZ Operations Control Duty Manager</td>
 <td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Determined gesture and case context</td>
-<td>Clearly documented distinction</td>
-<td>100 percent of gestures documented as distinct from any entitlement determination</td>
+<td>Clarity request result</td>
+<td>Senior manager&#x27;s review and decision</td>
+<td>Average escalation time of 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Escalation can delay the resolution process.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Reassign complaint based on senior manager&#x27;s decision</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Senior manager&#x27;s review and decision</td>
+<td>Reassigned complaint to relevant team</td>
+<td>98% successful reassignment rate</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>An undocumented gesture can later be conflated with a regulated entitlement in a subsequent review</td>
+<td>Incorrect reassignments can lead to further delays.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CX-CR-06-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Delivery</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Internal Review</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Deliver the gesture to the customer</b></td>
-<td>Customer Relations Agent</td>
-<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Determined gesture</td>
-<td>Delivered goodwill gesture</td>
-<td>Delivered within 5 business days of determination at 95 percent</td>
+<td><b>Collect additional evidence</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag channel" data-tooltip="iOS and Android. Booking, check-in, boarding pass, in-app bag tracking and mobility-aid tracking. [Air Canada - evidence A]">Air Canada Mobile App<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Insufficient evidence details</td>
+<td>Collected evidence</td>
+<td>85% successful evidence collection rate</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Customers may be reluctant to provide additional information.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Request external adjudication</b></td>
+<td>APPR Adjudicator</td>
+<td><span class="tag regulator" data-tooltip="Canadian Transportation Agency complaint and Air Passenger Protection Regulations adjudication channel. [CTA - evidence A]">CTA Complaint Interface<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Senior manager&#x27;s decision and complaint details</td>
+<td>Adjudication request sent to CTA</td>
+<td>90% successful submission rate</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>High backlog at the CTA can delay external adjudication.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-CR-06-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; External Adjudication</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Notify customer of evidence requirement</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Evidence collection request</td>
+<td>Customer notified and provided instructions</td>
+<td>95% successful notification rate</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Customers may not respond to the notification.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Escalate unresponsive customer case</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Customer response status</td>
+<td>Case escalated to senior management for follow-up</td>
+<td>Average escalation time of 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Escalation can delay the resolution process.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-CR-06-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Resolution and Communication</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Prepare resolution package</b></td>
+<td>APPR Adjudicator</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Review report and evidence</td>
+<td>Resolution package (e.g., apology, compensation)</td>
+<td>Average preparation time of 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Compensation calculations can be complex.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Request additional budget</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Resolution package details</td>
+<td>Budget approval from finance department</td>
+<td>Average approval time of 2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delays in budget approval can prolong the resolution process.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Communicate resolution to customer</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada Mobile App and aircanada.com<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Resolution package</td>
+<td>Customer notified of resolution</td>
+<td>90% successful communication rate</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Customers may not accept the offered resolution.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-CR-06-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Follow-Up</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Monitor customer satisfaction</b></td>
+<td>APPR Adjudicator</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Customer feedback</td>
+<td>Satisfaction score</td>
+<td>95% satisfied customers</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Low satisfaction scores can indicate unresolved issues.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Follow-up with dissatisfied customer</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Satisfaction score and feedback</td>
+<td>Follow-up resolution or clarification</td>
+<td>80% successful follow-up rate</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Customers may become frustrated by multiple follow-ups.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Review and update procedures</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Complaint details and follow-up results</td>
+<td>Updated internal procedures</td>
+<td>100% documented procedure updates</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Delivery mechanism, whether points, a voucher or a refund, has to match what was actually communicated to the customer</td>
+<td>Inadequate procedure updates can lead to recurring issues.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Customer Relations Agent</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Aeroplan Member Services Agent</span><span class="lane-steps">1.1 2.1 4.1 5.3 6.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>APPR Adjudicator</span><span class="lane-steps">1.2 1.4 3.2 5.1 6.1</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">1.3 2.2 2.3 4.2 5.2 6.3</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Cargo Compliance Agent</span><span class="lane-steps">3.1</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+<div class="card"><span class="tag channel" data-tooltip="Primary direct digital channel, cloud-native on AWS. Undergoing redevelopment under the CDO. [Air Canada - evidence A]">aircanada.com<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag channel" data-tooltip="iOS and Android. Booking, check-in, boarding pass, in-app bag tracking and mobility-aid tracking. [Air Canada - evidence A]">Air Canada Mobile App<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag regulator" data-tooltip="Canadian Transportation Agency complaint and Air Passenger Protection Regulations adjudication channel. [CTA - evidence A]">CTA Complaint Interface<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada Mobile App and aircanada.com<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Determined within delegated authority at 95 percent</li><li>100 percent of gestures documented as distinct from any entitlement determination</li><li>Delivered within 5 business days of determination at 95 percent</li><li>Gesture consistency across similar service gaps tracked for fairness</li></ul>
+<ul class="bullets"><li>Response time within 24 hours</li><li>100% accurate categorization rate</li><li>95% successful assignment rate</li><li>Average review time of 2 hours</li><li>90% successful clarification rate</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A goodwill gesture later being conflated with a regulated entitlement in a subsequent review</li><li>A gesture disproportionate to the actual service gap undermining consistency across similar cases</li><li>Delivery mechanism not matching what was actually communicated to the customer</li><li>Agent judgement varying enough in consistency to create fairness concerns across similar cases</li></ul>
+<ul class="bullets risk"><li>High volume of complaints leading to delayed response times.</li><li>Complex complaints requiring additional clarification from customers.</li><li>Insufficient evidence delaying the internal review process.</li><li>Customers&#x27; reluctance to provide additional information.</li><li>Delays in budget approval prolonging the resolution process.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../customer-experience-channels/complaints-appr-claims/ac-cx-cr-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Baggage Claim and Compensation Settlement</span></a>
@@ -239,7 +406,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources
 for IT Application Management and User Support pre-sales discovery.
-Built 2026-08-20. Every system carries an evidence tier: tier C is an industry pattern and tier U is an open
+Built 2026-08-21. Every system carries an evidence tier: tier C is an industry pattern and tier U is an open
 question, and neither should be asserted as fact about Air Canada without confirmation in discovery.
 Not affiliated with or endorsed by Air Canada. Air Canada, Aeroplan and Altitude are trademarks of Air Canada.
 </div>

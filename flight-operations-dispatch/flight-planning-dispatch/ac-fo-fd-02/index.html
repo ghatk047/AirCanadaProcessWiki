@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-FO-FD-02" title="Click to copy the process ID">
     AC-FO-FD-02<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Fuel Policy Application and Tankering Decision</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,241 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-FO-FD-02-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Tankering evaluation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Initial Assessment</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Evaluate fuel price differential</b></td>
-<td>Flight Dispatcher</td>
+<td><b>Receive flight itinerary details</b></td>
+<td>YYZ Operations Control Duty Manager</td>
 <td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Origin and destination fuel prices</td>
-<td>Calculated price differential</td>
-<td>Evaluated for 100 percent of eligible routes each planning cycle</td>
+<td>Flight plan, crew schedule, weather data</td>
+<td>Initial fuel requirement assessment</td>
+<td>Time to receive and process initial data &lt; 15 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Fuel price data currency affects the accuracy of the tankering economics</td>
+<td>Delays in receiving real-time flight itinerary updates can lead to inaccurate fuel calculations.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Evaluate weather conditions</b></td>
+<td>Flight Dispatcher</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Weather forecast, NOTAMs</td>
+<td>Weather impact assessment</td>
+<td>Time to evaluate and update weather data &lt; 5 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inaccurate weather forecasts can lead to over-fueling or under-fueling, affecting flight safety.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Assess aircraft performance data</b></td>
+<td>Flight Dispatcher</td>
+<td><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Aircraft performance logs, OOOI times</td>
+<td>Performance impact assessment</td>
+<td>Time to analyze performance data &lt; 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Outdated or incomplete aircraft performance data can result in incorrect fuel calculations.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-FO-FD-02-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Performance constraint check</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Policy Evaluation</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Assess performance impact of additional fuel weight</b></td>
-<td>Flight Dispatcher</td>
-<td><span class="tag datalink" data-tooltip="Load planning, trim sheet and final loadsheet issue to the flight deck. [Multiple - evidence C]">Weight and Balance System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Candidate tankering fuel load</td>
-<td>Performance impact assessment</td>
-<td>Assessed before the tankering decision is finalised at 100 percent</td>
-<td class="c-flag"><span class="yes">Y</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Additional weight can push a marginal-runway departure outside its performance limit</td>
-</tr><tr>
-<td class="c-step">2.2</td>
-<td><b>Confirm reserve and regulatory compliance</b></td>
+<td><b>Adjust fuel requirements for severe weather</b></td>
 <td>Flight Dispatcher</td>
 <td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Candidate fuel load</td>
-<td>Confirmed compliance with reserve requirements</td>
-<td>Confirmed for 100 percent of tankering decisions</td>
+<td>Weather impact assessment, initial fuel requirement</td>
+<td>Adjusted fuel requirement</td>
+<td>Time to adjust fuel requirements &lt; 10 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Tankering fuel must not be confused with or substitute for mandatory reserve fuel</td>
+<td>Manual adjustments can introduce human error in critical calculations.</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Check against regulatory limits</b></td>
+<td>Regulatory Compliance Officer</td>
+<td><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Adjusted fuel requirement, regulatory guidelines</td>
+<td>Compliance report</td>
+<td>Time to generate compliance report &lt; 5 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Misinterpretation of regulatory limits can lead to non-compliance and potential fines.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Evaluate tankering options</b></td>
+<td>Flight Dispatcher</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Adjusted fuel requirement, airport availability</td>
+<td>Tankering plan</td>
+<td>Time to evaluate and propose tankering options &lt; 15 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Limited tanking infrastructure can delay flights or increase operational costs.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-FO-FD-02-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Fuel loading decision</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Compliance Check</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Finalise fuel loading decision</b></td>
+<td><b>Resubmit with adjusted regulatory limits</b></td>
+<td>Regulatory Compliance Officer</td>
+<td><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Compliance report, regulatory guidelines</td>
+<td>Updated compliance report</td>
+<td>Time to resubmit and generate updated report &lt; 5 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Multiple submissions can delay the decision-making process.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Identify alternative airports for tanking</b></td>
+<td>Flight Dispatcher</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Tankering plan, airport availability data</td>
+<td>Alternative airport list</td>
+<td>Time to identify and compile alternative airports &lt; 10 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Limited alternative airports can increase flight delays.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-FD-02-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Tankering Decision</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Escalate non-compliance issue</b></td>
+<td>Regulatory Compliance Officer</td>
+<td><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Updated compliance report, regulatory guidelines</td>
+<td>Non-compliance escalation ticket</td>
+<td>Time to escalate non-compliance &lt; 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Escalation can delay the process and may require additional approvals.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Review impact of no tanking options</b></td>
 <td>Flight Dispatcher</td>
 <td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Assessed and confirmed factors</td>
-<td>Finalised fuel load in the flight plan</td>
-<td>Finalised within the planning window at 100 percent</td>
+<td>Alternative airport list, flight itinerary details</td>
+<td>Impact assessment report</td>
+<td>Time to review and generate impact report &lt; 10 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Complex impact assessments can delay the decision-making process.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Propose alternative flight plan</b></td>
+<td>Flight Dispatcher</td>
+<td><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Impact assessment report, flight itinerary details</td>
+<td>Alternative flight plan</td>
+<td>Time to propose and generate alternative flight plan &lt; 15 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A tankering decision made too early can be invalidated by a later performance-limiting factor</td>
+<td>Creating new flight plans can introduce operational risks.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-FD-02-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Approval and Implementation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Submit tanking request</b></td>
+<td>Flight Dispatcher</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Tankering plan, airport availability data</td>
+<td>Tanking request submission</td>
+<td>Time to submit tanking request &lt; 5 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delays in submitting the request can lead to missed opportunities.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Monitor tanking operation progress</b></td>
+<td>Flight Dispatcher</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Tanking request submission, airport status updates</td>
+<td>Operation status report</td>
+<td>Time to monitor and update operation status &lt; 10 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Real-time monitoring can be challenging with limited data availability.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-FD-02-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Post-Flight Review</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Escalate plan unfeasibility issue</b></td>
+<td>Flight Dispatcher</td>
+<td><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Alternative flight plan, impact assessment report</td>
+<td>Unfeasibility escalation ticket</td>
+<td>Time to escalate unfeasibility &lt; 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Escalation can delay the process and may require additional approvals.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Request tanking request re-evaluation</b></td>
+<td>Flight Dispatcher</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Operation status report, tanking request submission</td>
+<td>Re-evaluation request</td>
+<td>Time to request re-evaluation &lt; 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Re-evaluations can introduce delays and may require additional resources.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Review operation delay impact</b></td>
+<td>Flight Dispatcher</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Operation status report, flight itinerary details</td>
+<td>Delay impact assessment</td>
+<td>Time to review and generate delay impact &lt; 10 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex impact assessments can delay the decision-making process.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Flight Dispatcher</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">1.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Flight Dispatcher</span><span class="lane-steps">1.2 1.3 2.1 2.3 3.2 4.2 4.3 5.1 5.2 6.1 6.2 6.3</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Regulatory Compliance Officer</span><span class="lane-steps">2.2 3.1 4.1</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag datalink" data-tooltip="Load planning, trim sheet and final loadsheet issue to the flight deck. [Multiple - evidence C]">Weight and Balance System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
+<div class="card"><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Evaluated for 100 percent of eligible routes each planning cycle</li><li>Confirmed for 100 percent of tankering decisions against reserve requirements</li><li>Net fuel cost savings from the tankering programme tracked against target</li><li>Zero tankering decisions that compromised a performance limit</li></ul>
+<ul class="bullets"><li>Time to receive and process initial data &lt; 15 minutes</li><li>Time to evaluate and update weather data &lt; 5 minutes</li><li>Time to analyze performance data &lt; 10 minutes</li><li>Time to adjust fuel requirements &lt; 10 minutes</li><li>Time to generate compliance report &lt; 5 minutes</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Additional tankering weight pushing a marginal-runway departure outside its performance limit</li><li>Tankering fuel being confused with or substituted for mandatory regulatory reserve fuel</li><li>A tankering decision made early in planning being invalidated by a later performance-limiting factor</li><li>Fuel price data currency affecting the accuracy of the underlying tankering economics</li></ul>
+<ul class="bullets risk"><li>Delays in receiving real-time flight itinerary updates can lead to inaccurate fuel calculations.</li><li>Inaccurate weather forecasts can lead to over-fueling or under-fueling, affecting flight safety.</li><li>Limited tanking infrastructure can delay flights or increase operational costs.</li><li>Escalation can delay the process and may require additional approvals.</li><li>Creating new flight plans can introduce operational risks.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../flight-operations-dispatch/flight-planning-dispatch/ac-fo-fd-01/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Operational Flight Plan Construction</span></a>
@@ -239,7 +395,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources
 for IT Application Management and User Support pre-sales discovery.
-Built 2026-08-20. Every system carries an evidence tier: tier C is an industry pattern and tier U is an open
+Built 2026-08-21. Every system carries an evidence tier: tier C is an industry pattern and tier U is an open
 question, and neither should be asserted as fact about Air Canada without confirmation in discovery.
 Not affiliated with or endorsed by Air Canada. Air Canada, Aeroplan and Altitude are trademarks of Air Canada.
 </div>

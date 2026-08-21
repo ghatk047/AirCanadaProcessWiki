@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-FO-FD-01" title="Click to copy the process ID">
     AC-FO-FD-01<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Operational Flight Plan Construction</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,107 +143,313 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-FO-FD-01-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Route and altitude planning</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Initial Request Validation</span>
+    <span class="ph-n">6 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Select route and cruise altitude</b></td>
-<td>Flight Dispatcher</td>
+<td><b>Receive flight request or change notification</b></td>
+<td>YYZ Operations Control Duty Manager</td>
 <td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Flight schedule and available routings</td>
-<td>Selected route and altitude profile</td>
-<td>Route selected within the planning window at 100 percent</td>
+<td>Flight request details from dispatchers</td>
+<td>Validated flight request data</td>
+<td>Response time within 5 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Route optimisation for wind and airspace can conflict with published preferred routings</td>
+<td>Delays in receiving requests can disrupt the schedule.</td>
 </tr><tr>
 <td class="c-step">1.2</td>
-<td><b>Calculate fuel requirement</b></td>
-<td>Flight Dispatcher</td>
+<td><b>Validate flight parameters against regulations</b></td>
+<td>Flight Planning Officer</td>
+<td><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Validated flight request data</td>
+<td>Regulatory compliance report</td>
+<td>Validation completion within 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inconsistent regulatory updates can cause delays.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Update flight parameters to comply with regulations</b></td>
+<td>Flight Planning Officer</td>
+<td><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Regulatory compliance report</td>
+<td>Updated flight request data</td>
+<td>Compliance update within 20 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual updates can introduce errors.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Escalate non-compliant request to regulatory compliance team</b></td>
+<td>Regulatory Compliance Manager</td>
+<td><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Non-compliant flight request data</td>
+<td>Compliance approval or rejection</td>
+<td>Escalation resolution within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual review can slow down the process.</td>
+</tr><tr>
+<td class="c-step">1.5</td>
+<td><b>Construct flight plan with updated parameters</b></td>
+<td>Flight Planner</td>
 <td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Route, altitude and weather data</td>
-<td>Calculated fuel load</td>
-<td>Fuel calculated within regulatory reserve requirements at 100 percent</td>
+<td>Updated flight request data</td>
+<td>Draft flight plan</td>
+<td>Plan construction within 45 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System downtime can affect plan generation.</td>
+</tr><tr>
+<td class="c-step">1.6</td>
+<td><b>Retry plan generation after system recovery</b></td>
+<td>Flight Planner</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Updated flight request data</td>
+<td>Draft flight plan</td>
+<td>Plan construction within 45 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Fuel calculation depends on weather data that can change materially between planning and departure</td>
+<td>System downtime can affect plan generation.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-FO-FD-01-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Fuel and performance calculation</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Flight Plan Construction</span>
+    <span class="ph-n">10 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Select alternate airports</b></td>
-<td>Flight Dispatcher</td>
-<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Route and destination weather forecast</td>
-<td>Selected alternates meeting regulatory minimums</td>
-<td>Alternates selected meeting regulatory minimums at 100 percent</td>
+<td><b>Assign crew to the flight</b></td>
+<td>Crew Scheduler</td>
+<td><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Draft flight plan</td>
+<td>Assigned crew list</td>
+<td>Crew assignment within 30 minutes</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Marginal destination weather can require an alternate selection that adds meaningful fuel burden</td>
+<td>Insufficient crew availability can delay flights.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Verify aircraft performance limits</b></td>
-<td>Flight Dispatcher</td>
-<td><span class="tag datalink" data-tooltip="Load planning, trim sheet and final loadsheet issue to the flight deck. [Multiple - evidence C]">Weight and Balance System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Planned weight and runway conditions</td>
-<td>Verified performance within limits</td>
-<td>Verified before plan finalisation at 100 percent</td>
+<td><b>Verify crew qualifications and availability</b></td>
+<td>Crew Scheduler</td>
+<td><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Assigned crew list</td>
+<td>Verified crew status</td>
+<td>Verification completion within 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual verification can introduce errors.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Escalate insufficient crew to HR for recruitment</b></td>
+<td>HR Specialist</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Assigned crew list</td>
+<td>Recruitment status update</td>
+<td>Recruitment response within 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual recruitment can slow down the process.</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Optimize equipment for the flight</b></td>
+<td>Equipment Scheduler</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Draft flight plan and crew list</td>
+<td>Optimized equipment list</td>
+<td>Equipment optimization within 30 minutes</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Performance limits at high-elevation or short-runway destinations require careful margin verification</td>
+<td>Incompatible equipment can delay flights.</td>
+</tr><tr>
+<td class="c-step">2.5</td>
+<td><b>Verify equipment availability and compatibility</b></td>
+<td>Equipment Scheduler</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Optimized equipment list</td>
+<td>Verified equipment status</td>
+<td>Verification completion within 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual verification can introduce errors.</td>
+</tr><tr>
+<td class="c-step">2.6</td>
+<td><b>Escalate incompatible equipment to maintenance for repair</b></td>
+<td>Maintenance Manager</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Optimized equipment list</td>
+<td>Repair status update</td>
+<td>Repair response within 4 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual repair can slow down the process.</td>
+</tr><tr>
+<td class="c-step">2.7</td>
+<td><b>Conduct final regulatory compliance check</b></td>
+<td>Regulatory Compliance Manager</td>
+<td><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Optimized flight plan, crew list, and equipment list</td>
+<td>Final compliance report</td>
+<td>Compliance check within 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inconsistent updates can cause delays.</td>
+</tr><tr>
+<td class="c-step">2.8</td>
+<td><b>Update flight plan to comply with final regulations</b></td>
+<td>Flight Planner</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Final compliance report</td>
+<td>Updated flight plan</td>
+<td>Plan update within 20 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual updates can introduce errors.</td>
+</tr><tr>
+<td class="c-step">2.9</td>
+<td><b>Escalate non-compliant final check to regulatory compliance team</b></td>
+<td>Regulatory Compliance Manager</td>
+<td><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Final compliance report</td>
+<td>Compliance approval or rejection</td>
+<td>Escalation resolution within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual review can slow down the process.</td>
+</tr><tr>
+<td class="c-step">2.10</td>
+<td><b>Obtain final approval from operations manager</b></td>
+<td>Operations Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Updated flight plan, crew list, and equipment list</td>
+<td>Approval status</td>
+<td>Approval within 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual approvals can introduce delays.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-FO-FD-01-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Plan validation</span>
+    <span class="ph-name">Phase 3 &mdash; Crew Assignment</span>
     <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Validate the complete flight plan</b></td>
+<td><b>Dispatch the flight plan to relevant systems</b></td>
 <td>Flight Dispatcher</td>
 <td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Assembled plan components</td>
-<td>Validated flight plan</td>
-<td>Validated within the planning window at 100 percent</td>
+<td>Approved flight plan, crew list, and equipment list</td>
+<td>Dispatched flight data</td>
+<td>Dispatch within 5 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>A plan validated against stale weather data needs to be re-checked closer to departure</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System downtime can affect dispatch.</td>
 </tr><tr>
 <td class="c-step">3.2</td>
-<td><b>Transmit plan for dispatch release</b></td>
+<td><b>Retry dispatch after system recovery</b></td>
 <td>Flight Dispatcher</td>
-<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Validated plan</td>
-<td>Filed flight plan</td>
-<td>Filed within the required lead time before departure at 100 percent</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Approved flight plan, crew list, and equipment list</td>
+<td>Dispatched flight data</td>
+<td>Dispatch within 5 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A late filing compresses the time available for NAV CANADA processing</td>
+<td>System downtime can affect dispatch.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-FD-01-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Equipment Optimization</span>
+    <span class="ph-n">6 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Monitor flight operations in real-time</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Dispatched flight data</td>
+<td>Operational status updates</td>
+<td>Real-time monitoring within 1 minute</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delays in receiving operational data can affect decision-making.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Conduct routine checks and updates</b></td>
+<td>Flight Operations Analyst</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Operational status updates</td>
+<td>Updated flight plan</td>
+<td>Routine checks within 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual checks can introduce errors.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Handle disruptions by adjusting the flight plan</b></td>
+<td>Flight Planner</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Disruption details and operational status updates</td>
+<td>Adjusted flight plan</td>
+<td>Disruption resolution within 15 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex disruptions can slow down adjustments.</td>
+</tr><tr>
+<td class="c-step">4.4</td>
+<td><b>Notify relevant stakeholders of changes</b></td>
+<td>Flight Operations Analyst</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Adjusted flight plan</td>
+<td>Notification status</td>
+<td>Notifications within 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual notifications can introduce delays.</td>
+</tr><tr>
+<td class="c-step">4.5</td>
+<td><b>Escalate unresolved disruptions to senior management</b></td>
+<td>Senior Operations Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Disruption details and operational status updates</td>
+<td>Resolution status update</td>
+<td>Escalation resolution within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual escalation can slow down the process.</td>
+</tr><tr>
+<td class="c-step">4.6</td>
+<td><b>Complete flight operations monitoring and record final status</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Operational status updates</td>
+<td>Final operational report</td>
+<td>Monitoring completion within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual recording can introduce errors.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Flight Dispatcher</span><span class="lane-steps">1.1 1.2 2.1 2.2 3.1 3.2</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">1.1 4.1 4.6</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Flight Planning Officer</span><span class="lane-steps">1.2 1.3</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Regulatory Compliance Manager</span><span class="lane-steps">1.4 2.7 2.9</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Flight Planner</span><span class="lane-steps">1.5 1.6 2.8 4.3</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Crew Scheduler</span><span class="lane-steps">2.1 2.2</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>HR Specialist</span><span class="lane-steps">2.3</span></div><div class="lane"><span class="swatch" style="background:#8A5A1E"></span><span>Equipment Scheduler</span><span class="lane-steps">2.4 2.5</span></div><div class="lane"><span class="swatch" style="background:#4A4A4A"></span><span>Maintenance Manager</span><span class="lane-steps">2.6</span></div><div class="lane"><span class="swatch" style="background:#E04A60"></span><span>Operations Manager</span><span class="lane-steps">2.10</span></div><div class="lane"><span class="swatch" style="background:#5A5A5A"></span><span>Flight Dispatcher</span><span class="lane-steps">3.1 3.2</span></div><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Flight Operations Analyst</span><span class="lane-steps">4.2 4.4</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Senior Operations Manager</span><span class="lane-steps">4.5</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag datalink" data-tooltip="Load planning, trim sheet and final loadsheet issue to the flight deck. [Multiple - evidence C]">Weight and Balance System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Fuel calculated within regulatory reserve requirements at 100 percent</li><li>Alternates selected meeting regulatory minimums at 100 percent</li><li>Filed within the required lead time before departure at 100 percent</li><li>Plan revision rate due to late weather change tracked against target</li></ul>
+<ul class="bullets"><li>Response time within 5 minutes for initial request validation</li><li>Validation completion within 30 minutes for flight parameters</li><li>Crew assignment within 30 minutes after plan generation</li><li>Equipment optimization within 30 minutes after crew assignment</li><li>Real-time monitoring within 1 minute during operations</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Fuel calculation depending on weather data that can change materially before departure</li><li>Marginal destination weather requiring an alternate that adds meaningful fuel burden late in planning</li><li>A plan validated against data that goes stale before it is actually used for dispatch release</li><li>Performance limit verification at a high-elevation or short-runway destination requiring careful margin checks</li></ul>
+<ul class="bullets risk"><li>System downtime affecting request validation and plan generation</li><li>Insufficient crew availability leading to delays</li><li>Incompatible equipment causing flight disruptions</li><li>Manual verification errors slowing down the process</li><li>Complex disruptions requiring senior management intervention</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../customer-experience-channels/complaints-appr-claims/ac-cx-cr-06/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Goodwill Gesture and Customer Recovery</span></a>
@@ -261,7 +467,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="foot">
 <b>Air Canada Process Wiki</b> &mdash; process and systems reference compiled from public sources
 for IT Application Management and User Support pre-sales discovery.
-Built 2026-08-20. Every system carries an evidence tier: tier C is an industry pattern and tier U is an open
+Built 2026-08-21. Every system carries an evidence tier: tier C is an industry pattern and tier U is an open
 question, and neither should be asserted as fact about Air Canada without confirmation in discovery.
 Not affiliated with or endorsed by Air Canada. Air Canada, Aeroplan and Altitude are trademarks of Air Canada.
 </div>
