@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-MR-LM-06" title="Click to copy the process ID">
     AC-MR-LM-06<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Line Station Support and Contract Maintenance</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,252 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-MR-LM-06-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Contract station engagement</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Initial Assessment</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Engage the contract maintenance provider</b></td>
-<td>Maintenance Controller</td>
-<td><span class="tag trax" data-tooltip="Aviation parts B2B marketplace and ATA Spec 2000 supplier messaging. [Aeroxchange - evidence C]">Aeroxchange<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Aircraft requiring service at the contract station</td>
-<td>Engaged contract provider</td>
-<td>Engaged within the required lead time at 95 percent</td>
+<td><b>Receive Maintenance Request</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Maintenance request from Line Maintenance Control</td>
+<td>Work order created in TRAX</td>
+<td>95% of requests processed within 1 hour</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Contract station engagement is coordinated remotely without direct Air Canada supervision at the point of work</td>
+<td>Delays in receiving maintenance requests can lead to aircraft ground time.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Check Contract Status</b></td>
+<td>APPR Adjudicator</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Work order details from TRAX</td>
+<td>Contract status report</td>
+<td>90% of contract statuses checked within 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inaccurate or outdated contract information can lead to compliance issues.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Update Contract if Necessary</b></td>
+<td>APPR Adjudicator</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Contract status report</td>
+<td>Updated contract details in TRAX</td>
+<td>85% of contracts updated within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual updates can introduce errors and delays.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Escalate to Contract Manager</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Contract status report</td>
+<td>Escalation ticket in TRAX</td>
+<td>80% of escalations resolved within 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Escalated issues may impact flight schedules.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-MR-LM-06-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Contract maintenance execution</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Contract Management</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Contract technician performs and certifies work</b></td>
-<td>Contract Technician</td>
-<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Task requirement per Air Canada standard</td>
-<td>Completed and certified work</td>
-<td>Completed to Air Canada&#x27;s specified standard at 100 percent</td>
+<td><b>Generate Maintenance Plan</b></td>
+<td>Maintenance Planner</td>
+<td><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Work order and contract details from TRAX</td>
+<td>Maintenance plan in TRAX eMobility</td>
+<td>90% of plans generated within 1 hour</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Verifying work quality against Air Canada&#x27;s standard is harder without direct on-site supervision</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex plans can take longer to generate.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Transmit work record for TRAX entry</b></td>
-<td>Maintenance Controller</td>
-<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Completed contract work</td>
-<td>Work record transmitted for entry</td>
-<td>Transmitted within 24 hours of completion at 95 percent</td>
+<td><b>Review Maintenance Plan</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Maintenance plan from TRAX eMobility</td>
+<td>Approved maintenance plan</td>
+<td>85% of plans reviewed within 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inaccurate plans can lead to delays.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Assign Tasks to Technicians</b></td>
+<td>Maintenance Planner</td>
+<td><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Approved maintenance plan</td>
+<td>Task assignments in TRAX eMobility</td>
+<td>95% of tasks assigned within 1 hour</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A work record not promptly transmitted delays the aircraft&#x27;s technical record currency</td>
+<td>Misassigned tasks can lead to inefficiencies.</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Request Plan Revision</b></td>
+<td>Maintenance Planner</td>
+<td><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Not Approved maintenance plan</td>
+<td>Revised maintenance plan</td>
+<td>80% of revisions completed within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Multiple revisions can delay the maintenance process.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-MR-LM-06-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Record integration and audit</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Maintenance Planning</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Audit contract station performance periodically</b></td>
-<td>Maintenance Controller</td>
-<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Cumulative contract work history</td>
-<td>Audit findings</td>
-<td>Audited on a recurring cycle for 100 percent of contract stations</td>
+<td><b>Verify Parts Availability</b></td>
+<td>Aeroxchange Agent</td>
+<td><span class="tag trax" data-tooltip="Aviation parts B2B marketplace and ATA Spec 2000 supplier messaging. [Aeroxchange - evidence C]">Aeroxchange<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Maintenance plan from TRAX eMobility</td>
+<td>Parts availability report</td>
+<td>90% of parts checked within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Limited inventory can cause delays.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Order Parts from Supplier</b></td>
+<td>Aeroxchange Agent</td>
+<td><span class="tag trax" data-tooltip="Aviation parts B2B marketplace and ATA Spec 2000 supplier messaging. [Aeroxchange - evidence C]">Aeroxchange<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Parts availability report</td>
+<td>Purchase order for parts</td>
+<td>85% of orders placed within 1 hour</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Periodic audit is the actual oversight mechanism given the absence of direct supervision at the point of work</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Supplier delays can impact maintenance schedules.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Receive Parts Delivery</b></td>
+<td>Aeroxchange Agent</td>
+<td><span class="tag trax" data-tooltip="Aviation parts B2B marketplace and ATA Spec 2000 supplier messaging. [Aeroxchange - evidence C]">Aeroxchange<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Purchase order for parts</td>
+<td>Received parts list</td>
+<td>95% of deliveries received within 2 days</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delivery delays can cause maintenance delays.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-LM-06-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Execution and Compliance</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Execute Maintenance Tasks</b></td>
+<td>Aircraft Mechanic</td>
+<td><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Task assignments from TRAX eMobility</td>
+<td>Completed tasks list</td>
+<td>90% of tasks completed within 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Technical issues can delay task execution.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Conduct Post-Maintenance Inspection</b></td>
+<td>Aircraft Mechanic</td>
+<td><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Completed tasks list</td>
+<td>Inspection report</td>
+<td>85% of inspections completed within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inspection errors can lead to further delays.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Retry Failed Task</b></td>
+<td>Aircraft Mechanic</td>
+<td><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Task assignments from TRAX eMobility</td>
+<td>Completed tasks list</td>
+<td>80% of retries completed within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Multiple retries can delay the maintenance process.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-LM-06-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Post-Maintenance Review</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Review Maintenance Log</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Completed tasks list and inspection report</td>
+<td>Maintenance log review</td>
+<td>90% of logs reviewed within 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inaccurate logs can lead to compliance issues.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Request Log Revision</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Maintenance log review</td>
+<td>Revised maintenance log</td>
+<td>80% of revisions completed within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Multiple revisions can delay the process.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-LM-06-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Final Documentation</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Finalize Maintenance Documentation</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Revised maintenance log</td>
+<td>Final maintenance documentation</td>
+<td>95% of documents completed within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual documentation can introduce errors.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Maintenance Controller</span><span class="lane-steps">1.1 2.2 3.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Contract Technician</span><span class="lane-steps">2.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">1.1 1.4 2.2 5.1 5.2 6.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>APPR Adjudicator</span><span class="lane-steps">1.2 1.3</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Maintenance Planner</span><span class="lane-steps">2.1 2.3 2.4</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Aeroxchange Agent</span><span class="lane-steps">3.1 3.2 3.3</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Aircraft Mechanic</span><span class="lane-steps">4.1 4.2 4.3</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag trax" data-tooltip="Aviation parts B2B marketplace and ATA Spec 2000 supplier messaging. [Aeroxchange - evidence C]">Aeroxchange<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag trax" data-tooltip="Aviation parts B2B marketplace and ATA Spec 2000 supplier messaging. [Aeroxchange - evidence C]">Aeroxchange<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Engaged within the required lead time at 95 percent</li><li>Completed to Air Canada&#x27;s specified standard at 100 percent</li><li>Transmitted within 24 hours of completion at 95 percent</li><li>Audited on a recurring cycle for 100 percent of contract stations</li></ul>
+<ul class="bullets"><li>95% of requests processed within 1 hour</li><li>90% of contract statuses checked within 30 minutes</li><li>85% of contracts updated within 1 hour</li><li>80% of escalations resolved within 2 hours</li><li>90% of plans generated within 1 hour</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Contract work happening outside Air Canada&#x27;s direct supervision at the actual point of work</li><li>Verifying work quality against Air Canada&#x27;s standard being harder without on-site supervision</li><li>A work record not promptly transmitted delaying the aircraft&#x27;s technical record currency</li><li>Periodic audit being the actual oversight control given the absence of direct supervision</li></ul>
+<ul class="bullets risk"><li>Delays in receiving maintenance requests can lead to aircraft ground time.</li><li>Inaccurate or outdated contract information can lead to compliance issues.</li><li>Manual updates can introduce errors and delays.</li><li>Escalated issues may impact flight schedules.</li><li>Complex plans can take longer to generate.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../maintenance-engineering/line-maintenance/ac-mr-lm-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Transit and Daily Check Execution</span></a>

@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-MR-HM-01" title="Click to copy the process ID">
     AC-MR-HM-01<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Heavy Check Planning and Slot Booking</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,241 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-MR-HM-01-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Check interval forecasting</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Work Order Review</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Forecast heavy check due date</b></td>
+<td><b>Retrieve work order details from TRAX</b></td>
 <td>Heavy Maintenance Planner</td>
 <td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Utilisation history and check interval</td>
-<td>Forecast check due date</td>
-<td>Forecast for 100 percent of the fleet at the required planning horizon</td>
+<td>Work order ID</td>
+<td>Work order details</td>
+<td>Work order retrieved within 5 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System downtime can delay work order retrieval.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Determine if the aircraft requires heavy check based on maintenance schedule</b></td>
+<td>Heavy Maintenance Planner</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Work order details</td>
+<td>Check required (Yes/No)</td>
+<td>95% accuracy in determining check necessity</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Utilisation running ahead of or behind plan shifts the forecast due date</td>
+<td>Incorrect scheduling can lead to unnecessary checks.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Initiate regulatory compliance check against CAWIS</b></td>
+<td>Heavy Maintenance Planner</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CAWIS<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Work order details</td>
+<td>Compliance status (Pass/Fail)</td>
+<td>90% compliance checks completed within 10 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Non-compliance can result in fines and delays.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Mark work order as &#x27;No Heavy Check Required&#x27; in TRAX</b></td>
+<td>Heavy Maintenance Planner</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Work order ID</td>
+<td>Updated work order status</td>
+<td>100% accurate update of no-check orders</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Incorrect updates can lead to missed maintenance tasks.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-MR-HM-01-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Slot booking</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Regulatory Compliance Check</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Book maintenance base slot</b></td>
-<td>Heavy Maintenance Planner</td>
+<td><b>Check availability of heavy maintenance bays in TRAX</b></td>
+<td>Heavy Maintenance Scheduler</td>
 <td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Forecast due date and base availability</td>
-<td>Booked slot</td>
-<td>Booked within the required lead time before the check is due at 100 percent</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Base slot availability is finite and shared across the whole fleet, so booking timing is competitive</td>
-</tr><tr>
-<td class="c-step">2.2</td>
-<td><b>Coordinate with network fleet assignment</b></td>
-<td>Heavy Maintenance Planner</td>
-<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Booked slot</td>
-<td>Fleet rotation adjusted for check availability</td>
-<td>Coordinated before the affected season&#x27;s schedule freeze at 100 percent</td>
+<td>Maintenance bay data</td>
+<td>Bay availability (Yes/No)</td>
+<td>95% accurate bay status within 3 minutes</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A slot booked without coordinating fleet availability can conflict with the committed flying schedule</td>
+<td>Overbooking can lead to delays.</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Request additional capacity from Operations Control Duty Manager</b></td>
+<td>Heavy Maintenance Scheduler</td>
+<td><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Capacity request form</td>
+<td>Approval status (Yes/No)</td>
+<td>85% approval rate within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delays in obtaining capacity can affect turnaround times.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Reschedule work order to a different date/time</b></td>
+<td>Heavy Maintenance Scheduler</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Work order ID</td>
+<td>Updated work order schedule</td>
+<td>90% successful rescheduling within 1 day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Rescheduling can disrupt flight schedules.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-MR-HM-01-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Rotation coordination</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Slot Availability Check</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Confirm aircraft availability for the check window</b></td>
-<td>Heavy Maintenance Planner</td>
+<td><b>Notify all relevant parties of the booked slot</b></td>
+<td>Heavy Maintenance Scheduler</td>
+<td><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Work order details, bay availability, notification list</td>
+<td>Notification sent (Yes/No)</td>
+<td>98% successful notifications within 5 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Missed notifications can lead to operational delays.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Update TRAX with slot booking details</b></td>
+<td>Heavy Maintenance Scheduler</td>
 <td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Coordinated rotation</td>
-<td>Confirmed aircraft availability</td>
-<td>Confirmed before the check window opens at 100 percent</td>
+<td>Work order ID, bay number, booked date/time</td>
+<td>Updated work order in TRAX</td>
+<td>100% accurate updates within 5 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Incorrect updates can lead to scheduling conflicts.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-HM-01-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Booking and Notification</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Prepare the aircraft for heavy maintenance</b></td>
+<td>Heavy Maintenance Technician</td>
+<td><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Work order details, aircraft status</td>
+<td>Aircraft prepared (Yes/No)</td>
+<td>95% successful preparation within 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A confirmed availability that later changes forces a slot rebooking, competing with other aircraft for base capacity</td>
+<td>Preparation delays can impact check timelines.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Verify all required tools and parts are available in the bay</b></td>
+<td>Heavy Maintenance Technician</td>
+<td><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Work order details, tool/part list</td>
+<td>Tools/parts availability (Yes/No)</td>
+<td>98% accurate inventory checks within 10 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Missing tools/parts can delay the check.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Initiate safety briefing for maintenance team</b></td>
+<td>Heavy Maintenance Supervisor</td>
+<td><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Work order details, team roster</td>
+<td>Briefing completed (Yes/No)</td>
+<td>100% successful briefings within 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Unprepared teams can lead to safety risks.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-HM-01-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Preparation for Heavy Check</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Execute heavy maintenance check</b></td>
+<td>Heavy Maintenance Technician</td>
+<td><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Work order details, aircraft status, tool/part list</td>
+<td>Check completed (Yes/No)</td>
+<td>90% successful checks within scheduled time</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Incomplete or failed checks can lead to additional work.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Verify all tasks in the work order are completed</b></td>
+<td>Heavy Maintenance Supervisor</td>
+<td><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Work order details, task completion status</td>
+<td>Tasks verified (Yes/No)</td>
+<td>98% accurate verification within 10 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Unverified tasks can lead to missed maintenance.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-HM-01-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Post-Check Documentation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Update TRAX with final check results</b></td>
+<td>Heavy Maintenance Supervisor</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Work order ID, check results</td>
+<td>Updated work order in TRAX</td>
+<td>95% accurate updates within 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Incorrect updates can lead to inaccurate records.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Notify all relevant parties of the check completion</b></td>
+<td>Heavy Maintenance Supervisor</td>
+<td><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Work order details, check results, notification list</td>
+<td>Notification sent (Yes/No)</td>
+<td>98% successful notifications within 5 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Missed notifications can lead to operational delays.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Heavy Maintenance Planner</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Heavy Maintenance Planner</span><span class="lane-steps">1.1 1.2 1.3 1.4</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Heavy Maintenance Scheduler</span><span class="lane-steps">2.1 2.2 2.3 3.1 3.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Heavy Maintenance Technician</span><span class="lane-steps">4.1 4.2 5.1</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Heavy Maintenance Supervisor</span><span class="lane-steps">4.3 5.2 6.1 6.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CAWIS<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Forecast for 100 percent of the fleet at the required planning horizon</li><li>Booked within the required lead time before the check is due at 100 percent</li><li>Coordinated before the affected season&#x27;s schedule freeze at 100 percent</li><li>Confirmed before the check window opens at 100 percent</li></ul>
+<ul class="bullets"><li>Work order retrieved within 5 minutes</li><li>95% accuracy in determining check necessity</li><li>90% compliance checks completed within 10 minutes</li><li>98% successful notifications within 5 minutes</li><li>95% accurate updates within 5 minutes</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A slot booked without coordinating fleet availability conflicting with the committed flying schedule</li><li>Base slot availability being finite and shared across the whole fleet, making booking timing competitive</li><li>A confirmed availability later changing and forcing a slot rebooking against other aircraft</li><li>Utilisation running ahead of or behind plan shifting the forecast check due date</li></ul>
+<ul class="bullets risk"><li>System downtime affecting work order retrieval</li><li>Incorrect scheduling leading to unnecessary checks</li><li>Non-compliance with regulatory requirements</li><li>Overbooking of maintenance bays</li><li>Delays in obtaining additional capacity</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../maintenance-engineering/line-maintenance/ac-mr-lm-06/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Line Station Support and Contract Maintenance</span></a>
