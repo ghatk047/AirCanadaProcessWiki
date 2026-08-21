@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-GO-BA-03" title="Click to copy the process ID">
     AC-GO-BA-03<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Transfer Baggage Handling at YYZ</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,252 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-GO-BA-03-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Transfer identification</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Baggage Check-in</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Identify transfer baggage on arrival</b></td>
-<td>Ramp Baggage Handler</td>
-<td><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Arriving flight&#x27;s baggage</td>
-<td>Identified transfer bags with connecting flight</td>
-<td>Identified within 10 minutes of arrival at 95 percent</td>
+<td><b>Passenger arrives at check-in counter</b></td>
+<td>Air Canada Baggage Agent</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Passenger details and baggage information</td>
+<td>Check-in confirmation</td>
+<td>95% successful check-ins within 5 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Identification speed directly consumes the available connect time window</td>
+<td>Manual fallback required during Amadeus outage</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Verify passenger&#x27;s flight itinerary</b></td>
+<td>Air Canada Baggage Agent</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Passenger details</td>
+<td>Confirmed flight information</td>
+<td>98% accurate itinerary verification</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Misrouting errors due to incorrect input</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Resolve itinerary mismatch</b></td>
+<td>Air Canada Baggage Agent</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Passenger details and corrected flight info</td>
+<td>Updated itinerary confirmation</td>
+<td>90% resolution within 2 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex booking scenarios leading to delays</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Accept baggage for transfer</b></td>
+<td>Air Canada Baggage Agent</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Bag details and passenger confirmation</td>
+<td>Bag acceptance receipt</td>
+<td>97% bags accepted correctly</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Incorrect bag weight causing delays</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-GO-BA-03-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Physical rerouting</span>
+    <span class="ph-name">Phase 2 &mdash; Bag Acceptance</span>
     <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Reroute transfer baggage to the connecting flight</b></td>
-<td>Ramp Baggage Handler</td>
-<td><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Identified transfer bags</td>
-<td>Rerouted baggage</td>
-<td>Rerouted within the available connect time for 90 percent of transfers</td>
+<td><b>Prepare bag for transfer to carousel</b></td>
+<td>Air Canada Ground Operations Control Duty Manager</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Bag acceptance receipt and transfer instructions</td>
+<td>Carousel assignment</td>
+<td>95% bags assigned within 3 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>A short connect time leaves very little margin for any handling delay</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Carousel congestion leading to delays</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Screen for infeasible connections</b></td>
-<td>Ramp Baggage Handler</td>
-<td><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Rerouted bags and connect time remaining</td>
-<td>Flagged infeasible transfer</td>
-<td>Infeasible transfers flagged before the connecting flight closes at 90 percent</td>
-<td class="c-flag"><span class="yes">Y</span></td>
+<td><b>Reassign bag to alternative carousel</b></td>
+<td>Air Canada Ground Operations Control Duty Manager</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Bag details and new carousel info</td>
+<td>Updated carousel assignment</td>
+<td>85% successful reassignments within 1 minute</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A bag flagged too late has already missed its connecting flight regardless of the flag</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Limited carousel availability</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-GO-BA-03-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Connecting flight load</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Bag Transfer Preparation</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Load transfer baggage onto the connecting flight</b></td>
-<td>Ramp Baggage Handler</td>
+<td><b>Scan bag for transfer to next flight</b></td>
+<td>Air Canada Baggage Reconciliation Agent</td>
 <td><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Rerouted bags within connect time</td>
-<td>Loaded transfer baggage</td>
-<td>Loaded before the connecting flight&#x27;s door closure at 90 percent</td>
+<td>Bag barcode and passenger info</td>
+<td>Transfer confirmation</td>
+<td>98% successful scans within 2 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Barcode scanner malfunctions causing delays</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Attempt rescan of bag barcode</b></td>
+<td>Air Canada Baggage Reconciliation Agent</td>
+<td><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Bag barcode and passenger info</td>
+<td>Rescanned transfer confirmation</td>
+<td>85% successful rescans within 1 minute</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Persistent scanner issues leading to manual checks</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Update IATA Resolution 753 tracking</b></td>
+<td>Air Canada Baggage Reconciliation Agent</td>
+<td><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Bag details and transfer info</td>
+<td>Updated tracking record</td>
+<td>99% accurate tracking updates</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A late-arriving transfer bag competes with the connecting flight&#x27;s own on-time departure pressure</td>
+<td>System downtime affecting tracking accuracy</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-BA-03-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Bag Reconciliation</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Validate bag-to-passenger matching</b></td>
+<td>Air Canada Baggage Reconciliation Agent</td>
+<td><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Transfer confirmation and passenger info</td>
+<td>Validation report</td>
+<td>97% successful validations within 3 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Data entry errors causing mismatches</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Resolve bag-to-passenger mismatch</b></td>
+<td>Air Canada Baggage Reconciliation Agent</td>
+<td><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Bag details and corrected passenger info</td>
+<td>Corrected validation report</td>
+<td>90% resolution within 2 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex booking scenarios leading to delays</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Finalize transfer record</b></td>
+<td>Air Canada Baggage Reconciliation Agent</td>
+<td><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Validation report and passenger info</td>
+<td>Finalized transfer record</td>
+<td>95% successful finalizations within 1 minute</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System performance issues affecting finalization speed</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-BA-03-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Final Validation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Notify next flight crew of bag transfer</b></td>
+<td>Air Canada Ground Operations Control Duty Manager</td>
+<td><span class="tag sita" data-tooltip="Global mishandled-baggage tracing and PIR file management. [SITA - evidence B]">SITA WorldTracer<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Finalized transfer record and flight details</td>
+<td>Notification confirmation</td>
+<td>98% successful notifications within 2 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System connectivity issues affecting notifications</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Retry notification to next flight crew</b></td>
+<td>Air Canada Ground Operations Control Duty Manager</td>
+<td><span class="tag sita" data-tooltip="Global mishandled-baggage tracing and PIR file management. [SITA - evidence B]">SITA WorldTracer<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Finalized transfer record and flight details</td>
+<td>Retried notification confirmation</td>
+<td>85% successful retries within 1 minute</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Persistent connectivity issues leading to manual notifications</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-BA-03-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Post-Transfer Monitoring</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Monitor bag at destination carousel</b></td>
+<td>Air Canada Baggage Reconciliation Agent</td>
+<td><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Finalized transfer record and passenger info</td>
+<td>Bag status update</td>
+<td>95% bags monitored within 5 minutes of landing</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System lag affecting monitoring speed</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Escalate missing bag to duty manager</b></td>
+<td>Air Canada Baggage Reconciliation Agent</td>
+<td><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Finalized transfer record and passenger info</td>
+<td>Escalation ticket</td>
+<td>80% escalations logged within 1 minute</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>High volume of lost bags during peak times</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Notify passenger of bag status</b></td>
+<td>Air Canada Customer Service Agent</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Finalized transfer record and passenger info</td>
+<td>Passenger notification</td>
+<td>98% notifications sent within 2 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System downtime affecting notification speed</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Ramp Baggage Handler</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Air Canada Baggage Agent</span><span class="lane-steps">1.1 1.2 1.3 1.4</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Air Canada Ground Operations Control Duty Manager</span><span class="lane-steps">2.1 2.2 5.1 5.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Air Canada Baggage Reconciliation Agent</span><span class="lane-steps">3.1 3.2 3.3 4.1 4.2 4.3 6.1 6.2</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Air Canada Customer Service Agent</span><span class="lane-steps">6.3</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
+<div class="card"><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag sita" data-tooltip="Global mishandled-baggage tracing and PIR file management. [SITA - evidence B]">SITA WorldTracer<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Rerouted within the available connect time for 90 percent of transfers</li><li>Loaded before the connecting flight&#x27;s door closure at 90 percent</li><li>Infeasible transfers flagged before the connecting flight closes at 90 percent</li><li>Transfer baggage misconnect rate below target</li></ul>
+<ul class="bullets"><li>95% successful check-ins within 5 minutes</li><li>98% accurate itinerary verification</li><li>97% bags accepted correctly</li><li>95% bags assigned within 3 minutes</li><li>98% successful scans within 2 minutes</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A short connect time leaving very little margin for any handling delay along the way</li><li>A late-flagged infeasible transfer having already missed its connecting flight regardless of the flag</li><li>A late-arriving transfer bag competing with the connecting flight&#x27;s own on-time departure pressure</li><li>Identification speed on arrival directly consuming the connect time window available for the transfer</li></ul>
+<ul class="bullets risk"><li>Amadeus Altea DCS outage leading to manual fallback procedures</li><li>Barcode scanner malfunctions causing delays</li><li>System downtime affecting tracking accuracy</li><li>Complex booking scenarios leading to delays</li><li>Persistent connectivity issues affecting notifications</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../ground-operations-airports/baggage/ac-go-ba-02/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Baggage Sortation and Load Reconciliation</span></a>

@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-GO-BA-01" title="Click to copy the process ID">
     AC-GO-BA-01<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Baggage Acceptance and Tag Issue</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,277 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-GO-BA-01-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Baggage presentation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Baggage Pre-Check</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Receive presented baggage</b></td>
-<td>Airport Check-In Agent</td>
-<td><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Passenger-presented bag</td>
-<td>Received bag for processing</td>
-<td>Received within the standard check-in transaction at 100 percent</td>
+<td><b>Verify passenger reservation</b></td>
+<td>Air Canada CSR Agent</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Passenger&#x27;s identification and flight details</td>
+<td>Reservation confirmation</td>
+<td>95% accuracy within 30 seconds</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Incorrect reservations leading to manual overrides.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Check baggage weight and size</b></td>
+<td>Baggage Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Manual check-in system<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Passenger&#x27;s luggage dimensions and weight</td>
+<td>Weight and size validation</td>
+<td>98% compliance within 1 minute</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Bag condition at acceptance needs to be noted to avoid a later damage dispute</td>
+<td>Overweight bags causing delays.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Enter baggage details in Amadeus Altea DCS</b></td>
+<td>Baggage Agent</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Baggage description and weight</td>
+<td>Bag record created</td>
+<td>90% successful entries within 2 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System downtime affecting data entry.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Generate bag tag</b></td>
+<td>Baggage Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Manual check-in system<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Bag record from Amadeus Altea DCS</td>
+<td>Physical bag tag</td>
+<td>99% successful tag generation within 30 seconds</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Tag printer malfunctions causing delays.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-GO-BA-01-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Weighing and tagging</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Passenger Check-In</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Weigh baggage against allowance</b></td>
-<td>Airport Check-In Agent</td>
-<td><span class="tag amadeus" data-tooltip="Ancillary offer construction and dynamic bundling at the shopping touchpoint. [Amadeus - evidence A]">Amadeus Anytime Merchandising<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Presented bag</td>
-<td>Weighed bag against fare and tier allowance</td>
-<td>Weighed for 100 percent of checked bags at 100 percent</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Allowance calculation has to correctly reference the specific fare family and Altitude tier</td>
-</tr><tr>
-<td class="c-step">2.2</td>
-<td><b>Apply physical bag tag</b></td>
-<td>Airport Check-In Agent</td>
-<td><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Weighed bag</td>
-<td>Tagged bag with unique tag number</td>
-<td>Tagged correctly for 100 percent of accepted bags at 100 percent</td>
+<td><b>Verify passenger identification at security checkpoint</b></td>
+<td>Security Officer</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Manual verification system<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Passenger&#x27;s ID and bag tag</td>
+<td>Identification confirmation</td>
+<td>97% accuracy within 60 seconds</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A duplicate or misread tag number breaks the tracking link for the rest of the journey</td>
+<td>Misidentification leading to delays.</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Scan bag tag at security checkpoint</b></td>
+<td>Security Officer</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Manual verification system<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Bag tag barcode</td>
+<td>Tag scan confirmation</td>
+<td>98% successful scans within 30 seconds</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Scanner malfunctions affecting throughput.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Update bag status in Amadeus Altea DCS</b></td>
+<td>Security Officer</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Tag scan confirmation</td>
+<td>Bag status updated</td>
+<td>95% successful updates within 1 minute</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System lag causing delayed updates.</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Check for any security alerts</b></td>
+<td>Security Officer</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Bag status and passenger record</td>
+<td>Alert check result</td>
+<td>90% alert checks within 1 minute</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>False positives causing unnecessary delays.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-GO-BA-01-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; System linkage</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Bag Tagging</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Link tag to booking record</b></td>
-<td>Airport Check-In Agent</td>
+<td><b>Match bag tag with passenger at boarding gate</b></td>
+<td>Boarding Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Baggage Reconciliation System (BRS)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Passenger and bag tag information</td>
+<td>Tag-to-passenger match confirmation</td>
+<td>98% successful matches within 2 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Missed or misplaced tags causing delays.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Update boarding status in Amadeus Altea DCS</b></td>
+<td>Boarding Agent</td>
 <td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Applied tag</td>
-<td>Tag linked to passenger booking</td>
-<td>Linked within seconds of tagging at 100 percent</td>
+<td>Match confirmation</td>
+<td>Boarding status updated</td>
+<td>95% successful updates within 1 minute</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System downtime affecting boarding processes.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Notify passenger of any bag issues</b></td>
+<td>Boarding Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Manual communication system<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Bag status and passenger record</td>
+<td>Notification sent</td>
+<td>90% notifications within 2 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A linkage failure leaves a physically tagged bag invisible to the tracking system</td>
+<td>Missed communications causing passenger confusion.</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Check for any gate security alerts</b></td>
+<td>Boarding Agent</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Bag status and passenger record</td>
+<td>Alert check result</td>
+<td>90% alert checks within 1 minute</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>False positives causing unnecessary delays.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-BA-01-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Security Screening</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Update final bag status in Amadeus Altea DCS</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Final boarding status and passenger record</td>
+<td>Bag status updated</td>
+<td>95% successful updates within 2 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System downtime affecting final status updates.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Generate boarding pass if required</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Passenger and flight details</td>
+<td>Boarding pass printed</td>
+<td>98% successful printouts within 1 minute</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Printer malfunctions affecting boarding processes.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Verify final boarding status</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Final boarding status and passenger record</td>
+<td>Verification result</td>
+<td>95% successful verifications within 1 minute</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Incorrect verifications leading to delays.</td>
+</tr><tr>
+<td class="c-step">4.4</td>
+<td><b>Send final status update to Baggage Reconciliation System (BRS)</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Baggage Reconciliation System (BRS)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Final boarding status and passenger record</td>
+<td>Update sent</td>
+<td>95% successful updates within 2 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System downtime affecting final status updates.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-BA-01-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Boarding Validation</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Review any unresolved issues</b></td>
+<td>Baggage Compliance Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Manual review system<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Unresolved issues and passenger records</td>
+<td>Issue resolution plan</td>
+<td>90% issues resolved within 24 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex issues requiring extended resolutions.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Update issue resolution in Amadeus Altea DCS</b></td>
+<td>Baggage Compliance Agent</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Issue resolution plan</td>
+<td>Resolution updated</td>
+<td>90% successful updates within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System downtime affecting issue tracking.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Notify passengers of resolution status</b></td>
+<td>Baggage Compliance Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Manual communication system<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Resolution plan and passenger records</td>
+<td>Notification sent</td>
+<td>90% notifications within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Missed communications causing passenger confusion.</td>
+</tr><tr>
+<td class="c-step">5.4</td>
+<td><b>Check for any compliance issues</b></td>
+<td>Baggage Compliance Agent</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Resolution plan and passenger records</td>
+<td>Compliance check result</td>
+<td>90% successful checks within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>False positives causing unnecessary delays.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Airport Check-In Agent</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Air Canada CSR Agent</span><span class="lane-steps">1.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Baggage Agent</span><span class="lane-steps">1.2 1.3 1.4</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Security Officer</span><span class="lane-steps">2.1 2.2 2.3 2.4</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Boarding Agent</span><span class="lane-steps">3.1 3.2 3.3 3.4</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">4.1 4.2 4.3 4.4</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>Baggage Compliance Agent</span><span class="lane-steps">5.1 5.2 5.3 5.4</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag amadeus" data-tooltip="Ancillary offer construction and dynamic bundling at the shopping touchpoint. [Amadeus - evidence A]">Amadeus Anytime Merchandising<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+<div class="card"><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Manual check-in system<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Manual verification system<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Baggage Reconciliation System (BRS)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Manual communication system<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Manual review system<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Weighed for 100 percent of checked bags at 100 percent</li><li>Tagged correctly for 100 percent of accepted bags at 100 percent</li><li>Linked within seconds of tagging at 100 percent</li><li>Tag-to-booking linkage error rate below target</li></ul>
+<ul class="bullets"><li>95% accuracy in reservation verification</li><li>98% compliance in baggage weight and size checks</li><li>90% successful entries in Amadeus Altea DCS</li><li>99% successful tag generation</li><li>97% accuracy in security identification</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A duplicate or misread tag number breaking the tracking link for the entire remaining journey</li><li>A linkage failure leaving a physically tagged bag invisible to the tracking system</li><li>Bag condition at acceptance not being noted, complicating a later damage dispute</li><li>Allowance calculation not correctly referencing the specific fare family and Altitude tier</li></ul>
+<ul class="bullets risk"><li>System downtime affecting data entry and updates</li><li>Manual overrides due to incorrect reservations</li><li>Tag printer malfunctions causing delays</li><li>Scanner malfunctions affecting throughput</li><li>Missed communications causing passenger confusion</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../ground-operations-airports/check-in-dcs-boarding/ac-go-ci-06/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">DCS Degraded Mode and Manual Fallback</span></a>

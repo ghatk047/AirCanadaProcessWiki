@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-GO-CI-06" title="Click to copy the process ID">
     AC-GO-CI-06<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>DCS Degraded Mode and Manual Fallback</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,96 +143,293 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-GO-CI-06-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Outage detection and fallback activation</span>
+    <span class="ph-name">Phase 1 &mdash; Initial Assessment</span>
     <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Detect DCS outage or degradation</b></td>
-<td>Station Operations Duty Manager</td>
+<td><b>Detect System Degradation</b></td>
+<td>YYZ Operations Control Duty Manager</td>
 <td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>System monitoring alert</td>
-<td>Detected outage or degradation</td>
-<td>Detected within 5 minutes of onset at 100 percent</td>
+<td>System health monitoring tools</td>
+<td>Degradation report</td>
+<td>Time to detect system failure &lt; 5 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>A partial degradation is harder to detect and characterise than a complete outage</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed detection can cause operational disruptions.</td>
 </tr><tr>
 <td class="c-step">1.2</td>
-<td><b>Activate manual check-in and boarding procedure</b></td>
-<td>Station Operations Duty Manager</td>
-<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Detected outage</td>
-<td>Activated manual procedure</td>
-<td>Activated within 15 minutes of detection at 90 percent</td>
+<td><b>Notify Stakeholders</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Intranet messaging system<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Degradation report</td>
+<td>Stakeholder notification</td>
+<td>Time to notify stakeholders &lt; 10 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Manual procedure familiarity cannot be assumed given how rarely it is actually used</td>
+<td>Lack of timely communication can lead to confusion.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-GO-CI-06-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Manual operation</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Manual Check-in Setup</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Process check-in manually</b></td>
-<td>Airport Check-In Agent</td>
-<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Activated manual procedure</td>
-<td>Manually checked-in passengers</td>
-<td>Manual throughput sustained at a defined minimum rate during the outage</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Manual throughput is materially lower than the automated system it temporarily replaces</td>
-</tr><tr>
-<td class="c-step">2.2</td>
-<td><b>Process boarding manually with paper manifest</b></td>
-<td>Gate Agent</td>
-<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Manual check-in records</td>
-<td>Manually boarded passengers with paper manifest</td>
-<td>Manifest reconciled against actual boarding for 100 percent of manual-mode flights</td>
+<td><b>Set Up Manual Check-in Area</b></td>
+<td>Baggage Reconciliation Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Manual check-in forms<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Passenger list and baggage manifest</td>
+<td>Manual check-in area setup</td>
+<td>Time to set up manual check-in area &lt; 15 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="yes">Y</span></td>
-<td>A paper manifest reconciliation gap creates uncertainty about who actually boarded</td>
+<td>Manual forms can be prone to errors if not handled carefully.</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Assign Manual Check-in Staff</b></td>
+<td>Baggage Reconciliation Agent</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Staff roster and passenger list</td>
+<td>Assigned staff checklist</td>
+<td>Time to assign staff &lt; 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inadequate staffing can lead to long queues.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Troubleshoot Setup Issues</b></td>
+<td>Baggage Reconciliation Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Manual check-in forms<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Error logs and manual check-in area setup</td>
+<td>Resolved setup issues</td>
+<td>Time to resolve setup issues &lt; 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Persistent issues can delay operations.</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Recruit Additional Staff</b></td>
+<td>Baggage Reconciliation Agent</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Staff roster and passenger list</td>
+<td>Additional staff assigned</td>
+<td>Time to recruit additional staff &lt; 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Difficulty in finding available staff can cause delays.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-GO-CI-06-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Restoration and reconciliation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Baggage Handling</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Restore system operation and reconcile data</b></td>
-<td>Station Operations Duty Manager</td>
+<td><b>Manual Check-in of Passengers</b></td>
+<td>Baggage Reconciliation Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Manual check-in forms<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Passenger details and baggage manifests</td>
+<td>Checked-in passengers list</td>
+<td>Time per passenger &lt; 3 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual data entry is slow and error-prone.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Correct Data Entry Errors</b></td>
+<td>Baggage Reconciliation Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Manual check-in forms<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Checked-in passengers list and error logs</td>
+<td>Corrected checked-in passengers list</td>
+<td>Time to correct errors &lt; 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Errors can lead to passenger confusion.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-CI-06-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Passenger Boarding</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Manual Baggage Handling</b></td>
+<td>Baggage Reconciliation Agent</td>
+<td><span class="tag sita" data-tooltip="Global mishandled-baggage tracing and PIR file management. [SITA - evidence B]">SITA WorldTracer<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Checked-in passengers list and baggage manifests</td>
+<td>Handed-over bags</td>
+<td>Time per bag &lt; 2 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Mis-handling can occur without automated tracking.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Trace and Correct Bag Handling Errors</b></td>
+<td>Baggage Reconciliation Agent</td>
+<td><span class="tag sita" data-tooltip="Global mishandled-baggage tracing and PIR file management. [SITA - evidence B]">SITA WorldTracer<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Bag handling logs and passenger details</td>
+<td>Corrected bag handling records</td>
+<td>Time to trace and correct errors &lt; 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Errors can cause delays in boarding.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-CI-06-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Post-Boarding Reconciliation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Manual Passenger Boarding</b></td>
+<td>Boarding Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Manual boarding forms<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Checked-in passengers list and boarding manifests</td>
+<td>Boarded passengers list</td>
+<td>Time per passenger &lt; 2 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Misboarding can occur without automated systems.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Correct Passenger Boarding Errors</b></td>
+<td>Boarding Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Manual boarding forms<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Boarded passengers list and error logs</td>
+<td>Corrected boarded passengers list</td>
+<td>Time to correct errors &lt; 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Errors can cause delays in takeoff.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-CI-06-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; System Recovery</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Post-Boarding Reconciliation</b></td>
+<td>Baggage Reconciliation Agent</td>
+<td><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Checked-in passengers list and boarded passengers list</td>
+<td>Reconciled passenger data</td>
+<td>Time to reconcile data &lt; 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Data discrepancies can lead to miscommunication.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Resolve Reconciliation Discrepancies</b></td>
+<td>Baggage Reconciliation Agent</td>
+<td><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Reconciled passenger data and error logs</td>
+<td>Resolved reconciliation issues</td>
+<td>Time to resolve discrepancies &lt; 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Errors can cause further delays.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-CI-06-7">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 7 &mdash; Phase 7</span>
+    <span class="ph-n">6 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">7.1</td>
+<td><b>Monitor System Recovery</b></td>
+<td>YYZ Operations Control Duty Manager</td>
 <td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Restored DCS and manual records</td>
-<td>Reconciled operational data</td>
-<td>Reconciled within 24 hours of restoration at 100 percent</td>
+<td>System recovery status</td>
+<td>Recovery report</td>
+<td>Time to detect system recovery &lt; 5 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Delayed recovery can cause operational disruptions.</td>
+</tr><tr>
+<td class="c-step">7.2</td>
+<td><b>Escalate to IT Support</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Intranet messaging system<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Recovery report and error logs</td>
+<td>Escalation ticket</td>
+<td>Time to escalate &lt; 10 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Manual-mode data captured on paper has to be accurately re-entered into the restored system</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Lack of escalation can prolong downtime.</td>
+</tr><tr>
+<td class="c-step">7.3</td>
+<td><b>Await IT Support Resolution</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Intranet messaging system<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Escalation ticket and support updates</td>
+<td>Resolved recovery report</td>
+<td>Time to resolution &lt; 60 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Slow support response can cause prolonged disruptions.</td>
+</tr><tr>
+<td class="c-step">7.4</td>
+<td><b>Resume Automated Operations</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Resolved recovery report and system status</td>
+<td>Automated operations resumed</td>
+<td>Time to resume automated operations &lt; 15 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed resumption can cause further disruptions.</td>
+</tr><tr>
+<td class="c-step">7.5</td>
+<td><b>Communicate Resumption to Stakeholders</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Intranet messaging system<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Resolved recovery report</td>
+<td>Stakeholder communication</td>
+<td>Time to communicate &lt; 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Lack of communication can cause confusion.</td>
+</tr><tr>
+<td class="c-step">7.6</td>
+<td><b>Conclude Process</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Intranet messaging system<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Stakeholder communication</td>
+<td>Process conclusion</td>
+<td>Time to conclude &lt; 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>No clear conclusion can lead to ongoing confusion.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Station Operations Duty Manager</span><span class="lane-steps">1.1 1.2 3.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Airport Check-In Agent</span><span class="lane-steps">2.1</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Gate Agent</span><span class="lane-steps">2.2</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">1.1 1.2 7.1 7.2 7.3 7.4 7.5 7.6</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Baggage Reconciliation Agent</span><span class="lane-steps">2.1 2.2 2.3 2.4 3.1 3.2 4.1 4.2 6.1 6.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Boarding Agent</span><span class="lane-steps">5.1 5.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
+<div class="card"><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Intranet messaging system<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Manual check-in forms<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag sita" data-tooltip="Global mishandled-baggage tracing and PIR file management. [SITA - evidence B]">SITA WorldTracer<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Manual boarding forms<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Detected within 5 minutes of onset at 100 percent</li><li>Activated within 15 minutes of detection at 90 percent</li><li>Manifest reconciled against actual boarding for 100 percent of manual-mode flights</li><li>Reconciled within 24 hours of restoration at 100 percent</li></ul>
+<ul class="bullets"><li>Time to detect system failure &lt; 5 minutes</li><li>Time to notify stakeholders &lt; 10 minutes</li><li>Time to set up manual check-in area &lt; 15 minutes</li><li>Time to assign staff &lt; 5 minutes</li><li>Time to resolve setup issues &lt; 10 minutes</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Manual procedure familiarity not being safely assumed given how rarely the fallback is actually used</li><li>Manual throughput being materially lower than the automated system it temporarily replaces</li><li>A paper manifest reconciliation gap creating genuine uncertainty about who actually boarded</li><li>Manual-mode data not being accurately re-entered into the restored system after recovery</li></ul>
+<ul class="bullets risk"><li>Delayed detection of system failure leading to operational disruptions.</li><li>Errors in manual data entry causing passenger confusion.</li><li>Mis-handling of baggage without automated tracking leading to delays.</li><li>Persistent errors during boarding causing takeoff delays.</li><li>Data discrepancies in post-boarding reconciliation leading to miscommunication.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../ground-operations-airports/check-in-dcs-boarding/ac-go-ci-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Denied Boarding and Oversale Management</span></a>
