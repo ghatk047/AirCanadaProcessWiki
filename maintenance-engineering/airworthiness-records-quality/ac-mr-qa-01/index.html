@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-MR-QA-01" title="Click to copy the process ID">
     AC-MR-QA-01<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Aircraft Technical Records Management</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,277 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-MR-QA-01-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Record capture</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Initial Task Setup</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Capture maintenance action for the technical record</b></td>
-<td>Technical Records Coordinator</td>
+<td><b>Initiate Maintenance Task in TRAX</b></td>
+<td>Maintenance Planner</td>
 <td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Completed maintenance action</td>
-<td>Captured record entry</td>
-<td>Captured within 24 hours of the maintenance action at 100 percent</td>
+<td>Maintenance task details</td>
+<td>Task card created in TRAX</td>
+<td>Tasks initiated within 2 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A record not captured promptly risks being missed entirely as work volume accumulates</td>
+<td>Delays in TRAX system response times</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Check for Existing Records</b></td>
+<td>Technical Record Specialist</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Task card details</td>
+<td>Existing technical records</td>
+<td>Records checked within 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inaccurate record data in TRAX</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Update Existing Records</b></td>
+<td>Technical Record Specialist</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Task card and existing records</td>
+<td>Updated technical records</td>
+<td>Records updated within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual data entry errors</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Create New Records</b></td>
+<td>Technical Record Specialist</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Task card details</td>
+<td>New technical records created</td>
+<td>Records created within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complexity in creating new record templates</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-MR-QA-01-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Verification</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Record Verification</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Verify record completeness against the work performed</b></td>
-<td>Technical Records Coordinator</td>
+<td><b>Verify Updated Records for Accuracy</b></td>
+<td>Technical Record Specialist</td>
 <td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Captured entry and work order</td>
-<td>Verified complete record</td>
-<td>Verified for 100 percent of entries before archival at 100 percent</td>
+<td>Updated technical records</td>
+<td>Verification report</td>
+<td>Verification completed within 30 minutes</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Verification has to catch a gap between what was actually done and what was recorded</td>
+<td>Data validation issues in TRAX</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Correct Errors in Records</b></td>
+<td>Technical Record Specialist</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Verification report and records</td>
+<td>Corrected technical records</td>
+<td>Errors corrected within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual error correction time</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Re-verify Corrected Records</b></td>
+<td>Technical Record Specialist</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Corrected technical records</td>
+<td>Final verification report</td>
+<td>Re-verification completed within 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System bugs causing re-verification issues</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Send Records for Compliance Check</b></td>
+<td>Compliance Officer</td>
+<td><span class="tag regulator" data-tooltip="Airworthiness directive and continuing-airworthiness compliance against CARs. [Transport Canada - evidence C]">Transport Canada CAWIS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Final verification report and records</td>
+<td>Compliance check results</td>
+<td>Records submitted within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Intermittent connectivity issues with CAWIS</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-MR-QA-01-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Permanent archival</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Data Entry</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Archive record permanently</b></td>
-<td>Technical Records Coordinator</td>
+<td><b>Enter Data into TRAX</b></td>
+<td>Data Entry Clerk</td>
 <td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Verified entry</td>
-<td>Permanently archived record</td>
-<td>Archived within 5 business days of verification at 100 percent</td>
+<td>Compliance check results and task card details</td>
+<td>Data entered in TRAX</td>
+<td>Data entry completed within 2 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>A record gap discovered years later, at an aircraft sale for instance, can be effectively unrecoverable</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Data entry errors causing rework</td>
 </tr><tr>
 <td class="c-step">3.2</td>
-<td><b>Confirm record availability for regulatory and sale review</b></td>
-<td>Technical Records Coordinator</td>
+<td><b>Identify Non-compliant Records</b></td>
+<td>Compliance Officer</td>
+<td><span class="tag regulator" data-tooltip="Airworthiness directive and continuing-airworthiness compliance against CARs. [Transport Canada - evidence C]">Transport Canada CAWIS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Non-compliant records</td>
+<td>List of non-compliant items</td>
+<td>Non-compliant items identified within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complexity in identifying compliance issues</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Update Non-compliant Records</b></td>
+<td>Technical Record Specialist</td>
 <td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Archived record</td>
-<td>Confirmed retrievable record</td>
-<td>100 percent of archived records retrievable on request within the required timeframe</td>
+<td>List of non-compliant items and task card details</td>
+<td>Updated technical records</td>
+<td>Updates completed within 1 hour</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A record that is archived but not readily retrievable is functionally as unavailable as a missing one</td>
+<td>Manual updates causing delays</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Re-verify Updated Non-compliant Records</b></td>
+<td>Technical Record Specialist</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Updated non-compliant records</td>
+<td>Final verification report</td>
+<td>Re-verification completed within 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System bugs causing re-verification issues</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-QA-01-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Compliance Check</span>
+    <span class="ph-n">5 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Review Final Records for Completeness</b></td>
+<td>Quality Assurance Analyst</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Final verification report and records</td>
+<td>Completeness review report</td>
+<td>Review completed within 2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complexity in completeness checks</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Approve Complete Records</b></td>
+<td>Quality Assurance Analyst</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Completeness review report</td>
+<td>Approved records</td>
+<td>Records approved within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual approval time</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Identify Incomplete Records</b></td>
+<td>Quality Assurance Analyst</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Incomplete records</td>
+<td>List of incomplete items</td>
+<td>Incomplete items identified within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual identification time</td>
+</tr><tr>
+<td class="c-step">4.4</td>
+<td><b>Update Incomplete Records</b></td>
+<td>Technical Record Specialist</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>List of incomplete items and task card details</td>
+<td>Updated technical records</td>
+<td>Updates completed within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual updates causing delays</td>
+</tr><tr>
+<td class="c-step">4.5</td>
+<td><b>Re-review Updated Incomplete Records</b></td>
+<td>Quality Assurance Analyst</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Updated incomplete records</td>
+<td>Final review report</td>
+<td>Review completed within 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System bugs causing re-verification issues</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-QA-01-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Final Review</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Notify Maintenance Planner of Completion</b></td>
+<td>Quality Assurance Analyst</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Final review report and records</td>
+<td>Completion notification sent to Maintenance Planner</td>
+<td>Notification sent within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Notification system outages</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Escalate Notification Failure</b></td>
+<td>IT Support Analyst</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Completion notification failure details</td>
+<td>Escalation to IT Support</td>
+<td>Escalation completed within 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System reliability issues</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Re-send Completion Notification</b></td>
+<td>Quality Assurance Analyst</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Completion notification details</td>
+<td>Notification re-sent to Maintenance Planner</td>
+<td>Re-notification sent within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual re-issuance time</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Technical Records Coordinator</span><span class="lane-steps">1.1 2.1 3.1 3.2</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Maintenance Planner</span><span class="lane-steps">1.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Technical Record Specialist</span><span class="lane-steps">1.2 1.3 1.4 2.1 2.2 2.3 3.3 3.4 4.4</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Compliance Officer</span><span class="lane-steps">2.4 3.2</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Data Entry Clerk</span><span class="lane-steps">3.1</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Quality Assurance Analyst</span><span class="lane-steps">4.1 4.2 4.3 4.5 5.1 5.3</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>IT Support Analyst</span><span class="lane-steps">5.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag regulator" data-tooltip="Airworthiness directive and continuing-airworthiness compliance against CARs. [Transport Canada - evidence C]">Transport Canada CAWIS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Captured within 24 hours of the maintenance action at 100 percent</li><li>Verified for 100 percent of entries before archival at 100 percent</li><li>Archived within 5 business days of verification at 100 percent</li><li>Technical record completeness audit findings below target</li></ul>
+<ul class="bullets"><li>Tasks initiated within 2 hours</li><li>Records checked within 30 minutes</li><li>Records updated within 1 hour</li><li>Verification completed within 30 minutes</li><li>Errors corrected within 1 hour</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A record gap discovered years later, at an aircraft sale for instance, being effectively unrecoverable</li><li>A record not captured promptly risking being missed entirely as work volume accumulates</li><li>Verification failing to catch a gap between what was actually done and what was recorded</li><li>Technical records carrying long-horizon asset value extending to the aircraft&#x27;s eventual sale</li></ul>
+<ul class="bullets risk"><li>Delays in TRAX system response times</li><li>Data entry errors causing rework</li><li>Intermittent connectivity issues with CAWIS</li><li>Complexity in identifying compliance issues</li><li>Manual approval time</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../maintenance-engineering/engineering-reliability/ac-mr-en-06/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Technical Publication and Manual Revision Control</span></a>
