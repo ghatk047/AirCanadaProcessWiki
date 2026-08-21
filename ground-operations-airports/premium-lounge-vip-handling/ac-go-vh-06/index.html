@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-GO-VH-06" title="Click to copy the process ID">
     AC-GO-VH-06<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Ground Product Service Recovery</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,263 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-GO-VH-06-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Service failure identification</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Incident Identification</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Identify the service failure</b></td>
-<td>Ground Services Agent</td>
-<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Observed or reported service gap</td>
-<td>Identified failure with severity</td>
-<td>Identified at the point of occurrence for 90 percent of cases</td>
+<td><b>Receive incident notification</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Incident report from staff or passengers</td>
+<td>Incident details logged in CUPPS</td>
+<td>Response time within 5 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delays in receiving notifications can lead to prolonged disruptions.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Classify incident severity</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Incident details from CUPPS</td>
+<td>Severity classification (Low, Medium, High)</td>
+<td>Classification accuracy 90%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Not every service gap for this segment is reported in the moment it happens</td>
+<td>Incorrect classification can lead to improper resource allocation.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Notify relevant teams</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Severity classification</td>
+<td>Notifications sent to affected teams</td>
+<td>Notification accuracy 95%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Missed notifications can delay resolution.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-GO-VH-06-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Recovery coordination</span>
+    <span class="ph-name">Phase 2 &mdash; Impact Assessment</span>
     <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Coordinate recovery across affected functions</b></td>
-<td>VIP Services Coordinator</td>
-<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Identified failure</td>
-<td>Coordinated recovery plan across ground, lounge and customer relations</td>
-<td>Coordinated within 30 minutes of identification at 90 percent</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Coordination across three separate functions under time pressure is harder than a single-function response</td>
-</tr><tr>
-<td class="c-step">2.2</td>
-<td><b>Determine proportionate recovery gesture</b></td>
-<td>VIP Services Coordinator</td>
-<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Coordinated plan</td>
-<td>Determined recovery gesture</td>
-<td>Determined within delegated authority at 95 percent</td>
+<td><b>Assess impact on passengers and services</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Incident details</td>
+<td>Impact assessment report</td>
+<td>Report completion within 10 minutes</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Recovery for this segment has to be proportionate to both the failure and the relationship value at stake</td>
+<td>Incomplete reports can lead to inadequate resource allocation.</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Identify alternative service options</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Impact assessment report</td>
+<td>Alternative service plan</td>
+<td>Plan readiness within 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inability to identify alternatives can lead to further customer dissatisfaction.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-GO-VH-06-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Delivery and follow-up</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Service Restoration</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Deliver recovery and follow up with the passenger</b></td>
-<td>VIP Services Coordinator</td>
-<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Determined gesture</td>
-<td>Delivered recovery with follow-up contact</td>
-<td>Delivered within 5 business days for 95 percent of cases</td>
+<td><b>Restore service using alternative options</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Alternative service plan</td>
+<td>Service restored</td>
+<td>Restoration time within 20 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Manual fallback procedures can be slow and error-prone.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Attempt manual service restoration</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Alternative service plan</td>
+<td>Manual service restoration initiated</td>
+<td>Manual restoration success rate 80%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A recovery that is not personally followed up loses much of its relationship-protecting value</td>
+<td>Manual processes can introduce errors and delays.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Escalate to backup team</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Manual restoration details</td>
+<td>Backup team notified and engaged</td>
+<td>Escalation time within 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Backup teams may not always be available or responsive.</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Manual intervention by duty manager</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Backup team details</td>
+<td>Manual intervention plan executed</td>
+<td>Intervention success rate 90%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Duty managers may not have the necessary expertise or resources.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-VH-06-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Documentation and Reporting</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Document incident details</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Incident and resolution details</td>
+<td>Detailed incident report</td>
+<td>Documentation accuracy 95%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Incomplete documentation can lead to legal or regulatory issues.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Review and update documentation</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Incomplete incident report</td>
+<td>Updated incident report</td>
+<td>Update completion within 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Continuous updates can be time-consuming.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-VH-06-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Customer Communication</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Notify affected passengers</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Incident report and resolution plan</td>
+<td>Passenger notifications sent</td>
+<td>Notification accuracy 90%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Missed passenger notifications can lead to customer dissatisfaction.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Re-attempt notification</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Incident report and resolution plan</td>
+<td>Passenger notifications re-sent</td>
+<td>Notification accuracy 95%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Repeated failures can damage customer trust.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-VH-06-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Post-incident Review</span>
+    <span class="ph-n">5 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Conduct post-incident review</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Incident and resolution details</td>
+<td>Review report and recommendations</td>
+<td>Review completion within 24 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Comprehensive reviews can be resource-intensive.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Implement corrective actions</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Review report and recommendations</td>
+<td>Corrective actions executed</td>
+<td>Action implementation rate 95%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Implementation failures can lead to recurring issues.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Monitor corrective action effectiveness</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Corrective actions details</td>
+<td>Effectiveness report</td>
+<td>Monitoring accuracy 90%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Continuous monitoring can be challenging.</td>
+</tr><tr>
+<td class="c-step">6.4</td>
+<td><b>Re-evaluate and adjust corrective actions</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Effectiveness report</td>
+<td>Adjusted corrective actions</td>
+<td>Adjustment rate 80%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Ongoing adjustments may require additional resources.</td>
+</tr><tr>
+<td class="c-step">6.5</td>
+<td><b>Final review and close incident</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Final review report</td>
+<td>Incident closed</td>
+<td>Closure time within 24 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed closure can cause administrative issues.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Ground Services Agent</span><span class="lane-steps">1.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>VIP Services Coordinator</span><span class="lane-steps">2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">1.1 1.2 1.3 2.1 2.2 3.1 3.2 3.3 3.4 4.1 4.2 6.1 6.2 6.3 6.4 6.5</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Aeroplan Member Services Agent</span><span class="lane-steps">5.1 5.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+<div class="card"><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Identified at the point of occurrence for 90 percent of cases</li><li>Coordinated within 30 minutes of identification at 90 percent</li><li>Determined within delegated authority at 95 percent</li><li>Delivered within 5 business days for 95 percent of cases</li></ul>
+<ul class="bullets"><li>Response time within 5 minutes</li><li>Classification accuracy 90%</li><li>Notification accuracy 95%</li><li>Restoration time within 20 minutes</li><li>Manual restoration success rate 80%</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Coordination across three separate functions under time pressure being harder than a single-function response</li><li>A recovery gesture disproportionate to either the failure or the relationship value at stake</li><li>A recovery not personally followed up losing much of its relationship-protecting value</li><li>Not every service gap for this high-value segment being reported in the moment it happens</li></ul>
+<ul class="bullets risk"><li>Delays in receiving notifications can lead to prolonged disruptions.</li><li>Incorrect classification can lead to improper resource allocation.</li><li>Missed notifications can delay resolution.</li><li>Incomplete reports can lead to inadequate resource allocation.</li><li>Inability to identify alternatives can lead to further customer dissatisfaction.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../ground-operations-airports/premium-lounge-vip-handling/ac-go-vh-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Priority Baggage and Fast Track Delivery</span></a>
