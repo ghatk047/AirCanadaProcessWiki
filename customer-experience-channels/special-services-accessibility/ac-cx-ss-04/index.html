@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CX-SS-04" title="Click to copy the process ID">
     AC-CX-SS-04<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Special Meal and Medical Clearance</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,253 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-CX-SS-04-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Request and clearance intake</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Request Submission</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Receive special meal or medical clearance request</b></td>
+<td><b>Receive request through aircanada.com or Air Canada Mobile App</b></td>
+<td>Customer Service Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada Mobile App, aircanada.com<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Passenger&#x27;s special meal or medical requirement details</td>
+<td>Request logged in Salesforce Service Cloud</td>
+<td>Response time within 10 minutes from submission</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delays in response can lead to customer dissatisfaction and potential complaints.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Validate request against APPR regulations</b></td>
 <td>Special Services Agent</td>
-<td><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Customer-submitted request</td>
-<td>Registered request</td>
-<td>Registered within 1 business day of submission at 100 percent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Logged request details</td>
+<td>Validation result (compliant or non-compliant)</td>
+<td>Validation completed within 5 minutes of reception</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Non-compliance can lead to fines and reputational damage.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Document passenger details and medical requirements</b></td>
+<td>Special Services Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Validated request</td>
+<td>Detailed case record in Salesforce</td>
+<td>Documentation completed within 3 minutes of validation</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Medical clearance requests need supporting documentation that customers do not always provide up front</td>
+<td>Incomplete documentation can lead to miscommunication during flight.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Escalate non-compliant request for further review</b></td>
+<td>Special Services Manager</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Non-compliant case details</td>
+<td>Escalation to compliance team</td>
+<td>Escalation within 1 hour of validation failure</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed escalation can lead to increased backlog and potential legal action.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CX-SS-04-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Validation</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Validation and Documentation</span>
+    <span class="ph-n">16 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Validate medical fitness-to-fly where required</b></td>
-<td>Medical Review Coordinator</td>
-<td><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Medical documentation</td>
-<td>Fitness-to-fly determination</td>
-<td>Determined within the required lead time before travel at 95 percent</td>
+<td><b>Approve request based on documentation and compliance check</b></td>
+<td>Special Services Manager</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Detailed case record</td>
+<td>Approval status (approved or denied)</td>
+<td>Approval decision within 2 hours of documentation completion</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A late-arriving medical clearance can leave a booking unresolved close to the departure date</td>
+<td>Denial without proper justification can lead to customer complaints.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Confirm special meal request against catering lead time</b></td>
+<td><b>Notify passenger of approval via email and SMS</b></td>
+<td>Customer Service Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada Mobile App, aircanada.com<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Approved case details</td>
+<td>Confirmation sent to passenger</td>
+<td>Notification within 30 minutes of approval</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Missed notifications can lead to confusion and missed flight opportunities.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Deny request with explanation</b></td>
+<td>Special Services Manager</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Detailed case record</td>
+<td>Denial letter sent to passenger</td>
+<td>Denial within 1 hour of approval decision</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Improper denial can lead to customer complaints and potential legal action.</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Log denial in Salesforce for tracking</b></td>
+<td>Special Services Manager</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Denial letter details</td>
+<td>Updated case record in Salesforce</td>
+<td>Logging completed within 30 minutes of denial</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Missing logs can lead to incomplete audit trails.</td>
+</tr><tr>
+<td class="c-step">2.5</td>
+<td><b>Review passenger&#x27;s medical history for allergies</b></td>
 <td>Special Services Agent</td>
-<td><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Meal request</td>
-<td>Confirmed meal request within catering deadline</td>
-<td>Confirmed within the catering system&#x27;s required lead time at 100 percent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Salesforce Service Cloud, Allergy Management System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Passenger details</td>
+<td>Allergy information and cross-referenced meal options</td>
+<td>Review completed within 10 minutes of approval</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>A request submitted after the catering cutoff cannot be guaranteed regardless of validity</td>
-</tr></tbody></table></div></div>
-</div><div class="phase-group" data-phase-id="AC-CX-SS-04-3">
-  <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Provisioning or confirmation</span>
-    <span class="ph-n">1 steps</span></div>
-  <div class="phase-body"><div class="tbl-wrap"><table>
-  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
-  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
-  <tbody><tr>
-<td class="c-step">3.1</td>
-<td><b>Provision meal or finalise medical clearance record</b></td>
+<td>Incorrect allergy information can lead to passenger discomfort or medical issues.</td>
+</tr><tr>
+<td class="c-step">2.6</td>
+<td><b>Confirm meal options with kitchen staff</b></td>
 <td>Special Services Agent</td>
-<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Confirmed request or clearance</td>
-<td>Provisioned meal or finalised clearance on the booking</td>
-<td>Finalised before departure for 98 percent of requests</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada Mobile App, aircanada.com<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Cross-referenced meal options</td>
+<td>Confirmation of availability and preparation status</td>
+<td>Confirmation within 5 minutes of review completion</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Unavailability of meals can lead to passenger dissatisfaction.</td>
+</tr><tr>
+<td class="c-step">2.7</td>
+<td><b>Notify ground staff of special arrangements</b></td>
+<td>Special Services Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada Mobile App, aircanada.com<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Confirmation details</td>
+<td>Notification sent to ground crew</td>
+<td>Notification within 3 minutes of confirmation</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A clearance recorded in the booking system has to actually reach the operating crew for the flight</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Missed notifications can lead to miscommunication during flight.</td>
+</tr><tr>
+<td class="c-step">2.8</td>
+<td><b>Review passenger&#x27;s medical history for special care needs</b></td>
+<td>Special Services Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Salesforce Service Cloud, Medical Care Management System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Passenger details</td>
+<td>Care instructions and support requirements</td>
+<td>Review completed within 10 minutes of approval</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Incorrect care information can lead to passenger discomfort or medical issues.</td>
+</tr><tr>
+<td class="c-step">2.9</td>
+<td><b>Prepare emergency kit for flight</b></td>
+<td>Special Services Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada Mobile App, aircanada.com<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Care instructions and support requirements</td>
+<td>Emergency kit prepared</td>
+<td>Kit preparation within 5 minutes of review completion</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Missing items in emergency kits can lead to passenger discomfort or medical issues.</td>
+</tr><tr>
+<td class="c-step">2.10</td>
+<td><b>Notify cabin crew of special arrangements</b></td>
+<td>Special Services Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada Mobile App, aircanada.com<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Emergency kit details</td>
+<td>Notification sent to cabin crew</td>
+<td>Notification within 3 minutes of preparation completion</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Missed notifications can lead to miscommunication during flight.</td>
+</tr><tr>
+<td class="c-step">2.11</td>
+<td><b>Review passenger&#x27;s medical history for special seating needs</b></td>
+<td>Special Services Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Salesforce Service Cloud, Seating Management System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Passenger details</td>
+<td>Seating instructions and support requirements</td>
+<td>Review completed within 10 minutes of approval</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Incorrect seating information can lead to passenger discomfort or medical issues.</td>
+</tr><tr>
+<td class="c-step">2.12</td>
+<td><b>Reserve special seat for flight</b></td>
+<td>Special Services Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada Mobile App, aircanada.com<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Seating instructions and support requirements</td>
+<td>Reserved seat details</td>
+<td>Reservation within 5 minutes of review completion</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Unavailability of seats can lead to passenger dissatisfaction.</td>
+</tr><tr>
+<td class="c-step">2.13</td>
+<td><b>Notify ground staff of special seating arrangements</b></td>
+<td>Special Services Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada Mobile App, aircanada.com<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Reserved seat details</td>
+<td>Notification sent to ground crew</td>
+<td>Notification within 3 minutes of reservation completion</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Missed notifications can lead to miscommunication during flight.</td>
+</tr><tr>
+<td class="c-step">2.14</td>
+<td><b>Review passenger&#x27;s medical history for special boarding needs</b></td>
+<td>Special Services Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Salesforce Service Cloud, Boarding Management System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Passenger details</td>
+<td>Boarding instructions and support requirements</td>
+<td>Review completed within 10 minutes of approval</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Incorrect boarding information can lead to passenger discomfort or medical issues.</td>
+</tr><tr>
+<td class="c-step">2.15</td>
+<td><b>Prepare boarding assistance for flight</b></td>
+<td>Special Services Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada Mobile App, aircanada.com<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Boarding instructions and support requirements</td>
+<td>Assistance prepared</td>
+<td>Preparation within 5 minutes of review completion</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Missing items in boarding assistance can lead to passenger discomfort or medical issues.</td>
+</tr><tr>
+<td class="c-step">2.16</td>
+<td><b>Notify ground staff of special boarding arrangements</b></td>
+<td>Special Services Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada Mobile App, aircanada.com<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Assistance details</td>
+<td>Notification sent to ground crew</td>
+<td>Notification within 3 minutes of preparation completion</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Missed notifications can lead to miscommunication during flight.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Special Services Agent</span><span class="lane-steps">1.1 2.2 3.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Medical Review Coordinator</span><span class="lane-steps">2.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Customer Service Agent</span><span class="lane-steps">1.1 2.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Special Services Agent</span><span class="lane-steps">1.2 1.3 2.5 2.6 2.7 2.8 2.9 2.10 2.11 2.12 2.13 2.14 2.15 2.16</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Special Services Manager</span><span class="lane-steps">1.4 2.1 2.3 2.4</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+<div class="card"><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada Mobile App, aircanada.com<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Salesforce Service Cloud, Allergy Management System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Salesforce Service Cloud, Medical Care Management System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Salesforce Service Cloud, Seating Management System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Salesforce Service Cloud, Boarding Management System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Registered within 1 business day of submission at 100 percent</li><li>Determined within the required lead time before travel at 95 percent</li><li>Confirmed within the catering system&#x27;s required lead time at 100 percent</li><li>Finalised before departure for 98 percent of requests</li></ul>
+<ul class="bullets"><li>Response time within 10 minutes from submission</li><li>Validation completed within 5 minutes of reception</li><li>Documentation completed within 3 minutes of validation</li><li>Escalation within 1 hour of validation failure</li><li>Approval decision within 2 hours of documentation completion</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A late-arriving medical clearance leaving a booking unresolved close to the departure date</li><li>A meal request submitted after the catering cutoff being unable to be guaranteed regardless of validity</li><li>A clearance recorded in the booking system not actually reaching the operating crew for the flight</li><li>Medical documentation requirements not being provided up front, delaying a time-sensitive determination</li></ul>
+<ul class="bullets risk"><li>Non-compliance with APPR regulations leading to fines and reputational damage</li><li>Delays in response can lead to customer dissatisfaction and potential complaints</li><li>Denial without proper justification can lead to customer complaints</li><li>Unavailability of meals or seats can lead to passenger dissatisfaction</li><li>Incorrect allergy, care, seating, or boarding information can lead to passenger discomfort or medical issues</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../customer-experience-channels/special-services-accessibility/ac-cx-ss-03/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Unaccompanied Minor Handling</span></a>

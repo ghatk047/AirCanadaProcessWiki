@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CX-SS-05" title="Click to copy the process ID">
     AC-CX-SS-05<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Service Animal Acceptance</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,241 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-CX-SS-05-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Documentation screening</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Request Submission</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Receive service animal documentation</b></td>
-<td>Special Services Agent</td>
-<td><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Customer-submitted documentation</td>
-<td>Registered documentation</td>
-<td>Registered within 1 business day of submission at 100 percent</td>
+<td><b>Passenger submits service animal request through the Air Canada Mobile App or aircanada.com website.</b></td>
+<td>Air Canada Customer Experience Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">aircanada.com / Air Canada Mobile App<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Passenger details and service animal information</td>
+<td>Service animal request form</td>
+<td>95% submission success rate within 2 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Documentation formats vary and customers are not always aware of current requirements before submitting</td>
+<td>Technical issues with mobile app causing delays</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Customer Experience Agent verifies the completeness of the submitted request.</b></td>
+<td>Air Canada Customer Experience Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Service animal request form</td>
+<td>Verified request details</td>
+<td>98% accuracy rate in verification</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Missing critical information (e.g., medical documentation)</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Customer Experience Agent forwards the verified request to the Regulatory Compliance team.</b></td>
+<td>Air Canada Customer Experience Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Verified request details</td>
+<td>Request forwarded to Regulatory Compliance team</td>
+<td>100% forwarding rate within 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System downtime affecting email notifications</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Customer Experience Agent contacts the passenger for missing information.</b></td>
+<td>Air Canada Customer Experience Agent</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Passenger contact details</td>
+<td>Updated request form with missing information</td>
+<td>85% successful follow-up rate within 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Passenger unresponsive or unable to provide required documents</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CX-SS-05-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Regulatory validation</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Documentation Verification</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Validate documentation against current regulatory requirements</b></td>
-<td>Special Services Agent</td>
-<td><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Submitted documentation</td>
-<td>Validated or rejected documentation</td>
-<td>Validated against the current regulatory standard at 100 percent</td>
+<td><b>Regulatory Compliance team checks the request against APPR regulations.</b></td>
+<td>Air Canada Regulatory Compliance Officer</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Verified request details</td>
+<td>Compliance check report</td>
+<td>97% compliance rate within 30 minutes</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Outdated internal reference material can cause a valid request to be incorrectly rejected or the reverse</td>
+<td>Ambiguity in regulation interpretation</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Communicate outcome to the customer</b></td>
-<td>Special Services Agent</td>
+<td><b>Regulatory Compliance Officer approves the service animal request.</b></td>
+<td>Air Canada Regulatory Compliance Officer</td>
 <td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Validation outcome</td>
-<td>Communicated decision with reasoning</td>
-<td>Communicated within 3 business days of documentation receipt at 100 percent</td>
+<td>Compliance check report</td>
+<td>Approved request status</td>
+<td>95% approval rate within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Regulation violation detected</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Regulatory Compliance Officer forwards the approved request to the Customer Experience Agent.</b></td>
+<td>Air Canada Regulatory Compliance Officer</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Approved request status</td>
+<td>Forwarded approved request to Customer Experience Agent</td>
+<td>100% forwarding rate within 5 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A rejection without clear reasoning generates avoidable escalation and complaint</td>
+<td>System downtime affecting email notifications</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Regulatory Compliance Officer denies the service animal request.</b></td>
+<td>Air Canada Regulatory Compliance Officer</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Compliance check report</td>
+<td>Denied request status</td>
+<td>5% denial rate within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complexity in regulatory interpretation</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CX-SS-05-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Booking confirmation</span>
+    <span class="ph-name">Phase 3 &mdash; Regulatory Compliance Check</span>
     <span class="ph-n">1 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Confirm booking with accepted service animal</b></td>
-<td>Special Services Agent</td>
-<td><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Accepted documentation</td>
-<td>Confirmed booking with service animal flag</td>
-<td>Confirmed before travel for 100 percent of accepted requests</td>
+<td><b>Customer Experience Agent confirms the acceptance of the service animal.</b></td>
+<td>Air Canada Customer Experience Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Approved request status</td>
+<td>Confirmation email/SMS sent to passenger</td>
+<td>98% confirmation success rate within 2 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Email system failure</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-SS-05-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Confirmation &amp; Notification</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Customer Experience Agent checks if the passenger has provided all required documents.</b></td>
+<td>Air Canada Customer Experience Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Passenger details and service animal information</td>
+<td>Document checklist completion status</td>
+<td>95% document completeness rate within 10 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Missing critical documents</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Customer Experience Agent requests missing documents from the passenger.</b></td>
+<td>Air Canada Customer Experience Agent</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Passenger contact details</td>
+<td>Updated request form with missing documents</td>
+<td>80% successful follow-up rate within 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Passenger unresponsive or unable to provide required documents</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Customer Experience Agent confirms receipt of all required documents.</b></td>
+<td>Air Canada Customer Experience Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Updated request form with missing documents</td>
+<td>Completed document checklist</td>
+<td>98% document completeness rate within 10 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>The service animal flag has to reach the departure station and crew, not remain only in the booking record</td>
+<td>System downtime affecting email notifications</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-SS-05-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Exception Handling</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Customer Experience Agent prepares the boarding pass for the service animal.</b></td>
+<td>Air Canada Customer Experience Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Completed document checklist and passenger details</td>
+<td>Boarding pass for service animal</td>
+<td>95% boarding pass preparation rate within 2 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System downtime affecting email notifications</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Customer Experience Agent corrects the error in the boarding pass.</b></td>
+<td>Air Canada Customer Experience Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Boarding pass for service animal with error</td>
+<td>Corrected boarding pass for service animal</td>
+<td>98% correction success rate within 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System downtime affecting email notifications</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-SS-05-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Post-Travel Review</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Customer Experience Agent confirms the final boarding pass for the service animal.</b></td>
+<td>Air Canada Customer Experience Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Corrected boarding pass for service animal</td>
+<td>Final confirmation of boarding pass preparation</td>
+<td>98% final confirmation rate within 2 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System downtime affecting email notifications</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Customer Experience Agent corrects the error in the final boarding pass.</b></td>
+<td>Air Canada Customer Experience Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Final confirmation of boarding pass preparation with error</td>
+<td>Corrected final confirmation of boarding pass preparation</td>
+<td>98% correction success rate within 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System downtime affecting email notifications</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Special Services Agent</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Air Canada Customer Experience Agent</span><span class="lane-steps">1.1 1.2 1.3 1.4 3.1 4.1 4.2 4.3 5.1 5.2 6.1 6.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Air Canada Regulatory Compliance Officer</span><span class="lane-steps">2.1 2.2 2.3 2.4</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+<div class="card"><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">aircanada.com / Air Canada Mobile App<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Validated against the current regulatory standard at 100 percent</li><li>Communicated within 3 business days of documentation receipt at 100 percent</li><li>Confirmed before travel for 100 percent of accepted requests</li><li>Zero decisions based on outdated regulatory reference material</li></ul>
+<ul class="bullets"><li>95% submission success rate within 2 minutes</li><li>98% accuracy rate in verification</li><li>100% forwarding rate within 5 minutes</li><li>85% successful follow-up rate within 30 minutes</li><li>97% compliance rate within 30 minutes</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Outdated internal reference material causing a valid request to be rejected or an invalid one accepted</li><li>A rejection communicated without clear reasoning generating avoidable escalation and complaint</li><li>The service animal flag not reaching the departure station and crew despite being in the booking record</li><li>Documentation format variability making consistent validation harder to apply</li></ul>
+<ul class="bullets risk"><li>Technical issues with mobile app causing delays</li><li>System downtime affecting email notifications</li><li>Passenger unresponsive or unable to provide required documents</li><li>Ambiguity in regulation interpretation</li><li>Complexity in regulatory interpretation</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../customer-experience-channels/special-services-accessibility/ac-cx-ss-04/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Special Meal and Medical Clearance</span></a>
