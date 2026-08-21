@@ -133,7 +133,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-IT-CS-01" title="Click to copy the process ID">
     AC-IT-CS-01<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Identity and Access Lifecycle Management</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -142,85 +142,241 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-IT-CS-01-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Access request and approval</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Request Submission</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Request access against role requirement</b></td>
-<td>IT Access Coordinator</td>
-<td><span class="tag unknown" data-tooltip="Employee SSO, MFA and privileged access. Product UNCONFIRMED. Note: SAP CDC covers customer identity only.">Workforce Identity<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
-<td>New hire, role change or system need</td>
-<td>Registered access request</td>
-<td>Registered within 1 business day of the triggering event at 100 percent</td>
+<td><b>Submit access request via ITSM Platform</b></td>
+<td>ITSM Support Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Manager&#x27;s request details</td>
+<td>Access request ticket</td>
+<td>95% request acknowledgment within 30 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Access requirements are not always fully specified for a genuinely new role</td>
+<td>Delays in ITSM response affecting user productivity.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Verify requester&#x27;s authority and role</b></td>
+<td>Access Control Officer</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Requester&#x27;s credentials</td>
+<td>Role verification status</td>
+<td>90% accurate role validation within 15 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Misclassification of roles leading to security gaps.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Review access request for compliance</b></td>
+<td>Cybersecurity Analyst</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Access request details, role verification status</td>
+<td>Compliance assessment report</td>
+<td>85% compliance checks completed within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex regulatory requirements increasing compliance time.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-IT-CS-01-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Provisioning</span>
+    <span class="ph-name">Phase 2 &mdash; Identity Verification</span>
     <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Approve access against least privilege</b></td>
-<td>IT Access Coordinator</td>
-<td><span class="tag unknown" data-tooltip="Employee SSO, MFA and privileged access. Product UNCONFIRMED. Note: SAP CDC covers customer identity only.">Workforce Identity<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
-<td>Registered request</td>
-<td>Approved or declined access</td>
-<td>Approved within the defined service level at 90 percent</td>
-<td class="c-flag"><span class="yes">Y</span></td>
+<td><b>Deploy access changes to target systems</b></td>
+<td>System Administrator</td>
+<td><span class="tag aws" data-tooltip="Primary hyperscaler. Loyalty platform, contact centre and digital channels run cloud-native on AWS. [AWS - evidence A]">AWS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Compliance assessment report</td>
+<td>Access changes deployed</td>
+<td>98% successful deployment rate within 30 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Approval under time pressure to unblock a new employee can favour broader access than the role strictly requires</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inconsistent access rights across systems causing operational disruptions.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Provision approved access</b></td>
-<td>IT Access Coordinator</td>
-<td><span class="tag unknown" data-tooltip="Employee SSO, MFA and privileged access. Product UNCONFIRMED. Note: SAP CDC covers customer identity only.">Workforce Identity<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
-<td>Approved access request</td>
-<td>Provisioned access</td>
-<td>Provisioned within 1 business day of approval at 95 percent</td>
+<td><b>Rollback failed deployment</b></td>
+<td>System Administrator</td>
+<td><span class="tag aws" data-tooltip="Primary hyperscaler. Loyalty platform, contact centre and digital channels run cloud-native on AWS. [AWS - evidence A]">AWS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Deployment failure details</td>
+<td>Access changes rolled back</td>
+<td>90% rollback success rate within 10 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>A provisioning delay for a new employee&#x27;s first day generates avoidable friction and support volume</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Rollback failures can lead to extended downtime and user frustration.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-IT-CS-01-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Deprovisioning on departure</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Access Request Review</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Deprovision access on departure</b></td>
-<td>IT Access Coordinator</td>
-<td><span class="tag unknown" data-tooltip="Employee SSO, MFA and privileged access. Product UNCONFIRMED. Note: SAP CDC covers customer identity only.">Workforce Identity<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
-<td>Departure notification</td>
-<td>Revoked access across all systems</td>
-<td>Revoked within 4 hours of the departure effective time at 100 percent</td>
+<td><b>Monitor access activity for anomalies</b></td>
+<td>SIEM Analyst</td>
+<td><span class="tag unknown" data-tooltip="Security monitoring and incident response tooling. Product UNCONFIRMED - a discovery question.">SIEM and SOC<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Access logs from AWS</td>
+<td>Anomaly detection report</td>
+<td>95% anomaly detection accuracy within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>High volume of log data making real-time monitoring challenging.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Investigate and respond to anomalies</b></td>
+<td>Cybersecurity Analyst</td>
+<td><span class="tag unknown" data-tooltip="Security monitoring and incident response tooling. Product UNCONFIRMED - a discovery question.">SIEM and SOC<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Anomaly detection report</td>
+<td>Incident response plan</td>
+<td>80% incident resolution within 2 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Access not revoked at termination is a live security exposure for exactly as long as it takes to notice</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complexity of investigations affecting incident response times.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-CS-01-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; System Integration and Deployment</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Audit access changes for compliance</b></td>
+<td>IT Auditor</td>
+<td><span class="tag unknown" data-tooltip="API gateway, ESB and event streaming. Product UNCONFIRMED - a top-three discovery question.">Integration Platform<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Access logs from AWS</td>
+<td>Audit report</td>
+<td>90% audit completion within 24 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Large volume of data making auditing time-consuming.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Update user profiles in SAP Customer Data Cloud</b></td>
+<td>APPR Adjudicator</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Audit report</td>
+<td>Updated user profile</td>
+<td>95% update accuracy within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Data inconsistencies between systems causing sync issues.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Notify requester of access change status</b></td>
+<td>ITSM Support Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Audit report, updated user profile</td>
+<td>Notification sent</td>
+<td>95% notification accuracy within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Miscommunication leading to user confusion.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-CS-01-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Monitoring and Compliance</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Generate monthly compliance report</b></td>
+<td>IT Auditor</td>
+<td><span class="tag unknown" data-tooltip="API gateway, ESB and event streaming. Product UNCONFIRMED - a top-three discovery question.">Integration Platform<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Audit logs from AWS, SAP Customer Data Cloud</td>
+<td>Monthly compliance report</td>
+<td>80% report accuracy within 3 days</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Data aggregation challenges affecting report generation.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Review monthly compliance report with management</b></td>
+<td>IT Manager</td>
+<td><span class="tag unknown" data-tooltip="API gateway, ESB and event streaming. Product UNCONFIRMED - a top-three discovery question.">Integration Platform<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Monthly compliance report</td>
+<td>Management review status</td>
+<td>100% review completion within 1 week</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complexity of reports requiring significant managerial time.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Update compliance policies based on review</b></td>
+<td>IT Manager</td>
+<td><span class="tag unknown" data-tooltip="API gateway, ESB and event streaming. Product UNCONFIRMED - a top-three discovery question.">Integration Platform<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Management review status</td>
+<td>Updated compliance policy</td>
+<td>90% policy update accuracy within 2 weeks</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inconsistent management input leading to policy ambiguity.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-CS-01-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Audit and Reporting</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Conduct quarterly security training for IT staff</b></td>
+<td>IT Training Coordinator</td>
+<td><span class="tag unknown" data-tooltip="API gateway, ESB and event streaming. Product UNCONFIRMED - a top-three discovery question.">Integration Platform<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Compliance policies, audit findings</td>
+<td>Training session conducted</td>
+<td>95% staff attendance within 2 weeks of announcement</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Low staff attendance leading to knowledge gaps.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Review training effectiveness and update materials</b></td>
+<td>IT Training Coordinator</td>
+<td><span class="tag unknown" data-tooltip="API gateway, ESB and event streaming. Product UNCONFIRMED - a top-three discovery question.">Integration Platform<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Training session feedback, audit findings</td>
+<td>Updated training materials</td>
+<td>90% material update accuracy within 1 month</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Ineffective training leading to continued security issues.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Report on training outcomes and policy updates</b></td>
+<td>IT Manager</td>
+<td><span class="tag unknown" data-tooltip="API gateway, ESB and event streaming. Product UNCONFIRMED - a top-three discovery question.">Integration Platform<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Training session feedback, updated compliance policy</td>
+<td>Training outcome report</td>
+<td>100% report accuracy within 2 months</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Data aggregation challenges affecting report generation.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>IT Access Coordinator</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>ITSM Support Analyst</span><span class="lane-steps">1.1 4.3</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Access Control Officer</span><span class="lane-steps">1.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Cybersecurity Analyst</span><span class="lane-steps">1.3 3.2</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>System Administrator</span><span class="lane-steps">2.1 2.2</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>SIEM Analyst</span><span class="lane-steps">3.1</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>IT Auditor</span><span class="lane-steps">4.1 5.1</span></div><div class="lane"><span class="swatch" style="background:#8A5A1E"></span><span>APPR Adjudicator</span><span class="lane-steps">4.2</span></div><div class="lane"><span class="swatch" style="background:#4A4A4A"></span><span>IT Manager</span><span class="lane-steps">5.2 5.3 6.3</span></div><div class="lane"><span class="swatch" style="background:#E04A60"></span><span>IT Training Coordinator</span><span class="lane-steps">6.1 6.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag unknown" data-tooltip="Employee SSO, MFA and privileged access. Product UNCONFIRMED. Note: SAP CDC covers customer identity only.">Workforce Identity<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
+<div class="card"><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag aws" data-tooltip="Primary hyperscaler. Loyalty platform, contact centre and digital channels run cloud-native on AWS. [AWS - evidence A]">AWS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag unknown" data-tooltip="Security monitoring and incident response tooling. Product UNCONFIRMED - a discovery question.">SIEM and SOC<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag unknown" data-tooltip="API gateway, ESB and event streaming. Product UNCONFIRMED - a top-three discovery question.">Integration Platform<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Registered within 1 business day of the triggering event at 100 percent</li><li>Provisioned within 1 business day of approval at 95 percent</li><li>Revoked within 4 hours of the departure effective time at 100 percent</li><li>Zero orphaned access accounts found in a periodic access review</li></ul>
+<ul class="bullets"><li>95% request acknowledgment within 30 minutes</li><li>90% accurate role validation within 15 minutes</li><li>85% compliance checks completed within 1 hour</li><li>98% successful deployment rate within 30 minutes</li><li>90% rollback success rate within 10 minutes</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Access not revoked at termination being a live security exposure for as long as it takes to notice</li><li>Approval under time pressure favouring broader access than the role strictly requires</li><li>Access requirements not being fully specified for a genuinely new role</li><li>A provisioning delay on a new employee&#x27;s first day generating avoidable friction and support volume</li></ul>
+<ul class="bullets risk"><li>Delays in ITSM response affecting user productivity.</li><li>Misclassification of roles leading to security gaps.</li><li>Complex regulatory requirements increasing compliance time.</li><li>Inconsistent access rights across systems causing operational disruptions.</li><li>Rollback failures can lead to extended downtime and user frustration.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../information-technology-security/service-management-user-support/ac-it-sm-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Service Level Management and Vendor Governance</span></a>

@@ -133,7 +133,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-IT-CS-03" title="Click to copy the process ID">
     AC-IT-CS-03<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Security Monitoring and Threat Detection</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -142,85 +142,395 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-IT-CS-03-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Alert generation and initial triage</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Threat Detection</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Generate and receive security alert</b></td>
-<td>Security Operations Analyst</td>
-<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Crowdstrike Falcon<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
-<td>Monitored system or network activity</td>
-<td>Generated alert</td>
-<td>Received by the security operations function within 1 minute of generation at 100 percent</td>
+<td><b>Monitor for anomalies</b></td>
+<td>Security Analyst</td>
+<td><span class="tag unknown" data-tooltip="Security monitoring and incident response tooling. Product UNCONFIRMED - a discovery question.">SIEM and SOC<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Real-time system logs and network traffic data</td>
+<td>Alerts of potential security threats</td>
+<td>Detection accuracy rate (95%)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>False positives can overwhelm analysts, leading to missed genuine threats.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Investigate initial alert</b></td>
+<td>Security Analyst</td>
+<td><span class="tag unknown" data-tooltip="Security monitoring and incident response tooling. Product UNCONFIRMED - a discovery question.">SIEM and SOC<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Alert details from the SIEM system</td>
+<td>Threat intelligence report</td>
+<td>Investigation time (30 minutes)</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Limited investigative tools can slow down threat detection.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Determine threat severity</b></td>
+<td>Security Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Threat intelligence report</td>
+<td>Severity classification (low, medium, high)</td>
+<td>Classification accuracy rate (90%)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Misclassification can lead to inappropriate resource allocation.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Request additional investigation</b></td>
+<td>Security Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Threat intelligence report</td>
+<td>Investigation request ticket</td>
+<td>Response time to request (15 minutes)</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Alert volume at enterprise scale is high enough that individual review depth is inherently constrained</td>
+<td>Delayed investigations can allow threats to escalate.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-IT-CS-03-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Threat assessment</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Incident Classification</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Perform initial triage against known patterns</b></td>
-<td>Security Operations Analyst</td>
-<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Splunk<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
-<td>Generated alert</td>
-<td>Initial triage classification</td>
-<td>Triaged within 15 minutes of receipt at 90 percent</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Triage quality, not detection coverage alone, determines whether a genuine threat gets timely attention</td>
-</tr><tr>
-<td class="c-step">2.2</td>
-<td><b>Assess genuine threat indicators</b></td>
-<td>Security Operations Analyst</td>
-<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Splunk<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
-<td>Triaged alert requiring deeper review</td>
-<td>Threat assessment</td>
-<td>Assessed within 1 hour of triage for elevated-priority alerts at 90 percent</td>
+<td><b>Classify incident type</b></td>
+<td>Security Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Investigation request ticket</td>
+<td>Incident classification (e.g., DDoS, malware)</td>
+<td>Classification accuracy rate (95%)</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A genuine threat assessed too slowly gives an attacker additional time inside the environment</td>
+<td>Complex incidents require detailed analysis.</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Assign incident to response team</b></td>
+<td>Security Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Incident classification and severity</td>
+<td>Assigned ticket with response team details</td>
+<td>Assignment time (10 minutes)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inadequate team allocation can lead to resource overcommitment.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Consult with security experts</b></td>
+<td>Security Analyst</td>
+<td><span class="tag unknown" data-tooltip="API gateway, ESB and event streaming. Product UNCONFIRMED - a top-three discovery question.">Integration Platform<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Incident details and investigation findings</td>
+<td>Expert opinion and potential threat mitigation strategies</td>
+<td>Consultation time (20 minutes)</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Lack of expertise can delay effective response.</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Escalate to senior management</b></td>
+<td>Security Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Incident details and investigation findings</td>
+<td>Escalated ticket with senior manager&#x27;s attention</td>
+<td>Escalation time (5 minutes)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Senior management may not have the necessary context for immediate action.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-IT-CS-03-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Escalation or dismissal</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Priority Assessment</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Escalate to incident response or dismiss with documentation</b></td>
-<td>Security Operations Analyst</td>
-<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Threat assessment</td>
-<td>Escalated incident or documented dismissal</td>
-<td>100 percent of assessed alerts closed with a documented outcome</td>
+<td><b>Develop mitigation strategy</b></td>
+<td>Security Analyst</td>
+<td><span class="tag unknown" data-tooltip="API gateway, ESB and event streaming. Product UNCONFIRMED - a top-three discovery question.">Integration Platform<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Expert opinion and potential threat mitigation strategies</td>
+<td>Mitigation plan</td>
+<td>Plan development time (30 minutes)</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="yes">Y</span></td>
-<td>An undocumented dismissal cannot be reviewed later if the same pattern recurs and turns out to be genuine</td>
+<td>Complex threats may require multiple layers of defense.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Assign resources for implementation</b></td>
+<td>Security Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Mitigation plan</td>
+<td>Resource allocation and assignment ticket</td>
+<td>Resource allocation time (10 minutes)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Insufficient resources can hinder effective mitigation.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Re-evaluate threat severity</b></td>
+<td>Security Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Incident details and current situation</td>
+<td>Updated severity classification (low, medium, high)</td>
+<td>Classification accuracy rate (90%)</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Threats may escalate while mitigation is being planned.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-CS-03-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Response Planning</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Execute mitigation plan</b></td>
+<td>Security Analyst</td>
+<td><span class="tag unknown" data-tooltip="API gateway, ESB and event streaming. Product UNCONFIRMED - a top-three discovery question.">Integration Platform<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Mitigation plan and assigned resources</td>
+<td>Execution status report</td>
+<td>Execution time (3 hours)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Technical issues during execution can delay response.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Monitor mitigation effectiveness</b></td>
+<td>Security Analyst</td>
+<td><span class="tag unknown" data-tooltip="Security monitoring and incident response tooling. Product UNCONFIRMED - a discovery question.">SIEM and SOC<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Execution status report</td>
+<td>Effectiveness evaluation report</td>
+<td>Effectiveness accuracy rate (95%)</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inaccurate monitoring can lead to false reassurance.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Troubleshoot execution failure</b></td>
+<td>Security Analyst</td>
+<td><span class="tag unknown" data-tooltip="API gateway, ESB and event streaming. Product UNCONFIRMED - a top-three discovery question.">Integration Platform<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Execution status report and error logs</td>
+<td>Troubleshooting report</td>
+<td>Troubleshooting time (1 hour)</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex failures can be difficult to diagnose.</td>
+</tr><tr>
+<td class="c-step">4.4</td>
+<td><b>Adjust mitigation plan</b></td>
+<td>Security Analyst</td>
+<td><span class="tag unknown" data-tooltip="API gateway, ESB and event streaming. Product UNCONFIRMED - a top-three discovery question.">Integration Platform<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Effectiveness evaluation report and troubleshooting results</td>
+<td>Adjusted mitigation plan</td>
+<td>Plan adjustment time (30 minutes)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Resource constraints may limit adjustments.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-CS-03-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Execution of Response Plan</span>
+    <span class="ph-n">6 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Finalize incident resolution</b></td>
+<td>Security Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Execution status report and effectiveness evaluation report</td>
+<td>Incident closure ticket</td>
+<td>Closure time (10 minutes)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Incomplete resolution can lead to lingering threats.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Notify relevant stakeholders</b></td>
+<td>Security Analyst</td>
+<td><span class="tag unknown" data-tooltip="API gateway, ESB and event streaming. Product UNCONFIRMED - a top-three discovery question.">Integration Platform<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Incident closure ticket and resolution details</td>
+<td>Notification sent to stakeholders</td>
+<td>Notification time (5 minutes)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed notifications can lead to confusion.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Reinvestigate unresolved incident</b></td>
+<td>Security Analyst</td>
+<td><span class="tag unknown" data-tooltip="API gateway, ESB and event streaming. Product UNCONFIRMED - a top-three discovery question.">Integration Platform<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Incident closure ticket and resolution details</td>
+<td>Reinvestigation report</td>
+<td>Reinvestigation time (2 hours)</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Unresolved incidents may require multiple attempts.</td>
+</tr><tr>
+<td class="c-step">5.4</td>
+<td><b>Escalate unresolved incident to senior management</b></td>
+<td>Security Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Reinvestigation report</td>
+<td>Escalated ticket with senior manager&#x27;s attention</td>
+<td>Escalation time (5 minutes)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Senior management may not have the necessary context for immediate action.</td>
+</tr><tr>
+<td class="c-step">5.5</td>
+<td><b>Document incident and lessons learned</b></td>
+<td>Security Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Reinvestigation report</td>
+<td>Incident documentation and lessons learned report</td>
+<td>Documentation time (30 minutes)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Poor documentation can lead to repeated incidents.</td>
+</tr><tr>
+<td class="c-step">5.6</td>
+<td><b>Update security policies and procedures</b></td>
+<td>Security Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Incident documentation and lessons learned report</td>
+<td>Updated security policy document</td>
+<td>Policy update time (1 week)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Resource constraints may limit policy updates.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-CS-03-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Post-Event Review</span>
+    <span class="ph-n">9 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Conduct post-incident review meeting</b></td>
+<td>Security Analyst</td>
+<td><span class="tag unknown" data-tooltip="API gateway, ESB and event streaming. Product UNCONFIRMED - a top-three discovery question.">Integration Platform<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Incident documentation and lessons learned report</td>
+<td>Review minutes and action items</td>
+<td>Meeting time (1 hour)</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inadequate communication during the meeting can lead to missed insights.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Assign follow-up tasks for action items</b></td>
+<td>Security Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Review minutes and action items</td>
+<td>Follow-up task assignments</td>
+<td>Task assignment time (30 minutes)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Resource constraints may limit follow-up tasks.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Review and update threat intelligence database</b></td>
+<td>Security Analyst</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Incident documentation and lessons learned report</td>
+<td>Updated threat intelligence database</td>
+<td>Database update time (1 day)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inaccurate threat data can lead to ineffective monitoring.</td>
+</tr><tr>
+<td class="c-step">6.4</td>
+<td><b>Escalate follow-up task failures to senior management</b></td>
+<td>Security Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Follow-up task assignments and failure details</td>
+<td>Escalated ticket with senior manager&#x27;s attention</td>
+<td>Escalation time (5 minutes)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Senior management may not have the necessary context for immediate action.</td>
+</tr><tr>
+<td class="c-step">6.5</td>
+<td><b>Finalize post-incident review documentation</b></td>
+<td>Security Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Review minutes and action items</td>
+<td>Post-incident review documentation</td>
+<td>Documentation time (30 minutes)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Poor documentation can lead to missed insights.</td>
+</tr><tr>
+<td class="c-step">6.6</td>
+<td><b>Notify stakeholders of review completion</b></td>
+<td>Security Analyst</td>
+<td><span class="tag unknown" data-tooltip="API gateway, ESB and event streaming. Product UNCONFIRMED - a top-three discovery question.">Integration Platform<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Post-incident review documentation</td>
+<td>Notification sent to stakeholders</td>
+<td>Notification time (5 minutes)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed notifications can lead to confusion.</td>
+</tr><tr>
+<td class="c-step">6.7</td>
+<td><b>Archive incident data for future reference</b></td>
+<td>Security Analyst</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Incident documentation and lessons learned report</td>
+<td>Archived incident data</td>
+<td>Data archiving time (1 day)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inadequate storage can lead to data loss.</td>
+</tr><tr>
+<td class="c-step">6.8</td>
+<td><b>Escalate data loss issues to senior management</b></td>
+<td>Security Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Data archiving failure details</td>
+<td>Escalated ticket with senior manager&#x27;s attention</td>
+<td>Escalation time (5 minutes)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Senior management may not have the necessary context for immediate action.</td>
+</tr><tr>
+<td class="c-step">6.9</td>
+<td><b>Finalize and archive incident data again</b></td>
+<td>Security Analyst</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Incident documentation and lessons learned report</td>
+<td>Archived incident data</td>
+<td>Data archiving time (1 day)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inadequate storage can lead to data loss.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Security Operations Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Security Analyst</span><span class="lane-steps">1.1 1.2 1.3 1.4 2.1 2.2 2.3 2.4 3.1 3.2 3.3 4.1 4.2 4.3 4.4 5.1 5.2 5.3 5.4 5.5 5.6 6.1 6.2 6.3 6.4 6.5 6.6 6.7 6.8 6.9</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Crowdstrike Falcon<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Splunk<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
+<div class="card"><span class="tag unknown" data-tooltip="Security monitoring and incident response tooling. Product UNCONFIRMED - a discovery question.">SIEM and SOC<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag unknown" data-tooltip="API gateway, ESB and event streaming. Product UNCONFIRMED - a top-three discovery question.">Integration Platform<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Received by the security operations function within 1 minute of generation at 100 percent</li><li>Triaged within 15 minutes of receipt at 90 percent</li><li>Assessed within 1 hour of triage for elevated-priority alerts at 90 percent</li><li>100 percent of assessed alerts closed with a documented outcome</li></ul>
+<ul class="bullets"><li>Detection accuracy rate (95%)</li><li>Investigation time (30 minutes)</li><li>Classification accuracy rate (90%)</li><li>Execution time (3 hours)</li><li>Effectiveness accuracy rate (95%)</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Triage quality, not detection coverage alone, determining whether a genuine threat gets timely attention</li><li>A genuine threat assessed too slowly giving an attacker additional time inside the environment</li><li>Alert volume at enterprise scale inherently constraining the depth of individual review</li><li>An undocumented dismissal being unreviewable later if the same pattern recurs and proves genuine</li></ul>
+<ul class="bullets risk"><li>False positives overwhelming analysts and leading to missed genuine threats.</li><li>Limited investigative tools slowing down threat detection.</li><li>Misclassification of threats leading to inappropriate resource allocation.</li><li>Complex incidents requiring detailed analysis.</li><li>Resource overcommitment due to inadequate team allocation.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../information-technology-security/cybersecurity-identity/ac-it-cs-02/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Privileged Access and Credential Control</span></a>
