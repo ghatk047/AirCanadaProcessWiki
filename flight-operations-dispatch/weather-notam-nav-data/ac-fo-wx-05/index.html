@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-FO-WX-05" title="Click to copy the process ID">
     AC-FO-WX-05<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Winter Operations De Icing Coordination</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,96 +143,244 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-FO-WX-05-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Treatment decision</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Initial Assessment</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Assess precipitation type and treatment need</b></td>
-<td>Ground Operations Coordinator</td>
+<td><b>Receive weather notification</b></td>
+<td>YYZ Operations Control Duty Manager</td>
 <td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Current precipitation observation</td>
-<td>Treatment type determination</td>
-<td>Determined before treatment begins at 100 percent</td>
+<td>Weather data from NAV CANADA</td>
+<td>Weather status report</td>
+<td>0 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Precipitation type can change during the treatment process itself</td>
+<td>Delays in receiving accurate weather data can cause safety risks.</td>
 </tr><tr>
 <td class="c-step">1.2</td>
-<td><b>Select fluid type and holdover time table</b></td>
-<td>Ground Operations Coordinator</td>
-<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Determined precipitation and temperature</td>
-<td>Selected fluid and holdover time</td>
-<td>Selected against the current published holdover table at 100 percent</td>
+<td><b>Identify de-icing requirements</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Weather status report</td>
+<td>De-icing priority list</td>
+<td>5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual data entry errors can lead to misprioritization.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Check available de-icing resources</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>De-icing priority list</td>
+<td>Resource availability report</td>
+<td>3 minutes</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Holdover time tables are temperature and precipitation-rate specific and easy to misread under time pressure</td>
+<td>Insufficient resources can delay flights, causing further disruptions.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Request additional de-icing equipment</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Resource availability report</td>
+<td>Equipment request confirmation</td>
+<td>10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Equipment requests can be delayed, impacting flight schedules.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-FO-WX-05-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Holdover time management</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; De-Icing Request</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Apply treatment and record start time</b></td>
-<td>Ground Operations Coordinator</td>
-<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Selected fluid</td>
-<td>Applied treatment with recorded start time</td>
-<td>Start time recorded for 100 percent of treatments</td>
+<td><b>Initiate de-icing request</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>De-icing priority list</td>
+<td>De-icing request sent</td>
+<td>2 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>An inaccurate start time record undermines the entire holdover time calculation that follows</td>
+<td>Communication failures with ACARS can delay the process.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Monitor holdover time against departure sequence</b></td>
-<td>Ground Operations Coordinator</td>
-<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Treatment start time and departure queue</td>
-<td>Holdover time status against departure</td>
-<td>Monitored continuously until off-block for 100 percent of treated aircraft</td>
+<td><b>Monitor de-icing status</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>De-icing request sent</td>
+<td>Status updates</td>
+<td>Continuous monitoring</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delays in receiving status updates can cause confusion.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Follow up on de-icing progress</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Status updates</td>
+<td>Progress report</td>
+<td>5 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="yes">Y</span></td>
-<td>A departure delay after treatment can push the aircraft past its holdover window, requiring re-treatment</td>
+<td>Repeated follow-ups can be time-consuming.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-FO-WX-05-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Departure clearance</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Approval Process</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Confirm contamination-free critical surfaces before departure</b></td>
-<td>Flight Crew</td>
-<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Jeppesen FliteDeck Pro<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
-<td>Holdover status at departure</td>
-<td>Confirmed clean aircraft or re-treatment triggered</td>
-<td>Confirmed before takeoff clearance for 100 percent of winter departures</td>
+<td><b>Submit de-icing request for approval</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>De-icing request sent</td>
+<td>Approval status</td>
+<td>5 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual review processes can slow down the approval cycle.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Escalate to supervisor for approval</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Approval status</td>
+<td>Supervisor&#x27;s decision</td>
+<td>10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Escalation processes can add delays.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-WX-05-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Execution and Monitoring</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Execute de-icing procedure</b></td>
+<td>De-Icing Operator</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Approval status</td>
+<td>De-icing completed confirmation</td>
+<td>30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Mechanical failures in de-icing equipment can cause delays.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Attempt re-de icing</b></td>
+<td>De-Icing Operator</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>De-icing completed confirmation</td>
+<td>Re-de icing completion status</td>
+<td>30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Repeated de-icing attempts can be resource-intensive.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-WX-05-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Post-Flight Review</span>
+    <span class="ph-n">6 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Conduct post-flight review</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>De-icing completed confirmation</td>
+<td>Post-flight review report</td>
+<td>10 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>The final visual and tactile check before takeoff is the last safety barrier against a treatment lapse</td>
+<td>Manual data entry errors can lead to inaccuracies.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Update de-icing history</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Post-flight review report</td>
+<td>Updated de-icing database</td>
+<td>5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Database updates can be delayed, causing data integrity issues.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Notify passengers of any delays</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag amadeus" data-tooltip="Automated IRROP re-accommodation. Replaced largely manual disruption handling pre-2020. [Amadeus - evidence A]">Amadeus Passenger Recovery<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Post-flight review report</td>
+<td>Passenger notifications sent</td>
+<td>Continuous monitoring</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Communication failures with Amadeus can delay passenger notifications.</td>
+</tr><tr>
+<td class="c-step">5.4</td>
+<td><b>Review and document any issues</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Post-flight review report</td>
+<td>Issue documentation</td>
+<td>10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual documentation can be time-consuming.</td>
+</tr><tr>
+<td class="c-step">5.5</td>
+<td><b>Escalate critical issues to higher management</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Issue documentation</td>
+<td>Management escalation report</td>
+<td>Continuous monitoring</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Critical issues may require immediate attention.</td>
+</tr><tr>
+<td class="c-step">5.6</td>
+<td><b>Close de-icing coordination process</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Issue documentation</td>
+<td>Process closure confirmation</td>
+<td>0 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Closure processes can be delayed, causing follow-up issues.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Ground Operations Coordinator</span><span class="lane-steps">1.1 1.2 2.1 2.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Flight Crew</span><span class="lane-steps">3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">1.1 1.2 1.3 1.4 2.1 2.2 2.3 3.1 3.2 5.1 5.2 5.4 5.5 5.6</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>De-Icing Operator</span><span class="lane-steps">4.1 4.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Aeroplan Member Services Agent</span><span class="lane-steps">5.3</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Jeppesen FliteDeck Pro<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
+<div class="card"><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag amadeus" data-tooltip="Automated IRROP re-accommodation. Replaced largely manual disruption handling pre-2020. [Amadeus - evidence A]">Amadeus Passenger Recovery<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Determined against the current published holdover table at 100 percent</li><li>Start time recorded for 100 percent of treatments</li><li>Monitored continuously until off-block for 100 percent of treated aircraft</li><li>Zero departures beyond a valid holdover time without re-treatment</li></ul>
+<ul class="bullets"><li>Weather notification received in 0 minutes</li><li>De-icing priority list generated in 5 minutes</li><li>Resource availability checked in 3 minutes</li><li>Equipment request completed in 10 minutes</li><li>De-icing request sent in 2 minutes</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A departure delay after treatment pushing the aircraft past its holdover window without re-treatment</li><li>An inaccurate treatment start time record undermining the entire holdover calculation</li><li>Precipitation type changing during the treatment process itself</li><li>Holdover time tables being misread under time pressure given their temperature and rate specificity</li></ul>
+<ul class="bullets risk"><li>Inaccurate weather data leading to safety risks</li><li>Manual data entry errors causing misprioritization</li><li>Insufficient de-icing resources delaying flights</li><li>Failed equipment requests impacting schedules</li><li>Communication failures with ACARS delaying the process</li><li>Delays in receiving status updates causing confusion</li><li>Repeated follow-ups being time-consuming</li><li>Manual review processes slowing down approval cycle</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../flight-operations-dispatch/weather-notam-nav-data/ac-fo-wx-04/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Volcanic Ash and Space Weather Response</span></a>

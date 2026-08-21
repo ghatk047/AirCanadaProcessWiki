@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-FO-WX-03" title="Click to copy the process ID">
     AC-FO-WX-03<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Navigation Database Cycle Update</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,96 +143,362 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-FO-WX-03-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Database receipt and validation</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Database Validation</span>
+    <span class="ph-n">5 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Receive the new AIRAC cycle data</b></td>
-<td>Navigation Data Coordinator</td>
-<td><span class="tag jeppesen" data-tooltip="Terminal charts and navigation data delivered to the flight deck EFB. [Boeing Jeppesen - evidence B]">Jeppesen Charts<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Vendor-supplied navigation database</td>
-<td>Received database update</td>
-<td>Received before the cycle effective date at 100 percent</td>
+<td><b>Receive new navigation database file</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>NAV CANADA notification</td>
+<td>New navigation database file</td>
+<td>File received within 2 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Vendor delivery timing leaves a fixed and sometimes tight window before the effective date</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Network latency can cause delays in receiving the file.</td>
 </tr><tr>
 <td class="c-step">1.2</td>
-<td><b>Validate database integrity</b></td>
-<td>Navigation Data Coordinator</td>
-<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Received database</td>
-<td>Validated database</td>
-<td>Validated before deployment at 100 percent</td>
+<td><b>Validate checksum of the new database file</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>New navigation database file</td>
+<td>Checksum validation result</td>
+<td>Validation completed within 30 minutes</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A validation failure this close to the effective date leaves little time for vendor remediation</td>
+<td>Incorrect checksum can lead to data corruption.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Report checksum error to NAV CANADA</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Checksum validation result</td>
+<td>Error report</td>
+<td>Report sent within 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual retransmission may be required.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Retry checksum validation</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>New navigation database file</td>
+<td>Checksum validation result</td>
+<td>Validation completed within 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Network issues can cause repeated failures.</td>
+</tr><tr>
+<td class="c-step">1.5</td>
+<td><b>Escalate to senior manager for manual intervention</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Checksum validation result</td>
+<td>Manual intervention request</td>
+<td>Escalation completed within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Senior management involvement is required for critical failures.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-FO-WX-03-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Deployment</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Preparation for Deployment</span>
+    <span class="ph-n">6 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Deploy to flight planning systems</b></td>
-<td>Navigation Data Coordinator</td>
+<td><b>Prepare for deployment by scheduling downtime</b></td>
+<td>YYZ Operations Control Duty Manager</td>
 <td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Validated database</td>
-<td>Deployed database in flight planning</td>
-<td>Deployed before the cycle effective date at 100 percent</td>
+<td>Checksum validation result</td>
+<td>Scheduled downtime window</td>
+<td>Downtime scheduled within 4 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Deployment has to complete across every planning system before the old cycle expires</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Conflicts with other maintenance schedules.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Deploy to the electronic flight bag fleet-wide</b></td>
-<td>Navigation Data Coordinator</td>
-<td><span class="tag datalink" data-tooltip="Flight-deck EFB carrying charts, performance calculations and operational manuals. [Multiple - evidence C]">Electronic Flight Bag<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Validated database</td>
-<td>Deployed database across the EFB fleet</td>
-<td>Deployed to 100 percent of the fleet before the cycle effective date</td>
+<td><b>Notify all relevant teams of the upcoming update</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Scheduled downtime window</td>
+<td>Notification sent to all teams</td>
+<td>Notifications sent within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual overrides may be needed if systems are unresponsive.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Confirm receipt of notification by all teams</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Notification sent to all teams</td>
+<td>Confirmation from all teams</td>
+<td>All confirmations received within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Lack of communication can lead to missed updates.</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Report missing confirmation to relevant team</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Confirmation from all teams</td>
+<td>Missing confirmation report</td>
+<td>Report sent within 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual follow-up is required to ensure compliance.</td>
+</tr><tr>
+<td class="c-step">2.5</td>
+<td><b>Resend notification and confirm receipt again</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Missing confirmation report</td>
+<td>Confirmation from all teams</td>
+<td>All confirmations received within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Repeated notifications may be necessary to ensure proper communication.</td>
+</tr><tr>
+<td class="c-step">2.6</td>
+<td><b>Escalate missing confirmation to senior management</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Confirmation from all teams</td>
+<td>Escalation request</td>
+<td>Escalation completed within 1 hour</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Fleet-wide EFB deployment depends on each aircraft&#x27;s connectivity opportunity before the deadline</td>
+<td>Senior management involvement is required to resolve persistent issues.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-FO-WX-03-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Currency confirmation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Deployment Notification</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Confirm currency across all systems</b></td>
-<td>Navigation Data Coordinator</td>
+<td><b>Deploy the updated navigation database</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Scheduled downtime window</td>
+<td>Updated navigation database deployed</td>
+<td>Deployment completed within 2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System compatibility issues may arise during deployment.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Rollback to previous version</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Deployment result</td>
+<td>Previous navigation database re-deployed</td>
+<td>Rollback completed within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Recovery to the previous state is critical in case of failure.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Report deployment failure to relevant teams</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Deployment result</td>
+<td>Failure report</td>
+<td>Report sent within 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual intervention may be required to fix the issue.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-WX-03-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; System Update</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Verify integrity of the deployed database</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Updated navigation database deployed</td>
+<td>Integrity check result</td>
+<td>Check completed within 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Data integrity issues can lead to operational disruptions.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Re-run integrity check</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Integrity check result</td>
+<td>Integrity check result</td>
+<td>Check completed within 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System instability can cause repeated failures.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Escalate integrity check failure to senior management</b></td>
+<td>YYZ Operations Control Duty Manager</td>
 <td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Deployment across all systems</td>
-<td>Confirmed fleet-wide currency</td>
-<td>Confirmed before the new cycle takes effect at 100 percent</td>
+<td>Integrity check result</td>
+<td>Escalation request</td>
+<td>Escalation completed within 1 hour</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>An aircraft that missed the deployment window cannot legally operate on the expired cycle</td>
+<td>Senior management involvement is required to resolve critical issues.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-WX-03-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Verification and Monitoring</span>
+    <span class="ph-n">6 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Monitor system performance post-update</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Updated navigation database deployed</td>
+<td>Performance metrics</td>
+<td>Monitoring completed within 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System performance degradation can lead to flight delays.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Investigate system performance issues</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Performance metrics</td>
+<td>Issue investigation report</td>
+<td>Investigation completed within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Identifying the root cause is critical for resolution.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Report performance issues to senior management</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Issue investigation report</td>
+<td>Escalation request</td>
+<td>Escalation completed within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual intervention may be required to fix the issue.</td>
+</tr><tr>
+<td class="c-step">5.4</td>
+<td><b>Notify flight operations of any changes</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Performance metrics</td>
+<td>Notification sent to flight operations</td>
+<td>Notifications sent within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Flight operations need to be informed of any changes.</td>
+</tr><tr>
+<td class="c-step">5.5</td>
+<td><b>Resend notification and confirm receipt again</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Notification sent to flight operations</td>
+<td>Confirmation from flight operations</td>
+<td>All confirmations received within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Repeated notifications may be necessary to ensure proper communication.</td>
+</tr><tr>
+<td class="c-step">5.6</td>
+<td><b>Escalate missing confirmation to senior management</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Confirmation from flight operations</td>
+<td>Escalation request</td>
+<td>Escalation completed within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Senior management involvement is required to resolve persistent issues.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-WX-03-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Post-Update Review</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Review post-update logs for any anomalies</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Performance metrics</td>
+<td>Log review report</td>
+<td>Log review completed within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Anomalies can indicate underlying issues that need to be addressed.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Investigate anomalies and recommend fixes</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Log review report</td>
+<td>Fix recommendations</td>
+<td>Recommendations completed within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Identifying the root cause is critical for resolution.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Escalate unresolved anomalies to senior management</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Fix recommendations</td>
+<td>Escalation request</td>
+<td>Escalation completed within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Senior management involvement is required to resolve critical issues.</td>
+</tr><tr>
+<td class="c-step">6.4</td>
+<td><b>Document the update process and outcomes</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Update results</td>
+<td>Process documentation</td>
+<td>Documentation completed within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Incomplete documentation can lead to future issues.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Navigation Data Coordinator</span><span class="lane-steps">1.1 1.2 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">1.1 1.2 1.3 1.4 1.5 2.1 2.2 2.3 2.4 2.5 2.6 3.1 3.2 3.3 4.1 4.2 4.3 5.1 5.2 5.3 5.4 5.5 5.6 6.1 6.2 6.3 6.4</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag jeppesen" data-tooltip="Terminal charts and navigation data delivered to the flight deck EFB. [Boeing Jeppesen - evidence B]">Jeppesen Charts<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag datalink" data-tooltip="Flight-deck EFB carrying charts, performance calculations and operational manuals. [Multiple - evidence C]">Electronic Flight Bag<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
+<div class="card"><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Received before the cycle effective date at 100 percent</li><li>Deployed to 100 percent of the fleet before the cycle effective date</li><li>Confirmed before the new cycle takes effect at 100 percent</li><li>Zero flights operated on an expired navigation database cycle</li></ul>
+<ul class="bullets"><li>File received within 2 hours</li><li>Validation completed within 30 minutes</li><li>Downtime scheduled within 4 hours</li><li>Notifications sent within 1 hour</li><li>Deployment completed within 2 hours</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>An aircraft missing the deployment window and being unable to legally operate on the expired cycle</li><li>A validation failure close to the effective date leaving little time for vendor remediation</li><li>Fleet-wide EFB deployment depending on each aircraft&#x27;s connectivity opportunity before the deadline</li><li>Vendor delivery timing leaving a fixed and sometimes tight window before the effective date</li></ul>
+<ul class="bullets risk"><li>Network latency causing delays in receiving the file.</li><li>Incorrect checksum leading to data corruption.</li><li>Conflicts with other maintenance schedules during downtime scheduling.</li><li>Manual retransmission required due to network issues.</li><li>System compatibility issues during deployment.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../flight-operations-dispatch/weather-notam-nav-data/ac-fo-wx-02/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">NOTAM Review and Applicability Screening</span></a>
