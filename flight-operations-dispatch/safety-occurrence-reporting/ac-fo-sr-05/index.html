@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-FO-SR-05" title="Click to copy the process ID">
     AC-FO-SR-05<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Fatigue Risk Management Review</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,299 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-FO-SR-05-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Fatigue report intake</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Initial Fatigue Assessment</span>
+    <span class="ph-n">5 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Receive and register the fatigue report</b></td>
-<td>Fatigue Risk Management Coordinator</td>
-<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Crew-submitted fatigue report</td>
-<td>Registered report</td>
-<td>Registered within 24 hours of submission at 100 percent</td>
+<td><b>Receive fatigue report</b></td>
+<td>Flight Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Fatigue report from crew member or automated system</td>
+<td>Fatigue incident record</td>
+<td>Incident response time within 30 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Fatigue reports arrive without a standardised structure that makes cross-report comparison easy</td>
+<td>Delayed reporting due to manual data entry</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Assess fatigue risk level</b></td>
+<td>Flight Operations Control Duty Manager</td>
+<td><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Fatigue incident record</td>
+<td>Risk assessment report</td>
+<td>Time to assess risk within 15 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex risk assessments taking longer than expected</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Notify crew of initial assessment</b></td>
+<td>Flight Operations Control Duty Manager</td>
+<td><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Risk assessment report</td>
+<td>Notification to crew member</td>
+<td>Notification sent within 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Crew not reachable via ACARS</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Attempt alternative communication method</b></td>
+<td>Flight Operations Control Duty Manager</td>
+<td><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Notification failure record</td>
+<td>Alternative communication attempt</td>
+<td>Alternative method success rate 90%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Multiple failed attempts due to system downtime</td>
+</tr><tr>
+<td class="c-step">1.5</td>
+<td><b>Confirm crew receipt of notification</b></td>
+<td>Flight Operations Control Duty Manager</td>
+<td><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Crew confirmation</td>
+<td>Acknowledgment record</td>
+<td>Confirmation received within 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>No acknowledgment due to system issues</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-FO-SR-05-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Pattern analysis</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Schedule Review and Adjustment</span>
+    <span class="ph-n">5 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Assess the individual report against fatigue standards</b></td>
-<td>Fatigue Risk Management Coordinator</td>
-<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Registered report and pairing detail</td>
-<td>Assessed report against fatigue risk criteria</td>
-<td>Assessed within 5 business days of registration at 100 percent</td>
+<td><b>Initiate schedule review</b></td>
+<td>Flight Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Risk assessment report</td>
+<td>Proposed schedule adjustments</td>
+<td>Review time within 30 minutes</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Individual fatigue experience is genuinely subjective and hard to assess against an objective standard alone</td>
+<td>Complex scheduling conflicts delaying reviews</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Screen for a contributing pairing or roster pattern</b></td>
-<td>Fatigue Risk Management Coordinator</td>
-<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Assessed report and historical fatigue report data</td>
-<td>Identified pattern or isolated case</td>
-<td>Screened against the historical pattern for 100 percent of material reports</td>
+<td><b>Adjust flight crew schedule</b></td>
+<td>Flight Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Proposed schedule adjustments</td>
+<td>Adjusted schedule</td>
+<td>Schedule adjustment completion within 1 hour</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Unforeseen delays in applying changes</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Verify adjusted schedule for compliance</b></td>
+<td>Flight Operations Control Duty Manager</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Adjusted schedule</td>
+<td>Compliance check report</td>
+<td>Compliance verification time within 10 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A pattern across multiple crew members on the same pairing type can be missed if each report is assessed in isolation</td>
+<td>Regulatory compliance checks failing due to system errors</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Document no adjustments needed</b></td>
+<td>Flight Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Risk assessment report</td>
+<td>No adjustment record</td>
+<td>Documentation completion within 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Difficulty in documenting decisions</td>
+</tr><tr>
+<td class="c-step">2.5</td>
+<td><b>Adjust schedule to comply with regulations</b></td>
+<td>Flight Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Compliance check report</td>
+<td>Final adjusted schedule</td>
+<td>Regulatory compliance adjustments within 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Multiple rounds of adjustments due to regulatory changes</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-FO-SR-05-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Feedback to crew planning</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Regulatory Compliance Check</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Feed pattern findings back to crew planning</b></td>
-<td>Fatigue Risk Management Coordinator</td>
-<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Identified pattern</td>
-<td>Feedback to the crew planning process</td>
-<td>Fed back within one planning cycle of confirmation at 100 percent</td>
+<td><b>Notify crew of final schedule adjustment</b></td>
+<td>Flight Operations Control Duty Manager</td>
+<td><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Final adjusted schedule</td>
+<td>Notification to crew member</td>
+<td>Notification sent within 5 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Crew not reachable via ACARS</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Attempt alternative communication method for final notification</b></td>
+<td>Flight Operations Control Duty Manager</td>
+<td><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Final adjusted schedule</td>
+<td>Alternative communication attempt</td>
+<td>Alternative method success rate 90%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>The feedback loop from finding to an actual pairing design change can take a full planning cycle to close</td>
+<td>Multiple failed attempts due to system downtime</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Confirm crew receipt of final notification</b></td>
+<td>Flight Operations Control Duty Manager</td>
+<td><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Crew confirmation</td>
+<td>Acknowledgment record</td>
+<td>Confirmation received within 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>No acknowledgment due to system issues</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Document crew acknowledgment</b></td>
+<td>Flight Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Crew confirmation</td>
+<td>Acknowledgment record</td>
+<td>Documentation completion within 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Difficulty in documenting decisions</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-SR-05-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Crew Notification and Acknowledgment</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Review final schedule for accuracy</b></td>
+<td>Flight Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Final adjusted schedule</td>
+<td>Schedule review report</td>
+<td>Review time within 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex scheduling conflicts delaying reviews</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Correct errors in final schedule</b></td>
+<td>Flight Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Schedule review report</td>
+<td>Corrected final schedule</td>
+<td>Correction time within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Unforeseen delays in applying changes</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Re-verify corrected schedule for compliance</b></td>
+<td>Flight Operations Control Duty Manager</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Corrected final schedule</td>
+<td>Compliance check report</td>
+<td>Compliance verification time within 10 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Regulatory compliance checks failing due to system errors</td>
+</tr><tr>
+<td class="c-step">4.4</td>
+<td><b>Adjust corrected schedule to comply with regulations</b></td>
+<td>Flight Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Compliance check report</td>
+<td>Final adjusted schedule</td>
+<td>Regulatory compliance adjustments within 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Multiple rounds of adjustments due to regulatory changes</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-SR-05-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Final Schedule Confirmation</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Final review and approval</b></td>
+<td>Flight Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Final adjusted schedule</td>
+<td>Approval record</td>
+<td>Approval time within 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex scheduling conflicts delaying reviews</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Escalate to higher management for approval</b></td>
+<td>Flight Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Final adjusted schedule</td>
+<td>Escalation record</td>
+<td>Escalation time within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Difficulty in getting approvals</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Notify crew of approved final schedule</b></td>
+<td>Flight Operations Control Duty Manager</td>
+<td><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Approved final schedule</td>
+<td>Notification to crew member</td>
+<td>Notification sent within 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Crew not reachable via ACARS</td>
+</tr><tr>
+<td class="c-step">5.4</td>
+<td><b>Document approval and notification</b></td>
+<td>Flight Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Approval record, notification confirmation</td>
+<td>Final documentation</td>
+<td>Documentation completion within 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Difficulty in documenting decisions</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Fatigue Risk Management Coordinator</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Flight Operations Control Duty Manager</span><span class="lane-steps">1.1 1.2 1.3 1.4 1.5 2.1 2.2 2.3 2.4 2.5 3.1 3.2 3.3 3.4 4.1 4.2 4.3 4.4 5.1 5.2 5.3 5.4</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Registered within 24 hours of submission at 100 percent</li><li>Assessed within 5 business days of registration at 100 percent</li><li>Screened against the historical pattern for 100 percent of material reports</li><li>Fed back within one planning cycle of confirmation at 100 percent</li></ul>
+<ul class="bullets"><li>Incident response time within 30 minutes</li><li>Time to assess risk within 15 minutes</li><li>Notification sent within 5 minutes</li><li>Alternative method success rate 90%</li><li>Confirmation received within 2 hours</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A pattern across multiple crew members on the same pairing type being missed if reports are assessed in isolation</li><li>Individual fatigue experience being genuinely subjective and hard to assess against an objective standard</li><li>The feedback loop from finding to an actual pairing design change taking a full planning cycle to close</li><li>Fatigue reports arriving without a standardised structure that makes cross-report comparison difficult</li></ul>
+<ul class="bullets risk"><li>Fatigue reports not reaching the right team promptly</li><li>Complex scheduling conflicts causing delays</li><li>Regulatory compliance checks failing due to system errors</li><li>Crew acknowledgments not being recorded properly</li><li>Final approvals taking longer than expected</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../flight-operations-dispatch/safety-occurrence-reporting/ac-fo-sr-04/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Flight Data Monitoring and Analysis</span></a>
