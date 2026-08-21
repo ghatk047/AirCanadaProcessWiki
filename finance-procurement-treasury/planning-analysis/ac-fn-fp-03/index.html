@@ -133,7 +133,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-FN-FP-03" title="Click to copy the process ID">
     AC-FN-FP-03<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Management Reporting and Board Pack</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -142,85 +142,310 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-FN-FP-03-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Data synthesis</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Data Extraction</span>
+    <span class="ph-n">6 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Synthesise financial and operational data</b></td>
-<td>Financial Planning Analyst</td>
+<td><b>Extract financial data from SAP S/4HANA</b></td>
+<td>Financial Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Monthly financial close cycle initiation</td>
+<td>Extracted financial data</td>
+<td>Data extraction time &lt; 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System downtime can delay data extraction, affecting reporting timelines.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Validate extracted data for accuracy</b></td>
+<td>Financial Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Extracted financial data</td>
+<td>Validated financial data</td>
+<td>Data validation completion rate &gt; 98%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual adjustments required due to system errors.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Integrate revenue data from Revenue Accounting System</b></td>
+<td>Revenue Analyst</td>
+<td><span class="tag sap" data-tooltip="Passenger revenue accounting, proration, interline billing and BSP reconciliation. [Multiple - evidence C]">Revenue Accounting System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Validated financial data</td>
+<td>Integrated financial and revenue data</td>
+<td>Data integration time &lt; 4 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Interline billing discrepancies can arise, leading to manual reconciliation.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Generate Management Reporting Pack using SAP Analytics Cloud</b></td>
+<td>Financial Analyst</td>
 <td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Financial results and operational KPIs across functions</td>
-<td>Synthesised data set</td>
-<td>Synthesised within the reporting timeline at 100 percent</td>
+<td>Integrated financial and revenue data</td>
+<td>Management Reporting Pack</td>
+<td>Report generation time &lt; 8 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex reporting formulas can lead to calculation errors.</td>
+</tr><tr>
+<td class="c-step">1.5</td>
+<td><b>Escalate data extraction issues to IT support</b></td>
+<td>Financial Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">IT Support<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Data extraction failure details</td>
+<td>Resolved data extraction issue</td>
+<td>Issue resolution time &lt; 24 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Operational KPIs drawn from several domains need to reconcile with the financial results they should support</td>
+<td>Waiting for system recovery can delay the entire reporting cycle.</td>
+</tr><tr>
+<td class="c-step">1.6</td>
+<td><b>Re-attempt data extraction after IT support resolves issues</b></td>
+<td>Financial Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Resolved data extraction issue</td>
+<td>Successfully extracted financial data</td>
+<td>Data re-extraction time &lt; 2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Re-attempts may still fail if the root cause is unresolved.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-FN-FP-03-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Report preparation</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Report Generation</span>
+    <span class="ph-n">6 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Prepare management report content</b></td>
-<td>Financial Planning Analyst</td>
+<td><b>Review Management Reporting Pack for accuracy and completeness</b></td>
+<td>Financial Analyst</td>
 <td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Synthesised data</td>
-<td>Prepared report content</td>
-<td>Prepared within the reporting timeline at 100 percent</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Any upstream error in revenue accounting or forecasting ultimately surfaces in front of the widest audience here</td>
-</tr><tr>
-<td class="c-step">2.2</td>
-<td><b>Prepare board financial pack</b></td>
-<td>Financial Planning Analyst</td>
-<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Prepared management report</td>
-<td>Prepared board pack</td>
-<td>Prepared before the board meeting deadline at 100 percent</td>
+<td>Management Reporting Pack</td>
+<td>Reviewed Management Reporting Pack</td>
+<td>Review completion time &lt; 4 hours</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>The board pack has a hard deadline tied to governance requirements that does not flex for a late close</td>
+<td>Data inconsistencies may require additional validation.</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Approve Management Reporting Pack for distribution</b></td>
+<td>Finance Manager</td>
+<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Reviewed Management Reporting Pack</td>
+<td>Approved Management Reporting Pack</td>
+<td>Approval time &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manager&#x27;s approval may be delayed due to pending audits.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Escalate approval issues to higher management</b></td>
+<td>Finance Manager</td>
+<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Approval decline details</td>
+<td>Higher management review</td>
+<td>Escalation time &lt; 8 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Multiple levels of escalation can lead to delays.</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Finalize approved Management Reporting Pack</b></td>
+<td>Financial Analyst</td>
+<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Higher management review</td>
+<td>Finalized Management Reporting Pack</td>
+<td>Finalization time &lt; 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Last-minute changes may require additional adjustments.</td>
+</tr><tr>
+<td class="c-step">2.5</td>
+<td><b>Escalate finalization issues to IT support</b></td>
+<td>Financial Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">IT Support<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Finalization failure details</td>
+<td>Resolved finalization issue</td>
+<td>Issue resolution time &lt; 4 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System limitations can cause finalization delays.</td>
+</tr><tr>
+<td class="c-step">2.6</td>
+<td><b>Re-attempt finalization after IT support resolves issues</b></td>
+<td>Financial Analyst</td>
+<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Resolved finalization issue</td>
+<td>Successfully finalized Management Reporting Pack</td>
+<td>Finalization reattempt time &lt; 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Multiple reattempts may be necessary.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-FN-FP-03-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Distribution</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Review and Approval</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Distribute reports to stakeholders</b></td>
-<td>Financial Planning Analyst</td>
-<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Prepared reports</td>
-<td>Distributed reports</td>
-<td>Distributed within the required lead time before the relevant meeting at 100 percent</td>
+<td><b>Prepare distribution list for board members</b></td>
+<td>Distribution Coordinator</td>
+<td></td>
+<td>Finalized Management Reporting Pack</td>
+<td>Distribution list</td>
+<td>List preparation time &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Incorrect email addresses can cause undelivered reports.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Correct distribution list errors and re-prepare</b></td>
+<td>Distribution Coordinator</td>
+<td></td>
+<td>List preparation failure details</td>
+<td>Corrected distribution list</td>
+<td>Correction time &lt; 0.5 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A report distributed too close to the meeting gives recipients no genuine time to review before discussion</td>
+<td>Manual corrections can be time-consuming.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Distribute Management Reporting Pack via email</b></td>
+<td>Distribution Coordinator</td>
+<td></td>
+<td>Corrected distribution list</td>
+<td>Email sent confirmation</td>
+<td>Distribution time &lt; 0.5 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Email delivery failures can occur.</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Handle email delivery failures and resend</b></td>
+<td>Distribution Coordinator</td>
+<td></td>
+<td>Delivery failure details</td>
+<td>Resent email confirmation</td>
+<td>Redelivery time &lt; 0.5 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Persistent failures may require manual intervention.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FN-FP-03-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Distribution</span>
+    <span class="ph-n">5 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Collect feedback on Management Reporting Pack from board members</b></td>
+<td>Board Liaison Officer</td>
+<td></td>
+<td>Email sent confirmation</td>
+<td>Feedback received</td>
+<td>Feedback collection time &lt; 2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed responses can impact follow-up actions.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Analyze board member feedback</b></td>
+<td>Finance Analyst</td>
+<td></td>
+<td>Feedback received</td>
+<td>Analysis report</td>
+<td>Analysis time &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex feedback may require detailed interpretation.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Escalate complex feedback to senior management</b></td>
+<td>Finance Analyst</td>
+<td></td>
+<td>Complex feedback details</td>
+<td>Senior management review</td>
+<td>Escalation time &lt; 2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Multiple escalations can delay resolution.</td>
+</tr><tr>
+<td class="c-step">4.4</td>
+<td><b>Implement changes based on senior management decision</b></td>
+<td>Financial Analyst</td>
+<td></td>
+<td>Senior management review</td>
+<td>Changes implemented</td>
+<td>Change implementation time &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Implementation delays can affect next reporting cycle.</td>
+</tr><tr>
+<td class="c-step">4.5</td>
+<td><b>Escalate change implementation issues to IT support</b></td>
+<td>Financial Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">IT Support<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Change implementation failure details</td>
+<td>Resolved change issue</td>
+<td>Issue resolution time &lt; 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Persistent implementation failures may require system adjustments.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FN-FP-03-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Post-Board Meeting Review</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Prepare post-board meeting action plan</b></td>
+<td>Finance Manager</td>
+<td></td>
+<td>Analysis report</td>
+<td>Action plan</td>
+<td>Action plan preparation time &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Incomplete action plans can delay follow-up tasks.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Review and approve post-board meeting action plan</b></td>
+<td>Finance Director</td>
+<td></td>
+<td>Action plan</td>
+<td>Approved action plan</td>
+<td>Approval time &lt; 0.5 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Director&#x27;s approval may be delayed due to other priorities.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Financial Planning Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Financial Analyst</span><span class="lane-steps">1.1 1.2 1.4 1.5 1.6 2.1 2.4 2.5 2.6 4.4 4.5</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Revenue Analyst</span><span class="lane-steps">1.3</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Finance Manager</span><span class="lane-steps">2.2 2.3 5.1</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Distribution Coordinator</span><span class="lane-steps">3.1 3.2 3.3 3.4</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Board Liaison Officer</span><span class="lane-steps">4.1</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>Finance Analyst</span><span class="lane-steps">4.2 4.3</span></div><div class="lane"><span class="swatch" style="background:#8A5A1E"></span><span>Finance Director</span><span class="lane-steps">5.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sap" data-tooltip="Passenger revenue accounting, proration, interline billing and BSP reconciliation. [Multiple - evidence C]">Revenue Accounting System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">IT Support<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid."><span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Synthesised within the reporting timeline at 100 percent</li><li>Prepared within the reporting timeline at 100 percent</li><li>Prepared before the board meeting deadline at 100 percent</li><li>Distributed within the required lead time before the relevant meeting at 100 percent</li></ul>
+<ul class="bullets"><li>Data extraction time &lt; 2 hours</li><li>Data validation completion rate &gt; 98%</li><li>Data integration time &lt; 4 hours</li><li>Report generation time &lt; 8 hours</li><li>Finalization reattempt time &lt; 1 hour</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Any upstream error in revenue accounting or forecasting ultimately surfacing in front of the widest audience</li><li>The board pack deadline being tied to governance requirements that do not flex for a late close</li><li>A report distributed too close to the meeting giving recipients no genuine time to review</li><li>Operational KPIs from several domains needing to reconcile with the financial results they should support</li></ul>
+<ul class="bullets risk"><li>System downtime affecting data extraction</li><li>Manual adjustments due to system errors</li><li>Interline billing discrepancies requiring reconciliation</li><li>Complex reporting formulas leading to calculation errors</li><li>Delayed feedback from board members</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../finance-procurement-treasury/planning-analysis/ac-fn-fp-02/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Monthly Forecast and Reforecast Cycle</span></a>
