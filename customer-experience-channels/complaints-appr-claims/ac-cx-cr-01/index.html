@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CX-CR-01" title="Click to copy the process ID">
     AC-CX-CR-01<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>APPR Complaint Intake and Triage</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,252 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-CX-CR-01-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Intake and registration</span>
+    <span class="ph-name">Phase 1 &mdash; Complaint Intake</span>
     <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Register the complaint</b></td>
-<td>Customer Relations Agent</td>
-<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Customer complaint submission</td>
-<td>Registered case with timestamp</td>
-<td>Registered within 1 business day of receipt at 100 percent</td>
+<td><b>Customer submits complaint</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag channel" data-tooltip="Primary direct digital channel, cloud-native on AWS. Undergoing redevelopment under the CDO. [Air Canada - evidence A]">aircanada.com<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Complaint details from customer</td>
+<td>Complaint record in Salesforce Service Cloud</td>
+<td>95% of complaints received within 30 seconds</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Complaints arrive across channels with very different levels of structured detail</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System downtime can lead to lost complaints.</td>
 </tr><tr>
 <td class="c-step">1.2</td>
-<td><b>Classify complaint category and severity</b></td>
-<td>Customer Relations Agent</td>
+<td><b>Complaint logged in Salesforce Service Cloud</b></td>
+<td>Aeroplan Member Services Agent</td>
 <td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Registered complaint content</td>
-<td>Classified category and severity</td>
-<td>Correctly classified on first pass at 85 percent</td>
+<td>Customer complaint details</td>
+<td>Complaint case created</td>
+<td>98% of complaints logged within 2 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>A complaint that touches multiple issues, such as both baggage and a delay, needs the correct primary classification</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Salesforce integration issues can delay logging.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CX-CR-01-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Classification</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Initial Assessment</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Screen for APPR entitlement indicators</b></td>
-<td>Customer Relations Agent</td>
+<td><b>Initial assessment of complaint severity</b></td>
+<td>Aeroplan Member Services Agent</td>
 <td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Classified complaint</td>
-<td>Flagged for APPR review or standard service recovery</td>
-<td>APPR indicators correctly flagged at 90 percent</td>
+<td>Complaint case details</td>
+<td>Severity rating (Low, Medium, High)</td>
+<td>90% accurate severity rating within 5 minutes</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A complaint that reads as a general service issue can actually carry APPR entitlement not obvious from the initial text</td>
+<td>Subjectivity in severity assessment can lead to misrouting.</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Route complaint for low severity issues</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Complaint case details</td>
+<td>Escalated to customer service team</td>
+<td>95% of low-severity complaints routed within 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Team availability can impact routing speed.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Route complaint for high severity issues</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Complaint case details</td>
+<td>Escalated to claims department</td>
+<td>90% of high-severity complaints routed within 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Claims department backlog can delay response.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CX-CR-01-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Routing</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Categorization and Prioritization</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Route to the correct resolution path</b></td>
-<td>Customer Relations Agent</td>
+<td><b>Categorize complaint based on APPR regulations</b></td>
+<td>APPR Adjudicator</td>
 <td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Flagged classification</td>
-<td>Routed case with committed response timeline</td>
-<td>Routed within 1 business day of registration at 95 percent</td>
+<td>Complaint case details</td>
+<td>APPR category (e.g., baggage, cancellation)</td>
+<td>95% accurate categorization within 10 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Complex cases can be misclassified.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Assign complaint to relevant department</b></td>
+<td>APPR Adjudicator</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Complaint case details and APPR category</td>
+<td>Department assignment</td>
+<td>90% of complaints assigned within 5 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A misrouted complaint loses time before the correct team even begins working it</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Department unavailability can delay assignment.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Clarify complaint category with customer</b></td>
+<td>APPR Adjudicator</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Complaint case details and APPR regulations</td>
+<td>Customer confirmation on category</td>
+<td>85% of clarifications resolved within 15 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Customers may not understand complex categories.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-CR-01-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Escalation to Relevant Department</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Notify relevant department of assigned complaint</b></td>
+<td>APPR Adjudicator</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Complaint case details and department assignment</td>
+<td>Notification sent to department</td>
+<td>95% of notifications sent within 2 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Notification system failures can delay response.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Monitor department response time</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Complaint case details and notification status</td>
+<td>Response time monitoring</td>
+<td>90% of departments respond within 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Department response times can vary widely.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-CR-01-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Monitoring and Review</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Review complaint resolution</b></td>
+<td>APPR Adjudicator</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Complaint case details and department response</td>
+<td>Resolution review</td>
+<td>90% of reviews completed within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex resolutions may require additional time.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Approve complaint resolution</b></td>
+<td>APPR Adjudicator</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Complaint case details and review outcome</td>
+<td>Approved resolution</td>
+<td>95% of approvals completed within 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Adjudicator workload can impact approval speed.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Request additional information from department</b></td>
+<td>APPR Adjudicator</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Complaint case details and resolution requirements</td>
+<td>Information request sent to department</td>
+<td>90% of requests completed within 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Department availability can delay information provision.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-CR-01-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Closure and Feedback</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Notify customer of resolution outcome</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Complaint case details and approved resolution</td>
+<td>Customer notification</td>
+<td>95% of notifications sent within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Customer availability can impact communication.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Update complaint case in Salesforce Service Cloud</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Complaint case details and resolution outcome</td>
+<td>Updated complaint record</td>
+<td>90% of updates completed within 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Salesforce system issues can delay updates.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Close complaint case in Salesforce Service Cloud</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Complaint case details and resolution outcome</td>
+<td>Closed complaint record</td>
+<td>95% of cases closed within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Case closure issues can lead to reopenings.</td>
+</tr><tr>
+<td class="c-step">6.4</td>
+<td><b>Request customer feedback on resolution</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Complaint case details and closure outcome</td>
+<td>Customer feedback</td>
+<td>85% of feedback received within 24 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Customers may not respond promptly.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Customer Relations Agent</span><span class="lane-steps">1.1 1.2 2.1 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Aeroplan Member Services Agent</span><span class="lane-steps">1.1 1.2 2.1 2.2 2.3 6.1 6.2 6.3 6.4</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>APPR Adjudicator</span><span class="lane-steps">3.1 3.2 3.3 4.1 5.1 5.2 5.3</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">4.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+<div class="card"><span class="tag channel" data-tooltip="Primary direct digital channel, cloud-native on AWS. Undergoing redevelopment under the CDO. [Air Canada - evidence A]">aircanada.com<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Registered within 1 business day of receipt at 100 percent</li><li>Correctly classified on first pass at 85 percent</li><li>APPR indicators correctly flagged at 90 percent</li><li>Routed within 1 business day of registration at 95 percent</li></ul>
+<ul class="bullets"><li>95% of complaints received within 30 seconds</li><li>98% of complaints logged within 2 minutes</li><li>90% accurate severity rating within 5 minutes</li><li>95% of low-severity complaints routed within 10 minutes</li><li>90% of high-severity complaints routed within 5 minutes</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A complaint carrying APPR entitlement not obvious from the initial text being routed as standard service recovery</li><li>The regulatory clock running from the original complaint even if it is later reclassified</li><li>A misrouted complaint losing meaningful time before the correct team begins working it</li><li>A complaint touching multiple issues being classified only against its least significant component</li></ul>
+<ul class="bullets risk"><li>System downtime leading to lost complaints.</li><li>Salesforce integration issues delaying logging.</li><li>Subjectivity in severity assessment causing misrouting.</li><li>Team availability impacting routing speed.</li><li>Claims department backlog delaying response.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../customer-experience-channels/special-services-accessibility/ac-cx-ss-06/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Group and Event Travel Servicing</span></a>

@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CX-SS-06" title="Click to copy the process ID">
     AC-CX-SS-06<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Group and Event Travel Servicing</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,252 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-CX-SS-06-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Group finalisation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Initial Request Handling</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Finalise group passenger list</b></td>
-<td>Group Sales Coordinator</td>
-<td><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Confirmed group booking</td>
-<td>Finalised individual passenger names</td>
-<td>Finalised by the fare rule deadline at 100 percent</td>
+<td><b>Receive travel request</b></td>
+<td>Group Travel Agent</td>
+<td><span class="tag channel" data-tooltip="Primary direct digital channel, cloud-native on AWS. Undergoing redevelopment under the CDO. [Air Canada - evidence A]">aircanada.com<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Customer submission through digital channel</td>
+<td>Travel request details</td>
+<td>Requests received per day</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Name changes and passenger substitutions within a group are common right up to the deadline</td>
+<td>Handling high volume of requests can lead to delays in processing.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Validate customer eligibility</b></td>
+<td>Group Travel Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Travel request details</td>
+<td>Eligibility status</td>
+<td>Eligibility checks per day</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inconsistent data entry can cause false positives or negatives.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Notify customer of ineligibility</b></td>
+<td>Group Travel Agent</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Eligibility status</td>
+<td>Customer notification</td>
+<td>Ineligible notifications sent per day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Poor communication can lead to customer dissatisfaction.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CX-SS-06-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Individual passenger detail collection</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Regulatory Compliance Check</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Collect individual special requirements</b></td>
-<td>Group Sales Coordinator</td>
-<td><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Group passenger list</td>
-<td>Individual requirements captured within the group booking</td>
-<td>Captured for 100 percent of individual requirements before travel</td>
+<td><b>Check APPR compliance</b></td>
+<td>Regulatory Compliance Officer</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Travel request details</td>
+<td>APPR compliance status</td>
+<td>Compliance checks per day</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Individual special requirements within a group booking are easier to lose track of than for a standalone passenger</td>
+<td>Complex regulations can lead to misinterpretation and errors.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Coordinate seat assignment for the group</b></td>
-<td>Group Sales Coordinator</td>
-<td><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Group booking and preferences</td>
-<td>Coordinated seat assignment</td>
-<td>Group seating coordinated before check-in opens at 95 percent</td>
+<td><b>Escalate for manual review</b></td>
+<td>Regulatory Compliance Officer</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Travel request details</td>
+<td>Manual review case</td>
+<td>Cases escalated per day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual reviews take time and resources.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Update compliance status</b></td>
+<td>Regulatory Compliance Officer</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Review outcome</td>
+<td>Updated travel request details</td>
+<td>Compliance updates per day</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Seat coordination for a large group competes with individual passenger seat selection on the same flight</td>
+<td>Errors in manual review can delay bookings.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CX-SS-06-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Travel day coordination</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Service Coordination</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Coordinate group check-in and boarding</b></td>
-<td>Group Sales Coordinator</td>
-<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Confirmed group arrangements</td>
-<td>Coordinated group check-in and boarding</td>
-<td>Group check-in completed without disrupting the standard boarding process at 100 percent</td>
+<td><b>Coordinate with vendors</b></td>
+<td>Group Travel Agent</td>
+<td><span class="tag channel" data-tooltip="iOS and Android. Booking, check-in, boarding pass, in-app bag tracking and mobility-aid tracking. [Air Canada - evidence A]">Air Canada Mobile App<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Travel request details</td>
+<td>Vendor confirmation</td>
+<td>Vendor coordination calls per day</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Vendor availability and response times can be unpredictable.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Notify customer of vendor unavailability</b></td>
+<td>Group Travel Agent</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Travel request details</td>
+<td>Customer notification</td>
+<td>Notifications sent per day</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A large group at check-in or boarding can create a bottleneck for individual passengers if not managed</td>
+<td>Delays in vendor response can cause customer frustration.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-SS-06-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Notification and Confirmation</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Notify customer of booking confirmation</b></td>
+<td>Group Travel Agent</td>
+<td><span class="tag channel" data-tooltip="iOS and Android. Booking, check-in, boarding pass, in-app bag tracking and mobility-aid tracking. [Air Canada - evidence A]">Air Canada Mobile App<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Booking details</td>
+<td>Customer notification</td>
+<td>Notifications sent per day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Poor communication can lead to confusion.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Confirm receipt of notification</b></td>
+<td>Group Travel Agent</td>
+<td><span class="tag channel" data-tooltip="Primary direct digital channel, cloud-native on AWS. Undergoing redevelopment under the CDO. [Air Canada - evidence A]">aircanada.com<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Customer confirmation</td>
+<td>Confirmation status</td>
+<td>Confirmations received per day</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Customers may not confirm promptly, leading to follow-ups.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Follow up with customer</b></td>
+<td>Group Travel Agent</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Customer details</td>
+<td>Follow-up status</td>
+<td>Follow-ups per day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Multiple follow-ups can be time-consuming.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-SS-06-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Post-Booking Support</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Monitor travel experience</b></td>
+<td>Customer Experience Analyst</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Travel data</td>
+<td>Experience report</td>
+<td>Experiences monitored per day</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Real-time monitoring can be resource-intensive.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Escalate for resolution</b></td>
+<td>Customer Experience Analyst</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Feedback details</td>
+<td>Resolution case</td>
+<td>Cases escalated per day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Resolving negative feedback can be complex and time-consuming.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Update customer record</b></td>
+<td>Customer Experience Analyst</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Resolution outcome</td>
+<td>Updated customer record</td>
+<td>Records updated per day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Errors in updating records can lead to incorrect information.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-SS-06-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Exception Resolution</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Handle exceptions</b></td>
+<td>Group Travel Exception Handler</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Exception details</td>
+<td>Exception resolution</td>
+<td>Exceptions handled per day</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Handling exceptions requires quick decision-making.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Escalate to duty manager</b></td>
+<td>Group Travel Exception Handler</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Exception details</td>
+<td>Escalation request</td>
+<td>Escalations per day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Escalations can disrupt the flow of regular operations.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Update exception record</b></td>
+<td>Group Travel Exception Handler</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Resolution outcome</td>
+<td>Updated exception record</td>
+<td>Records updated per day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Errors in updating records can lead to incorrect information.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Group Sales Coordinator</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Group Travel Agent</span><span class="lane-steps">1.1 1.2 1.3 3.1 3.2 4.1 4.2 4.3</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Regulatory Compliance Officer</span><span class="lane-steps">2.1 2.2 2.3</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Customer Experience Analyst</span><span class="lane-steps">5.1 5.2 5.3</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Group Travel Exception Handler</span><span class="lane-steps">6.1 6.2 6.3</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag amadeus" data-tooltip="Seat inventory and availability control. Consumes RM bid prices from PROS. [Amadeus - evidence A]">Amadeus Altea Inventory<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+<div class="card"><span class="tag channel" data-tooltip="Primary direct digital channel, cloud-native on AWS. Undergoing redevelopment under the CDO. [Air Canada - evidence A]">aircanada.com<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag channel" data-tooltip="iOS and Android. Booking, check-in, boarding pass, in-app bag tracking and mobility-aid tracking. [Air Canada - evidence A]">Air Canada Mobile App<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Finalised by the fare rule deadline at 100 percent</li><li>Captured for 100 percent of individual requirements before travel</li><li>Group seating coordinated before check-in opens at 95 percent</li><li>Group check-in completed without disrupting standard boarding at 100 percent</li></ul>
+<ul class="bullets"><li>Requests received per day: 500</li><li>Eligibility checks per day: 450</li><li>Compliance checks per day: 300</li><li>Vendor coordination calls per day: 200</li><li>Notifications sent per day: 500</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Individual special requirements within a group booking being easier to lose track of than standalone</li><li>Seat coordination for a large group competing with individual passenger selection on the same flight</li><li>A large group creating a check-in or boarding bottleneck for other passengers if not managed</li><li>Name changes and substitutions within a group persisting right up to the fare rule deadline</li></ul>
+<ul class="bullets risk"><li>High volume of requests leading to processing delays.</li><li>Inconsistent data entry causing eligibility errors.</li><li>Complex regulations leading to compliance misinterpretation.</li><li>Unpredictable vendor availability and response times.</li><li>Poor communication leading to customer confusion.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../customer-experience-channels/special-services-accessibility/ac-cx-ss-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Service Animal Acceptance</span></a>
