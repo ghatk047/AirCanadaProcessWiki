@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CM-DO-02" title="Click to copy the process ID">
     AC-CM-DO-02<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Crew Legality and Flight Duty Time Verification</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,241 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-CM-DO-02-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Real-time duty tracking</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Initial Verification</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Track actual duty time in real time</b></td>
-<td>Crew Tracking Coordinator</td>
+<td><b>Receive flight leg start notification</b></td>
+<td>YYZ Operations Control Duty Manager</td>
 <td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Actual flight and duty progress</td>
-<td>Tracked actual duty time</td>
-<td>Tracked continuously for 100 percent of active duty periods</td>
+<td>Flight leg details</td>
+<td>Verified crew list</td>
+<td>0 minutes delay in receiving notifications</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Actual duty time diverges from planned duty time as soon as any delay occurs</td>
+<td>Delayed notifications can lead to missed compliance checks.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Check union eligibility</b></td>
+<td>Crew Management Analyst</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Crew member details</td>
+<td>Eligibility status</td>
+<td>95% accuracy in eligibility checks</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Incorrect eligibility can result in non-compliance fines.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Update crew roster</b></td>
+<td>Crew Roster Coordinator</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Eligibility status</td>
+<td>Updated crew list</td>
+<td>100% accurate roster updates</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Outdated rosters can cause operational disruptions.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CM-DO-02-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Legality recalculation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Union Compliance Check</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Recalculate legality against cumulative duty</b></td>
-<td>Crew Tracking Coordinator</td>
+<td><b>Calculate duty times</b></td>
+<td>Duty Time Analyst</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Crew roster and flight schedule</td>
+<td>Duty time report</td>
+<td>98% accuracy in duty time calculations</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Incorrect duty time calculations can lead to legal violations.</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Review duty times against union agreements</b></td>
+<td>Union Compliance Officer</td>
 <td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Tracked actual duty time</td>
-<td>Recalculated legality position</td>
-<td>Recalculated within 5 minutes of a material duty change at 100 percent</td>
+<td>Duty time report</td>
+<td>Compliance status</td>
+<td>100% compliance checks completed</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Legality recalculation has to account for cumulative duty across the full pairing, not just the current leg</td>
+<td>Non-compliance can result in penalties and disputes.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Adjust crew roster for over limit duty times</b></td>
+<td>Crew Roster Coordinator</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Duty time report</td>
+<td>Adjusted crew list</td>
+<td>95% successful adjustments</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual adjustments can introduce errors.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CM-DO-02-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Risk flagging</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Duty Time Calculation</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Flag crew approaching a legality limit</b></td>
-<td>Crew Tracking Coordinator</td>
-<td><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Recalculated legality position</td>
-<td>Flagged approaching-limit crew</td>
-<td>Flagged at least 60 minutes before the projected limit at 90 percent</td>
-<td class="c-flag"><span class="no">N</span></td>
+<td><b>Verify adjusted duty times</b></td>
+<td>Duty Time Analyst</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Adjusted crew list</td>
+<td>Verified duty time report</td>
+<td>98% accuracy in verification</td>
 <td class="c-flag"><span class="yes">Y</span></td>
-<td>A flag that arrives too close to the actual limit leaves no time for a recovery option</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Verification errors can lead to ongoing compliance issues.</td>
 </tr><tr>
 <td class="c-step">3.2</td>
-<td><b>Trigger a swap or reassignment before the limit is reached</b></td>
-<td>Crew Tracking Coordinator</td>
+<td><b>Approve flight leg for crew</b></td>
+<td>Crew Management Supervisor</td>
 <td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Flagged approaching-limit crew</td>
-<td>Initiated reassignment ahead of the limit</td>
-<td>Initiated before the projected limit for 100 percent of flagged cases</td>
+<td>Verified duty time report</td>
+<td>Approval status</td>
+<td>90% approvals within first attempt</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delays in approval can impact flight schedules.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Correct errors in duty times</b></td>
+<td>Duty Time Analyst</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Verified duty time report</td>
+<td>Corrected duty time report</td>
+<td>95% error correction rate</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Waiting until the limit is reached rather than acting on the flag removes the whole point of early warning</td>
+<td>Manual corrections are time-consuming and error-prone.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-DO-02-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Exception Handling</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Escalate non-compliance to Legal</b></td>
+<td>Union Compliance Officer</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Non-compliant duty times</td>
+<td>Legal review initiated</td>
+<td>90% escalations resolved within 24 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Legal involvement can delay flights.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Review escalated cases with Legal</b></td>
+<td>Legal Counsel</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Non-compliant duty times</td>
+<td>Resolution status</td>
+<td>85% resolution rate within 48 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Legal resolutions can be complex and time-consuming.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Notify crew of changes</b></td>
+<td>Crew Notification Officer</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Updated duty times</td>
+<td>Notification sent</td>
+<td>98% notifications delivered on time</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Missed notifications can cause operational confusion.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-DO-02-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Final Approval</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Final review of flight approval</b></td>
+<td>Crew Management Supervisor</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Approval status and final checks</td>
+<td>Final approval</td>
+<td>88% approvals within first attempt</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delays in final approval can impact flight schedules.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Initiate rework of duty times</b></td>
+<td>Duty Time Analyst</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Approval status and final checks</td>
+<td>Revised duty time report</td>
+<td>90% successful reworks</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Reworking duty times can introduce new errors.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Escalate to Executive for approval</b></td>
+<td>Crew Management Supervisor</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Approval status and final checks</td>
+<td>Executive approval</td>
+<td>90% approvals within 24 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Executive involvement can delay flights.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-DO-02-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Notification</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Notify all parties of final decision</b></td>
+<td>Crew Notification Officer</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Final approval status</td>
+<td>Notification sent</td>
+<td>98% notifications delivered on time</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Missed notifications can cause operational confusion.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Crew Tracking Coordinator</span><span class="lane-steps">1.1 2.1 3.1 3.2</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">1.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Crew Management Analyst</span><span class="lane-steps">1.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Crew Roster Coordinator</span><span class="lane-steps">1.3 2.3</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Duty Time Analyst</span><span class="lane-steps">2.1 3.1 3.3 5.2</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Union Compliance Officer</span><span class="lane-steps">2.2 4.1</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>Crew Management Supervisor</span><span class="lane-steps">3.2 5.1 5.3</span></div><div class="lane"><span class="swatch" style="background:#8A5A1E"></span><span>Legal Counsel</span><span class="lane-steps">4.2</span></div><div class="lane"><span class="swatch" style="background:#4A4A4A"></span><span>Crew Notification Officer</span><span class="lane-steps">4.3 6.1</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Tracked continuously for 100 percent of active duty periods</li><li>Recalculated within 5 minutes of a material duty change at 100 percent</li><li>Flagged at least 60 minutes before the projected limit at 90 percent</li><li>Zero confirmed legality breaches during irregular operations</li></ul>
+<ul class="bullets"><li>0 minutes delay in receiving notifications</li><li>95% accuracy in eligibility checks</li><li>98% accuracy in duty time calculations</li><li>98% accuracy in verification</li><li>90% approvals within first attempt</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Crew legality eroding gradually through a day of cascading delays without continuous re-verification</li><li>A flag arriving too close to the actual limit leaving no time for a genuine recovery option</li><li>Legality recalculation failing to account for cumulative duty across the full pairing</li><li>Actual duty time diverging from the planned roster assumption as soon as any delay occurs</li></ul>
+<ul class="bullets risk"><li>Delayed notifications can lead to missed compliance checks.</li><li>Incorrect eligibility can result in non-compliance fines.</li><li>Outdated rosters can cause operational disruptions.</li><li>Incorrect duty time calculations can lead to legal violations.</li><li>Verification errors can lead to ongoing compliance issues.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../crew-management/day-of-operations-crew-tracking/ac-cm-do-01/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Crew Check In and Sign On Tracking</span></a>
