@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-AP-PA-02" title="Click to copy the process ID">
     AC-AP-PA-02<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Flight Accrual and Retro Credit Processing</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,233 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-AP-PA-02-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Automatic accrual posting</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Data Collection</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Post accrual on coupon lift</b></td>
-<td>Loyalty Operations Analyst</td>
-<td><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Lifted flight coupon and fare class</td>
-<td>Posted flight accrual</td>
-<td>Posted within 72 hours of flight completion at 98 percent</td>
+<td><b>Receive flight booking data from GDS systems</b></td>
+<td>Aeroplan Data Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">GDS Systems Integration<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Flight booking notifications</td>
+<td>Flight booking records</td>
+<td>95% data accuracy within 2 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed updates from GDS systems can cause processing delays.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Validate flight booking against member status</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Flight booking records, member profiles</td>
+<td>Validation results</td>
+<td>98% validation success rate within 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Coupon lift timing and accrual posting are not always perfectly synchronised</td>
+<td>Incorrect member status can lead to incorrect accruals.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Accrue points based on validated booking</b></td>
+<td>Aeroplan Data Processor</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Validation results</td>
+<td>Accrued points records</td>
+<td>90% accrual accuracy within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System downtime can cause missed accruals.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Flag invalid booking for review</b></td>
+<td>Aeroplan Compliance Officer</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Invalid booking records</td>
+<td>Review tickets</td>
+<td>90% review resolution within 2 days</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual intervention is time-consuming.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-AP-PA-02-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Missing credit investigation</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Validation</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Receive missing-mileage claim</b></td>
+<td><b>Check for retro credit eligibility</b></td>
 <td>Aeroplan Member Services Agent</td>
-<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Member claim with flight details</td>
-<td>Registered claim</td>
-<td>Claims registered within 1 business day at 100 percent</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Members submit claims through several channels with inconsistent supporting detail</td>
-</tr><tr>
-<td class="c-step">2.2</td>
-<td><b>Verify flight completion against the operational record</b></td>
-<td>Aeroplan Member Services Agent</td>
-<td><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Claimed flight details</td>
-<td>Verified or unverified flight record</td>
-<td>Verified within 5 business days of claim at 95 percent</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Member profiles</td>
+<td>Eligibility status</td>
+<td>85% eligibility checks within 30 minutes</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A flight flown under a partner codeshare needs a separate operational record lookup</td>
+<td>Complex rules can lead to errors.</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Calculate retro credit amount</b></td>
+<td>Aeroplan Financial Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Eligibility status, transaction history</td>
+<td>Credit calculation results</td>
+<td>95% accurate calculations within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Calculation errors can affect member balances.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Re-calculate credit amount</b></td>
+<td>Aeroplan Financial Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Original calculation results, transaction history</td>
+<td>Corrected credit calculation results</td>
+<td>100% accurate calculations within 3 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual corrections are error-prone.</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Log ineligible status for future review</b></td>
+<td>Aeroplan Compliance Officer</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Ineligible records</td>
+<td>Review logs</td>
+<td>80% reviews completed within 1 week</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed reviews can cause member dissatisfaction.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-AP-PA-02-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Retroactive posting</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Accrual Processing</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Post retroactive accrual</b></td>
-<td>Loyalty Operations Analyst</td>
+<td><b>Apply retro credit to member account</b></td>
+<td>Aeroplan Data Processor</td>
 <td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Verified claim</td>
-<td>Posted retroactive accrual</td>
-<td>Posted within 10 business days of claim submission at 95 percent</td>
+<td>Corrected credit calculation results</td>
+<td>Updated member accounts</td>
+<td>98% successful credit applications within 45 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Accounting issues can block credits.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Notify member of retro credit application</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Updated member accounts</td>
+<td>Notification sent</td>
+<td>95% notifications delivered within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Failed notification attempts can lead to missed communications.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Resend failed notification</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Notification records</td>
+<td>Re-sent notifications</td>
+<td>90% successful resend attempts within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Persistent failures can lead to member confusion.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-PA-02-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Credit Application</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Generate final accrual report</b></td>
+<td>Aeroplan Data Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Accrued points records, retro credit applications</td>
+<td>Final report</td>
+<td>90% accurate reports within 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Report errors can affect audits.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Correct and re-generate final accrual report</b></td>
+<td>Aeroplan Data Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Original report, corrected data</td>
+<td>Corrected final report</td>
+<td>95% accurate reports within 4 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Retroactive posting has to correctly apply the accrual rate that was in effect at the time of travel</td>
+<td>Manual corrections are time-consuming.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Review final accrual report for discrepancies</b></td>
+<td>Aeroplan Compliance Officer</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Final report</td>
+<td>Discrepancy logs</td>
+<td>85% discrepancies resolved within 1 day</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Large discrepancies can cause financial issues.</td>
+</tr><tr>
+<td class="c-step">4.4</td>
+<td><b>Escalate unresolved discrepancies to finance</b></td>
+<td>Aeroplan Compliance Officer</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Finance Systems Integration<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Discrepancy logs</td>
+<td>Escalation tickets</td>
+<td>90% escalations logged within 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed escalation can affect financial reconciliation.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-PA-02-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Finalization</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Finalize and archive final accrual report</b></td>
+<td>Aeroplan Data Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Corrected final report</td>
+<td>Archived report</td>
+<td>98% reports archived within 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Failed archiving can lead to data loss.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Loyalty Operations Analyst</span><span class="lane-steps">1.1 3.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Aeroplan Member Services Agent</span><span class="lane-steps">2.1 2.2</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Aeroplan Data Analyst</span><span class="lane-steps">1.1 4.1 4.2 5.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Aeroplan Member Services Agent</span><span class="lane-steps">1.2 2.1 3.2 3.3</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Aeroplan Data Processor</span><span class="lane-steps">1.3 3.1</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Aeroplan Compliance Officer</span><span class="lane-steps">1.4 2.4 4.3 4.4</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Aeroplan Financial Analyst</span><span class="lane-steps">2.2 2.3</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+<div class="card"><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">GDS Systems Integration<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Finance Systems Integration<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Posted within 72 hours of flight completion at 98 percent</li><li>Verified within 5 business days of claim at 95 percent</li><li>Posted within 10 business days of claim submission at 95 percent</li><li>Missing-mileage claim volume as a share of flights below target</li></ul>
+<ul class="bullets"><li>95% data accuracy within 2 hours</li><li>98% validation success rate within 30 minutes</li><li>90% accrual accuracy within 1 hour</li><li>95% accurate calculations within 1 hour</li><li>98% successful credit applications within 45 minutes</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A codeshare flight requiring a separate operational lookup that is easy to miss</li><li>Retroactive posting applying the wrong accrual rate for the actual date of travel</li><li>Coupon lift and accrual posting not being perfectly synchronised, producing avoidable claims</li><li>Inconsistent supporting detail across claim channels slowing verification</li></ul>
+<ul class="bullets risk"><li>Delayed updates from GDS systems causing processing delays</li><li>Incorrect member status leading to incorrect accruals</li><li>System downtime causing missed accruals</li><li>Complex rules leading to errors in eligibility checks</li><li>Calculation errors affecting member balances</li><li>Accounting issues blocking credit applications</li><li>Failed notification attempts leading to missed communications</li><li>Report errors affecting audits</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../aeroplan-loyalty/partner-co-brand-accrual/ac-ap-pa-01/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Co Brand Card Accrual Posting</span></a>

@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-AP-PA-04" title="Click to copy the process ID">
     AC-AP-PA-04<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Partner Settlement and Points Liability Reconciliation</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,340 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-AP-PA-04-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Settlement position compilation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Data Extraction</span>
+    <span class="ph-n">5 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Compile points issued and redeemed by partner</b></td>
-<td>Loyalty Finance Analyst</td>
+<td><b>Extract partner transaction data</b></td>
+<td>YYZ Operations Control Duty Manager</td>
 <td><span class="tag aeroplan" data-tooltip="Co-brand and partner accrual feeds: TD, CIBC, Amex, retail and hotel partners. [Air Canada - evidence A]">Aeroplan Partner Interfaces<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Accrual and redemption activity by partner over the period</td>
-<td>Compiled settlement position by partner</td>
-<td>Compiled within 5 business days of period close at 100 percent</td>
+<td>Monthly transaction feeds from partners (TD, CIBC, Amex, retail, hotel)</td>
+<td>Validated transaction files</td>
+<td>95% accuracy in extracted data</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Settlement compilation spans both the co-brand card and retail partner interfaces, each with a different posting cadence</td>
+<td>Inconsistent formatting from partner feeds can cause extraction delays.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Validate transaction records</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Validated transaction files</td>
+<td>Cleaned and validated transaction data</td>
+<td>98% validation success rate</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Invalid transactions require manual correction, increasing processing time.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Manual correction of invalid records</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Invalid transaction files</td>
+<td>Corrected transaction data</td>
+<td>80% manual corrections completed within 24 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual intervention is time-consuming and prone to errors.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Transform validated data for settlement</b></td>
+<td>APPR Adjudicator</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Cleaned transaction data</td>
+<td>Formatted settlement files</td>
+<td>90% transformation accuracy</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Transformation errors can disrupt the settlement process.</td>
+</tr><tr>
+<td class="c-step">1.5</td>
+<td><b>Identify and resolve transformation issues</b></td>
+<td>APPR Adjudicator</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Transformation error logs</td>
+<td>Corrected transformation files</td>
+<td>95% issue resolution within 48 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex errors may require additional investigation.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-AP-PA-04-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Partner reconciliation</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Validation and Transformation</span>
+    <span class="ph-n">6 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Reconcile against partner-reported statement</b></td>
-<td>Loyalty Finance Analyst</td>
-<td><span class="tag aeroplan" data-tooltip="Co-brand and partner accrual feeds: TD, CIBC, Amex, retail and hotel partners. [Air Canada - evidence A]">Aeroplan Partner Interfaces<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Compiled position and partner statement</td>
-<td>Reconciled position with variance report</td>
-<td>Reconciled within the settlement cycle at 100 percent</td>
-<td class="c-flag"><span class="yes">Y</span></td>
+<td><b>Initiate partner settlement process</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Formatted settlement files</td>
+<td>Settlement notifications sent to partners</td>
+<td>98% successful settlements</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A variance against a partner&#x27;s own statement can originate in either side&#x27;s system and needs bilateral investigation</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Failed settlements due to system connectivity issues.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Invoice or settle amounts owed</b></td>
-<td>Loyalty Finance Analyst</td>
-<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Reconciled position</td>
-<td>Issued invoice or processed settlement</td>
-<td>Settled within the contractual settlement period at 100 percent</td>
+<td><b>Monitor partner response to settlements</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Partner responses</td>
+<td>Updated settlement status</td>
+<td>95% positive responses within 7 days</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Late or negative responses can delay financial reconciliation.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Handle negative partner responses</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Detailed partner response logs</td>
+<td>Resolved settlement issues</td>
+<td>85% resolution rate within 10 days</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex disputes may require escalation to legal.</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Escalate complex disputes</b></td>
+<td>Legal Counsel</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Aeroplan Legal System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Dispute details</td>
+<td>Resolution status</td>
+<td>75% dispute resolution within 30 days</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A settlement delay with a co-brand issuer strains a commercial relationship that also drives new member accrual</td>
+<td>Escalations can be time-consuming and costly.</td>
+</tr><tr>
+<td class="c-step">2.5</td>
+<td><b>Retry failed settlements</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Failed settlement details</td>
+<td>Successful settlement notifications</td>
+<td>80% successful retries within 7 days</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Repeated failures may indicate systemic issues.</td>
+</tr><tr>
+<td class="c-step">2.6</td>
+<td><b>Report persistent settlement failures</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Persistent failure logs</td>
+<td>Failure report to finance and IT teams</td>
+<td>100% reporting accuracy</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delays in reporting can affect overall reconciliation timelines.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-AP-PA-04-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Liability posting</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Partner Settlement</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Post liability movement to the ledger</b></td>
-<td>Loyalty Finance Analyst</td>
-<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Settled position</td>
-<td>Posted liability movement</td>
-<td>Posted within the financial close timetable at 100 percent</td>
+<td><b>Calculate points liability</b></td>
+<td>Financial Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Cleaned transaction data and settlement status</td>
+<td>Points liability report</td>
+<td>95% accuracy in liability calculations</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex accrual rules can lead to errors.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Identify and resolve calculation errors</b></td>
+<td>Financial Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Calculation error logs</td>
+<td>Corrected liability report</td>
+<td>90% resolution rate within 48 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Errors may require detailed analysis to correct.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Review points liability with finance team</b></td>
+<td>Financial Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Corrected liability report</td>
+<td>Approved liability report</td>
+<td>90% approval rate within 5 days</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Disagreements between operations and finance can delay reconciliation.</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Handle rejected liability reports</b></td>
+<td>Financial Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Rejection comments from finance team</td>
+<td>Revised liability report</td>
+<td>85% resolution rate within 7 days</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex disputes may require multiple iterations.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-PA-04-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Liability Reconciliation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Generate reconciliation reports</b></td>
+<td>Financial Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Approved liability report and partner settlement status</td>
+<td>Detailed reconciliation reports</td>
+<td>95% report accuracy</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Data discrepancies can affect report generation.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Identify and resolve data discrepancies</b></td>
+<td>Financial Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Discrepancy logs</td>
+<td>Corrected reconciliation reports</td>
+<td>90% resolution rate within 48 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex data issues may require manual intervention.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-PA-04-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Reporting and Review</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Review reconciliation reports with operations team</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Corrected reconciliation reports</td>
+<td>Approved reconciliation report</td>
+<td>90% approval rate within 5 days</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Disagreements between teams can delay finalization.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Handle rejected reconciliation reports</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Rejection comments from operations team</td>
+<td>Revised reconciliation report</td>
+<td>85% resolution rate within 7 days</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex issues may require multiple iterations.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-PA-04-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Exception Handling</span>
+    <span class="ph-n">6 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Finalize points liability account</b></td>
+<td>Financial Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Approved reconciliation report</td>
+<td>Updated points liability account</td>
+<td>100% accurate finalization</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Late finalization can affect financial reporting.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Identify and resolve finalization errors</b></td>
+<td>Financial Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Finalization error logs</td>
+<td>Corrected points liability account</td>
+<td>90% resolution rate within 48 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Errors may require detailed analysis to correct.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Notify operations and finance teams of finalization</b></td>
+<td>Financial Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Corrected points liability account</td>
+<td>Finalization notification</td>
+<td>95% timely notifications</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delays in notifications can affect follow-up processes.</td>
+</tr><tr>
+<td class="c-step">6.4</td>
+<td><b>Retry finalization notification</b></td>
+<td>Financial Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Finalization details</td>
+<td>Successful finalization notification</td>
+<td>80% successful retries within 7 days</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Repeated failures may indicate systemic issues.</td>
+</tr><tr>
+<td class="c-step">6.5</td>
+<td><b>Report persistent notification failures</b></td>
+<td>Financial Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Persistent failure logs</td>
+<td>Failure report to IT teams</td>
+<td>100% reporting accuracy</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delays in reporting can affect overall reconciliation timelines.</td>
+</tr><tr>
+<td class="c-step">6.6</td>
+<td><b>Escalate notification failures to IT support</b></td>
+<td>IT Support Engineer</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Aeroplan IT System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Failure report</td>
+<td>Resolution status</td>
+<td>85% resolution rate within 30 days</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>The points liability valuation in AC-AP-TM-06 depends on this reconciliation being accurate and current</td>
+<td>Escalations can be time-consuming and costly.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Loyalty Finance Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">1.1 5.1 5.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Aeroplan Member Services Agent</span><span class="lane-steps">1.2 1.3</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>APPR Adjudicator</span><span class="lane-steps">1.4 1.5</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Cargo Compliance Agent</span><span class="lane-steps">2.1 2.2 2.3 2.5 2.6</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Legal Counsel</span><span class="lane-steps">2.4</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>Financial Analyst</span><span class="lane-steps">3.1 3.2 3.3 3.4 4.1 4.2 6.1 6.2 6.3 6.4 6.5</span></div><div class="lane"><span class="swatch" style="background:#8A5A1E"></span><span>IT Support Engineer</span><span class="lane-steps">6.6</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag aeroplan" data-tooltip="Co-brand and partner accrual feeds: TD, CIBC, Amex, retail and hotel partners. [Air Canada - evidence A]">Aeroplan Partner Interfaces<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+<div class="card"><span class="tag aeroplan" data-tooltip="Co-brand and partner accrual feeds: TD, CIBC, Amex, retail and hotel partners. [Air Canada - evidence A]">Aeroplan Partner Interfaces<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Aeroplan Legal System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Aeroplan IT System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Compiled within 5 business days of period close at 100 percent</li><li>Reconciled within the settlement cycle at 100 percent</li><li>Settled within the contractual settlement period at 100 percent</li><li>Posted within the financial close timetable at 100 percent</li></ul>
+<ul class="bullets"><li>95% accuracy in extracted data</li><li>98% validation success rate</li><li>80% manual corrections completed within 24 hours</li><li>90% transformation accuracy</li><li>98% successful settlements</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>The points liability valuation depending on this reconciliation being accurate and current</li><li>A variance against a partner&#x27;s own statement originating in either system and needing bilateral investigation</li><li>A settlement delay straining a commercial relationship that also drives new member accrual</li><li>Settlement compilation spanning interfaces with different posting cadences, complicating a clean period cutoff</li></ul>
+<ul class="bullets risk"><li>Inconsistent partner feeds leading to extraction errors</li><li>Validation issues requiring extensive manual correction</li><li>Transformation errors disrupting the settlement process</li><li>Complex disputes and legal escalations delaying reconciliation</li><li>Data discrepancies affecting report generation</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../aeroplan-loyalty/partner-co-brand-accrual/ac-ap-pa-03/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Retail and Hotel Partner Accrual Integration</span></a>
