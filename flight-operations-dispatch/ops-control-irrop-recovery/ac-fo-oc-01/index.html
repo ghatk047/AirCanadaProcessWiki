@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-FO-OC-01" title="Click to copy the process ID">
     AC-FO-OC-01<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Flight Watch and Day of Operation Monitoring</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,274 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-FO-OC-01-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Status monitoring</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Pre-Flight Monitoring</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Monitor flight status against plan</b></td>
-<td>Operations Control Analyst</td>
+<td><b>Initialize flight watch system</b></td>
+<td>YYZ Operations Control Duty Manager</td>
 <td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Active flight datalink and ATC position reports</td>
-<td>Current status against planned progress</td>
-<td>Monitored continuously for 100 percent of active flights</td>
+<td>Scheduled start of the day and pre-flight data</td>
+<td>Flight watch system activated</td>
+<td>System uptime &gt; 99%</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Datalink coverage gaps over oceanic and remote airspace create monitoring blind spots</td>
+<td>System downtime can cause initial monitoring delays.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Check for external disruptions</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Flight data and NOTAMs</td>
+<td>Disruption list generated</td>
+<td>External disruption detection rate &gt; 95%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delays in receiving external NOTAMs can lead to missed disruptions.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Review pre-flight schedules</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Flight schedules and operational plans</td>
+<td>Pre-flight schedule review completed</td>
+<td>Schedule adherence rate &gt; 90%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual review can be error-prone and time-consuming.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Notify ground crew of delays</b></td>
+<td>Ground Operations Coordinator</td>
+<td><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Flight status updates</td>
+<td>Notifications sent to ground crew</td>
+<td>Notification response time &lt; 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Communication issues can delay notifications.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-FO-OC-01-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Irregularity detection</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Real-Time Flight Watch</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Detect deviation from plan</b></td>
-<td>Operations Control Analyst</td>
+<td><b>Monitor flight departures and arrivals</b></td>
+<td>Flight Operations Analyst</td>
 <td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Current status and planned progress</td>
-<td>Detected deviation flag</td>
-<td>Material deviations detected within 5 minutes at 95 percent</td>
+<td>Live flight data</td>
+<td>Real-time flight status updates</td>
+<td>Flight status update frequency &gt; every 5 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A gradual deviation is harder to detect promptly than a sudden, discrete event</td>
+<td>High volume of flights can overwhelm monitoring systems.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Assess deviation severity</b></td>
-<td>Operations Control Analyst</td>
+<td><b>Identify delays or cancellations</b></td>
+<td>Flight Operations Analyst</td>
 <td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Detected deviation</td>
-<td>Severity classification</td>
-<td>Classified within 5 minutes of detection at 100 percent</td>
+<td>Real-time flight data and thresholds</td>
+<td>List of delayed or cancelled flights</td>
+<td>Delay detection accuracy &gt; 90%</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Severity classification under uncertainty tends toward caution, which can over-trigger escalation</td>
+<td>False positives can lead to unnecessary alerts.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Assess the impact of disruptions</b></td>
+<td>Operations Control Duty Manager</td>
+<td><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Disruption list and impact analysis tools</td>
+<td>Impact assessment report</td>
+<td>Impact assessment time &lt; 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex disruptions may require extensive manual analysis.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-FO-OC-01-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Escalation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Disruption Detection and Assessment</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Escalate to duty manager where required</b></td>
-<td>Operations Control Analyst</td>
+<td><b>Prioritize recovery actions</b></td>
+<td>Operations Control Duty Manager</td>
 <td><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Classified deviation</td>
-<td>Escalated case to the duty manager</td>
-<td>Escalated within 10 minutes of classification at 100 percent</td>
+<td>Impact assessment report and available resources</td>
+<td>Recovery action plan</td>
+<td>Action plan development time &lt; 15 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Escalation volume during a widespread event can exceed what duty management can individually review</td>
+<td>Resource constraints can limit recovery options.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Coordinate with Air Canada Express</b></td>
+<td>Operations Control Duty Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Manual communication<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Recovery plan and disruption data</td>
+<td>Coordination notes</td>
+<td>Cross-boundary coordination time &lt; 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inconsistent data sharing can lead to miscommunication.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Re-accommodate passengers</b></td>
+<td>APPR Adjudicator</td>
+<td><span class="tag amadeus" data-tooltip="Automated IRROP re-accommodation. Replaced largely manual disruption handling pre-2020. [Amadeus - evidence A]">Amadeus Passenger Recovery<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Passenger list and recovery plan</td>
+<td>Re-accommodation status updates</td>
+<td>Passenger re-accommodation rate &gt; 85%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System failures can prevent automated re-accommodations.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-OC-01-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Recovery Action Planning</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Execute recovery actions</b></td>
+<td>Flight Operations Analyst</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Recovery action plan and flight data</td>
+<td>Action execution status updates</td>
+<td>Action completion rate &gt; 95%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System errors can delay action execution.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Monitor recovery effectiveness</b></td>
+<td>Flight Operations Analyst</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Live flight data and thresholds</td>
+<td>Recovery effectiveness report</td>
+<td>Recovery success rate &gt; 80%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Continuous monitoring is resource-intensive.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Adjust recovery actions</b></td>
+<td>Operations Control Duty Manager</td>
+<td><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Recovery effectiveness report and impact analysis tools</td>
+<td>Adjusted recovery action plan</td>
+<td>Action adjustment time &lt; 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual adjustments can introduce errors.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-OC-01-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Execution of Recovery Actions</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Finalize recovery actions</b></td>
+<td>Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Adjusted recovery action plan and execution status</td>
+<td>Final recovery report</td>
+<td>Finalization time &lt; 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Rushing finalizations can lead to oversight.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Notify passengers of recovery status</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Final recovery report and passenger list</td>
+<td>Passenger notifications sent</td>
+<td>Notification response time &lt; 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Communication failures can result in missed notifications.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-OC-01-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Post-Operation Review</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Review day&#x27;s operations</b></td>
+<td>Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Day&#x27;s flight data and recovery logs</td>
+<td>Operational review report</td>
+<td>Review completion time &lt; 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex operations can make reviews lengthy.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Update internal records</b></td>
+<td>Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Operational review report and system records</td>
+<td>Updated system records</td>
+<td>Record update time &lt; 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System errors can delay record updates.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Report to senior management</b></td>
+<td>Operations Control Duty Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Manual communication<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Operational review report and senior management requirements</td>
+<td>Senior management update sent</td>
+<td>Report submission time &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex reporting can lead to delays.</td>
+</tr><tr>
+<td class="c-step">6.4</td>
+<td><b>Close day&#x27;s operations monitoring</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Operational review report and system logs</td>
+<td>Monitoring system deactivated</td>
+<td>Deactivation time &lt; 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Forgetting to deactivate can lead to unnecessary resource consumption.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Operations Control Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">1.1 1.2 1.3 6.4</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Ground Operations Coordinator</span><span class="lane-steps">1.4</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Flight Operations Analyst</span><span class="lane-steps">2.1 2.2 4.1 4.2</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Operations Control Duty Manager</span><span class="lane-steps">2.3 3.1 3.2 4.3 5.1 6.1 6.2 6.3</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>APPR Adjudicator</span><span class="lane-steps">3.3</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>Aeroplan Member Services Agent</span><span class="lane-steps">5.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Manual communication<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag amadeus" data-tooltip="Automated IRROP re-accommodation. Replaced largely manual disruption handling pre-2020. [Amadeus - evidence A]">Amadeus Passenger Recovery<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Monitored continuously for 100 percent of active flights</li><li>Material deviations detected within 5 minutes at 95 percent</li><li>Escalated within 10 minutes of classification at 100 percent</li><li>Datalink coverage gap duration tracked and minimised</li></ul>
+<ul class="bullets"><li>System uptime &gt; 99%</li><li>External disruption detection rate &gt; 95%</li><li>Delay detection accuracy &gt; 90%</li><li>Action completion rate &gt; 95%</li><li>Recovery success rate &gt; 80%</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Datalink coverage gaps over oceanic and remote airspace creating monitoring blind spots</li><li>A gradual deviation being detected later than a sudden, discrete event</li><li>Escalation volume during a widespread event exceeding what duty management can individually review</li><li>Severity classification under uncertainty defaulting to caution and over-triggering escalation</li></ul>
+<ul class="bullets risk"><li>Communicator system outage affecting flight watch</li><li>Manual data sharing errors with Air Canada Express</li><li>System failures during automated re-accommodations</li><li>Resource constraints limiting recovery options</li><li>Complex operations delaying real-time monitoring</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../flight-operations-dispatch/weather-notam-nav-data/ac-fo-wx-06/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Runway Condition and Performance Assessment</span></a>

@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-FO-WX-06" title="Click to copy the process ID">
     AC-FO-WX-06<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Runway Condition and Performance Assessment</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,252 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-FO-WX-06-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Condition report retrieval</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Initial Assessment</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Retrieve current runway condition report</b></td>
-<td>Flight Dispatcher</td>
+<td><b>Receive weather update</b></td>
+<td>Weather Analyst</td>
 <td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Departure or arrival airport</td>
-<td>Retrieved current condition report</td>
-<td>Retrieved before performance calculation at 100 percent</td>
+<td>Weather radar data, pilot reports</td>
+<td>Updated weather conditions report</td>
+<td>Data latency &lt; 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed weather updates can impact runway assessment timing.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Manual override of weather data</b></td>
+<td>Weather Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Manual observations, pilot reports</td>
+<td>Corrected weather conditions report</td>
+<td>Data accuracy &gt; 95%</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Runway condition reports can go stale quickly during active precipitation</td>
+<td>Manual overrides are time-consuming and error-prone.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-FO-WX-06-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Performance adjustment</span>
+    <span class="ph-name">Phase 2 &mdash; Data Collection</span>
     <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Adjust performance calculation for surface condition</b></td>
-<td>Flight Dispatcher</td>
-<td><span class="tag datalink" data-tooltip="Load planning, trim sheet and final loadsheet issue to the flight deck. [Multiple - evidence C]">Weight and Balance System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Condition report and planned weight</td>
-<td>Adjusted performance calculation</td>
-<td>Adjusted for 100 percent of flights with a reported contamination</td>
-<td class="c-flag"><span class="yes">Y</span></td>
+<td><b>Retrieve runway condition data</b></td>
+<td>Runway Condition Analyst</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Historical data, current observations</td>
+<td>Runway condition report</td>
+<td>Data retrieval accuracy &gt; 98%</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Braking action assessments can vary between different parts of the same runway</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System downtime can disrupt data access.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Assess weight or fuel adjustment requirement</b></td>
-<td>Flight Dispatcher</td>
+<td><b>Fallback to offline database</b></td>
+<td>Runway Condition Analyst</td>
 <td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Adjusted performance calculation</td>
-<td>Determined weight or fuel adjustment if required</td>
-<td>Determined before dispatch release for 100 percent of affected flights</td>
+<td>Offline runway condition database</td>
+<td>Runway condition report</td>
+<td>Data retrieval accuracy &gt; 90%</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A performance-limiting condition can require a weight reduction that displaces payload</td>
+<td>Offline databases are less comprehensive.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-FO-WX-06-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Crew communication</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Condition Analysis</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Communicate condition and adjustment to the crew</b></td>
-<td>Flight Dispatcher</td>
-<td><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Determined adjustment</td>
-<td>Delivered crew communication</td>
-<td>Delivered before departure or descent planning at 100 percent</td>
+<td><b>Analyze weather impact on runway</b></td>
+<td>Weather Analyst</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Updated weather conditions report, runway condition report</td>
+<td>Impact assessment</td>
+<td>Analysis time &lt; 10 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex weather patterns require detailed analysis.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Initiate emergency protocol</b></td>
+<td>Runway Condition Analyst</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Impact assessment</td>
+<td>Emergency protocol initiated</td>
+<td>Response time &lt; 15 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual initiation of protocols can lead to delays.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Escalate to duty manager</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Impact assessment, emergency protocol status</td>
+<td>Acknowledged escalation</td>
+<td>Escalation response time &lt; 5 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A condition report update after the crew briefing requires an active follow-up communication</td>
+<td>Duty managers are overloaded with alerts.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-WX-06-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Decision Making</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Decide on NOTAM issuance</b></td>
+<td>Runway Condition Analyst</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Impact assessment, emergency protocol status</td>
+<td>NOTAM decision</td>
+<td>Decision time &lt; 5 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Incorrect NOTAM decisions can lead to operational disruptions.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Prepare NOTAM draft</b></td>
+<td>Runway Condition Analyst</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Impact assessment, emergency protocol status</td>
+<td>NOTAM draft</td>
+<td>Draft time &lt; 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Drafting errors can delay NOTAM issuance.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Review and correct NOTAM draft</b></td>
+<td>Runway Condition Analyst</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>NOTAM draft, impact assessment</td>
+<td>Corrected NOTAM draft</td>
+<td>Correction time &lt; 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual corrections are prone to human error.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-WX-06-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Communication &amp; NOTAM Issuance</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Issue NOTAM</b></td>
+<td>Runway Condition Analyst</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Corrected NOTAM draft</td>
+<td>NOTAM issued</td>
+<td>Issuance time &lt; 2 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System failures can delay NOTAM issuance.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Fallback to manual NOTAM issuance</b></td>
+<td>Runway Condition Analyst</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Corrected NOTAM draft, impact assessment</td>
+<td>NOTAM issued manually</td>
+<td>Manual issuance time &lt; 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual processes are slower and more error-prone.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-WX-06-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Post-Event Review</span>
+    <span class="ph-n">5 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Review runway condition post-event</b></td>
+<td>Runway Condition Analyst</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Impact assessment, NOTAM status</td>
+<td>Post-event review report</td>
+<td>Review time &lt; 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex events require thorough reviews.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Update runway condition database</b></td>
+<td>Runway Condition Analyst</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Post-event review report</td>
+<td>Updated runway condition database</td>
+<td>Database update time &lt; 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System downtime can disrupt database updates.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Manual update of runway condition database</b></td>
+<td>Runway Condition Analyst</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Post-event review report, current database</td>
+<td>Manually updated runway condition database</td>
+<td>Manual update time &lt; 20 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual updates are less efficient.</td>
+</tr><tr>
+<td class="c-step">6.4</td>
+<td><b>Finalize post-event analysis</b></td>
+<td>Runway Condition Analyst</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Post-event review report, updated database</td>
+<td>Finalized post-event analysis report</td>
+<td>Analysis time &lt; 20 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex events require extensive analysis.</td>
+</tr><tr>
+<td class="c-step">6.5</td>
+<td><b>Initiate additional review</b></td>
+<td>Runway Condition Analyst</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Finalized post-event analysis report</td>
+<td>Additional review initiated</td>
+<td>Review initiation time &lt; 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Additional reviews delay closure of the event.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Flight Dispatcher</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Weather Analyst</span><span class="lane-steps">1.1 1.2 3.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Runway Condition Analyst</span><span class="lane-steps">2.1 2.2 3.2 4.1 4.2 4.3 5.1 5.2 6.1 6.2 6.3 6.4 6.5</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">3.3</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag datalink" data-tooltip="Load planning, trim sheet and final loadsheet issue to the flight deck. [Multiple - evidence C]">Weight and Balance System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
+<div class="card"><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Retrieved before performance calculation at 100 percent</li><li>Adjusted for 100 percent of flights with a reported contamination</li><li>Determined before dispatch release for 100 percent of affected flights</li><li>Delivered before departure or descent planning at 100 percent</li></ul>
+<ul class="bullets"><li>Data latency &lt; 5 minutes</li><li>Data retrieval accuracy &gt; 98%</li><li>Analysis time &lt; 10 minutes</li><li>Response time &lt; 15 minutes</li><li>Issuance time &lt; 2 minutes</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A performance calculation run against an outdated runway condition report understating stopping distance</li><li>Braking action assessments varying between different parts of the same runway</li><li>A performance-limiting condition requiring a weight reduction that displaces revenue payload</li><li>A condition report updating after the crew briefing without an active follow-up communication</li></ul>
+<ul class="bullets risk"><li>Delayed weather updates impacting runway assessment timing.</li><li>System downtime disrupting data access and database updates.</li><li>Manual overrides and corrections leading to errors and delays.</li><li>Incorrect NOTAM decisions causing operational disruptions.</li><li>Complex events requiring extensive analysis and additional reviews.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../flight-operations-dispatch/weather-notam-nav-data/ac-fo-wx-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Winter Operations De Icing Coordination</span></a>
