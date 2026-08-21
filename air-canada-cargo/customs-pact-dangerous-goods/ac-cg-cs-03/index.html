@@ -133,7 +133,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CG-CS-03" title="Click to copy the process ID">
     AC-CG-CS-03<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Dangerous Goods Acceptance and Documentation</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -142,85 +142,233 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-CG-CS-03-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Classification verification</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Initial Review</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Verify dangerous goods classification</b></td>
-<td>Dangerous Goods Agent</td>
+<td><b>Receive cargo manifest</b></td>
+<td>Cargo Compliance Agent</td>
 <td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Shipper&#x27;s declaration for dangerous goods</td>
-<td>Verified classification</td>
-<td>Verified for 100 percent of dangerous goods shipments at 100 percent</td>
+<td>Customer manifest with dangerous goods declaration</td>
+<td>Manifest data loaded into CHAMP Cargospot neo</td>
+<td>Time to receive and load manifest &lt; 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Legacy system integration issues causing delays in manifest loading</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Check for dangerous goods regulations</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Loaded manifest data</td>
+<td>Regulatory compliance status</td>
+<td>Time to check regulations &lt; 30 minutes</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Misclassification by the shipper, whether intentional or accidental, is the primary risk this step guards against</td>
+<td>Complex regulatory requirements leading to manual checks and delays</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Update manifest with compliance details</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Regulatory compliance status</td>
+<td>Updated manifest data</td>
+<td>Time to update manifest &lt; 20 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual entry errors during manifest updates</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Prepare pre-load air cargo targeting (Canada PACT)</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag regulator" data-tooltip="CBSA pre-load air cargo targeting. Mandatory pre-load data filing in force since 1 April 2025. [CBSA - evidence B]">Canada PACT<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Updated manifest data</td>
+<td>Pre-load targeting report</td>
+<td>Time to prepare Canada PACT report &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System downtime in Canada PACT causing delays or failures</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CG-CS-03-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Packaging and labelling inspection</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Documentation Preparation</span>
+    <span class="ph-n">5 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Inspect packaging and labelling</b></td>
-<td>Dangerous Goods Agent</td>
-<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Verified classification</td>
-<td>Inspection findings</td>
-<td>Inspected for 100 percent of dangerous goods shipments at 100 percent</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Packaging and labelling standards are extremely specific and easy to fail on a technicality that still matters for safety</td>
-</tr><tr>
-<td class="c-step">2.2</td>
-<td><b>Confirm aircraft loading compatibility</b></td>
-<td>Dangerous Goods Agent</td>
-<td><span class="tag datalink" data-tooltip="Load planning, trim sheet and final loadsheet issue to the flight deck. [Multiple - evidence C]">Weight and Balance System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Classified and inspected shipment</td>
-<td>Confirmed loading compatibility</td>
-<td>Confirmed before acceptance for 100 percent of dangerous goods at 100 percent</td>
+<td><b>Submit pre-load targeting report to CBSA</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag regulator" data-tooltip="CBSA pre-load air cargo targeting. Mandatory pre-load data filing in force since 1 April 2025. [CBSA - evidence B]">Canada PACT<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Pre-load targeting report</td>
+<td>CBSA submission status</td>
+<td>Time to submit Canada PACT report &lt; 30 minutes</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Certain dangerous goods classes are incompatible with each other or with specific aircraft loading positions</td>
+<td>CBSA submission failures due to incorrect data formatting</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Receive CBSA approval</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag regulator" data-tooltip="CBSA pre-load air cargo targeting. Mandatory pre-load data filing in force since 1 April 2025. [CBSA - evidence B]">Canada PACT<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>CBSA submission status</td>
+<td>Approved manifest data</td>
+<td>Time to receive CBSA approval &lt; 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delays in CBSA response affecting cargo loading schedules</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Update legacy system with approved manifest</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Legacy System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Approved manifest data</td>
+<td>Updated legacy records</td>
+<td>Time to update legacy records &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Data synchronization issues between CHAMP and legacy systems</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Revise pre-load targeting report</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag regulator" data-tooltip="CBSA pre-load air cargo targeting. Mandatory pre-load data filing in force since 1 April 2025. [CBSA - evidence B]">Canada PACT<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>CBSA rejection details</td>
+<td>Revised pre-load targeting report</td>
+<td>Time to revise Canada PACT report &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual corrections required due to CBSA rejections</td>
+</tr><tr>
+<td class="c-step">2.5</td>
+<td><b>Resubmit revised pre-load targeting report</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag regulator" data-tooltip="CBSA pre-load air cargo targeting. Mandatory pre-load data filing in force since 1 April 2025. [CBSA - evidence B]">Canada PACT<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Revised pre-load targeting report</td>
+<td>CBSA submission status</td>
+<td>Time to resubmit Canada PACT report &lt; 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Repeated CBSA rejections causing delays</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CG-CS-03-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Acceptance decision</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Regulatory Compliance Check</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Accept or decline the shipment</b></td>
-<td>Dangerous Goods Agent</td>
+<td><b>Prepare dangerous goods documentation</b></td>
+<td>Cargo Compliance Agent</td>
 <td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Confirmed compatibility</td>
-<td>Accepted or declined shipment</td>
-<td>Decision documented for 100 percent of dangerous goods shipments at 100 percent</td>
+<td>Approved manifest data</td>
+<td>Dangerous goods documentation</td>
+<td>Time to prepare documentation &lt; 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Documentation errors leading to rework</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Review dangerous goods documentation</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Prepared dangerous goods documentation</td>
+<td>Reviewed documentation</td>
+<td>Time to review documentation &lt; 1 hour</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A shipment accepted despite a marginal compliance gap is a safety exposure, not a commercial trade-off</td>
+<td>Manual reviews taking longer than expected</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Correct and resubmit documentation</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Review findings</td>
+<td>Corrected dangerous goods documentation</td>
+<td>Time to correct and resubmit &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Errors requiring multiple corrections</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CG-CS-03-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; System Integration</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Update CHAMP Cargospot neo with final documents</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Corrected dangerous goods documentation</td>
+<td>Updated CHAMP records</td>
+<td>Time to update CHAMP &lt; 20 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System errors during record updates</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Retry updating CHAMP Cargospot neo</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Corrected dangerous goods documentation</td>
+<td>Updated CHAMP records</td>
+<td>Time to retry update &lt; 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System retries failing due to persistent errors</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CG-CS-03-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Final Acceptance</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Final review of all documents and system updates</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Updated CHAMP records</td>
+<td>Final acceptance status</td>
+<td>Time for final review &lt; 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Last-minute discrepancies requiring manual verification</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Resolve and update discrepancies</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Discrepancy details</td>
+<td>Resolved CHAMP records</td>
+<td>Time to resolve discrepancies &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex discrepancies requiring multiple steps to resolve</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Dangerous Goods Agent</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Cargo Compliance Agent</span><span class="lane-steps">1.1 1.2 1.3 1.4 2.1 2.2 2.3 2.4 2.5 3.1 3.2 3.3 4.1 4.2 5.1 5.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag datalink" data-tooltip="Load planning, trim sheet and final loadsheet issue to the flight deck. [Multiple - evidence C]">Weight and Balance System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
+<div class="card"><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag regulator" data-tooltip="CBSA pre-load air cargo targeting. Mandatory pre-load data filing in force since 1 April 2025. [CBSA - evidence B]">Canada PACT<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Legacy System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Verified for 100 percent of dangerous goods shipments at 100 percent</li><li>Inspected for 100 percent of dangerous goods shipments at 100 percent</li><li>Confirmed before acceptance for 100 percent of dangerous goods at 100 percent</li><li>Zero dangerous goods incidents attributable to acceptance process failure</li></ul>
+<ul class="bullets"><li>Manifest load time &lt; 2 hours</li><li>Regulatory check time &lt; 30 minutes</li><li>Canada PACT report preparation time &lt; 1 hour</li><li>CBSA approval time &lt; 2 hours</li><li>Final acceptance review time &lt; 30 minutes</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>An incorrectly classified or improperly packaged shipment loaded onto an aircraft being a direct safety hazard</li><li>Misclassification by the shipper, whether intentional or accidental, being the primary risk to guard against</li><li>Certain dangerous goods classes being incompatible with each other or with specific loading positions</li><li>A shipment accepted despite a marginal compliance gap constituting a safety exposure, not a trade-off</li></ul>
+<ul class="bullets risk"><li>Data synchronization issues between CHAMP and legacy systems</li><li>System downtime in Canada PACT causing delays or failures</li><li>CBSA submission failures due to incorrect data formatting</li><li>Repeated CBSA rejections causing delays</li><li>Manual corrections required due to CBSA rejections</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../air-canada-cargo/customs-pact-dangerous-goods/ac-cg-cs-02/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Export and Import Customs Declaration</span></a>
