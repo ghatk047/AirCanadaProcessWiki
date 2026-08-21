@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CM-CR-01" title="Click to copy the process ID">
     AC-CM-CR-01<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Monthly Bid Package Publication</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,263 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-CM-CR-01-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Package assembly</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Initiation</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Assemble the bid package from the pairing build</b></td>
-<td>Crew Rostering Analyst</td>
+<td><b>Trigger receipt from HR</b></td>
+<td>Crew Management Specialist</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">HR Systems<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Monthly publication trigger</td>
+<td>Notification to start process</td>
+<td>Time to initiate process &lt; 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Late triggers can delay the entire bidding cycle.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Access bid package template</b></td>
+<td>Crew Management Specialist</td>
 <td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Completed pairing build</td>
-<td>Assembled bid package</td>
-<td>Assembled within 5 business days of pairing build completion at 100 percent</td>
+<td>Notification</td>
+<td>Bid package template</td>
+<td>Template availability within 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System downtime affects the timely access to templates.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Manual retrieval of template</b></td>
+<td>Crew Management Specialist</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">HR Systems<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Notification</td>
+<td>Bid package template</td>
+<td>Manual retrieval time &lt; 30 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>The package has to correctly reflect every base and fleet-specific pairing set simultaneously</td>
+<td>Manual processes are error-prone.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CM-CR-01-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Accuracy validation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Bid Package Preparation</span>
+    <span class="ph-n">5 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Validate package accuracy against the pairing build</b></td>
-<td>Crew Rostering Analyst</td>
+<td><b>Populate bid package with data</b></td>
+<td>Crew Management Specialist</td>
 <td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Assembled package</td>
-<td>Validated package</td>
-<td>Validated before publication at 100 percent</td>
+<td>Bid package template</td>
+<td>Populated bid package</td>
+<td>Data entry accuracy &gt; 95%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Incorrect data entry can lead to misallocations.</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Review populated bid package</b></td>
+<td>Crew Management Specialist</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Populated bid package</td>
+<td>Reviewed bid package</td>
+<td>Review time &lt; 1 hour</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>An error discovered after bidding closes forces a choice between re-running the bid or living with the inaccuracy</td>
+<td>Manual review is time-consuming.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Correct data entry errors</b></td>
+<td>Crew Management Specialist</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Bid package template</td>
+<td>Corrected bid package</td>
+<td>Correction time &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Re-entry of corrected data can introduce new errors.</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Apply union-specific rules</b></td>
+<td>ACPA Compliance Officer</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Reviewed bid package</td>
+<td>Compliant bid package</td>
+<td>Rule application accuracy &gt; 98%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex union rules require meticulous adherence.</td>
+</tr><tr>
+<td class="c-step">2.5</td>
+<td><b>Escalate to compliance team</b></td>
+<td>ACPA Compliance Officer</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Non-compliant bid package</td>
+<td>Compliant bid package</td>
+<td>Resolution time &lt; 4 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual escalation can delay process.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CM-CR-01-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Publication</span>
+    <span class="ph-name">Phase 3 &mdash; Validation &amp; Compliance Check</span>
     <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Publish the bid package to crew members</b></td>
-<td>Crew Rostering Analyst</td>
+<td><b>Validate compliance against collective agreements</b></td>
+<td>CUPE Compliance Officer</td>
 <td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Validated package</td>
-<td>Published bid package</td>
-<td>Published within the required lead time before the bidding window opens at 100 percent</td>
+<td>Compliant bid package</td>
+<td>Validation report</td>
+<td>Validation time &lt; 2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>A late publication compresses the time crew members have to make an informed bidding decision</td>
+<td>Complex validation rules are resource-intensive.</td>
 </tr><tr>
 <td class="c-step">3.2</td>
-<td><b>Open the bidding window for submissions</b></td>
-<td>Crew Rostering Analyst</td>
+<td><b>Adjust for compliance issues</b></td>
+<td>CUPE Compliance Officer</td>
 <td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Published package</td>
-<td>Open bidding window</td>
-<td>Window opened on the published schedule at 100 percent</td>
+<td>Validation report</td>
+<td>Adjusted bid package</td>
+<td>Adjustment time &lt; 1 hour</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A window that opens late compounds any delay from the publication step before it</td>
+<td>Manual adjustments can introduce new errors.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CR-01-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Distribution</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Distribute bid packages via secure channels</b></td>
+<td>Crew Management Specialist</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Adjusted bid package</td>
+<td>Distribution confirmation</td>
+<td>Distribution time &lt; 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Network issues can disrupt distribution.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Retry distribution</b></td>
+<td>Crew Management Specialist</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Adjusted bid package</td>
+<td>Distribution confirmation</td>
+<td>Retry time &lt; 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Multiple retries can delay process.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CR-01-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Feedback Loop</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Collect feedback from crew members</b></td>
+<td>Crew Management Specialist</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Distribution confirmation</td>
+<td>Feedback report</td>
+<td>Feedback collection time &lt; 24 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Low response rates can affect process efficiency.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Follow up with non-respondents</b></td>
+<td>Crew Management Specialist</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Distribution confirmation</td>
+<td>Feedback report</td>
+<td>Follow-up response rate &gt; 80%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual follow-ups are time-consuming.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CR-01-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Post-Distribution Review</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Review distribution and feedback</b></td>
+<td>Crew Management Specialist</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Feedback report</td>
+<td>Final review report</td>
+<td>Review time &lt; 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual review is error-prone.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Address issues from feedback</b></td>
+<td>Crew Management Specialist</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Feedback report</td>
+<td>Corrected bid package</td>
+<td>Correction time &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual corrections can introduce new errors.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Final distribution of corrected bid packages</b></td>
+<td>Crew Management Specialist</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Corrected bid package</td>
+<td>Final distribution confirmation</td>
+<td>Distribution time &lt; 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Network issues can disrupt final distribution.</td>
+</tr><tr>
+<td class="c-step">6.4</td>
+<td><b>Escalate to IT support for network issues</b></td>
+<td>IT Support Specialist</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Distribution confirmation</td>
+<td>Resolved distribution confirmation</td>
+<td>Resolution time &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Network outages require immediate resolution.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Crew Rostering Analyst</span><span class="lane-steps">1.1 2.1 3.1 3.2</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Crew Management Specialist</span><span class="lane-steps">1.1 1.2 1.3 2.1 2.2 2.3 4.1 4.2 5.1 5.2 6.1 6.2 6.3</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>ACPA Compliance Officer</span><span class="lane-steps">2.4 2.5</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>CUPE Compliance Officer</span><span class="lane-steps">3.1 3.2</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>IT Support Specialist</span><span class="lane-steps">6.4</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">HR Systems<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Assembled within 5 business days of pairing build completion at 100 percent</li><li>Validated before publication at 100 percent</li><li>Published within the required lead time before the bidding window opens at 100 percent</li><li>Bid package accuracy errors requiring correction after publication below target</li></ul>
+<ul class="bullets"><li>Initiation time &lt; 2 hours</li><li>Data entry accuracy &gt; 95%</li><li>Validation time &lt; 2 hours</li><li>Distribution time &lt; 2 hours</li><li>Feedback collection time &lt; 24 hours</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A package error discovered after bidding closes forcing a choice between re-running the bid or living with it</li><li>A late publication compressing the time available for an informed crew bidding decision</li><li>The package failing to correctly reflect every base and fleet-specific pairing set simultaneously</li><li>Crew members bidding against an inaccuracy that is only caught after their preferences are locked in</li></ul>
+<ul class="bullets risk"><li>System downtime affecting template access</li><li>Incorrect data entry leading to misallocations</li><li>Complex union rules requiring meticulous adherence</li><li>Network issues disrupting distribution</li><li>Manual processes introducing errors</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../crew-management/crew-planning-pairing/ac-cm-cp-06/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Training Footprint Integration into the Crew Plan</span></a>

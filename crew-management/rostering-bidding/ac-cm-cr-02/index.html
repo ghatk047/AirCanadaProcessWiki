@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CM-CR-02" title="Click to copy the process ID">
     AC-CM-CR-02<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Preferential Bidding and Roster Award</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,307 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-CM-CR-02-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Bid collection and validation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Bid Notification</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Collect and validate submitted bids</b></td>
-<td>Crew Rostering Analyst</td>
+<td><b>Notify Crew Members of Bidding Cycle</b></td>
+<td>YYZ Operations Control Duty Manager</td>
 <td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Crew member bid submissions</td>
-<td>Validated bid set</td>
-<td>Validated within 24 hours of the bidding window closing at 100 percent</td>
+<td>Bidding cycle start date, list of eligible crew members</td>
+<td>Notification sent to all eligible crew members</td>
+<td>95% notification success rate</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System downtime during critical notification period.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Crew Members Submit Preferences</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Crew member preferences for flights, shifts</td>
+<td>Submitted preferences stored in the system</td>
+<td>80% response rate within 24 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>High volume of submissions overwhelming the system.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Log Notification Success</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Notification status, crew member details</td>
+<td>Log entry in the system for successful notifications</td>
+<td>95% log accuracy rate</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>An invalid bid submission has to be resolved with the crew member before award processing can run</td>
+<td>Inaccurate logging leading to audit issues.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CM-CR-02-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Seniority-based award processing</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Preference Submission</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Run seniority-based award processing</b></td>
-<td>Crew Rostering Analyst</td>
+<td><b>Evaluate Roster for Compliance</b></td>
+<td>Cargo Compliance Agent</td>
 <td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Validated bids and seniority list</td>
-<td>Awarded roster by crew member</td>
-<td>Award run completed within the standard processing window at 100 percent</td>
+<td>Current roster, crew member preferences</td>
+<td>Compliance report with any violations</td>
+<td>90% compliance rate</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>The award algorithm has to correctly apply seniority order across a large simultaneous bid pool</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual intervention required for complex cases.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Validate awarded rosters for compliance</b></td>
-<td>Crew Rostering Analyst</td>
+<td><b>Adjust Roster to Meet Compliance</b></td>
+<td>YYZ Operations Control Duty Manager</td>
 <td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Awarded rosters</td>
-<td>Compliance-validated rosters</td>
-<td>100 percent of awarded rosters compliant with duty and agreement rules</td>
+<td>Compliance report, available resources</td>
+<td>Adjusted roster that meets compliance</td>
+<td>85% successful adjustments within 24 hours</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>An award that satisfies preference and seniority still has to independently pass compliance validation</td>
+<td>Lack of flexibility in resource allocation.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Manually Adjust Roster for Compliance</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Compliance report, available resources</td>
+<td>Manually adjusted roster that meets compliance</td>
+<td>75% successful manual adjustments within 48 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual adjustments taking too long.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CM-CR-02-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Roster distribution</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Roster Evaluation</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Distribute awarded rosters to crew members</b></td>
-<td>Crew Rostering Analyst</td>
+<td><b>Review Preference Awards</b></td>
+<td>APPR Adjudicator</td>
 <td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Validated rosters</td>
-<td>Distributed rosters</td>
-<td>Distributed within the required lead time before the roster month at 100 percent</td>
+<td>Roster adjustments, crew preferences</td>
+<td>Award decision document</td>
+<td>98% accuracy in award decisions</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Complexity in handling overlapping preferences.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Notify Crew of Award Decision</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Award decision document, crew member details</td>
+<td>Notification sent to crew members</td>
+<td>92% notification accuracy rate</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A late roster distribution reduces crew members&#x27; ability to plan personal commitments around it</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delays in sending notifications affecting morale.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Re-evaluate Preference Awards</b></td>
+<td>APPR Adjudicator</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Roster adjustments, crew preferences</td>
+<td>Revised award decision document</td>
+<td>98% accuracy in revised award decisions</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complexity in handling overlapping preferences.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CR-02-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Award Decision</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Adjust Roster for Awarded Bids</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Award decision document, current roster</td>
+<td>Updated roster with awarded bids</td>
+<td>80% successful adjustments within 48 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Resource constraints affecting final roster decisions.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Verify Roster for Final Compliance</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Updated roster, compliance rules</td>
+<td>Final compliance verification report</td>
+<td>95% final compliance rate</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual checks taking too long.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Manually Adjust Roster for Awarded Bids</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Award decision document, current roster</td>
+<td>Manually adjusted roster with awarded bids</td>
+<td>75% successful manual adjustments within 48 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual adjustments taking too long.</td>
+</tr><tr>
+<td class="c-step">4.4</td>
+<td><b>Manually Verify Roster for Final Compliance</b></td>
+<td>Cargo Compliance Agent</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Updated roster, compliance rules</td>
+<td>Manual verification report</td>
+<td>95% manual verification accuracy rate</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual checks taking too long.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CR-02-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Roster Adjustment</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Prepare Final Roster Document</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Final compliance verification report, crew details</td>
+<td>Final roster document ready for distribution</td>
+<td>90% document preparation accuracy rate</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Data entry errors affecting final documents.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Distribute Final Roster Document</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Final roster document, crew member details</td>
+<td>Document distributed to all crew members</td>
+<td>85% successful distribution rate</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inefficient distribution methods leading to delays.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Correct Data Entry Errors</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Final compliance verification report, crew details</td>
+<td>Corrected final roster document ready for distribution</td>
+<td>90% successful corrections within 24 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Data entry errors affecting final documents.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CR-02-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Finalization</span>
+    <span class="ph-n">6 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Review and Approve Final Roster</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Final roster document, compliance rules</td>
+<td>Approved final roster</td>
+<td>98% approval rate within 72 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complexity in reviewing large rosters.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Update Systems with Final Roster</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Jeppesen Crew, Dayforce<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Approved final roster, system integration details</td>
+<td>Systems updated with final roster data</td>
+<td>95% successful updates within 24 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Integration issues between different systems.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Notify All Stakeholders of Final Roster</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Jeppesen Crew, Dayforce<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Approved final roster, stakeholder details</td>
+<td>Notifications sent to all stakeholders</td>
+<td>90% notification accuracy rate</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed notifications affecting operational planning.</td>
+</tr><tr>
+<td class="c-step">6.4</td>
+<td><b>Manually Review and Approve Final Roster</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Final roster document, compliance rules</td>
+<td>Manually approved final roster</td>
+<td>98% approval rate within 72 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complexity in reviewing large rosters.</td>
+</tr><tr>
+<td class="c-step">6.5</td>
+<td><b>Manually Update Systems with Final Roster</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Jeppesen Crew, Dayforce<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Approved final roster, system integration details</td>
+<td>Systems updated with final roster data</td>
+<td>95% successful manual updates within 24 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Integration issues between different systems.</td>
+</tr><tr>
+<td class="c-step">6.6</td>
+<td><b>Manually Notify All Stakeholders of Final Roster</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Jeppesen Crew, Dayforce<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Approved final roster, stakeholder details</td>
+<td>Notifications sent to all stakeholders</td>
+<td>90% manual notification accuracy rate</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed notifications affecting operational planning.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Crew Rostering Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">1.1 2.2 4.1 5.1 6.1 6.2 1.3 2.3 4.3 5.3 6.4 6.5</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Aeroplan Member Services Agent</span><span class="lane-steps">1.2 3.2 5.2 6.3 6.6</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Cargo Compliance Agent</span><span class="lane-steps">2.1 4.2 4.4</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>APPR Adjudicator</span><span class="lane-steps">3.1 3.3</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Jeppesen Crew, Dayforce<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Validated within 24 hours of the bidding window closing at 100 percent</li><li>Award run completed within the standard processing window at 100 percent</li><li>100 percent of awarded rosters compliant with duty and agreement rules</li><li>Distributed within the required lead time before the roster month at 100 percent</li></ul>
+<ul class="bullets"><li>95% notification success rate</li><li>80% response rate within 24 hours</li><li>90% compliance rate</li><li>85% successful adjustments within 24 hours</li><li>98% accuracy in award decisions</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>The award algorithm incorrectly applying seniority order across a large simultaneous bid pool</li><li>An award satisfying preference and seniority while still failing independent compliance validation</li><li>A late roster distribution reducing crew members&#x27; ability to plan personal commitments</li><li>An invalid bid submission delaying award processing for the entire affected bid pool</li></ul>
+<ul class="bullets risk"><li>System downtime during critical notification period.</li><li>High volume of submissions overwhelming the system.</li><li>Manual intervention required for complex cases.</li><li>Lack of flexibility in resource allocation.</li><li>Complexity in handling overlapping preferences.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../crew-management/rostering-bidding/ac-cm-cr-01/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Monthly Bid Package Publication</span></a>

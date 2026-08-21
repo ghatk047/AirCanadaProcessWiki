@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CM-CP-06" title="Click to copy the process ID">
     AC-CM-CP-06<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Training Footprint Integration into the Crew Plan</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,241 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-CM-CP-06-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Training requirement identification</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Data Validation</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Identify individual training requirements</b></td>
+<td><b>Validate Training Data</b></td>
 <td>Crew Planning Analyst</td>
-<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Crew member currency and training record</td>
-<td>Identified training requirement by crew member</td>
-<td>Identified for 100 percent of crew members each planning cycle</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Training Management System (TMS)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>New training session details</td>
+<td>Validated data</td>
+<td>95% validation accuracy</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inconsistent data entry formats from TMS causing delays.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Re-enter Invalid Data</b></td>
+<td>Crew Planning Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Training Management System (TMS)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Invalid training session details</td>
+<td>Corrected data</td>
+<td>50% re-entry accuracy first attempt</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Currency deadlines are individually staggered across the crew base rather than aligned to a single date</td>
+<td>Manual re-entry is time-consuming and error-prone.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CM-CP-06-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Slot embedding</span>
+    <span class="ph-name">Phase 2 &mdash; Union Rule Application</span>
     <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Embed training slots into the pairing build</b></td>
+<td><b>Identify Applicable Union Rules</b></td>
 <td>Crew Planning Analyst</td>
 <td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Identified requirements and pairing build</td>
-<td>Embedded training slots</td>
-<td>Embedded for 100 percent of due training requirements at each cycle</td>
+<td>Validated training session details</td>
+<td>Union rules applicable to the crew members</td>
+<td>100% rule identification accuracy</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Embedding a training slot can force rebuilding an otherwise efficient pairing</td>
+<td>Complex union agreements require deep understanding and manual verification.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Protect embedded slots against schedule pressure</b></td>
-<td>Crew Planning Analyst</td>
-<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Embedded training slots</td>
-<td>Protected slots resistant to displacement</td>
-<td>Zero training slots displaced by operational pressure without a compliant rescheduling</td>
+<td><b>Consult Union Representative</b></td>
+<td>Union Representative (ACPA/CUPE)</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Training session details</td>
+<td>Confirmed union rules</td>
+<td>90% confirmation rate</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Training slots are one of the first things displaced under schedule pressure since the cost is not immediately visible</td>
+<td>Delays in obtaining union approvals can disrupt crew planning.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CM-CP-06-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Currency protection</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Crew Pairing</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Monitor currency deadline compliance</b></td>
+<td><b>Pair Crew Members</b></td>
 <td>Crew Planning Analyst</td>
 <td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Protected training schedule</td>
-<td>Currency compliance status</td>
-<td>Zero crew members operating beyond their currency deadline</td>
+<td>Applicable union rules</td>
+<td>Preliminary crew pairings</td>
+<td>80% pairing efficiency</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual adjustments are needed for complex scenarios.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Resolve Pairing Conflict</b></td>
+<td>Crew Planning Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Conflicting pairings</td>
+<td>Resolved pairings</td>
+<td>70% resolution rate first attempt</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="yes">Y</span></td>
-<td>A crew member whose training is displaced too many times risks reaching their deadline without renewal</td>
+<td>Conflicts often require multiple iterations to resolve.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Escalate Pairing Conflict</b></td>
+<td>Crew Planning Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Unresolved pairings</td>
+<td>Escalation report</td>
+<td>100% escalation rate</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Escalations can delay crew planning and lead to operational disruptions.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CP-06-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Rostering</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Roster Crew Members</b></td>
+<td>Crew Planning Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Resolved pairings</td>
+<td>Rostered crew members</td>
+<td>95% rostering accuracy</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual adjustments are needed for last-minute changes.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Correct Rostering Error</b></td>
+<td>Crew Planning Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Incorrect rostering</td>
+<td>Corrected roster</td>
+<td>85% correction accuracy first attempt</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual corrections are time-consuming and error-prone.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Escalate Rostering Error</b></td>
+<td>Crew Planning Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Persistent rostering errors</td>
+<td>Escalation report</td>
+<td>100% escalation rate</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Escalations can delay crew planning and lead to operational disruptions.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CP-06-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Scheduling</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Schedule Training Sessions</b></td>
+<td>Crew Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Rostered crew members</td>
+<td>Scheduled training sessions</td>
+<td>90% scheduling efficiency</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Timing conflicts with existing flight schedules.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Resolve Scheduling Conflict</b></td>
+<td>Crew Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Conflicting training sessions</td>
+<td>Resolved scheduling</td>
+<td>80% resolution rate first attempt</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Conflicts often require multiple iterations to resolve.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Escalate Scheduling Conflict</b></td>
+<td>Crew Planning Analyst</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Unresolved scheduling conflicts</td>
+<td>Escalation report</td>
+<td>100% escalation rate</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Escalations can delay crew planning and lead to operational disruptions.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CP-06-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Final Review</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Final Review of Crew Plan</b></td>
+<td>Crew Planning Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Scheduled training sessions</td>
+<td>Finalized crew plan</td>
+<td>98% review accuracy</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual review is time-consuming and prone to oversight.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Correct Review Error</b></td>
+<td>Crew Planning Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Incorrect crew plan</td>
+<td>Corrected crew plan</td>
+<td>85% correction accuracy first attempt</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual corrections are time-consuming and error-prone.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Escalate Review Error</b></td>
+<td>Crew Planning Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Persistent review errors</td>
+<td>Escalation report</td>
+<td>100% escalation rate</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Escalations can delay crew planning and lead to operational disruptions.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Crew Planning Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Crew Planning Analyst</span><span class="lane-steps">1.1 1.2 2.1 3.1 3.2 3.3 4.1 4.2 4.3 5.1 5.2 5.3 6.1 6.2 6.3</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Union Representative (ACPA/CUPE)</span><span class="lane-steps">2.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Training Management System (TMS)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Identified for 100 percent of crew members each planning cycle</li><li>Embedded for 100 percent of due training requirements at each cycle</li><li>Zero training slots displaced without a compliant rescheduling</li><li>Zero crew members operating beyond their currency deadline</li></ul>
+<ul class="bullets"><li>95% validation accuracy in data entry</li><li>100% rule identification accuracy for union rules</li><li>80% pairing efficiency in initial pairings</li><li>95% rostering accuracy after corrections</li><li>90% scheduling efficiency with conflict resolution</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A training slot&#x27;s deferral cost being invisible until the currency deadline actually arrives</li><li>Embedding a training slot forcing rebuild of an otherwise efficient pairing</li><li>A crew member whose training is displaced too many times reaching their deadline without renewal</li><li>Currency deadlines being individually staggered rather than aligned to a single manageable date</li></ul>
+<ul class="bullets risk"><li>Inconsistent data from Training Management System causing delays</li><li>Complex union agreements leading to manual verification errors</li><li>Manual adjustments for complex scenarios increasing planning time</li><li>Timing conflicts with existing flight schedules disrupting operations</li><li>Persistent review errors requiring multiple corrections and escalations</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../crew-management/crew-planning-pairing/ac-cm-cp-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Collective Agreement Rule Configuration</span></a>
