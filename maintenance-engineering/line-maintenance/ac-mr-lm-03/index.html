@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-MR-LM-03" title="Click to copy the process ID">
     AC-MR-LM-03<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Minimum Equipment List Deferral Management</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,241 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-MR-LM-03-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; MEL applicability check</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Initial Deferral Request</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Assess MEL applicability for the defect</b></td>
-<td>Maintenance Controller</td>
+<td><b>Detect Discrepancy</b></td>
+<td>Line Maintenance Technician</td>
+<td><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Aircraft inspection report</td>
+<td>Deferral request</td>
+<td>Time to detect discrepancy &lt; 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed detection can lead to operational disruptions.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Initiate Deferral Request in TRAX eMobility</b></td>
+<td>Line Maintenance Technician</td>
+<td><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Deferral request</td>
+<td>Deferral ticket created</td>
+<td>Deferral request time &lt; 2 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System downtime can prevent immediate deferrals.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Review Deferral Request</b></td>
+<td>Line Maintenance Manager</td>
 <td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Defect and aircraft configuration</td>
-<td>MEL applicability determination</td>
-<td>Determined before dispatch for 100 percent of deferral candidates</td>
+<td>Deferral ticket</td>
+<td>Approval or rejection</td>
+<td>Review time &lt; 10 minutes</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>MEL applicability depends on precise aircraft configuration that has to be correctly matched</td>
+<td>Miscommunication can lead to incorrect deferrals.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Escalate Deferral Request</b></td>
+<td>Maintenance Manager</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Rejection notice</td>
+<td>Further review or alternative solution</td>
+<td>Escalation time &lt; 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed escalations can impact flight schedules.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-MR-LM-03-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Deferral entry</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Deferral Review</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Enter the deferral with rectification interval</b></td>
-<td>Maintenance Controller</td>
-<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>MEL applicability</td>
-<td>Entered deferral with tracked interval</td>
-<td>Entered before dispatch for 100 percent of deferred defects</td>
+<td><b>Check Regulatory Compliance with CAWIS</b></td>
+<td>Aeroxchange Specialist</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CAWIS<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Deferral details</td>
+<td>Compliance status</td>
+<td>Compliance check time &lt; 5 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inaccurate data in CAWIS can lead to false positives.</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Notify Crew of Deferral</b></td>
+<td>Flight Operations Coordinator</td>
+<td><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Compliance status</td>
+<td>Crew notification</td>
+<td>Notification time &lt; 1 minute</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>An interval calculated from the wrong reference date understates the actual time remaining</td>
+<td>Delayed notifications can cause safety concerns.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-MR-LM-03-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Interval tracking</span>
+    <span class="ph-name">Phase 3 &mdash; Regulatory Compliance Check</span>
     <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Track deferral status through the rectification interval</b></td>
-<td>Maintenance Controller</td>
+<td><b>Evaluate Flight Readiness</b></td>
+<td>Flight Safety Officer</td>
 <td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Entered deferral</td>
-<td>Tracked status against interval</td>
-<td>Tracked continuously for 100 percent of open deferrals</td>
+<td>Deferral and compliance status</td>
+<td>Flight readiness assessment</td>
+<td>Assessment time &lt; 2 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>A deferral tracked only at the maintenance system level is not automatically visible to ops control planning around it</td>
+<td>Inconsistent assessments can lead to unsafe flights.</td>
 </tr><tr>
 <td class="c-step">3.2</td>
-<td><b>Close deferral within the permitted interval</b></td>
+<td><b>Notify Air Traffic Control of Deferral</b></td>
+<td>Air Traffic Controller</td>
+<td><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Flight readiness assessment</td>
+<td>Deferral communicated to ATC</td>
+<td>Notification time &lt; 1 minute</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed notifications can lead to airspace congestion.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-LM-03-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Decision on Flight Readiness</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Monitor Deferral During Flight</b></td>
+<td>Flight Operations Crew</td>
+<td><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>In-flight data</td>
+<td>Deferral status update</td>
+<td>Update frequency &gt; 5 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Lack of real-time updates can lead to undetected issues.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Update TRAX with Flight Status</b></td>
+<td>Flight Operations Coordinator</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Deferral status update</td>
+<td>Updated deferral record</td>
+<td>Update time &lt; 1 minute</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed updates can affect maintenance planning.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-LM-03-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Post-Flight Follow-Up</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Review Post-Flight Deferral Status</b></td>
+<td>Line Maintenance Manager</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Post-flight data</td>
+<td>Deferral resolution assessment</td>
+<td>Review time &lt; 10 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inaccurate post-flight reviews can lead to unresolved issues.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Close Deferral Ticket in TRAX</b></td>
 <td>Line Maintenance Technician</td>
 <td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Tracked deferral approaching interval end</td>
-<td>Closed deferral with rectification completed</td>
-<td>Zero deferrals closed outside their permitted interval</td>
+<td>Deferral resolution assessment</td>
+<td>Closed deferral ticket</td>
+<td>Closure time &lt; 1 minute</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed ticket closures can lead to cluttered systems.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-LM-03-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Reporting and Documentation</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Generate Deferral Report</b></td>
+<td>Maintenance Control Analyst</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Deferral history</td>
+<td>Deferral report</td>
+<td>Report generation time &lt; 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Incomplete reports can lead to missed insights.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Submit Deferral Report to CAWIS</b></td>
+<td>Aeroxchange Specialist</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CAWIS<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Deferral report</td>
+<td>Report submission confirmation</td>
+<td>Submission time &lt; 1 minute</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="yes">Y</span></td>
-<td>A deferral not closed in time forces an unplanned aircraft removal from service</td>
+<td>System errors can lead to failed submissions.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Review CAWIS Submission Status</b></td>
+<td>Aeroxchange Specialist</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CAWIS<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Submission confirmation</td>
+<td>Submission status</td>
+<td>Review time &lt; 1 minute</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Incorrect submissions can lead to compliance issues.</td>
+</tr><tr>
+<td class="c-step">6.4</td>
+<td><b>Notify Stakeholders of Submission Status</b></td>
+<td>Maintenance Control Analyst</td>
+<td><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Submission status</td>
+<td>Stakeholder notification</td>
+<td>Notification time &lt; 1 minute</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed notifications can lead to confusion.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Maintenance Controller</span><span class="lane-steps">1.1 2.1 3.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Line Maintenance Technician</span><span class="lane-steps">3.2</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Line Maintenance Technician</span><span class="lane-steps">1.1 1.2 5.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Line Maintenance Manager</span><span class="lane-steps">1.3 5.1</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Maintenance Manager</span><span class="lane-steps">1.4</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Aeroxchange Specialist</span><span class="lane-steps">2.1 6.2 6.3</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Flight Operations Coordinator</span><span class="lane-steps">2.2 4.2</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>Flight Safety Officer</span><span class="lane-steps">3.1</span></div><div class="lane"><span class="swatch" style="background:#8A5A1E"></span><span>Air Traffic Controller</span><span class="lane-steps">3.2</span></div><div class="lane"><span class="swatch" style="background:#4A4A4A"></span><span>Flight Operations Crew</span><span class="lane-steps">4.1</span></div><div class="lane"><span class="swatch" style="background:#E04A60"></span><span>Maintenance Control Analyst</span><span class="lane-steps">6.1 6.4</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag trax" data-tooltip="Mobile maintenance execution at the aircraft. Addresses line-maintenance usability at the gate. [TRAX - evidence B]">TRAX eMobility<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CAWIS<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Determined before dispatch for 100 percent of deferral candidates</li><li>Entered before dispatch for 100 percent of deferred defects</li><li>Tracked continuously for 100 percent of open deferrals</li><li>Zero deferrals closed outside their permitted interval</li></ul>
+<ul class="bullets"><li>Deferral request time &lt; 2 minutes</li><li>Review time &lt; 10 minutes</li><li>Compliance check time &lt; 5 minutes</li><li>Assessment time &lt; 2 minutes</li><li>Update frequency &gt; 5 minutes</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A deferral not closed within its permitted interval forcing an unplanned aircraft removal</li><li>An interval calculated from the wrong reference date understating the actual time remaining</li><li>A deferral not being automatically visible to ops control planning around it</li><li>MEL applicability depending on precise aircraft configuration matching that is easy to get wrong</li></ul>
+<ul class="bullets risk"><li>Inaccurate deferrals leading to operational disruptions.</li><li>Delayed escalations impacting flight schedules.</li><li>Non-compliant deferrals causing regulatory fines.</li><li>Inconsistent assessments leading to unsafe flights.</li><li>System errors resulting in failed submissions.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../maintenance-engineering/line-maintenance/ac-mr-lm-02/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Defect Reporting and Technical Log Entry</span></a>
