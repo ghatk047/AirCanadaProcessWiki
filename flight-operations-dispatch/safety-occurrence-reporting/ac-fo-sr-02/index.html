@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-FO-SR-02" title="Click to copy the process ID">
     AC-FO-SR-02<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Hazard Identification and Risk Assessment</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,252 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-FO-SR-02-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Hazard identification</span>
-    <span class="ph-n">1 steps</span></div>
-  <div class="phase-body"><div class="tbl-wrap"><table>
-  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
-  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
-  <tbody><tr>
-<td class="c-step">1.1</td>
-<td><b>Identify the hazard from source material</b></td>
-<td>Safety Management Coordinator</td>
-<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Occurrence report, audit finding or observation</td>
-<td>Identified hazard</td>
-<td>Identified within the standard triage cycle at 100 percent</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>A hazard pattern spanning multiple individually minor occurrence reports can be missed if reports are reviewed in isolation</td>
-</tr></tbody></table></div></div>
-</div><div class="phase-group" data-phase-id="AC-FO-SR-02-2">
-  <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Risk assessment</span>
+    <span class="ph-name">Phase 1 &mdash; Incident Reporting</span>
     <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
+<td class="c-step">1.1</td>
+<td><b>Receive Incident Report</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Safety incident report from crew member or ground staff</td>
+<td>Incident logged in Jeppesen OCC system</td>
+<td>Time to log incident &lt; 15 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delays in reporting due to manual data entry errors</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Verify Incident Details</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Incident log from Jeppesen OCC</td>
+<td>Verified incident details</td>
+<td>Verification completed within 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inconsistent data entry causing verification delays</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-SR-02-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Initial Assessment</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Assess likelihood and severity</b></td>
-<td>Safety Management Coordinator</td>
-<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Identified hazard</td>
-<td>Risk rating by likelihood and severity</td>
-<td>Rated using the standard risk matrix at 100 percent</td>
+<td><b>Initial Risk Assessment</b></td>
+<td>Safety &amp; Occurrence Review Committee Chair</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Verified incident details</td>
+<td>Preliminary risk assessment report</td>
+<td>Assessment completed within 30 minutes</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Likelihood and severity assessment involves genuine judgement, particularly for a novel hazard type</td>
+<td>Lack of standardized risk assessment templates leading to inconsistent reports</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Assign mitigation owner and target</b></td>
-<td>Safety Management Coordinator</td>
-<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Risk rating</td>
-<td>Assigned owner with mitigation target date</td>
-<td>100 percent of material hazards assigned an owner and target</td>
+<td><b>Escalate to Safety Review Committee</b></td>
+<td>Safety &amp; Occurrence Review Committee Chair</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Preliminary risk assessment report</td>
+<td>Escalation of high-risk incident for further review</td>
+<td>Escalation completed within 10 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed escalation due to committee unavailability</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Notify Stakeholders</b></td>
+<td>Safety &amp; Occurrence Review Committee Chair</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>High-risk incident details</td>
+<td>Notification sent to stakeholders</td>
+<td>Notifications sent within 1 hour</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A hazard without a named owner and target date tends to remain unmitigated indefinitely</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed notifications due to system outages</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-FO-SR-02-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Register entry and ownership</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Risk Identification</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Enter hazard into the register with review cycle</b></td>
-<td>Safety Management Coordinator</td>
-<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Assigned mitigation</td>
-<td>Registered hazard with defined review cycle</td>
-<td>Entered within 5 business days of assessment at 100 percent</td>
+<td><b>Detailed Risk Identification</b></td>
+<td>Safety &amp; Occurrence Review Committee Member</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Preliminary risk assessment report</td>
+<td>Detailed risk identification document</td>
+<td>Identification completed within 2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Complex incidents requiring extensive data analysis</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Conduct Further Analysis</b></td>
+<td>Safety &amp; Occurrence Review Committee Member</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Detailed risk identification document</td>
+<td>Updated risk assessment report</td>
+<td>Analysis completed within 4 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A hazard entered without a defined review cycle can be assessed once and then never revisited</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Insufficient data available for analysis</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Review Identified Risks</b></td>
+<td>Safety &amp; Occurrence Review Committee Member</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Updated risk assessment report</td>
+<td>Reviewed list of identified risks</td>
+<td>Review completed within 2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Risk prioritization based on severity and impact</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Prioritize High Priority Risks</b></td>
+<td>Safety &amp; Occurrence Review Committee Member</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>List of identified risks</td>
+<td>Prioritized list of high priority risks</td>
+<td>Prioritization completed within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Disagreement on risk prioritization</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-SR-02-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Mitigation Planning</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Develop Mitigation Strategies</b></td>
+<td>Safety &amp; Occurrence Review Committee Member</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Prioritized list of high priority risks</td>
+<td>Mitigation strategies for each risk</td>
+<td>Strategies developed within 3 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Limited resources available for mitigation</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Adjust Mitigation Strategies</b></td>
+<td>Safety &amp; Occurrence Review Committee Member</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Mitigation strategies</td>
+<td>Adjusted mitigation strategies based on resource constraints</td>
+<td>Adjustments completed within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Infeasible mitigation plans</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Evaluate Mitigation Feasibility</b></td>
+<td>Safety &amp; Occurrence Review Committee Member</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Adjusted mitigation strategies</td>
+<td>Evaluation of feasibility for each strategy</td>
+<td>Evaluation completed within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Technological limitations in implementing strategies</td>
+</tr><tr>
+<td class="c-step">4.4</td>
+<td><b>Modify Mitigation Strategies</b></td>
+<td>Safety &amp; Occurrence Review Committee Member</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Evaluation of feasibility</td>
+<td>Modified mitigation strategies to address technical limitations</td>
+<td>Modifications completed within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Unforeseen complications during modification</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-SR-02-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Review and Documentation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Document Risk Assessment Report</b></td>
+<td>Safety &amp; Occurrence Review Committee Chair</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Mitigation strategies</td>
+<td>Final risk assessment report with mitigation actions</td>
+<td>Report completed within 2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inaccuracies in documentation leading to miscommunication</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Revise Documentation</b></td>
+<td>Safety &amp; Occurrence Review Committee Chair</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Final risk assessment report</td>
+<td>Revised risk assessment report with corrected documentation</td>
+<td>Revision completed within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Insufficient review time for revisions</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-SR-02-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Approval</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Submit Report for Approval</b></td>
+<td>Safety &amp; Occurrence Review Committee Chair</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Final risk assessment report</td>
+<td>Submitted report for approval</td>
+<td>Submission completed within 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delays in committee meeting scheduling</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Reschedule Committee Meeting</b></td>
+<td>Safety &amp; Occurrence Review Committee Chair</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Report for approval</td>
+<td>Rescheduled committee meeting time</td>
+<td>Rescheduling completed within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Further delays in rescheduling</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Safety Management Coordinator</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">1.1 1.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Safety &amp; Occurrence Review Committee Chair</span><span class="lane-steps">2.1 2.2 2.3 5.1 5.2 6.1 6.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Safety &amp; Occurrence Review Committee Member</span><span class="lane-steps">3.1 3.2 3.3 3.4 4.1 4.2 4.3 4.4</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
+<div class="card"><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Rated using the standard risk matrix at 100 percent</li><li>100 percent of material hazards assigned an owner and target</li><li>Entered within 5 business days of assessment at 100 percent</li><li>Hazard mitigation closure rate against target dates tracked</li></ul>
+<ul class="bullets"><li>Log incident &lt; 15 minutes</li><li>Verification &lt; 5 minutes</li><li>Assessment &lt; 30 minutes</li><li>Escalation &lt; 10 minutes</li><li>Notifications &lt; 1 hour</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A hazard pattern spanning multiple individually minor reports being missed if reports are reviewed in isolation</li><li>A hazard without a named owner and target date remaining unmitigated indefinitely</li><li>A hazard entered without a defined review cycle being assessed once and never revisited</li><li>Likelihood and severity assessment involving genuine judgement, particularly for a novel hazard type</li></ul>
+<ul class="bullets risk"><li>Manual data entry errors causing delays</li><li>Inconsistent data entry leading to verification issues</li><li>Lack of standardized risk assessment templates</li><li>Committee unavailability delaying escalation</li><li>System outages affecting notifications</li><li>Complex incidents requiring extensive analysis</li><li>Insufficient data available for analysis</li><li>Disagreement on risk prioritization</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../flight-operations-dispatch/safety-occurrence-reporting/ac-fo-sr-01/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Safety Occurrence Reporting and Capture</span></a>

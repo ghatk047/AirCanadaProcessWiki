@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-FO-SR-01" title="Click to copy the process ID">
     AC-FO-SR-01<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Safety Occurrence Reporting and Capture</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,241 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-FO-SR-01-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Occurrence observation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Initial Detection</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Observe and identify a reportable occurrence</b></td>
-<td>Safety Reporting Employee</td>
-<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Direct observation or involvement</td>
-<td>Identified reportable occurrence</td>
-<td>Reportable occurrences identified consistently across employee groups</td>
+<td><b>Identify Safety Occurrence</b></td>
+<td>Flight Crew</td>
+<td><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Real-time flight data and pilot reports</td>
+<td>Safety occurrence report</td>
+<td>Time to detect safety occurrence &lt; 5 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>What counts as reportable is not always intuitively clear to every employee group</td>
+<td>Delayed detection can lead to regulatory non-compliance.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Report Occurrence to OCC</b></td>
+<td>Flight Crew</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Safety occurrence report</td>
+<td>Logged safety occurrence in NetLine/Ops</td>
+<td>Time to log in system &lt; 10 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual logging errors can occur.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Correct Logging Error</b></td>
+<td>OCC Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Logged safety occurrence report</td>
+<td>Corrected safety occurrence log</td>
+<td>Time to correct error &lt; 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Errors in logging can delay investigations.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-FO-SR-01-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Report capture</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Data Collection</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Capture the occurrence report</b></td>
-<td>Safety Reporting Employee</td>
-<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Identified occurrence</td>
-<td>Captured report with factual detail</td>
-<td>Captured within 24 hours of the occurrence at 90 percent</td>
+<td><b>Extract Relevant Data</b></td>
+<td>Safety &amp; Occurrence Reporting Analyst</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Logged safety occurrence report</td>
+<td>Detailed data extraction</td>
+<td>Time to extract data &lt; 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Data extraction issues can delay analysis.</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Re-attempt Data Extraction</b></td>
+<td>Safety &amp; Occurrence Reporting Analyst</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Logged safety occurrence report</td>
+<td>Detailed data extraction</td>
+<td>Time to extract data &lt; 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Data extraction issues can delay analysis.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Manual Data Entry</b></td>
+<td>Safety &amp; Occurrence Reporting Analyst</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Logged safety occurrence report</td>
+<td>Detailed data entry</td>
+<td>Time to manually enter data &lt; 60 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Report quality depends on the employee&#x27;s confidence that the process is genuinely non-punitive</td>
+<td>Manual entry is time-consuming and prone to errors.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-FO-SR-01-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; System entry</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Analysis</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Enter report into the safety management system</b></td>
-<td>Safety Management Coordinator</td>
-<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Captured report</td>
-<td>Entered report in the SMS hazard register</td>
-<td>Entered within 48 hours of capture at 100 percent</td>
+<td><b>Conduct Initial Analysis</b></td>
+<td>Safety &amp; Occurrence Reporting Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Detailed data extraction</td>
+<td>Initial analysis report</td>
+<td>Time to complete initial analysis &lt; 2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>A delay between capture and system entry delays every downstream risk assessment</td>
+<td>Complex incidents may require additional time for analysis.</td>
 </tr><tr>
 <td class="c-step">3.2</td>
-<td><b>Acknowledge receipt to the reporting employee</b></td>
-<td>Safety Management Coordinator</td>
-<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Entered report</td>
-<td>Acknowledgement sent to the reporter</td>
-<td>Acknowledgement sent within 5 business days at 95 percent</td>
+<td><b>Request Additional Information</b></td>
+<td>Safety &amp; Occurrence Reporting Analyst</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Initial analysis report</td>
+<td>Additional information request sent</td>
+<td>Time to send request &lt; 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed responses can delay the entire process.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Escalate Request to Duty Manager</b></td>
+<td>Safety &amp; Occurrence Reporting Analyst</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Additional information request</td>
+<td>Escalated request sent</td>
+<td>Time to escalate &lt; 10 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A reporter who never hears back has less incentive to submit the next report</td>
+<td>Escalation ensures timely resolution.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-SR-01-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Reporting</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Prepare Reporting Document</b></td>
+<td>Safety &amp; Occurrence Reporting Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Initial analysis report</td>
+<td>Reporting document</td>
+<td>Time to prepare document &lt; 3 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inconsistent reporting formats can cause confusion.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Correct Reporting Format</b></td>
+<td>Safety &amp; Occurrence Reporting Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Reporting document</td>
+<td>Corrected reporting document</td>
+<td>Time to correct format &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Format errors can delay regulatory submission.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-SR-01-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Follow-up</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Submit to Regulatory Body</b></td>
+<td>Safety &amp; Occurrence Reporting Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Reporting document</td>
+<td>Submitted to regulatory body</td>
+<td>Time to submit &lt; 24 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Late submissions can result in fines.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Correct Submission and Resubmit</b></td>
+<td>Safety &amp; Occurrence Reporting Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Reporting document</td>
+<td>Resubmitted to regulatory body</td>
+<td>Time to resubmit &lt; 48 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Resubmissions delay compliance.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-SR-01-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Phase 6</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Monitor Regulatory Response</b></td>
+<td>Safety &amp; Occurrence Reporting Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Submitted report</td>
+<td>Regulatory response received</td>
+<td>Time to receive response &lt; 7 days</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed responses can affect future operations.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Escalate to Legal Department</b></td>
+<td>Safety &amp; Occurrence Reporting Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Regulatory response</td>
+<td>Escalated to legal department</td>
+<td>Time to escalate &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Legal involvement ensures compliance.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Update Internal Records</b></td>
+<td>Safety &amp; Occurrence Reporting Analyst</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Regulatory response</td>
+<td>Updated internal records</td>
+<td>Time to update records &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Outdated records can lead to procedural errors.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Safety Reporting Employee</span><span class="lane-steps">1.1 2.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Safety Management Coordinator</span><span class="lane-steps">3.1 3.2</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Flight Crew</span><span class="lane-steps">1.1 1.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>OCC Duty Manager</span><span class="lane-steps">1.3</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Safety &amp; Occurrence Reporting Analyst</span><span class="lane-steps">2.1 2.2 2.3 3.1 3.2 3.3 4.1 4.2 5.1 5.2 6.1 6.2 6.3</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
+<div class="card"><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Captured within 24 hours of the occurrence at 90 percent</li><li>Entered within 48 hours of capture at 100 percent</li><li>Reporting volume per flight hour tracked as a leading indicator of reporting culture health</li><li>Report quality sufficient for triage without follow-up clarification above 80 percent</li></ul>
+<ul class="bullets"><li>Detection time &lt; 5 minutes</li><li>Logging time &lt; 10 minutes</li><li>Data extraction time &lt; 30 minutes</li><li>Analysis time &lt; 2 hours</li><li>Reporting submission time &lt; 24 hours</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A reporting process that feels punitive or burdensome suppressing exactly the reports the system needs most</li><li>Inconsistent understanding across employee groups of what actually constitutes a reportable occurrence</li><li>A delay between capture and system entry delaying every downstream risk assessment</li><li>Report quality varying enough to require follow-up clarification before triage can proceed</li></ul>
+<ul class="bullets risk"><li>Manual logging errors</li><li>Data extraction issues</li><li>Complex incident analysis delays</li><li>Format errors in reporting documents</li><li>Late regulatory submissions</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../flight-operations-dispatch/ops-control-irrop-recovery/ac-fo-oc-06/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Ground Stop and System Outage Fallback Operation</span></a>

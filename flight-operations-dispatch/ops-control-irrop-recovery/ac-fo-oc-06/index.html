@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-FO-OC-06" title="Click to copy the process ID">
     AC-FO-OC-06<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Ground Stop and System Outage Fallback Operation</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,96 +143,274 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-FO-OC-06-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Outage detection and fallback activation</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Initial Notification and Assessment</span>
+    <span class="ph-n">6 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Detect system outage or declared ground stop</b></td>
-<td>Operations Control Duty Manager</td>
-<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>System monitoring or external ground stop notification</td>
-<td>Detected outage or ground stop</td>
-<td>Detected within 5 minutes of onset at 100 percent</td>
+<td><b>Detect System Outage</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>System status monitoring tools</td>
+<td>Outage alert</td>
+<td>Time to detection (minutes)</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>A gradual system degradation is harder to detect promptly than a sudden hard outage</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed outage detection due to system complexity.</td>
 </tr><tr>
 <td class="c-step">1.2</td>
-<td><b>Activate manual fallback procedure</b></td>
-<td>Operations Control Duty Manager</td>
+<td><b>Assess Impact Scope</b></td>
+<td>YYZ Operations Control Duty Manager</td>
 <td><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Detected outage</td>
-<td>Activated fallback procedure</td>
-<td>Activated within 10 minutes of detection at 90 percent</td>
+<td>Outage alert</td>
+<td>Impact assessment report</td>
+<td>Time to impact assessment (minutes)</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inaccurate impact scope due to incomplete data.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Manual Outage Detection</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Flight status updates</td>
+<td>Updated outage alert</td>
+<td>Time to manual detection (minutes)</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Fallback procedures are used rarely enough that staff familiarity cannot be assumed</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual detection is time-consuming and prone to errors.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Clarify Impact Scope</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Impact assessment report</td>
+<td>Confirmed impact scope</td>
+<td>Time to clarification (minutes)</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Discrepancies in impact scope due to system inconsistencies.</td>
+</tr><tr>
+<td class="c-step">1.5</td>
+<td><b>Report Outage to CIO</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Updated outage alert</td>
+<td>CIO notification</td>
+<td>Time to report (minutes)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed reporting due to communication issues.</td>
+</tr><tr>
+<td class="c-step">1.6</td>
+<td><b>Re-evaluate Impact Scope</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Confirmed impact scope</td>
+<td>Final impact report</td>
+<td>Time to final evaluation (minutes)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Further discrepancies in impact scope due to system limitations.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-FO-OC-06-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Manual procedure execution</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; System Status Verification</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Execute manual flight tracking and coordination</b></td>
-<td>Operations Control Analyst</td>
-<td><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Activated fallback</td>
-<td>Manually tracked flight status</td>
-<td>Manual tracking sustained for 100 percent of active flights during the outage</td>
+<td><b>Verify System Status</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>CIO notification</td>
+<td>System status update</td>
+<td>Time to status verification (minutes)</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Manual tracking throughput is materially lower than the automated system it replaces</td>
+<td>Incomplete system status updates due to technical issues.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Coordinate manual communication with stations and crew</b></td>
-<td>Operations Control Analyst</td>
-<td><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Manual tracking status</td>
-<td>Manual station and crew communication</td>
-<td>Communication maintained for 100 percent of affected flights during the outage</td>
+<td><b>Initiate Ground Stop</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Final impact report</td>
+<td>Ground stop order</td>
+<td>Time to ground stop (minutes)</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="yes">Y</span></td>
-<td>Communication channels not dependent on the failed system have to be identified and used correctly</td>
+<td>Delayed execution of ground stop due to procedural delays.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Attempt System Restart</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>System status update</td>
+<td>Restart attempt result</td>
+<td>Time to restart (minutes)</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Failed system restarts due to critical system dependencies.</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Report Ground Stop Failure</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Ground stop order</td>
+<td>Failure report</td>
+<td>Time to failure report (minutes)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed reporting of ground stop failures due to communication issues.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-FO-OC-06-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Restoration transition</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Ground Stop Implementation</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Transition back to normal system operation</b></td>
-<td>Operations Control Duty Manager</td>
-<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Restored system</td>
-<td>Confirmed transition with reconciled operational data</td>
-<td>Transition completed with full data reconciliation at 100 percent</td>
+<td><b>Re-route Flights</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Ground stop order</td>
+<td>Rerouting plan</td>
+<td>Time to rerouting (minutes)</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inefficient rerouting due to limited alternative routes.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Reschedule Flights</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Rerouting plan</td>
+<td>Rescheduling order</td>
+<td>Time to rescheduling (minutes)</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Data captured manually during the outage has to be reconciled back into the restored system accurately</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delays in rescheduling due to regulatory constraints.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Escalate to Higher Management</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Rescheduling order</td>
+<td>Escalation report</td>
+<td>Time to escalation (minutes)</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inconsistent escalation procedures leading to delays.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-OC-06-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Flight Re-routing and Rescheduling</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Communicate with Crews</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Ground stop order</td>
+<td>Crew communication</td>
+<td>Time to crew communication (minutes)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inconsistent communication leading to confusion.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Update APPR on Disruption</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag amadeus" data-tooltip="Automated IRROP re-accommodation. Replaced largely manual disruption handling pre-2020. [Amadeus - evidence A]">Amadeus Passenger Recovery<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Crew communication</td>
+<td>APPR update</td>
+<td>Time to APPR update (minutes)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed updates due to system integration issues.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-OC-06-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Communication and Coordination</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Review Ground Stop Implementation</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Ground stop order</td>
+<td>Implementation review</td>
+<td>Time to implementation review (minutes)</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inconsistent implementation leading to further disruptions.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Report Ground Stop Review Failure</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Implementation review</td>
+<td>Failure report</td>
+<td>Time to review failure report (minutes)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed reporting of review failures due to communication issues.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FO-OC-06-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Post-Outage Review</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Document Outage Impact</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Final impact report</td>
+<td>Impact documentation</td>
+<td>Time to impact documentation (minutes)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed documentation due to system limitations.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Report Post-Outage Review</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Impact documentation</td>
+<td>Review report</td>
+<td>Time to review report (minutes)</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed reporting of post-outage reviews due to communication issues.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Operations Control Duty Manager</span><span class="lane-steps">1.1 1.2 3.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Operations Control Analyst</span><span class="lane-steps">2.1 2.2</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">1.1 1.2 1.3 1.4 1.5 1.6 2.1 2.2 2.3 2.4 3.1 3.2 3.3 4.1 4.2 5.1 5.2 6.1 6.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
+<div class="card"><span class="tag netline" data-tooltip="Operations control: flight watch, delay management and schedule recovery at the OCC. [Lufthansa Systems - evidence B]">NetLine/Ops<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag jeppesen" data-tooltip="Operations control and disruption recovery decision support at the YYZ operations centre. [Boeing Jeppesen - evidence B]">Jeppesen OCC<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag datalink" data-tooltip="Air-ground messaging. OOOI times, load messages, ATC datalink and maintenance downlinks. [SITA / ARINC - evidence C]">ACARS Datalink<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag regulator" data-tooltip="Canadian ANSP. NOTAM, flight data, oceanic clearance and traffic flow management. [NAV CANADA - evidence B]">NAV CANADA<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag amadeus" data-tooltip="Automated IRROP re-accommodation. Replaced largely manual disruption handling pre-2020. [Amadeus - evidence A]">Amadeus Passenger Recovery<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Detected within 5 minutes of onset at 100 percent</li><li>Activated within 10 minutes of detection at 90 percent</li><li>Manual tracking sustained for 100 percent of active flights during the outage</li><li>Transition completed with full data reconciliation at 100 percent</li></ul>
+<ul class="bullets"><li>Time to detection: &lt; 10 minutes</li><li>Time to impact assessment: &lt; 20 minutes</li><li>Time to ground stop: &lt; 30 minutes</li><li>Time to rerouting: &lt; 45 minutes</li><li>Time to rescheduling: &lt; 60 minutes</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Fallback procedures being used rarely enough that staff familiarity cannot be assumed in a real event</li><li>Manual tracking throughput being materially lower than the automated system it temporarily replaces</li><li>Data captured manually during the outage not reconciling accurately back into the restored system</li><li>A gradual system degradation being detected later than a sudden, unambiguous hard outage</li></ul>
+<ul class="bullets risk"><li>Inaccurate system status updates leading to delayed recovery actions.</li><li>Manual detection of outages causing significant delays.</li><li>Inconsistent communication protocols leading to operational confusion.</li><li>Limited alternative routes affecting flight efficiency.</li><li>Regulatory constraints delaying rescheduling processes.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../flight-operations-dispatch/ops-control-irrop-recovery/ac-fo-oc-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Express Operator Disruption Reconciliation</span></a>
