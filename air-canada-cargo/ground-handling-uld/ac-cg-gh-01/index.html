@@ -133,7 +133,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CG-GH-01" title="Click to copy the process ID">
     AC-CG-GH-01<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Cargo Acceptance and Warehouse Receipt</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -142,85 +142,233 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-CG-GH-01-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Shipment presentation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Cargo Acceptance</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Receive presented cargo</b></td>
-<td>Cargo Warehouse Agent</td>
-<td><span class="tag champ" data-tooltip="Cargo warehouse and ground handling execution, ULD build-up and breakdown. [CHAMP - evidence A]">Cargospot neo Handling<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Presented shipment and booking reference</td>
-<td>Received cargo for processing</td>
-<td>Received within the standard acceptance window at 100 percent</td>
+<td><b>Receive cargo manifest</b></td>
+<td>YYZ Cargo Control Agent</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Cargo manifest from shipper</td>
+<td>Cargo details loaded into CHAMP system</td>
+<td>Time to load manifest &lt; 5 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Warehouse acceptance windows can be tight relative to flight cutoff, especially for late bookings</td>
+<td>Manifest errors delay processing</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Check cargo capacity</b></td>
+<td>YYZ Cargo Control Agent</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Cargo details from manifest</td>
+<td>Capacity check results</td>
+<td>Capacity check completes within 30 seconds</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Insufficient capacity may require rebooking</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Accept cargo shipment</b></td>
+<td>YYZ Cargo Control Agent</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Capacity check results</td>
+<td>Cargo accepted in CHAMP system</td>
+<td>Time to accept cargo &lt; 2 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual intervention required for exceptions</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Rebook cargo if necessary</b></td>
+<td>YYZ Cargo Control Agent</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Cargo details</td>
+<td>Rebooking confirmation</td>
+<td>Time to rebook &lt; 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Rebooking delays impact customer satisfaction</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CG-GH-01-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Verification and screening</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Documentation Preparation</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Verify actual weight and dimensions</b></td>
-<td>Cargo Warehouse Agent</td>
-<td><span class="tag champ" data-tooltip="Cargo warehouse and ground handling execution, ULD build-up and breakdown. [CHAMP - evidence A]">Cargospot neo Handling<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Received cargo</td>
-<td>Verified actual figures against booking</td>
-<td>Verified for 100 percent of accepted shipments at 100 percent</td>
+<td><b>Prepare cargo documentation</b></td>
+<td>YYZ Cargo Documentation Agent</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Cargo details from CHAMP system</td>
+<td>Completed documentation</td>
+<td>Documentation prepared within 10 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>A material variance from the booked figures requires rate and space reconciliation before acceptance completes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inaccurate data can lead to rework</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Screen for security and documentation compliance</b></td>
-<td>Cargo Warehouse Agent</td>
-<td><span class="tag champ" data-tooltip="Cargo warehouse and ground handling execution, ULD build-up and breakdown. [CHAMP - evidence A]">Cargospot neo Handling<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Received cargo</td>
-<td>Screened compliance status</td>
-<td>Screened for 100 percent of accepted shipments at 100 percent</td>
+<td><b>Review CBSA pre-load data</b></td>
+<td>YYZ Cargo Documentation Agent</td>
+<td><span class="tag regulator" data-tooltip="CBSA pre-load air cargo targeting. Mandatory pre-load data filing in force since 1 April 2025. [CBSA - evidence B]">Canada PACT<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Cargo details from CHAMP system</td>
+<td>CBSA pre-load filing confirmation</td>
+<td>Pre-load filing within 5 minutes</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Documentation and security screening requirements differ by destination and cargo type</td>
+<td>Interface downtime affects compliance</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Submit CBSA pre-load data</b></td>
+<td>YYZ Cargo Documentation Agent</td>
+<td><span class="tag regulator" data-tooltip="CBSA pre-load air cargo targeting. Mandatory pre-load data filing in force since 1 April 2025. [CBSA - evidence B]">Canada PACT<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>CBSA pre-load data</td>
+<td>Pre-load filing receipt</td>
+<td>Time to submit &lt; 1 minute</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Filing rejection requires resubmission</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Escalate CBSA filing issues</b></td>
+<td>YYZ Cargo Documentation Agent</td>
+<td><span class="tag regulator" data-tooltip="CBSA pre-load air cargo targeting. Mandatory pre-load data filing in force since 1 April 2025. [CBSA - evidence B]">Canada PACT<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>CBSA pre-load filing receipt</td>
+<td>Escalation to supervisor</td>
+<td>Time to escalate &lt; 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Escalations delay cargo handling</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CG-GH-01-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Receipt issuance</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Pre-Load Verification</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Issue acceptance receipt</b></td>
-<td>Cargo Warehouse Agent</td>
+<td><b>Check ULD availability</b></td>
+<td>YYZ Cargo Handling Agent</td>
+<td><span class="tag champ" data-tooltip="Cargo warehouse and ground handling execution, ULD build-up and breakdown. [CHAMP - evidence A]">Cargospot neo Handling<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Cargo details from CHAMP system</td>
+<td>ULD availability status</td>
+<td>Availability check completes within 2 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>ULD unavailability affects cargo handling</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Reschedule ULD pickup</b></td>
+<td>YYZ Cargo Handling Agent</td>
+<td><span class="tag champ" data-tooltip="Cargo warehouse and ground handling execution, ULD build-up and breakdown. [CHAMP - evidence A]">Cargospot neo Handling<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Cargo details from CHAMP system</td>
+<td>Rescheduled pickup confirmation</td>
+<td>Time to reschedule &lt; 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Rescheduling delays impact cargo handling</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Build ULD with cargo</b></td>
+<td>YYZ Cargo Handling Agent</td>
+<td><span class="tag champ" data-tooltip="Cargo warehouse and ground handling execution, ULD build-up and breakdown. [CHAMP - evidence A]">Cargospot neo Handling<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Cargo details from CHAMP system, ULD availability status</td>
+<td>ULD built with cargo</td>
+<td>Time to build ULD &lt; 15 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual intervention required for exceptions</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CG-GH-01-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; ULD Build-Up</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Record revenue information</b></td>
+<td>YYZ Cargo Revenue Agent</td>
+<td><span class="tag champ" data-tooltip="Cargo revenue accounting and IATA CASS settlement. [CHAMP - evidence A]">Cargospot neo Revenue Accounting<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Cargo details from CHAMP system</td>
+<td>Revenue recorded in system</td>
+<td>Time to record revenue &lt; 3 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Recording errors affect financial reporting</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Generate IATA CASS settlement</b></td>
+<td>YYZ Cargo Revenue Agent</td>
+<td><span class="tag champ" data-tooltip="Cargo revenue accounting and IATA CASS settlement. [CHAMP - evidence A]">Cargospot neo Revenue Accounting<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Revenue information from CHAMP system</td>
+<td>IATA CASS settlement file</td>
+<td>Time to generate settlement &lt; 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Settlement errors affect financial reconciliation</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Review IATA CASS settlement</b></td>
+<td>YYZ Cargo Revenue Agent</td>
+<td><span class="tag champ" data-tooltip="Cargo revenue accounting and IATA CASS settlement. [CHAMP - evidence A]">Cargospot neo Revenue Accounting<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>IATA CASS settlement file</td>
+<td>Reviewed and approved settlement</td>
+<td>Time to review &lt; 2 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual intervention required for exceptions</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CG-GH-01-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Revenue Accounting</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Generate warehouse receipt</b></td>
+<td>YYZ Cargo Warehouse Agent</td>
 <td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Verified and screened cargo</td>
-<td>Issued receipt</td>
-<td>Issued within 30 minutes of verification completion at 95 percent</td>
+<td>Cargo details from CHAMP system, ULD build status</td>
+<td>Warehouse receipt generated</td>
+<td>Time to generate receipt &lt; 4 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Receipt errors affect customer communication</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Verify warehouse receipt</b></td>
+<td>YYZ Cargo Warehouse Agent</td>
+<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Warehouse receipt generated</td>
+<td>Verified and approved receipt</td>
+<td>Time to verify &lt; 3 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A receipt not promptly issued delays the shipment&#x27;s progression to the next handling step</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual intervention required for exceptions</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Cargo Warehouse Agent</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>YYZ Cargo Control Agent</span><span class="lane-steps">1.1 1.2 1.3 1.4</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>YYZ Cargo Documentation Agent</span><span class="lane-steps">2.1 2.2 2.3 2.4</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>YYZ Cargo Handling Agent</span><span class="lane-steps">3.1 3.2 3.3</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>YYZ Cargo Revenue Agent</span><span class="lane-steps">4.1 4.2 4.3</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>YYZ Cargo Warehouse Agent</span><span class="lane-steps">5.1 5.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag champ" data-tooltip="Cargo warehouse and ground handling execution, ULD build-up and breakdown. [CHAMP - evidence A]">Cargospot neo Handling<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+<div class="card"><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag regulator" data-tooltip="CBSA pre-load air cargo targeting. Mandatory pre-load data filing in force since 1 April 2025. [CBSA - evidence B]">Canada PACT<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag champ" data-tooltip="Cargo warehouse and ground handling execution, ULD build-up and breakdown. [CHAMP - evidence A]">Cargospot neo Handling<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag champ" data-tooltip="Cargo revenue accounting and IATA CASS settlement. [CHAMP - evidence A]">Cargospot neo Revenue Accounting<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Verified for 100 percent of accepted shipments at 100 percent</li><li>Screened for 100 percent of accepted shipments at 100 percent</li><li>Issued within 30 minutes of verification completion at 95 percent</li><li>Booking-to-actual weight and dimension variance rate tracked against target</li></ul>
+<ul class="bullets"><li>Manifest load time &lt; 5 minutes</li><li>Capacity check completion within 30 seconds</li><li>Cargo acceptance time &lt; 2 minutes</li><li>Rebooking confirmation time &lt; 5 minutes</li><li>Documentation preparation within 10 minutes</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A material variance from booked figures requiring rate and space reconciliation before acceptance completes</li><li>Documentation and security screening requirements differing by destination and cargo type</li><li>Warehouse acceptance windows being tight relative to flight cutoff for late bookings</li><li>A receipt not promptly issued delaying the shipment&#x27;s progression to the next handling step</li></ul>
+<ul class="bullets risk"><li>Inaccurate manifest data causing delays</li><li>Insufficient cargo capacity leading to rebookings</li><li>Interface downtime affecting CBSA pre-load filing</li><li>ULD unavailability impacting cargo handling</li><li>Recording errors in revenue accounting</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../air-canada-cargo/capacity-booking/ac-cg-bk-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Cargo Charter and Block Space Agreement</span></a>
