@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CM-CR-05" title="Click to copy the process ID">
     AC-CM-CR-05<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Open Time and Premium Pickup Assignment</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,241 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-CM-CR-05-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Gap identification</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Preparation</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Identify open flying assignments</b></td>
-<td>Crew Rostering Analyst</td>
+<td><b>Receive open time or premium pickup notification</b></td>
+<td>Crew Management Analyst</td>
 <td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Post-award roster gaps</td>
-<td>Identified open assignments</td>
-<td>Identified within 24 hours of the gap arising at 100 percent</td>
+<td>Open slot details</td>
+<td>Notification of availability</td>
+<td>Time to receive notification: &lt;5 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Gaps can arise continuously as the roster month progresses, not only at initial award</td>
+<td>Delays in receiving notifications can disrupt scheduling.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Query crew member availability</b></td>
+<td>Crew Management Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Open slot details</td>
+<td>Availability status</td>
+<td>Time to query availability: &lt;2 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inaccurate availability data can lead to incorrect assignments.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Log unavailable crew member</b></td>
+<td>Crew Management Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Availability status</td>
+<td>Updated logs</td>
+<td>Time to log: &lt;1 minute</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual logging can be error-prone.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CM-CR-05-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Open time offer</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Availability Check</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Determine premium eligibility for the assignment</b></td>
-<td>Crew Rostering Analyst</td>
+<td><b>Retrieve seniority list</b></td>
+<td>Crew Management Analyst</td>
 <td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Identified assignment and current fill difficulty</td>
-<td>Determined premium terms</td>
-<td>Determined before the assignment is offered at 100 percent</td>
+<td>Open slot details</td>
+<td>Seniority order</td>
+<td>Time to retrieve list: &lt;3 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Premium terms have to be applied consistently or they become a source of perceived unfairness</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Seniority data discrepancies can cause assignment issues.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Offer open time assignment to eligible crew</b></td>
-<td>Crew Rostering Analyst</td>
+<td><b>Rank crew members by seniority</b></td>
+<td>Crew Management Analyst</td>
 <td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Determined assignment and terms</td>
-<td>Offered assignment to eligible crew members</td>
-<td>Offered within the defined open time process rules at 100 percent</td>
+<td>Seniority list</td>
+<td>Ranked list</td>
+<td>Time to rank: &lt;1 minute</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual ranking can introduce bias.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Identify eligible crew members</b></td>
+<td>Crew Management Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Ranked list</td>
+<td>Eligible crew members</td>
+<td>Time to identify: &lt;1 minute</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>The order and method of offering has to follow the agreement&#x27;s defined process, not ad hoc discretion</td>
+<td>Incorrect identification can lead to assignment failures.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CM-CR-05-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Assignment confirmation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Seniority Evaluation</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Confirm assignment and update roster</b></td>
-<td>Crew Rostering Analyst</td>
+<td><b>Attempt assignment to first eligible crew member</b></td>
+<td>Crew Management Analyst</td>
 <td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Accepted offer</td>
-<td>Confirmed and updated roster</td>
-<td>Confirmed within 24 hours of acceptance at 100 percent</td>
+<td>Eligible crew members</td>
+<td>Assignment request</td>
+<td>Time to attempt: &lt;1 minute</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System failures can prevent successful assignments.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Update Dayforce with assignment</b></td>
+<td>Crew Management Analyst</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Assignment request</td>
+<td>Updated records</td>
+<td>Time to update: &lt;1 minute</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>An unfilled open assignment close to the operating date has to escalate to a different fill mechanism</td>
+<td>Data synchronization issues can cause discrepancies.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CR-05-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Assignment Attempt</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Handle seniority dispute exception</b></td>
+<td>Crew Management Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Seniority data error</td>
+<td>Corrected seniority list</td>
+<td>Time to resolve: &lt;5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Disputes can delay scheduling.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Retry assignment with corrected list</b></td>
+<td>Crew Management Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Corrected seniority list</td>
+<td>Assignment request</td>
+<td>Time to retry: &lt;1 minute</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Multiple retries can consume valuable time.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Update Dayforce with corrected assignment</b></td>
+<td>Crew Management Analyst</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Assignment request</td>
+<td>Updated records</td>
+<td>Time to update: &lt;1 minute</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Data synchronization issues can cause discrepancies.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CR-05-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Exception Handling</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Handle no eligible crew members exception</b></td>
+<td>Crew Management Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>No eligible crew members</td>
+<td>Log exception</td>
+<td>Time to log: &lt;1 minute</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>No available crew can cause operational disruptions.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Notify supervisor of no eligible crew</b></td>
+<td>Crew Management Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Email/Instant Messaging<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Log exception</td>
+<td>Notification sent</td>
+<td>Time to notify: &lt;1 minute</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual notifications can be missed.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Escalate to supervisor</b></td>
+<td>Crew Management Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Email/Instant Messaging<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Notification sent</td>
+<td>Supervisor confirmation</td>
+<td>Time to escalate: &lt;10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Supervisors may be unavailable, delaying resolution.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CR-05-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Finalization</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Finalize assignment records</b></td>
+<td>Crew Management Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Successful assignment request</td>
+<td>Finalized records</td>
+<td>Time to finalize: &lt;1 minute</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual finalization can introduce errors.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Update Dayforce with final assignment</b></td>
+<td>Crew Management Analyst</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Finalized records</td>
+<td>Updated records</td>
+<td>Time to update: &lt;1 minute</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Data synchronization issues can cause discrepancies.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Crew Rostering Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Crew Management Analyst</span><span class="lane-steps">1.1 1.2 1.3 2.1 2.2 2.3 3.1 3.2 4.1 4.2 4.3 5.1 5.2 5.3 6.1 6.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Email/Instant Messaging<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Identified within 24 hours of the gap arising at 100 percent</li><li>Offered within the defined open time process rules at 100 percent</li><li>Confirmed within 24 hours of acceptance at 100 percent</li><li>Open time fill rate before the operating date meeting target</li></ul>
+<ul class="bullets"><li>Assignment completion time: &lt;5 minutes</li><li>Seniority list retrieval time: &lt;3 minutes</li><li>Crew member identification time: &lt;1 minute</li><li>Exception resolution time: &lt;10 minutes</li><li>Finalization time: &lt;1 minute</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Premium terms applied inconsistently becoming a source of perceived unfairness among crew</li><li>The order and method of offering not following the agreement&#x27;s defined process</li><li>An unfilled open assignment close to the operating date requiring escalation to a different fill mechanism</li><li>Gaps arising continuously through the roster month straining the process&#x27;s ability to keep pace</li></ul>
+<ul class="bullets risk"><li>Incorrect availability data leading to missed assignments</li><li>Seniority rule misinterpretation causing disputes</li><li>System failures preventing successful assignment attempts</li><li>Data synchronization issues between Jeppesen Crew and Dayforce</li><li>Manual steps introducing errors and delays</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../crew-management/rostering-bidding/ac-cm-cr-04/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Roster Adjustment and Trip Trade</span></a>

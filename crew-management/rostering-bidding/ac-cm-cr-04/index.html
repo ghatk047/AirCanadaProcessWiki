@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CM-CR-04" title="Click to copy the process ID">
     AC-CM-CR-04<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Roster Adjustment and Trip Trade</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,244 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-CM-CR-04-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Adjustment request</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Initial Request</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Receive adjustment or trade request</b></td>
-<td>Crew Rostering Analyst</td>
+<td><b>Receive request from YYZ Operations Control Duty Manager</b></td>
+<td>YYZ Operations Control Duty Manager</td>
 <td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Crew member request</td>
-<td>Registered adjustment request</td>
-<td>Registered within 1 business day of submission at 100 percent</td>
+<td>Request details (crew member, date range, reason)</td>
+<td>Recorded request in Jeppesen Crew</td>
+<td>Response time within 2 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A trip trade request involves two crew members whose availability has to align before it can even be assessed</td>
+<td>Delays in receiving requests can disrupt operational planning.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Validate request against operational constraints</b></td>
+<td>Crew Management Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Request details, current roster</td>
+<td>Validation report</td>
+<td>95% validation accuracy</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex scheduling rules can lead to manual adjustments.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Notify YYZ Operations Control Duty Manager of invalid request</b></td>
+<td>Crew Management Analyst</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Validation report</td>
+<td>Notification email</td>
+<td>Within 1 hour of validation</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual notifications can be prone to errors.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CM-CR-04-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Legality and agreement validation</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Validation and Approval</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Validate combined legality of the trade</b></td>
-<td>Crew Rostering Analyst</td>
-<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Trade request and both crew members&#x27; current rosters</td>
-<td>Combined legality validation</td>
-<td>Validated as a combined pair, not independently, at 100 percent</td>
+<td><b>Submit request for approval by union representative</b></td>
+<td>Union Representative</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Validated request, union rules</td>
+<td>Approval or rejection</td>
+<td>90% approval rate within 1 day</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A trade individually legal for each crew member can still violate a duty or rest requirement in combination</td>
+<td>Union negotiations can delay approvals.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Validate against collective agreement trade rules</b></td>
-<td>Crew Rostering Analyst</td>
-<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Validated trade</td>
-<td>Agreement-compliant trade</td>
-<td>100 percent compliant with the applicable collective agreement trade provisions</td>
+<td><b>Notify YYZ Operations Control Duty Manager of approved request</b></td>
+<td>Union Representative</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Approval</td>
+<td>Notification email</td>
+<td>Within 1 hour of approval</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Trade eligibility rules differ across the four collective agreements</td>
+<td>Manual notifications can be prone to errors.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Escalate rejected request to senior union representative</b></td>
+<td>Senior Union Representative</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Rejected request, reasons</td>
+<td>Revised request or final rejection</td>
+<td>70% resolution rate within 1 day</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Escalations can lead to prolonged delays.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CM-CR-04-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Roster update</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Union Compliance Check</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Update both crew members&#x27; rosters</b></td>
-<td>Crew Rostering Analyst</td>
+<td><b>Check union compliance for adjusted roster</b></td>
+<td>Crew Compliance Officer</td>
 <td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Approved trade</td>
-<td>Updated rosters for both crew members</td>
-<td>Updated within 24 hours of approval at 100 percent</td>
+<td>Adjusted roster, union rules</td>
+<td>Compliance report</td>
+<td>98% compliance rate</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Union rule changes require frequent updates.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Notify YYZ Operations Control Duty Manager of non-compliance</b></td>
+<td>Crew Compliance Officer</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Compliance report</td>
+<td>Notification email</td>
+<td>Within 1 hour of check</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>An update applied to only one side of the trade leaves both rosters inconsistent with reality</td>
+<td>Manual notifications can be prone to errors.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Review non-compliant issues with senior compliance officer</b></td>
+<td>Senior Compliance Officer</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Non-compliance report, union rules</td>
+<td>Corrective action plan</td>
+<td>95% resolution rate within 24 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex rule interpretation can lead to prolonged reviews.</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Escalate unresolved issues to union compliance committee</b></td>
+<td>Union Compliance Committee</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Corrective action plan, reasons</td>
+<td>Final decision</td>
+<td>80% resolution rate within 1 week</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Committee deliberations can be time-consuming.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CR-04-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Roster Adjustment</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Adjust roster based on compliance checks</b></td>
+<td>Crew Management Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Compliance report, corrective action plan</td>
+<td>Adjusted roster</td>
+<td>90% accuracy in adjustments</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual adjustments can introduce errors.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Correct errors in adjusted roster</b></td>
+<td>Crew Management Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Adjusted roster, error details</td>
+<td>Corrected roster</td>
+<td>95% accuracy after corrections</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Multiple corrections can delay finalization.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Notify YYZ Operations Control Duty Manager of adjusted roster</b></td>
+<td>Crew Management Analyst</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Corrected roster</td>
+<td>Notification email</td>
+<td>Within 1 hour of adjustment</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual notifications can be prone to errors.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CR-04-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Final Review</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Review final adjusted roster for operational feasibility</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Corrected roster, flight schedule</td>
+<td>Feasibility report</td>
+<td>98% feasibility rate</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Operational constraints can conflict with union rules.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Escalate infeasibility issues to senior operations manager</b></td>
+<td>Senior Operations Manager</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Feasibility report, reasons</td>
+<td>Resolution plan</td>
+<td>80% resolution rate within 1 day</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex scheduling can lead to prolonged discussions.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Implement final adjusted roster</b></td>
+<td>Crew Management Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Feasibility report, resolution plan</td>
+<td>Implemented roster</td>
+<td>95% successful implementation rate</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System integration issues can delay implementation.</td>
+</tr><tr>
+<td class="c-step">5.4</td>
+<td><b>Retry implementation after system issue resolution</b></td>
+<td>Crew Management Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Resolution details, adjusted roster</td>
+<td>Successful implementation</td>
+<td>90% successful retry rate</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System downtime can disrupt operations.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Crew Rostering Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">1.1 5.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Crew Management Analyst</span><span class="lane-steps">1.2 1.3 4.1 4.2 4.3 5.3 5.4</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Union Representative</span><span class="lane-steps">2.1 2.2</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Senior Union Representative</span><span class="lane-steps">2.3</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Crew Compliance Officer</span><span class="lane-steps">3.1 3.2</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>Senior Compliance Officer</span><span class="lane-steps">3.3</span></div><div class="lane"><span class="swatch" style="background:#8A5A1E"></span><span>Union Compliance Committee</span><span class="lane-steps">3.4</span></div><div class="lane"><span class="swatch" style="background:#4A4A4A"></span><span>Senior Operations Manager</span><span class="lane-steps">5.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Registered within 1 business day of submission at 100 percent</li><li>Validated as a combined pair at 100 percent</li><li>100 percent compliant with the applicable collective agreement trade provisions</li><li>Updated within 24 hours of approval at 100 percent</li></ul>
+<ul class="bullets"><li>Response time within 2 hours</li><li>95% validation accuracy</li><li>90% approval rate within 1 day</li><li>70% resolution rate within 1 day</li><li>98% compliance rate</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A trade individually legal for each crew member violating a duty or rest requirement in combination</li><li>An update applied to only one side of a trade leaving both rosters inconsistent with reality</li><li>Trade eligibility rules differing across four collective agreements, risking inconsistent application</li><li>A trip trade request depending on two crew members&#x27; availability aligning before it can even be assessed</li></ul>
+<ul class="bullets risk"><li>Delays in receiving requests can disrupt operational planning.</li><li>Complex scheduling rules can lead to manual adjustments.</li><li>Manual notifications can be prone to errors.</li><li>Union negotiations can delay approvals.</li><li>Escalations can lead to prolonged delays.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../crew-management/rostering-bidding/ac-cm-cr-03/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Vacation and Leave Bidding</span></a>
