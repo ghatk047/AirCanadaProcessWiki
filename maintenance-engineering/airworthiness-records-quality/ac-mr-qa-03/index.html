@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-MR-QA-03" title="Click to copy the process ID">
     AC-MR-QA-03<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Parts Provisioning and Inventory Planning</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,285 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-MR-QA-03-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Demand forecasting</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Part Identification</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Forecast part demand from maintenance schedule</b></td>
-<td>Materials Planner</td>
+<td><b>Identify required parts from work order</b></td>
+<td>Aircraft Maintenance Engineer</td>
 <td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Scheduled maintenance and historical consumption</td>
-<td>Forecast demand by part</td>
-<td>Forecast for 100 percent of active part numbers each cycle</td>
+<td>Work order details</td>
+<td>List of required parts</td>
+<td>95% accuracy in part identification</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Unscheduled AOG demand is inherently less predictable than scheduled maintenance demand</td>
+<td>Incorrect part identification can lead to delays and increased costs.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Check current inventory levels</b></td>
+<td>Inventory Planner</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Part list from 1.1</td>
+<td>Inventory status report</td>
+<td>90% of parts available within 5 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Slow inventory checks can delay maintenance activities.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Update TRAX with current inventory levels</b></td>
+<td>Inventory Planner</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Inventory status report from 1.2</td>
+<td>Updated TRAX database</td>
+<td>100% accuracy in inventory updates</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual data entry errors can lead to discrepancies.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-MR-QA-03-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Provisioning calculation</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Inventory Check</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Calculate provisioning level against service target</b></td>
-<td>Materials Planner</td>
-<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Forecast demand and target service level</td>
-<td>Calculated provisioning level</td>
-<td>Calculated for 100 percent of active part numbers each cycle</td>
+<td><b>Identify potential suppliers via Aeroxchange</b></td>
+<td>Parts Procurement Specialist</td>
+<td><span class="tag trax" data-tooltip="Aviation parts B2B marketplace and ATA Spec 2000 supplier messaging. [Aeroxchange - evidence C]">Aeroxchange<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Part list from 1.1</td>
+<td>Supplier list</td>
+<td>95% relevant suppliers identified within 30 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>The availability-versus-carrying-cost trade-off has no single objectively correct answer</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Supplier identification can be time-consuming if parts are rare or obsolete.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Position inventory across the station network</b></td>
-<td>Materials Planner</td>
+<td><b>Evaluate supplier reliability and pricing</b></td>
+<td>Parts Procurement Specialist</td>
+<td><span class="tag trax" data-tooltip="Aviation parts B2B marketplace and ATA Spec 2000 supplier messaging. [Aeroxchange - evidence C]">Aeroxchange<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Supplier list from 2.1</td>
+<td>Preferred suppliers</td>
+<td>85% of suppliers meet quality standards</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Supplier evaluations can be complex due to varying criteria.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Select top supplier for order placement</b></td>
+<td>Parts Procurement Specialist</td>
+<td><span class="tag trax" data-tooltip="Aviation parts B2B marketplace and ATA Spec 2000 supplier messaging. [Aeroxchange - evidence C]">Aeroxchange<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Preferred suppliers from 2.2</td>
+<td>Selected supplier details</td>
+<td>90% of orders placed within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Ordering delays can lead to maintenance backlogs.</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Escalate part sourcing issue to duty manager</b></td>
+<td>YYZ Operations Control Duty Manager</td>
 <td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Calculated provisioning level</td>
-<td>Positioned inventory by station</td>
-<td>Positioned to meet forecast demand at each station at 90 percent</td>
+<td>Part list from 1.1</td>
+<td>Escalation ticket</td>
+<td>90% of escalations resolved within 8 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A part positioned at the wrong station is effectively unavailable for an AOG event elsewhere</td>
+<td>Manual escalation processes can be inefficient.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-MR-QA-03-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Network positioning</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Supplier Selection</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Monitor stockout and excess inventory</b></td>
-<td>Materials Planner</td>
-<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Actual consumption against positioned inventory</td>
-<td>Stockout and excess report</td>
-<td>Reviewed each planning cycle for 100 percent of part categories</td>
+<td><b>Review and resolve order rejection reasons</b></td>
+<td>Parts Procurement Specialist</td>
+<td><span class="tag trax" data-tooltip="Aviation parts B2B marketplace and ATA Spec 2000 supplier messaging. [Aeroxchange - evidence C]">Aeroxchange<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Order rejection details</td>
+<td>Resolution report</td>
+<td>85% of issues resolved within 4 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex order rejections can delay maintenance activities.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Re-attempt order placement with adjusted parameters</b></td>
+<td>Parts Procurement Specialist</td>
+<td><span class="tag trax" data-tooltip="Aviation parts B2B marketplace and ATA Spec 2000 supplier messaging. [Aeroxchange - evidence C]">Aeroxchange<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Resolution report from 3.1</td>
+<td>New order details</td>
+<td>90% of new orders placed within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Re-submissions can fail if issues persist.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Update TRAX with order status</b></td>
+<td>Parts Procurement Specialist</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>New order details from 3.2</td>
+<td>Updated TRAX database</td>
+<td>100% accuracy in order status updates</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A stockout event and an excess inventory finding both indicate the same underlying forecasting weakness</td>
+<td>Manual data entry errors can lead to discrepancies.</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Escalate unresolved issue to procurement manager</b></td>
+<td>Procurement Manager</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Resolution report from 3.1 or order rejection details from 3.2</td>
+<td>Escalation ticket</td>
+<td>90% of escalations resolved within 24 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual escalation processes can be inefficient.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-QA-03-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Order Placement</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Monitor supplier delivery timelines</b></td>
+<td>Parts Procurement Specialist</td>
+<td><span class="tag trax" data-tooltip="Aviation parts B2B marketplace and ATA Spec 2000 supplier messaging. [Aeroxchange - evidence C]">Aeroxchange<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Order details from 3.2 or 2.3</td>
+<td>Delivery status report</td>
+<td>90% of deliveries within agreed SLAs</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delays in supplier delivery can impact maintenance schedules.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Initiate contingency planning for alternative suppliers or parts</b></td>
+<td>Aircraft Maintenance Engineer</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Delivery status report from 4.1</td>
+<td>Contingency plan</td>
+<td>85% of plans developed within 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Developing contingency plans can be resource-intensive.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Update TRAX with delivery status</b></td>
+<td>Parts Procurement Specialist</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Delivery status report from 4.1</td>
+<td>Updated TRAX database</td>
+<td>100% accuracy in delivery status updates</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual data entry errors can lead to discrepancies.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-QA-03-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Provisioning Monitoring</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Receive parts at the warehouse</b></td>
+<td>Warehouse Manager</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Delivery details from 4.1 or contingency plan from 4.2</td>
+<td>Received parts list</td>
+<td>90% of parts received accurately</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Physical handling errors can lead to damaged parts.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Update TRAX with received parts details</b></td>
+<td>Warehouse Manager</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Received parts list from 5.1</td>
+<td>Updated TRAX database</td>
+<td>100% accuracy in parts receipt updates</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual data entry errors can lead to discrepancies.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Inspect and repackage damaged parts</b></td>
+<td>Warehouse Manager</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Received parts list from 5.1</td>
+<td>Inspection report</td>
+<td>85% of issues identified within 2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Repackaging can be time-consuming if parts are complex.</td>
+</tr><tr>
+<td class="c-step">5.4</td>
+<td><b>Escalate damaged part issue to procurement manager</b></td>
+<td>Procurement Manager</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Inspection report from 5.3</td>
+<td>Escalation ticket</td>
+<td>90% of escalations resolved within 24 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual escalation processes can be inefficient.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-QA-03-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Final Inventory Update</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Final inventory update in TRAX</b></td>
+<td>Inventory Planner</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Received parts list from 5.2 or reprocessed parts from 5.3</td>
+<td>Updated TRAX database</td>
+<td>100% accuracy in final inventory updates</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual data entry errors can lead to discrepancies.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Re-attempt inventory update with corrected data</b></td>
+<td>Inventory Planner</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Received parts list from 5.2 or reprocessed parts from 5.3</td>
+<td>Updated TRAX database</td>
+<td>90% of updates successful on first attempt</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Re-submissions can fail if issues persist.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Materials Planner</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Aircraft Maintenance Engineer</span><span class="lane-steps">1.1 4.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Inventory Planner</span><span class="lane-steps">1.2 1.3 6.1 6.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Parts Procurement Specialist</span><span class="lane-steps">2.1 2.2 2.3 3.1 3.2 3.3 4.1 4.3</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">2.4</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Procurement Manager</span><span class="lane-steps">3.4 5.4</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>Warehouse Manager</span><span class="lane-steps">5.1 5.2 5.3</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag trax" data-tooltip="Aviation parts B2B marketplace and ATA Spec 2000 supplier messaging. [Aeroxchange - evidence C]">Aeroxchange<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Forecast for 100 percent of active part numbers each cycle</li><li>Positioned to meet forecast demand at each station at 90 percent</li><li>AOG delay attributable to parts unavailability below target</li><li>Inventory carrying cost against target tracked each cycle</li></ul>
+<ul class="bullets"><li>95% accuracy in part identification</li><li>90% of parts available within 5 minutes</li><li>85% relevant suppliers identified within 30 minutes</li><li>90% of orders placed within 1 hour</li><li>90% of deliveries within agreed SLAs</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Insufficient spares causing AOG delay, or excessive spares tying up working capital unnecessarily</li><li>A part positioned at the wrong station being effectively unavailable for an AOG event elsewhere</li><li>Unscheduled AOG demand being inherently less predictable than scheduled maintenance demand</li><li>A stockout and an excess inventory finding both indicating the same underlying forecasting weakness</li></ul>
+<ul class="bullets risk"><li>Incorrect part identification leading to delays and increased costs.</li><li>Slow inventory checks delaying maintenance activities.</li><li>Supplier identification being time-consuming for rare or obsolete parts.</li><li>Ordering delays leading to maintenance backlogs.</li><li>Complex order rejections causing further delays.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../maintenance-engineering/airworthiness-records-quality/ac-mr-qa-02/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Continuing Airworthiness Compliance Review</span></a>

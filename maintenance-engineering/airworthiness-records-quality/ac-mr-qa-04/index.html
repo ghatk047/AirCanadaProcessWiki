@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-MR-QA-04" title="Click to copy the process ID">
     AC-MR-QA-04<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Supplier Quality and Spec 2000 Ordering</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,285 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-MR-QA-04-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Supplier qualification</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Part Identification</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Qualify new supplier against quality standards</b></td>
-<td>Materials Planner</td>
-<td><span class="tag trax" data-tooltip="Aviation parts B2B marketplace and ATA Spec 2000 supplier messaging. [Aeroxchange - evidence C]">Aeroxchange<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Candidate supplier and quality requirements</td>
-<td>Qualified or declined supplier</td>
-<td>Qualification assessed against defined standards for 100 percent of new suppliers</td>
+<td><b>Identify defective part</b></td>
+<td>YYZ Maintenance Engineer</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Maintenance record, technical manual</td>
+<td>Defective part identification report</td>
+<td>Time to identify defective part &lt; 2 hours</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Qualification depends on documentation and audit evidence the supplier itself provides</td>
+<td>Technical manuals are sometimes outdated, leading to delays in identifying the correct replacement part.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Check inventory for spare parts</b></td>
+<td>YYZ Maintenance Engineer</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Defective part identification report</td>
+<td>Inventory check report</td>
+<td>Time to check inventory &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inventory data is sometimes inaccurate, leading to false negatives.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Review work order for additional parts</b></td>
+<td>YYZ Maintenance Engineer</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Defective part identification report</td>
+<td>Work order review report</td>
+<td>Time to review work order &lt; 0.5 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Work orders may not always be up-to-date, leading to missed parts.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Update work order with additional parts</b></td>
+<td>YYZ Maintenance Engineer</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Defective part identification report, work order review report</td>
+<td>Updated work order</td>
+<td>Time to update work order &lt; 0.5 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual entry errors can occur during updates.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-MR-QA-04-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Spec 2000 order execution</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Supplier Selection</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Execute order against Spec 2000 standards</b></td>
-<td>Materials Planner</td>
+<td><b>Select approved supplier</b></td>
+<td>YYZ Maintenance Engineer</td>
 <td><span class="tag trax" data-tooltip="Aviation parts B2B marketplace and ATA Spec 2000 supplier messaging. [Aeroxchange - evidence C]">Aeroxchange<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Part requirement and qualified supplier</td>
-<td>Placed Spec 2000 order</td>
-<td>Ordered against the standard for 100 percent of qualified supplier orders at 100 percent</td>
+<td>Defective part identification report, inventory check report</td>
+<td>Approved supplier list</td>
+<td>Time to select approved supplier &lt; 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Spec 2000 messaging standardises the transaction but does not itself guarantee part quality</td>
+<td>Supplier availability can be limited, requiring multiple attempts to find a suitable vendor.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Confirm receiving quality on delivery</b></td>
-<td>Materials Planner</td>
-<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Delivered part</td>
-<td>Confirmed quality and documentation</td>
-<td>Confirmed before entry into serviceable stock for 100 percent of receipts at 100 percent</td>
+<td><b>Review supplier&#x27;s quality assurance</b></td>
+<td>YYZ Maintenance Engineer</td>
+<td><span class="tag trax" data-tooltip="Aviation parts B2B marketplace and ATA Spec 2000 supplier messaging. [Aeroxchange - evidence C]">Aeroxchange<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Approved supplier list</td>
+<td>Quality assurance report</td>
+<td>Time to review quality assurance &lt; 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Supplier quality data may be incomplete or outdated, leading to delays.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Check supplier&#x27;s compliance with CAWIS</b></td>
+<td>YYZ Maintenance Engineer</td>
+<td><span class="tag regulator" data-tooltip="Airworthiness directive and continuing-airworthiness compliance against CARs. [Transport Canada - evidence C]">Transport Canada CAWIS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Approved supplier list</td>
+<td>CAWIS compliance report</td>
+<td>Time to check CAWIS compliance &lt; 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A part received without complete traceability documentation cannot legally enter serviceable stock</td>
+<td>CAWIS data may not always be up-to-date, leading to compliance issues.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-MR-QA-04-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Receiving quality confirmation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Order Preparation</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Enter part into serviceable inventory</b></td>
-<td>Materials Planner</td>
+<td><b>Prepare order form</b></td>
+<td>YYZ Maintenance Engineer</td>
 <td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Confirmed quality</td>
-<td>Entered serviceable inventory</td>
-<td>Entered within 24 hours of confirmed quality at 100 percent</td>
+<td>Defective part identification report, approved supplier list, quality assurance report, CAWIS compliance report</td>
+<td>Order form</td>
+<td>Time to prepare order form &lt; 1 hour</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A part entered into inventory without complete quality confirmation is a direct airworthiness risk</td>
+<td>Manual data entry can be prone to errors.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Verify part specifications</b></td>
+<td>YYZ Maintenance Engineer</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Order form</td>
+<td>Specification verification report</td>
+<td>Time to verify specifications &lt; 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Specs may not match exactly, requiring manual adjustments.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Check for alternative parts</b></td>
+<td>YYZ Maintenance Engineer</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Specification verification report</td>
+<td>Alternative parts list</td>
+<td>Time to check alternative parts &lt; 0.5 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Alternative parts may not always be available, leading to delays.</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Update order form with alternative parts</b></td>
+<td>YYZ Maintenance Engineer</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Order form, alternative parts list</td>
+<td>Updated order form</td>
+<td>Time to update order form &lt; 0.5 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual entry errors can occur during updates.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-QA-04-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Order Execution</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Submit order to TRAX</b></td>
+<td>YYZ Maintenance Engineer</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Order form, specification verification report, CAWIS compliance report</td>
+<td>Order confirmation</td>
+<td>Time to submit order &lt; 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System connectivity issues can cause delays in submission.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Retry order submission</b></td>
+<td>YYZ Maintenance Engineer</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Order form, specification verification report, CAWIS compliance report</td>
+<td>Order confirmation</td>
+<td>Time to retry submission &lt; 10 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System connectivity issues can persist, requiring multiple retries.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-QA-04-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Compliance Verification</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Verify order status in TRAX</b></td>
+<td>YYZ Maintenance Engineer</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Order confirmation</td>
+<td>Order status report</td>
+<td>Time to verify order status &lt; 0.5 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Orders may be delayed or misrouted, leading to verification issues.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Check for compliance with regulatory requirements</b></td>
+<td>YYZ Maintenance Engineer</td>
+<td><span class="tag regulator" data-tooltip="Airworthiness directive and continuing-airworthiness compliance against CARs. [Transport Canada - evidence C]">Transport Canada CAWIS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Order status report</td>
+<td>Regulatory compliance report</td>
+<td>Time to check regulatory compliance &lt; 0.5 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Regulatory data may not always be up-to-date, leading to compliance issues.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-MR-QA-04-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Post-Order Monitoring</span>
+    <span class="ph-n">5 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Monitor order delivery</b></td>
+<td>YYZ Maintenance Engineer</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Order status report</td>
+<td>Delivery status report</td>
+<td>Time to monitor delivery &lt; 24 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Deliveries may be delayed, leading to monitoring issues.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Escalate delivery delay</b></td>
+<td>YYZ Maintenance Engineer</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Order status report, delivery status report</td>
+<td>Escalation ticket</td>
+<td>Time to escalate delivery &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual escalation can be prone to errors.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Update work order with delivery status</b></td>
+<td>YYZ Maintenance Engineer</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Order status report, delivery status report</td>
+<td>Updated work order</td>
+<td>Time to update work order &lt; 0.5 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual entry errors can occur during updates.</td>
+</tr><tr>
+<td class="c-step">6.4</td>
+<td><b>Final review of work order</b></td>
+<td>YYZ Maintenance Engineer</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Updated work order, delivery status report</td>
+<td>Final work order review report</td>
+<td>Time to review work order &lt; 0.5 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Final review may uncover issues that require rework.</td>
+</tr><tr>
+<td class="c-step">6.5</td>
+<td><b>Correct work order issues</b></td>
+<td>YYZ Maintenance Engineer</td>
+<td><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Updated work order, final work order review report</td>
+<td>Corrected work order</td>
+<td>Time to correct issues &lt; 0.5 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual corrections can be prone to errors.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Materials Planner</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>YYZ Maintenance Engineer</span><span class="lane-steps">1.1 1.2 1.3 1.4 2.1 2.2 2.3 3.1 3.2 3.3 3.4 4.1 4.2 5.1 5.2 6.1 6.2 6.3 6.4 6.5</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag trax" data-tooltip="Aviation parts B2B marketplace and ATA Spec 2000 supplier messaging. [Aeroxchange - evidence C]">Aeroxchange<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag trax" data-tooltip="Air Canada&#x27;s maintenance and engineering core: work orders, task cards, parts, tech records and airworthiness. [TRAX - evidence B]">TRAX<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag trax" data-tooltip="Aviation parts B2B marketplace and ATA Spec 2000 supplier messaging. [Aeroxchange - evidence C]">Aeroxchange<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag regulator" data-tooltip="Airworthiness directive and continuing-airworthiness compliance against CARs. [Transport Canada - evidence C]">Transport Canada CAWIS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Qualification assessed against defined standards for 100 percent of new suppliers</li><li>Ordered against the standard for 100 percent of qualified supplier orders at 100 percent</li><li>Confirmed before entry into serviceable stock for 100 percent of receipts at 100 percent</li><li>Zero parts entering serviceable inventory without complete traceability documentation</li></ul>
+<ul class="bullets"><li>Order identification and inventory check within 2.5 hours</li><li>Supplier selection and quality review within 4.5 hours</li><li>Order form preparation and specification verification within 2 hours</li><li>Order submission and status verification within 1 hour</li><li>Delivery monitoring and work order update within 27 hours</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A part entering serviceable inventory from an unqualified or compromised source, a direct airworthiness risk</li><li>Qualification depending on documentation and audit evidence the supplier itself provides</li><li>A part received without complete traceability documentation being unable to legally enter serviceable stock</li><li>Spec 2000 messaging standardising the transaction without itself guaranteeing part quality</li></ul>
+<ul class="bullets risk"><li>Technical manuals being outdated or inaccurate</li><li>Inventory data inaccuracies leading to false negatives</li><li>Multiple attempts required to find a suitable supplier</li><li>Supplier quality data being incomplete or outdated</li><li>System connectivity issues causing submission delays</li><li>Regulatory data not always being up-to-date</li><li>Deliveries being delayed</li><li>Manual entry errors during updates</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../maintenance-engineering/airworthiness-records-quality/ac-mr-qa-03/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Parts Provisioning and Inventory Planning</span></a>
