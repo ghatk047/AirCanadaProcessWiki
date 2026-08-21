@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-AP-RE-02" title="Click to copy the process ID">
     AC-AP-RE-02<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Dynamic Award Pricing and Availability</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,233 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-AP-RE-02-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Partner availability search</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Request Validation</span>
+    <span class="ph-n">5 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Search partner award availability</b></td>
+<td><b>Validate Redemption Request</b></td>
 <td>Aeroplan Member Services Agent</td>
-<td><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Member search criteria</td>
-<td>Partner award availability with points pricing</td>
-<td>Partner search results returned within 8 seconds at 90 percent</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Redemption request details from member</td>
+<td>Validation result (valid/invalid)</td>
+<td>95% validation success rate within 3 seconds</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inaccurate data entry by members leading to frequent validations.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Check Member Eligibility</b></td>
+<td>Aeroplan Membership Services</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Member ID from validation step</td>
+<td>Eligibility status (eligible/not eligible)</td>
+<td>98% eligibility checks within 1 second</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex membership rules causing delays in eligibility determination.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Fetch Available Awards</b></td>
+<td>Aeroplan Data Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Member ID and redemption details</td>
+<td>List of available awards</td>
+<td>80% availability check success rate within 2 seconds</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Partner availability data freshness depends on the partner&#x27;s own system, outside Air Canada&#x27;s control</td>
+<td>Slow response times from the Aeroplan Platform affecting user experience.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Check Points Balance</b></td>
+<td>Aeroplan Membership Services</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Member ID and award details</td>
+<td>Points balance status (sufficient/insufficient)</td>
+<td>95% points balance checks within 2 seconds</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inconsistent data between Aeroplan Platform and SAP leading to incorrect balances.</td>
+</tr><tr>
+<td class="c-step">1.5</td>
+<td><b>Update Points Balance</b></td>
+<td>Aeroplan Membership Services</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Member ID and award details</td>
+<td>Updated points balance</td>
+<td>90% balance updates within 2 seconds</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>High transaction volumes causing delays in balance updates.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-AP-RE-02-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Cross-carrier booking</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Capacity Check</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Confirm partner availability at time of booking</b></td>
-<td>Aeroplan Member Services Agent</td>
-<td><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Selected partner award</td>
-<td>Re-confirmed partner availability</td>
-<td>Re-confirmed for 100 percent of partner redemptions before booking</td>
+<td><b>Check Seat Availability</b></td>
+<td>Aeroplan Operations Control Duty Manager</td>
+<td><span class="tag gds" data-tooltip="Legacy GDS distribution channel. Agency bookings settle through IATA BSP. [Sabre - evidence C]">Sabre GDS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Award details from available awards list</td>
+<td>Seat availability status (available/unavailable)</td>
+<td>90% seat availability checks within 5 seconds</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A partner seat shown as available can be sold by the partner before Air Canada&#x27;s booking completes</td>
+<td>Sabre GDS integration issues causing delays in seat availability checks.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Issue the booking across both carrier systems</b></td>
-<td>Aeroplan Member Services Agent</td>
-<td><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Confirmed availability</td>
-<td>Booking issued in both systems</td>
-<td>Both systems reflect the booking within 15 minutes at 95 percent</td>
+<td><b>Adjust Pricing Based on Demand</b></td>
+<td>Aeroplan Data Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Award details and current demand data</td>
+<td>Adjusted price for the award</td>
+<td>85% pricing adjustments within 1 second</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A booking that succeeds in one carrier&#x27;s system and fails in the other requires manual reconciliation</td>
+<td>Real-time demand data not always accurate, leading to suboptimal pricing.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Check Pricing Approval</b></td>
+<td>Aeroplan Finance Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Adjusted price and award details</td>
+<td>Pricing approval status (approved/denied)</td>
+<td>90% pricing approvals within 1 second</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual intervention required for complex cases, causing delays.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-AP-RE-02-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Confirmation and settlement</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Pricing Adjustment</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Deduct points and settle interline accounting</b></td>
-<td>Aeroplan Member Services Agent</td>
+<td><b>Request Redemption Authorization</b></td>
+<td>Aeroplan Adjudicator</td>
 <td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Confirmed cross-carrier booking</td>
-<td>Deducted points and interline settlement record</td>
-<td>Settled within the same transaction as booking issuance at 100 percent</td>
+<td>Adjusted price and award details</td>
+<td>Authorization status (approved/denied)</td>
+<td>95% authorization success rate within 3 seconds</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual intervention required for complex cases, causing delays.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Reserve Award Seat</b></td>
+<td>Aeroplan Operations Control Duty Manager</td>
+<td><span class="tag gds" data-tooltip="Legacy GDS distribution channel. Agency bookings settle through IATA BSP. [Sabre - evidence C]">Sabre GDS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Authorized award details</td>
+<td>Seat reservation confirmation</td>
+<td>90% seat reservations within 5 seconds</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Sabre GDS system failures leading to failed reservations.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Update Seat Reservation Status</b></td>
+<td>Aeroplan Operations Control Duty Manager</td>
+<td><span class="tag gds" data-tooltip="Legacy GDS distribution channel. Agency bookings settle through IATA BSP. [Sabre - evidence C]">Sabre GDS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Seat reservation confirmation</td>
+<td>Updated seat reservation status</td>
+<td>95% status updates within 1 second</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Interline settlement between the carriers happens on a separate cycle from the member-facing points deduction</td>
+<td>High transaction volumes causing delays in status updates.</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Retry Seat Reservation</b></td>
+<td>Aeroplan Operations Control Duty Manager</td>
+<td><span class="tag gds" data-tooltip="Legacy GDS distribution channel. Agency bookings settle through IATA BSP. [Sabre - evidence C]">Sabre GDS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Authorized award details</td>
+<td>Seat reservation confirmation</td>
+<td>80% successful retries within 1 minute</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Sabre GDS system failures leading to failed reservations.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-RE-02-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Redemption Authorization</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Update Member Redemption History</b></td>
+<td>Aeroplan Data Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Authorized award details and member ID</td>
+<td>Updated redemption history</td>
+<td>90% updates within 2 seconds</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>High transaction volumes causing delays in updating redemption history.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Notify Member of Redemption</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Authorized award details and member contact information</td>
+<td>Redemption notification sent</td>
+<td>95% notifications within 1 second</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Email system failures causing missed notifications.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Check Notification Acknowledgment</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Member contact information</td>
+<td>Acknowledgment status (acknowledged/not acknowledged)</td>
+<td>90% acknowledgments within 1 minute</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Members not checking their emails, leading to missed acknowledgments.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-AP-RE-02-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Award Reservation</span>
+    <span class="ph-n">1 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Finalize Redemption Process</b></td>
+<td>Aeroplan Data Analyst</td>
+<td><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Authorized award details and member ID</td>
+<td>Redemption process finalized</td>
+<td>98% finalizations within 1 second</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System integration issues causing incomplete finalizations.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Aeroplan Member Services Agent</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Aeroplan Member Services Agent</span><span class="lane-steps">1.1 4.2 4.3</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Aeroplan Membership Services</span><span class="lane-steps">1.2 1.4 1.5</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Aeroplan Data Analyst</span><span class="lane-steps">1.3 2.2 4.1 5.1</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Aeroplan Operations Control Duty Manager</span><span class="lane-steps">2.1 3.2 3.3 3.4</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Aeroplan Finance Analyst</span><span class="lane-steps">2.3</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>Aeroplan Adjudicator</span><span class="lane-steps">3.1</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag iata" data-tooltip="26-member interline, through-check, baggage and status recognition messaging. [Star Alliance - evidence A]">Star Alliance Interline<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+<div class="card"><span class="tag aeroplan" data-tooltip="In-house loyalty engine. Reacquired from Aimia for CA$450M and relaunched 8 Nov 2020. [Air Canada - evidence A]">Aeroplan Platform<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sap" data-tooltip="Customer identity, consent and profile (ex-Gigya). Migration delivered with Trew Knowledge. Carries Law 25 consent. [SAP - evidence A]">SAP Customer Data Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag gds" data-tooltip="Legacy GDS distribution channel. Agency bookings settle through IATA BSP. [Sabre - evidence C]">Sabre GDS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Re-confirmed for 100 percent of partner redemptions before booking</li><li>Both systems reflecting the booking within 15 minutes at 95 percent</li><li>Settled within the same transaction as booking issuance at 100 percent</li><li>Partner redemption failure rate below target threshold</li></ul>
+<ul class="bullets"><li>95% validation success rate within 3 seconds</li><li>98% eligibility checks within 1 second</li><li>80% availability check success rate within 2 seconds</li><li>95% points balance checks within 2 seconds</li><li>90% balance updates within 2 seconds</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A partner seat sold by the partner carrier before Air Canada&#x27;s booking transaction completes</li><li>A booking succeeding in one carrier&#x27;s system and failing in the other, requiring manual reconciliation</li><li>Partner availability data freshness being entirely outside Air Canada&#x27;s own control</li><li>Interline settlement running on a cycle separate from the member-facing points deduction</li></ul>
+<ul class="bullets risk"><li>Sabre GDS integration issues causing delays in seat availability checks.</li><li>Real-time demand data not always accurate, leading to suboptimal pricing.</li><li>Manual intervention required for complex cases, causing delays.</li><li>Sabre GDS system failures leading to failed reservations.</li><li>High transaction volumes causing delays in balance updates.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../aeroplan-loyalty/redemption/ac-ap-re-01/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Flight Award Redemption Booking</span></a>
