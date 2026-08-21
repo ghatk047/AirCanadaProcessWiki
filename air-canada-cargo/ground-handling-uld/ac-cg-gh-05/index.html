@@ -133,7 +133,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CG-GH-05" title="Click to copy the process ID">
     AC-CG-GH-05<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Cargo Delivery and Proof of Delivery</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -142,85 +142,241 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-CG-GH-05-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Consignee notification</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Cargo Booking</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Notify consignee of arrival</b></td>
-<td>Cargo Warehouse Agent</td>
-<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Arrived shipment</td>
-<td>Consignee notification</td>
-<td>Notified within 2 hours of arrival at 95 percent</td>
+<td><b>Receive cargo delivery request</b></td>
+<td>Cargo Booking Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CHAMP Cargospot neo (Handling)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Cargo details, customer information</td>
+<td>Cargo booking record</td>
+<td>95% successful bookings within 30 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Consignee contact information quality varies and can delay notification</td>
+<td>System downtime affecting cargo booking.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Check available warehouse capacity</b></td>
+<td>Warehouse Manager</td>
+<td><span class="tag champ" data-tooltip="Cargo warehouse and ground handling execution, ULD build-up and breakdown. [CHAMP - evidence A]">Cargospot neo Handling<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Cargo booking record, current warehouse status</td>
+<td>Capacity availability report</td>
+<td>90% accurate capacity checks within 5 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Real-time capacity data delays causing scheduling issues.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Prepare necessary documents</b></td>
+<td>Cargo Documentation Specialist</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CHAMP Cargospot neo (Handling)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Cargo booking record, warehouse status</td>
+<td>Prepared documents</td>
+<td>98% document accuracy rate within 15 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual document preparation errors.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CG-GH-05-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Delivery or collection</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Capacity Check</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Verify consignee identity at collection or delivery</b></td>
-<td>Cargo Warehouse Agent</td>
-<td><span class="tag champ" data-tooltip="Cargo warehouse and ground handling execution, ULD build-up and breakdown. [CHAMP - evidence A]">Cargospot neo Handling<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Consignee presenting for collection, or delivery attempt</td>
-<td>Verified consignee identity</td>
-<td>Verified for 100 percent of deliveries at 100 percent</td>
-<td class="c-flag"><span class="yes">Y</span></td>
+<td><b>Prepare pre-load CBSA data</b></td>
+<td>CBSA Compliance Officer</td>
+<td><span class="tag regulator" data-tooltip="CBSA pre-load air cargo targeting. Mandatory pre-load data filing in force since 1 April 2025. [CBSA - evidence B]">Canada PACT<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Cargo details, documentation</td>
+<td>CBSA filing report</td>
+<td>99% successful filings within 30 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Identity verification has to prevent a shipment being released to the wrong party</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Interface downtime with Canada PACT.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Release or deliver the shipment</b></td>
-<td>Cargo Warehouse Agent</td>
+<td><b>Verify CBSA filing status</b></td>
+<td>CBSA Compliance Officer</td>
+<td><span class="tag regulator" data-tooltip="CBSA pre-load air cargo targeting. Mandatory pre-load data filing in force since 1 April 2025. [CBSA - evidence B]">Canada PACT<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>CBSA filing report</td>
+<td>Verification result</td>
+<td>100% verification accuracy within 5 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed CBSA response affecting delivery schedules.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Execute ground handling tasks</b></td>
+<td>Ground Handling Agent</td>
 <td><span class="tag champ" data-tooltip="Cargo warehouse and ground handling execution, ULD build-up and breakdown. [CHAMP - evidence A]">Cargospot neo Handling<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Verified consignee</td>
-<td>Released or delivered shipment</td>
-<td>Completed within the standard service window at 90 percent</td>
+<td>Cargo details, prepared documents, CBSA filing status</td>
+<td>Completed ground handling tasks</td>
+<td>95% tasks completed within 1 hour</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>A shipment awaiting collection ties up warehouse space if the consignee is slow to collect</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Equipment downtime affecting task execution.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CG-GH-05-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Proof of delivery</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Documentation Preparation</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Obtain and record proof of delivery</b></td>
-<td>Cargo Warehouse Agent</td>
-<td><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Completed delivery</td>
-<td>Recorded proof of delivery</td>
-<td>Recorded within 24 hours of delivery for 100 percent of shipments at 100 percent</td>
+<td><b>Generate proof of delivery</b></td>
+<td>Cargo Delivery Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CHAMP Cargospot neo (Handling)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Completed ground handling tasks</td>
+<td>Proof of delivery document</td>
+<td>98% accurate proofs within 30 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>The absence of proof of delivery leaves a shipment&#x27;s fate genuinely ambiguous in a later dispute</td>
+<td>Manual entry errors in proof generation.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Review proof of delivery for accuracy</b></td>
+<td>Cargo Documentation Specialist</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CHAMP Cargospot neo (Handling)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Proof of delivery document</td>
+<td>Reviewed proof of delivery</td>
+<td>95% review accuracy rate within 10 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Missed errors in proof review.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Notify customer of successful delivery</b></td>
+<td>Customer Service Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CHAMP Cargospot neo (Handling)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Reviewed proof of delivery</td>
+<td>Notification sent to customer</td>
+<td>98% notifications sent within 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System integration issues causing notification failures.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CG-GH-05-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Ground Handling Execution</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Record revenue details</b></td>
+<td>Revenue Accounting Agent</td>
+<td><span class="tag champ" data-tooltip="Cargo revenue accounting and IATA CASS settlement. [CHAMP - evidence A]">Cargospot neo Revenue Accounting<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Cargo delivery record, proof of delivery</td>
+<td>Revenue accounting entry</td>
+<td>98% accurate entries within 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Data entry errors in revenue accounting.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Settle with IATA CASS</b></td>
+<td>CASS Settler</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CHAMP Cargospot neo Revenue Accounting<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Revenue accounting entry</td>
+<td>Settlement status</td>
+<td>95% successful settlements within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed settlement processing.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Update CHAMP Cargospot neo with final status</b></td>
+<td>CHAMP Administrator</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CHAMP Cargospot neo (Handling)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Settlement status, proof of delivery</td>
+<td>Updated cargo record</td>
+<td>98% accurate updates within 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System downtime affecting update processing.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CG-GH-05-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Proof of Delivery Generation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Conduct post-delivery review</b></td>
+<td>Quality Assurance Officer</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CHAMP Cargospot neo (Handling)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Updated cargo record, customer feedback</td>
+<td>Review report</td>
+<td>95% thorough reviews within 2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Missed issues in post-delivery review.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Implement corrective actions based on review</b></td>
+<td>Warehouse Manager</td>
+<td><span class="tag champ" data-tooltip="Cargo warehouse and ground handling execution, ULD build-up and breakdown. [CHAMP - evidence A]">Cargospot neo Handling<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Review report</td>
+<td>Corrective action plan</td>
+<td>90% implementation rate within 1 day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Resource constraints affecting corrective action.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CG-GH-05-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Post-Delivery Review</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Finalize cargo delivery record</b></td>
+<td>CHAMP Administrator</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CHAMP Cargospot neo (Handling)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Corrective action plan, review report</td>
+<td>Finalized cargo delivery record</td>
+<td>98% accurate final records within 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Data entry errors in finalization.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Notify all stakeholders of completion</b></td>
+<td>Customer Service Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CHAMP Cargospot neo (Handling)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Finalized cargo delivery record</td>
+<td>Completion notification sent to stakeholders</td>
+<td>98% notifications sent within 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System integration issues causing notification failures.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Cargo Warehouse Agent</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Cargo Booking Agent</span><span class="lane-steps">1.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Warehouse Manager</span><span class="lane-steps">1.2 5.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Cargo Documentation Specialist</span><span class="lane-steps">1.3 3.2</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>CBSA Compliance Officer</span><span class="lane-steps">2.1 2.2</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Ground Handling Agent</span><span class="lane-steps">2.3</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>Cargo Delivery Agent</span><span class="lane-steps">3.1</span></div><div class="lane"><span class="swatch" style="background:#8A5A1E"></span><span>Customer Service Agent</span><span class="lane-steps">3.3 6.2</span></div><div class="lane"><span class="swatch" style="background:#4A4A4A"></span><span>Revenue Accounting Agent</span><span class="lane-steps">4.1</span></div><div class="lane"><span class="swatch" style="background:#E04A60"></span><span>CASS Settler</span><span class="lane-steps">4.2</span></div><div class="lane"><span class="swatch" style="background:#5A5A5A"></span><span>CHAMP Administrator</span><span class="lane-steps">4.3 6.1</span></div><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Quality Assurance Officer</span><span class="lane-steps">5.1</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag champ" data-tooltip="Cargo booking, capacity and documentation. Selected 2026 and currently in implementation. [CHAMP - evidence A]">CHAMP Cargospot neo<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag champ" data-tooltip="Cargo warehouse and ground handling execution, ULD build-up and breakdown. [CHAMP - evidence A]">Cargospot neo Handling<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+<div class="card"><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CHAMP Cargospot neo (Handling)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag champ" data-tooltip="Cargo warehouse and ground handling execution, ULD build-up and breakdown. [CHAMP - evidence A]">Cargospot neo Handling<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag regulator" data-tooltip="CBSA pre-load air cargo targeting. Mandatory pre-load data filing in force since 1 April 2025. [CBSA - evidence B]">Canada PACT<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag champ" data-tooltip="Cargo revenue accounting and IATA CASS settlement. [CHAMP - evidence A]">Cargospot neo Revenue Accounting<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CHAMP Cargospot neo Revenue Accounting<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Notified within 2 hours of arrival at 95 percent</li><li>Verified for 100 percent of deliveries at 100 percent</li><li>Completed within the standard service window at 90 percent</li><li>Recorded within 24 hours of delivery for 100 percent of shipments at 100 percent</li></ul>
+<ul class="bullets"><li>95% successful bookings within 30 minutes</li><li>90% accurate capacity checks within 5 minutes</li><li>98% document accuracy rate within 15 minutes</li><li>99% successful filings within 30 minutes</li><li>100% verification accuracy within 5 minutes</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>The absence of proof of delivery leaving a shipment&#x27;s fate genuinely ambiguous in a later dispute</li><li>Identity verification failing to prevent a shipment being released to the wrong party</li><li>Consignee contact information quality varying and delaying notification of arrival</li><li>A shipment awaiting collection tying up warehouse space if the consignee is slow to collect</li></ul>
+<ul class="bullets risk"><li>System downtime affecting cargo booking.</li><li>Real-time capacity data delays causing scheduling issues.</li><li>Manual document preparation errors.</li><li>Interface downtime with Canada PACT.</li><li>Delayed CBSA response affecting delivery schedules.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../air-canada-cargo/ground-handling-uld/ac-cg-gh-04/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Cargo Transfer and Interline Handover</span></a>
