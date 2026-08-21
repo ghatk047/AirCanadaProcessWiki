@@ -133,7 +133,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-IT-AI-04" title="Click to copy the process ID">
     AC-IT-AI-04<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Model Deployment and Production Monitoring</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -142,85 +142,299 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-IT-AI-04-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Production performance tracking</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Pre-Deployment Planning</span>
+    <span class="ph-n">5 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Track production performance against validated baseline</b></td>
-<td>ML Engineer</td>
+<td><b>Initiate deployment request</b></td>
+<td>AI &amp; ML Platform Engineer</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Deployment request details</td>
+<td>ServiceNow ticket created</td>
+<td>Ticket creation time &lt; 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delays in ticket creation can slow down the entire process.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Review deployment request</b></td>
+<td>AI &amp; ML Platform Manager</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>ServiceNow ticket</td>
+<td>Approval or rejection</td>
+<td>Review time &lt; 4 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual review process can introduce delays.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Prepare model for deployment</b></td>
+<td>AI &amp; ML Platform Engineer</td>
 <td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Live production predictions and outcomes</td>
-<td>Tracked performance</td>
-<td>Tracked continuously for 100 percent of deployed models</td>
+<td>Approved deployment request</td>
+<td>Model artifacts packaged</td>
+<td>Packaging time &lt; 8 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Incompatibility issues with Databricks environment.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Conduct initial validation tests</b></td>
+<td>AI &amp; ML Platform Engineer</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Model artifacts</td>
+<td>Validation test results</td>
+<td>Test duration &lt; 6 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Ground truth outcomes for comparison are not always available in real time for every model type</td>
+<td>Resource constraints in the testing environment.</td>
+</tr><tr>
+<td class="c-step">1.5</td>
+<td><b>Address validation issues</b></td>
+<td>AI &amp; ML Platform Engineer</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Validation test failures</td>
+<td>Resolved model artifacts</td>
+<td>Resolution time &lt; 2 days</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Multiple iterations to resolve validation issues.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-IT-AI-04-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Drift detection</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Model Validation</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Detect performance drift against threshold</b></td>
-<td>ML Engineer</td>
-<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Tracked performance</td>
-<td>Detected drift or confirmed stability</td>
-<td>Detected within one monitoring cycle of drift beginning at 90 percent</td>
-<td class="c-flag"><span class="yes">Y</span></td>
+<td><b>Deploy model to staging environment</b></td>
+<td>AI &amp; ML Platform Engineer</td>
+<td><span class="tag aws" data-tooltip="Primary hyperscaler. Loyalty platform, contact centre and digital channels run cloud-native on AWS. [AWS - evidence A]">AWS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Model artifacts</td>
+<td>Staging deployment status</td>
+<td>Deployment time &lt; 1 day</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A model approved once under specific conditions can silently drift away from them without ever being re-approved</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Network latency issues during deployment.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Investigate drift root cause</b></td>
-<td>ML Engineer</td>
-<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Detected drift</td>
-<td>Root cause hypothesis</td>
-<td>Investigated within 5 business days of detection at 100 percent</td>
+<td><b>Conduct performance testing in staging</b></td>
+<td>AI &amp; ML Platform Engineer</td>
+<td><span class="tag aws" data-tooltip="Primary hyperscaler. Loyalty platform, contact centre and digital channels run cloud-native on AWS. [AWS - evidence A]">AWS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Staging deployment status</td>
+<td>Performance test results</td>
+<td>Test duration &lt; 4 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Insufficient resources in the staging environment.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Address deployment issues</b></td>
+<td>AI &amp; ML Platform Engineer</td>
+<td><span class="tag aws" data-tooltip="Primary hyperscaler. Loyalty platform, contact centre and digital channels run cloud-native on AWS. [AWS - evidence A]">AWS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Deployment or test failures</td>
+<td>Resolved deployment status</td>
+<td>Resolution time &lt; 1 day</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Drift root cause can be a genuine change in underlying conditions rather than a model defect</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Multiple failure cycles can extend the deployment timeline.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-IT-AI-04-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Retraining or withdrawal decision</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Deployment Preparation</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Retrain, constrain or withdraw the model</b></td>
-<td>ML Engineer</td>
-<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Investigated drift</td>
-<td>Retrained, constrained or withdrawn model</td>
-<td>Action taken within 10 business days of confirmed drift at 100 percent</td>
+<td><b>Create production environment configuration</b></td>
+<td>AI &amp; ML Platform Engineer</td>
+<td><span class="tag aws" data-tooltip="Primary hyperscaler. Loyalty platform, contact centre and digital channels run cloud-native on AWS. [AWS - evidence A]">AWS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Deployment request details</td>
+<td>Production config file</td>
+<td>Config creation time &lt; 6 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Misconfigured settings can lead to deployment failures.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Deploy model to production environment</b></td>
+<td>AI &amp; ML Platform Engineer</td>
+<td><span class="tag aws" data-tooltip="Primary hyperscaler. Loyalty platform, contact centre and digital channels run cloud-native on AWS. [AWS - evidence A]">AWS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Model artifacts and config file</td>
+<td>Production deployment status</td>
+<td>Deployment time &lt; 1 day</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="yes">Y</span></td>
-<td>A withdrawal decision has to route back through governance if the model is customer-facing, per AC-IT-AI-03</td>
+<td>Network congestion during deployment.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Conduct final validation in production</b></td>
+<td>AI &amp; ML Platform Engineer</td>
+<td><span class="tag aws" data-tooltip="Primary hyperscaler. Loyalty platform, contact centre and digital channels run cloud-native on AWS. [AWS - evidence A]">AWS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Production deployment status</td>
+<td>Final validation test results</td>
+<td>Validation time &lt; 6 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Real-world data variability can affect model performance.</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Address production deployment issues</b></td>
+<td>AI &amp; ML Platform Engineer</td>
+<td><span class="tag aws" data-tooltip="Primary hyperscaler. Loyalty platform, contact centre and digital channels run cloud-native on AWS. [AWS - evidence A]">AWS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Deployment or validation failures</td>
+<td>Resolved production status</td>
+<td>Resolution time &lt; 2 days</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Fixing critical bugs post-deployment can be challenging.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-AI-04-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Model Deployment</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Integrate with monitoring tools</b></td>
+<td>AI &amp; ML Platform Engineer</td>
+<td><span class="tag unknown" data-tooltip="Security monitoring and incident response tooling. Product UNCONFIRMED - a discovery question.">SIEM and SOC<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Production deployment status</td>
+<td>Monitoring setup complete</td>
+<td>Integration time &lt; 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Compatibility issues between monitoring tools.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Configure alerts and notifications</b></td>
+<td>AI &amp; ML Platform Engineer</td>
+<td><span class="tag unknown" data-tooltip="Security monitoring and incident response tooling. Product UNCONFIRMED - a discovery question.">SIEM and SOC<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Monitoring setup</td>
+<td>Alert configuration complete</td>
+<td>Configuration time &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Misconfigured alerts can lead to false positives or negatives.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Troubleshoot monitoring integration issues</b></td>
+<td>AI &amp; ML Platform Engineer</td>
+<td><span class="tag unknown" data-tooltip="Security monitoring and incident response tooling. Product UNCONFIRMED - a discovery question.">SIEM and SOC<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Integration failures</td>
+<td>Resolved integration status</td>
+<td>Resolution time &lt; 1 day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex system integrations require extensive troubleshooting.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-AI-04-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Post-Deployment Monitoring</span>
+    <span class="ph-n">7 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Monitor model performance</b></td>
+<td>AI &amp; ML Platform Engineer</td>
+<td><span class="tag unknown" data-tooltip="Security monitoring and incident response tooling. Product UNCONFIRMED - a discovery question.">SIEM and SOC<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Continuous monitoring data</td>
+<td>Performance metrics</td>
+<td>Monitoring frequency &gt; once per hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>High volume of data can overwhelm monitoring tools.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Review performance metrics</b></td>
+<td>AI &amp; ML Platform Manager</td>
+<td><span class="tag unknown" data-tooltip="Security monitoring and incident response tooling. Product UNCONFIRMED - a discovery question.">SIEM and SOC<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Performance metrics</td>
+<td>Analysis report</td>
+<td>Review time &lt; 4 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual review of large datasets is time-consuming.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Address performance degradation issues</b></td>
+<td>AI &amp; ML Platform Engineer</td>
+<td><span class="tag aws" data-tooltip="Primary hyperscaler. Loyalty platform, contact centre and digital channels run cloud-native on AWS. [AWS - evidence A]">AWS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Performance degradation data</td>
+<td>Resolved performance status</td>
+<td>Resolution time &lt; 1 day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Identifying root causes of performance issues can be complex.</td>
+</tr><tr>
+<td class="c-step">5.4</td>
+<td><b>Implement performance improvements</b></td>
+<td>AI &amp; ML Platform Engineer</td>
+<td><span class="tag aws" data-tooltip="Primary hyperscaler. Loyalty platform, contact centre and digital channels run cloud-native on AWS. [AWS - evidence A]">AWS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Analysis report</td>
+<td>Improved model artifacts</td>
+<td>Improvement implementation time &lt; 2 days</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Testing new configurations can introduce additional risks.</td>
+</tr><tr>
+<td class="c-step">5.5</td>
+<td><b>Re-deploy improved model</b></td>
+<td>AI &amp; ML Platform Engineer</td>
+<td><span class="tag aws" data-tooltip="Primary hyperscaler. Loyalty platform, contact centre and digital channels run cloud-native on AWS. [AWS - evidence A]">AWS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Improved model artifacts</td>
+<td>Re-deployment status</td>
+<td>Re-deployment time &lt; 1 day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Network issues during re-deployment.</td>
+</tr><tr>
+<td class="c-step">5.6</td>
+<td><b>Monitor performance post-improvement</b></td>
+<td>AI &amp; ML Platform Engineer</td>
+<td><span class="tag unknown" data-tooltip="Security monitoring and incident response tooling. Product UNCONFIRMED - a discovery question.">SIEM and SOC<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Re-deployment status</td>
+<td>Post-improvement metrics</td>
+<td>Monitoring frequency &gt; once per hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Continuous monitoring is resource-intensive.</td>
+</tr><tr>
+<td class="c-step">5.7</td>
+<td><b>Escalate to senior management</b></td>
+<td>AI &amp; ML Platform Manager</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Re-deployment failures</td>
+<td>Escalation ticket created</td>
+<td>Escalation time &lt; 8 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Critical system outages require immediate attention.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>ML Engineer</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>AI &amp; ML Platform Engineer</span><span class="lane-steps">1.1 1.3 1.4 1.5 2.1 2.2 2.3 3.1 3.2 3.3 3.4 4.1 4.2 4.3 5.1 5.3 5.4 5.5 5.6</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>AI &amp; ML Platform Manager</span><span class="lane-steps">1.2 5.2 5.7</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
+<div class="card"><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag aws" data-tooltip="Primary hyperscaler. Loyalty platform, contact centre and digital channels run cloud-native on AWS. [AWS - evidence A]">AWS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag unknown" data-tooltip="Security monitoring and incident response tooling. Product UNCONFIRMED - a discovery question.">SIEM and SOC<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Tracked continuously for 100 percent of deployed models</li><li>Detected within one monitoring cycle of drift beginning at 90 percent</li><li>Investigated within 5 business days of detection at 100 percent</li><li>Action taken within 10 business days of confirmed drift at 100 percent</li></ul>
+<ul class="bullets"><li>Ticket creation time &lt; 2 hours</li><li>Review time &lt; 4 hours</li><li>Packaging time &lt; 8 hours</li><li>Deployment time &lt; 1 day</li><li>Resolution time &lt; 2 days</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A model approved once under specific conditions silently drifting away from them without re-approval</li><li>Ground truth outcomes for comparison not being available in real time for every model type</li><li>Drift root cause being a genuine change in underlying conditions rather than a model defect</li><li>A withdrawal decision for a customer-facing model needing to route back through governance</li></ul>
+<ul class="bullets risk"><li>Network latency issues during deployment</li><li>Insufficient resources in the testing environment</li><li>Compatibility issues between monitoring tools</li><li>Misconfigured alerts can lead to false positives or negatives</li><li>Identifying root causes of performance issues can be complex</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../information-technology-security/ai-ml-platform/ac-it-ai-03/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">AI Governance and Human In Loop Control Design</span></a>

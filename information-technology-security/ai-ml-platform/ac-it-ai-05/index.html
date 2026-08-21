@@ -133,7 +133,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-IT-AI-05" title="Click to copy the process ID">
     AC-IT-AI-05<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Customer Facing Assistant Content Grounding</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -142,85 +142,285 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-IT-AI-05-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Policy change detection</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Content Creation</span>
+    <span class="ph-n">6 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Detect a source policy change</b></td>
-<td>AI Governance Lead</td>
-<td><span class="tag aiml" data-tooltip="Bilingual customer-facing assistant. Predecessor bot was withdrawn c. April 2024 after the Moffatt ruling. [Air Canada - evidence B]">Air Canada Virtual Assistant<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Updated policy content in an allow-listed source</td>
-<td>Detected policy change</td>
-<td>Detected within 24 hours of the policy update at 90 percent</td>
+<td><b>Initiate content creation request in ITSM Platform</b></td>
+<td>IT Operations Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Content brief from marketing or customer service team</td>
+<td>ServiceNow ticket with detailed content requirements</td>
+<td>Time to create a new ticket &lt; 1 hour</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delays in creating tickets due to system downtime</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Assign content creation task to AI Developer</b></td>
+<td>AI Developer</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>ServiceNow ticket with detailed content requirements</td>
+<td>Initial draft of AI-generated content</td>
+<td>Content creation time &lt; 4 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Detection depends on the policy owner correctly notifying the AI governance function of a change</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inconsistent quality due to varying AI model performance</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Notify relevant stakeholders of content creation request</b></td>
+<td>IT Operations Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">UNKNOWN (Integration Platform)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>ServiceNow ticket with detailed content requirements</td>
+<td>Notification sent to stakeholders</td>
+<td>Time to notify &lt; 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delays in notifications due to system integration issues</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Log initial content creation request in Databricks Lakehouse</b></td>
+<td>AI Developer</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>ServiceNow ticket with detailed content requirements</td>
+<td>Content creation record logged</td>
+<td>Time to log &lt; 1 minute</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Data loss due to logging errors in Databricks Lakehouse</td>
+</tr><tr>
+<td class="c-step">1.5</td>
+<td><b>Escalate content creation request to senior developer</b></td>
+<td>Senior AI Developer</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Initial draft of AI-generated content and governance decision document</td>
+<td>Revised content submission</td>
+<td>Time to escalate &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delays in escalation due to senior developer availability</td>
+</tr><tr>
+<td class="c-step">1.6</td>
+<td><b>Resubmit content for governance review</b></td>
+<td>Content Review Specialist</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">UNKNOWN (Integration Platform)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Revised content submission and governance decision document</td>
+<td>Updated compliance check report</td>
+<td>Time to resubmit &lt; 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inconsistent review standards across different reviewers</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-IT-AI-05-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Grounding content update</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Initial Review</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Update the assistant&#x27;s grounding content</b></td>
-<td>AI Governance Lead</td>
-<td><span class="tag aiml" data-tooltip="Bilingual customer-facing assistant. Predecessor bot was withdrawn c. April 2024 after the Moffatt ruling. [Air Canada - evidence B]">Air Canada Virtual Assistant<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Detected change</td>
-<td>Updated grounding content</td>
-<td>Updated within 2 business days of detection at 95 percent</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>An update applied incorrectly can introduce a new inconsistency rather than resolving the original one</td>
-</tr><tr>
-<td class="c-step">2.2</td>
-<td><b>Validate updated content against current policy</b></td>
-<td>AI Governance Lead</td>
-<td><span class="tag aiml" data-tooltip="Bilingual customer-facing assistant. Predecessor bot was withdrawn c. April 2024 after the Moffatt ruling. [Air Canada - evidence B]">Air Canada Virtual Assistant<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Updated grounding content</td>
-<td>Validated content</td>
-<td>Validated before it affects live responses for 100 percent of updates at 100 percent</td>
+<td><b>Review initial content draft for compliance and accuracy</b></td>
+<td>Content Review Specialist</td>
+<td><span class="tag aws" data-tooltip="Primary hyperscaler. Loyalty platform, contact centre and digital channels run cloud-native on AWS. [AWS - evidence A]">AWS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Initial draft of AI-generated content</td>
+<td>Compliance check report</td>
+<td>Time to review &lt; 2 hours</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A grounding update not validated before going live risks stating an incorrect version of the new policy</td>
+<td>High volume of content drafts requiring manual review</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Conduct human-in-loop governance meeting</b></td>
+<td>Customer Communications Committee (CCC) Member</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">UNKNOWN (Integration Platform)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Compliance check report and initial content draft</td>
+<td>Governance decision document</td>
+<td>Meeting duration &lt; 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inconsistent governance decisions across different CCC members</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Document governance meeting outcomes in ITSM Platform</b></td>
+<td>Customer Communications Committee (CCC) Member</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Governance decision document</td>
+<td>Updated ServiceNow ticket with governance notes</td>
+<td>Time to document &lt; 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delays in documentation due to system downtime</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Escalate governance issues to IT Governance Lead</b></td>
+<td>IT Governance Lead</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">UNKNOWN (Integration Platform)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Governance decision document and compliance check report</td>
+<td>Resolution plan for governance issues</td>
+<td>Time to escalate &lt; 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delays in escalation due to IT Governance Lead availability</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-IT-AI-05-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Validation before live effect</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Human-in-Loop Governance</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Confirm live effect and monitor for residual inconsistency</b></td>
-<td>AI Governance Lead</td>
-<td><span class="tag aiml" data-tooltip="Bilingual customer-facing assistant. Predecessor bot was withdrawn c. April 2024 after the Moffatt ruling. [Air Canada - evidence B]">Air Canada Virtual Assistant<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Validated update</td>
-<td>Confirmed live effect</td>
-<td>Confirmed within 24 hours of validation at 100 percent</td>
+<td><b>Update content based on governance feedback</b></td>
+<td>AI Developer</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Governance decision document and initial content draft</td>
+<td>Updated AI-generated content</td>
+<td>Time to update &lt; 2 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex updates requiring extensive manual adjustments</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Conduct additional content updates based on governance issues</b></td>
+<td>AI Developer</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Resolution plan for governance issues and initial content draft</td>
+<td>Updated AI-generated content</td>
+<td>Time to update &lt; 2 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A governance framework that approves grounding sources once and never revisits currency is not really governing</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex updates requiring extensive manual adjustments</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-AI-05-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Final Approval</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Submit final content for approval to CCC</b></td>
+<td>Content Review Specialist</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Updated AI-generated content and governance decision document</td>
+<td>ServiceNow ticket with final content submission</td>
+<td>Time to submit &lt; 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delays in submitting tickets due to system integration issues</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Request additional governance review from CCC</b></td>
+<td>Content Review Specialist</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">UNKNOWN (Integration Platform)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Updated AI-generated content and resolution plan for governance issues</td>
+<td>ServiceNow ticket with request for additional review</td>
+<td>Time to request &lt; 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inconsistent governance decisions across different CCC members</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-AI-05-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Deployment Preparation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Prepare deployment package for AI content</b></td>
+<td>IT Deployment Specialist</td>
+<td><span class="tag aws" data-tooltip="Primary hyperscaler. Loyalty platform, contact centre and digital channels run cloud-native on AWS. [AWS - evidence A]">AWS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Approved final content and governance decision document</td>
+<td>Deployment package ready for launch</td>
+<td>Time to prepare &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Incompatibilities between AI-generated content and existing systems</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Prepare rollback plan for AI content deployment</b></td>
+<td>IT Deployment Specialist</td>
+<td><span class="tag aws" data-tooltip="Primary hyperscaler. Loyalty platform, contact centre and digital channels run cloud-native on AWS. [AWS - evidence A]">AWS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Deployment package ready for launch</td>
+<td>Rollback plan document</td>
+<td>Time to prepare &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Incompatibilities between AI-generated content and existing systems</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-AI-05-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Post-Deployment Monitoring</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Monitor post-deployment performance of AI content</b></td>
+<td>IT Performance Analyst</td>
+<td><span class="tag unknown" data-tooltip="Security monitoring and incident response tooling. Product UNCONFIRMED - a discovery question.">SIEM and SOC<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Deployment package ready for launch</td>
+<td>Performance metrics report</td>
+<td>Response time &lt; 2 seconds</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>High false positive rates in performance monitoring</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Analyze performance metrics for root cause identification</b></td>
+<td>IT Performance Analyst</td>
+<td><span class="tag unknown" data-tooltip="Security monitoring and incident response tooling. Product UNCONFIRMED - a discovery question.">SIEM and SOC<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Performance metrics report</td>
+<td>Root cause analysis report</td>
+<td>Time to analyze &lt; 2 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>High false positive rates in performance monitoring</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Implement corrective actions based on root cause analysis</b></td>
+<td>IT Operations Analyst</td>
+<td><span class="tag aws" data-tooltip="Primary hyperscaler. Loyalty platform, contact centre and digital channels run cloud-native on AWS. [AWS - evidence A]">AWS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Root cause analysis report and deployment package ready for launch</td>
+<td>Corrected AI-generated content</td>
+<td>Time to implement &lt; 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delays in implementing corrective actions due to system integration issues</td>
+</tr><tr>
+<td class="c-step">6.4</td>
+<td><b>Monitor corrected content performance post-deployment</b></td>
+<td>IT Performance Analyst</td>
+<td><span class="tag unknown" data-tooltip="Security monitoring and incident response tooling. Product UNCONFIRMED - a discovery question.">SIEM and SOC<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Corrected AI-generated content</td>
+<td>Performance metrics report</td>
+<td>Response time &lt; 2 seconds</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>High false positive rates in performance monitoring</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>AI Governance Lead</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>IT Operations Analyst</span><span class="lane-steps">1.1 1.3 6.3</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>AI Developer</span><span class="lane-steps">1.2 3.1 1.4 3.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Content Review Specialist</span><span class="lane-steps">2.1 4.1 1.6 4.2</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Customer Communications Committee (CCC) Member</span><span class="lane-steps">2.2 2.3</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>IT Deployment Specialist</span><span class="lane-steps">5.1 5.2</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>IT Performance Analyst</span><span class="lane-steps">6.1 6.2 6.4</span></div><div class="lane"><span class="swatch" style="background:#8A5A1E"></span><span>Senior AI Developer</span><span class="lane-steps">1.5</span></div><div class="lane"><span class="swatch" style="background:#4A4A4A"></span><span>IT Governance Lead</span><span class="lane-steps">2.4</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag aiml" data-tooltip="Bilingual customer-facing assistant. Predecessor bot was withdrawn c. April 2024 after the Moffatt ruling. [Air Canada - evidence B]">Air Canada Virtual Assistant<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag aws" data-tooltip="Primary hyperscaler. Loyalty platform, contact centre and digital channels run cloud-native on AWS. [AWS - evidence A]">AWS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">UNKNOWN (Integration Platform)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag unknown" data-tooltip="Security monitoring and incident response tooling. Product UNCONFIRMED - a discovery question.">SIEM and SOC<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Detected within 24 hours of the policy update at 90 percent</li><li>Updated within 2 business days of detection at 95 percent</li><li>Validated before it affects live responses for 100 percent of updates at 100 percent</li><li>Confirmed within 24 hours of validation at 100 percent</li></ul>
+<ul class="bullets"><li>Time to create a new ticket &lt; 1 hour</li><li>Content creation time &lt; 4 hours</li><li>Time to review &lt; 2 hours</li><li>Meeting duration &lt; 1 hour</li><li>Time to prepare &lt; 1 hour</li><li>Response time &lt; 2 seconds</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A governance framework approving grounding sources once and never revisiting their currency</li><li>Detection depending on the policy owner correctly notifying the AI governance function of a change</li><li>An update applied incorrectly introducing a new inconsistency rather than resolving the original one</li><li>A grounding update not validated before going live risking an incorrect statement of the new policy</li></ul>
+<ul class="bullets risk"><li>Delays in creating tickets due to system downtime</li><li>Inconsistent quality due to varying AI model performance</li><li>High volume of content drafts requiring manual review</li><li>Inconsistent governance decisions across different CCC members</li><li>Complex updates requiring extensive manual adjustments</li><li>Delays in submitting tickets due to system integration issues</li><li>Incompatibilities between AI-generated content and existing systems</li><li>High false positive rates in performance monitoring</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../information-technology-security/ai-ml-platform/ac-it-ai-04/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Model Deployment and Production Monitoring</span></a>
