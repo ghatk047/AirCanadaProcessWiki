@@ -133,7 +133,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-FN-AP-04" title="Click to copy the process ID">
     AC-FN-AP-04<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Payment Run and Disbursement</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -142,85 +142,228 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-FN-AP-04-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Payment run preparation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Data Collection</span>
+    <span class="ph-n">7 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Compile approved invoices for the payment run</b></td>
-<td>Accounts Payable Analyst</td>
+<td><b>Extract payment data from SAP S/4HANA</b></td>
+<td>Finance Analyst</td>
 <td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Approved and matched invoices</td>
-<td>Compiled payment run batch</td>
-<td>Compiled within the scheduled run preparation window at 100 percent</td>
+<td>Open invoices and payment schedules</td>
+<td>Payment run data file</td>
+<td>Data extraction time &lt; 1 hour</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Payment terms vary by supplier and determine which invoices are actually due in this specific run</td>
+<td>System downtime during peak invoice processing times</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Validate extracted data for accuracy</b></td>
+<td>Finance Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Payment run data file</td>
+<td>Validated payment run data file</td>
+<td>Data validation completion within 2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual corrections required for discrepancies</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Approve validated payment run data</b></td>
+<td>Finance Manager</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Validated payment run data file</td>
+<td>Approved payment run data file</td>
+<td>Approval time &lt; 1 day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed approvals due to regulatory compliance checks</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Correct and revalidate payment data</b></td>
+<td>Finance Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Invalid payment run data file</td>
+<td>Revalidated payment run data file</td>
+<td>Revalidation time &lt; 2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Time-consuming manual corrections</td>
+</tr><tr>
+<td class="c-step">1.5</td>
+<td><b>Re-submit for approval after rejection</b></td>
+<td>Finance Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Approved payment run data file</td>
+<td>Resubmitted payment run data file</td>
+<td>Resubmission time &lt; 1 day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Multiple rejections due to complex compliance requirements</td>
+</tr><tr>
+<td class="c-step">1.6</td>
+<td><b>Escalate to senior finance for manual review</b></td>
+<td>Senior Finance Manager</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Still Invalid payment run data file</td>
+<td>Manually reviewed and corrected data file</td>
+<td>Manual review time &lt; 2 days</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Lack of automation for complex error resolution</td>
+</tr><tr>
+<td class="c-step">1.7</td>
+<td><b>Final approval after multiple rejections</b></td>
+<td>Finance Manager</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Resubmitted payment run data file</td>
+<td>Finally approved payment run data file</td>
+<td>Final approval time &lt; 1 day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>High volume of rejections causing delays</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-FN-AP-04-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Cash position coordination</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Validation and Approval</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Coordinate against treasury cash position</b></td>
-<td>Accounts Payable Analyst</td>
+<td><b>Generate payment files for external vendors</b></td>
+<td>Finance Analyst</td>
 <td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Compiled batch and available cash position</td>
-<td>Confirmed run within cash availability</td>
-<td>Confirmed before disbursement for 100 percent of scheduled runs at 100 percent</td>
-<td class="c-flag"><span class="yes">Y</span></td>
+<td>Finally approved payment run data file</td>
+<td>External vendor payment files</td>
+<td>Payment file generation time &lt; 2 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Disbursing more than the available cash position supports creates a genuine liquidity problem</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>File format issues with external systems</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Apply early payment discount where available</b></td>
-<td>Accounts Payable Analyst</td>
+<td><b>Send payment files to vendors</b></td>
+<td>Finance Analyst</td>
 <td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Confirmed batch</td>
-<td>Applied discount where terms allow</td>
-<td>Applied for 100 percent of eligible invoices at 100 percent</td>
+<td>External vendor payment files</td>
+<td>Payment confirmation from vendors</td>
+<td>Payment file transmission time &lt; 1 hour</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Network connectivity issues</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Verify payment receipts from vendors</b></td>
+<td>Finance Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Payment confirmation from vendors</td>
+<td>Verified payment receipts</td>
+<td>Verification time &lt; 1 day</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A missed early payment discount is a small but avoidable cost across a high invoice volume</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Incorrect or delayed receipt confirmations</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-FN-AP-04-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Disbursement</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Payment Generation</span>
+    <span class="ph-n">7 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Execute disbursement</b></td>
-<td>Accounts Payable Analyst</td>
+<td><b>Extract disbursement data from SAP S/4HANA</b></td>
+<td>Finance Analyst</td>
 <td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Confirmed and discount-applied batch</td>
-<td>Disbursed payments</td>
-<td>Disbursed on the scheduled run date at 100 percent</td>
+<td>Approved payment run data file</td>
+<td>Disbursement data file</td>
+<td>Data extraction time &lt; 1 hour</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A disbursement error, wrong amount or wrong supplier, is harder to reverse once funds have moved</td>
+<td>System downtime during peak disbursement processing times</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Validate disbursement data for accuracy</b></td>
+<td>Finance Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Disbursement data file</td>
+<td>Validated disbursement data file</td>
+<td>Data validation completion within 2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual corrections required for discrepancies</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Approve validated disbursement data</b></td>
+<td>Finance Manager</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Validated disbursement data file</td>
+<td>Approved disbursement data file</td>
+<td>Approval time &lt; 1 day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed approvals due to regulatory compliance checks</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Correct and revalidate disbursement data</b></td>
+<td>Finance Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Invalid disbursement data file</td>
+<td>Revalidated disbursement data file</td>
+<td>Revalidation time &lt; 2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Time-consuming manual corrections</td>
+</tr><tr>
+<td class="c-step">3.5</td>
+<td><b>Re-submit for approval after rejection</b></td>
+<td>Finance Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Approved disbursement data file</td>
+<td>Resubmitted disbursement data file</td>
+<td>Resubmission time &lt; 1 day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Multiple rejections due to complex compliance requirements</td>
+</tr><tr>
+<td class="c-step">3.6</td>
+<td><b>Escalate to senior finance for manual review</b></td>
+<td>Senior Finance Manager</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Still Invalid disbursement data file</td>
+<td>Manually reviewed and corrected data file</td>
+<td>Manual review time &lt; 2 days</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Lack of automation for complex error resolution</td>
+</tr><tr>
+<td class="c-step">3.7</td>
+<td><b>Final approval after multiple rejections</b></td>
+<td>Finance Manager</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Resubmitted disbursement data file</td>
+<td>Finally approved disbursement data file</td>
+<td>Final approval time &lt; 1 day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>High volume of rejections causing delays</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Accounts Payable Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Finance Analyst</span><span class="lane-steps">1.1 1.2 1.4 1.5 2.1 2.2 2.3 3.1 3.2 3.4 3.5</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Finance Manager</span><span class="lane-steps">1.3 1.7 3.3 3.7</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Senior Finance Manager</span><span class="lane-steps">1.6 3.6</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
 <div class="card"><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Compiled within the scheduled run preparation window at 100 percent</li><li>Confirmed before disbursement for 100 percent of scheduled runs at 100 percent</li><li>Applied for 100 percent of eligible invoices at 100 percent</li><li>Disbursed on the scheduled run date at 100 percent</li></ul>
+<ul class="bullets"><li>Data extraction time &lt; 1 hour</li><li>Data validation completion within 2 hours</li><li>Approval time &lt; 1 day</li><li>Revalidation time &lt; 2 hours</li><li>Payment file generation time &lt; 2 hours</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Disbursing more than the available cash position supports creating a genuine liquidity problem</li><li>A disbursement error being harder to reverse once funds have already moved</li><li>A missed early payment discount being a small but avoidable cost across a high invoice volume</li><li>Payment terms varying by supplier and determining which invoices are actually due in a given run</li></ul>
+<ul class="bullets risk"><li>System downtime during peak processing times</li><li>Manual corrections required for discrepancies</li><li>Delayed approvals due to regulatory compliance checks</li><li>Network connectivity issues</li><li>Incorrect or delayed receipt confirmations</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../finance-procurement-treasury/procure-to-pay/ac-fn-ap-03/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Invoice Processing and Three Way Match</span></a>
