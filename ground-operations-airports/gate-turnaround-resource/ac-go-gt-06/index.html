@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-GO-GT-06" title="Click to copy the process ID">
     AC-GO-GT-06<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Ground Handler Performance Management</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,252 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-GO-GT-06-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Performance data compilation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Pre-Departure Setup</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Compile ground handling performance data</b></td>
-<td>Ground Handling Contract Manager</td>
-<td><span class="tag sita" data-tooltip="Gate, stand and check-in resource allocation at YYZ, YUL and YVR. [Multiple - evidence C]">Airport Resource Management<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Turnaround and service completion data by handler</td>
-<td>Compiled performance data</td>
-<td>Compiled within 5 business days of period close at 100 percent</td>
+<td><b>Receive flight schedule and crew assignments</b></td>
+<td>YYZ Ground Control Dispatcher</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Flight manifest, crew roster</td>
+<td>Scheduled departure time, gate assignment</td>
+<td>On-time departure rate</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual reassignment needed due to system delays</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Check for ground handler availability at assigned gate</b></td>
+<td>YYZ Ground Control Dispatcher</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Gate assignment, crew roster</td>
+<td>Availability status</td>
+<td>Ground handler readiness rate</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>No available handlers</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Assign ground handlers if sufficient availability</b></td>
+<td>YYZ Ground Control Dispatcher</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Gate assignment, crew roster</td>
+<td>Ground handler assignments</td>
+<td>Handler workload distribution</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Data quality from a third-party handler&#x27;s own reporting can vary in completeness</td>
+<td>Delayed reassignment process</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-GO-GT-06-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Service level assessment</span>
+    <span class="ph-name">Phase 2 &mdash; Baggage Handling</span>
     <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Assess against contracted service levels</b></td>
-<td>Ground Handling Contract Manager</td>
-<td><span class="tag sita" data-tooltip="Gate, stand and check-in resource allocation at YYZ, YUL and YVR. [Multiple - evidence C]">Airport Resource Management<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Compiled data and contract terms</td>
-<td>Service level assessment</td>
-<td>Assessed for 100 percent of contracted handlers each cycle</td>
+<td><b>Initiate baggage handling at gate</b></td>
+<td>Baggage Handling Agent</td>
+<td><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Passenger list, flight details</td>
+<td>Bag-to-passenger matching records</td>
+<td>Baggage mishandling rate</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Contracted service levels vary by station and are not uniform across the outstation network</td>
+<td>Missing bag report</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Identify underperformance patterns</b></td>
-<td>Ground Handling Contract Manager</td>
-<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Assessment results</td>
-<td>Identified underperformance pattern</td>
-<td>Patterns identified within 10 business days of assessment at 100 percent</td>
+<td><b>Confirm all passengers have boarded</b></td>
+<td>Boarding Agent</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Passenger list, boarding status</td>
+<td>Confirmed boarding list</td>
+<td>Boarding completeness rate</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>A single service level breach is different from a persistent pattern, and the two need different responses</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Late arrival of last passenger</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-GO-GT-06-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Escalation and improvement</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Flight Operations Tracking</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Escalate persistent underperformance per contract terms</b></td>
-<td>Ground Handling Contract Manager</td>
-<td><span class="tag sap" data-tooltip="Source-to-pay, supplier management and contract compliance. [SAP - evidence A]">SAP Ariba<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Identified pattern</td>
-<td>Escalated case with contractual remedy</td>
-<td>Escalated within the contract&#x27;s defined timeframe at 100 percent</td>
+<td><b>Monitor flight takeoff from ground control</b></td>
+<td>YYZ Ground Control Dispatcher</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Flight status updates</td>
+<td>Takeoff confirmation</td>
+<td>Departure punctuality rate</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="yes">Y</span></td>
-<td>Direct operational authority over the handler&#x27;s staff does not exist, so improvement depends on the contract mechanism</td>
+<td>Takeoff delay due to technical issues</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Adjust gate assignments for delayed flights</b></td>
+<td>YYZ Ground Control Dispatcher</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Delay information, schedule</td>
+<td>New gate assignment</td>
+<td>Gate change efficiency</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual reassignment process</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-GT-06-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Performance Review</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Compile performance metrics from Amadeus Altea DCS</b></td>
+<td>YYZ Performance Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Flight operation data</td>
+<td>Performance report</td>
+<td>Overall ground handler efficiency rate</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Data extraction issues</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Review performance metrics for anomalies</b></td>
+<td>YYZ Performance Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Performance report</td>
+<td>Anomaly list</td>
+<td>Anomaly detection rate</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual review delays</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Identify root causes of performance issues</b></td>
+<td>YYZ Performance Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Anomaly list, historical data</td>
+<td>Root cause analysis</td>
+<td>Root cause identification rate</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Lack of historical data</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-GT-06-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Action Planning</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Develop corrective actions based on root causes</b></td>
+<td>YYZ Performance Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Root cause analysis</td>
+<td>Action plan</td>
+<td>Action development rate</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Resource allocation issues</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Implement corrective actions with ground handlers</b></td>
+<td>YYZ Ground Control Dispatcher</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Action plan, ground handler assignments</td>
+<td>Implementation status</td>
+<td>Action implementation rate</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Non-compliance issues</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Monitor implementation and track progress</b></td>
+<td>YYZ Ground Control Dispatcher</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Implementation status, performance metrics</td>
+<td>Progress report</td>
+<td>Implementation progress rate</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Lack of progress monitoring tools</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-GT-06-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Post-Departure Reporting</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Prepare final performance report for management review</b></td>
+<td>YYZ Performance Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Performance metrics, action outcomes</td>
+<td>Final report</td>
+<td>Report preparation rate</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Data synthesis issues</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Submit final performance report to management</b></td>
+<td>YYZ Performance Analyst</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Final report</td>
+<td>Report submission confirmation</td>
+<td>Report submission rate</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Submission delays</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Review final performance report with management</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Final report, management feedback</td>
+<td>Reviewed report</td>
+<td>Management review rate</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Feedback integration issues</td>
+</tr><tr>
+<td class="c-step">6.4</td>
+<td><b>Update ground handler training based on findings</b></td>
+<td>YYZ Training Coordinator</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Reviewed report, training materials</td>
+<td>Updated training program</td>
+<td>Training update rate</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Resource allocation issues</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Ground Handling Contract Manager</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>YYZ Ground Control Dispatcher</span><span class="lane-steps">1.1 1.2 1.3 3.1 3.2 5.2 5.3</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Baggage Handling Agent</span><span class="lane-steps">2.1</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Boarding Agent</span><span class="lane-steps">2.2</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>YYZ Performance Analyst</span><span class="lane-steps">4.1 4.2 4.3 5.1 6.1 6.2</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">6.3</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>YYZ Training Coordinator</span><span class="lane-steps">6.4</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag sita" data-tooltip="Gate, stand and check-in resource allocation at YYZ, YUL and YVR. [Multiple - evidence C]">Airport Resource Management<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag sap" data-tooltip="Source-to-pay, supplier management and contract compliance. [SAP - evidence A]">SAP Ariba<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+<div class="card"><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Compiled within 5 business days of period close at 100 percent</li><li>Assessed for 100 percent of contracted handlers each cycle</li><li>Patterns identified within 10 business days of assessment at 100 percent</li><li>Persistent underperformance cases resolved within the contract&#x27;s remedy timeframe</li></ul>
+<ul class="bullets"><li>On-time departure rate</li><li>Ground handler readiness rate</li><li>Handler workload distribution</li><li>Baggage mishandling rate</li><li>Boarding completeness rate</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Improvement depending on contractual escalation mechanisms rather than direct operational authority</li><li>Data quality from a third-party handler&#x27;s own reporting varying in completeness</li><li>A single breach being treated the same as a persistent pattern requiring a materially different response</li><li>Contracted service levels varying by station, complicating consistent network-wide assessment</li></ul>
+<ul class="bullets risk"><li>System downtime affecting flight operations</li><li>Manual fallback procedures leading to delays</li><li>Data extraction and synthesis issues</li><li>Resource allocation constraints</li><li>Feedback integration challenges</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../ground-operations-airports/gate-turnaround-resource/ac-go-gt-05/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Pushback Clearance and Off Block Reporting</span></a>

@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-GO-GT-04" title="Click to copy the process ID">
     AC-GO-GT-04<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Cabin Servicing and Catering Uplift</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,285 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-GO-GT-04-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Cabin servicing</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Pre-Departure Preparation</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Complete cabin cleaning and restocking</b></td>
-<td>Cabin Servicing Coordinator</td>
-<td><span class="tag sita" data-tooltip="Gate, stand and check-in resource allocation at YYZ, YUL and YVR. [Multiple - evidence C]">Airport Resource Management<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Arriving aircraft cabin</td>
-<td>Serviced and restocked cabin</td>
-<td>Completed within the allocated servicing window at 90 percent</td>
+<td><b>Receive flight departure notification from FPS.</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Flight Planning System (FPS)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Flight details and schedule</td>
+<td>Confirmation of receipt</td>
+<td>Notification received within 5 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A tight turnaround leaves limited buffer if the arriving cabin needs more than standard servicing</td>
+<td>Delayed notifications can lead to missed preparation windows.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Initiate Amadeus Altea DCS for check-in.</b></td>
+<td>Flight Attendant</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Passenger manifest and flight details</td>
+<td>Check-in status</td>
+<td>95% of passengers checked in via Amadeus within 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>System downtime forces manual check-in processes.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Manual Check-In</b></td>
+<td>Flight Attendant</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">None<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Passenger manifest and flight details</td>
+<td>Check-in status</td>
+<td>90% of passengers checked in manually within 45 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual check-in is time-consuming and error-prone.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-GO-GT-04-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Catering order confirmation</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Passenger Check-In and Boarding</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Confirm catering order against passenger load</b></td>
-<td>Cabin Servicing Coordinator</td>
-<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Booked and checked-in passenger count</td>
-<td>Confirmed catering order</td>
-<td>Confirmed against actual load before catering uplift at 95 percent</td>
+<td><b>Start catering service preparation.</b></td>
+<td>Catering Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Catering Management System (CMS)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Flight details and passenger count</td>
+<td>Catering order placed</td>
+<td>98% of catering orders accurate</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>A late change in booked passenger count creates a real catering coordination problem within a tight turn</td>
+<td>Incorrect catering orders can lead to passenger dissatisfaction.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Uplift and load catering</b></td>
-<td>Cabin Servicing Coordinator</td>
-<td><span class="tag sita" data-tooltip="Gate, stand and check-in resource allocation at YYZ, YUL and YVR. [Multiple - evidence C]">Airport Resource Management<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Confirmed order</td>
-<td>Loaded catering</td>
-<td>Loaded within the turnaround window at 95 percent</td>
+<td><b>Prepare aircraft cabin for cleaning.</b></td>
+<td>Cabin Cleaning Supervisor</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Cabin Cleaning Management System (CCMS)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Flight details and previous flight data</td>
+<td>Cleaning checklist completed</td>
+<td>100% of cabins cleaned before boarding</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Catering supplier delivery timing is a dependency outside the turnaround coordinator&#x27;s direct control</td>
+<td>Inadequate cleaning can affect passenger comfort.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Correct catering order error.</b></td>
+<td>Catering Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CMS<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Error details and corrected order</td>
+<td>Corrected catering order placed</td>
+<td>95% of errors resolved within 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed corrections impact passenger boarding times.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-GO-GT-04-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Uplift and loading</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Catering Service Management</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Confirm cabin ready for boarding</b></td>
-<td>Cabin Servicing Coordinator</td>
+<td><b>Conduct final cabin inspection.</b></td>
+<td>Cabin Cleaning Supervisor</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CCMS<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Cleaning checklist and visual inspection</td>
+<td>Inspection report</td>
+<td>95% of inspections pass on first attempt</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Failed inspections delay flight departure.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Load catering services onto aircraft.</b></td>
+<td>Catering Staff</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CMS<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Corrected catering order and flight details</td>
+<td>Catering loaded</td>
+<td>98% of catering items loaded correctly</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Incorrect loading can cause delays or disruptions.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Re-clean the aircraft cabin.</b></td>
+<td>Cabin Cleaning Supervisor</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CCMS<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Inspection report and cleaning checklist</td>
+<td>Cleaning completed</td>
+<td>100% of cabins re-cleaned before boarding</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Re-cleaning is resource-intensive and time-consuming.</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Correct catering loading error.</b></td>
+<td>Catering Staff</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CMS<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Loading details and corrected order</td>
+<td>Corrected catering loaded</td>
+<td>95% of errors resolved within 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed corrections impact passenger boarding times.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-GT-04-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Aircraft Cabin Cleaning</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Verify final passenger count with Amadeus Altea DCS.</b></td>
+<td>Flight Attendant</td>
 <td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Completed servicing and catering</td>
-<td>Confirmed cabin readiness</td>
-<td>Confirmed before boarding begins at 95 percent</td>
+<td>Passenger manifest and flight details</td>
+<td>Final passenger count</td>
+<td>95% of passenger counts verified accurately</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Incorrect counts can lead to boarding issues.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Board passengers using Amadeus Altea DCS.</b></td>
+<td>Flight Attendant</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Final passenger count and boarding list</td>
+<td>Passengers boarded</td>
+<td>95% of passengers boarded within 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delays in boarding can cause operational disruptions.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Correct passenger count mismatch.</b></td>
+<td>Flight Attendant</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Mismatch details and corrected manifest</td>
+<td>Corrected passenger count</td>
+<td>95% of mismatches resolved within 10 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A readiness confirmation issued prematurely can mean boarding starts into an incomplete cabin</td>
+<td>Delayed corrections impact boarding times.</td>
+</tr><tr>
+<td class="c-step">4.4</td>
+<td><b>Resolve boarding delay.</b></td>
+<td>Flight Attendant</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Delay details and resolution plan</td>
+<td>Boarding completed</td>
+<td>95% of delays resolved within 10 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delays can cause passenger frustration.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-GT-04-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Final Checks and Departure</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Conduct final safety and security checks.</b></td>
+<td>Security Officer</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Security Checkpoint System (SCS)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Flight details and security protocols</td>
+<td>Checklist completed</td>
+<td>98% of checks passed on first attempt</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Failed checks can delay flight departure.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Notify ground crew for final departure preparations.</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Flight Planning System (FPS)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Flight details and preparation instructions</td>
+<td>Notification sent</td>
+<td>100% of notifications sent within 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed notifications can cause operational disruptions.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Reconduct safety and security checks.</b></td>
+<td>Security Officer</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">SCS<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Checklist and failed items</td>
+<td>Checklist completed</td>
+<td>98% of checks passed on second attempt</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Rechecks are time-consuming and resource-intensive.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-GT-04-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Post-Departure Review</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Collect post-departure feedback from passengers.</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Customer Feedback System (CFS)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Passenger feedback forms</td>
+<td>Feedback summary</td>
+<td>95% of passengers provide feedback within 24 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Low response rates can hinder continuous improvement.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Update service standards based on feedback.</b></td>
+<td>Ground Operations Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Service Standards Management System (SSMS)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Feedback summary and current standards</td>
+<td>Updated standards</td>
+<td>90% of updates implemented within 1 month</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed updates can affect service quality.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Follow up with non-responding passengers.</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CFS<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Passenger contact information</td>
+<td>Feedback received</td>
+<td>20% of non-responders provide additional feedback</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Follow-ups require additional resources and time.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Cabin Servicing Coordinator</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">1.1 5.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Flight Attendant</span><span class="lane-steps">1.2 1.3 4.1 4.2 4.3 4.4</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Catering Manager</span><span class="lane-steps">2.1 2.3</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Cabin Cleaning Supervisor</span><span class="lane-steps">2.2 3.1 3.3</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Catering Staff</span><span class="lane-steps">3.2 3.4</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>Security Officer</span><span class="lane-steps">5.1 5.3</span></div><div class="lane"><span class="swatch" style="background:#8A5A1E"></span><span>Aeroplan Member Services Agent</span><span class="lane-steps">6.1 6.3</span></div><div class="lane"><span class="swatch" style="background:#4A4A4A"></span><span>Ground Operations Manager</span><span class="lane-steps">6.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag sita" data-tooltip="Gate, stand and check-in resource allocation at YYZ, YUL and YVR. [Multiple - evidence C]">Airport Resource Management<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+<div class="card"><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Flight Planning System (FPS)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">None<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Catering Management System (CMS)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Cabin Cleaning Management System (CCMS)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CMS<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CCMS<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Security Checkpoint System (SCS)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">SCS<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Customer Feedback System (CFS)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Service Standards Management System (SSMS)<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">CFS<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Completed within the allocated servicing window at 90 percent</li><li>Confirmed against actual load before catering uplift at 95 percent</li><li>Loaded within the turnaround window at 95 percent</li><li>Cabin readiness confirmed before boarding at 95 percent</li></ul>
+<ul class="bullets"><li>95% of notifications received within 5 minutes</li><li>95% of passengers checked in via Amadeus within 30 minutes</li><li>98% of catering orders accurate</li><li>100% of cabins cleaned before boarding</li><li>95% of inspections pass on first attempt</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A late change in booked passenger count creating a real catering coordination problem within a tight turn</li><li>Catering supplier delivery timing being a dependency outside the turnaround coordinator&#x27;s direct control</li><li>A tight turnaround leaving limited buffer for a cabin needing more than standard servicing</li><li>A premature readiness confirmation meaning boarding starts into an incomplete cabin</li></ul>
+<ul class="bullets risk"><li>Amadeus Altea DCS system downtime leading to manual check-in delays</li><li>Incorrect catering orders causing passenger dissatisfaction</li><li>Inadequate cleaning affecting passenger comfort</li><li>Failed final safety and security checks delaying flight departure</li><li>Low post-departure feedback response rates hindering continuous improvement</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../ground-operations-airports/gate-turnaround-resource/ac-go-gt-03/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Fuelling Coordination and Uplift Confirmation</span></a>

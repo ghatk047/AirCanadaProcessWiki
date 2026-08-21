@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-GO-VH-02" title="Click to copy the process ID">
     AC-GO-VH-02<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Premium Cabin Ground Experience</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,233 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-GO-VH-02-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Premium identification</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Check-In</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Identify premium cabin status across touchpoints</b></td>
-<td>Ground Services Agent</td>
-<td><span class="tag amadeus" data-tooltip="Customer profile and PNR servicing layer. Feeds case context to Salesforce. [Amadeus - evidence A]">Amadeus Altea Customer Management<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Booking and check-in data</td>
-<td>Flagged premium cabin status</td>
-<td>Flagged consistently across every touchpoint at 100 percent</td>
+<td><b>Passenger arrives at Premium Cabin counter</b></td>
+<td>Premium Cabin Agent</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Passenger reservation details, baggage information</td>
+<td>Passenger checked-in status, boarding pass issued</td>
+<td>90% of check-ins completed within 5 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual fallback procedures required during system outages.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Verify passenger eligibility for Premium Cabin</b></td>
+<td>Premium Cabin Agent</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Passenger reservation details, loyalty status</td>
+<td>Eligibility confirmation</td>
+<td>95% of passengers verified within 30 seconds</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A premium flag has to propagate consistently from check-in through to baggage and boarding</td>
+<td>Inaccurate data causing delays.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Issue boarding pass and collect payment</b></td>
+<td>Premium Cabin Agent</td>
+<td><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Passenger details, payment information</td>
+<td>Boarding pass, receipt issued</td>
+<td>85% of transactions completed within 2 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Payment processing delays.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Manual check-in and boarding instructions</b></td>
+<td>Premium Cabin Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">None<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Passenger details, manual system</td>
+<td>Manual check-in record, boarding pass issued</td>
+<td>70% of manual check-ins completed within 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Resource constraints in peak times.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-GO-VH-02-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Touchpoint delivery</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Bag Acceptance and Tracking</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Deliver expedited check-in and security where available</b></td>
-<td>Ground Services Agent</td>
+<td><b>Passenger arrives at baggage drop-off point</b></td>
+<td>Baggage Agent</td>
 <td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Flagged premium status</td>
-<td>Delivered expedited service</td>
-<td>Delivered for 95 percent of eligible premium passengers</td>
+<td>Boarding pass, baggage details</td>
+<td>Bag acceptance confirmation</td>
+<td>98% of bags accepted within 2 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Expedited lane availability differs by station and is not consistent across the network</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System downtime affecting bag acceptance.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Ensure priority baggage handling</b></td>
-<td>Ramp Baggage Handler</td>
+<td><b>Register bag for IATA Resolution 753 tracking</b></td>
+<td>Baggage Agent</td>
 <td><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Premium baggage tag</td>
-<td>Priority-handled baggage</td>
-<td>Priority bags among the first delivered at 90 percent of arrivals</td>
+<td>Bag details, passenger information</td>
+<td>Tracking record created</td>
+<td>95% of bags tracked within 1 minute</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inaccurate bag data leading to misrouting.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Confirm bag-to-passenger match</b></td>
+<td>Baggage Agent</td>
+<td><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Bag tracking data, passenger details</td>
+<td>Match confirmation</td>
+<td>90% of matches confirmed within 1 minute</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Priority tagging alone does not guarantee priority physical handling on the ramp</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Data synchronization issues between systems.</td>
+</tr><tr>
+<td class="c-step">2.4</td>
+<td><b>Manual bag acceptance and tracking</b></td>
+<td>Baggage Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">None<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Bag details, manual system</td>
+<td>Manual tracking record created</td>
+<td>80% of bags manually tracked within 3 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Resource constraints during peak times.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-GO-VH-02-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Consistency monitoring</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Boarding Coordination</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Monitor premium experience consistency</b></td>
-<td>Ground Services Agent</td>
-<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Delivered touchpoints and customer feedback</td>
-<td>Consistency assessment</td>
-<td>Assessed each reporting cycle for 100 percent of premium touchpoints</td>
+<td><b>Passenger arrives at boarding gate</b></td>
+<td>Boarding Agent</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Boarding pass, flight details</td>
+<td>Gate access granted</td>
+<td>95% of passengers boarded within 2 minutes</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System downtime affecting boarding access.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Verify passenger&#x27;s seat assignment</b></td>
+<td>Boarding Agent</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Passenger details, flight schedule</td>
+<td>Seat confirmation</td>
+<td>90% of seats verified within 1 minute</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A single weak touchpoint undermines the entire premium proposition regardless of the others</td>
+<td>Incorrect seat assignments causing confusion.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Boarding pass validation and access control</b></td>
+<td>Boarding Agent</td>
+<td><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Boarding pass, security details</td>
+<td>Access granted</td>
+<td>85% of validations completed within 1 minute</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Security system failures affecting boarding.</td>
+</tr><tr>
+<td class="c-step">3.4</td>
+<td><b>Manual boarding process</b></td>
+<td>Boarding Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">None<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Passenger details, manual system</td>
+<td>Manual boarding record created</td>
+<td>75% of passengers boarded manually within 2 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Resource constraints during peak times.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-VH-02-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Security Screening</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Passenger passes through security checkpoint</b></td>
+<td>Security Officer</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">None<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Passenger details, documents</td>
+<td>Clearance granted</td>
+<td>90% of clearances completed within 3 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>High passenger volume causing delays.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Manual security clearance process</b></td>
+<td>Security Officer</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">None<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Passenger details, manual system</td>
+<td>Manual clearance record created</td>
+<td>80% of clearances completed within 5 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Resource constraints during peak times.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-GO-VH-02-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Pre-Boarding Briefing</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Passenger receives pre-board briefing</b></td>
+<td>Premium Cabin Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">None<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Boarding pass, flight details</td>
+<td>Briefing confirmation</td>
+<td>95% of briefings completed within 2 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Language barriers causing communication issues.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Manual pre-board briefing process</b></td>
+<td>Premium Cabin Agent</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">None<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Passenger details, manual system</td>
+<td>Manual briefing record created</td>
+<td>85% of briefings completed within 3 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Resource constraints during peak times.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Ground Services Agent</span><span class="lane-steps">1.1 2.1 3.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Ramp Baggage Handler</span><span class="lane-steps">2.2</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Premium Cabin Agent</span><span class="lane-steps">1.1 1.2 1.3 1.4 5.1 5.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Baggage Agent</span><span class="lane-steps">2.1 2.2 2.3 2.4</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Boarding Agent</span><span class="lane-steps">3.1 3.2 3.3 3.4</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Security Officer</span><span class="lane-steps">4.1 4.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag amadeus" data-tooltip="Customer profile and PNR servicing layer. Feeds case context to Salesforce. [Amadeus - evidence A]">Amadeus Altea Customer Management<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+<div class="card"><span class="tag sita" data-tooltip="Common-use passenger processing at shared airport counters and kiosks. [Multiple - evidence C]">CUPPS<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">None<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag amadeus" data-tooltip="Departure Control. Check-in, bag acceptance, boarding and load control across mainline, Rouge and Express. [Amadeus - evidence A]">Amadeus Altea DCS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sita" data-tooltip="Bag-to-passenger matching and IATA Resolution 753 tracking at load and transfer. [SITA - evidence C]">Baggage Reconciliation System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Flagged consistently across every touchpoint at 100 percent</li><li>Delivered for 95 percent of eligible premium passengers</li><li>Priority bags among the first delivered at 90 percent of arrivals</li><li>Premium experience consistency score meeting target across all touchpoints</li></ul>
+<ul class="bullets"><li>90% check-ins completed within 5 minutes</li><li>98% bags accepted within 2 minutes</li><li>95% passengers boarded within 2 minutes</li><li>90% clearances completed within 3 minutes</li><li>95% briefings completed within 2 minutes</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A single weak touchpoint undermining the entire premium proposition regardless of the others</li><li>Priority tagging alone not guaranteeing priority physical handling on the ramp</li><li>Expedited lane availability differing by station without a consistent network-wide standard</li><li>A premium flag not propagating consistently from check-in through to baggage and boarding</li></ul>
+<ul class="bullets risk"><li>Amadeus Altea DCS outages causing manual fallback procedures</li><li>Baggage Reconciliation System failures affecting tracking</li><li>Security system issues delaying boarding access</li><li>Resource constraints during peak times leading to manual processing</li><li>Language barriers impacting communication</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../ground-operations-airports/premium-lounge-vip-handling/ac-go-vh-01/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Maple Leaf Lounge Access Control</span></a>
