@@ -133,7 +133,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-FN-RA-04" title="Click to copy the process ID">
     AC-FN-RA-04<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Unearned Revenue and Air Traffic Liability</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -142,85 +142,241 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-FN-RA-04-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Outstanding ticket compilation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Data Extraction</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Compile outstanding unflown ticket inventory</b></td>
-<td>Revenue Accounting Analyst</td>
-<td><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Sold but unflown tickets</td>
-<td>Compiled outstanding inventory</td>
-<td>Compiled at each period close at 100 percent</td>
+<td><b>Extract data from SAP S/4HANA</b></td>
+<td>Finance Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Financial transactions, bookings, and passenger details</td>
+<td>Data file for further processing</td>
+<td>95% accuracy of extracted data</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Inaccurate data extraction can lead to misrecognition of revenue</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Re-run data extraction with corrections</b></td>
+<td>Finance Analyst</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Corrected parameters and filters</td>
+<td>Updated data file</td>
+<td>98% accuracy of extracted data</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Outstanding inventory spans tickets at every stage from recently sold to approaching expiry</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual intervention required to correct errors</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-FN-RA-04-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Expiry assumption application</span>
+    <span class="ph-name">Phase 2 &mdash; Revenue Recognition</span>
     <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Apply expiry and no-show assumptions</b></td>
-<td>Revenue Accounting Analyst</td>
+<td><b>Identify eligible revenue for recognition</b></td>
+<td>Revenue Accounting Specialist</td>
 <td><span class="tag sap" data-tooltip="Passenger revenue accounting, proration, interline billing and BSP reconciliation. [Multiple - evidence C]">Revenue Accounting System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Compiled inventory and historical expiry pattern</td>
-<td>Expiry-adjusted liability base</td>
-<td>Applied using a documented statistical method at 100 percent</td>
+<td>Extracted data file</td>
+<td>List of eligible revenue items</td>
+<td>90% of eligible revenue identified</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Expiry assumptions are forward-looking estimates about ticket usage behaviour that has not yet occurred</td>
+<td>Complex rules and exceptions in revenue eligibility criteria</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Calculate final liability valuation</b></td>
-<td>Revenue Accounting Analyst</td>
-<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Expiry-adjusted base</td>
-<td>Final valuation</td>
-<td>Calculated within the period close timetable at 100 percent</td>
+<td><b>Mark non-eligible revenue for review</b></td>
+<td>Revenue Accounting Specialist</td>
+<td><span class="tag sap" data-tooltip="Passenger revenue accounting, proration, interline billing and BSP reconciliation. [Multiple - evidence C]">Revenue Accounting System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>List of non-eligible items</td>
+<td>Flagged revenue items for further action</td>
+<td>100% flagged items reviewed</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>The valuation is sensitive to any shift in booking-to-travel lead time patterns across the network</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual review process is time-consuming</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-FN-RA-04-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Liability reporting</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Reconciliation</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Report the valuation for financial statements</b></td>
-<td>Revenue Accounting Analyst</td>
+<td><b>Reconcile with IATA BSP records</b></td>
+<td>Revenue Accounting Specialist</td>
+<td><span class="tag iata" data-tooltip="Billing and Settlement Plan. Agency sales settlement and revenue accounting reconciliation. [IATA - evidence B]">IATA BSP<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Eligible revenue list</td>
+<td>Reconciliation report</td>
+<td>95% match rate between SAP and BSP data</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Data mismatches due to system updates or manual errors in either system</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Initiate reconciliation dispute process</b></td>
+<td>Revenue Accounting Specialist</td>
+<td><span class="tag iata" data-tooltip="Billing and Settlement Plan. Agency sales settlement and revenue accounting reconciliation. [IATA - evidence B]">IATA BSP<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Mismatch details</td>
+<td>Dispute case</td>
+<td>90% disputes resolved within 1 month</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delays in dispute resolution can impact financial reporting</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FN-RA-04-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Discrepancy Handling</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Review and classify discrepancies</b></td>
+<td>Revenue Accounting Manager</td>
+<td><span class="tag sap" data-tooltip="Passenger revenue accounting, proration, interline billing and BSP reconciliation. [Multiple - evidence C]">Revenue Accounting System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Reconciliation report</td>
+<td>Discrepancy classification (e.g., system error, manual error)</td>
+<td>85% accurate discrepancy classification</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complexity in classifying discrepancies can lead to errors</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Escalate unresolved discrepancies</b></td>
+<td>Revenue Accounting Manager</td>
+<td><span class="tag sap" data-tooltip="Passenger revenue accounting, proration, interline billing and BSP reconciliation. [Multiple - evidence C]">Revenue Accounting System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Unresolved discrepancies</td>
+<td>Escalation report</td>
+<td>100% escalations logged within 2 business days</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual escalation process is prone to delays</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Correct system errors in SAP S/4HANA</b></td>
+<td>SAP System Administrator</td>
+<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Discrepancy classification report</td>
+<td>Corrected financial records</td>
+<td>95% of errors resolved within 1 week</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System downtime during corrections can disrupt operations</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FN-RA-04-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Reporting</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Generate monthly revenue report</b></td>
+<td>Finance Analyst</td>
 <td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Final valuation</td>
-<td>Reported liability</td>
-<td>Reported within the financial close timetable at 100 percent</td>
+<td>Reconciled data</td>
+<td>Financial report</td>
+<td>100% completeness of monthly reports</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Data processing delays can impact reporting timelines</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Review and approve financial report</b></td>
+<td>Finance Manager</td>
+<td><span class="tag sap" data-tooltip="Passenger revenue accounting, proration, interline billing and BSP reconciliation. [Multiple - evidence C]">Revenue Accounting System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Generated revenue report</td>
+<td>Approved financial document</td>
+<td>90% of reports approved within 3 business days</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A material valuation error requires prompt correction given the size of this balance sheet item</td>
+<td>Complexity in approving large datasets can be time-consuming</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Revise and resubmit report</b></td>
+<td>Finance Analyst</td>
+<td><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Approval feedback</td>
+<td>Revised financial report</td>
+<td>95% of revisions submitted within 1 business day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Continuous revision cycles can delay final approval</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-FN-RA-04-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Validation</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Validate final financial records</b></td>
+<td>Internal Auditor</td>
+<td><span class="tag sap" data-tooltip="Passenger revenue accounting, proration, interline billing and BSP reconciliation. [Multiple - evidence C]">Revenue Accounting System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Approved financial report</td>
+<td>Validation results</td>
+<td>98% accuracy of validated data</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Auditing large datasets is resource-intensive</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Correct validation errors and resubmit</b></td>
+<td>Revenue Accounting Specialist</td>
+<td><span class="tag sap" data-tooltip="Passenger revenue accounting, proration, interline billing and BSP reconciliation. [Multiple - evidence C]">Revenue Accounting System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Validation results</td>
+<td>Corrected financial records</td>
+<td>95% of errors corrected within 1 business day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual corrections can introduce new errors</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Final review and sign-off by senior management</b></td>
+<td>Senior Finance Officer</td>
+<td><span class="tag sap" data-tooltip="Passenger revenue accounting, proration, interline billing and BSP reconciliation. [Multiple - evidence C]">Revenue Accounting System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Corrected financial records</td>
+<td>Signed-off financial document</td>
+<td>100% of documents signed off within 2 business days</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delays in senior management approval can impact fiscal reporting</td>
+</tr><tr>
+<td class="c-step">6.4</td>
+<td><b>Archive final financial records</b></td>
+<td>Data Archivist</td>
+<td><span class="tag sap" data-tooltip="Passenger revenue accounting, proration, interline billing and BSP reconciliation. [Multiple - evidence C]">Revenue Accounting System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Signed-off document</td>
+<td>Archived financial data</td>
+<td>98% of records archived within 1 business day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Storage limitations can affect archiving efficiency</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Revenue Accounting Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Finance Analyst</span><span class="lane-steps">1.1 1.2 5.1 5.3</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Revenue Accounting Specialist</span><span class="lane-steps">2.1 2.2 3.1 3.2 6.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Revenue Accounting Manager</span><span class="lane-steps">4.1 4.2</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>SAP System Administrator</span><span class="lane-steps">4.3</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Finance Manager</span><span class="lane-steps">5.2</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>Internal Auditor</span><span class="lane-steps">6.1</span></div><div class="lane"><span class="swatch" style="background:#8A5A1E"></span><span>Senior Finance Officer</span><span class="lane-steps">6.3</span></div><div class="lane"><span class="swatch" style="background:#4A4A4A"></span><span>Data Archivist</span><span class="lane-steps">6.4</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag amadeus" data-tooltip="Core PSS reservations. Replaced Air Canada&#x27;s 22-year in-house PSS at the 2019-20 cutover. [Amadeus - evidence A]">Amadeus Altea Reservations<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sap" data-tooltip="Passenger revenue accounting, proration, interline billing and BSP reconciliation. [Multiple - evidence C]">Revenue Accounting System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag sap" data-tooltip="Passenger revenue accounting, proration, interline billing and BSP reconciliation. [Multiple - evidence C]">Revenue Accounting System<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag iata" data-tooltip="Billing and Settlement Plan. Agency sales settlement and revenue accounting reconciliation. [IATA - evidence B]">IATA BSP<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag sap" data-tooltip="Planning, budgeting and management reporting on the S/4HANA finance core. [SAP - evidence B]">SAP Analytics Cloud<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Compiled at each period close at 100 percent</li><li>Applied using a documented statistical method at 100 percent</li><li>Calculated within the period close timetable at 100 percent</li><li>Reported within the financial close timetable at 100 percent</li></ul>
+<ul class="bullets"><li>95% accuracy of extracted data</li><li>98% accurate discrepancy classification</li><li>90% disputes resolved within 1 month</li><li>95% errors corrected within 1 business day</li><li>98% accuracy of validated data</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Expiry assumptions being forward-looking estimates about ticket usage behaviour not yet observed</li><li>The valuation being sensitive to any shift in booking-to-travel lead time patterns across the network</li><li>A material valuation error requiring prompt correction given the size of this balance sheet item</li><li>Outstanding inventory spanning tickets at every stage from recently sold to approaching expiry</li></ul>
+<ul class="bullets risk"><li>Inaccurate data extraction leading to misrecognition of revenue</li><li>Manual review process being time-consuming</li><li>System downtime during corrections disrupting operations</li><li>Data processing delays impacting reporting timelines</li><li>Continuous revision cycles delaying final approval</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../finance-procurement-treasury/revenue-accounting/ac-fn-ra-03/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">BSP and ARC Sales Reconciliation</span></a>
