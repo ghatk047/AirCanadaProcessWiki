@@ -133,7 +133,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-IT-SM-04" title="Click to copy the process ID">
     AC-IT-SM-04<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Configuration Management and CMDB Assurance</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -142,85 +142,233 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-IT-SM-04-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Asset lifecycle tracking</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Change Request Initiation</span>
+    <span class="ph-n">5 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Update CMDB on asset deployment or change</b></td>
-<td>IT Asset Coordinator</td>
+<td><b>Log change request in ITSM Platform</b></td>
+<td>ITSM Analyst</td>
 <td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Deployed or changed asset</td>
-<td>Updated CMDB entry</td>
-<td>Updated within 5 business days of the change at 90 percent</td>
+<td>Change details from the business unit</td>
+<td>Logged change request ticket</td>
+<td>Time to log request &lt; 2 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Updates depend on teams remembering to report a change, which is not always the first priority during a deployment</td>
+<td>Manual entry errors can delay processing.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Review impact analysis</b></td>
+<td>ITSM Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Change request details</td>
+<td>Impact assessment report</td>
+<td>Impact analysis completed within 4 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Complex changes require extensive manual review.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Approve change request</b></td>
+<td>Change Management Lead</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Impact assessment report</td>
+<td>Approved change request ticket</td>
+<td>Approval time &lt; 24 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delays in approval due to conflicting priorities.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Schedule deployment window</b></td>
+<td>ITSM Analyst</td>
+<td><span class="tag unknown" data-tooltip="API gateway, ESB and event streaming. Product UNCONFIRMED - a top-three discovery question.">Integration Platform<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Approved change request ticket</td>
+<td>Scheduled deployment time</td>
+<td>Deployment scheduled within 2 days</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Overlapping schedules can cause delays.</td>
+</tr><tr>
+<td class="c-step">1.5</td>
+<td><b>Notify stakeholders</b></td>
+<td>ITSM Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Email Notification System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Scheduled deployment time</td>
+<td>Stakeholder notifications sent</td>
+<td>Notifications sent within 1 hour of scheduling</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Missed notifications can lead to operational disruptions.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-IT-SM-04-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Relationship mapping</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Approval and Validation</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Map asset relationships and dependencies</b></td>
-<td>IT Asset Coordinator</td>
-<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Updated asset entry</td>
-<td>Mapped relationship and dependency data</td>
-<td>Mapped for 100 percent of material assets at 90 percent</td>
+<td><b>Execute change in AWS environment</b></td>
+<td>Cloud Operations Engineer</td>
+<td><span class="tag aws" data-tooltip="Primary hyperscaler. Loyalty platform, contact centre and digital channels run cloud-native on AWS. [AWS - evidence A]">AWS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Deployment plan</td>
+<td>Change executed</td>
+<td>Execution time &lt; 4 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Dependency mapping for a complex integration is genuinely difficult to capture completely and accurately</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Configuration errors can cause system downtime.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Retire asset records on decommission</b></td>
-<td>IT Asset Coordinator</td>
+<td><b>Monitor deployment in real-time</b></td>
+<td>Cloud Operations Engineer</td>
+<td><span class="tag aws" data-tooltip="Primary hyperscaler. Loyalty platform, contact centre and digital channels run cloud-native on AWS. [AWS - evidence A]">AWS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Deployment plan</td>
+<td>Real-time monitoring report</td>
+<td>Monitoring frequency every 15 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>High latency in monitoring can miss critical issues.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Update CMDB with new configuration</b></td>
+<td>ITSM Analyst</td>
 <td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>Decommissioned asset</td>
-<td>Retired CMDB entry</td>
-<td>Retired within 5 business days of decommission at 90 percent</td>
+<td>Deployment report</td>
+<td>Updated CMDB record</td>
+<td>CMDB update completed within 1 hour</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>A retired system left active in the CMDB misleads future incident and change decisions</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual updates can introduce inconsistencies.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-IT-SM-04-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Currency assurance</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Execution and Monitoring</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Audit CMDB accuracy against actual state</b></td>
-<td>IT Asset Coordinator</td>
+<td><b>Conduct post-implementation review</b></td>
+<td>ITSM Analyst</td>
 <td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
-<td>CMDB records and actual infrastructure state</td>
-<td>Audit findings with corrections</td>
-<td>Audited on a recurring cycle for 100 percent of critical systems at 100 percent</td>
+<td>Deployment report and user feedback</td>
+<td>Review report</td>
+<td>Review completed within 24 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Lack of clear feedback can lead to missed improvements.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Document lessons learned</b></td>
+<td>ITSM Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Review report</td>
+<td>Lessons learned document</td>
+<td>Document completed within 48 hours</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A CMDB drifted from reality is worse than no CMDB, since responders make decisions trusting a wrong record</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Documentation delays can hinder future improvements.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Close change request in ITSM Platform</b></td>
+<td>ITSM Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Review report and lessons learned</td>
+<td>Closed change request ticket</td>
+<td>Ticket closure within 24 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed closures can cause confusion.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-SM-04-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; CMDB Update</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Audit CMDB for accuracy</b></td>
+<td>ITSM Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>CMDB records</td>
+<td>Audit report</td>
+<td>Audit completed within 7 days</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual audits are time-consuming.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Correct inaccurate CMDB entries</b></td>
+<td>ITSM Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Audit report</td>
+<td>Corrected CMDB records</td>
+<td>Correction time &lt; 48 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex corrections can lead to further errors.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Verify corrections through cross-referencing</b></td>
+<td>ITSM Analyst</td>
+<td><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Corrected CMDB records</td>
+<td>Verification report</td>
+<td>Verification time &lt; 24 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Cross-referencing can be resource-intensive.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-IT-SM-04-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Post-Implementation Review</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Review and update ITSM documentation</b></td>
+<td>ITSM Analyst</td>
+<td><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></td>
+<td>Lessons learned document</td>
+<td>Updated ITSM documentation</td>
+<td>Documentation updated within 7 days</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed updates can lead to outdated procedures.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Notify stakeholders of CMDB accuracy</b></td>
+<td>ITSM Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Email Notification System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Verification report</td>
+<td>Stakeholder notifications sent</td>
+<td>Notifications sent within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Missed notifications can lead to operational disruptions.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>IT Asset Coordinator</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>ITSM Analyst</span><span class="lane-steps">1.1 1.2 1.4 1.5 2.3 3.1 3.2 3.3 4.1 4.2 4.3 5.1 5.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Change Management Lead</span><span class="lane-steps">1.3</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Cloud Operations Engineer</span><span class="lane-steps">2.1 2.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span></div>
+<div class="card"><span class="tag itsm" data-tooltip="Incident, request, change and CMDB. ServiceNow assumed on market pattern - CONFIRM in discovery.">ITSM Platform<span class="tier tier-C" title="Industry pattern - NOT evidenced for Air Canada">C</span></span><span class="tag unknown" data-tooltip="API gateway, ESB and event streaming. Product UNCONFIRMED - a top-three discovery question.">Integration Platform<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Email Notification System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag aws" data-tooltip="Primary hyperscaler. Loyalty platform, contact centre and digital channels run cloud-native on AWS. [AWS - evidence A]">AWS<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag databricks" data-tooltip="Enterprise lakehouse. Target grounding surface for analytics and AI; replacing legacy Cloudera. [Databricks - evidence B]">Databricks Lakehouse<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Updated within 5 business days of the change at 90 percent</li><li>Mapped for 100 percent of material assets at 90 percent</li><li>Retired within 5 business days of decommission at 90 percent</li><li>Audited on a recurring cycle for 100 percent of critical systems at 100 percent</li></ul>
+<ul class="bullets"><li>Time to log request &lt; 2 hours</li><li>Impact analysis completed within 4 hours</li><li>Approval time &lt; 24 hours</li><li>Deployment scheduled within 2 days</li><li>Notifications sent within 1 hour of scheduling</li><li>Execution time &lt; 4 hours</li><li>Monitoring frequency every 15 minutes</li><li>CMDB update completed within 1 hour</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A CMDB drifted from reality being worse than no CMDB, since responders trust a wrong record under pressure</li><li>Updates depending on teams remembering to report a change, not always a priority during a deployment</li><li>A retired system left active in the CMDB misleading future incident and change decisions</li><li>Dependency mapping for a complex integration being genuinely difficult to capture completely</li></ul>
+<ul class="bullets risk"><li>Manual entry errors can delay processing.</li><li>Complex changes require extensive manual review.</li><li>Delays in approval due to conflicting priorities.</li><li>Overlapping schedules can cause delays.</li><li>Missed notifications can lead to operational disruptions.</li><li>Configuration errors can cause system downtime.</li><li>High latency in monitoring can miss critical issues.</li><li>Manual updates can introduce inconsistencies.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../information-technology-security/service-management-user-support/ac-it-sm-03/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Change and Release Management</span></a>
