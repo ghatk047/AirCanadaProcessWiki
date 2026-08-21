@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CX-CC-03" title="Click to copy the process ID">
     AC-CX-CC-03<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Virtual Assistant Conversation Handling</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,274 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-CX-CC-03-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Conversation handling</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Initial Interaction</span>
+    <span class="ph-n">5 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Process customer message</b></td>
-<td>Contact Centre Agent</td>
-<td><span class="tag aiml" data-tooltip="Bilingual customer-facing assistant. Predecessor bot was withdrawn c. April 2024 after the Moffatt ruling. [Air Canada - evidence B]">Air Canada Virtual Assistant<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Customer message</td>
-<td>Interpreted intent and context</td>
-<td>Intent interpreted within 2 seconds at 90 percent</td>
+<td><b>Customer initiates conversation</b></td>
+<td>Air Canada Mobile App User or Amazon Connect Customer</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada Mobile App / Amazon Connect<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>User&#x27;s query or issue</td>
+<td>Transcript of the conversation</td>
+<td>Response time within 15 seconds</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Ambiguous customer phrasing produces a lower-confidence interpretation more often than clear requests</td>
+<td>High volume of concurrent conversations can cause delays in response times.</td>
 </tr><tr>
 <td class="c-step">1.2</td>
-<td><b>Ground response against approved policy sources</b></td>
-<td>Contact Centre Agent</td>
-<td><span class="tag aiml" data-tooltip="Bilingual customer-facing assistant. Predecessor bot was withdrawn c. April 2024 after the Moffatt ruling. [Air Canada - evidence B]">Air Canada Virtual Assistant<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Interpreted intent</td>
-<td>Response grounded in allow-listed sources</td>
-<td>100 percent of responses grounded within the approved source set</td>
+<td><b>Determine conversation intent</b></td>
+<td>AI Language Model</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Transcript of the conversation</td>
+<td>Intent classification (e.g., booking, check-in, complaint)</td>
+<td>95% accuracy in intent determination</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A response drawing on unapproved or outdated content risks repeating the Moffatt failure mode</td>
+<td>AI model may misinterpret complex queries, leading to incorrect intent classification.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Generate automated response</b></td>
+<td>AI Language Model</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Intent classification</td>
+<td>Automated response to the customer</td>
+<td>90% relevance of automated responses</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Automated responses may not cover all possible scenarios, leading to incomplete resolution.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Manual intent classification</b></td>
+<td>Contact Centre Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Transcript and AI model&#x27;s misclassified intent</td>
+<td>Corrected intent classification</td>
+<td>Resolution time within 30 seconds for manual reclassification</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Agents must quickly understand complex queries to ensure timely resolution.</td>
+</tr><tr>
+<td class="c-step">1.5</td>
+<td><b>Generate final automated response</b></td>
+<td>AI Language Model</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Corrected intent classification</td>
+<td>Final automated response to the customer</td>
+<td>90% relevance of final automated responses</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Automated responses may still not cover all possible scenarios, leading to incomplete resolution.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CX-CC-03-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Confidence and scope assessment</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Intent Determination</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Assess response confidence against escalation threshold</b></td>
+<td><b>Escalate conversation to human agent</b></td>
 <td>Contact Centre Agent</td>
-<td><span class="tag aiml" data-tooltip="Bilingual customer-facing assistant. Predecessor bot was withdrawn c. April 2024 after the Moffatt ruling. [Air Canada - evidence B]">Air Canada Virtual Assistant<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Grounded response</td>
-<td>Confidence score against threshold</td>
-<td>Below-threshold responses escalated at 100 percent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Customer&#x27;s query and transcript</td>
+<td>Agent-assisted response to the customer</td>
+<td>Resolution time within 60 seconds for escalated conversations</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Human agents must handle high volumes of escalations efficiently, which can lead to burnout and delays.</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Verify compliance with APPR regulations</b></td>
+<td>Compliance Officer</td>
+<td><span class="tag regulator" data-tooltip="Canadian Transportation Agency complaint and Air Passenger Protection Regulations adjudication channel. [CTA - evidence A]">CTA Complaint Interface<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Customer&#x27;s query and automated response</td>
+<td>Compliance status (e.g., compliant, non-compliant)</td>
+<td>100% accuracy in compliance verification</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A threshold set too low still lets an uncertain answer reach the customer</td>
+<td>Complex regulations can lead to misinterpretation and potential legal issues.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Log case in Salesforce Service Cloud</b></td>
+<td>Contact Centre Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Customer&#x27;s query, automated response, and compliance status</td>
+<td>Case logged with all relevant details</td>
+<td>95% completeness of case logging</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Incomplete case logging can lead to loss of critical information for future reference.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CX-CC-03-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Escalation or resolution</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Response Generation</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Escalate to a live agent when required</b></td>
-<td>Contact Centre Agent</td>
+<td><b>Reassign escalated conversation to senior agent</b></td>
+<td>Senior Contact Centre Agent</td>
 <td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Below-threshold or out-of-scope request</td>
-<td>Escalated conversation with full context</td>
-<td>Context preserved for 100 percent of escalations at handoff</td>
+<td>Customer&#x27;s query and transcript</td>
+<td>Senior agent-assisted response to the customer</td>
+<td>Resolution time within 120 seconds for re-escalated conversations</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Senior agents must handle complex cases efficiently, which can be resource-intensive.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Generate non-compliant response</b></td>
+<td>Compliance Officer</td>
+<td><span class="tag regulator" data-tooltip="Canadian Transportation Agency complaint and Air Passenger Protection Regulations adjudication channel. [CTA - evidence A]">CTA Complaint Interface<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Customer&#x27;s query and automated response</td>
+<td>Non-compliant response to the customer</td>
+<td>100% accuracy in non-compliant responses</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A conversation history that does not transfer cleanly forces the customer to restart with a human agent</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Generating accurate non-compliant responses requires deep regulatory knowledge.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Update case with non-compliance details</b></td>
+<td>Compliance Officer</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Customer&#x27;s query, automated response, and compliance status</td>
+<td>Updated case with non-compliance details</td>
+<td>100% accuracy in updating cases</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Incomplete updates can lead to confusion and delay in case resolution.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-CC-03-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Compliance Check</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Escalate conversation to duty manager</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Customer&#x27;s query, transcript, and case details</td>
+<td>Duty manager-assisted response to the customer</td>
+<td>Resolution time within 180 seconds for escalated conversations</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Duty managers must handle high-stakes cases efficiently, which can be challenging.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Review case for potential complaint</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Customer&#x27;s query, transcript, and case details</td>
+<td>Complaint review status (e.g., no complaint, potential complaint)</td>
+<td>90% accuracy in complaint identification</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Identifying potential complaints requires careful analysis of customer queries.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Log complaint in CTA Complaint Interface</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag regulator" data-tooltip="Canadian Transportation Agency complaint and Air Passenger Protection Regulations adjudication channel. [CTA - evidence A]">CTA Complaint Interface<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Customer&#x27;s query, transcript, and case details</td>
+<td>Complaint logged with all relevant details</td>
+<td>95% completeness of complaint logging</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Incomplete complaint logging can lead to loss of critical information for future reference.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-CC-03-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Case Management</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Escalate conversation to APPR Adjudicator</b></td>
+<td>APPR Adjudicator</td>
+<td><span class="tag regulator" data-tooltip="Canadian Transportation Agency complaint and Air Passenger Protection Regulations adjudication channel. [CTA - evidence A]">CTA Complaint Interface<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Customer&#x27;s query, transcript, and case details</td>
+<td>Final resolution decision from APPR Adjudicator</td>
+<td>Resolution time within 360 seconds for escalated conversations</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>APPR Adjudicators must handle complex cases efficiently, which can be resource-intensive.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Generate final complaint response</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag regulator" data-tooltip="Canadian Transportation Agency complaint and Air Passenger Protection Regulations adjudication channel. [CTA - evidence A]">CTA Complaint Interface<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Customer&#x27;s query, transcript, and case details</td>
+<td>Final complaint response to the customer</td>
+<td>90% accuracy in complaint responses</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Generating accurate complaint responses requires deep regulatory knowledge.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Update case with final resolution details</b></td>
+<td>Aeroplan Member Services Agent</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Customer&#x27;s query, transcript, and case details</td>
+<td>Updated case with final resolution details</td>
+<td>100% accuracy in updating cases</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Incomplete updates can lead to confusion and delay in case resolution.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-CC-03-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Escalation Handling</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Review final resolution with CIO</b></td>
+<td>Chief Information Officer</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Salesforce Service Cloud / CTA Complaint Interface<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Customer&#x27;s query, transcript, and case details</td>
+<td>Final review status (e.g., approved, requires further action)</td>
+<td>100% accuracy in final review</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>The CIO must ensure that all resolutions comply with legal and operational standards.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Implement further action by CTO</b></td>
+<td>Chief Technology Officer</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Salesforce Service Cloud / CTA Complaint Interface<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Customer&#x27;s query, transcript, and case details</td>
+<td>Further action taken to resolve the issue</td>
+<td>Resolution time within 720 seconds for further actions</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>The CTO must handle complex issues efficiently, which can be resource-intensive.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Contact Centre Agent</span><span class="lane-steps">1.1 1.2 2.1 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Air Canada Mobile App User or Amazon Connect Customer</span><span class="lane-steps">1.1</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>AI Language Model</span><span class="lane-steps">1.2 1.3 1.5</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Contact Centre Agent</span><span class="lane-steps">1.4 2.1 2.3</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Compliance Officer</span><span class="lane-steps">2.2 3.2 3.3</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Senior Contact Centre Agent</span><span class="lane-steps">3.1</span></div><div class="lane"><span class="swatch" style="background:#2D2D2D"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">4.1</span></div><div class="lane"><span class="swatch" style="background:#8A5A1E"></span><span>Aeroplan Member Services Agent</span><span class="lane-steps">4.2 4.3 5.2 5.3</span></div><div class="lane"><span class="swatch" style="background:#4A4A4A"></span><span>APPR Adjudicator</span><span class="lane-steps">5.1</span></div><div class="lane"><span class="swatch" style="background:#E04A60"></span><span>Chief Information Officer</span><span class="lane-steps">6.1</span></div><div class="lane"><span class="swatch" style="background:#5A5A5A"></span><span>Chief Technology Officer</span><span class="lane-steps">6.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag aiml" data-tooltip="Bilingual customer-facing assistant. Predecessor bot was withdrawn c. April 2024 after the Moffatt ruling. [Air Canada - evidence B]">Air Canada Virtual Assistant<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+<div class="card"><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada Mobile App / Amazon Connect<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag regulator" data-tooltip="Canadian Transportation Agency complaint and Air Passenger Protection Regulations adjudication channel. [CTA - evidence A]">CTA Complaint Interface<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Salesforce Service Cloud / CTA Complaint Interface<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>100 percent of responses grounded within the approved source set</li><li>Below-threshold responses escalated at 100 percent</li><li>Context preserved for 100 percent of escalations at handoff</li><li>Zero confirmed cases of the assistant stating an incorrect policy position</li></ul>
+<ul class="bullets"><li>Response time within 15 seconds (90%)</li><li>Intent determination accuracy (95%)</li><li>Automated response relevance (90%)</li><li>Compliance verification accuracy (100%)</li><li>Resolution time for escalated conversations (60% within 120 seconds)</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A response drawing on unapproved or outdated content, repeating the Moffatt failure mode</li><li>An escalation threshold set too low, letting an uncertain answer reach the customer directly</li><li>Conversation history not transferring cleanly at escalation, forcing the customer to restart</li><li>Ambiguous customer phrasing producing lower-confidence interpretations more often than clear requests</li></ul>
+<ul class="bullets risk"><li>High volume of concurrent conversations leading to delays</li><li>AI model misinterpretation of complex queries</li><li>Inadequate automated responses leading to incomplete resolution</li><li>Complex regulations causing compliance issues</li><li>Resource-intensive handling of high-stakes cases</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../customer-experience-channels/contact-centre/ac-cx-cc-02/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">IVR Routing and Self Service Containment</span></a>

@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CX-CC-05" title="Click to copy the process ID">
     AC-CX-CC-05<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-20</span>
 </div>
 <h1>Contact Centre Capacity and Workforce Planning</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,252 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-CX-CC-05-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Volume forecasting</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Capacity Assessment</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Forecast call volume by interval</b></td>
-<td>Workforce Planning Analyst</td>
-<td><span class="tag aiml" data-tooltip="Contact-centre digital twin used for capacity and staffing simulation. [Simul8 - evidence A]">Simul8<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Historical volume and known demand drivers</td>
-<td>Forecast volume by interval</td>
-<td>Forecast produced for 100 percent of scheduling intervals each cycle</td>
+<td><b>Review historical call volumes</b></td>
+<td>Contact Centre Analyst</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Previous month&#x27;s call data</td>
+<td>Call volume trends report</td>
+<td>Accuracy of trend analysis</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Volume spikes around irregular operations events are the hardest pattern to forecast reliably</td>
+<td>Inaccurate data can lead to over or under staffing.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Identify peak travel days</b></td>
+<td>Contact Centre Analyst</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Trends report</td>
+<td>List of peak travel days</td>
+<td>Number of correctly identified peak days</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Missing a peak day can result in understaffing.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Forecast future call volumes</b></td>
+<td>Contact Centre Analyst</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Historical data, peak travel days</td>
+<td>Future volume forecast</td>
+<td>Forecast accuracy</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inaccurate forecasts lead to inefficient staffing.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CX-CC-05-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Simulation and scenario testing</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Demand Forecasting</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Simulate staffing scenarios against forecast</b></td>
-<td>Workforce Planning Analyst</td>
-<td><span class="tag aiml" data-tooltip="Contact-centre digital twin used for capacity and staffing simulation. [Simul8 - evidence A]">Simul8<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Volume forecast and candidate staffing levels</td>
-<td>Simulated service level by scenario</td>
-<td>Multiple scenarios simulated before schedule commitment at 100 percent</td>
-<td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Simulation accuracy depends on how well the model reflects real agent skill mix and shrinkage</td>
-</tr><tr>
-<td class="c-step">2.2</td>
-<td><b>Select staffing scenario against cost and service target</b></td>
-<td>Workforce Planning Analyst</td>
-<td><span class="tag aiml" data-tooltip="Contact-centre digital twin used for capacity and staffing simulation. [Simul8 - evidence A]">Simul8<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Simulated scenarios</td>
-<td>Selected staffing plan</td>
-<td>Selected plan meets target service level in simulation at 100 percent</td>
+<td><b>Assess current workforce capacity</b></td>
+<td>Contact Centre Manager</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Current staff roster, shift schedules</td>
+<td>Capacity assessment report</td>
+<td>Percentage of available capacity</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>The cost-service trade-off decision has genuine commercial consequence either way it is resolved</td>
+<td>Insufficient capacity can lead to long wait times.</td>
+</tr><tr>
+<td class="c-step">2.2</td>
+<td><b>Identify potential training needs</b></td>
+<td>Contact Centre Manager</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Capacity assessment report</td>
+<td>Training plan</td>
+<td>Number of identified skills gaps</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Untrained staff can affect service quality.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Adjust forecast based on new data</b></td>
+<td>Contact Centre Analyst</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>New call volume data, original forecast</td>
+<td>Updated forecast</td>
+<td>Forecast adjustment accuracy</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Failed adjustments can lead to staffing issues.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CX-CC-05-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Schedule commitment</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Workforce Allocation</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Publish shift schedules</b></td>
-<td>Workforce Planning Analyst</td>
+<td><b>Recruit additional staff</b></td>
+<td>HR Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada&#x27;s HR System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Capacity assessment report, updated forecast</td>
+<td>New hire list</td>
+<td>Number of new hires</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Failed recruitment can delay staffing.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Reallocate existing staff</b></td>
+<td>Contact Centre Manager</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Current roster, updated forecast</td>
+<td>Altered shift schedules</td>
+<td>Number of reallocated agents</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Poor reallocation can lead to overworked staff.</td>
+</tr><tr>
+<td class="c-step">3.3</td>
+<td><b>Escalate to senior management</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada&#x27;s Internal Communication System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Reallocated shift schedules, capacity issues</td>
+<td>Approval for additional measures</td>
+<td>Time taken for approval</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed decision can exacerbate staffing issues.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-CC-05-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Agent Training and Briefing</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Initiate overtime scheduling</b></td>
+<td>Contact Centre Manager</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Senior management approval, current roster</td>
+<td>Overtime schedule</td>
+<td>Number of agents on overtime</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Excessive overtime can lead to burnout.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Monitor call volume in real-time</b></td>
+<td>Contact Centre Analyst</td>
 <td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Selected staffing plan</td>
-<td>Published agent shift schedules</td>
-<td>Published within the required lead time before the schedule period at 100 percent</td>
+<td>Current call data, forecast</td>
+<td>Real-time monitoring report</td>
+<td>Accuracy of real-time reporting</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed reporting can lead to missed opportunities.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Adjust staffing based on real-time data</b></td>
+<td>Contact Centre Manager</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Real-time monitoring report, current roster</td>
+<td>Adjusted shift schedules</td>
+<td>Number of adjustments</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Ineffective adjustments can lead to continued issues.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-CC-05-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Monitoring and Adjustment</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Conduct agent training sessions</b></td>
+<td>Training Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada Learning Management System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Training plan, new hires</td>
+<td>Completed training records</td>
+<td>Number of trained agents</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Failed training can result in poor service.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Briefing session for all agents</b></td>
+<td>Contact Centre Manager</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Training records, updated schedules</td>
+<td>Agent briefing records</td>
+<td>Number of briefed agents</td>
 <td class="c-flag"><span class="no">N</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A late-published schedule reduces agents&#x27; ability to plan around it</td>
+<td>Lack of briefing can lead to confusion.</td>
+</tr><tr>
+<td class="c-step">5.3</td>
+<td><b>Monitor service levels post-training</b></td>
+<td>Contact Centre Analyst</td>
+<td><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Service level data, agent performance metrics</td>
+<td>Service level report</td>
+<td>Number of incidents above SLA</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Poor service levels can damage customer satisfaction.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CX-CC-05-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Exception Handling</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Escalate to senior management for further action</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada&#x27;s Internal Communication System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Service level report, capacity issues</td>
+<td>Management response plan</td>
+<td>Time taken for management response</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed response can lead to customer complaints.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Review and refine staffing strategy</b></td>
+<td>Contact Centre Manager</td>
+<td><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
+<td>Management response plan, current roster</td>
+<td>Refined staffing strategy</td>
+<td>Number of changes made to strategy</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Ineffective strategy can lead to ongoing issues.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Workforce Planning Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Contact Centre Analyst</span><span class="lane-steps">1.1 1.2 1.3 2.3 4.2 5.3</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Contact Centre Manager</span><span class="lane-steps">2.1 2.2 3.2 4.1 4.3 5.2 6.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>HR Manager</span><span class="lane-steps">3.1</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">3.3 6.1</span></div><div class="lane"><span class="swatch" style="background:#A8001A"></span><span>Training Manager</span><span class="lane-steps">5.1</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag aiml" data-tooltip="Contact-centre digital twin used for capacity and staffing simulation. [Simul8 - evidence A]">Simul8<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+<div class="card"><span class="tag aws" data-tooltip="Cloud contact centre and IVR. Handles very high monthly IVR volume with secure PCI payment capture. [AWS - evidence A]">Amazon Connect<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag salesforce" data-tooltip="Agent desktop, case management and Service Cloud Voice. System of record for customer cases and APPR claims. [Salesforce - evidence A]">Salesforce Service Cloud<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada&#x27;s HR System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada&#x27;s Internal Communication System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Air Canada Learning Management System<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Forecast produced for 100 percent of scheduling intervals each cycle</li><li>Multiple scenarios simulated before schedule commitment at 100 percent</li><li>Selected plan meets target service level in simulation at 100 percent</li><li>Actual service level tracking within tolerance of the simulated forecast</li></ul>
+<ul class="bullets"><li>95% accuracy in capacity trend analysis</li><li>100% identification of peak travel days</li><li>80% forecast accuracy within a 5% margin</li><li>75% available workforce capacity during peak hours</li><li>90% agent satisfaction with training sessions</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Volume spikes around irregular operations events being the hardest pattern to forecast reliably</li><li>Simulation accuracy depending on how well the model reflects real agent skill mix and shrinkage</li><li>The cost-service trade-off decision carrying genuine commercial consequence either way</li><li>A late-published schedule reducing agents&#x27; ability to plan their availability around it</li></ul>
+<ul class="bullets risk"><li>Inaccurate historical data leading to poor forecasting</li><li>Failed recruitment due to external factors like visa issues</li><li>Overreliance on overtime leading to staff burnout</li><li>Delayed service level monitoring causing customer dissatisfaction</li><li>Insufficient management response time during crises</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../customer-experience-channels/contact-centre/ac-cx-cc-04/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Agent Assist Knowledge Grounding</span></a>
