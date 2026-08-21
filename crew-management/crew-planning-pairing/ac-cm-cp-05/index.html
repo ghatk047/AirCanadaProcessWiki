@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CM-CP-05" title="Click to copy the process ID">
     AC-CM-CP-05<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Collective Agreement Rule Configuration</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,241 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-CM-CP-05-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Agreement change identification</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Agreement Review</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Identify rule changes from a renegotiated agreement</b></td>
-<td>Crew Planning Analyst</td>
+<td><b>Receive collective agreement document</b></td>
+<td>Crew Management Analyst</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>New or updated collective agreement from bargaining unit</td>
+<td>Agreement document stored in Dayforce&#x27;s document management system</td>
+<td>Time to receipt and storage &lt; 24 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delays in receiving agreements can cause compliance issues.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Identify key rules for crew pairing and rostering</b></td>
+<td>Crew Management Analyst</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Agreement document</td>
+<td>List of relevant rules extracted from the agreement</td>
+<td>Number of identified rules &gt; 10</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Misinterpretation of rules can lead to incorrect configurations.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Update Jeppesen Crew configuration</b></td>
+<td>Crew Management Analyst</td>
 <td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Renegotiated collective agreement text</td>
-<td>Identified rule changes</td>
-<td>Identified within 10 business days of agreement ratification at 100 percent</td>
+<td>Extracted rules</td>
+<td>Updated configuration in Jeppesen Crew system</td>
+<td>Configuration update completed within 2 business days</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Integration issues between systems can delay updates.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Retry updating Jeppesen Crew configuration</b></td>
+<td>Crew Management Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Extracted rules and error logs</td>
+<td>Updated configuration in Jeppesen Crew system</td>
+<td>Configuration update completed within 2 business days</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Legal agreement language does not always translate unambiguously into a system rule</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Persistent integration issues can cause delays.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CM-CP-05-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Rule translation</span>
+    <span class="ph-name">Phase 2 &mdash; Rule Extraction</span>
     <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Translate agreement terms into system rules</b></td>
-<td>Crew Planning Analyst</td>
-<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Identified rule changes</td>
-<td>Configured system rules</td>
-<td>Configured before the agreement&#x27;s effective date at 100 percent</td>
+<td><b>Update Dayforce configuration</b></td>
+<td>Crew Management Analyst</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Extracted rules</td>
+<td>Updated configuration in Dayforce system</td>
+<td>Configuration update completed within 2 business days</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>A rule translated incorrectly can silently generate non-compliant rosters until caught</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex union rule sets can lead to misconfigurations.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Validate configuration against test scenarios</b></td>
-<td>Crew Planning Analyst</td>
-<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Configured rules</td>
-<td>Validated configuration</td>
-<td>100 percent of material rule changes tested before go-live</td>
-<td class="c-flag"><span class="yes">Y</span></td>
+<td><b>Retry updating Dayforce configuration</b></td>
+<td>Crew Management Analyst</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Extracted rules and error logs</td>
+<td>Updated configuration in Dayforce system</td>
+<td>Configuration update completed within 2 business days</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Test scenario coverage rarely spans every edge case a real roster will eventually encounter</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Persistent misconfigurations can lead to operational disruptions.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CM-CP-05-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Configuration validation</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; System Configuration</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Deploy and confirm rule engine currency</b></td>
-<td>Crew Planning Analyst</td>
-<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Validated configuration</td>
-<td>Deployed and confirmed current rule engine</td>
-<td>Deployed before the agreement&#x27;s effective date at 100 percent</td>
+<td><b>Update NetLine configuration</b></td>
+<td>Crew Management Analyst</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Extracted rules</td>
+<td>Updated configuration in NetLine system</td>
+<td>Configuration update completed within 2 business days</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Integration issues between systems can delay updates.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Retry updating NetLine configuration</b></td>
+<td>Crew Management Analyst</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Extracted rules and error logs</td>
+<td>Updated configuration in NetLine system</td>
+<td>Configuration update completed within 2 business days</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A deployment gap between agreement effective date and system update creates a compliance exposure window</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Persistent integration issues can cause delays.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CP-05-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Validation &amp; Testing</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Conduct initial validation tests</b></td>
+<td>Crew Management Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Jeppesen Crew, Dayforce, NetLine<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Updated configurations and test data</td>
+<td>Validation report with results</td>
+<td>Number of test cases &gt; 50</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Test failures can lead to incorrect rule enforcement.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Debug and correct configuration issues</b></td>
+<td>Crew Management Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Jeppesen Crew, Dayforce, NetLine<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Validation report and error logs</td>
+<td>Corrected configurations in all systems</td>
+<td>Time to resolution &lt; 1 business day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex rules can be difficult to debug.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CP-05-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Deployment</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Deploy updated configurations</b></td>
+<td>Crew Management Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Jeppesen Crew, Dayforce, NetLine<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Corrected configurations and deployment plan</td>
+<td>Configurations deployed to production systems</td>
+<td>Deployment completed within 2 business days</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Rollback procedures can be complex in case of deployment failures.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Retry deployment with rollback plan</b></td>
+<td>Crew Management Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Jeppesen Crew, Dayforce, NetLine<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Corrected configurations and rollback plan</td>
+<td>Configurations deployed to production systems</td>
+<td>Deployment completed within 2 business days</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Persistent deployment failures can disrupt operations.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CP-05-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Monitoring &amp; Maintenance</span>
+    <span class="ph-n">4 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Monitor system performance post-deployment</b></td>
+<td>Crew Management Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Jeppesen Crew, Dayforce, NetLine<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Live data and monitoring tools</td>
+<td>Performance metrics and anomaly reports</td>
+<td>Number of anomalies &lt; 5 per week</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Anomalies can lead to operational disruptions.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Investigate and resolve anomalies</b></td>
+<td>Crew Management Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Jeppesen Crew, Dayforce, NetLine<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Performance metrics and anomaly reports</td>
+<td>Corrected configurations in all systems</td>
+<td>Time to resolution &lt; 1 business day</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Investigating anomalies can be time-consuming.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Update monitoring and alerting rules</b></td>
+<td>Crew Management Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Jeppesen Crew, Dayforce, NetLine<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Anomaly reports and root cause analysis</td>
+<td>Updated monitoring and alerting rules</td>
+<td>Number of alerts &lt; 10 per week</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Misconfigured monitoring can lead to false positives or missed issues.</td>
+</tr><tr>
+<td class="c-step">6.4</td>
+<td><b>Conduct a final validation check</b></td>
+<td>Crew Management Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Jeppesen Crew, Dayforce, NetLine<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Live data and updated configurations</td>
+<td>Validation report with results</td>
+<td>Number of test cases &gt; 50</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Final validation failures can lead to compliance issues.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Crew Planning Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Crew Management Analyst</span><span class="lane-steps">1.1 1.2 1.3 1.4 2.1 2.2 3.1 3.2 4.1 4.2 5.1 5.2 6.1 6.2 6.3 6.4</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Jeppesen Crew, Dayforce, NetLine<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Configured before the agreement&#x27;s effective date at 100 percent</li><li>100 percent of material rule changes tested before go-live</li><li>Deployed before the agreement&#x27;s effective date at 100 percent</li><li>Grievances attributable to rule engine misconfiguration below target threshold</li></ul>
+<ul class="bullets"><li>Configuration update completed within 2 business days</li><li>Validation report with results</li><li>Number of anomalies &lt; 5 per week</li><li>Time to resolution &lt; 1 business day</li><li>Number of alerts &lt; 10 per week</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A rule translated incorrectly silently generating non-compliant rosters until caught</li><li>A deployment gap between agreement effective date and system update creating a compliance exposure</li><li>Legal agreement language not translating unambiguously into a discrete system rule</li><li>Test scenario coverage missing an edge case a real roster eventually encounters</li></ul>
+<ul class="bullets risk"><li>Delays in receiving agreements can cause compliance issues.</li><li>Misinterpretation of rules can lead to incorrect configurations.</li><li>Integration issues between systems can delay updates.</li><li>Complex union rule sets can lead to misconfigurations.</li><li>Persistent integration issues can cause delays.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../crew-management/crew-planning-pairing/ac-cm-cp-04/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Crew Base Assignment and Transfer</span></a>

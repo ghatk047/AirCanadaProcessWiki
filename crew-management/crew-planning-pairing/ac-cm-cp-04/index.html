@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CM-CP-04" title="Click to copy the process ID">
     AC-CM-CP-04<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Crew Base Assignment and Transfer</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,241 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-CM-CP-04-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Transfer request and eligibility</span>
-    <span class="ph-n">1 steps</span></div>
-  <div class="phase-body"><div class="tbl-wrap"><table>
-  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
-  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
-  <tbody><tr>
-<td class="c-step">1.1</td>
-<td><b>Receive and validate transfer eligibility</b></td>
-<td>Crew Planning Analyst</td>
-<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Crew member transfer request</td>
-<td>Validated eligibility against collective agreement terms</td>
-<td>Validated within the collective agreement&#x27;s defined response window at 100 percent</td>
-<td class="c-flag"><span class="yes">Y</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>Transfer eligibility rules differ across the four collective agreements</td>
-</tr></tbody></table></div></div>
-</div><div class="phase-group" data-phase-id="AC-CM-CP-04-2">
-  <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Contractual and scheduling coordination</span>
+    <span class="ph-name">Phase 1 &mdash; Request Validation</span>
     <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
-<td class="c-step">2.1</td>
-<td><b>Coordinate with base seniority and bidding impact</b></td>
+<td class="c-step">1.1</td>
+<td><b>Receive base assignment request</b></td>
 <td>Crew Planning Analyst</td>
 <td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Validated transfer</td>
-<td>Assessed seniority and bidding position impact</td>
-<td>Assessed before transfer confirmation at 100 percent</td>
+<td>Request details from HR or Operations</td>
+<td>Validated request with required information</td>
+<td>Response time within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Incomplete requests often require follow-ups, delaying the process.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Identify relevant union rules</b></td>
+<td>Crew Planning Analyst</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Request details</td>
+<td>Union rules applicable to the crew member</td>
+<td>Rule identification accuracy rate 95%</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A transfer changes the crew member&#x27;s seniority position at the new base in ways not always anticipated</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Incorrect rule application can lead to labor disputes.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CP-04-2">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 2 &mdash; Union Rule Compliance Check</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">2.1</td>
+<td><b>Review and correct union rules</b></td>
+<td>Crew Planning Analyst</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Identified rules</td>
+<td>Corrected union rules</td>
+<td>Correction accuracy rate 90%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Manual correction can be time-consuming and error-prone.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Confirm operational capacity for the transfer</b></td>
+<td><b>Recalculate base assignment based on corrected rules</b></td>
 <td>Crew Planning Analyst</td>
 <td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Assessed impact</td>
-<td>Confirmed base capacity to receive the transfer</td>
-<td>Confirmed within the establishment plan&#x27;s defined capacity at 100 percent</td>
+<td>Corrected union rules</td>
+<td>New base assignment proposal</td>
+<td>Recalculation time within 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Complex calculations can sometimes produce unexpected results.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Update Jeppesen Crew with new assignment</b></td>
+<td>Crew Planning Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>New base assignment proposal</td>
+<td>Updated crew roster in Jeppesen Crew</td>
+<td>Update success rate 98%</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>A transfer into an already-tight base establishment can create a new capacity gap elsewhere</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>System integration issues can cause delays.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CM-CP-04-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Relocation completion</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Base Assignment Calculation</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Complete relocation logistics coordination</b></td>
+<td><b>Update Dayforce with new assignment</b></td>
 <td>Crew Planning Analyst</td>
-<td><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></td>
-<td>Confirmed transfer</td>
-<td>Completed relocation coordination</td>
-<td>Completed within the agreed transfer timeline at 90 percent</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>New base assignment proposal</td>
+<td>Updated crew schedule in Dayforce</td>
+<td>Update success rate 98%</td>
 <td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Synchronization issues between Jeppesen Crew and Dayforce.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Notify crew member of new assignment</b></td>
+<td>Crew Planning Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Email system<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Updated schedule and details</td>
+<td>Notification email sent to crew member</td>
+<td>Notification delivery rate 95%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Relocation logistics fall partly outside crew planning&#x27;s own systems and require cross-team coordination</td>
+<td>Email deliverability issues can cause delays.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CP-04-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; System Update</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Confirm receipt of notification by crew member</b></td>
+<td>Crew Planning Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Email system<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Confirmation from crew member</td>
+<td>Confirmed receipt</td>
+<td>Confirmation rate 90%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Some crew members may not respond promptly.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Update NetLine with new assignment</b></td>
+<td>Operations Control Duty Manager</td>
+<td><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>New base assignment proposal</td>
+<td>Updated schedule in NetLine</td>
+<td>Update success rate 97%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Incompatibilities between NetLine and other systems.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CP-04-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Confirmation &amp; Notification</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Final review of all updates</b></td>
+<td>Crew Planning Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Jeppesen Crew, Dayforce, NetLine<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>All updated systems</td>
+<td>Verified consistency across systems</td>
+<td>Consistency rate 95%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Manual verification can be error-prone.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Close the assignment request</b></td>
+<td>Crew Planning Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Request management system<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Verification results</td>
+<td>Closed request record</td>
+<td>Closure rate 98%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Failed closure can lead to duplicate requests.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CP-04-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Exception Handling</span>
+    <span class="ph-n">5 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Monitor system updates for any anomalies</b></td>
+<td>IT Support Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Jeppesen Crew, Dayforce, NetLine<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>System logs and alerts</td>
+<td>Anomaly report</td>
+<td>Anomaly detection rate 90%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Real-time monitoring is crucial for quick issue resolution.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Resolve any detected anomalies</b></td>
+<td>IT Support Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Jeppesen Crew, Dayforce, NetLine<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Anomaly report</td>
+<td>Resolved anomaly</td>
+<td>Resolution time within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex system interactions can delay resolution.</td>
+</tr><tr>
+<td class="c-step">6.3</td>
+<td><b>Re-verify all systems after anomaly resolution</b></td>
+<td>Crew Planning Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Jeppesen Crew, Dayforce, NetLine<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Resolved anomaly</td>
+<td>Verified consistency across systems</td>
+<td>Consistency rate 95%</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Re-verification is necessary to ensure data integrity.</td>
+</tr><tr>
+<td class="c-step">6.4</td>
+<td><b>Final closure after anomaly resolution</b></td>
+<td>Crew Planning Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Request management system<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>Verification results</td>
+<td>Closed request record</td>
+<td>Closure rate 98%</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Failed closure can lead to duplicate requests.</td>
+</tr><tr>
+<td class="c-step">6.5</td>
+<td><b>Generate final report on assignment and transfer process</b></td>
+<td>Crew Planning Analyst</td>
+<td><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Reporting system<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></td>
+<td>All process steps and outcomes</td>
+<td>Final report</td>
+<td>Report generation time within 24 hours</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Complex data aggregation can slow down reporting.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Crew Planning Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Crew Planning Analyst</span><span class="lane-steps">1.1 1.2 2.1 2.2 2.3 3.1 3.2 4.1 5.1 5.2 6.3 6.4 6.5</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Operations Control Duty Manager</span><span class="lane-steps">4.2</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>IT Support Analyst</span><span class="lane-steps">6.1 6.2</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag sap" data-tooltip="Finance core, delivered under the internal Unifier programme. Recognised in the SAP Innovation Awards. [SAP - evidence A]">SAP S/4HANA<span class="tier tier-A" title="Confirmed - vendor or Air Canada public source">A</span></span></div>
+<div class="card"><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Email system<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag netline" data-tooltip="Network planning, scheduling and operations control suite. Schedule build through day-of-operation. [Lufthansa Systems - evidence B]">Lufthansa Systems NetLine<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Jeppesen Crew, Dayforce, NetLine<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Request management system<span class="tier tier-U" title="Unknown - open discovery question">U</span></span><span class="tag generic" data-tooltip="System not in the Air Canada registry - verify before use in a bid.">Reporting system<span class="tier tier-U" title="Unknown - open discovery question">U</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Validated within the collective agreement&#x27;s defined response window at 100 percent</li><li>Assessed before transfer confirmation at 100 percent</li><li>Confirmed within the establishment plan&#x27;s defined capacity at 100 percent</li><li>Completed within the agreed transfer timeline at 90 percent</li></ul>
+<ul class="bullets"><li>Response time within 1 hour</li><li>Rule identification accuracy rate 95%</li><li>Recalculation time within 30 minutes</li><li>Update success rate 98%</li><li>Notification delivery rate 95%</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>A transfer changing seniority position at the new base in ways not anticipated by the crew member</li><li>A transfer into an already-tight base establishment creating a new capacity gap elsewhere</li><li>Transfer eligibility rules differing across four collective agreements, risking inconsistent application</li><li>Relocation logistics falling partly outside crew planning&#x27;s own systems, requiring cross-team coordination</li></ul>
+<ul class="bullets risk"><li>Incomplete requests delaying the process.</li><li>Incorrect rule application leading to labor disputes.</li><li>Manual correction being time-consuming and error-prone.</li><li>Complex calculations producing unexpected results.</li><li>System integration issues causing delays.</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../crew-management/crew-planning-pairing/ac-cm-cp-03/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Reserve Coverage and Standby Sizing</span></a>

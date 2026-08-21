@@ -134,7 +134,7 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <div class="page-main"><div class="page-head">
   <button class="pid-badge" data-pid="AC-CM-CP-03" title="Click to copy the process ID">
     AC-CM-CP-03<span class="copy-ic">&#128203;</span></button>
-  <span class="updated">Updated 2026-08-18</span>
+  <span class="updated">Updated 2026-08-21</span>
 </div>
 <h1>Reserve Coverage and Standby Sizing</h1>
 <h2 id="bpmn">Process flow</h2>
@@ -143,85 +143,241 @@ document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <h2 id="steps">Process steps</h2>
 <div class="phase-group" data-phase-id="AC-CM-CP-03-1">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 1 &mdash; Disruption pattern analysis</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 1 &mdash; Initial Assessment</span>
+    <span class="ph-n">4 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">1.1</td>
-<td><b>Analyse historical disruption and sick call patterns</b></td>
+<td><b>Detect Schedule Change</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Flight schedule updates from the AODB system.</td>
+<td>List of affected flights and potential crew gaps.</td>
+<td>95% detection accuracy within 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed schedule updates can lead to missed opportunities for optimal standby assignment.</td>
+</tr><tr>
+<td class="c-step">1.2</td>
+<td><b>Review Crew Availability</b></td>
 <td>Crew Planning Analyst</td>
 <td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Historical crew disruption data by base</td>
-<td>Disruption pattern analysis by base</td>
-<td>Analysed for 100 percent of bases each planning cycle</td>
+<td>List of affected flights and potential crew gaps.</td>
+<td>Initial assessment of available standby crew members.</td>
+<td>80% availability rate within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Insufficient standby crew can lead to operational disruptions.</td>
+</tr><tr>
+<td class="c-step">1.3</td>
+<td><b>Identify Potential Standby Crew</b></td>
+<td>Crew Planning Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Initial assessment of available standby crew members.</td>
+<td>Detailed list of potential standby crew members with relevant experience.</td>
+<td>70% relevancy rate in identifying suitable crew</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Disruption patterns shift seasonally and a single annual average can misrepresent a specific season&#x27;s need</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inaccurate identification can result in delays and increased operational costs.</td>
+</tr><tr>
+<td class="c-step">1.4</td>
+<td><b>Review Schedule Impact</b></td>
+<td>Crew Planning Analyst</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Detailed list of potential standby crew members with relevant experience.</td>
+<td>Impact analysis on flight operations.</td>
+<td>90% accuracy in impact assessment</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Inaccurate impact assessments can lead to operational disruptions.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CM-CP-03-2">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 2 &mdash; Reserve sizing</span>
-    <span class="ph-n">2 steps</span></div>
+    <span class="ph-name">Phase 2 &mdash; Standby Request Generation</span>
+    <span class="ph-n">3 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">2.1</td>
-<td><b>Calculate reserve coverage requirement</b></td>
+<td><b>Generate Standby Request</b></td>
 <td>Crew Planning Analyst</td>
 <td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Disruption pattern and cost target</td>
-<td>Calculated reserve level by base</td>
-<td>Calculated for 100 percent of bases each planning cycle</td>
+<td>Detailed list of potential standby crew members with relevant experience.</td>
+<td>Standby request form populated with necessary details.</td>
+<td>90% accuracy in request generation</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td class="c-flag"><span class="no">N</span></td>
-<td>The cost-resilience trade-off has no single objectively correct answer</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Inaccurate request forms can lead to delays and manual corrections.</td>
 </tr><tr>
 <td class="c-step">2.2</td>
-<td><b>Validate reserve coverage against fatigue rules</b></td>
+<td><b>Submit Standby Request to Dayforce</b></td>
 <td>Crew Planning Analyst</td>
-<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Calculated reserve level</td>
-<td>Fatigue-compliant reserve schedule</td>
-<td>100 percent compliant with fatigue risk management standards</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Standby request form populated with necessary details.</td>
+<td>Standby request submitted to the Dayforce system for approval.</td>
+<td>85% submission success rate within 30 minutes</td>
 <td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Reserve duty itself carries fatigue implications distinct from active flying duty</td>
+<td>Submission failures can disrupt the standby process.</td>
+</tr><tr>
+<td class="c-step">2.3</td>
+<td><b>Monitor Submission Status</b></td>
+<td>Crew Planning Analyst</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Standby request submitted to the Dayforce system for approval.</td>
+<td>Confirmation of submission status (success or failure).</td>
+<td>98% success rate within 5 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed monitoring can cause operational delays.</td>
 </tr></tbody></table></div></div>
 </div><div class="phase-group" data-phase-id="AC-CM-CP-03-3">
   <div class="phase-head"><span class="ph-chev">&#9660;</span>
-    <span class="ph-name">Phase 3 &mdash; Base distribution</span>
-    <span class="ph-n">1 steps</span></div>
+    <span class="ph-name">Phase 3 &mdash; Standby Availability Check</span>
+    <span class="ph-n">2 steps</span></div>
   <div class="phase-body"><div class="tbl-wrap"><table>
   <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
   <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
   <tbody><tr>
 <td class="c-step">3.1</td>
-<td><b>Distribute reserve across bases in the schedule</b></td>
-<td>Crew Planning Analyst</td>
+<td><b>Review Standby Request in Dayforce</b></td>
+<td>Team Leader, Crew Planning</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Standby request submitted to the Dayforce system for approval.</td>
+<td>Approved or rejected standby request.</td>
+<td>95% approval rate within 2 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed approvals can cause operational delays.</td>
+</tr><tr>
+<td class="c-step">3.2</td>
+<td><b>Approve Standby Request</b></td>
+<td>Team Leader, Crew Planning</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Approved standby request.</td>
+<td>Approved standby crew list.</td>
+<td>90% approval accuracy within 30 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Incorrect approvals can lead to staffing issues.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CP-03-4">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 4 &mdash; Standby Assignment</span>
+    <span class="ph-n">3 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">4.1</td>
+<td><b>Escalate Request to Manager</b></td>
+<td>Team Leader, Crew Planning</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Rejected standby request.</td>
+<td>Escalated request with justification.</td>
+<td>90% escalation success rate within 1 hour</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed escalations can cause operational disruptions.</td>
+</tr><tr>
+<td class="c-step">4.2</td>
+<td><b>Review Escalated Request</b></td>
+<td>Manager, Crew Planning</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Escalated request with justification.</td>
+<td>Final decision on the standby request.</td>
+<td>95% final approval rate within 3 hours</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Delayed final decisions can cause operational delays.</td>
+</tr><tr>
+<td class="c-step">4.3</td>
+<td><b>Approve Escalated Request</b></td>
+<td>Manager, Crew Planning</td>
+<td><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Final decision on the standby request.</td>
+<td>Approved standby crew list with escalated approval.</td>
+<td>85% escalation approval accuracy within 45 minutes</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Incorrect escalated approvals can lead to staffing issues.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CP-03-5">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 5 &mdash; Confirmation and Escalation</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">5.1</td>
+<td><b>Notify Operations Control</b></td>
+<td>Manager, Crew Planning</td>
 <td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
-<td>Validated reserve plan</td>
-<td>Distributed reserve coverage in the published schedule</td>
-<td>Distributed before schedule publication at 100 percent</td>
+<td>Approved standby crew list with escalated approval.</td>
+<td>Notification sent to operations control.</td>
+<td>90% notification success rate within 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
 <td class="c-flag"><span class="no">N</span></td>
+<td>Delayed notifications can cause operational delays.</td>
+</tr><tr>
+<td class="c-step">5.2</td>
+<td><b>Confirm Standby Assignment</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Notification sent to operations control.</td>
+<td>Confirmation of standby assignment.</td>
+<td>95% confirmation accuracy within 1 hour</td>
 <td class="c-flag"><span class="no">N</span></td>
-<td>Reserve concentrated at the wrong base leaves a different base structurally exposed to a shortage</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Incorrect confirmations can lead to staffing issues.</td>
+</tr></tbody></table></div></div>
+</div><div class="phase-group" data-phase-id="AC-CM-CP-03-6">
+  <div class="phase-head"><span class="ph-chev">&#9660;</span>
+    <span class="ph-name">Phase 6 &mdash; Post-Assignment Review</span>
+    <span class="ph-n">2 steps</span></div>
+  <div class="phase-body"><div class="tbl-wrap"><table>
+  <thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Input</th>
+  <th>Output</th><th>KPI</th><th>Dec</th><th>Exc</th><th>Pain point</th></tr></thead>
+  <tbody><tr>
+<td class="c-step">6.1</td>
+<td><b>Log Exception and Review</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Exception from any step in the process.</td>
+<td>Logged exception with review notes.</td>
+<td>90% exception logging rate within 30 minutes</td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td class="c-flag"><span class="no">N</span></td>
+<td>Untimely exception handling can cause operational disruptions.</td>
+</tr><tr>
+<td class="c-step">6.2</td>
+<td><b>Escalate Exception to Higher Management</b></td>
+<td>YYZ Operations Control Duty Manager</td>
+<td><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></td>
+<td>Logged exception with review notes.</td>
+<td>Exception escalated to higher management.</td>
+<td>85% escalation rate within 1 hour</td>
+<td class="c-flag"><span class="no">N</span></td>
+<td class="c-flag"><span class="yes">Y</span></td>
+<td>Delayed escalations can cause operational delays.</td>
 </tr></tbody></table></div></div>
 </div>
 
 <h2 id="lanes">Swim lanes</h2>
-<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>Crew Planning Analyst</span><span class="lane-steps">1.1 2.1 2.2 3.1</span></div></div>
+<div class="lanes"><div class="lane"><span class="swatch" style="background:#D2001F"></span><span>YYZ Operations Control Duty Manager</span><span class="lane-steps">1.1 5.2 6.1 6.2</span></div><div class="lane"><span class="swatch" style="background:#1A1A1A"></span><span>Crew Planning Analyst</span><span class="lane-steps">1.2 1.3 1.4 2.1 2.2 2.3</span></div><div class="lane"><span class="swatch" style="background:#C9963E"></span><span>Team Leader, Crew Planning</span><span class="lane-steps">3.1 3.2 4.1</span></div><div class="lane"><span class="swatch" style="background:#6B6B6B"></span><span>Manager, Crew Planning</span><span class="lane-steps">4.2 4.3 5.1</span></div></div>
 
 <h2 id="systems">Systems touched</h2>
-<div class="card"><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
+<div class="card"><span class="tag jeppesen" data-tooltip="Crew pairing, rostering, bidding and day-of-operations tracking under ACPA and CUPE agreements. [Boeing Jeppesen - evidence B]">Jeppesen Crew<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span><span class="tag hcm" data-tooltip="Time, attendance, scheduling and payroll. Complex union rule sets across four bargaining units. [Dayforce - evidence B]">Dayforce<span class="tier tier-B" title="Indicated - job postings, technographics or trade press">B</span></span></div>
 
 <h2 id="kpis">Key performance indicators</h2>
-<ul class="bullets"><li>Analysed for 100 percent of bases each planning cycle</li><li>100 percent compliant with fatigue risk management standards</li><li>Distributed before schedule publication at 100 percent</li><li>Reserve utilisation rate against sizing assumption tracked each season</li></ul>
+<ul class="bullets"><li>95% detection accuracy within 30 minutes</li><li>80% availability rate within 1 hour</li><li>70% relevancy rate in identifying suitable crew</li><li>90% accuracy in request generation</li><li>85% submission success rate within 30 minutes</li></ul>
 
 <h2 id="risks">Risks and control points</h2>
-<ul class="bullets risk"><li>Insufficient reserve at a specific base turning an isolated disruption into a cascading crew shortage</li><li>Reserve duty itself carrying fatigue implications distinct from active flying duty</li><li>A single annual average disruption pattern misrepresenting a specific season&#x27;s actual need</li><li>Reserve concentrated at the wrong base leaving a different base structurally exposed</li></ul>
+<ul class="bullets risk"><li>Inaccurate schedule updates leading to missed opportunities</li><li>Insufficient standby crew causing operational disruptions</li><li>Inaccurate identification of suitable crew members</li><li>High impact on flight operations due to inaccurate assessments</li><li>Submission failures disrupting the standby process</li></ul>
 
 <div class="pager">
   <a class="prev" href="../../../crew-management/crew-planning-pairing/ac-cm-cp-02/"><span class="pg-l">&larr; Previous  K</span><span class="pg-n">Pairing Optimisation Build in Jeppesen</span></a>
